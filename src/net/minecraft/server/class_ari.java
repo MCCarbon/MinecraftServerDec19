@@ -38,7 +38,7 @@ public class class_ari extends WorldGenerator {
          }
 
          EntityEnderCrystal var7 = new EntityEnderCrystal(var1);
-         var7.b((double)((float)var3.getX() + 0.5F), (double)(var3.getY() + this.a.d() + 1), (double)((float)var3.getZ() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
+         var7.setPositionRotation((double) ((float) var3.getX() + 0.5F), (double) (var3.getY() + this.a.d() + 1), (double) ((float) var3.getZ() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
          var1.addEntity((Entity)var7);
          this.setTypeAndData(var1, var3.up(this.a.d()), Blocks.BEDROCK.getBlockData());
          return true;

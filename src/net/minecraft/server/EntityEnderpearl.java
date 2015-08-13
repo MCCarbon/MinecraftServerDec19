@@ -49,7 +49,7 @@ public class EntityEnderpearl extends class_xo {
                if(this.random.nextFloat() < 0.05F && this.world.R().getBooleanValue("doMobSpawning")) {
                   EntityEndermite var8 = new EntityEndermite(this.world);
                   var8.a(true);
-                  var8.b(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
+                  var8.setPositionRotation(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
                   this.world.addEntity((Entity)var8);
                }
 

@@ -41,7 +41,7 @@ public class BlockMonsterEggs extends Block {
    public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
       if(!var1.isClientSide && var1.R().getBooleanValue("doTileDrops")) {
          EntitySilverfish var6 = new EntitySilverfish(var1);
-         var6.b((double)var2.getX() + 0.5D, (double)var2.getY(), (double)var2.getZ() + 0.5D, 0.0F, 0.0F);
+         var6.setPositionRotation((double) var2.getX() + 0.5D, (double) var2.getY(), (double) var2.getZ() + 0.5D, 0.0F, 0.0F);
          var1.addEntity((Entity)var6);
          var6.A();
       }

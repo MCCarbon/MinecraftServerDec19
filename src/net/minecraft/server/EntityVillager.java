@@ -483,7 +483,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	public void a(class_vi var1) {
 		if (!this.world.isClientSide && !this.dead) {
 			EntityWitch var2 = new EntityWitch(this.world);
-			var2.b(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
+			var2.setPositionRotation(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
 			var2.a(this.world.E(new BlockPosition(var2)), (class_qd) null);
 			var2.k(this.cs());
 			if (this.hasCustomName()) {

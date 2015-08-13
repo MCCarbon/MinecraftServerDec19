@@ -59,7 +59,7 @@ public abstract class EntityHuman extends EntityLiving {
 		bq = new ContainerPlayer(inventory, !var1.isClientSide, this);
 		br = bq;
 		BlockPosition var3 = var1.N();
-		this.b(var3.getX() + 0.5D, var3.getY() + 1, var3.getZ() + 0.5D, 0.0F, 0.0F);
+		this.setPositionRotation(var3.getX() + 0.5D, var3.getY() + 1, var3.getZ() + 0.5D, 0.0F, 0.0F);
 		aY = 180.0F;
 		maxFireTicks = 20;
 	}

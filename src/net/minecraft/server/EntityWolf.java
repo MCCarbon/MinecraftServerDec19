@@ -169,7 +169,7 @@ public class EntityWolf extends EntityTameable {
 				for (int var3 = 0; var3 < var2; ++var3) {
 					float var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
 					float var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
-					this.world.addParticle(EnumParticle.f, this.locX + (double) var4, (double) (var1 + 0.8F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.SPLASH, this.locX + (double) var4, (double) (var1 + 0.8F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
 				}
 			}
 		}

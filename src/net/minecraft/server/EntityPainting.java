@@ -77,7 +77,7 @@ public class EntityPainting extends class_uz {
       }
    }
 
-   public void b(double var1, double var3, double var5, float var7, float var8) {
+   public void setPositionRotation(double var1, double var3, double var5, float var7, float var8) {
       BlockPosition var9 = this.a.add(var1 - this.locX, var3 - this.locY, var5 - this.locZ);
       this.setPosition((double)var9.getX(), (double)var9.getY(), (double)var9.getZ());
    }

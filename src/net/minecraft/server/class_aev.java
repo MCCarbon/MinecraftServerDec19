@@ -41,7 +41,7 @@ public class class_aev {
             }
          }
 
-         var1.b((double)var3, (double)var4, (double)var5, var1.yaw, 0.0F);
+         var1.setPositionRotation((double) var3, (double) var4, (double) var5, var1.yaw, 0.0F);
          var1.motX = var1.motY = var1.motZ = 0.0D;
       }
    }
@@ -130,7 +130,7 @@ public class class_aev {
          var1.motX = var26 * (double)var22 + var28 * (double)var25;
          var1.motZ = var26 * (double)var24 + var28 * (double)var23;
          var1.yaw = var2 - (float)(var1.aJ().opposite().getHorizontalId() * 90) + (float)(var18.b().getHorizontalId() * 90);
-         var1.b(var31, var32, var33, var1.yaw, var1.pitch);
+         var1.setPositionRotation(var31, var32, var33, var1.yaw, var1.pitch);
          return true;
       } else {
          return false;

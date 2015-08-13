@@ -73,7 +73,7 @@ public class EntityFireworks extends Entity {
 
 		++this.b;
 		if (this.world.isClientSide && this.b % 2 < 2) {
-			this.world.addParticle(EnumParticle.d, this.locX, this.locY - 0.3D, this.locZ, this.random.nextGaussian() * 0.05D, -this.motY * 0.5D, this.random.nextGaussian() * 0.05D, new int[0]);
+			this.world.addParticle(EnumParticle.FIREWORKS_SPARK, this.locX, this.locY - 0.3D, this.locZ, this.random.nextGaussian() * 0.05D, -this.motY * 0.5D, this.random.nextGaussian() * 0.05D, new int[0]);
 		}
 
 		if (!this.world.isClientSide && this.b > this.c) {

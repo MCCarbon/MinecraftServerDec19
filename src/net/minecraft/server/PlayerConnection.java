@@ -151,7 +151,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 
 						player.onGround = var1.isOnGround();
 						player.l();
-						player.a(var19, var21, var23, var44, var18);
+						player.setLocation(var19, var21, var23, var44, var18);
 						if (player.vehicle != null) {
 							player.vehicle.al();
 						}
@@ -179,7 +179,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 
 					if (player.isSleeping()) {
 						player.l();
-						player.a(o, p, q, player.yaw, player.pitch);
+						player.setLocation(o, p, q, player.yaw, player.pitch);
 						var2.g(player);
 						return;
 					}
@@ -213,7 +213,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					}
 
 					player.l();
-					player.a(o, p, q, var25, var26);
+					player.setLocation(o, p, q, var25, var26);
 					if (!r) {
 						return;
 					}
@@ -252,7 +252,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						logger.warn(player.getName() + " moved wrongly!");
 					}
 
-					player.a(var19, var21, var23, var25, var26);
+					player.setLocation(var19, var21, var23, var25, var26);
 					player.k(player.locX - var3, player.locY - var5, player.locZ - var7);
 					if (!player.noclip) {
 						boolean var42 = var2.getCubes(player, player.getBoundingBox().d(var37, var37, var37)).isEmpty();
@@ -318,7 +318,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 			var11 = var8 + player.pitch;
 		}
 
-		player.a(o, p, q, var10, var11);
+		player.setLocation(o, p, q, var10, var11);
 		player.playerConnection.sendPacket((new PacketPlayOutPosition(var1, var3, var5, var7, var8, var9)));
 	}
 
@@ -462,14 +462,14 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					this.sendPacket((new PacketPlayOutRespawn(player.dimension, var7.ab(), var7.Q().u(), player.playerInteractManager.getGameMode())));
 					var7.f(player);
 					player.dead = false;
-					player.b(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
+					player.setPositionRotation(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
 					if (player.isAlive()) {
 						var7.a(player, false);
 						var8.addEntity(player);
 						var8.a(player, false);
 					}
 
-					player.a(var8);
+					player.spawnIn(var8);
 					minecraftServer.getPlayerList().a(player, var7);
 					player.enderTeleportTo(var2.locX, var2.locY, var2.locZ);
 					player.playerInteractManager.a(var8);

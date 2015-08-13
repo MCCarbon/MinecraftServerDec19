@@ -270,7 +270,7 @@ public class class_apc {
    private void l() {
       this.d.f(new BlockPosition(0, 128, 0));
       EntityEnderDragon var1 = new EntityEnderDragon(this.d);
-      var1.b(0.0D, 128.0D, 0.0D, this.d.random.nextFloat() * 360.0F, 0.0F);
+      var1.setPositionRotation(0.0D, 128.0D, 0.0D, this.d.random.nextFloat() * 360.0F, 0.0F);
       this.d.addEntity((Entity)var1);
       this.m = var1.getUniqueId();
    }

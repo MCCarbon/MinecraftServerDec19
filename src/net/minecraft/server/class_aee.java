@@ -48,8 +48,8 @@ public abstract class class_aee {
             double var13 = (double)((float)var1.getX() + this.a().random.nextFloat());
             double var14 = (double)((float)var1.getY() + this.a().random.nextFloat());
             var6 = (double)((float)var1.getZ() + this.a().random.nextFloat());
-            this.a().addParticle(EnumParticle.l, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
-            this.a().addParticle(EnumParticle.A, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
+            this.a().addParticle(EnumParticle.SMOKE, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
+            this.a().addParticle(EnumParticle.FLAME, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             if(this.a > 0) {
                --this.a;
             }
@@ -92,7 +92,7 @@ public abstract class class_aee {
                double var8 = (double)(var1.getY() + this.a().random.nextInt(3) - 1);
                double var10 = (double)var1.getZ() + (this.a().random.nextDouble() - this.a().random.nextDouble()) * (double)this.m + 0.5D;
                EntityInsentient var12 = var4 instanceof EntityInsentient ?(EntityInsentient)var4:null;
-               var4.b(var6, var8, var10, this.a().random.nextFloat() * 360.0F, 0.0F);
+               var4.setPositionRotation(var6, var8, var10, this.a().random.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.cf() && var12.cg()) {
                   this.a(var4, true);
                   this.a().b(2004, var1, 0);
@@ -143,7 +143,7 @@ public abstract class class_aee {
                }
 
                var13.f(var7);
-               var13.b(var11.locX, var11.locY, var11.locZ, var11.yaw, var11.pitch);
+               var13.setPositionRotation(var11.locX, var11.locY, var11.locZ, var11.yaw, var11.pitch);
                if(var1.world != null && var2) {
                   var1.world.addEntity(var13);
                }

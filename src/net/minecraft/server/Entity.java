@@ -721,13 +721,13 @@ public abstract class Entity implements ICommandListener {
 		for (var3 = 0; (float) var3 < 1.0F + this.width * 20.0F; ++var3) {
 			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
 			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
-			this.world.addParticle(EnumParticle.e, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY - (double) (this.random.nextFloat() * 0.2F), this.motZ, new int[0]);
+			this.world.addParticle(EnumParticle.BUBBLE, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY - (double) (this.random.nextFloat() * 0.2F), this.motZ, new int[0]);
 		}
 
 		for (var3 = 0; (float) var3 < 1.0F + this.width * 20.0F; ++var3) {
 			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
 			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
-			this.world.addParticle(EnumParticle.f, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
+			this.world.addParticle(EnumParticle.SPLASH, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
 		}
 
 	}
@@ -747,7 +747,7 @@ public abstract class Entity implements ICommandListener {
 		IBlockData var5 = this.world.getType(var4);
 		Block var6 = var5.getBlock();
 		if (var6.getRenderType() != -1) {
-			this.world.addParticle(EnumParticle.L, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.getBoundingBox().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, -this.motX * 4.0D, 1.5D, -this.motZ * 4.0D, new int[] { Block.getCombinedId(var5) });
+			this.world.addParticle(EnumParticle.BLOCK_CRACK, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.getBoundingBox().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, -this.motX * 4.0D, 1.5D, -this.motZ * 4.0D, new int[] { Block.getCombinedId(var5) });
 		}
 
 	}
@@ -798,11 +798,11 @@ public abstract class Entity implements ICommandListener {
 		return this.world.isLoaded(var2) ? this.world.o(var2) : 0.0F;
 	}
 
-	public void a(World var1) {
+	public void spawnIn(World var1) {
 		this.world = var1;
 	}
 
-	public void a(double var1, double var3, double var5, float var7, float var8) {
+	public void setLocation(double var1, double var3, double var5, float var7, float var8) {
 		this.lastX = this.locX = var1;
 		this.lastY = this.locY = var3;
 		this.lastZ = this.locZ = var5;
@@ -821,11 +821,11 @@ public abstract class Entity implements ICommandListener {
 		this.b(var7, var8);
 	}
 
-	public void a(BlockPosition var1, float var2, float var3) {
-		this.b((double) var1.getX() + 0.5D, (double) var1.getY(), (double) var1.getZ() + 0.5D, var2, var3);
+	public void setPositionRotation(BlockPosition var1, float var2, float var3) {
+		this.setPositionRotation((double) var1.getX() + 0.5D, (double) var1.getY(), (double) var1.getZ() + 0.5D, var2, var3);
 	}
 
-	public void b(double var1, double var3, double var5, float var7, float var8) {
+	public void setPositionRotation(double var1, double var3, double var5, float var7, float var8) {
 		this.P = this.lastX = this.locX = var1;
 		this.Q = this.lastY = this.locY = var3;
 		this.R = this.lastZ = this.locZ = var5;
@@ -1251,7 +1251,7 @@ public abstract class Entity implements ICommandListener {
 		this.ay = 0.0D;
 		if (var1 == null) {
 			if (this.vehicle != null) {
-				this.b(this.vehicle.locX, this.vehicle.getBoundingBox().yMin + (double) this.vehicle.length, this.vehicle.locZ, this.yaw, this.pitch);
+				this.setPositionRotation(this.vehicle.locX, this.vehicle.getBoundingBox().yMin + (double) this.vehicle.length, this.vehicle.locZ, this.yaw, this.pitch);
 				this.vehicle.passenger = null;
 			}
 
@@ -1505,7 +1505,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public void m(Entity var1) {
-		this.b(var1.locX, var1.locY, var1.locZ, var1.yaw, var1.pitch);
+		this.setPositionRotation(var1.locX, var1.locY, var1.locZ, var1.yaw, var1.pitch);
 	}
 
 	public void n(Entity var1) {
@@ -1541,7 +1541,7 @@ public abstract class Entity implements ICommandListener {
 				var6.n(this);
 				if (var3 == 1 && var1 == 1) {
 					BlockPosition var7 = this.world.r(var5.N());
-					var6.a(var7, var6.yaw, var6.pitch);
+					var6.setPositionRotation(var7, var6.yaw, var6.pitch);
 				}
 
 				var5.addEntity(var6);
@@ -1662,7 +1662,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public void enderTeleportTo(double var1, double var3, double var5) {
-		this.b(var1, var3, var5, this.yaw, this.pitch);
+		this.setPositionRotation(var1, var3, var5, this.yaw, this.pitch);
 	}
 
 	public void d(int var1) {

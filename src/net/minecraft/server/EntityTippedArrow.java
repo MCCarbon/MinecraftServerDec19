@@ -67,7 +67,7 @@ public class EntityTippedArrow extends EntityArrow {
 					var2 = ((var1 >> 16) & 255) / 255.0D;
 					var4 = ((var1 >> 8) & 255) / 255.0D;
 					var6 = ((var1 >> 0) & 255) / 255.0D;
-					this.world.addParticle(EnumParticle.p, this.locX + ((this.random.nextDouble() - 0.5D) * this.width), this.locY + (this.random.nextDouble() * this.length), this.locZ + ((this.random.nextDouble() - 0.5D) * this.width), var2, var4, var6, new int[0]);
+					this.world.addParticle(EnumParticle.MOB_SPELL, this.locX + ((this.random.nextDouble() - 0.5D) * this.width), this.locY + (this.random.nextDouble() * this.length), this.locZ + ((this.random.nextDouble() - 0.5D) * this.width), var2, var4, var6, new int[0]);
 				}
 			} else if (!this.effects.isEmpty() && (this.ticksInGround >= 200)) {
 				this.world.a(this, (byte) 0);
@@ -82,7 +82,7 @@ public class EntityTippedArrow extends EntityArrow {
 				var6 = ((var1 >> 0) & 255) / 255.0D;
 
 				for (int var8 = 0; var8 < 2; ++var8) {
-					this.world.addParticle(EnumParticle.p, this.locX + ((this.random.nextDouble() - 0.5D) * this.width), this.locY + (this.random.nextDouble() * this.length), this.locZ + ((this.random.nextDouble() - 0.5D) * this.width), var2, var4, var6, new int[0]);
+					this.world.addParticle(EnumParticle.MOB_SPELL, this.locX + ((this.random.nextDouble() - 0.5D) * this.width), this.locY + (this.random.nextDouble() * this.length), this.locZ + ((this.random.nextDouble() - 0.5D) * this.width), var2, var4, var6, new int[0]);
 				}
 			}
 		}

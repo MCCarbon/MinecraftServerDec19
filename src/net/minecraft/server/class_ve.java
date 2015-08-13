@@ -45,7 +45,7 @@ public class class_ve extends Entity {
       this.b = var2;
       this.b.bN = this;
       this.setSize(0.25F, 0.25F);
-      this.b(var2.locX, var2.locY + (double)var2.getHeadHeight(), var2.locZ, var2.yaw, var2.pitch);
+      this.setPositionRotation(var2.locX, var2.locY + (double) var2.getHeadHeight(), var2.locZ, var2.yaw, var2.pitch);
       this.locX -= (double)(MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * 0.16F);
       this.locY -= 0.10000000149011612D;
       this.locZ -= (double)(MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * 0.16F);
@@ -256,8 +256,8 @@ public class class_ve extends Entity {
                         this.motY -= 0.20000000298023224D;
                         this.makeSound("random.splash", 0.25F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
                         var16 = (float)MathHelper.floor(this.getBoundingBox().yMin);
-                        var37.a(EnumParticle.e, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
-                        var37.a(EnumParticle.g, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
+                        var37.a(EnumParticle.BUBBLE, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
+                        var37.a(EnumParticle.WAKE, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
                         this.aw = MathHelper.getRandomIntInRange((Random)this.random, 10, 30);
                      } else {
                         this.az = (float)((double)this.az + this.random.nextGaussian() * 4.0D);
@@ -270,13 +270,13 @@ public class class_ve extends Entity {
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            if(this.random.nextFloat() < 0.15F) {
-                              var37.a(EnumParticle.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
+                              var37.a(EnumParticle.BUBBLE, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
                            }
 
                            float var26 = var40 * 0.04F;
                            float var27 = var18 * 0.04F;
-                           var37.a(EnumParticle.g, var19, var41, var23, 0, (double)var27, 0.01D, (double)(-var26), 1.0D, new int[0]);
-                           var37.a(EnumParticle.g, var19, var41, var23, 0, (double)(-var27), 0.01D, (double)var26, 1.0D, new int[0]);
+                           var37.a(EnumParticle.WAKE, var19, var41, var23, 0, (double)var27, 0.01D, (double)(-var26), 1.0D, new int[0]);
+                           var37.a(EnumParticle.WAKE, var19, var41, var23, 0, (double)(-var27), 0.01D, (double)var26, 1.0D, new int[0]);
                         }
                      }
                   } else if(this.ax > 0) {
@@ -298,7 +298,7 @@ public class class_ve extends Entity {
                         var23 = this.locZ + (double)(MathHelper.cos(var40) * var18 * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
-                           var37.a(EnumParticle.f, var19, var41, var23, 2 + this.random.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
+                           var37.a(EnumParticle.SPLASH, var19, var41, var23, 2 + this.random.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                         }
                      }
 

@@ -101,7 +101,7 @@ public class BlockRedstoneTorch extends BlockTorch {
                   double var8 = (double)var2.getX() + var4.nextDouble() * 0.6D + 0.2D;
                   double var10 = (double)var2.getY() + var4.nextDouble() * 0.6D + 0.2D;
                   double var12 = (double)var2.getZ() + var4.nextDouble() * 0.6D + 0.2D;
-                  var1.addParticle(EnumParticle.l, var8, var10, var12, 0.0D, 0.0D, 0.0D, new int[0]);
+                  var1.addParticle(EnumParticle.SMOKE, var8, var10, var12, 0.0D, 0.0D, 0.0D, new int[0]);
                }
 
                var1.a((BlockPosition)var2, (Block)var1.getType(var2).getBlock(), 160);

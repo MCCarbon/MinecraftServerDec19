@@ -138,11 +138,11 @@ public class EntityBoat extends Entity {
 				if (this.random.nextBoolean()) {
 					var15 = this.locX - var6 * var11 * 0.8D + var8 * var13;
 					var17 = this.locZ - var8 * var11 * 0.8D - var6 * var13;
-					this.world.addParticle(EnumParticle.f, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.SPLASH, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
 				} else {
 					var15 = this.locX + var6 + var8 * var11 * 0.7D;
 					var17 = this.locZ + var8 - var6 * var11 * 0.7D;
-					this.world.addParticle(EnumParticle.f, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.SPLASH, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
 				}
 			}
 		}

@@ -1957,7 +1957,7 @@ public class WorldGenMonumetPieces {
             EntityGuardian var9 = new EntityGuardian(var1);
             var9.a(true);
             var9.heal(var9.getMaxHealth());
-            var9.b((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
+            var9.setPositionRotation((double) var6 + 0.5D, (double) var7, (double) var8 + 0.5D, 0.0F, 0.0F);
             var9.a(var1.E(new BlockPosition(var9)), (class_qd)null);
             var1.addEntity((Entity)var9);
             return true;

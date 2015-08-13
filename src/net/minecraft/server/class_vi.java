@@ -1,15 +1,6 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_om;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_vh;
 
 public class class_vi extends class_vh {
    private int b;
@@ -18,7 +9,7 @@ public class class_vi extends class_vh {
 
    public class_vi(World var1, double var2, double var4, double var6) {
       super(var1);
-      this.b(var2, var4, var6, 0.0F, 0.0F);
+      this.setPositionRotation(var2, var4, var6, 0.0F, 0.0F);
       this.b = 2;
       this.a = this.random.nextLong();
       this.c = this.random.nextInt(3) + 1;

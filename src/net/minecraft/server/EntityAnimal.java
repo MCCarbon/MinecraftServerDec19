@@ -30,7 +30,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
             double var1 = this.random.nextGaussian() * 0.02D;
             double var3 = this.random.nextGaussian() * 0.02D;
             double var5 = this.random.nextGaussian() * 0.02D;
-            this.world.addParticle(EnumParticle.I, this.locX + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, this.locY + 0.5D + (double)(this.random.nextFloat() * this.length), this.locZ + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, var1, var3, var5, new int[0]);
+            this.world.addParticle(EnumParticle.HEART, this.locX + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, this.locY + 0.5D + (double)(this.random.nextFloat() * this.length), this.locZ + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, var1, var3, var5, new int[0]);
          }
       }
 

@@ -24,7 +24,7 @@ public class EntitySnowball extends class_xo {
       }
 
       for(int var3 = 0; var3 < 8; ++var3) {
-         this.world.addParticle(EnumParticle.F, this.locX, this.locY, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.addParticle(EnumParticle.SNOWBALL_POOF, this.locX, this.locY, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
       if(!this.world.isClientSide) {

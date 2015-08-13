@@ -28,7 +28,7 @@ public class EntityMagmaCube extends EntitySlime {
    }
 
    protected EnumParticle n() {
-      return EnumParticle.A;
+      return EnumParticle.FLAME;
    }
 
    protected EntitySlime cu() {

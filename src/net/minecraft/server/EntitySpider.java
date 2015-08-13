@@ -110,7 +110,7 @@ public class EntitySpider extends EntityMonster {
 		Object var4 = super.a(var1, var2);
 		if (this.world.random.nextInt(100) == 0) {
 			EntitySkeleton var3 = new EntitySkeleton(this.world);
-			var3.b(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
+			var3.setPositionRotation(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
 			var3.a((class_on) var1, (class_qd) null);
 			this.world.addEntity((Entity) var3);
 			var3.a((Entity) this);

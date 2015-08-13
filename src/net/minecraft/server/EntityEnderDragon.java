@@ -206,7 +206,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 			var2 = (this.random.nextFloat() - 0.5F) * 8.0F;
 			var3 = (this.random.nextFloat() - 0.5F) * 4.0F;
 			var34 = (this.random.nextFloat() - 0.5F) * 8.0F;
-			this.world.addParticle(EnumParticle.b, this.locX + (double) var2, this.locY + 2.0D + (double) var3, this.locZ + (double) var34, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.LARGE_EXPLODE, this.locX + (double) var2, this.locY + 2.0D + (double) var3, this.locZ + (double) var34, 0.0D, 0.0D, 0.0D, new int[0]);
 		} else {
 			this.cu();
 			var2 = 0.2F / (MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ) * 10.0F + 1.0F);
@@ -281,7 +281,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 							double var8 = MathHelper.getRandomDoubleInRange(this.random, this.bR.yMin, this.bR.yMax);
 							var10 = MathHelper.getRandomDoubleInRange(this.random, this.bR.zMin, this.bR.zMax);
 							var12 = 0.3F;
-							this.world.addParticle(EnumParticle.Q, var6, var8, var10, -var4.x * (double) var3 + this.motX, -var4.y * (double) var12 + this.motY, -var4.z * (double) var3 + this.motZ, new int[0]);
+							this.world.addParticle(EnumParticle.DRAGON_BREATH, var6, var8, var10, -var4.x * (double) var3 + this.motX, -var4.y * (double) var12 + this.motY, -var4.z * (double) var3 + this.motZ, new int[0]);
 						}
 					}
 
@@ -303,12 +303,12 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 							var16 = var9 + this.random.nextGaussian() / 2.0D;
 							if (var1 == class_us.d) {
 								var18 = 0.3F;
-								this.world.addParticle(EnumParticle.Q, var45, var14, var16, -var4.x * (double) var3 + this.motX, -var4.y * (double) var18 + this.motY, -var4.z * (double) var3 + this.motZ, new int[0]);
+								this.world.addParticle(EnumParticle.DRAGON_BREATH, var45, var14, var16, -var4.x * (double) var3 + this.motX, -var4.y * (double) var18 + this.motY, -var4.z * (double) var3 + this.motZ, new int[0]);
 							} else {
 								var18 = 0.6F;
 
 								for (int var19 = 0; var19 < 6; ++var19) {
-									this.world.addParticle(EnumParticle.Q, var45, var14, var16, -var4.x * (double) var3 * (double) var19, -var4.y * (double) var18, -var4.z * (double) var3 * (double) var19, new int[0]);
+									this.world.addParticle(EnumParticle.DRAGON_BREATH, var45, var14, var16, -var4.x * (double) var3 * (double) var19, -var4.y * (double) var18, -var4.z * (double) var3 * (double) var19, new int[0]);
 								}
 							}
 
@@ -467,11 +467,11 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 				float var38 = MathHelper.sin(var36);
 				float var39 = MathHelper.cos(var36);
 				this.bv.t_();
-				this.bv.b(this.locX + (double) (var38 * 0.5F), this.locY, this.locZ - (double) (var39 * 0.5F), 0.0F, 0.0F);
+				this.bv.setPositionRotation(this.locX + (double) (var38 * 0.5F), this.locY, this.locZ - (double) (var39 * 0.5F), 0.0F, 0.0F);
 				this.bz.t_();
-				this.bz.b(this.locX + (double) (var39 * 4.5F), this.locY + 2.0D, this.locZ + (double) (var38 * 4.5F), 0.0F, 0.0F);
+				this.bz.setPositionRotation(this.locX + (double) (var39 * 4.5F), this.locY + 2.0D, this.locZ + (double) (var38 * 4.5F), 0.0F, 0.0F);
 				this.bA.t_();
-				this.bA.b(this.locX - (double) (var39 * 4.5F), this.locY + 2.0D, this.locZ - (double) (var38 * 4.5F), 0.0F, 0.0F);
+				this.bA.setPositionRotation(this.locX - (double) (var39 * 4.5F), this.locY + 2.0D, this.locZ - (double) (var38 * 4.5F), 0.0F, 0.0F);
 				if (!this.world.isClientSide && this.hurtTicks == 0) {
 					this.a(this.world.getEntities((Entity) this, (AxisAlignedBB) this.bz.getBoundingBox().grow(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
 					this.a(this.world.getEntities((Entity) this, (AxisAlignedBB) this.bA.getBoundingBox().grow(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
@@ -485,8 +485,8 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 				this.bt.t_();
 				this.bu.t_();
 				var12 = this.a(1.0F);
-				this.bt.b(this.locX + (double) (var41 * 6.5F * var34), this.locY + (double) var12 + (double) (var37 * 6.5F), this.locZ - (double) (var49 * 6.5F * var34), 0.0F, 0.0F);
-				this.bu.b(this.locX + (double) (var41 * 5.5F * var34), this.locY + (double) var12 + (double) (var37 * 5.5F), this.locZ - (double) (var49 * 5.5F * var34), 0.0F, 0.0F);
+				this.bt.setPositionRotation(this.locX + (double) (var41 * 6.5F * var34), this.locY + (double) var12 + (double) (var37 * 6.5F), this.locZ - (double) (var49 * 6.5F * var34), 0.0F, 0.0F);
+				this.bu.setPositionRotation(this.locX + (double) (var41 * 5.5F * var34), this.locY + (double) var12 + (double) (var37 * 5.5F), this.locZ - (double) (var49 * 5.5F * var34), 0.0F, 0.0F);
 				var53 = this.locX + (double) (var41 * 9.5F * var34);
 				var15 = this.locY + (double) var12 + (double) (var37 * 10.5F);
 				var17 = this.locZ - (double) (var49 * 9.5F * var34);
@@ -514,7 +514,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 					var59 = 1.5F;
 					var61 = (float) (var42 + 1) * 2.0F;
 					var52.t_();
-					var52.b(this.locX - (double) ((var38 * var59 + var54 * var61) * var34), this.locY + (var55[1] - var40[1]) * 1.0D - (double) ((var61 + var59) * var37) + 1.5D, this.locZ + (double) ((var39 * var59 + var60 * var61) * var34), 0.0F, 0.0F);
+					var52.setPositionRotation(this.locX - (double) ((var38 * var59 + var54 * var61) * var34), this.locY + (var55[1] - var40[1]) * 1.0D - (double) ((var61 + var59) * var37) + 1.5D, this.locZ + (double) ((var39 * var59 + var60 * var61) * var34), 0.0F, 0.0F);
 				}
 
 				if (!this.world.isClientSide) {
@@ -796,7 +796,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 			double var16 = var1.xMin + (var1.xMax - var1.xMin) * (double) this.random.nextFloat();
 			double var17 = var1.yMin + (var1.yMax - var1.yMin) * (double) this.random.nextFloat();
 			double var18 = var1.zMin + (var1.zMax - var1.zMin) * (double) this.random.nextFloat();
-			this.world.addParticle(EnumParticle.b, var16, var17, var18, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.LARGE_EXPLODE, var16, var17, var18, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 		return var8;
@@ -866,7 +866,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 				float var1 = (this.random.nextFloat() - 0.5F) * 8.0F;
 				float var2 = (this.random.nextFloat() - 0.5F) * 4.0F;
 				float var3 = (this.random.nextFloat() - 0.5F) * 8.0F;
-				this.world.addParticle(EnumParticle.c, this.locX + (double) var1, this.locY + 2.0D + (double) var2, this.locZ + (double) var3, 0.0D, 0.0D, 0.0D, new int[0]);
+				this.world.addParticle(EnumParticle.HUGE_EXPLOSION, this.locX + (double) var1, this.locY + 2.0D + (double) var2, this.locZ + (double) var3, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 
 			boolean var4 = false;

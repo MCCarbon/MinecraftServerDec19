@@ -57,7 +57,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	}
 
 	protected EnumParticle n() {
-		return EnumParticle.H;
+		return EnumParticle.SLIME;
 	}
 
 	protected String cz() {
@@ -144,7 +144,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 				}
 
 				var6.a(var1 / 2);
-				var6.b(this.locX + (double) var4, this.locY + 0.5D, this.locZ + (double) var5, this.random.nextFloat() * 360.0F, 0.0F);
+				var6.setPositionRotation(this.locX + (double) var4, this.locY + 0.5D, this.locZ + (double) var5, this.random.nextFloat() * 360.0F, 0.0F);
 				this.world.addEntity((Entity) var6);
 			}
 		}

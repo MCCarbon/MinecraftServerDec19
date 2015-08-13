@@ -51,9 +51,9 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 	}
 
 	protected void m(boolean var1) {
-		EnumParticle var2 = EnumParticle.I;
+		EnumParticle var2 = EnumParticle.HEART;
 		if (!var1) {
-			var2 = EnumParticle.l;
+			var2 = EnumParticle.SMOKE;
 		}
 
 		for (int var3 = 0; var3 < 7; ++var3) {

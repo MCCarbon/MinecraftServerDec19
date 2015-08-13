@@ -124,9 +124,9 @@ public class Explosion {
 	public void doStage2(boolean var1) {
 		this.world.makeSound(this.x, this.y, this.z, "random.explode", 4.0F, (1.0F + (this.world.random.nextFloat() - this.world.random.nextFloat()) * 0.2F) * 0.7F);
 		if (this.size >= 2.0F && this.b) {
-			this.world.addParticle(EnumParticle.c, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.HUGE_EXPLOSION, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
 		} else {
-			this.world.addParticle(EnumParticle.b, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.LARGE_EXPLODE, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 		Iterator<BlockPosition> var2;
@@ -153,8 +153,8 @@ public class Explosion {
 					var11 *= var19;
 					var13 *= var19;
 					var15 *= var19;
-					this.world.addParticle(EnumParticle.a, (var5 + this.x * 1.0D) / 2.0D, (var7 + this.y * 1.0D) / 2.0D, (var9 + this.z * 1.0D) / 2.0D, var11, var13, var15, new int[0]);
-					this.world.addParticle(EnumParticle.l, var5, var7, var9, var11, var13, var15, new int[0]);
+					this.world.addParticle(EnumParticle.EXPLODE, (var5 + this.x * 1.0D) / 2.0D, (var7 + this.y * 1.0D) / 2.0D, (var9 + this.z * 1.0D) / 2.0D, var11, var13, var15, new int[0]);
+					this.world.addParticle(EnumParticle.SMOKE, var5, var7, var9, var11, var13, var15, new int[0]);
 				}
 
 				if (var4.getMaterial() != Material.AIR) {

@@ -1,12 +1,4 @@
-/MinecraftServerDec19/.nb-gradle/
-/nbproject/private/
-/nbproject
-build.xml
-<<<<<<< HEAD
-MinecraftServerDec19.iml
-/bin/
-=======
-/*.iml
-/dist
-/.idea
->>>>>>> branch 'master' of https://github.com/True-Games/MinecraftServerDec19
+*
+!src
+!.gitignore
+!libs

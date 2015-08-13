@@ -59,7 +59,7 @@ public class EntityBlaze extends EntityMonster {
 			}
 
 			for (int var1 = 0; var1 < 2; ++var1) {
-				this.world.addParticle(EnumParticle.m, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+				this.world.addParticle(EnumParticle.LARGE_SMOKE, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 		}
 

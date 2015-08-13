@@ -459,7 +459,7 @@ public class EntityArmorStand extends EntityLiving {
 
 	private void C() {
 		if (this.world instanceof WorldServer) {
-			((WorldServer) this.world).a(EnumParticle.M, this.locX, this.locY + (double) this.length / 1.5D, this.locZ, 10, (double) (this.width / 4.0F), (double) (this.length / 4.0F), (double) (this.width / 4.0F), 0.05D, new int[] { Block.getCombinedId(Blocks.PLANKS.getBlockData()) });
+			((WorldServer) this.world).a(EnumParticle.BLOCK_DUST, this.locX, this.locY + (double) this.length / 1.5D, this.locZ, 10, (double) (this.width / 4.0F), (double) (this.length / 4.0F), (double) (this.width / 4.0F), 0.05D, new int[] { Block.getCombinedId(Blocks.PLANKS.getBlockData()) });
 		}
 
 	}

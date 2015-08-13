@@ -122,7 +122,7 @@ public class EntityPig extends EntityAnimal {
 		if (!this.world.isClientSide && !this.dead) {
 			EntityPigZombie var2 = new EntityPigZombie(this.world);
 			var2.a((EnumWearable) EnumWearable.MAINHAND, (ItemStack) (new ItemStack(Items.GOLDEN_SWORD)));
-			var2.b(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
+			var2.setPositionRotation(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
 			var2.k(this.cs());
 			if (this.hasCustomName()) {
 				var2.a((String) this.getCustomName());

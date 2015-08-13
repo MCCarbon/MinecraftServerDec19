@@ -62,7 +62,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 		this.b = var1;
 		this.bR = var1.getPlayerList().a((EntityHuman) this);
 		this.S = 0.0F;
-		this.a(var5, 0.0F, 0.0F);
+		this.setPositionRotation(var5, 0.0F, 0.0F);
 
 		while (!var2.getCubes((Entity) this, (AxisAlignedBB) this.getBoundingBox()).isEmpty() && this.locY < 255.0D) {
 			this.setPosition(this.locX, this.locY + 1.0D, this.locZ);
@@ -188,7 +188,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 			if (!var7.isAlive()) {
 				this.e(this);
 			} else {
-				this.a(var7.locX, var7.locY, var7.locZ, var7.yaw, var7.pitch);
+				this.setLocation(var7.locX, var7.locY, var7.locZ, var7.yaw, var7.pitch);
 				this.b.getPlayerList().d(this);
 				if (this.ax()) {
 					this.e(this);

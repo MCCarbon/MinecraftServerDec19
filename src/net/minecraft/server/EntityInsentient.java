@@ -157,7 +157,7 @@ public abstract class EntityInsentient extends EntityLiving {
 				double var4 = this.random.nextGaussian() * 0.02D;
 				double var6 = this.random.nextGaussian() * 0.02D;
 				double var8 = 10.0D;
-				this.world.addParticle(EnumParticle.a, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var2 * var8, this.locY + (double) (this.random.nextFloat() * this.length) - var4 * var8, this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var6 * var8, var2, var4, var6, new int[0]);
+				this.world.addParticle(EnumParticle.EXPLODE, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var2 * var8, this.locY + (double) (this.random.nextFloat() * this.length) - var4 * var8, this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var6 * var8, var2, var4, var6, new int[0]);
 			}
 		} else {
 			this.world.a((Entity) this, (byte) 20);

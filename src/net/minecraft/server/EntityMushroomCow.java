@@ -18,10 +18,10 @@ public class EntityMushroomCow extends EntityCow {
          return true;
       } else if(var3 != null && var3.getItem() == Items.SHEARS && this.getAge() >= 0) {
          this.die();
-         this.world.addParticle(EnumParticle.b, this.locX, this.locY + (double)(this.length / 2.0F), this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.addParticle(EnumParticle.LARGE_EXPLODE, this.locX, this.locY + (double)(this.length / 2.0F), this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.world.isClientSide) {
             EntityCow var4 = new EntityCow(this.world);
-            var4.b(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
+            var4.setPositionRotation(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
             var4.i(this.getHealth());
             var4.aL = this.aL;
             if(this.hasCustomName()) {

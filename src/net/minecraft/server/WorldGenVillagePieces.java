@@ -1524,7 +1524,7 @@ public class WorldGenVillagePieces {
 
                ++this.a;
                EntityVillager var11 = new EntityVillager(var1);
-               var11.b((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
+               var11.setPositionRotation((double) var8 + 0.5D, (double) var9, (double) var10 + 0.5D, 0.0F, 0.0F);
                var11.a(var1.E(new BlockPosition(var11)), (class_qd)null);
                var11.setProfession(this.c(var7, var11.getProfession()));
                var1.addEntity((Entity)var11);

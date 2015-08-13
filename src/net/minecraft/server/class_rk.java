@@ -1,20 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityTameable;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_tg;
-import net.minecraft.server.EntityHuman;
-
 public class class_rk extends class_rm {
    private EntityTameable d;
    private EntityLiving e;
@@ -92,7 +77,7 @@ public class class_rk extends class_rm {
                      for(int var4 = 0; var4 <= 4; ++var4) {
                         for(int var5 = 0; var5 <= 4; ++var5) {
                            if((var4 < 1 || var5 < 1 || var4 > 3 || var5 > 3) && World.a((IBlockAccess)this.a, (BlockPosition)(new BlockPosition(var1 + var4, var3 - 1, var2 + var5))) && this.a(new BlockPosition(var1 + var4, var3, var2 + var5)) && this.a(new BlockPosition(var1 + var4, var3 + 1, var2 + var5))) {
-                              this.d.b((double)((float)(var1 + var4) + 0.5F), (double)var3, (double)((float)(var2 + var5) + 0.5F), this.d.yaw, this.d.pitch);
+                              this.d.setPositionRotation((double) ((float) (var1 + var4) + 0.5F), (double) var3, (double) ((float) (var2 + var5) + 0.5F), this.d.yaw, this.d.pitch);
                               this.g.n();
                               return;
                            }

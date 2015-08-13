@@ -128,7 +128,7 @@ public abstract class EntityLiving extends Entity {
 				}
 
 				int var11 = (int) (150.0D * var9);
-				((WorldServer) this.world).a(EnumParticle.M, this.locX, this.locY, this.locZ, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[] { Block.getCombinedId(var6) });
+				((WorldServer) this.world).a(EnumParticle.BLOCK_DUST, this.locX, this.locY, this.locZ, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[] { Block.getCombinedId(var6) });
 			}
 		}
 
@@ -171,7 +171,7 @@ public abstract class EntityLiving extends Entity {
 							float var4 = this.random.nextFloat() - this.random.nextFloat();
 							float var5 = this.random.nextFloat() - this.random.nextFloat();
 							float var6 = this.random.nextFloat() - this.random.nextFloat();
-							this.world.addParticle(EnumParticle.e, this.locX + (double) var4, this.locY + (double) var5, this.locZ + (double) var6, this.motX, this.motY, this.motZ, new int[0]);
+							this.world.addParticle(EnumParticle.BUBBLE, this.locX + (double) var4, this.locY + (double) var5, this.locZ + (double) var6, this.motX, this.motY, this.motZ, new int[0]);
 						}
 
 						this.damageEntity(DamageSource.DROWN, 2.0F);
@@ -254,7 +254,7 @@ public abstract class EntityLiving extends Entity {
 				double var8 = this.random.nextGaussian() * 0.02D;
 				double var4 = this.random.nextGaussian() * 0.02D;
 				double var6 = this.random.nextGaussian() * 0.02D;
-				this.world.addParticle(EnumParticle.a, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, var8, var4, var6, new int[0]);
+				this.world.addParticle(EnumParticle.EXPLODE, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, var8, var4, var6, new int[0]);
 			}
 		}
 
@@ -446,7 +446,7 @@ public abstract class EntityLiving extends Entity {
 				double var5 = (double) (var11 >> 16 & 255) / 255.0D;
 				double var7 = (double) (var11 >> 8 & 255) / 255.0D;
 				double var9 = (double) (var11 >> 0 & 255) / 255.0D;
-				this.world.addParticle(var12 ? EnumParticle.q : EnumParticle.p, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, var5, var7, var9, new int[0]);
+				this.world.addParticle(var12 ? EnumParticle.MOB_SPELL_AMBIENT : EnumParticle.MOB_SPELL, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, var5, var7, var9, new int[0]);
 			}
 		}
 
@@ -698,7 +698,7 @@ public abstract class EntityLiving extends Entity {
 			var6 = var6.rotatePitch(-this.pitch * 3.1415927F / 180.0F);
 			var6 = var6.rotateYaw(-this.yaw * 3.1415927F / 180.0F);
 			var6 = var6.add(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
-			this.world.addParticle(EnumParticle.K, var6.x, var6.y, var6.z, var3.x, var3.y + 0.05D, var3.z, new int[] { Item.getId(var1.getItem()) });
+			this.world.addParticle(EnumParticle.IRON_CRACK, var6.x, var6.y, var6.z, var3.x, var3.y + 0.05D, var3.z, new int[] { Item.getId(var1.getItem()) });
 		}
 
 	}
@@ -1677,9 +1677,9 @@ public abstract class EntityLiving extends Entity {
 					var7 = var7.rotateYaw(-this.yaw * 3.1415927F / 180.0F);
 					var7 = var7.add(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
 					if (var1.f()) {
-						this.world.addParticle(EnumParticle.K, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[] { Item.getId(var1.getItem()), var1.i() });
+						this.world.addParticle(EnumParticle.IRON_CRACK, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[] { Item.getId(var1.getItem()), var1.i() });
 					} else {
-						this.world.addParticle(EnumParticle.K, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[] { Item.getId(var1.getItem()) });
+						this.world.addParticle(EnumParticle.IRON_CRACK, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[] { Item.getId(var1.getItem()) });
 					}
 				}
 

@@ -76,7 +76,7 @@ public class BlockNote extends BlockContainer {
 	public boolean a(World var1, BlockPosition var2, IBlockData var3, int var4, int var5) {
 		float var6 = (float) Math.pow(2.0D, (var5 - 12) / 12.0D);
 		var1.makeSound(var2.getX() + 0.5D, var2.getY() + 0.5D, var2.getZ() + 0.5D, "note." + getNoteByName(var4), 3.0F, var6);
-		var1.addParticle(EnumParticle.x, var2.getX() + 0.5D, var2.getY() + 1.2D, var2.getZ() + 0.5D, var5 / 24.0D, 0.0D, 0.0D, new int[0]);
+		var1.addParticle(EnumParticle.NOTE, var2.getX() + 0.5D, var2.getY() + 1.2D, var2.getZ() + 0.5D, var5 / 24.0D, 0.0D, 0.0D, new int[0]);
 		return true;
 	}
 

@@ -24,7 +24,7 @@ public abstract class EntityFireball extends Entity {
    public EntityFireball(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
       super(var1);
       this.setSize(1.0F, 1.0F);
-      this.b(var2, var4, var6, this.yaw, this.pitch);
+      this.setPositionRotation(var2, var4, var6, this.yaw, this.pitch);
       this.setPosition(var2, var4, var6);
       double var14 = (double)MathHelper.sqrt(var8 * var8 + var10 * var10 + var12 * var12);
       this.b = var8 / var14 * 0.1D;
@@ -36,7 +36,7 @@ public abstract class EntityFireball extends Entity {
       super(var1);
       this.a = var2;
       this.setSize(1.0F, 1.0F);
-      this.b(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
+      this.setPositionRotation(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
       this.setPosition(this.locX, this.locY, this.locZ);
       this.motX = this.motY = this.motZ = 0.0D;
       var3 += this.random.nextGaussian() * 0.4D;
@@ -85,7 +85,7 @@ public abstract class EntityFireball extends Entity {
          if(this.V()) {
             for(int var3 = 0; var3 < 4; ++var3) {
                float var4 = 0.25F;
-               this.world.addParticle(EnumParticle.e, this.locX - this.motX * (double)var4, this.locY - this.motY * (double)var4, this.locZ - this.motZ * (double)var4, this.motX, this.motY, this.motZ, new int[0]);
+               this.world.addParticle(EnumParticle.BUBBLE, this.locX - this.motX * (double)var4, this.locY - this.motY * (double)var4, this.locZ - this.motZ * (double)var4, this.motX, this.motY, this.motZ, new int[0]);
             }
 
             var2 = 0.8F;
@@ -97,7 +97,7 @@ public abstract class EntityFireball extends Entity {
          this.motX *= (double)var2;
          this.motY *= (double)var2;
          this.motZ *= (double)var2;
-         this.world.addParticle(EnumParticle.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.addParticle(EnumParticle.SMOKE, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
          this.setPosition(this.locX, this.locY, this.locZ);
       } else {
          this.die();

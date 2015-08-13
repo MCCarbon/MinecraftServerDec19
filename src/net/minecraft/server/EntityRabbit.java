@@ -314,7 +314,7 @@ public class EntityRabbit extends EntityAnimal {
 	protected void cE() {
 		BlockCarrots var1 = (BlockCarrots) Blocks.CARROTS;
 		IBlockData var2 = var1.b(var1.n());
-		this.world.addParticle(EnumParticle.M, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[] { Block.getCombinedId(var2) });
+		this.world.addParticle(EnumParticle.BLOCK_DUST, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[] { Block.getCombinedId(var2) });
 		this.bB = 100;
 	}
 

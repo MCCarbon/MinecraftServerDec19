@@ -36,7 +36,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
 		this.i(this.d > 0);
 		if (this.j() && this.random.nextInt(4) == 0) {
-			this.world.addParticle(EnumParticle.m, this.locX, this.locY + 0.8D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.LARGE_SMOKE, this.locX, this.locY + 0.8D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 	}

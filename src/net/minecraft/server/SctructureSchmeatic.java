@@ -259,11 +259,11 @@ public class SctructureSchmeatic {
 					var14.a(var3);
 					var14.a(var4);
 					var14.setPosition(var8.getX(), var8.getY(), var8.getZ());
-					var14.b(var11.x, var11.y, var11.z, var14.yaw, var14.pitch);
+					var14.setPositionRotation(var11.x, var11.y, var11.z, var14.yaw, var14.pitch);
 				} else {
 					float var15 = var14.a(var3);
 					var15 += var14.yaw - var14.a(var4);
-					var14.b(var11.x, var11.y, var11.z, var15, var14.pitch);
+					var14.setPositionRotation(var11.x, var11.y, var11.z, var15, var14.pitch);
 				}
 
 				var1.addEntity(var14);

@@ -2,16 +2,6 @@ package net.minecraft.server;
 
 import java.util.EnumSet;
 import java.util.List;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.PacketPlayOutPosition;
-import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.ICommandListener;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
 
 public class CommandTp extends CommandAbstract {
    public String getCommand() {
@@ -98,7 +88,7 @@ public class CommandTp extends CommandAbstract {
                      var15 = MathHelper.clampAngle(var15 + 180.0F);
                   }
 
-                  ((Entity)var4).b(var6.a(), var7.a(), var8.a(), var15, var12);
+                  ((Entity)var4).setPositionRotation(var6.a(), var7.a(), var8.a(), var15, var12);
                   ((Entity)var4).f(var15);
                }
 
@@ -113,7 +103,7 @@ public class CommandTp extends CommandAbstract {
                if(var4 instanceof EntityPlayer) {
                   ((EntityPlayer)var4).playerConnection.a(var5.locX, var5.locY, var5.locZ, var5.yaw, var5.pitch);
                } else {
-                  ((Entity)var4).b(var5.locX, var5.locY, var5.locZ, var5.yaw, var5.pitch);
+                  ((Entity)var4).setPositionRotation(var5.locX, var5.locY, var5.locZ, var5.yaw, var5.pitch);
                }
 
                a(var1, this, "commands.tp.success", new Object[]{((Entity)var4).getName(), var5.getName()});

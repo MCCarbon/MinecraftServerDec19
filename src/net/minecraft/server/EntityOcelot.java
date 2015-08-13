@@ -221,7 +221,7 @@ public class EntityOcelot extends EntityTameable {
 		if (this.world.random.nextInt(7) == 0) {
 			for (int var3 = 0; var3 < 2; ++var3) {
 				EntityOcelot var4 = new EntityOcelot(this.world);
-				var4.b(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
+				var4.setPositionRotation(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
 				var4.b(-24000);
 				this.world.addEntity((Entity) var4);
 			}

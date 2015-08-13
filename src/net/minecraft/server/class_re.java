@@ -84,7 +84,7 @@ public class class_re extends class_rm {
          this.d.cH();
          this.e.cH();
          var1.b(-24000);
-         var1.b(this.d.locX, this.d.locY, this.d.locZ, 0.0F, 0.0F);
+         var1.setPositionRotation(this.d.locX, this.d.locY, this.d.locZ, 0.0F, 0.0F);
          this.a.addEntity((Entity)var1);
          Random var3 = this.d.getRandom();
 
@@ -95,7 +95,7 @@ public class class_re extends class_rm {
             double var11 = var3.nextDouble() * (double)this.d.width * 2.0D - (double)this.d.width;
             double var13 = 0.5D + var3.nextDouble() * (double)this.d.length;
             double var15 = var3.nextDouble() * (double)this.d.width * 2.0D - (double)this.d.width;
-            this.a.addParticle(EnumParticle.I, this.d.locX + var11, this.d.locY + var13, this.d.locZ + var15, var5, var7, var9, new int[0]);
+            this.a.addParticle(EnumParticle.HEART, this.d.locX + var11, this.d.locY + var13, this.d.locZ + var15, var5, var7, var9, new int[0]);
          }
 
          if(this.a.R().getBooleanValue("doMobLoot")) {

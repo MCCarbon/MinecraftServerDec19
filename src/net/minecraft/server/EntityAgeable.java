@@ -24,7 +24,7 @@ public abstract class EntityAgeable extends EntityCreature {
 					EntityAgeable var5 = this.createChild(this);
 					if (var5 != null) {
 						var5.b(-24000);
-						var5.b(this.locX, this.locY, this.locZ, 0.0F, 0.0F);
+						var5.setPositionRotation(this.locX, this.locY, this.locZ, 0.0F, 0.0F);
 						this.world.addEntity((Entity) var5);
 						if (var3.hasDisplayName()) {
 							var5.a((String) var3.getDisplayName());
@@ -113,7 +113,7 @@ public abstract class EntityAgeable extends EntityCreature {
 		if (this.world.isClientSide) {
 			if (this.c > 0) {
 				if (this.c % 4 == 0) {
-					this.world.addParticle(EnumParticle.v, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+					this.world.addParticle(EnumParticle.HAPPY_VILLAGER, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
 				}
 
 				--this.c;

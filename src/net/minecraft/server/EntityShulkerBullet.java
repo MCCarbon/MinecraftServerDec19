@@ -35,7 +35,7 @@ public class EntityShulkerBullet extends Entity {
 		double var6 = (double) var5.getX() + 0.5D;
 		double var8 = (double) var5.getY() + 0.5D;
 		double var10 = (double) var5.getZ() + 0.5D;
-		this.b(var6, var8, var10, this.yaw, this.pitch);
+		this.setPositionRotation(var6, var8, var10, this.yaw, this.pitch);
 		this.b = var3;
 		this.c = EnumDirection.UP;
 		this.a(var4);
@@ -255,7 +255,7 @@ public class EntityShulkerBullet extends Entity {
 				}
 			}
 		} else {
-			this.world.addParticle(EnumParticle.R, this.locX - this.motX, this.locY - this.motY + 0.15D, this.locZ - this.motZ, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.END_ROD, this.locX - this.motX, this.locY - this.motY + 0.15D, this.locZ - this.motZ, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 	}
@@ -278,7 +278,7 @@ public class EntityShulkerBullet extends Entity {
 				}
 			}
 		} else {
-			((WorldServer) this.world).a(EnumParticle.b, this.locX, this.locY, this.locZ, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			((WorldServer) this.world).a(EnumParticle.LARGE_EXPLODE, this.locX, this.locY, this.locZ, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.makeSound("mob.irongolem.hit", 1.0F, 1.0F);
 		}
 
@@ -292,7 +292,7 @@ public class EntityShulkerBullet extends Entity {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (!this.world.isClientSide) {
 			this.makeSound("mob.irongolem.hit", 1.0F, 1.0F);
-			((WorldServer) this.world).a(EnumParticle.j, this.locX, this.locY, this.locZ, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			((WorldServer) this.world).a(EnumParticle.CRIT, this.locX, this.locY, this.locZ, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.die();
 		}
 

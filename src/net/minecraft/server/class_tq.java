@@ -137,7 +137,7 @@ public class class_tq {
             return false;
          }
 
-         var2.b(var1.x, var1.y, var1.z, this.a.random.nextFloat() * 360.0F, 0.0F);
+         var2.setPositionRotation(var1.x, var1.y, var1.z, this.a.random.nextFloat() * 360.0F, 0.0F);
          this.a.addEntity((Entity)var2);
          BlockPosition var3 = this.f.a();
          var2.a(var3, this.f.b());

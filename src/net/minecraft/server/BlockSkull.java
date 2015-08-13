@@ -131,7 +131,7 @@ public class BlockSkull extends BlockContainer {
             BlockPosition var12 = var5.a(1, 0, 0).d();
             EntityWither var14 = new EntityWither(var1);
             BlockPosition var15 = var5.a(1, 2, 0).d();
-            var14.b((double)var15.getX() + 0.5D, (double)var15.getY() + 0.55D, (double)var15.getZ() + 0.5D, var5.b().getAxis() == EnumDirection.EnumAxis.X?0.0F:90.0F, 0.0F);
+            var14.setPositionRotation((double) var15.getX() + 0.5D, (double) var15.getY() + 0.55D, (double) var15.getZ() + 0.5D, var5.b().getAxis() == EnumDirection.EnumAxis.X ? 0.0F : 90.0F, 0.0F);
             var14.aL = var5.b().getAxis() == EnumDirection.EnumAxis.X?0.0F:90.0F;
             var14.n();
             Iterator var9 = var1.getEntities(EntityHuman.class, var14.getBoundingBox().grow(50.0D, 50.0D, 50.0D)).iterator();
@@ -145,7 +145,7 @@ public class BlockSkull extends BlockContainer {
 
             int var16;
             for(var16 = 0; var16 < 120; ++var16) {
-               var1.addParticle(EnumParticle.F, (double)var12.getX() + var1.random.nextDouble(), (double)(var12.getY() - 2) + var1.random.nextDouble() * 3.9D, (double)var12.getZ() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+               var1.addParticle(EnumParticle.SNOWBALL_POOF, (double)var12.getX() + var1.random.nextDouble(), (double)(var12.getY() - 2) + var1.random.nextDouble() * 3.9D, (double)var12.getZ() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
             }
 
             for(var16 = 0; var16 < var4.c(); ++var16) {

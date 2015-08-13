@@ -27,7 +27,7 @@ public class EntityEgg extends class_xo {
          for(int var3 = 0; var3 < var2; ++var3) {
             EntityChicken var4 = new EntityChicken(this.world);
             var4.b(-24000);
-            var4.b(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
+            var4.setPositionRotation(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
             this.world.addEntity((Entity)var4);
          }
       }
@@ -35,7 +35,7 @@ public class EntityEgg extends class_xo {
       double var5 = 0.08D;
 
       for(int var6 = 0; var6 < 8; ++var6) {
-         this.world.addParticle(EnumParticle.K, this.locX, this.locY, this.locZ, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, new int[]{Item.getId(Items.EGG)});
+         this.world.addParticle(EnumParticle.IRON_CRACK, this.locX, this.locY, this.locZ, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, new int[]{Item.getId(Items.EGG)});
       }
 
       if(!this.world.isClientSide) {

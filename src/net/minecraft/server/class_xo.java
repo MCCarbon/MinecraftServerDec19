@@ -2,22 +2,6 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumParticle;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.IProjectile;
 
 public abstract class class_xo extends Entity implements IProjectile {
    private int d;
@@ -199,7 +183,7 @@ public abstract class class_xo extends Entity implements IProjectile {
       if(this.V()) {
          for(int var7 = 0; var7 < 4; ++var7) {
             float var19 = 0.25F;
-            this.world.addParticle(EnumParticle.e, this.locX - this.motX * (double)var19, this.locY - this.motY * (double)var19, this.locZ - this.motZ * (double)var19, this.motX, this.motY, this.motZ, new int[0]);
+            this.world.addParticle(EnumParticle.BUBBLE, this.locX - this.motX * (double)var19, this.locY - this.motY * (double)var19, this.locZ - this.motZ * (double)var19, this.motX, this.motY, this.motZ, new int[0]);
          }
 
          var17 = 0.8F;

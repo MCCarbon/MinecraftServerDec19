@@ -82,7 +82,7 @@ public class class_rt extends class_rm {
       this.c.p(false);
       this.b.p(false);
       var1.b(-24000);
-      var1.b(this.b.locX, this.b.locY, this.b.locZ, 0.0F, 0.0F);
+      var1.setPositionRotation(this.b.locX, this.b.locY, this.b.locZ, 0.0F, 0.0F);
       this.d.addEntity((Entity)var1);
       this.d.a((Entity)var1, (byte)12);
    }

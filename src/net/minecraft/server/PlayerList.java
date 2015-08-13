@@ -63,7 +63,7 @@ public abstract class PlayerList {
 		String var6 = var5 == null ? var3.getName() : var5.getName();
 		var4.a(var3);
 		NBTTagCompound var7 = this.a(player);
-		player.a((World) this.mcserver.getWorldServer(player.dimension));
+		player.spawnIn((World) this.mcserver.getWorldServer(player.dimension));
 		player.playerInteractManager.a((WorldServer) player.world);
 		String var8 = "local";
 		if (networkManager.getAddress() != null) {
@@ -347,7 +347,7 @@ public abstract class PlayerList {
 		if (var4 != null) {
 			var9 = EntityHuman.a(this.mcserver.getWorldServer(var1.dimension), var4, var5);
 			if (var9 != null) {
-				var7.b((double) ((float) var9.getX() + 0.5F), (double) ((float) var9.getY() + 0.1F), (double) ((float) var9.getZ() + 0.5F), 0.0F, 0.0F);
+				var7.setPositionRotation((double) ((float) var9.getX() + 0.5F), (double) ((float) var9.getY() + 0.1F), (double) ((float) var9.getZ() + 0.5F), 0.0F, 0.0F);
 				var7.a((BlockPosition) var4, var5);
 			} else {
 				var7.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutGameStateChange(0, 0.0F)));
@@ -407,14 +407,14 @@ public abstract class PlayerList {
 		if (var1.dimension == -1) {
 			var5 = MathHelper.clamp(var5 / var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
 			var7 = MathHelper.clamp(var7 / var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
-			var1.b(var5, var1.locY, var7, var1.yaw, var1.pitch);
+			var1.setPositionRotation(var5, var1.locY, var7, var1.yaw, var1.pitch);
 			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
 		} else if (var1.dimension == 0) {
 			var5 = MathHelper.clamp(var5 * var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
 			var7 = MathHelper.clamp(var7 * var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
-			var1.b(var5, var1.locY, var7, var1.yaw, var1.pitch);
+			var1.setPositionRotation(var5, var1.locY, var7, var1.yaw, var1.pitch);
 			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
@@ -429,7 +429,7 @@ public abstract class PlayerList {
 			var5 = (double) var12.getX();
 			var1.locY = (double) var12.getY();
 			var7 = (double) var12.getZ();
-			var1.b(var5, var1.locY, var7, 90.0F, 0.0F);
+			var1.setPositionRotation(var5, var1.locY, var7, 90.0F, 0.0F);
 			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
@@ -441,7 +441,7 @@ public abstract class PlayerList {
 			var5 = (double) MathHelper.clamp((int) var5, -29999872, 29999872);
 			var7 = (double) MathHelper.clamp((int) var7, -29999872, 29999872);
 			if (var1.isAlive()) {
-				var1.b(var5, var1.locY, var7, var1.yaw, var1.pitch);
+				var1.setPositionRotation(var5, var1.locY, var7, var1.yaw, var1.pitch);
 				var4.v().a(var1, var11);
 				var4.addEntity(var1);
 				var4.a(var1, false);
@@ -450,7 +450,7 @@ public abstract class PlayerList {
 			var3.B.b();
 		}
 
-		var1.a((World) var4);
+		var1.spawnIn((World) var4);
 	}
 
 	public void tick() {

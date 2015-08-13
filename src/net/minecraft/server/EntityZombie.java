@@ -366,7 +366,7 @@ public class EntityZombie extends EntityMonster {
 					}
 				} else if ((double) this.world.random.nextFloat() < 0.05D) {
 					EntityChicken var10 = new EntityChicken(this.world);
-					var10.b(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
+					var10.setPositionRotation(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
 					var10.a(var1, (class_qd) null);
 					var10.m(true);
 					this.world.addEntity((Entity) var10);

@@ -91,7 +91,7 @@ public final class class_aeu {
                                              return var36;
                                           }
 
-                                          var33.b((double)var31, (double)var24, (double)var32, var1.random.nextFloat() * 360.0F, 0.0F);
+                                          var33.setPositionRotation((double) var31, (double) var24, (double) var32, var1.random.nextFloat() * 360.0F, 0.0F);
                                           if(var33.cf() && var33.cg()) {
                                              var28 = var33.a(var1.E(new BlockPosition(var33)), var28);
                                              if(var33.cg()) {
@@ -195,7 +195,7 @@ public final class class_aeu {
                         continue;
                      }
 
-                     var19.b((double)((float)var11 + 0.5F), (double)var18.getY(), (double)((float)var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
+                     var19.setPositionRotation((double) ((float) var11 + 0.5F), (double) var18.getY(), (double) ((float) var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
                      var0.addEntity((Entity)var19);
                      var10 = var19.a(var0.E(new BlockPosition(var19)), var10);
                      var16 = true;

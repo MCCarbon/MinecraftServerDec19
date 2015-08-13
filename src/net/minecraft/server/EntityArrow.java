@@ -157,7 +157,7 @@ public class EntityArrow extends Entity implements IProjectile {
 
 			if (this.isCritical()) {
 				for (int var16 = 0; var16 < 4; ++var16) {
-					this.world.addParticle(EnumParticle.j, this.locX + ((this.motX * var16) / 4.0D), this.locY + ((this.motY * var16) / 4.0D), this.locZ + ((this.motZ * var16) / 4.0D), -this.motX, -this.motY + 0.2D, -this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.CRIT, this.locX + ((this.motX * var16) / 4.0D), this.locY + ((this.motY * var16) / 4.0D), this.locZ + ((this.motZ * var16) / 4.0D), -this.motX, -this.motY + 0.2D, -this.motZ, new int[0]);
 				}
 			}
 
@@ -190,7 +190,7 @@ public class EntityArrow extends Entity implements IProjectile {
 			if (this.V()) {
 				for (int var11 = 0; var11 < 4; ++var11) {
 					float var12 = 0.25F;
-					this.world.addParticle(EnumParticle.e, this.locX - (this.motX * var12), this.locY - (this.motY * var12), this.locZ - (this.motZ * var12), this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.BUBBLE, this.locX - (this.motX * var12), this.locY - (this.motY * var12), this.locZ - (this.motZ * var12), this.motX, this.motY, this.motZ, new int[0]);
 				}
 
 				var9 = 0.6F;

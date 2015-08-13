@@ -211,7 +211,7 @@ public class EntityGuardian extends EntityMonster {
 				Vec3D var1 = this.d(0.0F);
 
 				for (int var2 = 0; var2 < 2; ++var2) {
-					this.world.addParticle(EnumParticle.e, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.x * 1.5D, this.locY + this.random.nextDouble() * (double) this.length - var1.y * 1.5D, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
+					this.world.addParticle(EnumParticle.BUBBLE, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.x * 1.5D, this.locY + this.random.nextDouble() * (double) this.length - var1.y * 1.5D, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
 				}
 			}
 
@@ -236,7 +236,7 @@ public class EntityGuardian extends EntityMonster {
 
 					while (var12 < var10) {
 						var12 += 1.8D - var15 + this.random.nextDouble() * (1.7D - var15);
-						this.world.addParticle(EnumParticle.e, this.locX + var4 * var12, this.locY + var6 * var12 + (double) this.getHeadHeight(), this.locZ + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
+						this.world.addParticle(EnumParticle.BUBBLE, this.locX + var4 * var12, this.locY + var6 * var12 + (double) this.getHeadHeight(), this.locZ + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
 					}
 				}
 			}

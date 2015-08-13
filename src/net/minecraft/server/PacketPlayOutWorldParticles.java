@@ -1,11 +1,6 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.EnumParticle;
-import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.PacketListener;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketListenerPlayOut;
 
 public class PacketPlayOutWorldParticles implements Packet {
    private EnumParticle a;
@@ -40,7 +35,7 @@ public class PacketPlayOutWorldParticles implements Packet {
    public void decode(PacketDataSerializer var1) throws IOException {
       this.a = EnumParticle.a(var1.readInt());
       if(this.a == null) {
-         this.a = EnumParticle.J;
+         this.a = EnumParticle.BARRIER;
       }
 
       this.j = var1.readBoolean();
