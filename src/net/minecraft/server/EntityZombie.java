@@ -10,9 +10,9 @@ public class EntityZombie extends EntityMonster {
 	protected static final class_qk a = (new class_qs((class_qk) null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance");
 	private static final UUID b = UUID.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
 	private static final class_qm c;
-	private static final int BABY_DW_ID = DataWathcer.claimId(EntityZombie.class); //value = 11
-	private static final int VILLAGER_DW_ID = DataWathcer.claimId(EntityZombie.class); //value = 12
-	private static final int CONVERSION_DW_ID = DataWathcer.claimId(EntityZombie.class); //value = 13
+	private static final int BABY_DW_ID = Datawatcher.claimId(EntityZombie.class); //value = 11
+	private static final int VILLAGER_DW_ID = Datawatcher.claimId(EntityZombie.class); //value = 12
+	private static final int CONVERSION_DW_ID = Datawatcher.claimId(EntityZombie.class); //value = 13
 
 	private final class_rd bv = new class_rd(this);
 	private int bw;

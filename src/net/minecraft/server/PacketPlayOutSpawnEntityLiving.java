@@ -17,7 +17,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
    private byte j;
    private byte k;
    private byte l;
-   private DataWathcer m;
+   private Datawatcher m;
    private List n;
 
    public PacketPlayOutSpawnEntityLiving() {
@@ -80,7 +80,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
       this.g = var1.readShort();
       this.h = var1.readShort();
       this.i = var1.readShort();
-      this.n = DataWathcer.b(var1);
+      this.n = Datawatcher.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {

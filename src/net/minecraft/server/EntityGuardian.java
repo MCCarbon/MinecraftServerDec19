@@ -6,8 +6,8 @@ import java.util.List;
 
 public class EntityGuardian extends EntityMonster {
 
-	private static final int INFOFLAGS_DW_ID = DataWathcer.claimId(EntityGuardian.class); //value = 11
-	private static final int TARGET_DW_ID = DataWathcer.claimId(EntityGuardian.class); //value = 12
+	private static final int INFOFLAGS_DW_ID = Datawatcher.claimId(EntityGuardian.class); //value = 11
+	private static final int TARGET_DW_ID = Datawatcher.claimId(EntityGuardian.class); //value = 12
 
 	private float c;
 	private float bs;

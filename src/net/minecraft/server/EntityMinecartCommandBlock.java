@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
-   private static final int a = DataWathcer.claimId(EntityMinecartCommandBlock.class);
-   private static final int b = DataWathcer.claimId(EntityMinecartCommandBlock.class);
+   private static final int a = Datawatcher.claimId(EntityMinecartCommandBlock.class);
+   private static final int b = Datawatcher.claimId(EntityMinecartCommandBlock.class);
    private final class_aed c = new class_aed() {
       public void h() {
          EntityMinecartCommandBlock.this.H().update(EntityMinecartCommandBlock.a, this.l());

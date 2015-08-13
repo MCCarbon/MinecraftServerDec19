@@ -4,9 +4,9 @@ import java.util.List;
 
 public class EntityBoat extends Entity {
 
-	private static final int TIMESH_DW_ID = DataWathcer.claimId(EntityBoat.class); //value = 5
-	private static final int FORWARD_DW_ID = DataWathcer.claimId(EntityBoat.class); //value = 6
-	private static final int DAMAGETAKEN_DW_ID = DataWathcer.claimId(EntityBoat.class); //value = 7
+	private static final int TIMESH_DW_ID = Datawatcher.claimId(EntityBoat.class); //value = 5
+	private static final int FORWARD_DW_ID = Datawatcher.claimId(EntityBoat.class); //value = 6
+	private static final int DAMAGETAKEN_DW_ID = Datawatcher.claimId(EntityBoat.class); //value = 7
 
 	private boolean d;
 	private double e;

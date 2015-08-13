@@ -3,13 +3,6 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.PacketListener;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.DataWathcer;
-import net.minecraft.server.EntityHuman;
 
 public class PacketPlayOutNamedEntitySpawn implements Packet {
    private int a;
@@ -19,7 +12,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
    private int e;
    private byte f;
    private byte g;
-   private DataWathcer h;
+   private Datawatcher h;
    private List i;
 
    public PacketPlayOutNamedEntitySpawn() {
@@ -44,7 +37,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
       this.e = var1.readInt();
       this.f = var1.readByte();
       this.g = var1.readByte();
-      this.i = DataWathcer.b(var1);
+      this.i = Datawatcher.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {

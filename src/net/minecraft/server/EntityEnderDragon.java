@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 public class EntityEnderDragon extends EntityInsentient implements class_uo, class_wd {
 
 	private static final Logger bH = LogManager.getLogger();
-	private static final int bI = DataWathcer.claimId(EntityEnderDragon.class);
+	private static final int bI = Datawatcher.claimId(EntityEnderDragon.class);
 	public double a;
 	public double b;
 	public double c;

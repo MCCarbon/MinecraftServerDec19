@@ -4,9 +4,9 @@ import com.google.common.base.Predicate;
 
 public class EntityWolf extends EntityTameable {
 
-	private static final int HEALTH_DW_ID = DataWathcer.claimId(EntityWolf.class); //value = 14
-	private static final int BEGGING_DW_ID = DataWathcer.claimId(EntityWolf.class); //value = 15
-	private static final int COLLARCOLOR_DW_ID = DataWathcer.claimId(EntityWolf.class); //value = 16
+	private static final int HEALTH_DW_ID = Datawatcher.claimId(EntityWolf.class); //value = 14
+	private static final int BEGGING_DW_ID = Datawatcher.claimId(EntityWolf.class); //value = 15
+	private static final int COLLARCOLOR_DW_ID = Datawatcher.claimId(EntityWolf.class); //value = 16
 
 	private float bz;
 	private float bA;

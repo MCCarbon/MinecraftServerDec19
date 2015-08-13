@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class EntitySpider extends EntityMonster {
 
-	private static final int CLIMBING_DW_ID = DataWathcer.claimId(EntitySpider.class); //value = 11
+	private static final int CLIMBING_DW_ID = Datawatcher.claimId(EntitySpider.class); //value = 11
 
 	public EntitySpider(World var1) {
 		super(var1);

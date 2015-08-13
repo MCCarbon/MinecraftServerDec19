@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityEnderCrystal extends Entity {
 
-	private static final int HEALTH = DataWathcer.claimId(EntityEnderCrystal.class); //value = 5
+	private static final int HEALTH = Datawatcher.claimId(EntityEnderCrystal.class); //value = 5
 
 	public int a;
 	public int b;

@@ -195,7 +195,7 @@ public class class_lj {
    }
 
    private void b() {
-      DataWathcer var1 = this.a.H();
+      Datawatcher var1 = this.a.H();
       if(var1.a()) {
          this.b((Packet)(new PacketPlayOutEntityMetadata(this.a.getId(), var1, false)));
       }

@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class EntityGhast extends class_py implements class_wd {
 
-	private static final int ATTACKING_DW_ID = DataWathcer.claimId(EntityGhast.class); //value = 11
+	private static final int ATTACKING_DW_ID = Datawatcher.claimId(EntityGhast.class); //value = 11
 	private int b = 1;
 
 	public EntityGhast(World var1) {

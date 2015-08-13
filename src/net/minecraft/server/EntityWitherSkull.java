@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class EntityWitherSkull extends EntityFireball {
-   private static final int e = DataWathcer.claimId(EntityWitherSkull.class);
+   private static final int e = Datawatcher.claimId(EntityWitherSkull.class);
 
    public EntityWitherSkull(World var1) {
       super(var1);

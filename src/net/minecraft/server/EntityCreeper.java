@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 public class EntityCreeper extends EntityMonster {
 
-	private static final int STATE_DW_ID = DataWathcer.claimId(EntityCreeper.class); //value = 11
-	private static final int POWERED_DW_ID = DataWathcer.claimId(EntityCreeper.class); //value = 12
-	private static final int IGNITED_DW_ID = DataWathcer.claimId(EntityCreeper.class); //value = 13
+	private static final int STATE_DW_ID = Datawatcher.claimId(EntityCreeper.class); //value = 11
+	private static final int POWERED_DW_ID = Datawatcher.claimId(EntityCreeper.class); //value = 12
+	private static final int IGNITED_DW_ID = Datawatcher.claimId(EntityCreeper.class); //value = 13
 
 	private int bs;
 	private int bt;

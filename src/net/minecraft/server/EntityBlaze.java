@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityBlaze extends EntityMonster {
 
-	private static final int ONFIRE_DW_ID = DataWathcer.claimId(EntityBlaze.class); //value = 11
+	private static final int ONFIRE_DW_ID = Datawatcher.claimId(EntityBlaze.class); //value = 11
 
 	private float a = 0.5F;
 	private int b;

@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 
 public class EntityShulker extends EntityGolem implements class_wd {
-   protected static final int a = DataWathcer.claimId(EntityShulker.class);
-   protected static final int b = DataWathcer.claimId(EntityShulker.class);
-   protected static final int c = DataWathcer.claimId(EntityShulker.class);
+   protected static final int a = Datawatcher.claimId(EntityShulker.class);
+   protected static final int b = Datawatcher.claimId(EntityShulker.class);
+   protected static final int c = Datawatcher.claimId(EntityShulker.class);
    public static final BlockPosition bs = new BlockPosition(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
    private float bt;
    private float bu;

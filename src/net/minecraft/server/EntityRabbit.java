@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityRabbit extends EntityAnimal {
 
-	private static final int TYPE_DW_ID = DataWathcer.claimId(EntityRabbit.class); //value = 12
+	private static final int TYPE_DW_ID = Datawatcher.claimId(EntityRabbit.class); //value = 12
 
 	private EntityRabbit.class_c_in_class_ue bt;
 	private int bu = 0;

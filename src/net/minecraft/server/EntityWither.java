@@ -7,10 +7,10 @@ import java.util.List;
 
 public class EntityWither extends EntityMonster implements IRangedEntity {
 
-	private static final int TARGET1_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 11
-	private static final int TARGET2_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 12
-	private static final int TARGET3_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 13
-	private static final int INVULNERABLETIME_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 14
+	private static final int TARGET1_DW_ID = Datawatcher.claimId(EntityWither.class); //value = 11
+	private static final int TARGET2_DW_ID = Datawatcher.claimId(EntityWither.class); //value = 12
+	private static final int TARGET3_DW_ID = Datawatcher.claimId(EntityWither.class); //value = 13
+	private static final int INVULNERABLETIME_DW_ID = Datawatcher.claimId(EntityWither.class); //value = 14
 
 	private float[] bt = new float[2];
 	private float[] bu = new float[2];

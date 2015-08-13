@@ -8,7 +8,7 @@ public class EntityWitch extends EntityMonster implements IRangedEntity {
 
 	private static final UUID a = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
 	private static final class_qm b;
-	private static final int AGRESSIVE_DW_ID = DataWathcer.claimId(EntityWitch.class); //value = 11
+	private static final int AGRESSIVE_DW_ID = Datawatcher.claimId(EntityWitch.class); //value = 11
 	private static final Item[] bs;
 
 	private int bt;

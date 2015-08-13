@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public abstract class EntityInsentient extends EntityLiving {
 
-	private static final int NOAI_DW_ID = DataWathcer.claimId(EntityInsentient.class); //value = 10
+	private static final int NOAI_DW_ID = Datawatcher.claimId(EntityInsentient.class); //value = 10
 	public int a_;
 	protected int b_;
 	private class_qy b;

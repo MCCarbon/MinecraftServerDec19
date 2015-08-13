@@ -15,9 +15,9 @@ public class EntityEnderman extends EntityMonster {
 	private static final class_qm b;
 	private static final Set<Block> c;
 	private static final IBlockData bs;
-	private static final int CARRIEDID_DW_ID = DataWathcer.claimId(EntityEnderman.class); //value = 11
-	private static final int CARRIEDDATA_DW_ID = DataWathcer.claimId(EntityEnderman.class); //value = 12
-	private static final int SCREAMING_DW_ID = DataWathcer.claimId(EntityEnderman.class); //value = 13
+	private static final int CARRIEDID_DW_ID = Datawatcher.claimId(EntityEnderman.class); //value = 11
+	private static final int CARRIEDDATA_DW_ID = Datawatcher.claimId(EntityEnderman.class); //value = 12
+	private static final int SCREAMING_DW_ID = Datawatcher.claimId(EntityEnderman.class); //value = 13
 
 	private boolean bw;
 

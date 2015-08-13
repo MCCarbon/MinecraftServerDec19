@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 public class EntityItem extends Entity {
 
 	private static final Logger b = LogManager.getLogger();
-	private static final int ITEM_DW_ID = DataWathcer.claimId(EntityItem.class); //value = 5
+	private static final int ITEM_DW_ID = Datawatcher.claimId(EntityItem.class); //value = 5
 
 	private int d;
 	private int pickupDelay;

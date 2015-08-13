@@ -10,11 +10,11 @@ import java.util.concurrent.Callable;
 
 public abstract class Entity implements ICommandListener {
 
-	private static final int FLAGS_DW_ID = DataWathcer.claimId(Entity.class); // value = 0
-	private static final int AIR_DW_ID = DataWathcer.claimId(Entity.class); // value = 1
-	private static final int NAMETAG_DW_ID = DataWathcer.claimId(Entity.class); // value = 2
-	private static final int NAMETAG_VISIBLE_DW_ID = DataWathcer.claimId(Entity.class); // value = 3
-	private static final int SILENT_DW_ID = DataWathcer.claimId(Entity.class); // value = 4
+	private static final int FLAGS_DW_ID = Datawatcher.claimId(Entity.class); // value = 0
+	private static final int AIR_DW_ID = Datawatcher.claimId(Entity.class); // value = 1
+	private static final int NAMETAG_DW_ID = Datawatcher.claimId(Entity.class); // value = 2
+	private static final int NAMETAG_VISIBLE_DW_ID = Datawatcher.claimId(Entity.class); // value = 3
+	private static final int SILENT_DW_ID = Datawatcher.claimId(Entity.class); // value = 4
 	private static final AxisAlignedBB a = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 	private static int entityCount;
 
@@ -68,7 +68,7 @@ public abstract class Entity implements ICommandListener {
 	public int noDamageTicks;
 	protected boolean justCreated;
 	protected boolean fireProof;
-	protected DataWathcer datawatcher;
+	protected Datawatcher datawatcher;
 	private double ax;
 	private double ay;
 	public boolean ad;
@@ -121,7 +121,7 @@ public abstract class Entity implements ICommandListener {
 			this.dimension = var1.worldProvider.p().a();
 		}
 
-		this.datawatcher = new DataWathcer(this);
+		this.datawatcher = new Datawatcher(this);
 		this.datawatcher.add(FLAGS_DW_ID, Byte.valueOf((byte) 0));
 		this.datawatcher.add(AIR_DW_ID, Short.valueOf((short) 300));
 		this.datawatcher.add(NAMETAG_VISIBLE_DW_ID, Byte.valueOf((byte) 0));
@@ -132,7 +132,7 @@ public abstract class Entity implements ICommandListener {
 
 	protected abstract void initDatawatcher();
 
-	public DataWathcer H() {
+	public Datawatcher H() {
 		return this.datawatcher;
 	}
 

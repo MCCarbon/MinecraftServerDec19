@@ -13,7 +13,7 @@ public class EntityArrow extends Entity implements IProjectile {
 			return entity.ad();
 		}
 	});
-	private static final int CRITICAL_DW_ID = DataWathcer.claimId(EntityArrow.class); // value = 5
+	private static final int CRITICAL_DW_ID = Datawatcher.claimId(EntityArrow.class); // value = 5
 
 	private int hitBlockX;
 	private int hitBlockY;

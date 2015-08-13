@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class EntityPig extends EntityAnimal {
 
-	private static final int HASSADDLE_DW_ID = DataWathcer.claimId(EntityPig.class); //value = 12
+	private static final int HASSADDLE_DW_ID = Datawatcher.claimId(EntityPig.class); //value = 12
 
 	private static final Set bt;
 	private final class_rf bu;

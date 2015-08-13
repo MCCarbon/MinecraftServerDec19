@@ -6,12 +6,12 @@ import java.util.Map;
 
 public abstract class EntityMinecartAbstract extends Entity implements INamableTileEntity {
 
-	private static final int SHAKINGPOWER_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 5
-	private static final int SHAKINGDIRECTION_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 6
-	private static final int DAMAGETAKEN_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 7
-	private static final int BLOCK_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 8
-	private static final int BLOCKY_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 9
-	private static final int SHOWBLOCK_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 10
+	private static final int SHAKINGPOWER_DW_ID = Datawatcher.claimId(EntityMinecartAbstract.class); //value = 5
+	private static final int SHAKINGDIRECTION_DW_ID = Datawatcher.claimId(EntityMinecartAbstract.class); //value = 6
+	private static final int DAMAGETAKEN_DW_ID = Datawatcher.claimId(EntityMinecartAbstract.class); //value = 7
+	private static final int BLOCK_DW_ID = Datawatcher.claimId(EntityMinecartAbstract.class); //value = 8
+	private static final int BLOCKY_DW_ID = Datawatcher.claimId(EntityMinecartAbstract.class); //value = 9
+	private static final int SHOWBLOCK_DW_ID = Datawatcher.claimId(EntityMinecartAbstract.class); //value = 10
 
 	private boolean g;
 	private String h;

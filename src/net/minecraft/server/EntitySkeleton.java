@@ -4,8 +4,8 @@ import java.util.Calendar;
 
 public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
-	private static final int TYPE_DW_ID = DataWathcer.claimId(EntitySkeleton.class); //value = 11
-	private static final int ATTACKING_DW_ID = DataWathcer.claimId(EntitySkeleton.class); //value = 12
+	private static final int TYPE_DW_ID = Datawatcher.claimId(EntitySkeleton.class); //value = 11
+	private static final int ATTACKING_DW_ID = Datawatcher.claimId(EntitySkeleton.class); //value = 12
 
 	private class_sk c = new class_sk(this, 1.0D, 20, 60, 15.0F);
 	private class_ru bs = new class_ru(this, EntityHuman.class, 1.2D, false) {

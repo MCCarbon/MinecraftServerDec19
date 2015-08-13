@@ -15,11 +15,11 @@ public abstract class EntityLiving extends Entity {
 
 	private static final UUID a = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
 	private static final class_qm b;
-	protected static final int USED_HAND_DW_ID = DataWathcer.claimId(EntityLiving.class); //value = 5
-	private static final int HEALTH_DW_ID = DataWathcer.claimId(EntityLiving.class); //value = 6
-	private static final int POTION_COLOR_DW_ID = DataWathcer.claimId(EntityLiving.class); //value = 7
-	private static final int POTION_AMBIENT_DW_ID = DataWathcer.claimId(EntityLiving.class); //value = 8
-	private static final int ARROWS_DW_ID = DataWathcer.claimId(EntityLiving.class); //value = 9
+	protected static final int USED_HAND_DW_ID = Datawatcher.claimId(EntityLiving.class); //value = 5
+	private static final int HEALTH_DW_ID = Datawatcher.claimId(EntityLiving.class); //value = 6
+	private static final int POTION_COLOR_DW_ID = Datawatcher.claimId(EntityLiving.class); //value = 7
+	private static final int POTION_AMBIENT_DW_ID = Datawatcher.claimId(EntityLiving.class); //value = 8
+	private static final int ARROWS_DW_ID = Datawatcher.claimId(EntityLiving.class); //value = 9
 
 	private class_qo i;
 	private final class_pb bn = new class_pb(this);

@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
-	private static final int PROFESSION_DW_ID = DataWathcer.claimId(EntityVillager.class); //value = 12
+	private static final int PROFESSION_DW_ID = Datawatcher.claimId(EntityVillager.class); //value = 12
 
 	private int bu;
 	private boolean bv;
