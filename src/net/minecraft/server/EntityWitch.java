@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
-public class EntityWitch extends EntityMonster implements class_wk {
+public class EntityWitch extends EntityMonster implements IRangedEntity {
 
 	private static final UUID a = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
 	private static final class_qm b;

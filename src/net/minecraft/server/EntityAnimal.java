@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class EntityAnimal extends EntityAgeable implements class_pp {
+public abstract class EntityAnimal extends EntityAgeable implements IAnimal {
    protected Block bv;
    private int bs;
    private EntityHuman bt;

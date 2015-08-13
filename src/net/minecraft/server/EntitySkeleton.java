@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Calendar;
 
-public class EntitySkeleton extends EntityMonster implements class_wk {
+public class EntitySkeleton extends EntityMonster implements IRangedEntity {
 
 	private static final int TYPE_DW_ID = DataWathcer.claimId(EntitySkeleton.class); //value = 11
 	private static final int ATTACKING_DW_ID = DataWathcer.claimId(EntitySkeleton.class); //value = 12

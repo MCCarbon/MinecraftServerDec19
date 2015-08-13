@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class class_uk extends EntityInsentient implements class_pp {
+public abstract class class_uk extends EntityInsentient implements IAnimal {
    public class_uk(World var1) {
       super(var1);
    }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class EntitySnowman extends class_ua implements class_wk {
+public class EntitySnowman extends EntityGolem implements IRangedEntity {
    public EntitySnowman(World var1) {
       super(var1);
       this.setSize(0.7F, 1.9F);

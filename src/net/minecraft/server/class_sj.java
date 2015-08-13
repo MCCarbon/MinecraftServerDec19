@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class class_sj extends class_rm {
    private final EntityInsentient a;
-   private final class_wk b;
+   private final IRangedEntity b;
    private EntityLiving c;
    private int d;
    private double e;
@@ -12,11 +12,11 @@ public class class_sj extends class_rm {
    private float i;
    private float j;
 
-   public class_sj(class_wk var1, double var2, int var4, float var5) {
+   public class_sj(IRangedEntity var1, double var2, int var4, float var5) {
       this(var1, var2, var4, var4, var5);
    }
 
-   public class_sj(class_wk var1, double var2, int var4, int var5, float var6) {
+   public class_sj(IRangedEntity var1, double var2, int var4, int var5, float var6) {
       this.d = -1;
       if(!(var1 instanceof EntityLiving)) {
          throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");

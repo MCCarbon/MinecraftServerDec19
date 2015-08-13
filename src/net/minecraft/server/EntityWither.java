@@ -5,7 +5,7 @@ import com.google.common.base.Predicates;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityWither extends EntityMonster implements class_wk {
+public class EntityWither extends EntityMonster implements IRangedEntity {
 
 	private static final int TARGET1_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 11
 	private static final int TARGET2_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 12

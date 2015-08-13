@@ -72,7 +72,7 @@ public class class_lb {
          this.a(var1, 80, 3, false);
       } else if(var1 instanceof EntityEnderDragon) {
          this.a(var1, 160, 3, true);
-      } else if(var1 instanceof class_pp) {
+      } else if(var1 instanceof IAnimal) {
          this.a(var1, 80, 3, true);
       } else if(var1 instanceof EntityTNTPrimed) {
          this.a(var1, 160, 10, true);

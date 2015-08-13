@@ -356,7 +356,7 @@ public class class_lj {
          return new PacketPlayOutSpawnEntity(this.a, 10, var11.s().a());
       } else if(this.a instanceof EntityBoat) {
          return new PacketPlayOutSpawnEntity(this.a, 1);
-      } else if(this.a instanceof class_pp) {
+      } else if(this.a instanceof IAnimal) {
          this.i = MathHelper.floor(this.a.aE() * 256.0F / 360.0F);
          return new PacketPlayOutSpawnEntityLiving((EntityLiving)this.a);
       } else if(this.a instanceof class_ve) {

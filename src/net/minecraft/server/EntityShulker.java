@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityShulker extends class_ua implements class_wd {
+public class EntityShulker extends EntityGolem implements class_wd {
    protected static final int a = DataWathcer.claimId(EntityShulker.class);
    protected static final int b = DataWathcer.claimId(EntityShulker.class);
    protected static final int c = DataWathcer.claimId(EntityShulker.class);

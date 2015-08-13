@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 
-public class EntityVillagerGolem extends class_ua {
+public class EntityVillagerGolem extends EntityGolem {
 
 	protected static final int PLAYERCREATED_DW_ID = DataWathcer.claimId(EntityVillagerGolem.class); //value = 11
 
