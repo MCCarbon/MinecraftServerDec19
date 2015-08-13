@@ -878,7 +878,7 @@ public abstract class EntityInsentient extends EntityLiving {
 	}
 
 	public boolean cp() {
-		return !this.cq() && !(this instanceof class_wd);
+		return !this.cq() && !(this instanceof IMonster);
 	}
 
 	public boolean cq() {

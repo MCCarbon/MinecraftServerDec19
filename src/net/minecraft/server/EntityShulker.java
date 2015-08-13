@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
 
-public class EntityShulker extends EntityGolem implements class_wd {
+public class EntityShulker extends EntityGolem implements IMonster {
    protected static final int a = DataWatcher.claimId(EntityShulker.class);
    protected static final int b = DataWatcher.claimId(EntityShulker.class);
    protected static final int c = DataWatcher.claimId(EntityShulker.class);
@@ -351,7 +351,7 @@ public class EntityShulker extends EntityGolem implements class_wd {
       public class_c_in_class_ug(EntityShulker var1) {
          super(var1, EntityLiving.class, 10, true, false, new Predicate() {
             public boolean a(EntityLiving var1) {
-               return var1 instanceof class_wd;
+               return var1 instanceof IMonster;
             }
 
             // $FF: synthetic method

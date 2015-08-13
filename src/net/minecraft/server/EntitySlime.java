@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class EntitySlime extends EntityInsentient implements class_wd {
+public class EntitySlime extends EntityInsentient implements IMonster {
 
 	private static final int SIZE_DW_ID = DataWatcher.claimId(EntitySlime.class);  //value = 11
 

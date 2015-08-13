@@ -1164,7 +1164,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	public void a(EntityLiving var1) {
-		if (var1 instanceof class_wd) {
+		if (var1 instanceof IMonster) {
 			this.b(class_mt.s);
 		}
 

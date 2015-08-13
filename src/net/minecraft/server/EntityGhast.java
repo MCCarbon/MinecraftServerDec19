@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class EntityGhast extends class_py implements class_wd {
+public class EntityGhast extends EntityFlying implements IMonster {
 
 	private static final int ATTACKING_DW_ID = DataWatcher.claimId(EntityGhast.class); //value = 11
 	private int b = 1;

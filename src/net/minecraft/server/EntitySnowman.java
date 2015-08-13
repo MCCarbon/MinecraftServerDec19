@@ -9,7 +9,7 @@ public class EntitySnowman extends EntityGolem implements IRangedEntity {
       this.i.a(2, new class_si(this, 1.0D));
       this.i.a(3, new class_rr(this, EntityHuman.class, 6.0F));
       this.i.a(4, new class_sh(this));
-      this.bn.a(1, new class_sz(this, EntityInsentient.class, 10, true, false, class_wd.d));
+      this.bn.a(1, new class_sz(this, EntityInsentient.class, 10, true, false, IMonster.d));
    }
 
    protected void aY() {

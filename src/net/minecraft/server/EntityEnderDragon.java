@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class EntityEnderDragon extends EntityInsentient implements class_uo, class_wd {
+public class EntityEnderDragon extends EntityInsentient implements class_uo, IMonster {
 
 	private static final Logger bH = LogManager.getLogger();
 	private static final int bI = DataWatcher.claimId(EntityEnderDragon.class);

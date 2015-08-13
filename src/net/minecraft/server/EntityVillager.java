@@ -257,7 +257,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			if (var2 != null) {
 				if (var2 instanceof EntityHuman) {
 					this.bs.a(var2.getName(), -2);
-				} else if (var2 instanceof class_wd) {
+				} else if (var2 instanceof IMonster) {
 					this.bs.h();
 				}
 			} else {

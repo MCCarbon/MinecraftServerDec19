@@ -25,7 +25,7 @@ public class EntityVillagerGolem extends EntityGolem {
 		this.i.a(8, new class_sh(this));
 		this.bn.a(1, new class_sv(this));
 		this.bn.a(2, new class_sw(this, false, new Class[0]));
-		this.bn.a(3, new EntityVillagerGolem.class_a_in_class_uj(this, EntityInsentient.class, 10, false, true, class_wd.e));
+		this.bn.a(3, new EntityVillagerGolem.class_a_in_class_uj(this, EntityInsentient.class, 10, false, true, IMonster.e));
 	}
 
 	protected void initDatawatcher() {
@@ -59,7 +59,7 @@ public class EntityVillagerGolem extends EntityGolem {
 	}
 
 	protected void s(Entity var1) {
-		if (var1 instanceof class_wd && !(var1 instanceof EntityCreeper) && this.getRandom().nextInt(20) == 0) {
+		if (var1 instanceof IMonster && !(var1 instanceof EntityCreeper) && this.getRandom().nextInt(20) == 0) {
 			this.d((EntityLiving) var1);
 		}
 
