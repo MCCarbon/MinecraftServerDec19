@@ -1,4 +1,11 @@
-*
-!src
-!.gitignore
-!libs
+/MinecraftServerDec19/.nb-gradle/
+/nbproject/private/
+/nbproject
+build.xml
+<<<<<<< HEAD
+MinecraftServerDec19.iml
+/bin/
+=======
+/*.iml
+/dist
+/.idea
