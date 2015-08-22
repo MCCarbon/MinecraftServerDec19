@@ -36,18 +36,18 @@ public class class_amw extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aoz();
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.ar;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.ar;
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.ar);
+		return new class_aco(Items.ar);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class class_amw extends class_aif {
 		if (var1.D) {
 			return true;
 		} else {
-			class_aoi var11 = var1.s(var2);
+			TileEntity var11 = var1.s(var2);
 			return var11 instanceof class_aoz ? ((class_aoz) var11).b(var4) : false;
 		}
 	}

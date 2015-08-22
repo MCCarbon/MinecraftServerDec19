@@ -9,7 +9,7 @@ public class class_t extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.clear.usage";
 	}
 
@@ -19,9 +19,9 @@ public class class_t extends class_i {
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		class_lm var3 = var2.length == 0 ? b(var1) : a(var1, var2[0]);
-		class_acm var4 = var2.length >= 2 ? f(var1, var2[1]) : null;
+		Item var4 = var2.length >= 2 ? f(var1, var2[1]) : null;
 		int var5 = var2.length >= 3 ? a(var2[2], -1) : -1;
 		int var6 = var2.length >= 4 ? a(var2[3], -1) : -1;
 		class_dn var7 = null;
@@ -57,8 +57,8 @@ public class class_t extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return var2.length == 1 ? a(var2, this.d()) : (var2.length == 2 ? a(var2, class_acm.e.c()) : null);
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return var2.length == 1 ? a(var2, this.d()) : (var2.length == 2 ? a(var2, Item.e.c()) : null);
 	}
 
 	protected String[] d() {

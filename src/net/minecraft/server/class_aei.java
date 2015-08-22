@@ -8,7 +8,7 @@ public class class_aei {
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			class_abt var5 = var2[var4];
-			var1.a(new class_aco(class_acq.cJ, 1, var5.b()), new Object[] { "###", "###", " | ", Character.valueOf('#'), new class_aco(class_aim.L, 1, var5.a()), Character.valueOf('|'), class_acq.A });
+			var1.a(new class_aco(Items.cJ, 1, var5.b()), new Object[] { "###", "###", " | ", Character.valueOf('#'), new class_aco(Blocks.L, 1, var5.a()), Character.valueOf('|'), Items.A });
 		}
 
 		var1.a(new class_aei.class_b_in_class_aei());
@@ -29,7 +29,7 @@ public class class_aei {
 
 			for (int var4 = 0; var4 < var1.n_(); ++var4) {
 				class_aco var5 = var1.a(var4);
-				if ((var5 != null) && (var5.b() == class_acq.cJ)) {
+				if ((var5 != null) && (var5.b() == Items.cJ)) {
 					if (var3) {
 						return false;
 					}
@@ -55,7 +55,7 @@ public class class_aei {
 
 			for (int var3 = 0; var3 < var1.n_(); ++var3) {
 				class_aco var4 = var1.a(var3);
-				if ((var4 != null) && (var4.b() == class_acq.cJ)) {
+				if ((var4 != null) && (var4.b() == Items.cJ)) {
 					var2 = var4.k();
 					var2.b = 1;
 					break;
@@ -69,7 +69,7 @@ public class class_aei {
 				class_aco var6;
 				for (int var5 = 0; var5 < var1.n_(); ++var5) {
 					var6 = var1.a(var5);
-					if ((var6 != null) && (var6.b() == class_acq.aY)) {
+					if ((var6 != null) && (var6.b() == Items.aY)) {
 						var9 = var6.i();
 						break;
 					}
@@ -133,8 +133,8 @@ public class class_aei {
 
 						for (var9 = 0; (var9 < var1.n_()) && var6; ++var9) {
 							class_aco var10 = var1.a(var9);
-							if ((var10 != null) && (var10.b() != class_acq.cJ)) {
-								if (var10.b() == class_acq.aY) {
+							if ((var10 != null) && (var10.b() != Items.cJ)) {
+								if (var10.b() == Items.aY) {
 									if (var8) {
 										var6 = false;
 										break;
@@ -162,8 +162,8 @@ public class class_aei {
 							var9 = var13 / 3;
 							int var14 = var13 % 3;
 							class_aco var11 = var1.a(var13);
-							if ((var11 != null) && (var11.b() != class_acq.cJ)) {
-								if (var11.b() != class_acq.aY) {
+							if ((var11 != null) && (var11.b() != Items.cJ)) {
+								if (var11.b() != Items.aY) {
 									var6 = false;
 									break;
 								}
@@ -215,7 +215,7 @@ public class class_aei {
 			for (int var5 = 0; var5 < var1.n_(); ++var5) {
 				class_aco var6 = var1.a(var5);
 				if (var6 != null) {
-					if (var6.b() != class_acq.cJ) {
+					if (var6.b() != Items.cJ) {
 						return false;
 					}
 

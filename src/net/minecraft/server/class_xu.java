@@ -124,19 +124,19 @@ public class class_xu extends class_yc {
 	public void a(class_qi var1) {
 		super.a(var1);
 		if (var1.j() instanceof class_yh) {
-			int var2 = class_acm.b(class_acq.cv);
-			int var3 = class_acm.b(class_acq.cG);
+			int var2 = Item.b(Items.cv);
+			int var3 = Item.b(Items.cG);
 			int var4 = var2 + V.nextInt((var3 - var2) + 1);
-			this.a(class_acm.c(var4), 1);
+			this.a(Item.c(var4), 1);
 		} else if ((var1.j() instanceof class_xu) && (var1.j() != this) && ((class_xu) var1.j()).n() && ((class_xu) var1.j()).cI()) {
 			((class_xu) var1.j()).cJ();
-			this.a(new class_aco(class_acq.cc, 1, 4), 0.0F);
+			this.a(new class_aco(Items.cc, 1, 4), 0.0F);
 		}
 
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		return true;
 	}
 
@@ -145,8 +145,8 @@ public class class_xu extends class_yc {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.J;
+	protected Item D() {
+		return Items.J;
 	}
 
 	public int cF() {
@@ -165,7 +165,7 @@ public class class_xu extends class_yc {
 
 	@Override
 	protected boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		if ((var3 != null) && (var3.b() == class_acq.d)) {
+		if ((var3 != null) && (var3.b() == Items.d)) {
 			o.a(s + 0.5D, t + 0.5D, u + 0.5D, "fire.ignite", 1.0F, (V.nextFloat() * 0.4F) + 0.8F);
 			var1.a(var2);
 			if (!o.D) {

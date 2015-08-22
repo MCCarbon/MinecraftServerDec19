@@ -97,7 +97,7 @@ public class class_ark extends class_arr {
 							for (int var43 = var37 + 1; !var58 && (var43 >= (var56 - 1)); --var43) {
 								if ((var43 >= 0) && (var43 < 256)) {
 									class_apn var44 = var5.a(var41, var43, var42);
-									if ((var44.c() == class_aim.i) || (var44.c() == class_aim.j)) {
+									if ((var44.c() == Blocks.i) || (var44.c() == Blocks.j)) {
 										var58 = true;
 									}
 
@@ -123,16 +123,16 @@ public class class_ark extends class_arr {
 										double var50 = ((var49 - 1 + 0.5D) - var8) / var30;
 										if (((((var60 * var60) + (var46 * var46)) * d[var49 - 1]) + ((var50 * var50) / 6.0D)) < 1.0D) {
 											class_apn var52 = var5.a(var42, var49, var45);
-											if (var52.c() == class_aim.c) {
+											if (var52.c() == Blocks.c) {
 												var48 = true;
 											}
 
-											if ((var52.c() == class_aim.b) || (var52.c() == class_aim.d) || (var52.c() == class_aim.c)) {
+											if ((var52.c() == Blocks.b) || (var52.c() == Blocks.d) || (var52.c() == Blocks.c)) {
 												if ((var49 - 1) < 10) {
-													var5.a(var42, var49, var45, class_aim.k.S());
+													var5.a(var42, var49, var45, Blocks.k.S());
 												} else {
-													var5.a(var42, var49, var45, class_aim.a.S());
-													if (var48 && (var5.a(var42, var49 - 1, var45).c() == class_aim.d)) {
+													var5.a(var42, var49, var45, Blocks.a.S());
+													if (var48 && (var5.a(var42, var49 - 1, var45).c() == Blocks.d)) {
 														var59.c(var42 + (var3 * 16), 0, var45 + (var4 * 16));
 														var5.a(var42, var49 - 1, var45, c.b(var59).ak);
 													}

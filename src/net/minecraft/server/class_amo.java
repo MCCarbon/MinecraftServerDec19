@@ -100,7 +100,7 @@ public class class_amo extends class_anr {
 
 		if (N) {
 			if (var5) {
-				var1.a(var2, class_aim.aE.S().a(a, var3.b(a)), 3);
+				var1.a(var2, Blocks.aE.S().a(a, var3.b(a)), 3);
 				if (this.a(var1, var2, true)) {
 					var1.a(var2.n() + 0.5F, var2.o() + 0.5F, var2.p() + 0.5F, "random.fizz", 0.5F, 2.6F + ((var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F));
 
@@ -115,13 +115,13 @@ public class class_amo extends class_anr {
 				}
 			}
 		} else if (!var5 && !this.a(var1, var2, false)) {
-			var1.a(var2, class_aim.aF.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.aF.S().a(a, var3.b(a)), 3);
 		}
 
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!this.f(var1, var2, var3)) {
 			if (N == h(var1, var2, var3)) {
 				var1.a(var2, this, this.a(var1));
@@ -136,8 +136,8 @@ public class class_amo extends class_anr {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acm.a(class_aim.aF);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Item.a(Blocks.aF);
 	}
 
 	@Override
@@ -147,12 +147,12 @@ public class class_amo extends class_anr {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_aim.aF);
+		return new class_aco(Blocks.aF);
 	}
 
 	@Override
-	public boolean b(class_ail var1) {
-		return (var1 == class_aim.aE) || (var1 == class_aim.aF);
+	public boolean b(Block var1) {
+		return (var1 == Blocks.aE) || (var1 == Blocks.aF);
 	}
 
 	static class class_a_in_class_amo {

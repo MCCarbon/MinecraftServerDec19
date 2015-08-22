@@ -7,13 +7,13 @@ import com.google.common.collect.Sets;
 public class class_adl extends class_abq {
 	private static final Set c;
 
-	public class_adl(class_acm.class_a_in_class_acm var1) {
+	public class_adl(Item.class_a_in_class_acm var1) {
 		super(3.5F, -3.0F, var1, c);
 	}
 
 	@Override
-	public boolean b(class_ail var1) {
-		return var1 == class_aim.aH ? true : var1 == class_aim.aJ;
+	public boolean b(Block var1) {
+		return var1 == Blocks.aH ? true : var1 == Blocks.aJ;
 	}
 
 	@Override
@@ -22,10 +22,10 @@ public class class_adl extends class_abq {
 			return class_pw.c;
 		} else {
 			class_apn var10 = var3.p(var4);
-			class_ail var11 = var10.c();
-			if ((var6 != class_cq.a) && (var3.p(var4.a()).c().v() == class_avq.a) && (var11 == class_aim.c)) {
-				class_apn var12 = class_aim.da.S();
-				class_ail var13 = var12.c();
+			Block var11 = var10.c();
+			if ((var6 != class_cq.a) && (var3.p(var4.a()).c().v() == class_avq.a) && (var11 == Blocks.c)) {
+				class_apn var12 = Blocks.da.S();
+				Block var13 = var12.c();
 				var3.a(var4.n() + 0.5F, var4.o() + 0.5F, var4.p() + 0.5F, var13.H.c(), (var13.H.d() + 1.0F) / 2.0F, var13.H.e() * 0.8F);
 				if (!var3.D) {
 					var3.a(var4, var12);
@@ -40,6 +40,6 @@ public class class_adl extends class_abq {
 	}
 
 	static {
-		c = Sets.newHashSet((Object[]) (new class_ail[] { class_aim.aL, class_aim.d, class_aim.ak, class_aim.c, class_aim.n, class_aim.bw, class_aim.m, class_aim.aJ, class_aim.aH, class_aim.aW, class_aim.da }));
+		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.aL, Blocks.d, Blocks.ak, Blocks.c, Blocks.n, Blocks.bw, Blocks.m, Blocks.aJ, Blocks.aH, Blocks.aW, Blocks.da }));
 	}
 }

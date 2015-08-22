@@ -10,11 +10,11 @@ public class class_acn {
 	private final Map a = Maps.newHashMap();
 	private int b;
 
-	public boolean a(class_acm var1) {
+	public boolean a(Item var1) {
 		return this.a(var1, 0.0F) > 0.0F;
 	}
 
-	public float a(class_acm var1, float var2) {
+	public float a(Item var1, float var2) {
 		class_acn.class_a_in_class_acn var3 = (class_acn.class_a_in_class_acn) a.get(var1);
 		if (var3 != null) {
 			float var4 = var3.b - var3.a;
@@ -34,22 +34,22 @@ public class class_acn {
 				Entry var2 = (Entry) var1.next();
 				if (((class_acn.class_a_in_class_acn) var2.getValue()).b <= b) {
 					var1.remove();
-					c((class_acm) var2.getKey());
+					c((Item) var2.getKey());
 				}
 			}
 		}
 
 	}
 
-	public void a(class_acm var1, int var2) {
+	public void a(Item var1, int var2) {
 		a.put(var1, new class_acn.class_a_in_class_acn(b, b + var2));
 		b(var1, var2);
 	}
 
-	protected void b(class_acm var1, int var2) {
+	protected void b(Item var1, int var2) {
 	}
 
-	protected void c(class_acm var1) {
+	protected void c(Item var1) {
 	}
 
 	class class_a_in_class_acn {

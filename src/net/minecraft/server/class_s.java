@@ -14,12 +14,12 @@ public class class_s extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.blockdata.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 4) {
 			throw new class_cf("commands.blockdata.usage", new Object[0]);
 		} else {
@@ -29,7 +29,7 @@ public class class_s extends class_i {
 			if (!var4.e(var3)) {
 				throw new class_bz("commands.blockdata.outOfWorld", new Object[0]);
 			} else {
-				class_aoi var5 = var4.s(var3);
+				TileEntity var5 = var4.s(var3);
 				if (var5 == null) {
 					throw new class_bz("commands.blockdata.notValid", new Object[0]);
 				} else {
@@ -63,7 +63,7 @@ public class class_s extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : null;
 	}
 }

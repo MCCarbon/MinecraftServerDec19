@@ -3,35 +3,35 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_atn extends class_asp {
-	private class_ail a;
+	private Block a;
 
-	public class_atn(class_ail var1) {
+	public class_atn(Block var1) {
 		a = var1;
 	}
 
 	@Override
 	public boolean b(class_ago var1, Random var2, class_cj var3) {
-		if (var1.p(var3.a()).c() != class_aim.b) {
+		if (var1.p(var3.a()).c() != Blocks.b) {
 			return false;
-		} else if (var1.p(var3.b()).c() != class_aim.b) {
+		} else if (var1.p(var3.b()).c() != Blocks.b) {
 			return false;
-		} else if ((var1.p(var3).c().v() != class_avq.a) && (var1.p(var3).c() != class_aim.b)) {
+		} else if ((var1.p(var3).c().v() != class_avq.a) && (var1.p(var3).c() != Blocks.b)) {
 			return false;
 		} else {
 			int var4 = 0;
-			if (var1.p(var3.e()).c() == class_aim.b) {
+			if (var1.p(var3.e()).c() == Blocks.b) {
 				++var4;
 			}
 
-			if (var1.p(var3.f()).c() == class_aim.b) {
+			if (var1.p(var3.f()).c() == Blocks.b) {
 				++var4;
 			}
 
-			if (var1.p(var3.c()).c() == class_aim.b) {
+			if (var1.p(var3.c()).c() == Blocks.b) {
 				++var4;
 			}
 
-			if (var1.p(var3.d()).c() == class_aim.b) {
+			if (var1.p(var3.d()).c() == Blocks.b) {
 				++var4;
 			}
 

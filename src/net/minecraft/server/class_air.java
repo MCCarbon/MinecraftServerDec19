@@ -66,7 +66,7 @@ public abstract class class_air extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (this.f(var1, var2, var3) && !a(var1, var2, ((class_cq) var3.b(b)).d())) {
 			this.b(var1, var2, var3, 0);
 			var1.g(var2);
@@ -187,7 +187,7 @@ public abstract class class_air extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		if (!var1.D) {
 			if (N) {
 				if (!((Boolean) var3.b(a)).booleanValue()) {
@@ -286,12 +286,12 @@ public abstract class class_air extends class_ajk {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(b, var2.a((class_cq) var1.b(b)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(b)));
 	}
 

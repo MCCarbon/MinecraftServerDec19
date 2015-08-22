@@ -13,14 +13,14 @@ public class class_act extends class_adb {
 			--var1.b;
 		}
 
-		var2.a((class_qx) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
+		var2.a((Entity) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
 		if (!var2.D) {
 			class_zn var5 = new class_zn(var2, var3, var1, true);
 			var5.a(var3.z, var3.y, -20.0F, 0.5F, 1.0F);
 			var2.a(var5);
 		}
 
-		var3.b(class_nh.c(class_acm.b(this)));
+		var3.b(class_nh.c(Item.b(this)));
 		return new class_px(class_pw.a, var1);
 	}
 }

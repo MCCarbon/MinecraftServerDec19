@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aeb extends class_acm {
+public class class_aeb extends Item {
 	public class_aeb() {
 		this.d(1);
 	}
@@ -41,7 +41,7 @@ public class class_aeb extends class_acm {
 		}
 
 		var3.a(var1);
-		var3.b(class_nh.c(class_acm.b(this)));
+		var3.b(class_nh.c(Item.b(this)));
 		return new class_px(class_pw.a, var1);
 	}
 

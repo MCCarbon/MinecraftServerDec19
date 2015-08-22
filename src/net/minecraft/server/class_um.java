@@ -60,7 +60,7 @@ public abstract class class_um {
 		i = var1;
 	}
 
-	public class_axc a(class_qx var1) {
+	public class_axc a(Entity var1) {
 		if (!b()) {
 			return null;
 		} else {
@@ -75,7 +75,7 @@ public abstract class class_um {
 		}
 	}
 
-	public boolean a(class_qx var1, double var2) {
+	public boolean a(Entity var1, double var2) {
 		class_axc var4 = this.a(var1);
 		return var4 != null ? this.a(var4, var2) : false;
 	}

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_akm extends class_ail implements class_ain {
+public class class_akm extends Block implements class_ain {
 	public static final class_apy a = class_apy.a("snowy");
 
 	protected class_akm() {
@@ -14,23 +14,23 @@ public class class_akm extends class_ail implements class_ain {
 
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
-		class_ail var4 = var2.p(var3.a()).c();
-		return var1.a(a, Boolean.valueOf((var4 == class_aim.aJ) || (var4 == class_aim.aH)));
+		Block var4 = var2.p(var3.a()).c();
+		return var1.a(a, Boolean.valueOf((var4 == Blocks.aJ) || (var4 == Blocks.aH)));
 	}
 
 	@Override
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
 		if (!var1.D) {
 			if ((var1.l(var2.a()) < 4) && (var1.p(var2.a()).c().r() > 2)) {
-				var1.a(var2, class_aim.d.S());
+				var1.a(var2, Blocks.d.S());
 			} else {
 				if (var1.l(var2.a()) >= 9) {
 					for (int var5 = 0; var5 < 4; ++var5) {
 						class_cj var6 = var2.a(var4.nextInt(3) - 1, var4.nextInt(5) - 3, var4.nextInt(3) - 1);
-						class_ail var7 = var1.p(var6.a()).c();
+						Block var7 = var1.p(var6.a()).c();
 						class_apn var8 = var1.p(var6);
-						if ((var8.c() == class_aim.d) && (var8.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.a) && (var1.l(var6.a()) >= 4) && (var7.r() <= 2)) {
-							var1.a(var6, class_aim.c.S());
+						if ((var8.c() == Blocks.d) && (var8.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.a) && (var1.l(var6.a()) >= 4) && (var7.r() <= 2)) {
+							var1.a(var6, Blocks.c.S());
 						}
 					}
 				}
@@ -40,8 +40,8 @@ public class class_akm extends class_ail implements class_ain {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_aim.d.a(class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Blocks.d.a(Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class class_akm extends class_ail implements class_ain {
 
 			for (int var8 = 0; var8 < (var6 / 16); ++var8) {
 				var7 = var7.a(var2.nextInt(3) - 1, ((var2.nextInt(3) - 1) * var2.nextInt(3)) / 2, var2.nextInt(3) - 1);
-				if ((var1.p(var7.b()).c() != class_aim.c) || var1.p(var7).c().x()) {
+				if ((var1.p(var7.b()).c() != Blocks.c) || var1.p(var7).c().x()) {
 					continue label38;
 				}
 			}
@@ -77,8 +77,8 @@ public class class_akm extends class_ail implements class_ain {
 						var1.a(var7, var10, 3);
 					}
 				} else {
-					class_apn var12 = class_aim.H.S().a(class_ano.a, class_ano.class_a_in_class_ano.b);
-					if (class_aim.H.g(var1, var7, var12)) {
+					class_apn var12 = Blocks.H.S().a(class_ano.a, class_ano.class_a_in_class_ano.b);
+					if (Blocks.H.g(var1, var7, var12)) {
 						var1.a(var7, var12, 3);
 					}
 				}

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_ais extends class_ail {
+public class class_ais extends Block {
 	public static final class_aqb a = class_aqb.a("age", 0, 15);
 
 	protected class_ais() {
@@ -59,7 +59,7 @@ public class class_ais extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!this.d(var1, var2)) {
 			var1.b(var2, true);
 		}
@@ -76,12 +76,12 @@ public class class_ais extends class_ail {
 			}
 		}
 
-		class_ail var5 = var1.p(var2.b()).c();
-		return (var5 == class_aim.aK) || (var5 == class_aim.m);
+		Block var5 = var1.p(var2.b()).c();
+		return (var5 == Blocks.aK) || (var5 == Blocks.m);
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		var4.a(class_qi.h, 1.0F);
 	}
 

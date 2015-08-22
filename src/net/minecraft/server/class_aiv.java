@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class class_aiv extends class_ail {
+public class class_aiv extends Block {
 	public static final class_aqb a = class_aqb.a("level", 0, 3);
 
 	public class_aiv() {
@@ -12,7 +12,7 @@ public class class_aiv extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
 		super.a(var1, var2, var3, var4, var5, var6);
 		float var7 = 0.125F;
@@ -43,7 +43,7 @@ public class class_aiv extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		int var5 = ((Integer) var3.b(a)).intValue();
 		float var6 = var2.o() + ((6.0F + 3 * var5) / 16.0F);
 		if (!var1.D && var4.ay() && (var5 > 0) && (var4.aX().b <= var6)) {
@@ -61,11 +61,11 @@ public class class_aiv extends class_ail {
 			return true;
 		} else {
 			int var11 = ((Integer) var3.b(a)).intValue();
-			class_acm var12 = var6.b();
-			if (var12 == class_acq.az) {
+			Item var12 = var6.b();
+			if (var12 == Items.az) {
 				if (var11 < 3) {
 					if (!var4.bI.d) {
-						var4.a(var5, (new class_aco(class_acq.ay)));
+						var4.a(var5, (new class_aco(Items.ay)));
 					}
 
 					var4.b(class_nh.J);
@@ -75,10 +75,10 @@ public class class_aiv extends class_ail {
 				return true;
 			} else {
 				class_aco var14;
-				if (var12 == class_acq.bE) {
+				if (var12 == Items.bE) {
 					if (var11 > 0) {
 						if (!var4.bI.d) {
-							var14 = class_adb.a(new class_aco(class_acq.bB), class_aee.a);
+							var14 = class_adb.a(new class_aco(Items.bB), class_aee.a);
 							var4.b(class_nh.K);
 							if (--var6.b == 0) {
 								var4.a(var5, var14);
@@ -151,13 +151,13 @@ public class class_aiv extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.bL;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.bL;
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.bL);
+		return new class_aco(Items.bL);
 	}
 
 	@Override

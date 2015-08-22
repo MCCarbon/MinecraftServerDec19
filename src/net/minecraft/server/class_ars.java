@@ -100,7 +100,7 @@ public class class_ars extends class_arr {
 							for (int var44 = var38 + 1; !var56 && (var44 >= (var54 - 1)); --var44) {
 								if ((var44 >= 0) && (var44 < 128)) {
 									class_apn var45 = var5.a(var42, var44, var43);
-									if ((var45.c() == class_aim.k) || (var45.c() == class_aim.l)) {
+									if ((var45.c() == Blocks.k) || (var45.c() == Blocks.l)) {
 										var56 = true;
 									}
 
@@ -123,8 +123,8 @@ public class class_ars extends class_arr {
 									double var49 = ((var48 - 1 + 0.5D) - var8) / var31;
 									if ((var49 > -0.7D) && (((var57 * var57) + (var49 * var49) + (var46 * var46)) < 1.0D)) {
 										class_apn var51 = var5.a(var42, var48, var58);
-										if ((var51.c() == class_aim.aV) || (var51.c() == class_aim.d) || (var51.c() == class_aim.c)) {
-											var5.a(var42, var48, var58, class_aim.a.S());
+										if ((var51.c() == Blocks.aV) || (var51.c() == Blocks.d) || (var51.c() == Blocks.c)) {
+											var5.a(var42, var48, var58, Blocks.a.S());
 										}
 									}
 								}

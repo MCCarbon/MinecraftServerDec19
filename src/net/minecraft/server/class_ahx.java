@@ -68,12 +68,12 @@ public class class_ahx extends class_ahb {
 	@Override
 	public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
 		if ((aI == 1) || (aI == 2)) {
-			ak = class_aim.c.S();
-			al = class_aim.d.S();
+			ak = Blocks.c.S();
+			al = Blocks.d.S();
 			if (var6 > 1.75D) {
-				ak = class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
+				ak = Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
 			} else if (var6 > -0.95D) {
-				ak = class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
+				ak = Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
 			}
 		}
 
@@ -86,6 +86,6 @@ public class class_ahx extends class_ahb {
 	}
 
 	static {
-		aH = new class_asd(class_aim.Y, 0);
+		aH = new class_asd(Blocks.Y, 0);
 	}
 }

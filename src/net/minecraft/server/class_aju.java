@@ -10,7 +10,7 @@ public class class_aju extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_apd();
 	}
 
@@ -21,7 +21,7 @@ public class class_aju extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class class_aju extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		if ((var4.m == null) && (var4.l == null) && !var1.D) {
 			var4.a(1, (class_cj) null);
 		}

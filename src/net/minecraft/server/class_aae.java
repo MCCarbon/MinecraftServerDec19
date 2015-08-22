@@ -42,7 +42,7 @@ public class class_aae extends class_zu {
 		this.a((new class_aas(a, 1, 35, 47) {
 			@Override
 			public boolean a(class_aco var1) {
-				return (var1.b() == class_acq.aY) && (class_abt.a(var1.i()) == class_abt.l);
+				return (var1.b() == Items.aY) && (class_abt.a(var1.i()) == class_abt.l);
 			}
 		}));
 
@@ -102,28 +102,28 @@ public class class_aae extends class_zu {
 					for (var4 = -1; var4 <= 1; ++var4) {
 						for (int var5 = -1; var5 <= 1; ++var5) {
 							if (((var4 != 0) || (var5 != 0)) && j.d(k.a(var5, 0, var4)) && j.d(k.a(var5, 1, var4))) {
-								if (j.p(k.a(var5 * 2, 0, var4 * 2)).c() == class_aim.X) {
+								if (j.p(k.a(var5 * 2, 0, var4 * 2)).c() == Blocks.X) {
 									++var3;
 								}
 
-								if (j.p(k.a(var5 * 2, 1, var4 * 2)).c() == class_aim.X) {
+								if (j.p(k.a(var5 * 2, 1, var4 * 2)).c() == Blocks.X) {
 									++var3;
 								}
 
 								if ((var5 != 0) && (var4 != 0)) {
-									if (j.p(k.a(var5 * 2, 0, var4)).c() == class_aim.X) {
+									if (j.p(k.a(var5 * 2, 0, var4)).c() == Blocks.X) {
 										++var3;
 									}
 
-									if (j.p(k.a(var5 * 2, 1, var4)).c() == class_aim.X) {
+									if (j.p(k.a(var5 * 2, 1, var4)).c() == Blocks.X) {
 										++var3;
 									}
 
-									if (j.p(k.a(var5, 0, var4 * 2)).c() == class_aim.X) {
+									if (j.p(k.a(var5, 0, var4 * 2)).c() == Blocks.X) {
 										++var3;
 									}
 
-									if (j.p(k.a(var5, 1, var4 * 2)).c() == class_aim.X) {
+									if (j.p(k.a(var5, 1, var4 * 2)).c() == Blocks.X) {
 										++var3;
 									}
 								}
@@ -178,17 +178,17 @@ public class class_aae extends class_zu {
 		} else {
 			if (!j.D) {
 				List var6 = this.a(var3, var2, g[var2]);
-				boolean var7 = var3.b() == class_acq.aN;
+				boolean var7 = var3.b() == Items.aN;
 				if (var6 != null) {
 					var1.b(var5);
 					if (var7) {
-						var3.a(class_acq.ci);
+						var3.a(Items.ci);
 					}
 
 					for (int var8 = 0; var8 < var6.size(); ++var8) {
 						class_afm var9 = (class_afm) var6.get(var8);
 						if (var7) {
-							class_acq.ci.a(var3, var9);
+							Items.ci.a(var3, var9);
 						} else {
 							var3.a(var9.b, var9.c);
 						}
@@ -215,7 +215,7 @@ public class class_aae extends class_zu {
 	private List a(class_aco var1, int var2, int var3) {
 		l.setSeed(f + var2);
 		List var4 = class_afl.b(l, var1, var3);
-		if ((var1.b() == class_acq.aN) && (var4.size() > 1)) {
+		if ((var1.b() == Items.aN) && (var4.size() > 1)) {
 			var4.remove(l.nextInt(var4.size()));
 		}
 
@@ -238,7 +238,7 @@ public class class_aae extends class_zu {
 
 	@Override
 	public boolean a(class_yu var1) {
-		return j.p(k).c() != class_aim.bC ? false : var1.e(k.n() + 0.5D, k.o() + 0.5D, k.p() + 0.5D) <= 64.0D;
+		return j.p(k).c() != Blocks.bC ? false : var1.e(k.n() + 0.5D, k.o() + 0.5D, k.p() + 0.5D) <= 64.0D;
 	}
 
 	@Override
@@ -256,7 +256,7 @@ public class class_aae extends class_zu {
 				if (!this.a(var5, 2, 38, true)) {
 					return null;
 				}
-			} else if ((var5.b() == class_acq.aY) && (class_abt.a(var5.i()) == class_abt.l)) {
+			} else if ((var5.b() == Items.aY) && (class_abt.a(var5.i()) == class_abt.l)) {
 				if (!this.a(var5, 1, 2, true)) {
 					return null;
 				}

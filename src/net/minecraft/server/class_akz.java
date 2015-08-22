@@ -11,8 +11,8 @@ public class class_akz extends class_aks {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
-		var2.b(class_nh.a(class_ail.a(this)));
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
+		var2.b(class_nh.a(Block.a(this)));
 		var2.a(0.025F);
 		if (K() && (class_afl.a(class_afn.q, var6) > 0)) {
 			class_aco var9 = this.i(var4);
@@ -29,7 +29,7 @@ public class class_akz extends class_aks {
 			this.b(var1, var3, var4, var7);
 			class_avq var8 = var1.p(var3.b()).c().v();
 			if (var8.c() || var8.d()) {
-				var1.a(var3, class_aim.i.S());
+				var1.a(var3, Blocks.i.S());
 			}
 		}
 
@@ -47,7 +47,7 @@ public class class_akz extends class_aks {
 				var1.g(var2);
 			} else {
 				this.b(var1, var2, var1.p(var2), 0);
-				var1.a(var2, class_aim.j.S());
+				var1.a(var2, Blocks.j.S());
 			}
 		}
 	}

@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 
-public class class_abi extends class_acm {
-	private class_ail a;
+public class class_abi extends Item {
+	private Block a;
 
-	public class_abi(class_ail var1) {
+	public class_abi(Block var1) {
 		i = 1;
 		a = var1;
 		this.a(class_abp.f);
@@ -12,7 +12,7 @@ public class class_abi extends class_acm {
 
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
-		boolean var5 = a == class_aim.a;
+		boolean var5 = a == Blocks.a;
 		class_ayl var6 = this.a(var2, var3, var5);
 		if (var6 == null) {
 			return new class_px(class_pw.b, var1);
@@ -28,12 +28,12 @@ public class class_abi extends class_acm {
 					class_avq var9 = var10.c().v();
 					if ((var9 == class_avq.h) && (((Integer) var10.b(class_alf.b)).intValue() == 0)) {
 						var2.g(var7);
-						var3.b(class_nh.c(class_acm.b(this)));
-						return new class_px(class_pw.a, this.a(var1, var3, class_acq.az));
+						var3.b(class_nh.c(Item.b(this)));
+						return new class_px(class_pw.a, this.a(var1, var3, Items.az));
 					} else if ((var9 == class_avq.i) && (((Integer) var10.b(class_alf.b)).intValue() == 0)) {
 						var2.g(var7);
-						var3.b(class_nh.c(class_acm.b(this)));
-						return new class_px(class_pw.a, this.a(var1, var3, class_acq.aA));
+						var3.b(class_nh.c(Item.b(this)));
+						return new class_px(class_pw.a, this.a(var1, var3, Items.aA));
 					} else {
 						return new class_px(class_pw.c, var1);
 					}
@@ -43,8 +43,8 @@ public class class_abi extends class_acm {
 				if (!var3.a(var8, var6.b, var1)) {
 					return new class_px(class_pw.c, var1);
 				} else if (this.a(var2, var8)) {
-					var3.b(class_nh.c(class_acm.b(this)));
-					return !var3.bI.d ? new class_px(class_pw.a, new class_aco(class_acq.ay)) : new class_px(class_pw.a, var1);
+					var3.b(class_nh.c(Item.b(this)));
+					return !var3.bI.d ? new class_px(class_pw.a, new class_aco(Items.ay)) : new class_px(class_pw.a, var1);
 				} else {
 					return new class_px(class_pw.c, var1);
 				}
@@ -54,7 +54,7 @@ public class class_abi extends class_acm {
 		}
 	}
 
-	private class_aco a(class_aco var1, class_yu var2, class_acm var3) {
+	private class_aco a(class_aco var1, class_yu var2, Item var3) {
 		if (var2.bI.d) {
 			return var1;
 		} else if (--var1.b <= 0) {
@@ -69,7 +69,7 @@ public class class_abi extends class_acm {
 	}
 
 	public boolean a(class_ago var1, class_cj var2) {
-		if (a == class_aim.a) {
+		if (a == Blocks.a) {
 			return false;
 		} else {
 			class_avq var3 = var1.p(var2).c().v();
@@ -77,7 +77,7 @@ public class class_abi extends class_acm {
 			if (!var1.d(var2) && !var4) {
 				return false;
 			} else {
-				if (var1.t.l() && (a == class_aim.i)) {
+				if (var1.t.l() && (a == Blocks.i)) {
 					int var5 = var2.n();
 					int var6 = var2.o();
 					int var7 = var2.p();

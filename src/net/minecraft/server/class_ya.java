@@ -127,7 +127,7 @@ public class class_ya extends class_yc {
 			if (bx != null) {
 				return bx;
 			} else {
-				class_qx var1 = o.a(((Integer) ac.a(b)).intValue());
+				Entity var1 = o.a(((Integer) ac.a(b)).intValue());
 				if (var1 instanceof class_rg) {
 					bx = (class_rg) var1;
 					return bx;
@@ -326,17 +326,17 @@ public class class_ya extends class_yc {
 	protected void b(boolean var1, int var2) {
 		int var3 = V.nextInt(3) + V.nextInt(var2 + 1);
 		if (var3 > 0) {
-			this.a(new class_aco(class_acq.cH, var3, 0), 1.0F);
+			this.a(new class_aco(Items.cH, var3, 0), 1.0F);
 		}
 
 		if (V.nextInt(3 + var2) > 1) {
-			this.a(new class_aco(class_acq.aW, 1, class_acf.class_a_in_class_acf.a.a()), 1.0F);
+			this.a(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.a.a()), 1.0F);
 		} else if (V.nextInt(3 + var2) > 1) {
-			this.a(new class_aco(class_acq.cI), 1.0F);
+			this.a(new class_aco(Items.cI), 1.0F);
 		}
 
 		if (var1 && cG()) {
-			this.a(new class_aco(class_aim.v, 1, 1), 1.0F);
+			this.a(new class_aco(Blocks.v, 1, 1), 1.0F);
 		}
 
 	}
@@ -367,7 +367,7 @@ public class class_ya extends class_yc {
 		if (!this.n() && !var1.s() && (var1.i() instanceof class_rg)) {
 			class_rg var3 = (class_rg) var1.i();
 			if (!var1.c()) {
-				var3.a(class_qi.a((class_qx) this), 2.0F);
+				var3.a(class_qi.a((Entity) this), 2.0F);
 				var3.a("damage.thorns", 0.5F, 1.0F);
 			}
 		}

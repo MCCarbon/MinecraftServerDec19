@@ -33,7 +33,7 @@ public class class_qi {
 		return new class_qj("mob", var0);
 	}
 
-	public static class_qi a(class_qx var0, class_rg var1) {
+	public static class_qi a(Entity var0, class_rg var1) {
 		return new class_qk("mob", var0, var1);
 	}
 
@@ -41,23 +41,23 @@ public class class_qi {
 		return new class_qj("player", var0);
 	}
 
-	public static class_qi a(class_yx var0, class_qx var1) {
+	public static class_qi a(class_yx var0, Entity var1) {
 		return (new class_qk("arrow", var0, var1)).b();
 	}
 
-	public static class_qi a(class_za var0, class_qx var1) {
+	public static class_qi a(class_za var0, Entity var1) {
 		return var1 == null ? (new class_qk("onFire", var0, var0)).n().b() : (new class_qk("fireball", var0, var1)).n().b();
 	}
 
-	public static class_qi a(class_qx var0, class_qx var1) {
+	public static class_qi a(Entity var0, Entity var1) {
 		return (new class_qk("thrown", var0, var1)).b();
 	}
 
-	public static class_qi b(class_qx var0, class_qx var1) {
+	public static class_qi b(Entity var0, Entity var1) {
 		return (new class_qk("indirectMagic", var0, var1)).k().t();
 	}
 
-	public static class_qi a(class_qx var0) {
+	public static class_qi a(Entity var0) {
 		return (new class_qj("thorns", var0)).w().t();
 	}
 
@@ -107,11 +107,11 @@ public class class_qi {
 		q = var1;
 	}
 
-	public class_qx i() {
+	public Entity i() {
 		return j();
 	}
 
-	public class_qx j() {
+	public Entity j() {
 		return null;
 	}
 
@@ -171,7 +171,7 @@ public class class_qi {
 	}
 
 	public boolean u() {
-		class_qx var1 = j();
+		Entity var1 = j();
 		return (var1 instanceof class_yu) && ((class_yu) var1).bI.d;
 	}
 

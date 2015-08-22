@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_abz extends class_acm {
+public class class_abz extends Item {
 	public class_abz() {
 		this.a(class_abp.f);
 	}
@@ -9,12 +9,12 @@ public class class_abz extends class_acm {
 	@Override
 	public class_pw a(class_aco var1, class_yu var2, class_ago var3, class_cj var4, class_pu var5, class_cq var6, float var7, float var8, float var9) {
 		class_apn var10 = var3.p(var4);
-		if (var2.a(var4.a(var6), var6, var1) && (var10.c() == class_aim.bG) && !((Boolean) var10.b(class_ajv.b)).booleanValue()) {
+		if (var2.a(var4.a(var6), var6, var1) && (var10.c() == Blocks.bG) && !((Boolean) var10.b(class_ajv.b)).booleanValue()) {
 			if (var3.D) {
 				return class_pw.a;
 			} else {
 				var3.a(var4, var10.a(class_ajv.b, Boolean.valueOf(true)), 2);
-				var3.f(var4, class_aim.bG);
+				var3.f(var4, Blocks.bG);
 				--var1.b;
 
 				for (int var11 = 0; var11 < 16; ++var11) {
@@ -37,7 +37,7 @@ public class class_abz extends class_acm {
 				for (int var17 = -2; var17 <= 2; ++var17) {
 					class_cj var29 = var4.a(var27, var17);
 					class_apn var19 = var3.p(var29);
-					if (var19.c() == class_aim.bG) {
+					if (var19.c() == Blocks.bG) {
 						if (!((Boolean) var19.b(class_ajv.b)).booleanValue()) {
 							var15 = false;
 							break;
@@ -58,7 +58,7 @@ public class class_abz extends class_acm {
 					for (var30 = var25; var30 <= var13; ++var30) {
 						class_cj var31 = var28.a(var27, var30);
 						class_apn var33 = var3.p(var31);
-						if ((var33.c() != class_aim.bG) || !((Boolean) var33.b(class_ajv.b)).booleanValue()) {
+						if ((var33.c() != Blocks.bG) || !((Boolean) var33.b(class_ajv.b)).booleanValue()) {
 							var15 = false;
 							break;
 						}
@@ -72,7 +72,7 @@ public class class_abz extends class_acm {
 						for (var32 = 1; var32 <= 3; ++var32) {
 							var34 = var28.a(var24, var32);
 							class_apn var21 = var3.p(var34);
-							if ((var21.c() != class_aim.bG) || !((Boolean) var21.b(class_ajv.b)).booleanValue()) {
+							if ((var21.c() != Blocks.bG) || !((Boolean) var21.b(class_ajv.b)).booleanValue()) {
 								var15 = false;
 								break;
 							}
@@ -85,7 +85,7 @@ public class class_abz extends class_acm {
 
 							for (var32 = 1; var32 <= 3; ++var32) {
 								var34 = var28.a(var24, var32);
-								var3.a(var34, class_aim.bF.S(), 2);
+								var3.a(var34, Blocks.bF.S(), 2);
 							}
 						}
 					}
@@ -101,7 +101,7 @@ public class class_abz extends class_acm {
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
 		class_ayl var5 = this.a(var2, var3, false);
-		if ((var5 != null) && (var5.a == class_ayl.class_a_in_class_ayl.b) && (var2.p(var5.a()).c() == class_aim.bG)) {
+		if ((var5 != null) && (var5.a == class_ayl.class_a_in_class_ayl.b) && (var2.p(var5.a()).c() == Blocks.bG)) {
 			return new class_px(class_pw.b, var1);
 		} else {
 			if (!var2.D) {
@@ -110,13 +110,13 @@ public class class_abz extends class_acm {
 					class_yz var7 = new class_yz(var2, var3.s, var3.t, var3.u);
 					var7.a(var6);
 					var2.a(var7);
-					var2.a((class_qx) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
+					var2.a((Entity) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
 					var2.a((class_yu) null, 1002, new class_cj(var3), 0);
 					if (!var3.bI.d) {
 						--var1.b;
 					}
 
-					var3.b(class_nh.c(class_acm.b(this)));
+					var3.b(class_nh.c(Item.b(this)));
 					return new class_px(class_pw.a, var1);
 				}
 			}

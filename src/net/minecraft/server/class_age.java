@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Callable;
 
-public abstract class class_age implements class_m {
+public abstract class class_age implements ICommandListener {
 	private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
 	private int b;
 	private boolean c = true;

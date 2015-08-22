@@ -55,17 +55,17 @@ public class class_aub extends class_auo {
 		}
 
 		private void a(class_ago var1, class_aru var2, Random var3, int var4, int var5) {
-			class_ail.class_c_in_class_ail var6 = class_ail.class_c_in_class_ail.values()[var3.nextInt(class_ail.class_c_in_class_ail.values().length)];
+			Block.class_c_in_class_ail var6 = Block.class_c_in_class_ail.values()[var3.nextInt(Block.class_c_in_class_ail.values().length)];
 			class_arl var7 = new class_arl();
 			var2.a(var4, var5, var7);
 			byte var8 = 5;
 			byte var9 = 5;
-			if (var6 == class_ail.class_c_in_class_ail.b) {
+			if (var6 == Block.class_c_in_class_ail.b) {
 				var8 = -5;
-			} else if (var6 == class_ail.class_c_in_class_ail.c) {
+			} else if (var6 == Block.class_c_in_class_ail.c) {
 				var8 = -5;
 				var9 = -5;
-			} else if (var6 == class_ail.class_c_in_class_ail.d) {
+			} else if (var6 == Block.class_c_in_class_ail.d) {
 				var9 = -5;
 			}
 

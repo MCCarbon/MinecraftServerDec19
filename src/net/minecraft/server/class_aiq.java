@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aiq extends class_ail {
+public class class_aiq extends Block {
 	protected class_aiq() {
 		this(class_avq.k);
 	}
@@ -24,12 +24,12 @@ public class class_aiq extends class_ail {
 		return super.c(var1, var2) && this.c(var1.p(var2.b()).c());
 	}
 
-	protected boolean c(class_ail var1) {
-		return (var1 == class_aim.c) || (var1 == class_aim.d) || (var1 == class_aim.ak);
+	protected boolean c(Block var1) {
+		return (var1 == Blocks.c) || (var1 == Blocks.d) || (var1 == Blocks.ak);
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		super.a(var1, var2, var3, var4);
 		this.f(var1, var2, var3);
 	}
@@ -42,7 +42,7 @@ public class class_aiq extends class_ail {
 	protected void f(class_ago var1, class_cj var2, class_apn var3) {
 		if (!this.g(var1, var2, var3)) {
 			this.b(var1, var2, var3, 0);
-			var1.a(var2, class_aim.a.S(), 3);
+			var1.a(var2, Blocks.a.S(), 3);
 		}
 
 	}

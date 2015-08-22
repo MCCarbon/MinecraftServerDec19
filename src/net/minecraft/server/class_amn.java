@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_amn extends class_ail {
+public class class_amn extends Block {
 	private final boolean a;
 
 	public class_amn(boolean var1) {
@@ -18,21 +18,21 @@ public class class_amn extends class_ail {
 	public void d(class_ago var1, class_cj var2, class_apn var3) {
 		if (!var1.D) {
 			if (a && !var1.z(var2)) {
-				var1.a(var2, class_aim.bJ.S(), 2);
+				var1.a(var2, Blocks.bJ.S(), 2);
 			} else if (!a && var1.z(var2)) {
-				var1.a(var2, class_aim.bK.S(), 2);
+				var1.a(var2, Blocks.bK.S(), 2);
 			}
 
 		}
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D) {
 			if (a && !var1.z(var2)) {
 				var1.a(var2, this, 4);
 			} else if (!a && var1.z(var2)) {
-				var1.a(var2, class_aim.bK.S(), 2);
+				var1.a(var2, Blocks.bK.S(), 2);
 			}
 
 		}
@@ -42,24 +42,24 @@ public class class_amn extends class_ail {
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
 		if (!var1.D) {
 			if (a && !var1.z(var2)) {
-				var1.a(var2, class_aim.bJ.S(), 2);
+				var1.a(var2, Blocks.bJ.S(), 2);
 			}
 
 		}
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acm.a(class_aim.bJ);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Item.a(Blocks.bJ);
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_aim.bJ);
+		return new class_aco(Blocks.bJ);
 	}
 
 	@Override
 	protected class_aco i(class_apn var1) {
-		return new class_aco(class_aim.bJ);
+		return new class_aco(Blocks.bJ);
 	}
 }

@@ -25,9 +25,9 @@ public class class_vk extends class_vc {
 		h.a(2.5F);
 		i.a(1, new class_so(this));
 		i.a(1, new class_vk.class_g_in_class_vk(this, 1.33D));
-		i.a(2, new class_tw(this, 1.0D, class_acq.bW, false));
-		i.a(2, new class_tw(this, 1.0D, class_acq.cb, false));
-		i.a(2, new class_tw(this, 1.0D, class_acm.a(class_aim.N), false));
+		i.a(2, new class_tw(this, 1.0D, Items.bW, false));
+		i.a(2, new class_tw(this, 1.0D, Items.cb, false));
+		i.a(2, new class_tw(this, 1.0D, Item.a(Blocks.N), false));
 		i.a(3, new class_sj(this, 0.8D));
 		i.a(5, new class_vk.class_h_in_class_vk(this));
 		i.a(5, new class_tn(this, 0.6D));
@@ -218,7 +218,7 @@ public class class_vk extends class_vc {
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		if (cG() == 99) {
 			this.a("mob.attack", 1.0F, ((V.nextFloat() - V.nextFloat()) * 0.2F) + 1.0F);
 			return var1.a(class_qi.a(this), 8.0F);
@@ -239,7 +239,7 @@ public class class_vk extends class_vc {
 
 	@Override
 	protected void bx() {
-		this.a(new class_aco(class_acq.bt, 1), 0.0F);
+		this.a(new class_aco(Items.bt, 1), 0.0F);
 	}
 
 	@Override
@@ -248,23 +248,23 @@ public class class_vk extends class_vc {
 
 		int var4;
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.bu, 1);
+			this.a(Items.bu, 1);
 		}
 
 		var3 = V.nextInt(2);
 
 		for (var4 = 0; var4 < var3; ++var4) {
 			if (ay()) {
-				this.a(class_acq.br, 1);
+				this.a(Items.br, 1);
 			} else {
-				this.a(class_acq.bq, 1);
+				this.a(Items.bq, 1);
 			}
 		}
 
 	}
 
-	private boolean a(class_acm var1) {
-		return (var1 == class_acq.bW) || (var1 == class_acq.cb) || (var1 == class_acm.a(class_aim.N));
+	private boolean a(Item var1) {
+		return (var1 == Items.bW) || (var1 == Items.cb) || (var1 == Item.a(Blocks.N));
 	}
 
 	public class_vk b(class_qu var1) {
@@ -329,9 +329,9 @@ public class class_vk extends class_vc {
 	}
 
 	protected void cI() {
-		class_aiu var1 = (class_aiu) class_aim.cb;
+		class_aiu var1 = (class_aiu) Blocks.cb;
 		class_apn var2 = var1.b(var1.n());
-		o.a(class_cy.M, (s + V.nextFloat() * J * 2.0F) - J, t + 0.5D + V.nextFloat() * K, (u + V.nextFloat() * J * 2.0F) - J, 0.0D, 0.0D, 0.0D, new int[] { class_ail.f(var2) });
+		o.a(class_cy.M, (s + V.nextFloat() * J * 2.0F) - J, t + 0.5D + V.nextFloat() * K, (u + V.nextFloat() * J * 2.0F) - J, 0.0D, 0.0D, 0.0D, new int[] { Block.f(var2) });
 		bC = 100;
 	}
 
@@ -454,9 +454,9 @@ public class class_vk extends class_vc {
 				class_ago var1 = c.o;
 				class_cj var2 = b.a();
 				class_apn var3 = var1.p(var2);
-				class_ail var4 = var3.c();
+				Block var4 = var3.c();
 				if (e && (var4 instanceof class_aiu) && ((class_aiu) var4).e(var3)) {
-					var1.a(var2, class_aim.a.S(), 2);
+					var1.a(var2, Blocks.a.S(), 2);
 					var1.b(var2, true);
 					c.cI();
 				}
@@ -469,8 +469,8 @@ public class class_vk extends class_vc {
 
 		@Override
 		protected boolean a(class_ago var1, class_cj var2) {
-			class_ail var3 = var1.p(var2).c();
-			if (var3 == class_aim.ak) {
+			Block var3 = var1.p(var2).c();
+			if (var3 == Blocks.ak) {
 				var2 = var2.a();
 				class_apn var4 = var1.p(var2);
 				var3 = var4.c();

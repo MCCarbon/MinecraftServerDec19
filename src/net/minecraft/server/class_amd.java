@@ -29,7 +29,7 @@ public class class_amd extends class_aig {
 		List var4;
 		switch (class_amd.SyntheticClass_1.a[b.ordinal()]) {
 			case 1:
-				var4 = var1.b((class_qx) null, var3);
+				var4 = var1.b((Entity) null, var3);
 				break;
 			case 2:
 				var4 = var1.a(class_rg.class, var3);
@@ -42,7 +42,7 @@ public class class_amd extends class_aig {
 			Iterator var5 = var4.iterator();
 
 			while (var5.hasNext()) {
-				class_qx var6 = (class_qx) var5.next();
+				Entity var6 = (Entity) var5.next();
 				if (!var6.aO()) {
 					return 15;
 				}

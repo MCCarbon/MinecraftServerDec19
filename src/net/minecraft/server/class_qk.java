@@ -2,20 +2,20 @@ package net.minecraft.server;
 
 
 public class class_qk extends class_qj {
-	private final class_qx s;
+	private final Entity s;
 
-	public class_qk(String var1, class_qx var2, class_qx var3) {
+	public class_qk(String var1, Entity var2, Entity var3) {
 		super(var1, var2);
 		s = var3;
 	}
 
 	@Override
-	public class_qx i() {
+	public Entity i() {
 		return r;
 	}
 
 	@Override
-	public class_qx j() {
+	public Entity j() {
 		return s;
 	}
 

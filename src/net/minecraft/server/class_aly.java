@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aly extends class_ail {
+public class class_aly extends Block {
 	public static final class_aqa a = class_aqa.a("variant", class_aly.class_a_in_class_aly.class);
 
 	public class_aly() {

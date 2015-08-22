@@ -14,7 +14,7 @@ public class class_sd {
 		a = var1;
 	}
 
-	public void a(class_qx var1, float var2, float var3) {
+	public void a(Entity var1, float var2, float var3) {
 		e = var1.s;
 		if (var1 instanceof class_rg) {
 			f = var1.t + var1.aY();

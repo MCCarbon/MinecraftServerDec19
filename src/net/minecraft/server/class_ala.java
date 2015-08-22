@@ -24,7 +24,7 @@ public class class_ala extends class_aif {
 
 	public void a(class_ago var1, class_cj var2, class_apn var3, class_aco var4) {
 		if (!var1.D) {
-			class_aoi var5 = var1.s(var2);
+			TileEntity var5 = var1.s(var2);
 			if (var5 instanceof class_ala.class_a_in_class_ala) {
 				((class_ala.class_a_in_class_ala) var5).a(var4.k());
 				var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
@@ -34,7 +34,7 @@ public class class_ala extends class_aif {
 
 	private void f(class_ago var1, class_cj var2, class_apn var3) {
 		if (!var1.D) {
-			class_aoi var4 = var1.s(var2);
+			TileEntity var4 = var1.s(var2);
 			if (var4 instanceof class_ala.class_a_in_class_ala) {
 				class_ala.class_a_in_class_ala var5 = (class_ala.class_a_in_class_ala) var4;
 				class_aco var6 = var5.a();
@@ -69,7 +69,7 @@ public class class_ala extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_ala.class_a_in_class_ala();
 	}
 
@@ -80,11 +80,11 @@ public class class_ala extends class_aif {
 
 	@Override
 	public int j(class_ago var1, class_cj var2) {
-		class_aoi var3 = var1.s(var2);
+		TileEntity var3 = var1.s(var2);
 		if (var3 instanceof class_ala.class_a_in_class_ala) {
 			class_aco var4 = ((class_ala.class_a_in_class_ala) var3).a();
 			if (var4 != null) {
-				return (class_acm.b(var4.b()) + 1) - class_acm.b(class_acq.cv);
+				return (Item.b(var4.b()) + 1) - Item.b(Items.cv);
 			}
 		}
 
@@ -111,7 +111,7 @@ public class class_ala extends class_aif {
 		return new class_apo(this, new class_aqc[] { a });
 	}
 
-	public static class class_a_in_class_ala extends class_aoi {
+	public static class class_a_in_class_ala extends TileEntity {
 		private class_aco a;
 
 		@Override
@@ -120,7 +120,7 @@ public class class_ala extends class_aif {
 			if (var1.b("RecordItem", 10)) {
 				this.a(class_aco.a(var1.o("RecordItem")));
 			} else if (var1.h("Record") > 0) {
-				this.a(new class_aco(class_acm.c(var1.h("Record"))));
+				this.a(new class_aco(Item.c(var1.h("Record"))));
 			}
 
 		}

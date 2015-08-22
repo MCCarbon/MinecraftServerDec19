@@ -52,7 +52,7 @@ public class class_sh extends class_sr {
 			class_pu var5 = var2[var4];
 			class_aco var6 = var1.b(var5);
 			if (var6 != null) {
-				if (a.cE() && (var6.b() == class_acq.aZ)) {
+				if (a.cE() && (var6.b() == Items.aZ)) {
 					return true;
 				}
 

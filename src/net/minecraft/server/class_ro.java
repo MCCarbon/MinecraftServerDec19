@@ -143,7 +143,7 @@ public abstract class class_ro extends class_vc implements class_rm {
 	}
 
 	@Override
-	public boolean k(class_qx var1) {
+	public boolean k(Entity var1) {
 		if (cE()) {
 			class_rg var2 = cH();
 			if (var1 == var2) {
@@ -169,7 +169,7 @@ public abstract class class_ro extends class_vc implements class_rm {
 
 	// $FF: synthetic method
 	@Override
-	public class_qx l_() {
+	public Entity l_() {
 		return cH();
 	}
 

@@ -10,7 +10,7 @@ public class class_atf extends class_asp {
 	private final Predicate c;
 
 	public class_atf(class_apn var1, int var2) {
-		this(var1, var2, class_apu.a(class_aim.b));
+		this(var1, var2, class_apu.a(Blocks.b));
 	}
 
 	public class_atf(class_apn var1, int var2, Predicate var3) {

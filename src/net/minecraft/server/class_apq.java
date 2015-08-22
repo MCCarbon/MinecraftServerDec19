@@ -7,7 +7,7 @@ public class class_apq {
 	private final class_cj b;
 	private final boolean c;
 	private class_apn d;
-	private class_aoi e;
+	private TileEntity e;
 	private boolean f;
 
 	public class_apq(class_ago var1, class_cj var2, boolean var3) {
@@ -24,7 +24,7 @@ public class class_apq {
 		return d;
 	}
 
-	public class_aoi b() {
+	public TileEntity b() {
 		if ((e == null) && !f) {
 			e = a.s(b);
 			f = true;

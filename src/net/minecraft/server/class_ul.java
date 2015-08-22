@@ -30,11 +30,11 @@ public class class_ul extends class_um {
 	private int p() {
 		if (b.Y() && h()) {
 			int var1 = (int) b.aX().b;
-			class_ail var2 = c.p(new class_cj(class_oa.c(b.s), var1, class_oa.c(b.u))).c();
+			Block var2 = c.p(new class_cj(class_oa.c(b.s), var1, class_oa.c(b.u))).c();
 			int var3 = 0;
 
 			do {
-				if ((var2 != class_aim.i) && (var2 != class_aim.j)) {
+				if ((var2 != Blocks.i) && (var2 != Blocks.j)) {
 					return var1;
 				}
 
@@ -141,7 +141,7 @@ public class class_ul extends class_um {
 					double var16 = (var14 + 0.5D) - var7.a;
 					double var18 = (var15 + 0.5D) - var7.c;
 					if (((var16 * var8) + (var18 * var10)) >= 0.0D) {
-						class_ail var20 = c.p(new class_cj(var14, var2 - 1, var15)).c();
+						Block var20 = c.p(new class_cj(var14, var2 - 1, var15)).c();
 						class_avq var21 = var20.v();
 						if (var21 == class_avq.a) {
 							return false;
@@ -170,7 +170,7 @@ public class class_ul extends class_um {
 			double var14 = (var13.n() + 0.5D) - var7.a;
 			double var16 = (var13.p() + 0.5D) - var7.c;
 			if (((var14 * var8) + (var16 * var10)) >= 0.0D) {
-				class_ail var18 = c.p(var13).c();
+				Block var18 = c.p(var13).c();
 				if (!var18.b(c, var13)) {
 					return false;
 				}

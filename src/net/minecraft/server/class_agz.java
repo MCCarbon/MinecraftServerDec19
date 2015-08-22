@@ -3,13 +3,13 @@ package net.minecraft.server;
 
 public class class_agz implements Comparable {
 	private static long d;
-	private final class_ail e;
+	private final Block e;
 	public final class_cj a;
 	public long b;
 	public int c;
 	private long f;
 
-	public class_agz(class_cj var1, class_ail var2) {
+	public class_agz(class_cj var1, Block var2) {
 		f = (d++);
 		a = var1;
 		e = var2;
@@ -21,7 +21,7 @@ public class class_agz implements Comparable {
 			return false;
 		} else {
 			class_agz var2 = (class_agz) var1;
-			return a.equals(var2.a) && class_ail.a(e, var2.e);
+			return a.equals(var2.a) && Block.a(e, var2.e);
 		}
 	}
 
@@ -45,10 +45,10 @@ public class class_agz implements Comparable {
 
 	@Override
 	public String toString() {
-		return class_ail.a(e) + ": " + a + ", " + b + ", " + c + ", " + f;
+		return Block.a(e) + ": " + a + ", " + b + ", " + c + ", " + f;
 	}
 
-	public class_ail a() {
+	public Block a() {
 		return e;
 	}
 

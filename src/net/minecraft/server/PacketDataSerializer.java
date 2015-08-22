@@ -193,7 +193,7 @@ public class PacketDataSerializer extends ByteBuf {
 		if (var1 == null) {
 			writeShort(-1);
 		} else {
-			writeShort(class_acm.b(var1.b()));
+			writeShort(Item.b(var1.b()));
 			writeByte(var1.b);
 			writeShort(var1.i());
 			class_dn var2 = null;
@@ -212,7 +212,7 @@ public class PacketDataSerializer extends ByteBuf {
 		if (var2 >= 0) {
 			byte var3 = readByte();
 			short var4 = readShort();
-			var1 = new class_aco(class_acm.c(var2), var3, var4);
+			var1 = new class_aco(Item.c(var2), var3, var4);
 			var1.d(j());
 		}
 

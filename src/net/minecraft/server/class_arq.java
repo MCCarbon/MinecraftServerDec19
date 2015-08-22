@@ -102,7 +102,7 @@ public class class_arq extends class_arr {
 							for (int var44 = var38 + 1; !var59 && (var44 >= (var57 - 1)); --var44) {
 								if ((var44 >= 0) && (var44 < 256)) {
 									class_apn var45 = var5.a(var42, var44, var43);
-									if ((var45.c() == class_aim.i) || (var45.c() == class_aim.j)) {
+									if ((var45.c() == Blocks.i) || (var45.c() == Blocks.j)) {
 										var59 = true;
 									}
 
@@ -128,21 +128,21 @@ public class class_arq extends class_arr {
 										double var51 = ((var50 - 1 + 0.5D) - var8) / var31;
 										if ((var51 > -0.7D) && (((var61 * var61) + (var51 * var51) + (var47 * var47)) < 1.0D)) {
 											class_apn var53 = var5.a(var43, var50, var46);
-											class_apn var54 = Objects.firstNonNull(var5.a(var43, var50 + 1, var46), class_aim.a.S());
-											if ((var53.c() == class_aim.c) || (var53.c() == class_aim.bw)) {
+											class_apn var54 = Objects.firstNonNull(var5.a(var43, var50 + 1, var46), Blocks.a.S());
+											if ((var53.c() == Blocks.c) || (var53.c() == Blocks.bw)) {
 												var49 = true;
 											}
 
 											if (this.a(var53, var54)) {
 												if ((var50 - 1) < 10) {
-													var5.a(var43, var50, var46, class_aim.l.S());
+													var5.a(var43, var50, var46, Blocks.l.S());
 												} else {
-													var5.a(var43, var50, var46, class_aim.a.S());
-													if (var54.c() == class_aim.m) {
-														var5.a(var43, var50 + 1, var46, var54.b(class_ams.a) == class_ams.class_a_in_class_ams.b ? class_aim.cM.S() : class_aim.A.S());
+													var5.a(var43, var50, var46, Blocks.a.S());
+													if (var54.c() == Blocks.m) {
+														var5.a(var43, var50 + 1, var46, var54.b(class_ams.a) == class_ams.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.A.S());
 													}
 
-													if (var49 && (var5.a(var43, var50 - 1, var46).c() == class_aim.d)) {
+													if (var49 && (var5.a(var43, var50 - 1, var46).c() == Blocks.d)) {
 														var60.c(var43 + (var3 * 16), 0, var46 + (var4 * 16));
 														var5.a(var43, var50 - 1, var46, c.b(var60).ak.c().S());
 													}
@@ -165,7 +165,7 @@ public class class_arq extends class_arr {
 	}
 
 	protected boolean a(class_apn var1, class_apn var2) {
-		return var1.c() == class_aim.b ? true : (var1.c() == class_aim.d ? true : (var1.c() == class_aim.c ? true : (var1.c() == class_aim.cz ? true : (var1.c() == class_aim.cu ? true : (var1.c() == class_aim.A ? true : (var1.c() == class_aim.cM ? true : (var1.c() == class_aim.bw ? true : (var1.c() == class_aim.aH ? true : ((var1.c() == class_aim.m) || (var1.c() == class_aim.n)) && (var2.c().v() != class_avq.h)))))))));
+		return var1.c() == Blocks.b ? true : (var1.c() == Blocks.d ? true : (var1.c() == Blocks.c ? true : (var1.c() == Blocks.cz ? true : (var1.c() == Blocks.cu ? true : (var1.c() == Blocks.A ? true : (var1.c() == Blocks.cM ? true : (var1.c() == Blocks.bw ? true : (var1.c() == Blocks.aH ? true : ((var1.c() == Blocks.m) || (var1.c() == Blocks.n)) && (var2.c().v() != class_avq.h)))))))));
 	}
 
 	@Override

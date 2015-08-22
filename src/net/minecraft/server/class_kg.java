@@ -9,7 +9,7 @@ public abstract class class_kg extends class_cn {
 		class_cq var5 = class_ajm.b(var1.f());
 		class_zd var6 = this.a(var3, var4, var2);
 		var6.c(var5.g(), var5.h() + 0.1F, var5.i(), this.b(), this.a());
-		var3.a((class_qx) var6);
+		var3.a((Entity) var6);
 		var2.a(1);
 		return var2;
 	}

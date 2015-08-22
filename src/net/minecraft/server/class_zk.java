@@ -17,7 +17,7 @@ public class class_zk extends class_zj {
 	@Override
 	protected void a(class_ayl var1) {
 		if (var1.d != null) {
-			var1.d.a(class_qi.a((class_qx) this, (class_qx) this.j()), 0.0F);
+			var1.d.a(class_qi.a((Entity) this, (Entity) this.j()), 0.0F);
 		}
 
 		if (!o.D && (V.nextInt(8) == 0)) {
@@ -37,7 +37,7 @@ public class class_zk extends class_zj {
 		double var5 = 0.08D;
 
 		for (int var6 = 0; var6 < 8; ++var6) {
-			o.a(class_cy.K, s, t, u, (V.nextFloat() - 0.5D) * 0.08D, (V.nextFloat() - 0.5D) * 0.08D, (V.nextFloat() - 0.5D) * 0.08D, new int[] { class_acm.b(class_acq.aR) });
+			o.a(class_cy.K, s, t, u, (V.nextFloat() - 0.5D) * 0.08D, (V.nextFloat() - 0.5D) * 0.08D, (V.nextFloat() - 0.5D) * 0.08D, new int[] { Item.b(Items.aR) });
 		}
 
 		if (!o.D) {

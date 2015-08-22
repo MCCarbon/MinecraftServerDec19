@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.google.common.collect.Maps;
 
-public abstract class class_xh extends class_qx implements class_qb {
+public abstract class class_xh extends Entity implements class_qb {
 	private static final class_jz a;
 	private static final class_jz b;
 	private static final class_jz c;
@@ -63,7 +63,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 	}
 
 	@Override
-	public class_ayk j(class_qx var1) {
+	public class_ayk j(Entity var1) {
 		return var1.ah() ? var1.aX() : null;
 	}
 
@@ -106,7 +106,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 				boolean var3 = (var1.j() instanceof class_yu) && ((class_yu) var1.j()).bI.d;
 				if (var3 || (p() > 40.0F)) {
 					if (l != null) {
-						l.a((class_qx) null);
+						l.a((Entity) null);
 					}
 
 					if (var3 && !k_()) {
@@ -126,7 +126,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 	public void a(class_qi var1) {
 		L();
 		if (o.S().b("doEntityDrops")) {
-			class_aco var2 = new class_aco(class_acq.aB, 1);
+			class_aco var2 = new class_aco(Items.aB, 1);
 			if (h != null) {
 				var2.c(h);
 			}
@@ -231,7 +231,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 			class_apn var5 = o.p(var4);
 			if (class_aih.d(var5)) {
 				this.a(var4, var5);
-				if (var5.c() == class_aim.cs) {
+				if (var5.c() == Blocks.cs) {
 					this.a(var14, var2, var16, ((Boolean) var5.b(class_amc.N)).booleanValue());
 				}
 			} else {
@@ -259,7 +259,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 			Iterator var12 = o.b(this, aX().b(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
 
 			while (var12.hasNext()) {
-				class_qx var13 = (class_qx) var12.next();
+				Entity var13 = (Entity) var12.next();
 				if ((var13 != l) && var13.ah() && (var13 instanceof class_xh)) {
 					var13.i(this);
 				}
@@ -310,7 +310,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 		boolean var4 = false;
 		boolean var5 = false;
 		class_aih var6 = (class_aih) var2.c();
-		if (var6 == class_aim.D) {
+		if (var6 == Blocks.D) {
 			var4 = ((Boolean) var2.b(class_amc.N)).booleanValue();
 			var5 = !var4;
 		}
@@ -545,15 +545,15 @@ public abstract class class_xh extends class_qx implements class_qb {
 	@Override
 	protected void a(class_dn var1) {
 		if (var1.p("CustomDisplayTile")) {
-			class_ail var2;
+			Block var2;
 			if (var1.b("DisplayTile", 8)) {
-				var2 = class_ail.b(var1.l("DisplayTile"));
+				var2 = Block.b(var1.l("DisplayTile"));
 			} else {
-				var2 = class_ail.c(var1.h("DisplayTile"));
+				var2 = Block.c(var1.h("DisplayTile"));
 			}
 
 			int var3 = var1.h("DisplayData");
-			this.a(var2 == null ? class_aim.a.S() : var2.a(var3));
+			this.a(var2 == null ? Blocks.a.S() : var2.a(var3));
 			this.k(var1.h("DisplayOffset"));
 		}
 
@@ -568,7 +568,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 		if (x()) {
 			var1.a("CustomDisplayTile", true);
 			class_apn var2 = t();
-			class_ke var3 = (class_ke) class_ail.c.b(var2.c());
+			class_ke var3 = (class_ke) Block.c.b(var2.c());
 			var1.a("DisplayTile", var3 == null ? "" : var3.toString());
 			var1.a("DisplayData", var2.c().c(var2));
 			var1.a("DisplayOffset", v());
@@ -581,7 +581,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 	}
 
 	@Override
-	public void i(class_qx var1) {
+	public void i(Entity var1) {
 		if (!o.D) {
 			if (!var1.T && !T) {
 				if (var1 != l) {
@@ -681,11 +681,11 @@ public abstract class class_xh extends class_qx implements class_qb {
 	public abstract class_xh.class_a_in_class_xh s();
 
 	public class_apn t() {
-		return !x() ? u() : class_ail.d(((Integer) J().a(d)).intValue());
+		return !x() ? u() : Block.d(((Integer) J().a(d)).intValue());
 	}
 
 	public class_apn u() {
-		return class_aim.a.S();
+		return Blocks.a.S();
 	}
 
 	public int v() {
@@ -697,7 +697,7 @@ public abstract class class_xh extends class_qx implements class_qb {
 	}
 
 	public void a(class_apn var1) {
-		J().b(d, Integer.valueOf(class_ail.f(var1)));
+		J().b(d, Integer.valueOf(Block.f(var1)));
 		this.a(true);
 	}
 

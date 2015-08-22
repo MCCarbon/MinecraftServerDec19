@@ -16,13 +16,13 @@ public class class_aik extends class_ajf {
 	}
 
 	@Override
-	protected class_acm o() {
-		return class_acq.cN;
+	protected Item o() {
+		return Items.cN;
 	}
 
 	@Override
-	protected class_acm p() {
-		return class_acq.cO;
+	protected Item p() {
+		return Items.cO;
 	}
 
 	@Override

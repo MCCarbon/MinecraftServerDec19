@@ -15,14 +15,14 @@ public class class_xc extends class_xb {
 		c = V.nextInt(3) + 1;
 		class_cj var8 = new class_cj(this);
 		if (!var1.D && var1.S().b("doFireTick") && ((var1.ac() == class_ps.c) || (var1.ac() == class_ps.d)) && var1.a(var8, 10)) {
-			if ((var1.p(var8).c().v() == class_avq.a) && class_aim.ab.c(var1, var8)) {
-				var1.a(var8, class_aim.ab.S());
+			if ((var1.p(var8).c().v() == class_avq.a) && Blocks.ab.c(var1, var8)) {
+				var1.a(var8, Blocks.ab.S());
 			}
 
 			for (int var9 = 0; var9 < 4; ++var9) {
 				class_cj var10 = var8.a(V.nextInt(3) - 1, V.nextInt(3) - 1, V.nextInt(3) - 1);
-				if ((var1.p(var10).c().v() == class_avq.a) && class_aim.ab.c(var1, var10)) {
-					var1.a(var10, class_aim.ab.S());
+				if ((var1.p(var10).c().v() == class_avq.a) && Blocks.ab.c(var1, var10)) {
+					var1.a(var10, Blocks.ab.S());
 				}
 			}
 		}
@@ -46,8 +46,8 @@ public class class_xc extends class_xb {
 				b = 1;
 				a = V.nextLong();
 				class_cj var1 = new class_cj(this);
-				if (!o.D && o.S().b("doFireTick") && o.a(var1, 10) && (o.p(var1).c().v() == class_avq.a) && class_aim.ab.c(o, var1)) {
-					o.a(var1, class_aim.ab.S());
+				if (!o.D && o.S().b("doFireTick") && o.a(var1, 10) && (o.p(var1).c().v() == class_avq.a) && Blocks.ab.c(o, var1)) {
+					o.a(var1, Blocks.ab.S());
 				}
 			}
 		}
@@ -60,7 +60,7 @@ public class class_xc extends class_xb {
 				List var3 = o.b(this, (new class_ayk(s - var6, t - var6, u - var6, s + var6, t + 6.0D + var6, u + var6)));
 
 				for (int var4 = 0; var4 < var3.size(); ++var4) {
-					class_qx var5 = (class_qx) var3.get(var4);
+					Entity var5 = (Entity) var3.get(var4);
 					var5.a(this);
 				}
 			}

@@ -20,7 +20,7 @@ public class class_j implements class_l {
 	private final Set c = Sets.newHashSet();
 
 	@Override
-	public int a(class_m var1, String var2) {
+	public int a(ICommandListener var1, String var2) {
 		var2 = var2.trim();
 		if (var2.startsWith("/")) {
 			var2 = var2.substring(1);
@@ -39,13 +39,13 @@ public class class_j implements class_l {
 			var1.a(var8);
 		} else if (var5.a(var1)) {
 			if (var6 > -1) {
-				List var12 = class_o.b(var1, var3[var6], class_qx.class);
+				List var12 = class_o.b(var1, var3[var6], Entity.class);
 				String var9 = var3[var6];
 				var1.a(class_n.class_a_in_class_n.c, var12.size());
 				Iterator var10 = var12.iterator();
 
 				while (var10.hasNext()) {
-					class_qx var11 = (class_qx) var10.next();
+					Entity var11 = (Entity) var10.next();
 					var3[var6] = var11.aQ().toString();
 					if (this.a(var1, var3, var5, var2)) {
 						++var7;
@@ -69,7 +69,7 @@ public class class_j implements class_l {
 		return var7;
 	}
 
-	protected boolean a(class_m var1, String[] var2, class_k var3, String var4) {
+	protected boolean a(ICommandListener var1, String[] var2, class_k var3, String var4) {
 		class_fb var6;
 		try {
 			var3.a(var1, var2);
@@ -120,7 +120,7 @@ public class class_j implements class_l {
 	}
 
 	@Override
-	public List a(class_m var1, String var2, class_cj var3) {
+	public List a(ICommandListener var1, String var2, class_cj var3) {
 		String[] var4 = var2.split(" ", -1);
 		String var5 = var4[0];
 		if (var4.length == 1) {
@@ -148,7 +148,7 @@ public class class_j implements class_l {
 	}
 
 	@Override
-	public List a(class_m var1) {
+	public List a(ICommandListener var1) {
 		ArrayList var2 = Lists.newArrayList();
 		Iterator var3 = c.iterator();
 

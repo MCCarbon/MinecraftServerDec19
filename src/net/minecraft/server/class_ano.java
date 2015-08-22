@@ -23,8 +23,8 @@ public class class_ano extends class_aiq implements class_ain {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return var2.nextInt(8) == 0 ? class_acq.P : null;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return var2.nextInt(8) == 0 ? Items.P : null;
 	}
 
 	@Override
@@ -33,10 +33,10 @@ public class class_ano extends class_aiq implements class_ain {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
-		if (!var1.D && (var6 != null) && (var6.b() == class_acq.bg)) {
-			var2.b(class_nh.a(class_ail.a(this)));
-			a(var1, var3, new class_aco(class_aim.H, 1, ((class_ano.class_a_in_class_ano) var4.b(a)).a()));
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
+		if (!var1.D && (var6 != null) && (var6.b() == Items.bg)) {
+			var2.b(class_nh.a(Block.a(this)));
+			a(var1, var3, new class_aco(Blocks.H, 1, ((class_ano.class_a_in_class_ano) var4.b(a)).a()));
 		} else {
 			super.a(var1, var2, var3, var4, var5, var6);
 		}
@@ -65,8 +65,8 @@ public class class_ano extends class_aiq implements class_ain {
 			var5 = class_ajo.class_b_in_class_ajo.d;
 		}
 
-		if (class_aim.cF.c(var1, var3)) {
-			class_aim.cF.a(var1, var3, var5, 2);
+		if (Blocks.cF.c(var1, var3)) {
+			Blocks.cF.a(var1, var3, var5, 2);
 		}
 
 	}

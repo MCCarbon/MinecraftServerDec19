@@ -9,12 +9,12 @@ public class class_y extends class_ah {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.defaultgamemode.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length <= 0) {
 			throw new class_cf("commands.defaultgamemode.usage", new Object[0]);
 		} else {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_ame extends class_ail {
+public class class_ame extends Block {
 	public static final class_aqa a = class_aqa.a("variant", class_ame.class_a_in_class_ame.class);
 	public static final int b;
 	public static final int N;

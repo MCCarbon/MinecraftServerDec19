@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class class_api extends class_aoi implements class_ks {
+public class class_api extends TileEntity implements class_ks {
 	private class_apn a;
 	private class_cq f;
 	private boolean g;
@@ -56,17 +56,17 @@ public class class_api extends class_aoi implements class_ks {
 			--var1;
 		}
 
-		class_ayk var3 = class_aim.M.a(b, c, a, var1, f);
+		class_ayk var3 = Blocks.M.a(b, c, a, var1, f);
 		if (var3 != null) {
-			List var4 = b.b((class_qx) null, var3);
+			List var4 = b.b((Entity) null, var3);
 			if (!var4.isEmpty()) {
 				k.addAll(var4);
 				Iterator var5 = k.iterator();
 
 				while (true) {
 					while (var5.hasNext()) {
-						class_qx var6 = (class_qx) var5.next();
-						if ((a.c() == class_aim.cE) && g) {
+						Entity var6 = (Entity) var5.next();
+						if ((a.c() == Blocks.cE) && g) {
 							switch (class_api.SyntheticClass_1.a[f.k().ordinal()]) {
 								case 1:
 									var6.v = f.g();
@@ -95,7 +95,7 @@ public class class_api extends class_aoi implements class_ks {
 			j = i = 1.0F;
 			b.t(c);
 			y();
-			if (b.p(c).c() == class_aim.M) {
+			if (b.p(c).c() == Blocks.M) {
 				b.a(c, a, 3);
 				b.e(c, a.c());
 			}
@@ -110,7 +110,7 @@ public class class_api extends class_aoi implements class_ks {
 			this.a(1.0F, 0.25F);
 			b.t(c);
 			y();
-			if (b.p(c).c() == class_aim.M) {
+			if (b.p(c).c() == Blocks.M) {
 				b.a(c, a, 3);
 				b.e(c, a.c());
 			}
@@ -131,7 +131,7 @@ public class class_api extends class_aoi implements class_ks {
 	@Override
 	public void a(class_dn var1) {
 		super.a(var1);
-		a = class_ail.c(var1.h("blockId")).a(var1.h("blockData"));
+		a = Block.c(var1.h("blockId")).a(var1.h("blockData"));
 		f = class_cq.a(var1.h("facing"));
 		j = i = var1.j("progress");
 		g = var1.p("extending");
@@ -140,7 +140,7 @@ public class class_api extends class_aoi implements class_ks {
 	@Override
 	public void b(class_dn var1) {
 		super.b(var1);
-		var1.a("blockId", class_ail.a(a.c()));
+		var1.a("blockId", Block.a(a.c()));
 		var1.a("blockData", a.c().c(a));
 		var1.a("facing", f.a());
 		var1.a("progress", j);

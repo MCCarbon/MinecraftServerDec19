@@ -3,13 +3,13 @@ package net.minecraft.server;
 
 public abstract class class_axb {
 	protected class_ags a;
-	protected class_qx b;
+	protected Entity b;
 	protected final class_nu c = new class_nu();
 	protected int d;
 	protected int e;
 	protected int f;
 
-	public void a(class_ags var1, class_qx var2) {
+	public void a(class_ags var1, Entity var2) {
 		a = var1;
 		b = var2;
 		c.c();

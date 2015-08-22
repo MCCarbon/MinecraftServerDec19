@@ -18,8 +18,8 @@ public class class_atj extends class_asa {
 		int var7 = var3.p();
 		if ((var6 >= 1) && ((var6 + var4 + 1) < 256)) {
 			class_cj var8 = var3.b();
-			class_ail var9 = var1.p(var8).c();
-			if ((var9 != class_aim.c) && (var9 != class_aim.d)) {
+			Block var9 = var1.p(var8).c();
+			if ((var9 != Blocks.c) && (var9 != Blocks.d)) {
 				return false;
 			} else if (!this.a(var1, var3, var4)) {
 				return false;
@@ -159,7 +159,7 @@ public class class_atj extends class_asa {
 
 	private void a(class_ago var1, int var2, int var3, int var4) {
 		class_cj var5 = new class_cj(var2, var3, var4);
-		class_ail var6 = var1.p(var5).c();
+		Block var6 = var1.p(var5).c();
 		if (var6.v() == class_avq.a) {
 			this.a(var1, var5, b);
 		}
@@ -167,7 +167,7 @@ public class class_atj extends class_asa {
 	}
 
 	static {
-		a = class_aim.s.S().a(class_alq.b, class_aly.class_a_in_class_aly.f);
-		b = class_aim.u.S().a(class_alp.P, class_aly.class_a_in_class_aly.f).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.s.S().a(class_alq.b, class_aly.class_a_in_class_aly.f);
+		b = Blocks.u.S().a(class_alp.P, class_aly.class_a_in_class_aly.f).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

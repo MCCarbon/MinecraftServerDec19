@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public class class_adz extends class_adw {
-	public class_adz(class_ail var1) {
+	public class_adz(Block var1) {
 		super(var1, false);
 	}
 
@@ -21,12 +21,12 @@ public class class_adz extends class_adw {
 				class_cj var7 = var6.a();
 				class_apn var8 = var2.p(var6);
 				if ((var8.c().v() == class_avq.h) && (((Integer) var8.b(class_alf.b)).intValue() == 0) && var2.d(var7)) {
-					var2.a(var7, class_aim.bx.S());
+					var2.a(var7, Blocks.bx.S());
 					if (!var3.bI.d) {
 						--var1.b;
 					}
 
-					var3.b(class_nh.c(class_acm.b(this)));
+					var3.b(class_nh.c(Item.b(this)));
 					return new class_px(class_pw.a, var1);
 				}
 			}

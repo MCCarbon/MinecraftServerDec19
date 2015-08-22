@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aca extends class_acm {
+public class class_aca extends Item {
 	public class_aca() {
 		i = 16;
 		this.a(class_abp.f);
@@ -13,7 +13,7 @@ public class class_aca extends class_acm {
 			--var1.b;
 		}
 
-		var2.a((class_qx) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
+		var2.a((Entity) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
 		var3.cB().a(this, 20);
 		if (!var2.D) {
 			class_zl var5 = new class_zl(var2, var3);
@@ -21,7 +21,7 @@ public class class_aca extends class_acm {
 			var2.a(var5);
 		}
 
-		var3.b(class_nh.c(class_acm.b(this)));
+		var3.b(class_nh.c(Item.b(this)));
 		return new class_px(class_pw.a, var1);
 	}
 }

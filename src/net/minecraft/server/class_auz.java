@@ -2,19 +2,19 @@ package net.minecraft.server;
 
 
 public class class_auz {
-	private class_ail.class_a_in_class_ail a;
-	private class_ail.class_c_in_class_ail b;
+	private Block.class_a_in_class_ail a;
+	private Block.class_c_in_class_ail b;
 	private boolean c;
-	private class_ail d;
+	private Block d;
 	private class_agi e;
 	private class_aua f;
 	private boolean g;
 
 	public class_auz() {
-		this(class_ail.class_a_in_class_ail.a, class_ail.class_c_in_class_ail.a, false, (class_ail) null, (class_aua) null);
+		this(Block.class_a_in_class_ail.a, Block.class_c_in_class_ail.a, false, (Block) null, (class_aua) null);
 	}
 
-	public class_auz(class_ail.class_a_in_class_ail var1, class_ail.class_c_in_class_ail var2, boolean var3, class_ail var4, class_aua var5) {
+	public class_auz(Block.class_a_in_class_ail var1, Block.class_c_in_class_ail var2, boolean var3, Block var4, class_aua var5) {
 		b = var2;
 		a = var1;
 		c = var3;
@@ -28,12 +28,12 @@ public class class_auz {
 		return (new class_auz(a, b, c, d, f)).a(e).b(g);
 	}
 
-	public class_auz a(class_ail.class_a_in_class_ail var1) {
+	public class_auz a(Block.class_a_in_class_ail var1) {
 		a = var1;
 		return this;
 	}
 
-	public class_auz a(class_ail.class_c_in_class_ail var1) {
+	public class_auz a(Block.class_c_in_class_ail var1) {
 		b = var1;
 		return this;
 	}
@@ -43,7 +43,7 @@ public class class_auz {
 		return this;
 	}
 
-	public class_auz a(class_ail var1) {
+	public class_auz a(Block var1) {
 		d = var1;
 		return this;
 	}
@@ -58,7 +58,7 @@ public class class_auz {
 		return this;
 	}
 
-	public class_ail.class_a_in_class_ail b() {
+	public Block.class_a_in_class_ail b() {
 		return a;
 	}
 
@@ -67,7 +67,7 @@ public class class_auz {
 		return this;
 	}
 
-	public class_ail.class_c_in_class_ail c() {
+	public Block.class_c_in_class_ail c() {
 		return b;
 	}
 
@@ -75,7 +75,7 @@ public class class_auz {
 		return c;
 	}
 
-	public class_ail f() {
+	public Block f() {
 		return d;
 	}
 

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_amp extends class_ail {
+public class class_amp extends Block {
 	public static final class_aqb a = class_aqb.a("age", 0, 15);
 
 	protected class_amp() {
@@ -16,7 +16,7 @@ public class class_amp extends class_ail {
 
 	@Override
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
-		if ((var1.p(var2.b()).c() == class_aim.aM) || this.f(var1, var2, var3)) {
+		if ((var1.p(var2.b()).c() == Blocks.aM) || this.f(var1, var2, var3)) {
 			if (var1.d(var2.a())) {
 				int var5;
 				for (var5 = 1; var1.p(var2.c(var5)).c() == this; ++var5) {
@@ -39,10 +39,10 @@ public class class_amp extends class_ail {
 
 	@Override
 	public boolean c(class_ago var1, class_cj var2) {
-		class_ail var3 = var1.p(var2.b()).c();
+		Block var3 = var1.p(var2.b()).c();
 		if (var3 == this) {
 			return true;
-		} else if ((var3 != class_aim.c) && (var3 != class_aim.d) && (var3 != class_aim.m)) {
+		} else if ((var3 != Blocks.c) && (var3 != Blocks.d) && (var3 != Blocks.m)) {
 			return false;
 		} else {
 			Iterator var4 = class_cq.class_c_in_class_cq.a.iterator();
@@ -61,7 +61,7 @@ public class class_amp extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		this.f(var1, var2, var3);
 	}
 
@@ -85,8 +85,8 @@ public class class_amp extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.aL;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.aL;
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class class_amp extends class_ail {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.aL);
+		return new class_aco(Items.aL);
 	}
 
 	@Override

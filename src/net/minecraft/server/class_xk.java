@@ -101,7 +101,7 @@ public abstract class class_xk extends class_xh implements class_qa {
 	}
 
 	@Override
-	public class_qx a(int var1, class_cj var2) {
+	public Entity a(int var1, class_cj var2) {
 		b = false;
 		return super.a(var1, var2);
 	}

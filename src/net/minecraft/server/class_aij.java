@@ -59,7 +59,7 @@ public class class_aij extends class_akx {
 					var1.g(var11);
 				}
 
-				var1.a((class_qx) null, var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D, 5.0F, true, true);
+				var1.a((Entity) null, var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D, 5.0F, true, true);
 				return true;
 			}
 		}
@@ -96,7 +96,7 @@ public class class_aij extends class_akx {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		class_cq var5 = (class_cq) var3.b(O);
 		if (var3.b(a) == class_aij.class_a_in_class_aij.a) {
 			if (var1.p(var2.a(var5.d())).c() != this) {
@@ -112,8 +112,8 @@ public class class_aij extends class_akx {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return var1.b(a) == class_aij.class_a_in_class_aij.a ? null : class_acq.bc;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return var1.b(a) == class_aij.class_a_in_class_aij.a ? null : Items.bc;
 	}
 
 	private void l() {
@@ -168,7 +168,7 @@ public class class_aij extends class_akx {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.bc);
+		return new class_aco(Items.bc);
 	}
 
 	@Override
@@ -201,12 +201,12 @@ public class class_aij extends class_akx {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(O, var2.a((class_cq) var1.b(O)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(O)));
 	}
 

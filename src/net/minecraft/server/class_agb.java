@@ -30,7 +30,7 @@ public class class_agb {
 		this(var1, (class_aco) null, var2);
 	}
 
-	public class_agb(class_aco var1, class_acm var2) {
+	public class_agb(class_aco var1, Item var2) {
 		this(var1, new class_aco(var2));
 	}
 

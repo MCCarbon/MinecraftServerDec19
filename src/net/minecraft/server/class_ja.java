@@ -27,7 +27,7 @@ public class class_ja implements class_ff {
 		var1.a(this);
 	}
 
-	public class_qx a(class_ll var1) {
+	public Entity a(class_ll var1) {
 		return var1.a(a);
 	}
 

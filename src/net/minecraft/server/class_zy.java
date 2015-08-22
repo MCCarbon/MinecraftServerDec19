@@ -149,8 +149,8 @@ public class class_zy extends class_zu {
 			if (var0 == null) {
 				return false;
 			} else {
-				class_acm var1 = var0.b();
-				return (var1 == class_acq.bB) || (var1 == class_acq.bE) || (var1 == class_acq.bC) || (var1 == class_acq.bD);
+				Item var1 = var0.b();
+				return (var1 == Items.bB) || (var1 == Items.bE) || (var1 == Items.bC) || (var1 == Items.bD);
 			}
 		}
 	}

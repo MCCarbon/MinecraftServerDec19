@@ -125,7 +125,7 @@ public class class_zo extends class_yx {
 
 	@Override
 	protected class_aco i() {
-		return g.isEmpty() ? new class_aco(class_acq.g) : h;
+		return g.isEmpty() ? new class_aco(Items.g) : h;
 	}
 
 	static {

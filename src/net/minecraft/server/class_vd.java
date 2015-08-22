@@ -59,7 +59,7 @@ public class class_vd extends class_vc {
 		bt += by * 2.0F;
 		if (!o.D && !i_() && !cE() && (--bz <= 0)) {
 			this.a("mob.chicken.plop", 1.0F, ((V.nextFloat() - V.nextFloat()) * 0.2F) + 1.0F);
-			this.a(class_acq.aR, 1);
+			this.a(Items.aR, 1);
 			bz = V.nextInt(6000) + 6000;
 		}
 
@@ -85,13 +85,13 @@ public class class_vd extends class_vc {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.chicken.step", 0.15F, 1.0F);
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.I;
+	protected Item D() {
+		return Items.I;
 	}
 
 	@Override
@@ -99,13 +99,13 @@ public class class_vd extends class_vc {
 		int var3 = V.nextInt(3) + V.nextInt(1 + var2);
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.I, 1);
+			this.a(Items.I, 1);
 		}
 
 		if (ay()) {
-			this.a(class_acq.bn, 1);
+			this.a(Items.bn, 1);
 		} else {
-			this.a(class_acq.bm, 1);
+			this.a(Items.bm, 1);
 		}
 
 	}
@@ -175,6 +175,6 @@ public class class_vd extends class_vc {
 	}
 
 	static {
-		bB = Sets.newHashSet((Object[]) (new class_acm[] { class_acq.P, class_acq.bj, class_acq.bi, class_acq.cN }));
+		bB = Sets.newHashSet((Object[]) (new Item[] { Items.P, Items.bj, Items.bi, Items.cN }));
 	}
 }

@@ -82,7 +82,7 @@ public class class_ajr extends class_alf {
 		class_apn var13 = var1.p(var2.b());
 		if (this.i(var1, var2.b(), var13)) {
 			if ((J == class_avq.i) && (var1.p(var2.b()).c().v() == class_avq.h)) {
-				var1.a(var2.b(), class_aim.b.S());
+				var1.a(var2.b(), Blocks.b.S());
 				this.d(var1, var2.b());
 				return;
 			}
@@ -115,7 +115,7 @@ public class class_ajr extends class_alf {
 
 	private void a(class_ago var1, class_cj var2, class_apn var3, int var4) {
 		if (this.i(var1, var2, var3)) {
-			if (var3.c() != class_aim.a) {
+			if (var3.c() != Blocks.a) {
 				if (J == class_avq.i) {
 					this.d(var1, var2);
 				} else {
@@ -204,8 +204,8 @@ public class class_ajr extends class_alf {
 	}
 
 	private boolean h(class_ago var1, class_cj var2, class_apn var3) {
-		class_ail var4 = var1.p(var2).c();
-		return !(var4 instanceof class_ajn) && (var4 != class_aim.an) && (var4 != class_aim.au) && (var4 != class_aim.aM) ? (var4.J == class_avq.E ? true : var4.J.c()) : true;
+		Block var4 = var1.p(var2).c();
+		return !(var4 instanceof class_ajn) && (var4 != Blocks.an) && (var4 != Blocks.au) && (var4 != Blocks.aM) ? (var4.J == class_avq.E ? true : var4.J.c()) : true;
 	}
 
 	protected int a(class_ago var1, class_cj var2, int var3) {

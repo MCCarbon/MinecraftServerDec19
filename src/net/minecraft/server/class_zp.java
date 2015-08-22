@@ -27,7 +27,7 @@ public class class_zp extends class_za {
 	@Override
 	public float a(class_agk var1, class_ago var2, class_cj var3, class_apn var4) {
 		float var5 = super.a(var1, var2, var3, var4);
-		class_ail var6 = var4.c();
+		Block var6 = var4.c();
 		if (this.m() && class_wq.a(var6)) {
 			var5 = Math.min(0.8F, var5);
 		}

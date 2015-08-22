@@ -9,13 +9,13 @@ public class class_adi extends class_acn {
 	}
 
 	@Override
-	protected void b(class_acm var1, int var2) {
+	protected void b(Item var1, int var2) {
 		super.b(var1, var2);
 		a.a.a((new class_gh(var1, var2)));
 	}
 
 	@Override
-	protected void c(class_acm var1) {
+	protected void c(Item var1) {
 		super.c(var1);
 		a.a.a((new class_gh(var1, 0)));
 	}

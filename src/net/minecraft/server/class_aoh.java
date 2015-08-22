@@ -83,11 +83,11 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 		for (var8 = var3 + 1; var8 < 256; ++var8) {
 			class_apn var9 = b.p(var7.c(var2, var8, var4));
 			float[] var10;
-			if (var9.c() == class_aim.cG) {
+			if (var9.c() == Blocks.cG) {
 				var10 = class_vl.a((class_abt) var9.b(class_and.a));
 			} else {
-				if (var9.c() != class_aim.cH) {
-					if ((var9.c().r() >= 15) && (var9.c() != class_aim.h)) {
+				if (var9.c() != Blocks.cH) {
+					if ((var9.c().r() >= 15) && (var9.c() != Blocks.h)) {
 						j = false;
 						g.clear();
 						break;
@@ -125,8 +125,8 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 
 				for (int var11 = var2 - var8; (var11 <= (var2 + var8)) && var17; ++var11) {
 					for (int var12 = var4 - var8; var12 <= (var4 + var8); ++var12) {
-						class_ail var13 = b.p(new class_cj(var11, var15, var12)).c();
-						if ((var13 != class_aim.bT) && (var13 != class_aim.R) && (var13 != class_aim.ah) && (var13 != class_aim.S)) {
+						Block var13 = b.p(new class_cj(var11, var15, var12)).c();
+						if ((var13 != Blocks.bT) && (var13 != Blocks.R) && (var13 != Blocks.ah) && (var13 != Blocks.S)) {
 							var17 = false;
 							break;
 						}
@@ -261,7 +261,7 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 
 	@Override
 	public boolean b(int var1, class_aco var2) {
-		return (var2.b() == class_acq.bT) || (var2.b() == class_acq.k) || (var2.b() == class_acq.m) || (var2.b() == class_acq.l);
+		return (var2.b() == Items.bT) || (var2.b() == Items.k) || (var2.b() == Items.m) || (var2.b() == Items.l);
 	}
 
 	@Override

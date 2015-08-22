@@ -5,7 +5,7 @@ import java.util.Random;
 
 import com.google.common.base.Objects;
 
-public class class_anv extends class_ail {
+public class class_anv extends Block {
 	public static final class_apz a;
 	public static final class_apy b;
 	public static final class_apy N;
@@ -75,7 +75,7 @@ public class class_anv extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (var4 != this) {
 			if (this.f(var1, var2, var3)) {
 				class_cq var5 = (class_cq) var3.b(a);
@@ -102,14 +102,14 @@ public class class_anv extends class_ail {
 		for (int var16 = 1; var16 < 42; ++var16) {
 			var17 = var2.a(var8, var16);
 			class_apn var18 = var1.p(var17);
-			if (var18.c() == class_aim.bR) {
+			if (var18.c() == Blocks.bR) {
 				if (var18.b(a) == var8.d()) {
 					var14 = var16;
 				}
 				break;
 			}
 
-			if ((var18.c() != class_aim.bS) && (var16 != var6)) {
+			if ((var18.c() != Blocks.bS) && (var16 != var6)) {
 				var15[var16] = null;
 				var12 = false;
 			} else {
@@ -153,7 +153,7 @@ public class class_anv extends class_ail {
 			for (int var23 = 1; var23 < var14; ++var23) {
 				class_cj var25 = var2.a(var8, var23);
 				class_apn var26 = var15[var23];
-				if ((var26 != null) && (var1.p(var25).c() != class_aim.a)) {
+				if ((var26 != null) && (var1.p(var25).c() != Blocks.a)) {
 					var1.a(var25, var26.a(N, Boolean.valueOf(var12)), 3);
 				}
 			}
@@ -269,12 +269,12 @@ public class class_anv extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 

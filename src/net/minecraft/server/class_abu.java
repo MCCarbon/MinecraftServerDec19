@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_abu extends class_acm {
+public class class_abu extends Item {
 	public static final int[] a = new int[] { 1973019, 11743532, 3887386, 5320730, 2437522, 8073150, 2651799, 11250603, 4408131, 14188952, 4312372, 14602026, 6719955, 12801229, 15435844, 15790320 };
 
 	public class_abu() {
@@ -32,12 +32,12 @@ public class class_abu extends class_acm {
 				}
 			} else if (var10 == class_abt.m) {
 				class_apn var11 = var3.p(var4);
-				class_ail var12 = var11.c();
-				if ((var12 == class_aim.r) && (var11.b(class_alv.b) == class_aly.class_a_in_class_aly.d)) {
+				Block var12 = var11.c();
+				if ((var12 == Blocks.r) && (var11.b(class_alv.b) == class_aly.class_a_in_class_aly.d)) {
 					if ((var6 != class_cq.a) && (var6 != class_cq.b)) {
 						var4 = var4.a(var6);
 						if (var3.d(var4)) {
-							class_apn var13 = class_aim.bN.a(var3, var4, var6, var7, var8, var9, 0, var2);
+							class_apn var13 = Blocks.bN.a(var3, var4, var6, var7, var8, var9, 0, var2);
 							var3.a(var4, var13, 2);
 							if (!var2.bI.d) {
 								--var1.b;

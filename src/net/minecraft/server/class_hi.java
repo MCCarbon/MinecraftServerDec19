@@ -8,7 +8,7 @@ public class class_hi implements class_ff {
 	public class_hi() {
 	}
 
-	public class_hi(class_qx var1) {
+	public class_hi(Entity var1) {
 		a = var1.G();
 	}
 

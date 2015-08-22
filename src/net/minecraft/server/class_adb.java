@@ -7,7 +7,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class class_adb extends class_acm {
+public class class_adb extends Item {
 	public class_adb() {
 		this.d(1);
 		this.a(class_abp.k);
@@ -49,16 +49,16 @@ public class class_adb extends class_acm {
 		}
 
 		if (var4 != null) {
-			var4.b(class_nh.c(class_acm.b(this)));
+			var4.b(class_nh.c(Item.b(this)));
 		}
 
 		if ((var4 == null) || !var4.bI.d) {
 			if (var1.b <= 0) {
-				return new class_aco(class_acq.bE);
+				return new class_aco(Items.bE);
 			}
 
 			if (var4 != null) {
-				var4.bq.a(new class_aco(class_acq.bE));
+				var4.bq.a(new class_aco(Items.bE));
 			}
 		}
 

@@ -22,10 +22,10 @@ public class class_qh {
 	public void a() {
 		k();
 		if (b.j_()) {
-			class_ail var1 = b.o.p(new class_cj(b.s, b.aX().b, b.u)).c();
-			if (var1 == class_aim.au) {
+			Block var1 = b.o.p(new class_cj(b.s, b.aX().b, b.u)).c();
+			if (var1 == Blocks.au) {
 				h = "ladder";
-			} else if (var1 == class_aim.bn) {
+			} else if (var1 == Blocks.bn) {
 				h = "vines";
 			}
 		} else if (b.Y()) {
@@ -57,7 +57,7 @@ public class class_qh {
 			class_qg var1 = j();
 			class_qg var2 = (class_qg) a.get(a.size() - 1);
 			class_eu var4 = var2.h();
-			class_qx var5 = var2.a().j();
+			Entity var5 = var2.a().j();
 			Object var3;
 			if ((var1 != null) && (var2.a() == class_qi.i)) {
 				class_eu var6 = var1.h();
@@ -74,7 +74,7 @@ public class class_qh {
 							var3 = new class_fb("death.fell.killer", new Object[] { b.f_() });
 						}
 					} else {
-						class_qx var7 = var1.a().j();
+						Entity var7 = var1.a().j();
 						class_aco var8 = var7 instanceof class_rg ? ((class_rg) var7).bG() : null;
 						if ((var8 != null) && var8.s()) {
 							var3 = new class_fb("death.fell.assist.item", new Object[] { b.f_(), var6, var8.B() });

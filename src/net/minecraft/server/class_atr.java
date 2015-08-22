@@ -59,8 +59,8 @@ public class class_atr extends class_asa {
 			if (!var5) {
 				return false;
 			} else {
-				class_ail var19 = var1.p(var3.b()).c();
-				if (((var19 == class_aim.c) || (var19 == class_aim.d) || (var19 == class_aim.ak)) && (var3.o() < (256 - var4 - 1))) {
+				Block var19 = var1.p(var3.b()).c();
+				if (((var19 == Blocks.c) || (var19 == Blocks.d) || (var19 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 					var7 = 3;
 					byte var20 = 0;
@@ -80,7 +80,7 @@ public class class_atr extends class_asa {
 								int var15 = var14 - var3.p();
 								if ((Math.abs(var13) != var11) || (Math.abs(var15) != var11) || ((var2.nextInt(2) != 0) && (var10 != 0))) {
 									var16 = new class_cj(var12, var9, var14);
-									class_ail var17 = var1.p(var16).c();
+									Block var17 = var1.p(var16).c();
 									if ((var17.v() == class_avq.a) || (var17.v() == class_avq.j) || (var17.v() == class_avq.l)) {
 										this.a(var1, var16, f);
 									}
@@ -90,7 +90,7 @@ public class class_atr extends class_asa {
 					}
 
 					for (var9 = 0; var9 < var4; ++var9) {
-						class_ail var21 = var1.p(var3.b(var9)).c();
+						Block var21 = var1.p(var3.b(var9)).c();
 						if ((var21.v() == class_avq.a) || (var21.v() == class_avq.j) || (var21.v() == class_avq.l)) {
 							this.a(var1, var3.b(var9), e);
 							if (d && (var9 > 0)) {
@@ -173,11 +173,11 @@ public class class_atr extends class_asa {
 	}
 
 	private void a(class_ago var1, int var2, class_cj var3, class_cq var4) {
-		this.a(var1, var3, class_aim.bN.S().a(class_aja.a, Integer.valueOf(var2)).a(class_akx.O, var4));
+		this.a(var1, var3, Blocks.bN.S().a(class_aja.a, Integer.valueOf(var2)).a(class_akx.O, var4));
 	}
 
 	private void a(class_ago var1, class_cj var2, class_apy var3) {
-		this.a(var1, var2, class_aim.bn.S().a(var3, Boolean.valueOf(true)));
+		this.a(var1, var2, Blocks.bn.S().a(var3, Boolean.valueOf(true)));
 	}
 
 	private void b(class_ago var1, class_cj var2, class_apy var3) {
@@ -192,7 +192,7 @@ public class class_atr extends class_asa {
 	}
 
 	static {
-		a = class_aim.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
-		b = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
+		b = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

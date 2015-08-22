@@ -11,8 +11,8 @@ public class class_asg extends class_asp {
 				int var6 = 1 + var2.nextInt(var2.nextInt(3) + 1);
 
 				for (int var7 = 0; var7 < var6; ++var7) {
-					if (class_aim.aK.d(var1, var5)) {
-						var1.a(var5.b(var7), class_aim.aK.S(), 2);
+					if (Blocks.aK.d(var1, var5)) {
+						var1.a(var5.b(var7), Blocks.aK.S(), 2);
 					}
 				}
 			}

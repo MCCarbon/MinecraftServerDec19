@@ -31,7 +31,7 @@ public class class_ane extends class_anp {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -49,7 +49,7 @@ public class class_ane extends class_anp {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -90,37 +90,37 @@ public class class_ane extends class_anp {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				b[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var5) {
 				;
 			}
 
 			try {
-				b[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				b[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
-			a = new int[class_ail.class_c_in_class_ail.values().length];
+			a = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

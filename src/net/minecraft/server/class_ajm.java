@@ -53,7 +53,7 @@ public class class_ajm extends class_aif {
 		if (var1.D) {
 			return true;
 		} else {
-			class_aoi var11 = var1.s(var2);
+			TileEntity var11 = var1.s(var2);
 			if (var11 instanceof class_aoo) {
 				var4.a((class_pp) ((class_aoo) var11));
 				if (var11 instanceof class_aop) {
@@ -91,7 +91,7 @@ public class class_ajm extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		boolean var5 = var1.z(var2) || var1.z(var2.a());
 		boolean var6 = ((Boolean) var3.b(b)).booleanValue();
 		if (var5 && !var6) {
@@ -112,7 +112,7 @@ public class class_ajm extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aoo();
 	}
 
@@ -125,7 +125,7 @@ public class class_ajm extends class_aif {
 	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
 		var1.a(var2, var3.a(a, class_apg.a(var1, var2, var4)), 2);
 		if (var5.s()) {
-			class_aoi var6 = var1.s(var2);
+			TileEntity var6 = var1.s(var2);
 			if (var6 instanceof class_aoo) {
 				((class_aoo) var6).a(var5.q());
 			}
@@ -135,7 +135,7 @@ public class class_ajm extends class_aif {
 
 	@Override
 	public void c(class_ago var1, class_cj var2, class_apn var3) {
-		class_aoi var4 = var1.s(var2);
+		TileEntity var4 = var1.s(var2);
 		if (var4 instanceof class_aoo) {
 			class_pr.a(var1, var2, (class_aoo) var4);
 			var1.f(var2, this);
@@ -188,12 +188,12 @@ public class class_ajm extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 

@@ -49,18 +49,18 @@ public class class_tg extends class_tc {
 			return false;
 		} else {
 			class_apn var3 = var1.p(var2);
-			class_ail var4 = var3.c();
-			if (var4 == class_aim.ae) {
-				class_aoi var5 = var1.s(var2);
+			Block var4 = var3.c();
+			if (var4 == Blocks.ae) {
+				TileEntity var5 = var1.s(var2);
 				if ((var5 instanceof class_aok) && (((class_aok) var5).l < 1)) {
 					return true;
 				}
 			} else {
-				if (var4 == class_aim.am) {
+				if (var4 == Blocks.am) {
 					return true;
 				}
 
-				if ((var4 == class_aim.C) && (var3.b(class_aij.a) != class_aij.class_a_in_class_aij.a)) {
+				if ((var4 == Blocks.C) && (var3.b(class_aij.a) != class_aij.class_a_in_class_aij.a)) {
 					return true;
 				}
 			}

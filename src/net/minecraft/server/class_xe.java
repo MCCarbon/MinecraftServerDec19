@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 
-public class class_xe extends class_qx {
+public class class_xe extends Entity {
 	private static final class_jz a;
 	private static final class_jz b;
 	private static final class_jz c;
@@ -36,7 +36,7 @@ public class class_xe extends class_qx {
 	}
 
 	@Override
-	public class_ayk j(class_qx var1) {
+	public class_ayk j(Entity var1) {
 		return var1.aX();
 	}
 
@@ -85,7 +85,7 @@ public class class_xe extends class_qx {
 					}
 
 					if (!var3 && o.S().b("doEntityDrops")) {
-						this.a(class_acq.aG, 1, 0.0F);
+						this.a(Items.aG, 1, 0.0F);
 					}
 
 					L();
@@ -230,11 +230,11 @@ public class class_xe extends class_qx {
 				for (int var25 = 0; var25 < 2; ++var25) {
 					int var12 = class_oa.c(t) + var25;
 					class_cj var27 = new class_cj(var23, var12, var10);
-					class_ail var14 = o.p(var27).c();
-					if (var14 == class_aim.aH) {
+					Block var14 = o.p(var27).c();
+					if (var14 == Blocks.aH) {
 						o.g(var27);
 						D = false;
-					} else if (var14 == class_aim.bx) {
+					} else if (var14 == Blocks.bx) {
 						o.b(var27, true);
 						D = false;
 					}
@@ -253,11 +253,11 @@ public class class_xe extends class_qx {
 					L();
 					if (o.S().b("doEntityDrops")) {
 						for (var22 = 0; var22 < 3; ++var22) {
-							this.a(class_acm.a(class_aim.f), 1, 0.0F);
+							this.a(Item.a(Blocks.f), 1, 0.0F);
 						}
 
 						for (var22 = 0; var22 < 2; ++var22) {
-							this.a(class_acq.A, 1, 0.0F);
+							this.a(Items.A, 1, 0.0F);
 						}
 					}
 				}
@@ -290,7 +290,7 @@ public class class_xe extends class_qx {
 				List var16 = o.b(this, aX().b(0.20000000298023224D, 0.0D, 0.20000000298023224D));
 				if ((var16 != null) && !var16.isEmpty()) {
 					for (int var29 = 0; var29 < var16.size(); ++var29) {
-						class_qx var18 = (class_qx) var16.get(var29);
+						Entity var18 = (Entity) var16.get(var29);
 						if ((var18 != l) && var18.ah() && (var18 instanceof class_xe)) {
 							var18.i(this);
 						}
@@ -336,7 +336,7 @@ public class class_xe extends class_qx {
 	}
 
 	@Override
-	protected void a(double var1, boolean var3, class_ail var4, class_cj var5) {
+	protected void a(double var1, boolean var3, Block var4, class_cj var5) {
 		if (var3) {
 			if (O > 3.0F) {
 				this.e(O, 1.0F);
@@ -345,11 +345,11 @@ public class class_xe extends class_qx {
 					if (o.S().b("doEntityDrops")) {
 						int var6;
 						for (var6 = 0; var6 < 3; ++var6) {
-							this.a(class_acm.a(class_aim.f), 1, 0.0F);
+							this.a(Item.a(Blocks.f), 1, 0.0F);
 						}
 
 						for (var6 = 0; var6 < 2; ++var6) {
-							this.a(class_acq.A, 1, 0.0F);
+							this.a(Items.A, 1, 0.0F);
 						}
 					}
 				}

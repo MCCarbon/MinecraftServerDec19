@@ -20,11 +20,11 @@ public class class_fk implements class_ff {
 	public class_fk() {
 	}
 
-	public class_fk(class_qx var1, int var2) {
+	public class_fk(Entity var1, int var2) {
 		this(var1, var2, 0);
 	}
 
-	public class_fk(class_qx var1, int var2, int var3) {
+	public class_fk(Entity var1, int var2, int var3) {
 		a = var1.G();
 		b = var1.aQ();
 		c = class_oa.c(var1.s * 32.0D);

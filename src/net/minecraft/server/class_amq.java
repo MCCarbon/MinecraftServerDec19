@@ -22,12 +22,12 @@ public class class_amq extends class_ajj {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(O, var2.a((class_cq) var1.b(O)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(O)));
 	}
 
@@ -51,7 +51,7 @@ public class class_amq extends class_ajj {
 		Integer var2 = (Integer) var1.b(b);
 		Boolean var3 = (Boolean) var1.b(a);
 		class_cq var4 = (class_cq) var1.b(O);
-		return class_aim.bc.S().a(O, var4).a(b, var2).a(a, var3);
+		return Blocks.bc.S().a(O, var4).a(b, var2).a(a, var3);
 	}
 
 	@Override
@@ -59,17 +59,17 @@ public class class_amq extends class_ajj {
 		Integer var2 = (Integer) var1.b(b);
 		Boolean var3 = (Boolean) var1.b(a);
 		class_cq var4 = (class_cq) var1.b(O);
-		return class_aim.bb.S().a(O, var4).a(b, var2).a(a, var3);
+		return Blocks.bb.S().a(O, var4).a(b, var2).a(a, var3);
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.bd;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.bd;
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.bd);
+		return new class_aco(Items.bd);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class class_amq extends class_ajj {
 	}
 
 	@Override
-	protected boolean c(class_ail var1) {
+	protected boolean c(Block var1) {
 		return d(var1);
 	}
 

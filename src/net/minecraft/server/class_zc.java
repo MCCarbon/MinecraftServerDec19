@@ -16,12 +16,12 @@ public class class_zc extends class_za {
 	protected void a(class_ayl var1) {
 		if (!o.D) {
 			if (var1.d != null) {
-				var1.d.a(class_qi.a((class_za) this, (class_qx) b), 6.0F);
+				var1.d.a(class_qi.a((class_za) this, (Entity) b), 6.0F);
 				this.a(b, var1.d);
 			}
 
 			boolean var2 = o.S().b("mobGriefing");
-			o.a((class_qx) null, s, t, u, a, var2, var2);
+			o.a((Entity) null, s, t, u, a, var2, var2);
 			L();
 		}
 

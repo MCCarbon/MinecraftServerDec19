@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class class_aow extends class_aoi implements class_pv, class_qa {
+public abstract class class_aow extends TileEntity implements class_pv, class_qa {
 	private class_pz a;
 
 	public class_aow() {

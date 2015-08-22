@@ -3,9 +3,9 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_asv extends class_asp {
-	private class_ail a;
+	private Block a;
 
-	public class_asv(class_ail var1) {
+	public class_asv(Block var1) {
 		super(true);
 		a = var1;
 	}
@@ -17,7 +17,7 @@ public class class_asv extends class_asp {
 	@Override
 	public boolean b(class_ago var1, Random var2, class_cj var3) {
 		if (a == null) {
-			a = var2.nextBoolean() ? class_aim.bg : class_aim.bh;
+			a = var2.nextBoolean() ? Blocks.bg : Blocks.bh;
 		}
 
 		int var4 = var2.nextInt(3) + 4;
@@ -36,7 +36,7 @@ public class class_asv extends class_asp {
 				for (var9 = var3.n() - var7; (var9 <= (var3.n() + var7)) && var5; ++var9) {
 					for (var10 = var3.p() - var7; (var10 <= (var3.p() + var7)) && var5; ++var10) {
 						if ((var6 >= 0) && (var6 < 256)) {
-							class_ail var11 = var1.p(var8.c(var9, var6, var10)).c();
+							Block var11 = var1.p(var8.c(var9, var6, var10)).c();
 							if ((var11.v() != class_avq.a) && (var11.v() != class_avq.j)) {
 								var5 = false;
 							}
@@ -50,12 +50,12 @@ public class class_asv extends class_asp {
 			if (!var5) {
 				return false;
 			} else {
-				class_ail var19 = var1.p(var3.b()).c();
-				if ((var19 != class_aim.d) && (var19 != class_aim.c) && (var19 != class_aim.bw)) {
+				Block var19 = var1.p(var3.b()).c();
+				if ((var19 != Blocks.d) && (var19 != Blocks.c) && (var19 != Blocks.bw)) {
 					return false;
 				} else {
 					int var20 = var3.o() + var4;
-					if (a == class_aim.bh) {
+					if (a == Blocks.bh) {
 						var20 = (var3.o() + var4) - 3;
 					}
 
@@ -66,7 +66,7 @@ public class class_asv extends class_asp {
 							++var9;
 						}
 
-						if (a == class_aim.bg) {
+						if (a == Blocks.bg) {
 							var9 = 3;
 						}
 
@@ -91,7 +91,7 @@ public class class_asv extends class_asp {
 								}
 
 								class_aky.class_a_in_class_aky var17 = class_aky.class_a_in_class_aky.a(var16);
-								if ((a == class_aim.bg) || (var21 < (var3.o() + var4))) {
+								if ((a == Blocks.bg) || (var21 < (var3.o() + var4))) {
 									if (((var14 == var10) || (var14 == var23)) && ((var15 == var12) || (var15 == var13))) {
 										continue;
 									}
@@ -144,7 +144,7 @@ public class class_asv extends class_asp {
 					}
 
 					for (var21 = 0; var21 < var4; ++var21) {
-						class_ail var22 = var1.p(var3.b(var21)).c();
+						Block var22 = var1.p(var3.b(var21)).c();
 						if (!var22.q()) {
 							a(var1, var3.b(var21), a.S().a(class_aky.a, class_aky.class_a_in_class_aky.j));
 						}

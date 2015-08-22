@@ -14,12 +14,12 @@ public class class_bf extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.setworldspawn.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		class_cj var3;
 		if (var2.length == 0) {
 			var3 = b(var1).c();
@@ -37,7 +37,7 @@ public class class_bf extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : null;
 	}
 }

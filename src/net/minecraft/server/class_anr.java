@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 import com.google.common.base.Predicate;
 
-public class class_anr extends class_ail {
+public class class_anr extends Block {
 	public static final class_apz a = class_apz.a("facing", new Predicate() {
 		public boolean a(class_cq var1) {
 			return var1 != class_cq.a;
@@ -43,8 +43,8 @@ public class class_anr extends class_ail {
 		if (class_ago.a(var1, var2)) {
 			return true;
 		} else {
-			class_ail var3 = var1.p(var2).c();
-			return (var3 instanceof class_akb) || (var3 == class_aim.w) || (var3 == class_aim.bZ) || (var3 == class_aim.cG);
+			Block var3 = var1.p(var2).c();
+			return (var3 instanceof class_akb) || (var3 == Blocks.w) || (var3 == Blocks.bZ) || (var3 == Blocks.cG);
 		}
 	}
 
@@ -96,7 +96,7 @@ public class class_anr extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		this.f(var1, var2, var3);
 	}
 
@@ -208,12 +208,12 @@ public class class_anr extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 

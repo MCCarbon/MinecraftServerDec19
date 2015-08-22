@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_aix extends class_ail {
+public class class_aix extends Block {
 	public static final class_aqb a = class_aqb.a("age", 0, 5);
 
 	protected class_aix() {
@@ -14,7 +14,7 @@ public class class_aix extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return null;
 	}
 
@@ -27,18 +27,18 @@ public class class_aix extends class_ail {
 			if ((var5 < 5) && (var4.nextInt(1) == 0)) {
 				boolean var6 = false;
 				boolean var7 = false;
-				class_ail var8 = var1.p(var2.b()).c();
+				Block var8 = var1.p(var2.b()).c();
 				int var9;
-				if (var8 == class_aim.bH) {
+				if (var8 == Blocks.bH) {
 					var6 = true;
-				} else if (var8 == class_aim.cR) {
+				} else if (var8 == Blocks.cR) {
 					var9 = 1;
 
 					int var10;
 					for (var10 = 0; var10 < 4; ++var10) {
-						class_ail var11 = var1.p(var2.c(var9 + 1)).c();
-						if (var11 != class_aim.cR) {
-							if (var11 == class_aim.bH) {
+						Block var11 = var1.p(var2.c(var9 + 1)).c();
+						if (var11 != Blocks.cR) {
+							if (var11 == Blocks.bH) {
 								var7 = true;
 							}
 							break;
@@ -55,12 +55,12 @@ public class class_aix extends class_ail {
 					if ((var9 < 2) || (var4.nextInt(var10) >= var9)) {
 						var6 = true;
 					}
-				} else if (var8 == class_aim.a) {
+				} else if (var8 == Blocks.a) {
 					var6 = true;
 				}
 
 				if (var6 && a(var1, var2.a(), (class_cq) null) && var1.d(var2.b(2))) {
-					var1.a(var2, class_aim.cR.S(), 2);
+					var1.a(var2, Blocks.cR.S(), 2);
 					var1.a(var2.a(), S().a(a, Integer.valueOf(var5)), 2);
 				} else if (var5 < 4) {
 					var9 = var4.nextInt(4);
@@ -79,7 +79,7 @@ public class class_aix extends class_ail {
 					}
 
 					if (var15) {
-						var1.a(var2, class_aim.cR.S(), 2);
+						var1.a(var2, Blocks.cR.S(), 2);
 					} else {
 						var1.a(var2, var3.a(a, Integer.valueOf(5)), 2);
 					}
@@ -122,7 +122,7 @@ public class class_aix extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!this.d(var1, var2)) {
 			var1.a(var2, this, 1);
 		}
@@ -130,18 +130,18 @@ public class class_aix extends class_ail {
 	}
 
 	public boolean d(class_ago var1, class_cj var2) {
-		class_ail var3 = var1.p(var2.b()).c();
-		if ((var3 != class_aim.cR) && (var3 != class_aim.bH)) {
-			if (var3 == class_aim.a) {
+		Block var3 = var1.p(var2.b()).c();
+		if ((var3 != Blocks.cR) && (var3 != Blocks.bH)) {
+			if (var3 == Blocks.a) {
 				int var4 = 0;
 				Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
 
 				while (var5.hasNext()) {
 					class_cq var6 = (class_cq) var5.next();
-					class_ail var7 = var1.p(var2.a(var6)).c();
-					if (var7 == class_aim.cR) {
+					Block var7 = var1.p(var2.a(var6)).c();
+					if (var7 == Blocks.cR) {
 						++var4;
-					} else if (var7 != class_aim.a) {
+					} else if (var7 != Blocks.a) {
 						return false;
 					}
 				}
@@ -156,9 +156,9 @@ public class class_aix extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
 		super.a(var1, var2, var3, var4, var5, var6);
-		a(var1, var3, new class_aco(class_acm.a(this)));
+		a(var1, var3, new class_aco(Item.a(this)));
 	}
 
 	@Override
@@ -187,7 +187,7 @@ public class class_aix extends class_ail {
 	}
 
 	public static void a(class_ago var0, class_cj var1, Random var2, int var3) {
-		var0.a(var1, class_aim.cR.S(), 2);
+		var0.a(var1, Blocks.cR.S(), 2);
 		a(var0, var1, var2, var1, var3, 0);
 	}
 
@@ -203,7 +203,7 @@ public class class_aix extends class_ail {
 				return;
 			}
 
-			var0.a(var8, class_aim.cR.S(), 2);
+			var0.a(var8, Blocks.cR.S(), 2);
 		}
 
 		boolean var12 = false;
@@ -218,14 +218,14 @@ public class class_aix extends class_ail {
 				class_cj var11 = var1.b(var6).a(var10);
 				if ((Math.abs(var11.n() - var3.n()) < var4) && (Math.abs(var11.p() - var3.p()) < var4) && var0.d(var11) && var0.d(var11.b()) && a(var0, var11, var10.d())) {
 					var12 = true;
-					var0.a(var11, class_aim.cR.S(), 2);
+					var0.a(var11, Blocks.cR.S(), 2);
 					a(var0, var11, var2, var3, var4, var5 + 1);
 				}
 			}
 		}
 
 		if (!var12) {
-			var0.a(var1.b(var6), class_aim.cS.S().a(a, Integer.valueOf(5)), 2);
+			var0.a(var1.b(var6), Blocks.cS.S().a(a, Integer.valueOf(5)), 2);
 		}
 
 	}

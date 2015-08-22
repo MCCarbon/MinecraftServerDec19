@@ -56,7 +56,7 @@ public class class_aqn {
 		k = new int[256];
 
 		for (int var4 = 0; var4 < n.length; ++var4) {
-			n[var4] = new class_nm(class_qx.class);
+			n[var4] = new class_nm(Entity.class);
 		}
 
 		Arrays.fill(g, -999);
@@ -320,8 +320,8 @@ public class class_aqn {
 		return this.f(var1, var2, var3).r();
 	}
 
-	private class_ail f(int var1, int var2, int var3) {
-		class_ail var4 = class_aim.a;
+	private Block f(int var1, int var2, int var3) {
+		Block var4 = Blocks.a;
 		if ((var2 >= 0) && ((var2 >> 4) < e.length)) {
 			class_aqo var5 = e[var2 >> 4];
 			if (var5 != a) {
@@ -337,7 +337,7 @@ public class class_aqn {
 		return var4;
 	}
 
-	public class_ail a(final int var1, final int var2, final int var3) {
+	public Block a(final int var1, final int var2, final int var3) {
 		try {
 			return this.f(var1 & 15, var2, var3 & 15);
 		} catch (class_e var6) {
@@ -357,7 +357,7 @@ public class class_aqn {
 		}
 	}
 
-	public class_ail a(final class_cj var1) {
+	public Block a(final class_cj var1) {
 		try {
 			return this.f(var1.n() & 15, var1.o(), var1.p() & 15);
 		} catch (class_e var4) {
@@ -381,14 +381,14 @@ public class class_aqn {
 		if (j.I() == class_agt.g) {
 			class_apn var7 = null;
 			if (var1.o() == 60) {
-				var7 = class_aim.cv.S();
+				var7 = Blocks.cv.S();
 			}
 
 			if (var1.o() == 70) {
 				var7 = class_arn.b(var1.n(), var1.p());
 			}
 
-			return var7 == null ? class_aim.a.S() : var7;
+			return var7 == null ? Blocks.a.S() : var7;
 		} else {
 			try {
 				if ((var1.o() >= 0) && ((var1.o() >> 4) < e.length)) {
@@ -401,7 +401,7 @@ public class class_aqn {
 					}
 				}
 
-				return class_aim.a.S();
+				return Blocks.a.S();
 			} catch (Throwable var6) {
 				class_b var3 = class_b.a(var6, "Getting block state");
 				class_c var4 = var3.a("Block being got");
@@ -448,12 +448,12 @@ public class class_aqn {
 		if (var8 == var2) {
 			return null;
 		} else {
-			class_ail var9 = var2.c();
-			class_ail var10 = var8.c();
+			Block var9 = var2.c();
+			Block var10 = var8.c();
 			class_aqo var11 = e[var4 >> 4];
 			boolean var12 = false;
 			if (var11 == a) {
-				if (var9 == class_aim.a) {
+				if (var9 == Blocks.a) {
 					return null;
 				}
 
@@ -491,7 +491,7 @@ public class class_aqn {
 					}
 				}
 
-				class_aoi var15;
+				TileEntity var15;
 				if (var10 instanceof class_ajy) {
 					var15 = this.a(var1, class_aqn.class_a_in_class_aqn.c);
 					if (var15 != null) {
@@ -569,7 +569,7 @@ public class class_aqn {
 		}
 	}
 
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 		s = true;
 		int var2 = class_oa.c(var1.s / 16.0D);
 		int var3 = class_oa.c(var1.u / 16.0D);
@@ -594,11 +594,11 @@ public class class_aqn {
 		n[var4].add(var1);
 	}
 
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 		this.a(var1, var1.af);
 	}
 
-	public void a(class_qx var1, int var2) {
+	public void a(Entity var1, int var2) {
 		if (var2 < 0) {
 			var2 = 0;
 		}
@@ -617,13 +617,13 @@ public class class_aqn {
 		return var3 >= k[(var4 << 4) | var2];
 	}
 
-	private class_aoi i(class_cj var1) {
-		class_ail var2 = this.a(var1);
+	private TileEntity i(class_cj var1) {
+		Block var2 = this.a(var1);
 		return !var2.B() ? null : ((class_ajy) var2).a(j, this.c(var1));
 	}
 
-	public class_aoi a(class_cj var1, class_aqn.class_a_in_class_aqn var2) {
-		class_aoi var3 = (class_aoi) m.get(var1);
+	public TileEntity a(class_cj var1, class_aqn.class_a_in_class_aqn var2) {
+		TileEntity var3 = (TileEntity) m.get(var1);
 		if (var3 == null) {
 			if (var2 == class_aqn.class_a_in_class_aqn.a) {
 				var3 = this.i(var1);
@@ -639,7 +639,7 @@ public class class_aqn {
 		return var3;
 	}
 
-	public void a(class_aoi var1) {
+	public void a(TileEntity var1) {
 		this.a(var1.v(), var1);
 		if (i) {
 			j.a(var1);
@@ -647,12 +647,12 @@ public class class_aqn {
 
 	}
 
-	public void a(class_cj var1, class_aoi var2) {
+	public void a(class_cj var1, TileEntity var2) {
 		var2.a(j);
 		var2.a(var1);
 		if (this.a(var1) instanceof class_ajy) {
 			if (m.containsKey(var1)) {
-				((class_aoi) m.get(var1)).y();
+				((TileEntity) m.get(var1)).y();
 			}
 
 			var2.D();
@@ -662,7 +662,7 @@ public class class_aqn {
 
 	public void e(class_cj var1) {
 		if (i) {
-			class_aoi var2 = (class_aoi) m.remove(var1);
+			TileEntity var2 = (TileEntity) m.remove(var1);
 			if (var2 != null) {
 				var2.y();
 			}
@@ -678,7 +678,7 @@ public class class_aqn {
 			Iterator var2 = n[var1].iterator();
 
 			while (var2.hasNext()) {
-				class_qx var3 = (class_qx) var2.next();
+				Entity var3 = (Entity) var2.next();
 				var3.ak();
 			}
 
@@ -692,7 +692,7 @@ public class class_aqn {
 		Iterator var1 = m.values().iterator();
 
 		while (var1.hasNext()) {
-			class_aoi var2 = (class_aoi) var1.next();
+			TileEntity var2 = (TileEntity) var1.next();
 			j.b(var2);
 		}
 
@@ -706,7 +706,7 @@ public class class_aqn {
 		r = true;
 	}
 
-	public void a(class_qx var1, class_ayk var2, List var3, Predicate var4) {
+	public void a(Entity var1, class_ayk var2, List var3, Predicate var4) {
 		int var5 = class_oa.c((var2.b - 2.0D) / 16.0D);
 		int var6 = class_oa.c((var2.e + 2.0D) / 16.0D);
 		var5 = class_oa.a(var5, 0, n.length - 1);
@@ -717,8 +717,8 @@ public class class_aqn {
 				Iterator var8 = n[var7].iterator();
 
 				while (true) {
-					class_qx var9;
-					class_qx[] var10;
+					Entity var9;
+					Entity[] var10;
 					do {
 						do {
 							do {
@@ -726,7 +726,7 @@ public class class_aqn {
 									continue label68;
 								}
 
-								var9 = (class_qx) var8.next();
+								var9 = (Entity) var8.next();
 							} while (!var9.aX().b(var2));
 						} while (var9 == var1);
 
@@ -759,14 +759,14 @@ public class class_aqn {
 			Iterator var8 = n[var7].c(var1).iterator();
 
 			while (true) {
-				class_qx var9;
+				Entity var9;
 				do {
 					do {
 						if (!var8.hasNext()) {
 							continue label33;
 						}
 
-						var9 = (class_qx) var8.next();
+						var9 = (Entity) var8.next();
 					} while (!var9.aX().b(var2));
 				} while ((var4 != null) && !var4.apply(var9));
 
@@ -855,7 +855,7 @@ public class class_aqn {
 
 			while (true) {
 				while ((var5.o() > 0) && (var7 == -1)) {
-					class_ail var8 = this.a(var5);
+					Block var8 = this.a(var5);
 					class_avq var9 = var8.v();
 					if (!var9.c() && !var9.d()) {
 						var5 = var5.b();
@@ -885,7 +885,7 @@ public class class_aqn {
 		while (!x.isEmpty()) {
 			class_cj var2 = (class_cj) x.poll();
 			if ((this.a(var2, class_aqn.class_a_in_class_aqn.c) == null) && this.a(var2).B()) {
-				class_aoi var3 = this.i(var2);
+				TileEntity var3 = this.i(var2);
 				j.a(var2, var3);
 				j.b(var2, var2);
 			}

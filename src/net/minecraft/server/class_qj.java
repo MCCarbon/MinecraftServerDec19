@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 
 public class class_qj extends class_qi {
-	protected class_qx r;
+	protected Entity r;
 	private boolean s = false;
 
-	public class_qj(String var1, class_qx var2) {
+	public class_qj(String var1, Entity var2) {
 		super(var1);
 		r = var2;
 	}
@@ -20,7 +20,7 @@ public class class_qj extends class_qi {
 	}
 
 	@Override
-	public class_qx j() {
+	public Entity j() {
 		return r;
 	}
 

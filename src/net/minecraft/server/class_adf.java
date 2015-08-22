@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_adf extends class_acm {
+public class class_adf extends Item {
 	public class_adf() {
 		i = 1;
 		this.a(class_abp.e);

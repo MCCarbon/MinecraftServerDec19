@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_mq implements class_m {
+public class class_mq implements ICommandListener {
 	private static final class_mq a = new class_mq();
 	private StringBuffer b = new StringBuffer();
 
@@ -53,7 +53,7 @@ public class class_mq implements class_m {
 	}
 
 	@Override
-	public class_qx f() {
+	public Entity f() {
 		return null;
 	}
 

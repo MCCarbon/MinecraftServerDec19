@@ -4,16 +4,16 @@ import org.apache.commons.lang3.Validate;
 
 import com.google.common.base.Predicate;
 
-public abstract class class_wt extends class_qx {
+public abstract class class_wt extends Entity {
 	private static final Predicate c = new Predicate() {
-		public boolean a(class_qx var1) {
+		public boolean a(Entity var1) {
 			return var1 instanceof class_wt;
 		}
 
 		// $FF: synthetic method
 		@Override
 		public boolean apply(Object var1) {
-			return this.a((class_qx) var1);
+			return this.a((Entity) var1);
 		}
 	};
 	private int d;
@@ -88,7 +88,7 @@ public abstract class class_wt extends class_qx {
 			d = 0;
 			if (!I && !this.i()) {
 				L();
-				this.b((class_qx) null);
+				this.b((Entity) null);
 			}
 		}
 
@@ -106,7 +106,7 @@ public abstract class class_wt extends class_qx {
 			for (int var5 = 0; var5 < var1; ++var5) {
 				for (int var6 = 0; var6 < var2; ++var6) {
 					class_cj var7 = var3.a(var4, var5).b(var6);
-					class_ail var8 = o.p(var7).c();
+					Block var8 = o.p(var7).c();
 					if (!var8.v().a() && !class_ajj.d(var8)) {
 						return false;
 					}
@@ -123,7 +123,7 @@ public abstract class class_wt extends class_qx {
 	}
 
 	@Override
-	public boolean m(class_qx var1) {
+	public boolean m(Entity var1) {
 		return var1 instanceof class_yu ? this.a(class_qi.a((class_yu) var1), 0.0F) : false;
 	}
 
@@ -151,7 +151,7 @@ public abstract class class_wt extends class_qx {
 	public void d(double var1, double var3, double var5) {
 		if (!o.D && !I && (((var1 * var1) + (var3 * var3) + (var5 * var5)) > 0.0D)) {
 			L();
-			this.b((class_qx) null);
+			this.b((Entity) null);
 		}
 
 	}
@@ -160,7 +160,7 @@ public abstract class class_wt extends class_qx {
 	public void g(double var1, double var3, double var5) {
 		if (!o.D && !I && (((var1 * var1) + (var3 * var3) + (var5 * var5)) > 0.0D)) {
 			L();
-			this.b((class_qx) null);
+			this.b((Entity) null);
 		}
 
 	}
@@ -184,7 +184,7 @@ public abstract class class_wt extends class_qx {
 
 	public abstract int k();
 
-	public abstract void b(class_qx var1);
+	public abstract void b(Entity var1);
 
 	@Override
 	protected boolean ai() {
@@ -210,7 +210,7 @@ public abstract class class_wt extends class_qx {
 	}
 
 	@Override
-	public float a(class_ail.class_c_in_class_ail var1) {
+	public float a(Block.class_c_in_class_ail var1) {
 		if (b.k() != class_cq.class_a_in_class_cq.b) {
 			switch (class_wt.SyntheticClass_1.a[var1.ordinal()]) {
 				case 1:
@@ -228,30 +228,30 @@ public abstract class class_wt extends class_qx {
 	}
 
 	@Override
-	public float a(class_ail.class_a_in_class_ail var1) {
+	public float a(Block.class_a_in_class_ail var1) {
 		return this.a(var1.a(b));
 	}
 
 	// $FF: synthetic class
 	static class SyntheticClass_1 {
 		// $FF: synthetic field
-		static final int[] a = new int[class_ail.class_c_in_class_ail.values().length];
+		static final int[] a = new int[Block.class_c_in_class_ail.values().length];
 
 		static {
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

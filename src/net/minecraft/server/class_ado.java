@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import com.mojang.authlib.GameProfile;
 
-public class class_ado extends class_acm {
+public class class_ado extends Item {
 	private static final String[] a = new String[] { "skeleton", "wither", "zombie", "char", "creeper", "dragon" };
 
 	public class_ado() {
@@ -19,7 +19,7 @@ public class class_ado extends class_acm {
 			return class_pw.c;
 		} else {
 			class_apn var10 = var3.p(var4);
-			class_ail var11 = var10.c();
+			Block var11 = var10.c();
 			boolean var12 = var11.a(var3, var4);
 			if (!var12) {
 				if (!var3.p(var4).c().v().a()) {
@@ -29,17 +29,17 @@ public class class_ado extends class_acm {
 				var4 = var4.a(var6);
 			}
 
-			if (var2.a(var4, var6, var1) && class_aim.ce.c(var3, var4)) {
+			if (var2.a(var4, var6, var1) && Blocks.ce.c(var3, var4)) {
 				if (var3.D) {
 					return class_pw.a;
 				} else {
-					var3.a(var4, class_aim.ce.S().a(class_amx.a, var6), 3);
+					var3.a(var4, Blocks.ce.S().a(class_amx.a, var6), 3);
 					int var13 = 0;
 					if (var6 == class_cq.b) {
 						var13 = class_oa.c((var2.y * 16.0F) / 360.0F + 0.5D) & 15;
 					}
 
-					class_aoi var14 = var3.s(var4);
+					TileEntity var14 = var3.s(var4);
 					if (var14 instanceof class_apa) {
 						class_apa var15 = (class_apa) var14;
 						if (var1.i() == 3) {
@@ -59,7 +59,7 @@ public class class_ado extends class_acm {
 						}
 
 						var15.b(var13);
-						class_aim.ce.a(var3, var4, var15);
+						Blocks.ce.a(var3, var4, var15);
 					}
 
 					--var1.b;

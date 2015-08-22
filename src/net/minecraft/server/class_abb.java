@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 
-public class class_abb extends class_acm {
-	protected final class_ail a;
+public class class_abb extends Item {
+	protected final Block a;
 
-	public class_abb(class_ail var1) {
+	public class_abb(Block var1) {
 		a = var1;
 	}
 
@@ -16,12 +16,12 @@ public class class_abb extends class_acm {
 	@Override
 	public class_pw a(class_aco var1, class_yu var2, class_ago var3, class_cj var4, class_pu var5, class_cq var6, float var7, float var8, float var9) {
 		class_apn var10 = var3.p(var4);
-		class_ail var11 = var10.c();
+		Block var11 = var10.c();
 		if (!var11.a(var3, var4)) {
 			var4 = var4.a(var6);
 		}
 
-		if ((var1.b != 0) && var2.a(var4, var6, var1) && var3.a(a, var4, false, var6, (class_qx) null, var1)) {
+		if ((var1.b != 0) && var2.a(var4, var6, var1) && var3.a(a, var4, false, var6, (Entity) null, var1)) {
 			int var12 = this.a(var1.i());
 			class_apn var13 = a.a(var3, var4, var6, var7, var8, var9, var12, var2);
 			if (var3.a(var4, var13, 3)) {
@@ -47,7 +47,7 @@ public class class_abb extends class_acm {
 			return false;
 		} else {
 			if (var3.n() && var3.o().b("BlockEntityTag", 10)) {
-				class_aoi var5 = var0.s(var2);
+				TileEntity var5 = var0.s(var2);
 				if (var5 != null) {
 					if (!var0.D && var5.F() && ((var1 == null) || !var4.ar().h(var1.cl()))) {
 						return false;
@@ -83,13 +83,13 @@ public class class_abb extends class_acm {
 		return a.a();
 	}
 
-	public class_ail d() {
+	public Block d() {
 		return a;
 	}
 
 	// $FF: synthetic method
 	@Override
-	public class_acm c(String var1) {
+	public Item c(String var1) {
 		return this.b(var1);
 	}
 }

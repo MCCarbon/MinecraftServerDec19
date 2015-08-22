@@ -13,7 +13,7 @@ public class class_vi extends class_ro {
 		((class_ul) u()).a(true);
 		i.a(1, new class_so(this));
 		i.a(2, bv);
-		i.a(3, bz = new class_tw(this, 0.6D, class_acq.aW, true));
+		i.a(3, bz = new class_tw(this, 0.6D, Items.aW, true));
 		i.a(5, new class_sp(this, 1.0D, 10.0F, 5.0F));
 		i.a(6, new class_tg(this, 0.8D));
 		i.a(7, new class_sv(this, 0.3F));
@@ -100,12 +100,12 @@ public class class_vi extends class_ro {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.aH;
+	protected Item D() {
+		return Items.aH;
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		return var1.a(class_qi.a(this), 3.0F);
 	}
 
@@ -129,7 +129,7 @@ public class class_vi extends class_ro {
 			if (this.d((class_rg) var1) && !o.D && !this.d(var3)) {
 				bv.a(!cG());
 			}
-		} else if (bz.f() && (var3 != null) && (var3.b() == class_acq.aW) && (var1.h(this) < 9.0D)) {
+		} else if (bz.f() && (var3 != null) && (var3.b() == Items.aW) && (var1.h(this) < 9.0D)) {
 			if (!var1.bI.d) {
 				--var3.b;
 			}
@@ -167,7 +167,7 @@ public class class_vi extends class_ro {
 
 	@Override
 	public boolean d(class_aco var1) {
-		return (var1 != null) && (var1.b() == class_acq.aW);
+		return (var1 != null) && (var1.b() == Items.aW);
 	}
 
 	@Override
@@ -205,8 +205,8 @@ public class class_vi extends class_ro {
 				return false;
 			}
 
-			class_ail var2 = o.p(var1.b()).c();
-			if ((var2 == class_aim.c) || (var2.v() == class_avq.j)) {
+			Block var2 = o.p(var1.b()).c();
+			if ((var2 == Blocks.c) || (var2.v() == class_avq.j)) {
 				return true;
 			}
 		}

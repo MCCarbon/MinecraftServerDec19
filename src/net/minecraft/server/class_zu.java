@@ -177,7 +177,7 @@ public abstract class class_zu {
 					if ((var16 != null) && var16.a(var4)) {
 						var17 = this.b(var4, var1);
 						if (var17 != null) {
-							class_acm var20 = var17.b();
+							Item var20 = var17.b();
 							var5 = var17.k();
 							if ((var16.d() != null) && (var16.d().b() == var20)) {
 								this.a(var1, var2, true, var4);
@@ -486,7 +486,7 @@ public abstract class class_zu {
 		return true;
 	}
 
-	public static int a(class_aoi var0) {
+	public static int a(TileEntity var0) {
 		return var0 instanceof class_pp ? b((class_pp) var0) : 0;
 	}
 

@@ -9,14 +9,14 @@ import com.google.common.base.Predicate;
 
 public class class_vf extends class_vc implements class_pq {
 	private static final Predicate bz = new Predicate() {
-		public boolean a(class_qx var1) {
+		public boolean a(Entity var1) {
 			return (var1 instanceof class_vf) && ((class_vf) var1).cT();
 		}
 
 		// $FF: synthetic method
 		@Override
 		public boolean apply(Object var1) {
-			return this.a((class_qx) var1);
+			return this.a((Entity) var1);
 		}
 	};
 	private static final class_rp bA = (new class_rx((class_rp) null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
@@ -206,8 +206,8 @@ public class class_vf extends class_vc implements class_pq {
 		if (var1 == null) {
 			return 0;
 		} else {
-			class_acm var2 = var1.b();
-			return var2 == class_acq.cp ? 1 : (var2 == class_acq.cq ? 2 : (var2 == class_acq.cr ? 3 : 0));
+			Item var2 = var1.b();
+			return var2 == Items.cp ? 1 : (var2 == Items.cq ? 2 : (var2 == Items.cr ? 3 : 0));
 		}
 	}
 
@@ -264,7 +264,7 @@ public class class_vf extends class_vc implements class_pq {
 
 	@Override
 	public boolean a(class_qi var1, float var2) {
-		class_qx var3 = var1.j();
+		Entity var3 = var1.j();
 		return (l != null) && l.equals(var3) ? false : super.a(var1, var2);
 	}
 
@@ -287,7 +287,7 @@ public class class_vf extends class_vc implements class_pq {
 
 	public void cX() {
 		if (!o.D && cP()) {
-			this.a(class_acm.a(class_aim.ae), 1);
+			this.a(Item.a(Blocks.ae), 1);
 			this.p(false);
 		}
 	}
@@ -313,9 +313,9 @@ public class class_vf extends class_vc implements class_pq {
 				l.a(class_qi.i, var3);
 			}
 
-			class_ail var4 = o.p(new class_cj(s, t - 0.2D - A, u)).c();
+			Block var4 = o.p(new class_cj(s, t - 0.2D - A, u)).c();
 			if ((var4.v() != class_avq.a) && !T()) {
-				class_ail.class_d_in_class_ail var5 = var4.H;
+				Block.class_d_in_class_ail var5 = var4.H;
 				o.a(this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
 			}
 
@@ -382,14 +382,14 @@ public class class_vf extends class_vc implements class_pq {
 		return super.cj();
 	}
 
-	protected class_vf a(class_qx var1, double var2) {
+	protected class_vf a(Entity var1, double var2) {
 		double var4 = Double.MAX_VALUE;
-		class_qx var6 = null;
+		Entity var6 = null;
 		List var7 = o.a(var1, var1.aX().a(var2, var2, var2), bz);
 		Iterator var8 = var7.iterator();
 
 		while (var8.hasNext()) {
-			class_qx var9 = (class_qx) var8.next();
+			Entity var9 = (Entity) var8.next();
 			double var10 = var9.e(var1.s, var1.t, var1.u);
 			if (var10 < var4) {
 				var6 = var9;
@@ -412,10 +412,10 @@ public class class_vf extends class_vc implements class_pq {
 	}
 
 	@Override
-	protected class_acm D() {
+	protected Item D() {
 		boolean var1 = V.nextInt(4) == 0;
 		int var2 = cE();
-		return var2 == 4 ? class_acq.aZ : (var2 == 3 ? (var1 ? null : class_acq.bv) : class_acq.aH);
+		return var2 == 4 ? Items.aZ : (var2 == 3 ? (var1 ? null : Items.bv) : Items.aH);
 	}
 
 	@Override
@@ -452,10 +452,10 @@ public class class_vf extends class_vc implements class_pq {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
-		class_ail.class_d_in_class_ail var3 = var2.H;
-		if (o.p(var1.a()).c() == class_aim.aH) {
-			var3 = class_aim.aH.H;
+	protected void a(class_cj var1, Block var2) {
+		Block.class_d_in_class_ail var3 = var2.H;
+		if (o.p(var1.a()).c() == Blocks.aH) {
+			var3 = Blocks.aH.H;
 		}
 
 		if (!var2.v().d()) {
@@ -470,7 +470,7 @@ public class class_vf extends class_vc implements class_pq {
 				} else if (bZ <= 5) {
 					this.a("mob.horse.wood", var3.d() * 0.15F, var3.e());
 				}
-			} else if (var3 == class_ail.f) {
+			} else if (var3 == Block.f) {
 				this.a("mob.horse.wood", var3.d() * 0.15F, var3.e());
 			} else {
 				this.a("mob.horse.soft", var3.d() * 0.15F, var3.e());
@@ -520,7 +520,7 @@ public class class_vf extends class_vc implements class_pq {
 
 	@Override
 	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		if ((var3 != null) && (var3.b() == class_acq.bO)) {
+		if ((var3 != null) && (var3.b() == Items.bO)) {
 			return super.a(var1, var2, var3);
 		} else if (!cH() && dk()) {
 			return false;
@@ -533,11 +533,11 @@ public class class_vf extends class_vc implements class_pq {
 			if (var3 != null) {
 				if (dh()) {
 					byte var4 = -1;
-					if (var3.b() == class_acq.cp) {
+					if (var3.b() == Items.cp) {
 						var4 = 1;
-					} else if (var3.b() == class_acq.cq) {
+					} else if (var3.b() == Items.cq) {
 						var4 = 2;
-					} else if (var3.b() == class_acq.cr) {
+					} else if (var3.b() == Items.cr) {
 						var4 = 3;
 					}
 
@@ -557,22 +557,22 @@ public class class_vf extends class_vc implements class_pq {
 					float var5 = 0.0F;
 					short var6 = 0;
 					byte var7 = 0;
-					if (var3.b() == class_acq.Q) {
+					if (var3.b() == Items.Q) {
 						var5 = 2.0F;
 						var6 = 20;
 						var7 = 3;
-					} else if (var3.b() == class_acq.ba) {
+					} else if (var3.b() == Items.ba) {
 						var5 = 1.0F;
 						var6 = 30;
 						var7 = 3;
-					} else if (class_ail.a(var3.b()) == class_aim.cx) {
+					} else if (Block.a(var3.b()) == Blocks.cx) {
 						var5 = 20.0F;
 						var6 = 180;
-					} else if (var3.b() == class_acq.e) {
+					} else if (var3.b() == Items.e) {
 						var5 = 3.0F;
 						var6 = 60;
 						var7 = 3;
-					} else if (var3.b() == class_acq.cb) {
+					} else if (var3.b() == Items.cb) {
 						var5 = 4.0F;
 						var6 = 60;
 						var7 = 5;
@@ -580,7 +580,7 @@ public class class_vf extends class_vc implements class_pq {
 							var8 = true;
 							this.a(var1);
 						}
-					} else if (var3.b() == class_acq.aq) {
+					} else if (var3.b() == Items.aq) {
 						var5 = 10.0F;
 						var6 = 240;
 						var7 = 10;
@@ -619,14 +619,14 @@ public class class_vf extends class_vc implements class_pq {
 					return true;
 				}
 
-				if (!var8 && di() && !cP() && (var3.b() == class_acm.a(class_aim.ae))) {
+				if (!var8 && di() && !cP() && (var3.b() == Item.a(Blocks.ae))) {
 					this.p(true);
 					this.a("mob.chickenplop", 1.0F, ((V.nextFloat() - V.nextFloat()) * 0.2F) + 1.0F);
 					var8 = true;
 					dt();
 				}
 
-				if (!var8 && cI() && !cZ() && (var3.b() == class_acq.aC)) {
+				if (!var8 && cI() && !cZ() && (var3.b() == Items.aC)) {
 					this.c(var1);
 					return true;
 				}
@@ -659,7 +659,7 @@ public class class_vf extends class_vc implements class_pq {
 		this.s(false);
 		this.t(false);
 		if (!o.D) {
-			var1.a((class_qx) this);
+			var1.a((Entity) this);
 		}
 
 	}
@@ -717,7 +717,7 @@ public class class_vf extends class_vc implements class_pq {
 				this.b(1.0F);
 			}
 
-			if (!cR() && (l == null) && (V.nextInt(300) == 0) && (o.p(new class_cj(class_oa.c(s), class_oa.c(t) - 1, class_oa.c(u))).c() == class_aim.c)) {
+			if (!cR() && (l == null) && (V.nextInt(300) == 0) && (o.p(new class_cj(class_oa.c(s), class_oa.c(t) - 1, class_oa.c(u))).c() == Blocks.c)) {
 				this.s(true);
 			}
 
@@ -854,7 +854,7 @@ public class class_vf extends class_vc implements class_pq {
 		cX();
 	}
 
-	private void a(class_qx var1, class_zv var2) {
+	private void a(Entity var1, class_zv var2) {
 		if ((var2 != null) && !o.D) {
 			for (int var3 = 0; var3 < var2.n_(); ++var3) {
 				class_aco var4 = var2.a(var3);
@@ -1031,7 +1031,7 @@ public class class_vf extends class_vc implements class_pq {
 
 		if (var1.b("SaddleItem", 10)) {
 			var9 = class_aco.a(var1.o("SaddleItem"));
-			if ((var9 != null) && (var9.b() == class_acq.aC)) {
+			if ((var9 != null) && (var9.b() == Items.aC)) {
 				bQ.a(0, var9);
 			}
 		}
@@ -1199,8 +1199,8 @@ public class class_vf extends class_vc implements class_pq {
 		return (0.44999998807907104D + (V.nextDouble() * 0.3D) + (V.nextDouble() * 0.3D) + (V.nextDouble() * 0.3D)) * 0.25D;
 	}
 
-	public static boolean a(class_acm var0) {
-		return (var0 == class_acq.cp) || (var0 == class_acq.cq) || (var0 == class_acq.cr);
+	public static boolean a(Item var0) {
+		return (var0 == Items.cp) || (var0 == Items.cq) || (var0 == Items.cr);
 	}
 
 	@Override
@@ -1222,7 +1222,7 @@ public class class_vf extends class_vc implements class_pq {
 				return true;
 			}
 
-			if ((var2 != null) && (var2.b() == class_acm.a(class_aim.ae)) && !cP()) {
+			if ((var2 != null) && (var2.b() == Item.a(Blocks.ae)) && !cP()) {
 				this.p(true);
 				dt();
 				return true;
@@ -1231,7 +1231,7 @@ public class class_vf extends class_vc implements class_pq {
 
 		int var3 = var1 - 400;
 		if ((var3 >= 0) && (var3 < 2) && (var3 < bQ.n_())) {
-			if ((var3 == 0) && (var2 != null) && (var2.b() != class_acq.aC)) {
+			if ((var3 == 0) && (var2 != null) && (var2.b() != Items.aC)) {
 				return false;
 			} else if ((var3 != 1) || (((var2 == null) || a(var2.b())) && dh())) {
 				bQ.a(var3, var2);

@@ -18,12 +18,12 @@ public class class_bu extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.trigger.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 3) {
 			throw new class_cf("commands.trigger.usage", new Object[0]);
 		} else {
@@ -31,7 +31,7 @@ public class class_bu extends class_i {
 			if (var1 instanceof class_lm) {
 				var3 = (class_lm) var1;
 			} else {
-				class_qx var4 = var1.f();
+				Entity var4 = var1.f();
 				if (!(var4 instanceof class_lm)) {
 					throw new class_bz("commands.trigger.invalidPlayer", new Object[0]);
 				}
@@ -74,7 +74,7 @@ public class class_bu extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		if (var2.length == 1) {
 			class_ays var4 = MinecraftServer.P().a(0).ab();
 			ArrayList var5 = Lists.newArrayList();

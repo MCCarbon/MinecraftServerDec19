@@ -115,7 +115,7 @@ public abstract class class_me {
 
 		var2.g_();
 		if ((var7 != null) && var7.b("Riding", 10)) {
-			class_qx var17 = class_qz.a(var7.o("Riding"), var9);
+			Entity var17 = EntityTypes.a(var7.o("Riding"), var9);
 			if (var17 != null) {
 				var17.n = true;
 				var9.a(var17);
@@ -328,7 +328,7 @@ public abstract class class_me {
 
 	public class_lm a(class_lm var1, int var2, boolean var3) {
 		var1.v().u().b(var1);
-		var1.v().u().b((class_qx) var1);
+		var1.v().u().b((Entity) var1);
 		var1.v().v().c(var1);
 		i.remove(var1);
 		h.a(var1.am).f(var1);
@@ -421,7 +421,7 @@ public abstract class class_me {
 
 	}
 
-	public void a(class_qx var1, int var2, class_ll var3, class_ll var4) {
+	public void a(Entity var1, int var2, class_ll var3, class_ll var4) {
 		double var5 = var1.s;
 		double var7 = var1.u;
 		double var9 = 8.0D;

@@ -14,17 +14,17 @@ public class class_aj extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.give.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 2) {
 			throw new class_cf("commands.give.usage", new Object[0]);
 		} else {
 			class_lm var3 = a(var1, var2[0]);
-			class_acm var4 = f(var1, var2[1]);
+			Item var4 = f(var1, var2[1]);
 			int var5 = var2.length >= 3 ? a(var2[2], 1, 64) : 1;
 			int var6 = var2.length >= 4 ? a(var2[3]) : 0;
 			class_aco var7 = new class_aco(var4, var5, var6);
@@ -40,7 +40,7 @@ public class class_aj extends class_i {
 
 			boolean var11 = var3.bq.a(var7);
 			if (var11) {
-				var3.o.a((class_qx) var3, "random.pop", 0.2F, (((var3.bj().nextFloat() - var3.bj().nextFloat()) * 0.7F) + 1.0F) * 2.0F);
+				var3.o.a((Entity) var3, "random.pop", 0.2F, (((var3.bj().nextFloat() - var3.bj().nextFloat()) * 0.7F) + 1.0F) * 2.0F);
 				var3.br.b();
 			}
 
@@ -66,8 +66,8 @@ public class class_aj extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return var2.length == 1 ? a(var2, this.d()) : (var2.length == 2 ? a(var2, class_acm.e.c()) : null);
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return var2.length == 1 ? a(var2, this.d()) : (var2.length == 2 ? a(var2, Item.e.c()) : null);
 	}
 
 	protected String[] d() {

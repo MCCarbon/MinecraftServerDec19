@@ -58,16 +58,16 @@ public class class_ate extends class_asp {
 					for (var16 = var11; var16 <= var12; ++var16) {
 						var17 = var3.a(var14, var15, var16);
 						if ((var14 != var6) && (var15 != -1) && (var16 != var11) && (var14 != var7) && (var15 != 4) && (var16 != var12)) {
-							if (var1.p(var17).c() != class_aim.ae) {
+							if (var1.p(var17).c() != Blocks.ae) {
 								var1.g(var17);
 							}
 						} else if ((var17.o() >= 0) && !var1.p(var17.b()).c().v().a()) {
 							var1.g(var17);
-						} else if (var1.p(var17).c().v().a() && (var1.p(var17).c() != class_aim.ae)) {
+						} else if (var1.p(var17).c().v().a() && (var1.p(var17).c() != Blocks.ae)) {
 							if ((var15 == -1) && (var2.nextInt(4) != 0)) {
-								var1.a(var17, class_aim.Y.S(), 2);
+								var1.a(var17, Blocks.Y.S(), 2);
 							} else {
-								var1.a(var17, class_aim.e.S(), 2);
+								var1.a(var17, Blocks.e.S(), 2);
 							}
 						}
 					}
@@ -92,9 +92,9 @@ public class class_ate extends class_asp {
 						}
 
 						if (var20 == 1) {
-							var1.a(var26, class_aim.ae.g(var1, var26, class_aim.ae.S()), 2);
-							List var27 = class_oj.a(c, new class_oj[] { class_acq.ci.b(var2) });
-							class_aoi var28 = var1.s(var26);
+							var1.a(var26, Blocks.ae.g(var1, var26, Blocks.ae.S()), 2);
+							List var27 = class_oj.a(c, new class_oj[] { Items.ci.b(var2) });
+							TileEntity var28 = var1.s(var26);
 							if (var28 instanceof class_aok) {
 								class_oj.a(var2, var27, ((class_aok) var28), 8);
 							}
@@ -104,8 +104,8 @@ public class class_ate extends class_asp {
 				}
 			}
 
-			var1.a(var3, class_aim.ac.S(), 2);
-			class_aoi var23 = var1.s(var3);
+			var1.a(var3, Blocks.ac.S(), 2);
+			TileEntity var23 = var1.s(var3);
 			if (var23 instanceof class_aox) {
 				((class_aox) var23).b().a(this.a(var2));
 			} else {
@@ -123,7 +123,7 @@ public class class_ate extends class_asp {
 	}
 
 	static {
-		c = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(class_acq.aC, 0, 1, 1, 10), new class_oj(class_acq.l, 0, 1, 4, 10), new class_oj(class_acq.R, 0, 1, 1, 10), new class_oj(class_acq.Q, 0, 1, 4, 10), new class_oj(class_acq.J, 0, 1, 4, 10), new class_oj(class_acq.H, 0, 1, 4, 10), new class_oj(class_acq.ay, 0, 1, 1, 10), new class_oj(class_acq.aq, 0, 1, 1, 1), new class_oj(class_acq.aE, 0, 1, 4, 10), new class_oj(class_acq.cv, 0, 1, 1, 4),
-				new class_oj(class_acq.cw, 0, 1, 1, 4), new class_oj(class_acq.ct, 0, 1, 1, 10), new class_oj(class_acq.cq, 0, 1, 1, 2), new class_oj(class_acq.cp, 0, 1, 1, 5), new class_oj(class_acq.cr, 0, 1, 1, 1) }));
+		c = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.aC, 0, 1, 1, 10), new class_oj(Items.l, 0, 1, 4, 10), new class_oj(Items.R, 0, 1, 1, 10), new class_oj(Items.Q, 0, 1, 4, 10), new class_oj(Items.J, 0, 1, 4, 10), new class_oj(Items.H, 0, 1, 4, 10), new class_oj(Items.ay, 0, 1, 1, 10), new class_oj(Items.aq, 0, 1, 1, 1), new class_oj(Items.aE, 0, 1, 4, 10), new class_oj(Items.cv, 0, 1, 1, 4),
+				new class_oj(Items.cw, 0, 1, 1, 4), new class_oj(Items.ct, 0, 1, 1, 10), new class_oj(Items.cq, 0, 1, 1, 2), new class_oj(Items.cp, 0, 1, 1, 5), new class_oj(Items.cr, 0, 1, 1, 1) }));
 	}
 }

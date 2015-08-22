@@ -22,7 +22,7 @@ public class class_atb extends class_atc {
 			this.a(var1, var3.n(), var3.p(), var3.o() + var4, 0, var2);
 
 			for (int var5 = 0; var5 < var4; ++var5) {
-				class_ail var6 = var1.p(var3.b(var5)).c();
+				Block var6 = var1.p(var3.b(var5)).c();
 				if ((var6.v() == class_avq.a) || (var6.v() == class_avq.j)) {
 					this.a(var1, var3.b(var5), b);
 				}
@@ -94,8 +94,8 @@ public class class_atb extends class_atc {
 	private void c(class_ago var1, class_cj var2) {
 		for (int var3 = 2; var3 >= -3; --var3) {
 			class_cj var4 = var2.b(var3);
-			class_ail var5 = var1.p(var4).c();
-			if ((var5 == class_aim.c) || (var5 == class_aim.d)) {
+			Block var5 = var1.p(var4).c();
+			if ((var5 == Blocks.c) || (var5 == Blocks.d)) {
 				this.a(var1, var4, g);
 				break;
 			}
@@ -108,8 +108,8 @@ public class class_atb extends class_atc {
 	}
 
 	static {
-		e = class_aim.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
-		f = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
-		g = class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
+		e = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
+		f = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
+		g = Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
 	}
 }

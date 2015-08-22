@@ -60,7 +60,7 @@ public abstract class class_ajj extends class_akx {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (this.d(var1, var2)) {
 			h(var1, var2, var3);
 		} else {
@@ -110,7 +110,7 @@ public abstract class class_ajj extends class_akx {
 			return var6;
 		} else {
 			class_apn var7 = var1.p(var5);
-			return Math.max(var6, var7.c() == class_aim.af ? ((Integer) var7.b(class_amm.P)).intValue() : 0);
+			return Math.max(var6, var7.c() == Blocks.af ? ((Integer) var7.b(class_amm.P)).intValue() : 0);
 		}
 	}
 
@@ -123,8 +123,8 @@ public abstract class class_ajj extends class_akx {
 
 	protected int c(class_ags var1, class_cj var2, class_cq var3) {
 		class_apn var4 = var1.p(var2);
-		class_ail var5 = var4.c();
-		return this.c(var5) ? (var5 == class_aim.af ? ((Integer) var4.b(class_amm.P)).intValue() : var1.a(var2, var3)) : 0;
+		Block var5 = var4.c();
+		return this.c(var5) ? (var5 == Blocks.af ? ((Integer) var4.b(class_amm.P)).intValue() : var1.a(var2, var3)) : 0;
 	}
 
 	@Override
@@ -177,7 +177,7 @@ public abstract class class_ajj extends class_akx {
 		return false;
 	}
 
-	protected boolean c(class_ail var1) {
+	protected boolean c(Block var1) {
 		return var1.i();
 	}
 
@@ -185,11 +185,11 @@ public abstract class class_ajj extends class_akx {
 		return 15;
 	}
 
-	public static boolean d(class_ail var0) {
-		return class_aim.bb.e(var0) || class_aim.cj.e(var0);
+	public static boolean d(Block var0) {
+		return Blocks.bb.e(var0) || Blocks.cj.e(var0);
 	}
 
-	public boolean e(class_ail var1) {
+	public boolean e(Block var1) {
 		return (var1 == this.e(S()).c()) || (var1 == this.k(S()).c());
 	}
 
@@ -210,7 +210,7 @@ public abstract class class_ajj extends class_akx {
 	protected abstract class_apn k(class_apn var1);
 
 	@Override
-	public boolean b(class_ail var1) {
+	public boolean b(Block var1) {
 		return this.e(var1);
 	}
 }

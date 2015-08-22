@@ -18,13 +18,13 @@ import com.google.common.collect.Maps;
 
 public class class_kc {
 	private static final Map a = Maps.newHashMap();
-	private final class_qx b;
+	private final Entity b;
 	private final Map c = Maps.newHashMap();
 	private final ReadWriteLock d = new ReentrantReadWriteLock();
 	private boolean e = true;
 	private boolean f;
 
-	public class_kc(class_qx var1) {
+	public class_kc(Entity var1) {
 		b = var1;
 	}
 
@@ -36,7 +36,7 @@ public class class_kc {
 			int var3 = 0;
 			Class var4 = var0;
 
-			while (var4 != class_qx.class) {
+			while (var4 != Entity.class) {
 				var4 = var4.getSuperclass();
 				if (a.containsKey(var4)) {
 					var3 = ((Integer) a.get(var4)).intValue() + 1;

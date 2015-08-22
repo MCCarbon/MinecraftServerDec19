@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aoe extends class_ail {
+public class class_aoe extends Block {
 	public static final class_aqa a = class_aqa.a("color", class_abt.class);
 
 	protected class_aoe() {
@@ -48,7 +48,7 @@ public class class_aoe extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		this.f(var1, var2, var3);
 	}
 

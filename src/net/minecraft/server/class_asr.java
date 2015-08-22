@@ -14,13 +14,13 @@ public class class_asr extends class_atr {
 
 	@Override
 	public boolean b(class_ago var1, Random var2, class_cj var3) {
-		class_ail var4;
+		Block var4;
 		while ((((var4 = var1.p(var3).c()).v() == class_avq.a) || (var4.v() == class_avq.j)) && (var3.o() > 0)) {
 			var3 = var3.b();
 		}
 
-		class_ail var5 = var1.p(var3).c();
-		if ((var5 == class_aim.d) || (var5 == class_aim.c)) {
+		Block var5 = var1.p(var3).c();
+		if ((var5 == Blocks.d) || (var5 == Blocks.c)) {
 			var3 = var3.a();
 			this.a(var1, var3, b);
 

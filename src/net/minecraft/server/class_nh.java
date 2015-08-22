@@ -102,7 +102,7 @@ public class class_nh {
 		b();
 		f();
 		class_my.a();
-		class_qz.a();
+		EntityTypes.a();
 	}
 
 	private static void b() {
@@ -126,9 +126,9 @@ public class class_nh {
 		var1 = var0.iterator();
 
 		while (var1.hasNext()) {
-			class_acm var6 = (class_acm) var1.next();
+			Item var6 = (Item) var1.next();
 			if (var6 != null) {
-				int var3 = class_acm.b(var6);
+				int var3 = Item.b(var6);
 				String var4 = a(var6);
 				if (var4 != null) {
 					ad[var3] = (new class_nb("stat.craftItem.", var4, new class_fb("stat.craftItem", new Object[] { (new class_aco(var6)).B() }), var6)).h();
@@ -140,13 +140,13 @@ public class class_nh {
 	}
 
 	private static void c() {
-		Iterator var0 = class_ail.c.iterator();
+		Iterator var0 = Block.c.iterator();
 
 		while (var0.hasNext()) {
-			class_ail var1 = (class_ail) var0.next();
-			class_acm var2 = class_acm.a(var1);
+			Block var1 = (Block) var0.next();
+			Item var2 = Item.a(var1);
 			if (var2 != null) {
-				int var3 = class_ail.a(var1);
+				int var3 = Block.a(var1);
 				String var4 = a(var2);
 				if ((var4 != null) && var1.L()) {
 					ac[var3] = (new class_nb("stat.mineBlock.", var4, new class_fb("stat.mineBlock", new Object[] { (new class_aco(var1)).B() }), var2)).h();
@@ -159,12 +159,12 @@ public class class_nh {
 	}
 
 	private static void d() {
-		Iterator var0 = class_acm.e.iterator();
+		Iterator var0 = Item.e.iterator();
 
 		while (var0.hasNext()) {
-			class_acm var1 = (class_acm) var0.next();
+			Item var1 = (Item) var0.next();
 			if (var1 != null) {
-				int var2 = class_acm.b(var1);
+				int var2 = Item.b(var1);
 				String var3 = a(var1);
 				if (var3 != null) {
 					ae[var2] = (new class_nb("stat.useItem.", var3, new class_fb("stat.useItem", new Object[] { (new class_aco(var1)).B() }), var1)).h();
@@ -179,12 +179,12 @@ public class class_nh {
 	}
 
 	private static void e() {
-		Iterator var0 = class_acm.e.iterator();
+		Iterator var0 = Item.e.iterator();
 
 		while (var0.hasNext()) {
-			class_acm var1 = (class_acm) var0.next();
+			Item var1 = (Item) var0.next();
 			if (var1 != null) {
-				int var2 = class_acm.b(var1);
+				int var2 = Item.b(var1);
 				String var3 = a(var1);
 				if ((var3 != null) && var1.m()) {
 					af[var2] = (new class_nb("stat.breakItem.", var3, new class_fb("stat.breakItem", new Object[] { (new class_aco(var1)).B() }), var1)).h();
@@ -196,12 +196,12 @@ public class class_nh {
 	}
 
 	private static void f() {
-		Iterator var0 = class_acm.e.iterator();
+		Iterator var0 = Item.e.iterator();
 
 		while (var0.hasNext()) {
-			class_acm var1 = (class_acm) var0.next();
+			Item var1 = (Item) var0.next();
 			if (var1 != null) {
-				int var2 = class_acm.b(var1);
+				int var2 = Item.b(var1);
 				String var3 = a(var1);
 				if (var3 != null) {
 					ag[var2] = (new class_nb("stat.pickup.", var3, new class_fb("stat.pickup", new Object[] { (new class_aco(var1)).B() }), var1)).h();
@@ -213,31 +213,31 @@ public class class_nh {
 		a(af);
 	}
 
-	private static String a(class_acm var0) {
-		class_ke var1 = (class_ke) class_acm.e.b(var0);
+	private static String a(Item var0) {
+		class_ke var1 = (class_ke) Item.e.b(var0);
 		return var1 != null ? var1.toString().replace(':', '.') : null;
 	}
 
 	private static void a(class_nd[] var0) {
-		a(var0, class_aim.j, class_aim.i);
-		a(var0, class_aim.l, class_aim.k);
-		a(var0, class_aim.aZ, class_aim.aU);
-		a(var0, class_aim.am, class_aim.al);
-		a(var0, class_aim.aD, class_aim.aC);
-		a(var0, class_aim.bc, class_aim.bb);
-		a(var0, class_aim.ck, class_aim.cj);
-		a(var0, class_aim.aF, class_aim.aE);
-		a(var0, class_aim.bK, class_aim.bJ);
-		a(var0, class_aim.T, class_aim.U);
-		a(var0, class_aim.bL, class_aim.bM);
-		a(var0, class_aim.cO, class_aim.cP);
-		a(var0, class_aim.c, class_aim.d);
-		a(var0, class_aim.ak, class_aim.d);
+		a(var0, Blocks.j, Blocks.i);
+		a(var0, Blocks.l, Blocks.k);
+		a(var0, Blocks.aZ, Blocks.aU);
+		a(var0, Blocks.am, Blocks.al);
+		a(var0, Blocks.aD, Blocks.aC);
+		a(var0, Blocks.bc, Blocks.bb);
+		a(var0, Blocks.ck, Blocks.cj);
+		a(var0, Blocks.aF, Blocks.aE);
+		a(var0, Blocks.bK, Blocks.bJ);
+		a(var0, Blocks.T, Blocks.U);
+		a(var0, Blocks.bL, Blocks.bM);
+		a(var0, Blocks.cO, Blocks.cP);
+		a(var0, Blocks.c, Blocks.d);
+		a(var0, Blocks.ak, Blocks.d);
 	}
 
-	private static void a(class_nd[] var0, class_ail var1, class_ail var2) {
-		int var3 = class_ail.a(var1);
-		int var4 = class_ail.a(var2);
+	private static void a(class_nd[] var0, Block var1, Block var2) {
+		int var3 = Block.a(var1);
+		int var4 = Block.a(var2);
 		if ((var0[var3] != null) && (var0[var4] == null)) {
 			var0[var4] = var0[var3];
 		} else {
@@ -248,11 +248,11 @@ public class class_nh {
 		}
 	}
 
-	public static class_nd a(class_qz.class_a_in_class_qz var0) {
+	public static class_nd a(EntityTypes.class_a_in_class_qz var0) {
 		return var0.a == null ? null : (new class_nd("stat.killEntity." + var0.a, new class_fb("stat.entityKill", new Object[] { new class_fb("entity." + var0.a + ".name", new Object[0]) }))).h();
 	}
 
-	public static class_nd b(class_qz.class_a_in_class_qz var0) {
+	public static class_nd b(EntityTypes.class_a_in_class_qz var0) {
 		return var0.a == null ? null : (new class_nd("stat.entityKilledBy." + var0.a, new class_fb("stat.entityKilledBy", new Object[] { new class_fb("entity." + var0.a + ".name", new Object[0]) }))).h();
 	}
 

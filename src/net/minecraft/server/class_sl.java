@@ -69,7 +69,7 @@ public abstract class class_sl extends class_sr {
 	}
 
 	private class_ajn a(class_cj var1) {
-		class_ail var2 = a.o.p(var1).c();
+		Block var2 = a.o.p(var1).c();
 		return (var2 instanceof class_ajn) && (var2.v() == class_avq.d) ? (class_ajn) var2 : null;
 	}
 }

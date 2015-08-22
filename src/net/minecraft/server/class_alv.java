@@ -88,7 +88,7 @@ public class class_alv extends class_alg {
 
 	@Override
 	protected class_aco i(class_apn var1) {
-		return new class_aco(class_acm.a(this), 1, ((class_aly.class_a_in_class_aly) var1.b(b)).a());
+		return new class_aco(Item.a(this), 1, ((class_aly.class_a_in_class_aly) var1.b(b)).a());
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aku extends class_ail {
+public class class_aku extends Block {
 	public class_aku() {
 		super(class_avq.e);
 		this.a(class_abp.b);

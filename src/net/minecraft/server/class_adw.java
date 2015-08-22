@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 
 public class class_adw extends class_abb {
-	private final class_ail b;
+	private final Block b;
 	private String[] c;
 
-	public class_adw(class_ail var1, boolean var2) {
+	public class_adw(Block var1, boolean var2) {
 		super(var1);
 		b = var1;
 		if (var2) {

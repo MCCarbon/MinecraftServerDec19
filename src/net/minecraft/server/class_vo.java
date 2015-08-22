@@ -57,7 +57,7 @@ public class class_vo extends class_vq {
 	}
 
 	@Override
-	protected class_acm D() {
+	protected Item D() {
 		return null;
 	}
 
@@ -71,7 +71,7 @@ public class class_vo extends class_vq {
 		int var3 = V.nextInt(3 + var2) + 1;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			this.a(new class_aco(class_acq.aY, 1, class_abt.p.b()), 0.0F);
+			this.a(new class_aco(Items.aY, 1, class_abt.p.b()), 0.0F);
 		}
 
 	}

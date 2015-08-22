@@ -53,7 +53,7 @@ public class class_xl extends class_xh {
 	public void a(class_qi var1) {
 		super.a(var1);
 		if (!var1.c() && o.S().b("doEntityDrops")) {
-			this.a(new class_aco(class_aim.al, 1), 0.0F);
+			this.a(new class_aco(Blocks.al, 1), 0.0F);
 		}
 
 	}
@@ -102,7 +102,7 @@ public class class_xl extends class_xh {
 
 	@Override
 	public boolean a(class_yu var1, class_aco var2, class_pu var3) {
-		if ((var2 != null) && (var2.b() == class_acq.j)) {
+		if ((var2 != null) && (var2.b() == Items.j)) {
 			if (!var1.bI.d) {
 				--var2.b;
 			}
@@ -141,7 +141,7 @@ public class class_xl extends class_xh {
 
 	@Override
 	public class_apn u() {
-		return (this.i() ? class_aim.am : class_aim.al).S().a(class_akj.a, class_cq.c);
+		return (this.i() ? Blocks.am : Blocks.al).S().a(class_akj.a, class_cq.c);
 	}
 
 	static {

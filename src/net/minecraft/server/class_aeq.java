@@ -11,10 +11,10 @@ public class class_aeq implements class_aes {
 		for (int var5 = 0; var5 < var1.n_(); ++var5) {
 			class_aco var6 = var1.a(var5);
 			if (var6 != null) {
-				if ((var6.b() == class_acq.bf) && (var3 == null)) {
+				if ((var6.b() == Items.bf) && (var3 == null)) {
 					var3 = var6;
 				} else {
-					if ((var6.b() != class_acq.bg) || (var4 != null)) {
+					if ((var6.b() != Items.bg) || (var4 != null)) {
 						return false;
 					}
 
@@ -24,7 +24,7 @@ public class class_aeq implements class_aes {
 		}
 
 		if ((var3 != null) && (var4 != null)) {
-			class_axl var7 = class_acq.bf.a(var3, var2);
+			class_axl var7 = Items.bf.a(var3, var2);
 			if (var7 == null) {
 				return false;
 			} else {
@@ -43,9 +43,9 @@ public class class_aeq implements class_aes {
 		for (int var4 = 0; var4 < var1.n_(); ++var4) {
 			class_aco var5 = var1.a(var4);
 			if (var5 != null) {
-				if ((var5.b() == class_acq.bf) && (var2 == null)) {
+				if ((var5.b() == Items.bf) && (var2 == null)) {
 					var2 = var5;
-				} else if ((var5.b() == class_acq.bg) && (var3 == null)) {
+				} else if ((var5.b() == Items.bg) && (var3 == null)) {
 					var3 = var5;
 				}
 			}
@@ -78,7 +78,7 @@ public class class_aeq implements class_aes {
 		for (int var3 = 0; var3 < var2.length; ++var3) {
 			class_aco var4 = var1.a(var3);
 			if (var4 != null) {
-				if (var4.b() == class_acq.bg) {
+				if (var4.b() == Items.bg) {
 					if (!var4.a(1, (new Random()))) {
 						var2[var3] = var4;
 					}

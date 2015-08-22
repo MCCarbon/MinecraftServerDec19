@@ -8,7 +8,7 @@ public class class_aoj extends class_aow implements class_ks, class_qf {
 	private class_aco[] g = new class_aco[4];
 	private int h;
 	private boolean[] i;
-	private class_acm j;
+	private Item j;
 	private String k;
 
 	@Override
@@ -228,8 +228,8 @@ public class class_aoj extends class_aow implements class_ks, class_qf {
 		if (var1 == 3) {
 			return class_aed.a(var2);
 		} else {
-			class_acm var3 = var2.b();
-			return (var3 == class_acq.bB) || (var3 == class_acq.bE);
+			Item var3 = var2.b();
+			return (var3 == Items.bB) || (var3 == Items.bE);
 		}
 	}
 

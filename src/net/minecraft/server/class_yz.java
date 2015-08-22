@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_yz extends class_qx {
+public class class_yz extends Entity {
 	private double a;
 	private double b;
 	private double c;
@@ -110,7 +110,7 @@ public class class_yz extends class_qx {
 			if ((d > 80) && !o.D) {
 				L();
 				if (e) {
-					o.a((new class_xg(o, s, t, u, new class_aco(class_acq.bM))));
+					o.a((new class_xg(o, s, t, u, new class_aco(Items.bM))));
 				} else {
 					o.b(2003, new class_cj(this), 0);
 				}

@@ -14,7 +14,7 @@ public class class_xi extends class_xk {
 	public void a(class_qi var1) {
 		super.a(var1);
 		if (o.S().b("doEntityDrops")) {
-			this.a(class_acm.a(class_aim.ae), 1, 0.0F);
+			this.a(Item.a(Blocks.ae), 1, 0.0F);
 		}
 
 	}
@@ -31,7 +31,7 @@ public class class_xi extends class_xk {
 
 	@Override
 	public class_apn u() {
-		return class_aim.ae.S().a(class_aiw.a, class_cq.c);
+		return Blocks.ae.S().a(class_aiw.a, class_cq.c);
 	}
 
 	@Override

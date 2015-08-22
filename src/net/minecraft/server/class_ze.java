@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 
 public final class class_ze {
-	public static class_ayl a(class_qx var0, boolean var1, boolean var2, class_qx var3) {
+	public static class_ayl a(Entity var0, boolean var1, boolean var2, Entity var3) {
 		double var4 = var0.s;
 		double var6 = var0.t;
 		double var8 = var0.u;
@@ -19,12 +19,12 @@ public final class class_ze {
 				var18 = new class_aym(var19.c.a, var19.c.b, var19.c.c);
 			}
 
-			class_qx var20 = null;
+			Entity var20 = null;
 			List var21 = var16.b(var0, var0.aX().a(var10, var12, var14).b(1.0D, 1.0D, 1.0D));
 			double var22 = 0.0D;
 
 			for (int var24 = 0; var24 < var21.size(); ++var24) {
-				class_qx var25 = (class_qx) var21.get(var24);
+				Entity var25 = (Entity) var21.get(var24);
 				if (var25.ag() && (var2 || !var25.l(var3)) && !var25.T) {
 					float var26 = 0.3F;
 					class_ayk var27 = var25.aX().b(var26, var26, var26);
@@ -47,7 +47,7 @@ public final class class_ze {
 		return var19;
 	}
 
-	public static final void a(class_qx var0, float var1) {
+	public static final void a(Entity var0, float var1) {
 		double var2 = var0.v;
 		double var4 = var0.w;
 		double var6 = var0.x;

@@ -12,7 +12,7 @@ public class class_oj extends class_oi.class_a_in_class_oi {
 	private int c;
 	private int d;
 
-	public class_oj(class_acm var1, int var2, int var3, int var4, int var5) {
+	public class_oj(Item var1, int var2, int var3, int var4, int var5) {
 		super(var5);
 		b = new class_aco(var1, 1, var2);
 		c = var3;

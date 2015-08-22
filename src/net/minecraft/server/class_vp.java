@@ -61,7 +61,7 @@ public class class_vp extends class_vg {
 	}
 
 	@Override
-	protected void s(class_qx var1) {
+	protected void s(Entity var1) {
 		if ((var1 instanceof class_xx) && !(var1 instanceof class_xu) && (bj().nextInt(20) == 0)) {
 			this.c((class_rg) var1);
 		}
@@ -85,9 +85,9 @@ public class class_vp extends class_vg {
 			int var2 = class_oa.c(t - 0.20000000298023224D);
 			int var3 = class_oa.c(u);
 			class_apn var4 = o.p(new class_cj(var1, var2, var3));
-			class_ail var5 = var4.c();
+			Block var5 = var4.c();
 			if (var5.v() != class_avq.a) {
-				o.a(class_cy.L, s + ((V.nextFloat() - 0.5D) * J), aX().b + 0.1D, u + ((V.nextFloat() - 0.5D) * J), 4.0D * (V.nextFloat() - 0.5D), 0.5D, (V.nextFloat() - 0.5D) * 4.0D, new int[] { class_ail.f(var4) });
+				o.a(class_cy.L, s + ((V.nextFloat() - 0.5D) * J), aX().b + 0.1D, u + ((V.nextFloat() - 0.5D) * J), 4.0D * (V.nextFloat() - 0.5D), 0.5D, (V.nextFloat() - 0.5D) * 4.0D, new int[] { Block.f(var4) });
 			}
 		}
 
@@ -111,7 +111,7 @@ public class class_vp extends class_vg {
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		bt = 10;
 		o.a(this, (byte) 4);
 		boolean var2 = var1.a(class_qi.a(this), 7 + V.nextInt(15));
@@ -144,7 +144,7 @@ public class class_vp extends class_vg {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.irongolem.walk", 1.0F, 1.0F);
 	}
 
@@ -154,13 +154,13 @@ public class class_vp extends class_vg {
 
 		int var4;
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acm.a(class_aim.O), 1, class_ake.class_a_in_class_ake.b.b());
+			this.a(Item.a(Blocks.O), 1, class_ake.class_a_in_class_ake.b.b());
 		}
 
 		var4 = 3 + V.nextInt(3);
 
 		for (int var5 = 0; var5 < var4; ++var5) {
-			this.a(class_acq.l, 1);
+			this.a(Items.l, 1);
 		}
 
 	}

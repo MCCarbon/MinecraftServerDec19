@@ -25,16 +25,16 @@ public class class_aqo {
 
 	public void a(int var1, int var2, int var3, class_apn var4) {
 		class_apn var5 = this.a(var1, var2, var3);
-		class_ail var6 = var5.c();
-		class_ail var7 = var4.c();
-		if (var6 != class_aim.a) {
+		Block var6 = var5.c();
+		Block var7 = var4.c();
+		if (var6 != Blocks.a) {
 			--b;
 			if (var6.A()) {
 				--c;
 			}
 		}
 
-		if (var7 != class_aim.a) {
+		if (var7 != Blocks.a) {
 			++b;
 			if (var7.A()) {
 				++c;
@@ -44,7 +44,7 @@ public class class_aqo {
 		d.a(var1, var2, var3, var4);
 	}
 
-	public class_ail b(int var1, int var2, int var3) {
+	public Block b(int var1, int var2, int var3) {
 		return this.a(var1, var2, var3).c();
 	}
 
@@ -88,8 +88,8 @@ public class class_aqo {
 		for (int var1 = 0; var1 < 16; ++var1) {
 			for (int var2 = 0; var2 < 16; ++var2) {
 				for (int var3 = 0; var3 < 16; ++var3) {
-					class_ail var4 = this.b(var1, var2, var3);
-					if (var4 != class_aim.a) {
+					Block var4 = this.b(var1, var2, var3);
+					if (var4 != Blocks.a) {
 						++b;
 						if (var4.A()) {
 							++c;

@@ -40,7 +40,7 @@ public class class_lm extends class_yu implements class_zz {
 	private class_yu.class_b_in_class_yu ce;
 	private boolean cf = true;
 	private long cg = System.currentTimeMillis();
-	private class_qx ch = null;
+	private Entity ch = null;
 	private int ci;
 	public boolean g;
 	public int h;
@@ -193,7 +193,7 @@ public class class_lm extends class_yu implements class_zz {
 				Iterator var12 = var9.iterator();
 
 				while (var12.hasNext()) {
-					class_aoi var13 = (class_aoi) var12.next();
+					TileEntity var13 = (TileEntity) var12.next();
 					this.a(var13);
 				}
 
@@ -206,7 +206,7 @@ public class class_lm extends class_yu implements class_zz {
 			}
 		}
 
-		class_qx var7 = D();
+		Entity var7 = D();
 		if (var7 != this) {
 			if (!var7.al()) {
 				this.e(this);
@@ -368,7 +368,7 @@ public class class_lm extends class_yu implements class_zz {
 
 		class_rg var7 = bA();
 		if (var7 != null) {
-			class_qz.class_a_in_class_qz var8 = (class_qz.class_a_in_class_qz) class_qz.a.get(class_qz.b(var7));
+			EntityTypes.class_a_in_class_qz var8 = (EntityTypes.class_a_in_class_qz) EntityTypes.a.get(EntityTypes.b(var7));
 			if (var8 != null) {
 				this.b(var8.e);
 			}
@@ -391,7 +391,7 @@ public class class_lm extends class_yu implements class_zz {
 				return false;
 			} else {
 				if (var1 instanceof class_qj) {
-					class_qx var4 = var1.j();
+					Entity var4 = var1.j();
 					if ((var4 instanceof class_yu) && !this.a((class_yu) var4)) {
 						return false;
 					}
@@ -419,7 +419,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public class_qx a(int var1, class_cj var2) {
+	public Entity a(int var1, class_cj var2) {
 		if ((am == 1) && (var1 == 1)) {
 			this.b(class_my.D);
 			o.e(this);
@@ -452,7 +452,7 @@ public class class_lm extends class_yu implements class_zz {
 		return var1.w() ? D() == this : (w() ? false : super.a(var1));
 	}
 
-	private void a(class_aoi var1) {
+	private void a(TileEntity var1) {
 		if (var1 != null) {
 			class_ff var2 = var1.x_();
 			if (var2 != null) {
@@ -463,7 +463,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public void a(class_qx var1, int var2) {
+	public void a(Entity var1, int var2) {
 		super.a(var1, var2);
 		bs.b();
 	}
@@ -495,8 +495,8 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public void a(class_qx var1) {
-		class_qx var2 = m;
+	public void a(Entity var1) {
+		Entity var2 = m;
 		super.a(var1);
 		if (var1 != var2) {
 			a.a((new class_hm(0, this, m)));
@@ -506,7 +506,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	protected void a(double var1, boolean var3, class_ail var4, class_cj var5) {
+	protected void a(double var1, boolean var3, Block var4, class_cj var5) {
 	}
 
 	public void a(double var1, boolean var3) {
@@ -514,9 +514,9 @@ public class class_lm extends class_yu implements class_zz {
 		int var5 = class_oa.c(t - 0.20000000298023224D);
 		int var6 = class_oa.c(u);
 		class_cj var7 = new class_cj(var4, var5, var6);
-		class_ail var8 = o.p(var7).c();
+		Block var8 = o.p(var7).c();
 		if (var8.v() == class_avq.a) {
-			class_ail var9 = o.p(var7.b()).c();
+			Block var9 = o.p(var7.b()).c();
 			if ((var9 instanceof class_akb) || (var9 instanceof class_anx) || (var9 instanceof class_akc)) {
 				var7 = var7.b();
 				var8 = o.p(var7).c();
@@ -607,8 +607,8 @@ public class class_lm extends class_yu implements class_zz {
 
 	@Override
 	public void a(class_aco var1) {
-		class_acm var2 = var1.b();
-		if (var2 == class_acq.bS) {
+		Item var2 = var1.b();
+		if (var2 == Items.bS) {
 			a.a((new class_gi("MC|BOpen", new PacketDataSerializer(Unpooled.buffer()))));
 		}
 
@@ -717,7 +717,7 @@ public class class_lm extends class_yu implements class_zz {
 
 	public void r() {
 		if (l != null) {
-			l.a((class_qx) this);
+			l.a((Entity) this);
 		}
 
 		if (bE) {
@@ -777,12 +777,12 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 		v().u().b(this, new class_fq(var1, 4));
 	}
 
 	@Override
-	public void c(class_qx var1) {
+	public void c(Entity var1) {
 		v().u().b(this, new class_fq(var1, 5));
 	}
 
@@ -803,7 +803,7 @@ public class class_lm extends class_yu implements class_zz {
 		c.a(var1);
 		a.a((new class_gn(3, var1.a())));
 		if (var1 == class_agr.class_a_in_class_agr.e) {
-			this.a((class_qx) null);
+			this.a((Entity) null);
 		} else {
 			this.e(this);
 		}
@@ -874,7 +874,7 @@ public class class_lm extends class_yu implements class_zz {
 		return bS;
 	}
 
-	public void d(class_qx var1) {
+	public void d(Entity var1) {
 		if (var1 instanceof class_yu) {
 			a.a((new class_hc(new int[] { var1.G() })));
 		} else {
@@ -895,12 +895,12 @@ public class class_lm extends class_yu implements class_zz {
 		v().u().a(this);
 	}
 
-	public class_qx D() {
+	public Entity D() {
 		return ch == null ? this : ch;
 	}
 
-	public void e(class_qx var1) {
-		class_qx var2 = D();
+	public void e(Entity var1) {
+		Entity var2 = D();
 		ch = var1 == null ? this : var1;
 		if (var2 != ch) {
 			a.a((new class_hi(ch)));
@@ -910,7 +910,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public void f(class_qx var1) {
+	public void f(Entity var1) {
 		if (c.b() == class_agr.class_a_in_class_agr.e) {
 			this.e(var1);
 		} else {

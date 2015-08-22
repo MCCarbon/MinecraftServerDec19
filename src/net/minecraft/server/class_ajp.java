@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_ajp extends class_ail {
+public class class_ajp extends Block {
 	public class_ajp() {
 		super(class_avq.D, class_avr.E);
 		this.a(0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);
@@ -14,7 +14,7 @@ public class class_ajp extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		var1.a(var2, this, this.a(var1));
 	}
 

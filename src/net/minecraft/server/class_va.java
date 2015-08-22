@@ -49,7 +49,7 @@ public class class_va extends class_uz {
 	}
 
 	@Override
-	protected void s(class_qx var1) {
+	protected void s(Entity var1) {
 	}
 
 	@Override
@@ -143,7 +143,7 @@ public class class_va extends class_uz {
 	}
 
 	@Override
-	protected void a(double var1, boolean var3, class_ail var4, class_cj var5) {
+	protected void a(double var1, boolean var3, Block var4, class_cj var5) {
 	}
 
 	@Override

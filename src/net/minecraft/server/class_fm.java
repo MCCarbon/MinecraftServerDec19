@@ -12,7 +12,7 @@ public class class_fm implements class_ff {
 	public class_fm() {
 	}
 
-	public class_fm(class_qx var1) {
+	public class_fm(Entity var1) {
 		a = var1.G();
 		b = class_oa.c(var1.s * 32.0D);
 		c = class_oa.c(var1.t * 32.0D);

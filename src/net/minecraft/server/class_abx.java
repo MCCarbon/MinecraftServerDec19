@@ -8,7 +8,7 @@ public class class_abx extends class_abo {
 
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
-		class_aco var5 = new class_aco(class_acq.bf, 1, var2.b("map"));
+		class_aco var5 = new class_aco(Items.bf, 1, var2.b("map"));
 		String var6 = "map_" + var5.i();
 		class_axl var7 = new class_axl(var6);
 		var2.a(var6, var7);
@@ -25,7 +25,7 @@ public class class_abx extends class_abo {
 				var3.a(var5, false);
 			}
 
-			var3.b(class_nh.c(class_acm.b(this)));
+			var3.b(class_nh.c(Item.b(this)));
 			return new class_px(class_pw.a, var1);
 		}
 	}

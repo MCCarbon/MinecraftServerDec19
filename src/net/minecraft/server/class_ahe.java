@@ -43,11 +43,11 @@ public class class_ahe {
 	public boolean L;
 
 	public class_ahe() {
-		f = new class_atk(class_aim.m, 7);
-		g = new class_atk(class_aim.n, 6);
-		s = new class_asq(class_aim.N, class_ake.class_a_in_class_ake.a);
-		t = new class_asf(class_aim.P);
-		u = new class_asf(class_aim.Q);
+		f = new class_atk(Blocks.m, 7);
+		g = new class_atk(Blocks.n, 6);
+		s = new class_asq(Blocks.N, class_ake.class_a_in_class_ake.a);
+		t = new class_asf(Blocks.P);
+		u = new class_asf(Blocks.Q);
 		v = new class_asv();
 		w = new class_ati();
 		x = new class_asg();
@@ -74,17 +74,17 @@ public class class_ahe {
 
 			b = var2;
 			c = var4;
-			h = new class_atf(class_aim.d.S(), d.I);
-			i = new class_atf(class_aim.n.S(), d.M);
-			j = new class_atf(class_aim.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.b), d.Q);
-			k = new class_atf(class_aim.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.d), d.U);
-			l = new class_atf(class_aim.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.f), d.Y);
-			m = new class_atf(class_aim.q.S(), d.ac);
-			n = new class_atf(class_aim.p.S(), d.ag);
-			o = new class_atf(class_aim.o.S(), d.ak);
-			p = new class_atf(class_aim.aC.S(), d.ao);
-			q = new class_atf(class_aim.ag.S(), d.as);
-			r = new class_atf(class_aim.x.S(), d.aw);
+			h = new class_atf(Blocks.d.S(), d.I);
+			i = new class_atf(Blocks.n.S(), d.M);
+			j = new class_atf(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.b), d.Q);
+			k = new class_atf(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.d), d.U);
+			l = new class_atf(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.f), d.Y);
+			m = new class_atf(Blocks.q.S(), d.ac);
+			n = new class_atf(Blocks.p.S(), d.ag);
+			o = new class_atf(Blocks.o.S(), d.ak);
+			p = new class_atf(Blocks.aC.S(), d.ao);
+			q = new class_atf(Blocks.ag.S(), d.as);
+			r = new class_atf(Blocks.x.S(), d.aw);
 			this.a(var3);
 			a = null;
 			b = null;
@@ -285,7 +285,7 @@ public class class_ahe {
 				if (var11 > 0) {
 					var12 = b.nextInt(var11);
 					var8 = c.a(var4, var12, var5);
-					(new class_atn(class_aim.i)).b(a, b, var8);
+					(new class_atn(Blocks.i)).b(a, b, var8);
 				}
 			}
 
@@ -294,7 +294,7 @@ public class class_ahe {
 				var5 = b.nextInt(16) + 8;
 				var11 = b.nextInt(b.nextInt(b.nextInt(240) + 8) + 8);
 				var7 = c.a(var4, var11, var5);
-				(new class_atn(class_aim.k)).b(a, b, var7);
+				(new class_atn(Blocks.k)).b(a, b, var7);
 			}
 		}
 

@@ -25,17 +25,17 @@ public class class_o {
 	private static final Pattern c = Pattern.compile("\\G(\\w+)=([-!]?[\\w-]*)(?:$|,)");
 	private static final Set d = Sets.newHashSet((Object[]) (new String[] { "x", "y", "z", "dx", "dy", "dz", "rm", "r" }));
 
-	public static class_lm a(class_m var0, String var1) {
+	public static class_lm a(ICommandListener var0, String var1) {
 		return (class_lm) a(var0, var1, class_lm.class);
 	}
 
-	public static class_qx a(class_m var0, String var1, Class var2) {
+	public static Entity a(ICommandListener var0, String var1, Class var2) {
 		List var3 = b(var0, var1, var2);
-		return var3.size() == 1 ? (class_qx) var3.get(0) : null;
+		return var3.size() == 1 ? (Entity) var3.get(0) : null;
 	}
 
-	public static class_eu b(class_m var0, String var1) {
-		List var2 = b(var0, var1, class_qx.class);
+	public static class_eu b(ICommandListener var0, String var1) {
+		List var2 = b(var0, var1, Entity.class);
 		if (var2.isEmpty()) {
 			return null;
 		} else {
@@ -43,7 +43,7 @@ public class class_o {
 			Iterator var4 = var2.iterator();
 
 			while (var4.hasNext()) {
-				class_qx var5 = (class_qx) var4.next();
+				Entity var5 = (Entity) var4.next();
 				var3.add(var5.f_());
 			}
 
@@ -51,7 +51,7 @@ public class class_o {
 		}
 	}
 
-	public static List b(class_m var0, String var1, Class var2) {
+	public static List b(ICommandListener var0, String var1, Class var2) {
 		Matcher var3 = a.matcher(var1);
 		if (var3.matches() && var0.a(1, "@")) {
 			Map var4 = c(var3.group(2));
@@ -88,7 +88,7 @@ public class class_o {
 		}
 	}
 
-	private static List a(class_m var0, Map var1) {
+	private static List a(ICommandListener var0, Map var1) {
 		ArrayList var2 = Lists.newArrayList();
 		if (i(var1)) {
 			var2.add(var0.e());
@@ -99,10 +99,10 @@ public class class_o {
 		return var2;
 	}
 
-	private static boolean b(class_m var0, Map var1) {
+	private static boolean b(ICommandListener var0, Map var1) {
 		String var2 = b(var1, "type");
 		var2 = (var2 != null) && var2.startsWith("!") ? var2.substring(1) : var2;
-		if ((var2 != null) && !class_qz.b(var2)) {
+		if ((var2 != null) && !EntityTypes.b(var2)) {
 			class_fb var3 = new class_fb("commands.generic.entity.invalidType", new Object[] { var2 });
 			var3.b().a(EnumChatFormat.RED);
 			var0.a(var3);
@@ -126,27 +126,27 @@ public class class_o {
 		if (((var3 == null) || !var1.equals("e")) && !var7) {
 			if (var6) {
 				var2.add(new Predicate() {
-					public boolean a(class_qx var1) {
+					public boolean a(Entity var1) {
 						return var1 instanceof class_yu;
 					}
 
 					// $FF: synthetic method
 					@Override
 					public boolean apply(Object var1) {
-						return this.a((class_qx) var1);
+						return this.a((Entity) var1);
 					}
 				});
 			}
 		} else {
 			var2.add(new Predicate() {
-				public boolean a(class_qx var1) {
-					return class_qz.a(var1, vvar3) != var4;
+				public boolean a(Entity var1) {
+					return EntityTypes.a(var1, vvar3) != var4;
 				}
 
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -160,7 +160,7 @@ public class class_o {
 		final int var3 = a(var0, "l", -1);
 		if ((var2 > -1) || (var3 > -1)) {
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					if (!(var1 instanceof class_lm)) {
 						return false;
 					} else {
@@ -172,7 +172,7 @@ public class class_o {
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -185,7 +185,7 @@ public class class_o {
 		final int var2 = a(var0, "m", class_agr.class_a_in_class_agr.a.a());
 		if (var2 != class_agr.class_a_in_class_agr.a.a()) {
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					if (!(var1 instanceof class_lm)) {
 						return false;
 					} else {
@@ -197,7 +197,7 @@ public class class_o {
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -216,7 +216,7 @@ public class class_o {
 
 		if (var2 != null) {
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					if (!(var1 instanceof class_rg)) {
 						return false;
 					} else {
@@ -230,7 +230,7 @@ public class class_o {
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -243,7 +243,7 @@ public class class_o {
 		final Map var2 = a(var0);
 		if ((var2 != null) && !var2.isEmpty()) {
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					class_ays var2x = MinecraftServer.P().a(0).ab();
 					Iterator var3 = var2.entrySet().iterator();
 
@@ -286,7 +286,7 @@ public class class_o {
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -305,14 +305,14 @@ public class class_o {
 
 		if (var2 != null) {
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					return var1.e_().equals(vvar2) != var3;
 				}
 
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -331,14 +331,14 @@ public class class_o {
 
 		if (var2 != null) {
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					return "".equals(vvar2) ? var1.H().isEmpty() != var3 : var1.H().contains(vvar2) != var3;
 				}
 
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -354,7 +354,7 @@ public class class_o {
 			final int var5 = var3 * var3;
 			final int var6 = var4 * var4;
 			var2.add(new Predicate() {
-				public boolean a(class_qx var1x) {
+				public boolean a(Entity var1x) {
 					int var2 = (int) var1x.c(var1);
 					return ((var3 < 0) || (var2 >= var5)) && ((var4 < 0) || (var2 <= var6));
 				}
@@ -362,7 +362,7 @@ public class class_o {
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1x) {
-					return this.a((class_qx) var1x);
+					return this.a((Entity) var1x);
 				}
 			});
 		}
@@ -380,7 +380,7 @@ public class class_o {
 			final int vvar2 = var2;
 			final int vvar3 = var3;
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					int var2x = class_o.a((int) Math.floor(var1.y));
 					return vvar2 > vvar3 ? (var2x >= vvar2) || (var2x <= vvar3) : (var2x >= vvar2) && (var2x <= vvar3);
 				}
@@ -388,7 +388,7 @@ public class class_o {
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -399,7 +399,7 @@ public class class_o {
 			final int vvar2 = var2;
 			final int vvar3 = var3;
 			var1.add(new Predicate() {
-				public boolean a(class_qx var1) {
+				public boolean a(Entity var1) {
 					int var2x = class_o.a((int) Math.floor(var1.z));
 					return vvar2 > vvar3 ? (var2x >= vvar2) || (var2x <= vvar3) : (var2x >= vvar2) && (var2x <= vvar3);
 				}
@@ -407,7 +407,7 @@ public class class_o {
 				// $FF: synthetic method
 				@Override
 				public boolean apply(Object var1) {
-					return this.a((class_qx) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -451,14 +451,14 @@ public class class_o {
 				var19 = a(var5, var10, var11, var12);
 				if (var8 && var18 && !var9) {
 					Predicate var20 = new Predicate() {
-						public boolean a(class_qx var1) {
+						public boolean a(Entity var1) {
 							return (var1.s >= var19.a) && (var1.t >= var19.b) && (var1.u >= var19.c) ? (var1.s < var19.d) && (var1.t < var19.e) && (var1.u < var19.f) : false;
 						}
 
 						// $FF: synthetic method
 						@Override
 						public boolean apply(Object var1) {
-							return this.a((class_qx) var1);
+							return this.a((Entity) var1);
 						}
 					};
 					var6.addAll(var4.b(var1, Predicates.and(var15, var20)));
@@ -477,7 +477,7 @@ public class class_o {
 		return var6;
 	}
 
-	private static List a(List var0, Map var1, class_m var2, Class var3, String var4, final class_cj var5) {
+	private static List a(List var0, Map var1, ICommandListener var2, Class var3, String var4, final class_cj var5) {
 		int var6 = a(var1, "c", !var4.equals("a") && !var4.equals("e") ? 1 : 0);
 		if (!var4.equals("p") && !var4.equals("a") && !var4.equals("e")) {
 			if (var4.equals("r")) {
@@ -485,21 +485,21 @@ public class class_o {
 			}
 		} else if (var5 != null) {
 			Collections.sort(var0, new Comparator() {
-				public int a(class_qx var1, class_qx var2) {
+				public int a(Entity var1, Entity var2) {
 					return ComparisonChain.start().compare(var1.b(var5), var2.b(var5)).result();
 				}
 
 				// $FF: synthetic method
 				@Override
 				public int compare(Object var1, Object var2) {
-					return this.a((class_qx) var1, (class_qx) var2);
+					return this.a((Entity) var1, (Entity) var2);
 				}
 			});
 		}
 
-		class_qx var7 = var2.f();
+		Entity var7 = var2.f();
 		if ((var7 != null) && var3.isAssignableFrom(var7.getClass()) && (var6 == 1) && var0.contains(var7) && !"r".equals(var4)) {
-			var0 = Lists.newArrayList((Object[]) (new class_qx[] { var7 }));
+			var0 = Lists.newArrayList((Object[]) (new Entity[] { var7 }));
 		}
 
 		if (var6 != 0) {

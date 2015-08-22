@@ -7,9 +7,9 @@ import java.util.UUID;
 
 import com.google.common.collect.Lists;
 
-public class class_zf extends class_qx {
+public class class_zf extends Entity {
 	private class_rg a;
-	private class_qx b;
+	private Entity b;
 	private class_cq c;
 	private int d;
 	private double e;
@@ -26,7 +26,7 @@ public class class_zf extends class_qx {
 		T = true;
 	}
 
-	public class_zf(class_ago var1, class_rg var2, class_qx var3, class_cq.class_a_in_class_cq var4) {
+	public class_zf(class_ago var1, class_rg var2, Entity var3, class_cq.class_a_in_class_cq var4) {
 		this(var1);
 		a = var2;
 		class_cj var5 = new class_cj(var2);

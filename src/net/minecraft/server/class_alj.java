@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_alj extends class_ail {
+public class class_alj extends Block {
 	public static final class_aqa a = class_aqa.a("variant", class_alj.class_a_in_class_alj.class);
 
 	public class_alj() {
@@ -18,25 +18,25 @@ public class class_alj extends class_ail {
 	}
 
 	public static boolean d(class_apn var0) {
-		class_ail var1 = var0.c();
-		return (var0 == class_aim.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)) || (var1 == class_aim.e) || (var1 == class_aim.bf);
+		Block var1 = var0.c();
+		return (var0 == Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)) || (var1 == Blocks.e) || (var1 == Blocks.bf);
 	}
 
 	@Override
 	protected class_aco i(class_apn var1) {
 		switch (class_alj.SyntheticClass_1.a[((class_alj.class_a_in_class_alj) var1.b(a)).ordinal()]) {
 			case 1:
-				return new class_aco(class_aim.e);
+				return new class_aco(Blocks.e);
 			case 2:
-				return new class_aco(class_aim.bf);
+				return new class_aco(Blocks.bf);
 			case 3:
-				return new class_aco(class_aim.bf, 1, class_ank.class_a_in_class_ank.b.a());
+				return new class_aco(Blocks.bf, 1, class_ank.class_a_in_class_ank.b.a());
 			case 4:
-				return new class_aco(class_aim.bf, 1, class_ank.class_a_in_class_ank.c.a());
+				return new class_aco(Blocks.bf, 1, class_ank.class_a_in_class_ank.c.a());
 			case 5:
-				return new class_aco(class_aim.bf, 1, class_ank.class_a_in_class_ank.d.a());
+				return new class_aco(Blocks.bf, 1, class_ank.class_a_in_class_ank.d.a());
 			default:
-				return new class_aco(class_aim.b);
+				return new class_aco(Blocks.b);
 		}
 	}
 
@@ -114,37 +114,37 @@ public class class_alj extends class_ail {
 		a(0, "stone") {
 			@Override
 			public class_apn d() {
-				return class_aim.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a);
+				return Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a);
 			}
 		},
 		b(1, "cobblestone", "cobble") {
 			@Override
 			public class_apn d() {
-				return class_aim.e.S();
+				return Blocks.e.S();
 			}
 		},
 		c(2, "stone_brick", "brick") {
 			@Override
 			public class_apn d() {
-				return class_aim.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.a);
+				return Blocks.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.a);
 			}
 		},
 		d(3, "mossy_brick", "mossybrick") {
 			@Override
 			public class_apn d() {
-				return class_aim.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.b);
+				return Blocks.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.b);
 			}
 		},
 		e(4, "cracked_brick", "crackedbrick") {
 			@Override
 			public class_apn d() {
-				return class_aim.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.c);
+				return Blocks.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.c);
 			}
 		},
 		f(5, "chiseled_brick", "chiseledbrick") {
 			@Override
 			public class_apn d() {
-				return class_aim.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.d);
+				return Blocks.bf.S().a(class_ank.a, class_ank.class_a_in_class_ank.d);
 			}
 		};
 

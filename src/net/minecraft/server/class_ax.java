@@ -19,12 +19,12 @@ public class class_ax extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.replaceitem.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 1) {
 			throw new class_cf("commands.replaceitem.usage", new Object[0]);
 		} else {
@@ -57,11 +57,11 @@ public class class_ax extends class_i {
 			int var16 = var4 + 1;
 			int var5 = this.e(var2[var4]);
 
-			class_acm var6;
+			Item var6;
 			try {
 				var6 = f(var1, var2[var16]);
 			} catch (class_cb var15) {
-				if (class_ail.b(var2[var16]) != class_aim.a) {
+				if (Block.b(var2[var16]) != Blocks.a) {
 					throw var15;
 				}
 
@@ -90,7 +90,7 @@ public class class_ax extends class_i {
 				var1.a(class_n.class_a_in_class_n.d, 0);
 				class_cj var18 = a(var1, var2, 1, false);
 				class_ago var11 = var1.e();
-				class_aoi var12 = var11.s(var18);
+				TileEntity var12 = var11.s(var18);
 				if ((var12 == null) || !(var12 instanceof class_pp)) {
 					throw new class_bz("commands.replaceitem.noContainer", new Object[] { Integer.valueOf(var18.n()), Integer.valueOf(var18.o()), Integer.valueOf(var18.p()) });
 				}
@@ -100,7 +100,7 @@ public class class_ax extends class_i {
 					var13.a(var5, var9);
 				}
 			} else {
-				class_qx var17 = b(var1, var2[1]);
+				Entity var17 = b(var1, var2[1]);
 				var1.a(class_n.class_a_in_class_n.d, 0);
 				if (var17 instanceof class_yu) {
 					((class_yu) var17).br.b();
@@ -129,8 +129,8 @@ public class class_ax extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return var2.length == 1 ? a(var2, new String[] { "entity", "block" }) : ((var2.length == 2) && var2[0].equals("entity") ? a(var2, this.d()) : ((var2.length >= 2) && (var2.length <= 4) && var2[0].equals("block") ? a(var2, 1, var3) : (((var2.length == 3) && var2[0].equals("entity")) || ((var2.length == 5) && var2[0].equals("block")) ? a(var2, a.keySet()) : (((var2.length != 4) || !var2[0].equals("entity")) && ((var2.length != 6) || !var2[0].equals("block")) ? null : a(var2, class_acm.e.c())))));
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return var2.length == 1 ? a(var2, new String[] { "entity", "block" }) : ((var2.length == 2) && var2[0].equals("entity") ? a(var2, this.d()) : ((var2.length >= 2) && (var2.length <= 4) && var2[0].equals("block") ? a(var2, 1, var3) : (((var2.length == 3) && var2[0].equals("entity")) || ((var2.length == 5) && var2[0].equals("block")) ? a(var2, a.keySet()) : (((var2.length != 4) || !var2[0].equals("entity")) && ((var2.length != 6) || !var2[0].equals("block")) ? null : a(var2, Item.e.c())))));
 	}
 
 	protected String[] d() {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aml extends class_ail {
+public class class_aml extends Block {
 	private final boolean a;
 
 	public class_aml(boolean var1) {
@@ -26,7 +26,7 @@ public class class_aml extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_qx var3) {
+	public void a(class_ago var1, class_cj var2, Entity var3) {
 		this.d(var1, var2);
 		super.a(var1, var2, var3);
 	}
@@ -39,23 +39,23 @@ public class class_aml extends class_ail {
 
 	private void d(class_ago var1, class_cj var2) {
 		this.e(var1, var2);
-		if (this == class_aim.aC) {
-			var1.a(var2, class_aim.aD.S());
+		if (this == Blocks.aC) {
+			var1.a(var2, Blocks.aD.S());
 		}
 
 	}
 
 	@Override
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
-		if (this == class_aim.aD) {
-			var1.a(var2, class_aim.aC.S());
+		if (this == Blocks.aD) {
+			var1.a(var2, Blocks.aC.S());
 		}
 
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.aE;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.aE;
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class class_aml extends class_ail {
 	@Override
 	public void a(class_ago var1, class_cj var2, class_apn var3, float var4, int var5) {
 		super.a(var1, var2, var3, var4, var5);
-		if (this.a(var3, var1.s, var5) != class_acm.a(this)) {
+		if (this.a(var3, var1.s, var5) != Item.a(this)) {
 			int var6 = 1 + var1.s.nextInt(5);
 			this.b(var1, var2, var6);
 		}
@@ -119,6 +119,6 @@ public class class_aml extends class_ail {
 
 	@Override
 	protected class_aco i(class_apn var1) {
-		return new class_aco(class_aim.aC);
+		return new class_aco(Blocks.aC);
 	}
 }

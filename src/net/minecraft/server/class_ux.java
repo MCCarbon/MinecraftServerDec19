@@ -211,7 +211,7 @@ public class class_ux extends class_axj {
 	}
 
 	private boolean f(class_cj var1) {
-		class_ail var2 = b.p(var1).c();
+		Block var2 = b.p(var1).c();
 		return var2 instanceof class_ajn ? var2.v() == class_avq.d : false;
 	}
 

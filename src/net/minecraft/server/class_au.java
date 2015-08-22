@@ -14,12 +14,12 @@ public class class_au extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.particle.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 8) {
 			throw new class_cf("commands.particle.usage", new Object[0]);
 		} else {
@@ -102,7 +102,7 @@ public class class_au extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return var2.length == 1 ? a(var2, class_cy.a()) : ((var2.length > 1) && (var2.length <= 4) ? a(var2, 1, var3) : (var2.length == 10 ? a(var2, new String[] { "normal", "force" }) : (var2.length == 11 ? a(var2, MinecraftServer.P().M()) : null)));
 	}
 

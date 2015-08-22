@@ -9,7 +9,7 @@ public class class_ajt extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_apc();
 	}
 

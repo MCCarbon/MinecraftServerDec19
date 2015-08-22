@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aci extends class_acm {
+public class class_aci extends Item {
 	public final int a;
 	private final int b;
 	private final float c;
@@ -28,9 +28,9 @@ public class class_aci extends class_acm {
 		if (var3 instanceof class_yu) {
 			class_yu var4 = (class_yu) var3;
 			var4.ct().a(this, var1);
-			var2.a((class_qx) var4, "random.burp", 0.5F, (var2.s.nextFloat() * 0.1F) + 0.9F);
+			var2.a((Entity) var4, "random.burp", 0.5F, (var2.s.nextFloat() * 0.1F) + 0.9F);
 			this.a(var1, var2, var4);
-			var4.b(class_nh.c(class_acm.b(this)));
+			var4.b(class_nh.c(Item.b(this)));
 		}
 
 		return var1;

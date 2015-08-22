@@ -44,13 +44,13 @@ public class class_yb extends class_yi {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.bJ;
+	protected Item D() {
+		return Items.bJ;
 	}
 
 	@Override
 	protected void b(boolean var1, int var2) {
-		class_acm var3 = D();
+		Item var3 = D();
 		if ((var3 != null) && (cF() > 1)) {
 			int var4 = V.nextInt(4) - 2;
 			if (var2 > 0) {

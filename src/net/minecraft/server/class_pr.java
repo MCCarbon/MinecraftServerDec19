@@ -9,7 +9,7 @@ public class class_pr {
 		a(var0, var1.n(), var1.o(), var1.p(), var2);
 	}
 
-	public static void a(class_ago var0, class_qx var1, class_pp var2) {
+	public static void a(class_ago var0, Entity var1, class_pp var2) {
 		a(var0, var1.s, var1.t, var1.u, var2);
 	}
 

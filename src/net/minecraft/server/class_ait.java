@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_ait extends class_ail {
+public class class_ait extends Block {
 	public static final class_aqb a = class_aqb.a("bites", 0, 6);
 
 	protected class_ait() {
@@ -75,7 +75,7 @@ public class class_ait extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!this.d(var1, var2)) {
 			var1.g(var2);
 		}
@@ -92,13 +92,13 @@ public class class_ait extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return null;
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.bb);
+		return new class_aco(Items.bb);
 	}
 
 	@Override

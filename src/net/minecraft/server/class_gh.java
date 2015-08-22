@@ -3,26 +3,26 @@ package net.minecraft.server;
 import java.io.IOException;
 
 public class class_gh implements class_ff {
-	private class_acm a;
+	private Item a;
 	private int b;
 
 	public class_gh() {
 	}
 
-	public class_gh(class_acm var1, int var2) {
+	public class_gh(Item var1, int var2) {
 		a = var1;
 		b = var2;
 	}
 
 	@Override
 	public void a(PacketDataSerializer var1) throws IOException {
-		a = class_acm.c(var1.g());
+		a = Item.c(var1.g());
 		b = var1.g();
 	}
 
 	@Override
 	public void b(PacketDataSerializer var1) throws IOException {
-		var1.b(class_acm.a(a));
+		var1.b(Item.a(a));
 		var1.b(b);
 	}
 

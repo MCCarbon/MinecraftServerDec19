@@ -342,7 +342,7 @@ public class class_ays {
 		return g;
 	}
 
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 		if ((var1 != null) && !(var1 instanceof class_yu) && !var1.al()) {
 			String var2 = var1.aQ().toString();
 			this.d(var2, (class_ayo) null);

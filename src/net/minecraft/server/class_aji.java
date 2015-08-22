@@ -36,7 +36,7 @@ public class class_aji extends class_aih {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		if (!var1.D) {
 			if (!((Boolean) var3.b(N)).booleanValue()) {
 				this.f(var1, var2, var3);
@@ -154,7 +154,7 @@ public class class_aji extends class_aih {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -231,7 +231,7 @@ public class class_aji extends class_aih {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -291,37 +291,37 @@ public class class_aji extends class_aih {
 		// $FF: synthetic field
 		static final int[] b;
 		// $FF: synthetic field
-		static final int[] c = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] c = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				c[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				c[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var15) {
 				;
 			}
 
 			try {
-				c[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				c[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var14) {
 				;
 			}
 
-			b = new int[class_ail.class_c_in_class_ail.values().length];
+			b = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				b[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				b[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var13) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				b[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var12) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				b[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var11) {
 				;
 			}

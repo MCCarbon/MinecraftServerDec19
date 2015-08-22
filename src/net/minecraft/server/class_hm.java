@@ -10,7 +10,7 @@ public class class_hm implements class_ff {
 	public class_hm() {
 	}
 
-	public class_hm(int var1, class_qx var2, class_qx var3) {
+	public class_hm(int var1, Entity var2, Entity var3) {
 		a = var1;
 		b = var2.G();
 		c = var3 != null ? var3.G() : -1;

@@ -9,7 +9,7 @@ import java.util.UUID;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-public class class_qv extends class_qx {
+public class class_qv extends Entity {
 	private static final class_jz a;
 	private static final class_jz b;
 	private static final class_jz c;
@@ -261,7 +261,7 @@ public class class_qv extends class_qx {
 
 	public class_rg s() {
 		if ((aw == null) && (ax != null) && (o instanceof class_ll)) {
-			class_qx var1 = ((class_ll) o).a(ax);
+			Entity var1 = ((class_ll) o).a(ax);
 			if (var1 instanceof class_rg) {
 				aw = (class_rg) var1;
 			}

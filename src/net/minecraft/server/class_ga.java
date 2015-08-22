@@ -25,7 +25,7 @@ public class class_ga implements class_ff {
 		b = new class_ga.class_a_in_class_ga[var1.g()];
 
 		for (int var2 = 0; var2 < b.length; ++var2) {
-			b[var2] = new class_ga.class_a_in_class_ga(var1.readShort(), (class_apn) class_ail.d.a(var1.g()));
+			b[var2] = new class_ga.class_a_in_class_ga(var1.readShort(), (class_apn) Block.d.a(var1.g()));
 		}
 
 	}
@@ -41,7 +41,7 @@ public class class_ga implements class_ff {
 		for (int var4 = 0; var4 < var3; ++var4) {
 			class_ga.class_a_in_class_ga var5 = var2[var4];
 			var1.writeShort(var5.b());
-			var1.b(class_ail.d.a(var5.c()));
+			var1.b(Block.d.a(var5.c()));
 		}
 
 	}

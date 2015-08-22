@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_ack extends class_acm {
+public class class_ack extends Item {
 	private final Class a;
 
 	public class_ack(Class var1) {

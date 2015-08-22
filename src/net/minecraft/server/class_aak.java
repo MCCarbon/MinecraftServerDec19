@@ -31,7 +31,7 @@ public class class_aak extends class_zu {
 
 				@Override
 				public boolean a(class_aco var1) {
-					return var1 == null ? false : (var1.b() instanceof class_aav ? ((class_aav) var1.b()).b == var6 : ((var1.b() != class_acm.a(class_aim.aU)) && (var1.b() != class_acq.cc) ? false : var6 == class_rc.f));
+					return var1 == null ? false : (var1.b() instanceof class_aav ? ((class_aav) var1.b()).b == var6 : ((var1.b() != Item.a(Blocks.aU)) && (var1.b() != Items.cc) ? false : var6 == class_rc.f));
 				}
 			}));
 		}

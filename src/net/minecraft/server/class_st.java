@@ -50,24 +50,24 @@ public class class_st extends class_tc {
 			class_ago var1 = c.o;
 			class_cj var2 = b.a();
 			class_apn var3 = var1.p(var2);
-			class_ail var4 = var3.c();
+			Block var4 = var3.c();
 			if ((f == 0) && (var4 instanceof class_ajf) && ((class_ajf) var4).e(var3)) {
 				var1.b(var2, true);
-			} else if ((f == 1) && (var4 == class_aim.a)) {
+			} else if ((f == 1) && (var4 == Blocks.a)) {
 				class_qc var5 = c.cJ();
 
 				for (int var6 = 0; var6 < var5.n_(); ++var6) {
 					class_aco var7 = var5.a(var6);
 					boolean var8 = false;
 					if (var7 != null) {
-						if (var7.b() == class_acq.P) {
-							var1.a(var2, class_aim.aj.S(), 3);
+						if (var7.b() == Items.P) {
+							var1.a(var2, Blocks.aj.S(), 3);
 							var8 = true;
-						} else if (var7.b() == class_acq.bX) {
-							var1.a(var2, class_aim.cc.S(), 3);
+						} else if (var7.b() == Items.bX) {
+							var1.a(var2, Blocks.cc.S(), 3);
 							var8 = true;
-						} else if (var7.b() == class_acq.bW) {
-							var1.a(var2, class_aim.cb.S(), 3);
+						} else if (var7.b() == Items.bW) {
+							var1.a(var2, Blocks.cb.S(), 3);
 							var8 = true;
 						}
 					}
@@ -90,8 +90,8 @@ public class class_st extends class_tc {
 
 	@Override
 	protected boolean a(class_ago var1, class_cj var2) {
-		class_ail var3 = var1.p(var2).c();
-		if (var3 == class_aim.ak) {
+		Block var3 = var1.p(var2).c();
+		if (var3 == Blocks.ak) {
 			var2 = var2.a();
 			class_apn var4 = var1.p(var2);
 			var3 = var4.c();
@@ -100,7 +100,7 @@ public class class_st extends class_tc {
 				return true;
 			}
 
-			if ((var3 == class_aim.a) && d && ((f == 1) || (f < 0))) {
+			if ((var3 == Blocks.a) && d && ((f == 1) || (f < 0))) {
 				f = 1;
 				return true;
 			}

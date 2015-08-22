@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aky extends class_ail {
+public class class_aky extends Block {
 	public static final class_aqa a = class_aqa.a("variant", class_aky.class_a_in_class_aky.class);
-	private final class_ail b;
+	private final Block b;
 
-	public class_aky(class_avq var1, class_avr var2, class_ail var3) {
+	public class_aky(class_avq var1, class_avr var2, Block var3) {
 		super(var1, var2);
 		this.j(M.b().a(a, class_aky.class_a_in_class_aky.l));
 		b = var3;
@@ -32,8 +32,8 @@ public class class_aky extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acm.a(b);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Item.a(b);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class class_aky extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -138,7 +138,7 @@ public class class_aky extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -200,37 +200,37 @@ public class class_aky extends class_ail {
 		// $FF: synthetic field
 		static final int[] b;
 		// $FF: synthetic field
-		static final int[] c = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] c = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				c[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				c[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var16) {
 				;
 			}
 
 			try {
-				c[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				c[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var15) {
 				;
 			}
 
-			b = new int[class_ail.class_c_in_class_ail.values().length];
+			b = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				b[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				b[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var14) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				b[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var13) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				b[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var12) {
 				;
 			}

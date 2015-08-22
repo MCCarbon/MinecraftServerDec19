@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aol extends class_aoi {
+public class class_aol extends TileEntity {
 	private boolean a;
 	private boolean f;
 	private final class_age g = new class_age() {
@@ -32,7 +32,7 @@ public class class_aol extends class_aoi {
 		}
 
 		@Override
-		public class_qx f() {
+		public Entity f() {
 			return null;
 		}
 	};
@@ -90,8 +90,8 @@ public class class_aol extends class_aoi {
 	}
 
 	public class_aol.class_a_in_class_aol g() {
-		class_ail var1 = w();
-		return var1 == class_aim.bX ? class_aol.class_a_in_class_aol.c : (var1 == class_aim.dc ? class_aol.class_a_in_class_aol.b : (var1 == class_aim.dd ? class_aol.class_a_in_class_aol.a : class_aol.class_a_in_class_aol.c));
+		Block var1 = w();
+		return var1 == Blocks.bX ? class_aol.class_a_in_class_aol.c : (var1 == Blocks.dc ? class_aol.class_a_in_class_aol.b : (var1 == Blocks.dd ? class_aol.class_a_in_class_aol.a : class_aol.class_a_in_class_aol.c));
 	}
 
 	@Override

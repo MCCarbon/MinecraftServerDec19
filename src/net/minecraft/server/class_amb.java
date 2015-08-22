@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_amb extends class_ail {
+public class class_amb extends Block {
 	public class_amb(class_avq var1, class_avr var2) {
 		super(var1, var2);
 	}

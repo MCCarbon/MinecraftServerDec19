@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.google.common.base.Predicate;
 
-public class class_abf extends class_acm {
+public class class_abf extends Item {
 	public class_abf() {
 		this.a(class_abp.k);
 	}
@@ -25,7 +25,7 @@ public class class_abf extends class_acm {
 		if (!var5.isEmpty()) {
 			class_qv var8 = (class_qv) var5.get(0);
 			var8.a(var8.i() - 0.5F);
-			return new class_px(class_pw.a, this.a(var1, var3, new class_aco(class_acq.bF)));
+			return new class_px(class_pw.a, this.a(var1, var3, new class_aco(Items.bF)));
 		} else {
 			class_ayl var6 = this.a(var2, var3, true);
 			if (var6 == null) {
@@ -38,7 +38,7 @@ public class class_abf extends class_acm {
 					}
 
 					if (var2.p(var7).c().v() == class_avq.h) {
-						return new class_px(class_pw.a, this.a(var1, var3, new class_aco(class_acq.bB)));
+						return new class_px(class_pw.a, this.a(var1, var3, new class_aco(Items.bB)));
 					}
 				}
 
@@ -49,7 +49,7 @@ public class class_abf extends class_acm {
 
 	protected class_aco a(class_aco var1, class_yu var2, class_aco var3) {
 		--var1.b;
-		var2.b(class_nh.c(class_acm.b(this)));
+		var2.b(class_nh.c(Item.b(this)));
 		if (var1.b <= 0) {
 			return var3;
 		} else {

@@ -9,7 +9,7 @@ public class class_amf extends class_akx {
 	private class_apr P;
 	private static final Predicate Q = new Predicate() {
 		public boolean a(class_apn var1) {
-			return (var1 != null) && ((var1.c() == class_aim.aU) || (var1.c() == class_aim.aZ));
+			return (var1 != null) && ((var1.c() == Blocks.aU) || (var1.c() == Blocks.aZ));
 		}
 
 		// $FF: synthetic method
@@ -43,7 +43,7 @@ public class class_amf extends class_akx {
 		if ((var3 = n().a(var1, var2)) != null) {
 			for (var4 = 0; var4 < n().b(); ++var4) {
 				class_apq var5 = var3.a(0, var4, 0);
-				var1.a(var5.d(), class_aim.a.S(), 2);
+				var1.a(var5.d(), Blocks.a.S(), 2);
 			}
 
 			class_vn var9 = new class_vn(var1);
@@ -57,12 +57,12 @@ public class class_amf extends class_akx {
 
 			for (var6 = 0; var6 < n().b(); ++var6) {
 				class_apq var7 = var3.a(0, var6, 0);
-				var1.c(var7.d(), class_aim.a);
+				var1.c(var7.d(), Blocks.a);
 			}
 		} else if ((var3 = p().a(var1, var2)) != null) {
 			for (var4 = 0; var4 < p().c(); ++var4) {
 				for (int var12 = 0; var12 < p().b(); ++var12) {
-					var1.a(var3.a(var4, var12, 0).d(), class_aim.a.S(), 2);
+					var1.a(var3.a(var4, var12, 0).d(), Blocks.a.S(), 2);
 				}
 			}
 
@@ -79,7 +79,7 @@ public class class_amf extends class_akx {
 			for (var6 = 0; var6 < p().c(); ++var6) {
 				for (int var14 = 0; var14 < p().b(); ++var14) {
 					class_apq var8 = var3.a(var6, var14, 0);
-					var1.c(var8.d(), class_aim.a);
+					var1.c(var8.d(), Blocks.a);
 				}
 			}
 		}
@@ -92,12 +92,12 @@ public class class_amf extends class_akx {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(O, var2.a((class_cq) var1.b(O)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(O)));
 	}
 
@@ -123,7 +123,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr l() {
 		if (a == null) {
-			a = class_aps.a().a(new String[] { " ", "#", "#" }).a('#', class_apq.a(class_apv.a(class_aim.aJ))).b();
+			a = class_aps.a().a(new String[] { " ", "#", "#" }).a('#', class_apq.a(class_apv.a(Blocks.aJ))).b();
 		}
 
 		return a;
@@ -131,7 +131,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr n() {
 		if (b == null) {
-			b = class_aps.a().a(new String[] { "^", "#", "#" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(class_aim.aJ))).b();
+			b = class_aps.a().a(new String[] { "^", "#", "#" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.aJ))).b();
 		}
 
 		return b;
@@ -139,7 +139,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr o() {
 		if (N == null) {
-			N = class_aps.a().a(new String[] { "~ ~", "###", "~#~" }).a('#', class_apq.a(class_apv.a(class_aim.S))).a('~', class_apq.a(class_apv.a(class_aim.a))).b();
+			N = class_aps.a().a(new String[] { "~ ~", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.a))).b();
 		}
 
 		return N;
@@ -147,7 +147,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr p() {
 		if (P == null) {
-			P = class_aps.a().a(new String[] { "~^~", "###", "~#~" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(class_aim.S))).a('~', class_apq.a(class_apv.a(class_aim.a))).b();
+			P = class_aps.a().a(new String[] { "~^~", "###", "~#~" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.a))).b();
 		}
 
 		return P;

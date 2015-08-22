@@ -9,7 +9,7 @@ public class class_aho extends class_ahb {
 		as.C = -100;
 		as.E = 1;
 		as.K = 1;
-		ak = class_aim.bw.S();
+		ak = Blocks.bw.S();
 		at.clear();
 		au.clear();
 		av.clear();

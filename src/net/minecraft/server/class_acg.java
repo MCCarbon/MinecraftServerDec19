@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_acg extends class_acm {
+public class class_acg extends Item {
 	public class_acg() {
 		this.e(64);
 		this.d(1);
@@ -17,13 +17,13 @@ public class class_acg extends class_acm {
 			var1.a(var5, var3);
 			var3.a(var4);
 		} else {
-			var2.a((class_qx) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
+			var2.a((Entity) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
 			if (!var2.D) {
 				var2.a((new class_wy(var2, var3)));
 			}
 
 			var3.a(var4);
-			var3.b(class_nh.c(class_acm.b(this)));
+			var3.b(class_nh.c(Item.b(this)));
 		}
 
 		return new class_px(class_pw.a, var1);

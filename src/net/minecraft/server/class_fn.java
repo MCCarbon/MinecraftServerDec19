@@ -26,7 +26,7 @@ public class class_fn implements class_ff {
 	public class_fn(class_rg var1) {
 		a = var1.G();
 		b = var1.aQ();
-		c = (byte) class_qz.a(var1);
+		c = (byte) EntityTypes.a(var1);
 		d = class_oa.c(var1.s * 32.0D);
 		e = class_oa.c(var1.t * 32.0D);
 		f = class_oa.c(var1.u * 32.0D);

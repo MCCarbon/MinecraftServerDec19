@@ -14,16 +14,16 @@ public class class_ac extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.entitydata.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 2) {
 			throw new class_cf("commands.entitydata.usage", new Object[0]);
 		} else {
-			class_qx var3 = b(var1, var2[0]);
+			Entity var3 = b(var1, var2[0]);
 			if (var3 instanceof class_yu) {
 				throw new class_bz("commands.entitydata.noPlayers", new Object[] { var3.f_() });
 			} else {

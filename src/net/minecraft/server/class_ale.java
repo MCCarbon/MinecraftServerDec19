@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 
-public class class_ale extends class_ail {
+public class class_ale extends Block {
 	public static final class_aqa a = class_aqa.a("facing", class_ale.class_a_in_class_ale.class);
 	public static final class_apy b = class_apy.a("powered");
 
@@ -77,7 +77,7 @@ public class class_ale extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (this.f(var1, var2, var3) && !a(var1, var2, ((class_ale.class_a_in_class_ale) var3.b(a)).c().d())) {
 			this.b(var1, var2, var3, 0);
 			var1.g(var2);
@@ -182,7 +182,7 @@ public class class_ale extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -245,7 +245,7 @@ public class class_ale extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a(((class_ale.class_a_in_class_ale) var1.b(a)).c()));
 	}
 
@@ -278,22 +278,22 @@ public class class_ale extends class_ail {
 				;
 			}
 
-			c = new int[class_ail.class_c_in_class_ail.values().length];
+			c = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				c[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				c[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var17) {
 				;
 			}
 
 			try {
-				c[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				c[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var16) {
 				;
 			}
 
 			try {
-				c[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				c[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var15) {
 				;
 			}

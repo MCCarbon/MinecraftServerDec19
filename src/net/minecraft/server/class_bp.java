@@ -14,18 +14,18 @@ public class class_bp extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.testforblock.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 4) {
 			throw new class_cf("commands.testforblock.usage", new Object[0]);
 		} else {
 			var1.a(class_n.class_a_in_class_n.b, 0);
 			class_cj var3 = a(var1, var2, 0, false);
-			class_ail var4 = class_ail.b(var2[3]);
+			Block var4 = Block.b(var2[3]);
 			if (var4 == null) {
 				throw new class_cb("commands.setblock.notFound", new Object[] { var2[3] });
 			} else {
@@ -52,7 +52,7 @@ public class class_bp extends class_i {
 					}
 
 					class_apn var14 = var6.p(var3);
-					class_ail var10 = var14.c();
+					Block var10 = var14.c();
 					if (var10 != var4) {
 						throw new class_bz("commands.testforblock.failed.tile", new Object[] { Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.f(), var4.f() });
 					} else {
@@ -64,7 +64,7 @@ public class class_bp extends class_i {
 						}
 
 						if (var8) {
-							class_aoi var15 = var6.s(var3);
+							TileEntity var15 = var6.s(var3);
 							if (var15 == null) {
 								throw new class_bz("commands.testforblock.failed.tileEntity", new Object[] { Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()) });
 							}
@@ -85,7 +85,7 @@ public class class_bp extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : (var2.length == 4 ? a(var2, class_ail.c.c()) : null);
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : (var2.length == 4 ? a(var2, Block.c.c()) : null);
 	}
 }

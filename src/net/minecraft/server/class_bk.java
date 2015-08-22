@@ -19,12 +19,12 @@ public class class_bk extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.stats.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 1) {
 			throw new class_cf("commands.stats.usage", new Object[0]);
 		} else {
@@ -85,7 +85,7 @@ public class class_bk extends class_i {
 				class_ago var7 = var1.e();
 				class_n var8;
 				class_cj var9;
-				class_aoi var10;
+				TileEntity var10;
 				if (var3) {
 					var9 = a(var1, var2, 1, false);
 					var10 = var7.s(var9);
@@ -103,7 +103,7 @@ public class class_bk extends class_i {
 						var8 = ((class_aoz) var10).d();
 					}
 				} else {
-					class_qx var12 = b(var1, var2[1]);
+					Entity var12 = b(var1, var2[1]);
 					var8 = var12.ba();
 				}
 
@@ -132,7 +132,7 @@ public class class_bk extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return var2.length == 1 ? a(var2, new String[] { "entity", "block" }) : ((var2.length == 2) && var2[0].equals("entity") ? a(var2, this.d()) : ((var2.length >= 2) && (var2.length <= 4) && var2[0].equals("block") ? a(var2, 1, var3) : (((var2.length == 3) && var2[0].equals("entity")) || ((var2.length == 5) && var2[0].equals("block")) ? a(var2, new String[] { "set", "clear" })
 				: (((var2.length != 4) || !var2[0].equals("entity")) && ((var2.length != 6) || !var2[0].equals("block")) ? (((var2.length != 6) || !var2[0].equals("entity")) && ((var2.length != 8) || !var2[0].equals("block")) ? null : a(var2, this.e())) : a(var2, class_n.class_a_in_class_n.c())))));
 	}

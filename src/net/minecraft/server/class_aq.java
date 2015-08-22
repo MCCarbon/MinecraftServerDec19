@@ -16,12 +16,12 @@ public class class_aq extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.tellraw.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 2) {
 			throw new class_cf("commands.tellraw.usage", new Object[0]);
 		} else {
@@ -38,7 +38,7 @@ public class class_aq extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return var2.length == 1 ? a(var2, MinecraftServer.P().M()) : null;
 	}
 

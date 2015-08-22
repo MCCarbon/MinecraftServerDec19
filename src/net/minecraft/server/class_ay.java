@@ -8,12 +8,12 @@ public class class_ay extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.save.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		MinecraftServer var3 = MinecraftServer.P();
 		var1.a(new class_fb("commands.save.start", new Object[0]));
 		if (var3.ar() != null) {

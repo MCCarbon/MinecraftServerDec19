@@ -15,8 +15,8 @@ public class class_ajh extends class_aiq {
 	}
 
 	@Override
-	protected boolean c(class_ail var1) {
-		return (var1 == class_aim.m) || (var1 == class_aim.cz) || (var1 == class_aim.cu) || (var1 == class_aim.d);
+	protected boolean c(Block var1) {
+		return (var1 == Blocks.m) || (var1 == Blocks.cz) || (var1 == Blocks.cu) || (var1 == Blocks.d);
 	}
 
 	@Override
@@ -30,15 +30,15 @@ public class class_ajh extends class_aiq {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.A;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.A;
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
-		if (!var1.D && (var6 != null) && (var6.b() == class_acq.bg)) {
-			var2.b(class_nh.a(class_ail.a(this)));
-			a(var1, var3, new class_aco(class_aim.I, 1, 0));
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
+		if (!var1.D && (var6 != null) && (var6.b() == Items.bg)) {
+			var2.b(class_nh.a(Block.a(this)));
+			a(var1, var3, new class_aco(Blocks.I, 1, 0));
 		} else {
 			super.a(var1, var2, var3, var4, var5, var6);
 		}

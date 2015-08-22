@@ -311,7 +311,7 @@ public class class_uv {
 	}
 
 	private boolean f(class_cj var1) {
-		class_ail var2 = a.p(var1).c();
+		Block var2 = a.p(var1).c();
 		return var2 instanceof class_ajn ? var2.v() == class_avq.d : false;
 	}
 

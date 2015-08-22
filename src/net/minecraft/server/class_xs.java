@@ -98,8 +98,8 @@ public class class_xs extends class_yc {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.bx;
+	protected Item D() {
+		return Items.bx;
 	}
 
 	@Override
@@ -113,7 +113,7 @@ public class class_xs extends class_yc {
 			int var3 = V.nextInt(2 + var2);
 
 			for (int var4 = 0; var4 < var3; ++var4) {
-				this.a(class_acq.bx, 1);
+				this.a(Items.bx, 1);
 			}
 		}
 

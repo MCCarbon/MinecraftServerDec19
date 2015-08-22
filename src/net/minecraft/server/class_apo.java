@@ -35,11 +35,11 @@ public class class_apo {
 			return this.a((class_aqc) var1);
 		}
 	};
-	private final class_ail c;
+	private final Block c;
 	private final ImmutableSortedMap d;
 	private final ImmutableList e;
 
-	public class_apo(class_ail var1, class_aqc... var2) {
+	public class_apo(Block var1, class_aqc... var2) {
 		c = var1;
 		HashMap var3 = Maps.newHashMap();
 		class_aqc[] var4 = var2;
@@ -75,7 +75,7 @@ public class class_apo {
 		e = ImmutableList.copyOf((Collection) var12);
 	}
 
-	public static String a(class_ail var0, class_aqc var1) {
+	public static String a(Block var0, class_aqc var1) {
 		String var2 = var1.a();
 		if (!a.matcher(var2).matches()) {
 			throw new IllegalArgumentException("Block: " + var0.getClass() + " has invalidly named property: " + var2);
@@ -117,7 +117,7 @@ public class class_apo {
 		return (class_apn) e.get(0);
 	}
 
-	public class_ail c() {
+	public Block c() {
 		return c;
 	}
 
@@ -127,15 +127,15 @@ public class class_apo {
 
 	@Override
 	public String toString() {
-		return Objects.toStringHelper(this).add("block", class_ail.c.b(c)).add("properties", Iterables.transform(d.values(), b)).toString();
+		return Objects.toStringHelper(this).add("block", Block.c.b(c)).add("properties", Iterables.transform(d.values(), b)).toString();
 	}
 
 	static class class_a_in_class_apo extends class_apm {
-		private final class_ail a;
+		private final Block a;
 		private final ImmutableMap b;
 		private ImmutableTable c;
 
-		private class_a_in_class_apo(class_ail var1, ImmutableMap var2) {
+		private class_a_in_class_apo(Block var1, ImmutableMap var2) {
 			a = var1;
 			b = var2;
 		}
@@ -159,7 +159,7 @@ public class class_apo {
 			if (!b.containsKey(var1)) {
 				throw new IllegalArgumentException("Cannot set property " + var1 + " as it does not exist in " + a.R());
 			} else if (!var1.c().contains(var2)) {
-				throw new IllegalArgumentException("Cannot set property " + var1 + " to " + var2 + " on block " + class_ail.c.b(a) + ", it is not an allowed value");
+				throw new IllegalArgumentException("Cannot set property " + var1 + " to " + var2 + " on block " + Block.c.b(a) + ", it is not an allowed value");
 			} else {
 				return b.get(var1) == var2 ? this : (class_apn) c.get(var1, var2);
 			}
@@ -171,7 +171,7 @@ public class class_apo {
 		}
 
 		@Override
-		public class_ail c() {
+		public Block c() {
 			return a;
 		}
 
@@ -215,7 +215,7 @@ public class class_apo {
 		}
 
 		// $FF: synthetic method
-		class_a_in_class_apo(class_ail var1, ImmutableMap var2, Object var3) {
+		class_a_in_class_apo(Block var1, ImmutableMap var2, Object var3) {
 			this(var1, var2);
 		}
 	}

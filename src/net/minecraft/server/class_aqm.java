@@ -25,8 +25,8 @@ public class class_aqm extends class_aqn {
 	}
 
 	@Override
-	public class_ail a(class_cj var1) {
-		return class_aim.a;
+	public Block a(class_cj var1) {
+		return Blocks.a;
 	}
 
 	@Override
@@ -54,15 +54,15 @@ public class class_aqm extends class_aqn {
 	}
 
 	@Override
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 	}
 
 	@Override
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 	}
 
 	@Override
-	public void a(class_qx var1, int var2) {
+	public void a(Entity var1, int var2) {
 	}
 
 	@Override
@@ -71,16 +71,16 @@ public class class_aqm extends class_aqn {
 	}
 
 	@Override
-	public class_aoi a(class_cj var1, class_aqn.class_a_in_class_aqn var2) {
+	public TileEntity a(class_cj var1, class_aqn.class_a_in_class_aqn var2) {
 		return null;
 	}
 
 	@Override
-	public void a(class_aoi var1) {
+	public void a(TileEntity var1) {
 	}
 
 	@Override
-	public void a(class_cj var1, class_aoi var2) {
+	public void a(class_cj var1, TileEntity var2) {
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class class_aqm extends class_aqn {
 	}
 
 	@Override
-	public void a(class_qx var1, class_ayk var2, List var3, Predicate var4) {
+	public void a(Entity var1, class_ayk var2, List var3, Predicate var4) {
 	}
 
 	@Override

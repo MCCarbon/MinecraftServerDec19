@@ -15,13 +15,13 @@ public class class_un extends class_ul {
 	}
 
 	@Override
-	public class_axc a(class_qx var1) {
+	public class_axc a(Entity var1) {
 		f = new class_cj(var1);
 		return super.a(var1);
 	}
 
 	@Override
-	public boolean a(class_qx var1, double var2) {
+	public boolean a(Entity var1, double var2) {
 		class_axc var4 = this.a(var1);
 		if (var4 != null) {
 			return this.a(var4, var2);

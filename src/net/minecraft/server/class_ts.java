@@ -56,7 +56,7 @@ public class class_ts extends class_sr {
 				a.n(5);
 			}
 
-			a.l.a((class_qx) null);
+			a.l.a((Entity) null);
 			a.l = null;
 			a.dp();
 			a.o.a(a, (byte) 6);

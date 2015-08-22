@@ -11,7 +11,7 @@ public class class_io implements class_ff {
 	public class_io() {
 	}
 
-	public class_io(class_qx var1) {
+	public class_io(Entity var1) {
 		a = var1.G();
 		b = class_io.class_a_in_class_io.b;
 	}
@@ -50,7 +50,7 @@ public class class_io implements class_ff {
 		var1.a(this);
 	}
 
-	public class_qx a(class_ago var1) {
+	public Entity a(class_ago var1) {
 		return var1.a(a);
 	}
 

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_ajn extends class_ail {
+public class class_ajn extends Block {
 	public static final class_apz a;
 	public static final class_apy b;
 	public static final class_aqa N;
@@ -123,7 +123,7 @@ public class class_ajn extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (var3.b(P) == class_ajn.class_a_in_class_ajn.a) {
 			class_cj var5 = var2.b();
 			class_apn var6 = var1.p(var5);
@@ -169,7 +169,7 @@ public class class_ajn extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return var1.b(P) == class_ajn.class_a_in_class_ajn.a ? null : l();
 	}
 
@@ -209,8 +209,8 @@ public class class_ajn extends class_ail {
 		return new class_aco(l());
 	}
 
-	private class_acm l() {
-		return this == class_aim.aA ? class_acq.aD : (this == class_aim.ap ? class_acq.at : (this == class_aim.aq ? class_acq.au : (this == class_aim.ar ? class_acq.av : (this == class_aim.as ? class_acq.aw : (this == class_aim.at ? class_acq.ax : class_acq.as)))));
+	private Item l() {
+		return this == Blocks.aA ? Items.aD : (this == Blocks.ap ? Items.at : (this == Blocks.aq ? Items.au : (this == Blocks.ar ? Items.av : (this == Blocks.as ? Items.aw : (this == Blocks.at ? Items.ax : Items.as)))));
 	}
 
 	@Override
@@ -241,12 +241,12 @@ public class class_ajn extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return (var1.c() == this) && (var1.b(P) == class_ajn.class_a_in_class_ajn.b) ? var1.a(a, var2.a((class_cq) var1.b(a))) : var1;
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return (var1.c() == this) && (var1.b(P) == class_ajn.class_a_in_class_ajn.b) ? this.a(var1, var2.a((class_cq) var1.b(a))) : var1;
 	}
 

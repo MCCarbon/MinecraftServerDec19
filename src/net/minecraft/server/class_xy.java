@@ -77,8 +77,8 @@ public class class_xy extends class_re implements class_xx {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.J;
+	protected Item D() {
+		return Items.J;
 	}
 
 	@Override
@@ -87,13 +87,13 @@ public class class_xy extends class_re implements class_xx {
 
 		int var4;
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.by, 1);
+			this.a(Items.by, 1);
 		}
 
 		var3 = V.nextInt(3) + V.nextInt(1 + var2);
 
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.J, 1);
+			this.a(Items.J, 1);
 		}
 
 	}

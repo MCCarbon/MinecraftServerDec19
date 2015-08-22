@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.google.common.base.Optional;
 
-public class class_xg extends class_qx {
+public class class_xg extends Entity {
 	private static final Logger b = LogManager.getLogger();
 	private static final class_jz c;
 	private int d;
@@ -44,7 +44,7 @@ public class class_xg extends class_qx {
 		f = 5;
 		a = (float) (Math.random() * 3.141592653589793D * 2.0D);
 		this.a(0.25F, 0.25F);
-		this.a(new class_aco(class_aim.a, 0));
+		this.a(new class_aco(Blocks.a, 0));
 	}
 
 	@Override
@@ -185,7 +185,7 @@ public class class_xg extends class_qx {
 	public boolean a(class_qi var1, float var2) {
 		if (this.b(var1)) {
 			return false;
-		} else if ((this.j() != null) && (this.j().b() == class_acq.ce) && var1.c()) {
+		} else if ((this.j() != null) && (this.j().b() == Items.ce) && var1.c()) {
 			return false;
 		} else {
 			af();
@@ -247,27 +247,27 @@ public class class_xg extends class_qx {
 			class_aco var2 = this.j();
 			int var3 = var2.b;
 			if ((e == 0) && ((h == null) || ((6000 - d) <= 200) || h.equals(var1.e_())) && var1.bq.a(var2)) {
-				if (var2.b() == class_acm.a(class_aim.r)) {
+				if (var2.b() == Item.a(Blocks.r)) {
 					var1.b(class_my.g);
 				}
 
-				if (var2.b() == class_acm.a(class_aim.s)) {
+				if (var2.b() == Item.a(Blocks.s)) {
 					var1.b(class_my.g);
 				}
 
-				if (var2.b() == class_acq.aH) {
+				if (var2.b() == Items.aH) {
 					var1.b(class_my.t);
 				}
 
-				if (var2.b() == class_acq.k) {
+				if (var2.b() == Items.k) {
 					var1.b(class_my.w);
 				}
 
-				if (var2.b() == class_acq.bx) {
+				if (var2.b() == Items.bx) {
 					var1.b(class_my.A);
 				}
 
-				if ((var2.b() == class_acq.k) && (this.m() != null)) {
+				if ((var2.b() == Items.k) && (this.m() != null)) {
 					class_yu var4 = o.a(this.m());
 					if ((var4 != null) && (var4 != var1)) {
 						var4.b(class_my.x);
@@ -275,7 +275,7 @@ public class class_xg extends class_qx {
 				}
 
 				if (!T()) {
-					o.a((class_qx) var1, "random.pop", 0.2F, (((V.nextFloat() - V.nextFloat()) * 0.7F) + 1.0F) * 2.0F);
+					o.a((Entity) var1, "random.pop", 0.2F, (((V.nextFloat() - V.nextFloat()) * 0.7F) + 1.0F) * 2.0F);
 				}
 
 				var1.a(this, var3);
@@ -283,7 +283,7 @@ public class class_xg extends class_qx {
 					L();
 				}
 
-				var1.a(class_nh.e(class_acm.b(var2.b())), var3);
+				var1.a(class_nh.e(Item.b(var2.b())), var3);
 			}
 
 		}
@@ -300,8 +300,8 @@ public class class_xg extends class_qx {
 	}
 
 	@Override
-	public class_qx a(int var1, class_cj var2) {
-		class_qx var3 = super.a(var1, var2);
+	public Entity a(int var1, class_cj var2) {
+		Entity var3 = super.a(var1, var2);
 		if (!o.D && (var3 instanceof class_xg)) {
 			((class_xg) var3).v();
 		}
@@ -316,7 +316,7 @@ public class class_xg extends class_qx {
 				b.error("Item entity " + G() + " has no item?!");
 			}
 
-			return new class_aco(class_aim.b);
+			return new class_aco(Blocks.b);
 		} else {
 			return var1;
 		}

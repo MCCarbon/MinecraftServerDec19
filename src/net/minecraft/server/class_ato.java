@@ -33,7 +33,7 @@ public class class_ato extends class_asa {
 				for (int var12 = var3.n() - var21; (var12 <= (var3.n() + var21)) && var8; ++var12) {
 					for (var13 = var3.p() - var21; (var13 <= (var3.p() + var21)) && var8; ++var13) {
 						if ((var9 >= 0) && (var9 < 256)) {
-							class_ail var14 = var1.p(var11.c(var12, var9, var13)).c();
+							Block var14 = var1.p(var11.c(var12, var9, var13)).c();
 							if ((var14.v() != class_avq.a) && (var14.v() != class_avq.j)) {
 								var8 = false;
 							}
@@ -47,8 +47,8 @@ public class class_ato extends class_asa {
 			if (!var8) {
 				return false;
 			} else {
-				class_ail var20 = var1.p(var3.b()).c();
-				if (((var20 == class_aim.c) || (var20 == class_aim.d) || (var20 == class_aim.ak)) && (var3.o() < (256 - var4 - 1))) {
+				Block var20 = var1.p(var3.b()).c();
+				if (((var20 == Blocks.c) || (var20 == Blocks.d) || (var20 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 					var21 = var2.nextInt(2);
 					int var22 = 1;
@@ -87,7 +87,7 @@ public class class_ato extends class_asa {
 					var13 = var2.nextInt(3);
 
 					for (var24 = 0; var24 < (var4 - var13); ++var24) {
-						class_ail var25 = var1.p(var3.b(var24)).c();
+						Block var25 = var1.p(var3.b(var24)).c();
 						if ((var25.v() == class_avq.a) || (var25.v() == class_avq.j)) {
 							this.a(var1, var3.b(var24), a);
 						}
@@ -104,7 +104,7 @@ public class class_ato extends class_asa {
 	}
 
 	static {
-		a = class_aim.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
-		b = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
+		b = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

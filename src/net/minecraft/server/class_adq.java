@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public class class_adq extends class_abb {
-	public class_adq(class_ail var1) {
+	public class_adq(Block var1) {
 		super(var1);
 		this.e(0);
 		this.a(true);
@@ -12,7 +12,7 @@ public class class_adq extends class_abb {
 	public class_pw a(class_aco var1, class_yu var2, class_ago var3, class_cj var4, class_pu var5, class_cq var6, float var7, float var8, float var9) {
 		if ((var1.b != 0) && var2.a(var4, var6, var1)) {
 			class_apn var10 = var3.p(var4);
-			class_ail var11 = var10.c();
+			Block var11 = var10.c();
 			class_cj var12 = var4;
 			if (((var6 != class_cq.b) || (var11 != a)) && !var11.a(var3, var4)) {
 				var12 = var4.a(var6);

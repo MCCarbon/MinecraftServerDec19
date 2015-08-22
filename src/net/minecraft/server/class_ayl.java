@@ -6,7 +6,7 @@ public class class_ayl {
 	public class_ayl.class_a_in_class_ayl a;
 	public class_cq b;
 	public class_aym c;
-	public class_qx d;
+	public Entity d;
 
 	public class_ayl(class_aym var1, class_cq var2, class_cj var3) {
 		this(class_ayl.class_a_in_class_ayl.b, var1, var2, var3);
@@ -16,7 +16,7 @@ public class class_ayl {
 		this(class_ayl.class_a_in_class_ayl.b, var1, var2, class_cj.a);
 	}
 
-	public class_ayl(class_qx var1) {
+	public class_ayl(Entity var1) {
 		this(var1, new class_aym(var1.s, var1.t, var1.u));
 	}
 
@@ -27,7 +27,7 @@ public class class_ayl {
 		c = new class_aym(var2.a, var2.b, var2.c);
 	}
 
-	public class_ayl(class_qx var1, class_aym var2) {
+	public class_ayl(Entity var1, class_aym var2) {
 		a = class_ayl.class_a_in_class_ayl.c;
 		d = var1;
 		c = var2;

@@ -3,18 +3,18 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.UUID;
 
-public abstract class class_zj extends class_qx implements class_zd {
+public abstract class class_zj extends Entity implements class_zd {
 	private int d;
 	private int e;
 	private int f;
-	private class_ail g;
+	private Block g;
 	protected boolean a;
 	public int b;
 	private class_rg h;
 	private String i;
 	private int as;
 	private int at;
-	public class_qx c;
+	public Entity c;
 	private int au;
 
 	public class_zj(class_ago var1) {
@@ -107,13 +107,13 @@ public abstract class class_zj extends class_qx implements class_zd {
 		}
 
 		if (!o.D) {
-			class_qx var4 = null;
+			Entity var4 = null;
 			List var5 = o.b(this, aX().a(v, w, x).b(1.0D, 1.0D, 1.0D));
 			double var6 = 0.0D;
 			boolean var8 = false;
 
 			for (int var9 = 0; var9 < var5.size(); ++var9) {
-				class_qx var10 = (class_qx) var5.get(var9);
+				Entity var10 = (Entity) var5.get(var9);
 				if (var10.ag()) {
 					if (var10 == c) {
 						var8 = true;
@@ -150,7 +150,7 @@ public abstract class class_zj extends class_qx implements class_zd {
 		}
 
 		if (var3 != null) {
-			if ((var3.a == class_ayl.class_a_in_class_ayl.b) && (o.p(var3.a()).c() == class_aim.aY)) {
+			if ((var3.a == class_ayl.class_a_in_class_ayl.b) && (o.p(var3.a()).c() == Blocks.aY)) {
 				this.d(var3.a());
 			} else {
 				this.a(var3);
@@ -210,7 +210,7 @@ public abstract class class_zj extends class_qx implements class_zd {
 		var1.a("xTile", d);
 		var1.a("yTile", e);
 		var1.a("zTile", f);
-		class_ke var2 = (class_ke) class_ail.c.b(g);
+		class_ke var2 = (class_ke) Block.c.b(g);
 		var1.a("inTile", var2 == null ? "" : var2.toString());
 		var1.a("shake", (byte) b);
 		var1.a("inGround", (byte) (a ? 1 : 0));
@@ -227,9 +227,9 @@ public abstract class class_zj extends class_qx implements class_zd {
 		e = var1.h("yTile");
 		f = var1.h("zTile");
 		if (var1.b("inTile", 8)) {
-			g = class_ail.b(var1.l("inTile"));
+			g = Block.b(var1.l("inTile"));
 		} else {
-			g = class_ail.c(var1.f("inTile") & 255);
+			g = Block.c(var1.f("inTile") & 255);
 		}
 
 		b = var1.f("shake") & 255;
@@ -248,7 +248,7 @@ public abstract class class_zj extends class_qx implements class_zd {
 			h = o.a(i);
 			if ((h == null) && (o instanceof class_ll)) {
 				try {
-					class_qx var1 = ((class_ll) o).a(UUID.fromString(i));
+					Entity var1 = ((class_ll) o).a(UUID.fromString(i));
 					if (var1 instanceof class_rg) {
 						h = (class_rg) var1;
 					}

@@ -33,14 +33,14 @@ public class class_vr extends class_ro {
 		bo.a(2, new class_ui(this));
 		bo.a(3, new class_uc(this, true, new Class[0]));
 		bo.a(4, new class_ug(this, class_vc.class, false, new Predicate() {
-			public boolean a(class_qx var1) {
+			public boolean a(Entity var1) {
 				return (var1 instanceof class_vl) || (var1 instanceof class_vk);
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		}));
 		bo.a(5, new class_uf(this, class_yh.class, false));
@@ -85,7 +85,7 @@ public class class_vr extends class_ro {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.wolf.step", 0.15F, 1.0F);
 	}
 
@@ -127,8 +127,8 @@ public class class_vr extends class_ro {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acm.c(-1);
+	protected Item D() {
+		return Item.c(-1);
 	}
 
 	@Override
@@ -205,7 +205,7 @@ public class class_vr extends class_ro {
 		if (this.b(var1)) {
 			return false;
 		} else {
-			class_qx var3 = var1.j();
+			Entity var3 = var1.j();
 			bv.a(false);
 			if ((var3 != null) && !(var3 instanceof class_yu) && !(var3 instanceof class_yx)) {
 				var2 = (var2 + 1.0F) / 2.0F;
@@ -216,7 +216,7 @@ public class class_vr extends class_ro {
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		boolean var2 = var1.a(class_qi.a(this), ((int) this.a(class_yf.e).e()));
 		if (var2) {
 			this.a(this, var1);
@@ -251,7 +251,7 @@ public class class_vr extends class_ro {
 						this.b((float) var4.h(var3));
 						return true;
 					}
-				} else if (var3.b() == class_acq.aY) {
+				} else if (var3.b() == Items.aY) {
 					class_abt var5 = class_abt.a(var3.i());
 					if (var5 != cP()) {
 						this.a(var5);
@@ -270,7 +270,7 @@ public class class_vr extends class_ro {
 				h.n();
 				this.c((class_rg) null);
 			}
-		} else if ((var3 != null) && (var3.b() == class_acq.aZ) && !cO()) {
+		} else if ((var3 != null) && (var3.b() == Items.aZ) && !cO()) {
 			if (!var1.bI.d) {
 				--var3.b;
 			}

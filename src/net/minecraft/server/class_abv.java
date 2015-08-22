@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public class class_abv extends class_abb {
-	public class_abv(class_ail var1) {
+	public class_abv(Block var1) {
 		super(var1);
 		this.e(0);
 		this.a(true);

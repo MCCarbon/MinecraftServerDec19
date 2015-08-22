@@ -43,14 +43,14 @@ public class class_axc {
 		b = var1;
 	}
 
-	public class_aym a(class_qx var1, int var2) {
+	public class_aym a(Entity var1, int var2) {
 		double var3 = a[var2].a + (((int) (var1.J + 1.0F)) * 0.5D);
 		double var5 = a[var2].b;
 		double var7 = a[var2].c + (((int) (var1.J + 1.0F)) * 0.5D);
 		return new class_aym(var3, var5, var7);
 	}
 
-	public class_aym a(class_qx var1) {
+	public class_aym a(Entity var1) {
 		return this.a(var1, b);
 	}
 

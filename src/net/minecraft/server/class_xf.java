@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 import com.google.common.collect.Lists;
 
-public class class_xf extends class_qx {
+public class class_xf extends Entity {
 	private class_apn d;
 	public int a;
 	public boolean b = true;
@@ -49,7 +49,7 @@ public class class_xf extends class_qx {
 
 	@Override
 	public void r_() {
-		class_ail var1 = d.c();
+		Block var1 = d.c();
 		if (var1.v() == class_avq.a) {
 			L();
 		} else {
@@ -78,16 +78,16 @@ public class class_xf extends class_qx {
 					v *= 0.699999988079071D;
 					x *= 0.699999988079071D;
 					w *= -0.5D;
-					if (o.p(var2).c() != class_aim.M) {
+					if (o.p(var2).c() != Blocks.M) {
 						L();
 						if (!e) {
-							if (o.a(var1, var2, true, class_cq.b, (class_qx) null, (class_aco) null) && !class_ajz.d(o, var2.b()) && o.a(var2, d, 3)) {
+							if (o.a(var1, var2, true, class_cq.b, (Entity) null, (class_aco) null) && !class_ajz.d(o, var2.b()) && o.a(var2, d, 3)) {
 								if (var1 instanceof class_ajz) {
 									((class_ajz) var1).a_(o, var2);
 								}
 
 								if ((c != null) && (var1 instanceof class_ajy)) {
-									class_aoi var3 = o.s(var2);
+									TileEntity var3 = o.s(var2);
 									if (var3 != null) {
 										class_dn var4 = new class_dn();
 										var3.b(var4);
@@ -124,17 +124,17 @@ public class class_xf extends class_qx {
 
 	@Override
 	public void e(float var1, float var2) {
-		class_ail var3 = d.c();
+		Block var3 = d.c();
 		if (f) {
 			int var4 = class_oa.f(var1 - 1.0F);
 			if (var4 > 0) {
 				ArrayList var5 = Lists.newArrayList((Iterable) o.b(this, aX()));
-				boolean var6 = var3 == class_aim.cf;
+				boolean var6 = var3 == Blocks.cf;
 				class_qi var7 = var6 ? class_qi.n : class_qi.o;
 				Iterator var8 = var5.iterator();
 
 				while (var8.hasNext()) {
-					class_qx var9 = (class_qx) var8.next();
+					Entity var9 = (Entity) var8.next();
 					var9.a(var7, Math.min(class_oa.d(var4 * h), g));
 				}
 
@@ -154,8 +154,8 @@ public class class_xf extends class_qx {
 
 	@Override
 	protected void b(class_dn var1) {
-		class_ail var2 = d != null ? d.c() : class_aim.a;
-		class_ke var3 = (class_ke) class_ail.c.b(var2);
+		Block var2 = d != null ? d.c() : Blocks.a;
+		class_ke var3 = (class_ke) Block.c.b(var2);
 		var1.a("Block", var3 == null ? "" : var3.toString());
 		var1.a("Data", (byte) var2.c(d));
 		var1.a("Time", (byte) a);
@@ -173,20 +173,20 @@ public class class_xf extends class_qx {
 	protected void a(class_dn var1) {
 		int var2 = var1.f("Data") & 255;
 		if (var1.b("Block", 8)) {
-			d = class_ail.b(var1.l("Block")).a(var2);
+			d = Block.b(var1.l("Block")).a(var2);
 		} else if (var1.b("TileID", 99)) {
-			d = class_ail.c(var1.h("TileID")).a(var2);
+			d = Block.c(var1.h("TileID")).a(var2);
 		} else {
-			d = class_ail.c(var1.f("Tile") & 255).a(var2);
+			d = Block.c(var1.f("Tile") & 255).a(var2);
 		}
 
 		a = var1.f("Time") & 255;
-		class_ail var3 = d.c();
+		Block var3 = d.c();
 		if (var1.b("HurtEntities", 99)) {
 			f = var1.p("HurtEntities");
 			h = var1.j("FallHurtAmount");
 			g = var1.h("FallHurtMax");
-		} else if (var3 == class_aim.cf) {
+		} else if (var3 == Blocks.cf) {
 			f = true;
 		}
 
@@ -199,7 +199,7 @@ public class class_xf extends class_qx {
 		}
 
 		if ((var3 == null) || (var3.v() == class_avq.a)) {
-			d = class_aim.m.S();
+			d = Blocks.m.S();
 		}
 
 	}
@@ -212,8 +212,8 @@ public class class_xf extends class_qx {
 	public void a(class_c var1) {
 		super.a(var1);
 		if (d != null) {
-			class_ail var2 = d.c();
-			var1.a("Immitating block ID", Integer.valueOf(class_ail.a(var2)));
+			Block var2 = d.c();
+			var1.a("Immitating block ID", Integer.valueOf(Block.a(var2)));
 			var1.a("Immitating block data", Integer.valueOf(var2.c(d)));
 		}
 

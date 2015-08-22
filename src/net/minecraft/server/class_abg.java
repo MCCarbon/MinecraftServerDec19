@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_abg extends class_acm {
+public class class_abg extends Item {
 	public class_abg() {
 		i = 1;
 		this.e(384);
@@ -40,10 +40,10 @@ public class class_abg extends class_acm {
 			if (var6 || (var7 > -1)) {
 				class_aco var8 = var7 > -1 ? var5.bq.a(var7) : null;
 				if (var8 == null) {
-					var8 = new class_aco(class_acq.g);
+					var8 = new class_aco(Items.g);
 				}
 
-				class_aax var9 = ((class_aax) (var8.b() instanceof class_aax ? var8.b() : class_acq.g));
+				class_aax var9 = ((class_aax) (var8.b() instanceof class_aax ? var8.b() : Items.g));
 				int var10 = this.e(var1) - var4;
 				float var11 = b(var10);
 				if (var11 >= 0.1D) {
@@ -68,14 +68,14 @@ public class class_abg extends class_acm {
 					}
 
 					var1.a(1, var5);
-					var2.a((class_qx) var5, "random.bow", 1.0F, (1.0F / ((h.nextFloat() * 0.4F) + 1.2F)) + (var11 * 0.5F));
+					var2.a((Entity) var5, "random.bow", 1.0F, (1.0F / ((h.nextFloat() * 0.4F) + 1.2F)) + (var11 * 0.5F));
 					if (var6) {
 						var12.c = 2;
 					} else {
 						var5.bq.a(var7, 1);
 					}
 
-					var5.b(class_nh.c(class_acm.b(this)));
+					var5.b(class_nh.c(Item.b(this)));
 					if (!var2.D) {
 						var2.a(var12);
 					}

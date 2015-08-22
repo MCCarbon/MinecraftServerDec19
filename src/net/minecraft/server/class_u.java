@@ -19,12 +19,12 @@ public class class_u extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.clone.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 9) {
 			throw new class_cf("commands.clone.usage", new Object[0]);
 		} else {
@@ -39,7 +39,7 @@ public class class_u extends class_i {
 				throw new class_bz("commands.clone.tooManyBlocks", new Object[] { Integer.valueOf(var8), Integer.valueOf('耀') });
 			} else {
 				boolean var9 = false;
-				class_ail var10 = null;
+				Block var10 = null;
 				int var11 = -1;
 				if (((var2.length < 11) || (!var2[10].equals("force") && !var2[10].equals("move"))) && var6.a(var7)) {
 					throw new class_bz("commands.clone.noOverlap", new Object[0]);
@@ -79,8 +79,8 @@ public class class_u extends class_i {
 										class_cj var22 = new class_cj(var21, var20, var19);
 										class_cj var23 = var22.a(var18);
 										class_apn var24 = var12.p(var22);
-										if ((!var13 || (var24.c() != class_aim.a)) && ((var10 == null) || ((var24.c() == var10) && ((var11 < 0) || (var24.c().c(var24) == var11))))) {
-											class_aoi var25 = var12.s(var22);
+										if ((!var13 || (var24.c() != Blocks.a)) && ((var10 == null) || ((var24.c() == var10) && ((var11 < 0) || (var24.c().c(var24) == var11))))) {
+											TileEntity var25 = var12.s(var22);
 											if (var25 != null) {
 												class_dn var26 = new class_dn();
 												var25.b(var26);
@@ -101,9 +101,9 @@ public class class_u extends class_i {
 							if (var9) {
 								Iterator var27;
 								class_cj var29;
-								for (var27 = var17.iterator(); var27.hasNext(); var12.a(var29, class_aim.cv.S(), 2)) {
+								for (var27 = var17.iterator(); var27.hasNext(); var12.a(var29, Blocks.cv.S(), 2)) {
 									var29 = (class_cj) var27.next();
-									class_aoi var31 = var12.s(var29);
+									TileEntity var31 = var12.s(var29);
 									if (var31 instanceof class_pp) {
 										((class_pp) var31).l();
 									}
@@ -113,7 +113,7 @@ public class class_u extends class_i {
 
 								while (var27.hasNext()) {
 									var29 = (class_cj) var27.next();
-									var12.a(var29, class_aim.a.S(), 3);
+									var12.a(var29, Blocks.a.S(), 3);
 								}
 							}
 
@@ -125,8 +125,8 @@ public class class_u extends class_i {
 
 							Iterator var32;
 							class_u.class_a_in_class_u var33;
-							class_aoi var34;
-							for (var32 = var30.iterator(); var32.hasNext(); var12.a(var33.a, class_aim.cv.S(), 2)) {
+							TileEntity var34;
+							for (var32 = var30.iterator(); var32.hasNext(); var12.a(var33.a, Blocks.cv.S(), 2)) {
 								var33 = (class_u.class_a_in_class_u) var32.next();
 								var34 = var12.s(var33.a);
 								if (var34 instanceof class_pp) {
@@ -194,8 +194,8 @@ public class class_u extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : ((var2.length > 3) && (var2.length <= 6) ? a(var2, 3, var3) : ((var2.length > 6) && (var2.length <= 9) ? a(var2, 6, var3) : (var2.length == 10 ? a(var2, new String[] { "replace", "masked", "filtered" }) : (var2.length == 11 ? a(var2, new String[] { "normal", "force", "move" }) : ((var2.length == 12) && "filtered".equals(var2[9]) ? a(var2, class_ail.c.c()) : null)))));
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : ((var2.length > 3) && (var2.length <= 6) ? a(var2, 3, var3) : ((var2.length > 6) && (var2.length <= 9) ? a(var2, 6, var3) : (var2.length == 10 ? a(var2, new String[] { "replace", "masked", "filtered" }) : (var2.length == 11 ? a(var2, new String[] { "normal", "force", "move" }) : ((var2.length == 12) && "filtered".equals(var2[9]) ? a(var2, Block.c.c()) : null)))));
 	}
 
 	static class class_a_in_class_u {

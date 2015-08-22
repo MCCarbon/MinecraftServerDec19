@@ -3,14 +3,14 @@ package net.minecraft.server;
 import java.util.Arrays;
 import java.util.List;
 
-public class class_wy extends class_qx {
+public class class_wy extends Entity {
 	private static final List d;
 	private static final List e;
 	private static final List f;
 	private int g = -1;
 	private int h = -1;
 	private int i = -1;
-	private class_ail as;
+	private Block as;
 	private boolean at;
 	public int a;
 	public class_yu b;
@@ -20,7 +20,7 @@ public class class_wy extends class_qx {
 	private int ax;
 	private int ay;
 	private float az;
-	public class_qx c;
+	public Entity c;
 	private int aA;
 	private double aB;
 	private double aC;
@@ -96,7 +96,7 @@ public class class_wy extends class_qx {
 		} else {
 			if (!o.D) {
 				class_aco var1 = b.bG();
-				if (b.I || !b.al() || (var1 == null) || (var1.b() != class_acq.aT) || (this.h(b) > 1024.0D)) {
+				if (b.I || !b.al() || (var1 == null) || (var1.b() != Items.aT) || (this.h(b) > 1024.0D)) {
 					L();
 					b.bO = null;
 					return;
@@ -148,13 +148,13 @@ public class class_wy extends class_qx {
 				var2 = new class_aym(var3.c.a, var3.c.b, var3.c.c);
 			}
 
-			class_qx var4 = null;
+			Entity var4 = null;
 			List var5 = o.b(this, aX().a(v, w, x).b(1.0D, 1.0D, 1.0D));
 			double var6 = 0.0D;
 
 			double var13;
 			for (int var8 = 0; var8 < var5.size(); ++var8) {
-				class_qx var9 = (class_qx) var5.get(var8);
+				Entity var9 = (Entity) var5.get(var8);
 				if (var9.ag() && ((var9 != b) || (av >= 5))) {
 					float var10 = 0.3F;
 					class_ayk var11 = var9.aX().b(var10, var10, var10);
@@ -175,7 +175,7 @@ public class class_wy extends class_qx {
 
 			if (var3 != null) {
 				if (var3.d != null) {
-					if (var3.d.a(class_qi.a((class_qx) this, (class_qx) b), 0.0F)) {
+					if (var3.d.a(class_qi.a((Entity) this, (Entity) b), 0.0F)) {
 						c = var3.d;
 					}
 				} else {
@@ -248,7 +248,7 @@ public class class_wy extends class_qx {
 						float var16;
 						float var18;
 						double var23;
-						class_ail var25;
+						Block var25;
 						float var40;
 						double var41;
 						if (ay > 0) {
@@ -269,7 +269,7 @@ public class class_wy extends class_qx {
 								var41 = class_oa.c(aX().b) + 1.0F;
 								var23 = u + var18 * ay * 0.1F;
 								var25 = var37.p(new class_cj((int) var19, (int) var41 - 1, (int) var23)).c();
-								if ((var25 == class_aim.j) || (var25 == class_aim.i)) {
+								if ((var25 == Blocks.j) || (var25 == Blocks.i)) {
 									if (V.nextFloat() < 0.15F) {
 										var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, var40, 0.1D, var18, 0.0D, new int[0]);
 									}
@@ -298,7 +298,7 @@ public class class_wy extends class_qx {
 								var41 = class_oa.c(aX().b) + 1.0F;
 								var23 = u + class_oa.b(var40) * var18 * 0.1F;
 								var25 = var37.p(new class_cj((int) var19, (int) var41 - 1, (int) var23)).c();
-								if ((var25 == class_aim.j) || (var25 == class_aim.i)) {
+								if ((var25 == Blocks.j) || (var25 == Blocks.i)) {
 									var37.a(class_cy.f, var19, var41, var23, 2 + V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
 								}
 							}
@@ -338,7 +338,7 @@ public class class_wy extends class_qx {
 		var1.a("xTile", g);
 		var1.a("yTile", h);
 		var1.a("zTile", i);
-		class_ke var2 = (class_ke) class_ail.c.b(as);
+		class_ke var2 = (class_ke) Block.c.b(as);
 		var1.a("inTile", var2 == null ? "" : var2.toString());
 		var1.a("shake", (byte) a);
 		var1.a("inGround", (byte) (at ? 1 : 0));
@@ -350,9 +350,9 @@ public class class_wy extends class_qx {
 		h = var1.h("yTile");
 		i = var1.h("zTile");
 		if (var1.b("inTile", 8)) {
-			as = class_ail.b(var1.l("inTile"));
+			as = Block.b(var1.l("inTile"));
 		} else {
-			as = class_ail.c(var1.f("inTile") & 255);
+			as = Block.c(var1.f("inTile") & 255);
 		}
 
 		a = var1.f("shake") & 255;
@@ -433,9 +433,9 @@ public class class_wy extends class_qx {
 	}
 
 	static {
-		d = Arrays.asList(new class_wz[] { (new class_wz(new class_aco(class_acq.V), 10)).a(0.9F), new class_wz(new class_aco(class_acq.aH), 10), new class_wz(new class_aco(class_acq.aZ), 10), new class_wz(new class_aco(class_acq.bB), 10), new class_wz(new class_aco(class_acq.H), 5), (new class_wz(new class_aco(class_acq.aT), 2)).a(0.9F), new class_wz(new class_aco(class_acq.B), 10), new class_wz(new class_aco(class_acq.A), 5), new class_wz(new class_aco(class_acq.aY, 10, class_abt.p.b()), 1),
-				new class_wz(new class_aco(class_aim.bR), 10), new class_wz(new class_aco(class_acq.bv), 10) });
-		e = Arrays.asList(new class_wz[] { new class_wz(new class_aco(class_aim.bx), 1), new class_wz(new class_aco(class_acq.ct), 1), new class_wz(new class_aco(class_acq.aC), 1), (new class_wz(new class_aco(class_acq.f), 1)).a(0.25F).a(), (new class_wz(new class_aco(class_acq.aT), 1)).a(0.25F).a(), (new class_wz(new class_aco(class_acq.aN), 1)).a() });
-		f = Arrays.asList(new class_wz[] { new class_wz(new class_aco(class_acq.aW, 1, class_acf.class_a_in_class_acf.a.a()), 60), new class_wz(new class_aco(class_acq.aW, 1, class_acf.class_a_in_class_acf.b.a()), 25), new class_wz(new class_aco(class_acq.aW, 1, class_acf.class_a_in_class_acf.c.a()), 2), new class_wz(new class_aco(class_acq.aW, 1, class_acf.class_a_in_class_acf.d.a()), 13) });
+		d = Arrays.asList(new class_wz[] { (new class_wz(new class_aco(Items.V), 10)).a(0.9F), new class_wz(new class_aco(Items.aH), 10), new class_wz(new class_aco(Items.aZ), 10), new class_wz(new class_aco(Items.bB), 10), new class_wz(new class_aco(Items.H), 5), (new class_wz(new class_aco(Items.aT), 2)).a(0.9F), new class_wz(new class_aco(Items.B), 10), new class_wz(new class_aco(Items.A), 5), new class_wz(new class_aco(Items.aY, 10, class_abt.p.b()), 1),
+				new class_wz(new class_aco(Blocks.bR), 10), new class_wz(new class_aco(Items.bv), 10) });
+		e = Arrays.asList(new class_wz[] { new class_wz(new class_aco(Blocks.bx), 1), new class_wz(new class_aco(Items.ct), 1), new class_wz(new class_aco(Items.aC), 1), (new class_wz(new class_aco(Items.f), 1)).a(0.25F).a(), (new class_wz(new class_aco(Items.aT), 1)).a(0.25F).a(), (new class_wz(new class_aco(Items.aN), 1)).a() });
+		f = Arrays.asList(new class_wz[] { new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.a.a()), 60), new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.b.a()), 25), new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.c.a()), 2), new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.d.a()), 13) });
 	}
 }

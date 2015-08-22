@@ -26,7 +26,7 @@ public class class_acu extends class_abo {
 		return var4;
 	}
 
-	public void a(class_ago var1, class_qx var2, class_axl var3) {
+	public void a(class_ago var1, Entity var2, class_axl var3) {
 		if ((var1.t.p().a() == var3.d) && (var2 instanceof class_yu)) {
 			int var4 = 1 << var3.f;
 			int var5 = var3.b;
@@ -65,9 +65,9 @@ public class class_acu extends class_abo {
 									int var28 = var19 + (var20 * 231871);
 									var28 = (var28 * var28 * 31287121) + (var28 * 11);
 									if (((var28 >> 20) & 1) == 0) {
-										var21.add(class_aim.d.g(class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a)), 10);
+										var21.add(Blocks.d.g(Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a)), 10);
 									} else {
-										var21.add(class_aim.b.g(class_aim.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)), 100);
+										var21.add(Blocks.b.g(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)), 100);
 									}
 
 									var26 = 100.0D;
@@ -77,7 +77,7 @@ public class class_acu extends class_abo {
 									for (int var29 = 0; var29 < var4; ++var29) {
 										for (int var30 = 0; var30 < var4; ++var30) {
 											int var31 = var22.b(var29 + var23, var30 + var24) + 1;
-											class_apn var32 = class_aim.a.S();
+											class_apn var32 = Blocks.a.S();
 											if (var31 > 1) {
 												do {
 													--var31;
@@ -87,7 +87,7 @@ public class class_acu extends class_abo {
 												if ((var31 > 0) && var32.c().v().d()) {
 													int var33 = var31 - 1;
 
-													class_ail var34;
+													Block var34;
 													do {
 														var34 = var22.a(var29 + var23, var33--, var30 + var24);
 														++var25;
@@ -145,7 +145,7 @@ public class class_acu extends class_abo {
 	}
 
 	@Override
-	public void a(class_aco var1, class_ago var2, class_qx var3, int var4, boolean var5) {
+	public void a(class_aco var1, class_ago var2, Entity var3, int var4, boolean var5) {
 		if (!var2.D) {
 			class_axl var6 = this.a(var1, var2);
 			if (var3 instanceof class_yu) {
@@ -181,7 +181,7 @@ public class class_acu extends class_abo {
 	}
 
 	protected static void a(class_aco var0, class_ago var1, int var2) {
-		class_axl var3 = class_acq.bf.a(var0, var1);
+		class_axl var3 = Items.bf.a(var0, var1);
 		var0.b(var1.b("map"));
 		class_axl var4 = new class_axl("map_" + var0.i());
 		var4.f = (byte) class_oa.a(var3.f + var2, 0, 4);
@@ -193,7 +193,7 @@ public class class_acu extends class_abo {
 	}
 
 	protected static void b(class_aco var0, class_ago var1) {
-		class_axl var2 = class_acq.bf.a(var0, var1);
+		class_axl var2 = Items.bf.a(var0, var1);
 		var0.b(var1.b("map"));
 		class_axl var3 = new class_axl("map_" + var0.i());
 		var3.e = true;

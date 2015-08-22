@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_abo extends class_acm {
+public class class_abo extends Item {
 	@Override
 	public boolean f() {
 		return true;

@@ -18,7 +18,7 @@ public class class_uq {
 		c.clear();
 	}
 
-	public boolean a(class_qx var1) {
+	public boolean a(Entity var1) {
 		if (b.contains(var1)) {
 			return true;
 		} else if (c.contains(var1)) {

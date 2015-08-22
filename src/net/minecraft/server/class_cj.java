@@ -23,7 +23,7 @@ public class class_cj extends class_df {
 		super(var1, var3, var5);
 	}
 
-	public class_cj(class_qx var1) {
+	public class_cj(Entity var1) {
 		this(var1.s, var1.t, var1.u);
 	}
 

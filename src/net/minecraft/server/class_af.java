@@ -18,19 +18,19 @@ public class class_af extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.fill.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 7) {
 			throw new class_cf("commands.fill.usage", new Object[0]);
 		} else {
 			var1.a(class_n.class_a_in_class_n.b, 0);
 			class_cj var3 = a(var1, var2, 0, false);
 			class_cj var4 = a(var1, var2, 3, false);
-			class_ail var5 = class_i.g(var1, var2[6]);
+			Block var5 = class_i.g(var1, var2[6]);
 			int var6 = 0;
 			if (var2.length >= 8) {
 				var6 = a(var2[7], 0, 15);
@@ -83,7 +83,7 @@ public class class_af extends class_i {
 										}
 									} else if (var2[8].equals("replace") && !var5.B()) {
 										if (var2.length > 9) {
-											class_ail var18 = class_i.g(var1, var2[9]);
+											Block var18 = class_i.g(var1, var2[9]);
 											if (var10.p(var17).c() != var18) {
 												continue;
 											}
@@ -99,20 +99,20 @@ public class class_af extends class_i {
 									}
 								} else if ((var16 != var7.n()) && (var16 != var8.n()) && (var15 != var7.o()) && (var15 != var8.o()) && (var14 != var7.p()) && (var14 != var8.p())) {
 									if (var2[8].equals("hollow")) {
-										var10.a(var17, class_aim.a.S(), 2);
+										var10.a(var17, Blocks.a.S(), 2);
 										var24.add(var17);
 									}
 									continue;
 								}
 							}
 
-							class_aoi var29 = var10.s(var17);
+							TileEntity var29 = var10.s(var17);
 							if (var29 != null) {
 								if (var29 instanceof class_pp) {
 									((class_pp) var29).l();
 								}
 
-								var10.a(var17, class_aim.cv.S(), var5 == class_aim.cv ? 2 : 4);
+								var10.a(var17, Blocks.cv.S(), var5 == Blocks.cv ? 2 : 4);
 							}
 
 							var19 = var5.a(var6);
@@ -120,7 +120,7 @@ public class class_af extends class_i {
 								var24.add(var17);
 								++var9;
 								if (var23) {
-									class_aoi var20 = var10.s(var17);
+									TileEntity var20 = var10.s(var17);
 									if (var20 != null) {
 										var22.a("x", var17.n());
 										var22.a("y", var17.o());
@@ -137,7 +137,7 @@ public class class_af extends class_i {
 
 				while (var25.hasNext()) {
 					class_cj var26 = (class_cj) var25.next();
-					class_ail var27 = var10.p(var26).c();
+					Block var27 = var10.p(var26).c();
 					var10.c(var26, var27);
 				}
 
@@ -154,7 +154,7 @@ public class class_af extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : ((var2.length > 3) && (var2.length <= 6) ? a(var2, 3, var3) : (var2.length == 7 ? a(var2, class_ail.c.c()) : (var2.length == 9 ? a(var2, new String[] { "replace", "destroy", "keep", "hollow", "outline" }) : ((var2.length == 10) && "replace".equals(var2[8]) ? a(var2, class_ail.c.c()) : null))));
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : ((var2.length > 3) && (var2.length <= 6) ? a(var2, 3, var3) : (var2.length == 7 ? a(var2, Block.c.c()) : (var2.length == 9 ? a(var2, new String[] { "replace", "destroy", "keep", "hollow", "outline" }) : ((var2.length == 10) && "replace".equals(var2[8]) ? a(var2, Block.c.c()) : null))));
 	}
 }

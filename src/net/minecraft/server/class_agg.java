@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 public class class_agg {
 	private class_cj a;
-	private class_ail b;
+	private Block b;
 	private int c;
 	private int d;
 
-	public class_agg(class_cj var1, class_ail var2, int var3, int var4) {
+	public class_agg(class_cj var1, Block var2, int var3, int var4) {
 		a = var1;
 		c = var3;
 		d = var4;
@@ -26,7 +26,7 @@ public class class_agg {
 		return d;
 	}
 
-	public class_ail d() {
+	public Block d() {
 		return b;
 	}
 

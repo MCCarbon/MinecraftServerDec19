@@ -8,20 +8,20 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 
-public class class_apb extends class_aoi {
+public class class_apb extends TileEntity {
 	private String a = "";
 	private String f = "";
 	private String g = "";
 	private class_cj h = new class_cj(1, 1, 1);
 	private class_cj i = new class_cj(0, 0, 0);
-	private class_ail.class_a_in_class_ail j;
-	private class_ail.class_c_in_class_ail k;
+	private Block.class_a_in_class_ail j;
+	private Block.class_c_in_class_ail k;
 	private class_apb.class_a_in_class_apb l;
 	private boolean m;
 
 	public class_apb() {
-		j = class_ail.class_a_in_class_ail.a;
-		k = class_ail.class_c_in_class_ail.a;
+		j = Block.class_a_in_class_ail.a;
+		k = Block.class_c_in_class_ail.a;
 		l = class_apb.class_a_in_class_apb.d;
 	}
 
@@ -53,15 +53,15 @@ public class class_apb extends class_aoi {
 		i = new class_cj(var1.h("sizeX"), var1.h("sizeY"), var1.h("sizeZ"));
 
 		try {
-			k = class_ail.class_c_in_class_ail.valueOf(var1.l("rotation"));
+			k = Block.class_c_in_class_ail.valueOf(var1.l("rotation"));
 		} catch (IllegalArgumentException var5) {
-			k = class_ail.class_c_in_class_ail.a;
+			k = Block.class_c_in_class_ail.a;
 		}
 
 		try {
-			j = class_ail.class_a_in_class_ail.valueOf(var1.l("mirror"));
+			j = Block.class_a_in_class_ail.valueOf(var1.l("mirror"));
 		} catch (IllegalArgumentException var4) {
-			j = class_ail.class_a_in_class_ail.a;
+			j = Block.class_a_in_class_ail.a;
 		}
 
 		try {
@@ -92,11 +92,11 @@ public class class_apb extends class_aoi {
 		i = var1;
 	}
 
-	public void a(class_ail.class_a_in_class_ail var1) {
+	public void a(Block.class_a_in_class_ail var1) {
 		j = var1;
 	}
 
-	public void a(class_ail.class_c_in_class_ail var1) {
+	public void a(Block.class_c_in_class_ail var1) {
 		k = var1;
 	}
 
@@ -107,7 +107,7 @@ public class class_apb extends class_aoi {
 	public void a(class_apb.class_a_in_class_apb var1) {
 		l = var1;
 		class_apn var2 = b.p(v());
-		if (var2.c() == class_aim.de) {
+		if (var2.c() == Blocks.de) {
 			b.a(v(), var2.a(class_ann.a, var1), 2);
 		}
 
@@ -166,8 +166,8 @@ public class class_apb extends class_aoi {
 		while (var4.hasNext()) {
 			class_cj.class_a_in_class_cj var5 = (class_cj.class_a_in_class_cj) var4.next();
 			class_apn var6 = b.p(var5);
-			if (var6.c() == class_aim.de) {
-				class_aoi var7 = b.s(var5);
+			if (var6.c() == Blocks.de) {
+				TileEntity var7 = b.s(var5);
 				if ((var7 != null) && (var7 instanceof class_apb)) {
 					var3.add(var7);
 				}
@@ -218,7 +218,7 @@ public class class_apb extends class_aoi {
 			class_cj var1 = v().a(h);
 			class_auy var2 = ((class_ll) b).x();
 			class_ava var3 = var2.a(new class_ke(a));
-			var3.a(b, var1, i, !m, class_aim.cv);
+			var3.a(b, var1, i, !m, Blocks.cv);
 			var3.a(f);
 			var2.c(new class_ke(a));
 			return true;
@@ -241,14 +241,14 @@ public class class_apb extends class_aoi {
 				return false;
 			} else {
 				class_cj var4 = var3.a(k);
-				Iterator var5 = b.b((class_qx) null, (new class_ayk(var1, var4.a(var1).a(-1, -1, -1)))).iterator();
+				Iterator var5 = b.b((Entity) null, (new class_ayk(var1, var4.a(var1).a(-1, -1, -1)))).iterator();
 
 				while (var5.hasNext()) {
-					class_qx var6 = (class_qx) var5.next();
+					Entity var6 = (Entity) var5.next();
 					b.f(var6);
 				}
 
-				class_auz var7 = (new class_auz()).a(j).a(k).a(m).a((class_agi) null).a((class_ail) null).b(false);
+				class_auz var7 = (new class_auz()).a(j).a(k).a(m).a((class_agi) null).a((Block) null).b(false);
 				var3.a(b, var1, var7);
 				return true;
 			}

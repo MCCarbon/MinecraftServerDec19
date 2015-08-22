@@ -9,7 +9,7 @@ import java.util.Set;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
-public class class_amm extends class_ail {
+public class class_amm extends Block {
 	public static final class_aqa a = class_aqa.a("north", class_amm.class_a_in_class_amm.class);
 	public static final class_aqa b = class_aqa.a("east", class_amm.class_a_in_class_amm.class);
 	public static final class_aqa N = class_aqa.a("south", class_amm.class_a_in_class_amm.class);
@@ -35,11 +35,11 @@ public class class_amm extends class_ail {
 
 	private class_amm.class_a_in_class_amm c(class_ags var1, class_cj var2, class_cq var3) {
 		class_cj var4 = var2.a(var3);
-		class_ail var5 = var1.p(var2.a(var3)).c();
+		Block var5 = var1.p(var2.a(var3)).c();
 		if (a(var1.p(var4), var3) || (!var5.w() && d(var1.p(var4.b())))) {
 			return class_amm.class_a_in_class_amm.b;
 		} else {
-			class_ail var6 = var1.p(var2.a()).c();
+			Block var6 = var1.p(var2.a()).c();
 			return !var6.w() && var5.w() && d(var1.p(var4.a())) ? class_amm.class_a_in_class_amm.a : class_amm.class_a_in_class_amm.c;
 		}
 	}
@@ -61,7 +61,7 @@ public class class_amm extends class_ail {
 
 	@Override
 	public boolean c(class_ago var1, class_cj var2) {
-		return class_ago.a(var1, var2.b()) || (var1.p(var2.b()).c() == class_aim.aX);
+		return class_ago.a(var1, var2.b()) || (var1.p(var2.b()).c() == Blocks.aX);
 	}
 
 	private class_apn f(class_ago var1, class_cj var2, class_apn var3) {
@@ -237,7 +237,7 @@ public class class_amm extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D) {
 			if (this.c(var1, var2)) {
 				this.f(var1, var2, var3);
@@ -250,8 +250,8 @@ public class class_amm extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.aE;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.aE;
 	}
 
 	@Override
@@ -294,10 +294,10 @@ public class class_amm extends class_ail {
 	private boolean d(class_ags var1, class_cj var2, class_cq var3) {
 		class_cj var4 = var2.a(var3);
 		class_apn var5 = var1.p(var4);
-		class_ail var6 = var5.c();
+		Block var6 = var5.c();
 		boolean var7 = var6.x();
 		boolean var8 = var1.p(var2.a()).c().x();
-		return !var8 && var7 && e(var1, var4.a()) ? true : (a(var5, var3) ? true : ((var6 == class_aim.bc) && (var5.b(class_akx.O) == var3) ? true : !var7 && e(var1, var4.b())));
+		return !var8 && var7 && e(var1, var4.a()) ? true : (a(var5, var3) ? true : ((var6 == Blocks.bc) && (var5.b(class_akx.O) == var3) ? true : !var7 && e(var1, var4.b())));
 	}
 
 	protected static boolean e(class_ags var0, class_cj var1) {
@@ -309,10 +309,10 @@ public class class_amm extends class_ail {
 	}
 
 	protected static boolean a(class_apn var0, class_cq var1) {
-		class_ail var2 = var0.c();
-		if (var2 == class_aim.af) {
+		Block var2 = var0.c();
+		if (var2 == Blocks.af) {
 			return true;
-		} else if (class_aim.bb.e(var2)) {
+		} else if (Blocks.bb.e(var2)) {
 			class_cq var3 = (class_cq) var0.b(class_akx.O);
 			return (var3 == var1) || (var3.d() == var1);
 		} else {
@@ -327,7 +327,7 @@ public class class_amm extends class_ail {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.aE);
+		return new class_aco(Items.aE);
 	}
 
 	@Override
@@ -341,7 +341,7 @@ public class class_amm extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -359,7 +359,7 @@ public class class_amm extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -384,37 +384,37 @@ public class class_amm extends class_ail {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				b[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var5) {
 				;
 			}
 
 			try {
-				b[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				b[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
-			a = new int[class_ail.class_c_in_class_ail.values().length];
+			a = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

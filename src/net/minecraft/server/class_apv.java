@@ -15,7 +15,7 @@ public class class_apv implements Predicate {
 		a = var1;
 	}
 
-	public static class_apv a(class_ail var0) {
+	public static class_apv a(Block var0) {
 		return new class_apv(var0.R());
 	}
 

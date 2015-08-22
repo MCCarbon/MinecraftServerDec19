@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 
 public abstract class class_vc extends class_qu implements class_qw {
-	protected class_ail bw;
+	protected Block bw;
 	private int bt;
 	private class_yu bu;
 
 	public class_vc(class_ago var1) {
 		super(var1);
-		bw = class_aim.c;
+		bw = Blocks.c;
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public abstract class class_vc extends class_qu implements class_qw {
 
 	@Override
 	public float a(class_cj var1) {
-		return o.p(var1.b()).c() == class_aim.c ? 10.0F : o.o(var1) - 0.5F;
+		return o.p(var1.b()).c() == Blocks.c ? 10.0F : o.o(var1) - 0.5F;
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public abstract class class_vc extends class_qu implements class_qw {
 	}
 
 	public boolean d(class_aco var1) {
-		return var1 == null ? false : var1.b() == class_acq.Q;
+		return var1 == null ? false : var1.b() == Items.Q;
 	}
 
 	@Override

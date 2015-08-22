@@ -54,11 +54,11 @@ public class class_ajo extends class_aiq implements class_ain {
 			Object var7 = var4 ? this : var1.p(var5).c();
 			Object var8 = var4 ? var1.p(var6).c() : this;
 			if (var7 == this) {
-				var1.a(var5, class_aim.a.S(), 2);
+				var1.a(var5, Blocks.a.S(), 2);
 			}
 
 			if (var8 == this) {
-				var1.a(var6, class_aim.a.S(), 3);
+				var1.a(var6, Blocks.a.S(), 3);
 				if (!var4) {
 					this.b(var1, var6, var3, 0);
 				}
@@ -78,12 +78,12 @@ public class class_ajo extends class_aiq implements class_ain {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		if (var1.b(b) == class_ajo.class_a_in_class_ajo.a) {
 			return null;
 		} else {
 			class_ajo.class_b_in_class_ajo var4 = (class_ajo.class_b_in_class_ajo) var1.b(a);
-			return var4 == class_ajo.class_b_in_class_ajo.d ? null : (var4 == class_ajo.class_b_in_class_ajo.c ? (var2.nextInt(8) == 0 ? class_acq.P : null) : class_acm.a(this));
+			return var4 == class_ajo.class_b_in_class_ajo.d ? null : (var4 == class_ajo.class_b_in_class_ajo.c ? (var2.nextInt(8) == 0 ? Items.P : null) : Item.a(this));
 		}
 	}
 
@@ -103,8 +103,8 @@ public class class_ajo extends class_aiq implements class_ain {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
-		if (var1.D || (var6 == null) || (var6.b() != class_acq.bg) || (var4.b(b) != class_ajo.class_a_in_class_ajo.b) || !this.b(var1, var3, var4, var2)) {
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
+		if (var1.D || (var6 == null) || (var6.b() != Items.bg) || (var4.b(b) != class_ajo.class_a_in_class_ajo.b) || !this.b(var1, var3, var4, var2)) {
 			super.a(var1, var2, var3, var4, var5, var6);
 		}
 	}
@@ -119,7 +119,7 @@ public class class_ajo extends class_aiq implements class_ain {
 					if ((var6 != class_ajo.class_b_in_class_ajo.d) && (var6 != class_ajo.class_b_in_class_ajo.c)) {
 						var1.b(var2.b(), true);
 					} else if (!var1.D) {
-						if ((var4.bG() != null) && (var4.bG().b() == class_acq.bg)) {
+						if ((var4.bG() != null) && (var4.bG().b() == Items.bg)) {
 							this.b(var1, var2, var5, var4);
 							var1.g(var2.b());
 						} else {
@@ -133,7 +133,7 @@ public class class_ajo extends class_aiq implements class_ain {
 				}
 			}
 		} else if (var4.bI.d && (var1.p(var2.a()).c() == this)) {
-			var1.a(var2.a(), class_aim.a.S(), 2);
+			var1.a(var2.a(), Blocks.a.S(), 2);
 		}
 
 		super.a(var1, var2, var3, var4);
@@ -144,9 +144,9 @@ public class class_ajo extends class_aiq implements class_ain {
 		if ((var5 != class_ajo.class_b_in_class_ajo.d) && (var5 != class_ajo.class_b_in_class_ajo.c)) {
 			return false;
 		} else {
-			var4.b(class_nh.a(class_ail.a(this)));
+			var4.b(class_nh.a(Block.a(this)));
 			int var6 = (var5 == class_ajo.class_b_in_class_ajo.c ? class_ano.class_a_in_class_ano.b : class_ano.class_a_in_class_ano.c).a();
-			a(var1, var2, (new class_aco(class_aim.H, 2, var6)));
+			a(var1, var2, (new class_aco(Blocks.H, 2, var6)));
 			return true;
 		}
 	}

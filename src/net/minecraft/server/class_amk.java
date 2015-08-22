@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_amk extends class_ail {
+public class class_amk extends Block {
 	public static final class_aqa a = class_aqa.a("type", class_amk.class_a_in_class_amk.class);
 
 	public class_amk() {

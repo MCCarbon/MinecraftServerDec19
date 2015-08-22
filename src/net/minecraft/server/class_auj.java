@@ -484,7 +484,7 @@ public class class_auj {
 			}
 
 			this.a(var1, var3, 6, 3, 6, 9, 6, 9, c, c, false);
-			this.a(var1, var3, 7, 4, 7, 8, 5, 8, class_aim.R.S(), class_aim.R.S(), false);
+			this.a(var1, var3, 7, 4, 7, 8, 5, 8, Blocks.R.S(), Blocks.R.S(), false);
 
 			for (var7 = 3; var7 <= 6; var7 += 3) {
 				for (int var8 = 6; var8 <= 9; var8 += 3) {
@@ -1015,7 +1015,7 @@ public class class_auj {
 				for (int var5 = 1; var5 <= 6; ++var5) {
 					if (var2.nextInt(3) != 0) {
 						int var6 = 2 + (var2.nextInt(4) == 0 ? 0 : 1);
-						this.a(var1, var3, var4, var6, var5, var4, 3, var5, class_aim.v.a(1), class_aim.v.a(1), false);
+						this.a(var1, var3, var4, var6, var5, var4, 3, var5, Blocks.v.a(1), Blocks.v.a(1), false);
 					}
 				}
 			}
@@ -1928,7 +1928,7 @@ public class class_auj {
 					for (int var12 = var5; var12 <= var8; ++var12) {
 						if (!var9 || (this.a(var1, var11, var10, var12, var2).c().v() != class_avq.a)) {
 							if (this.d(var10) >= var1.H()) {
-								this.a(var1, class_aim.a.S(), var11, var10, var12, var2);
+								this.a(var1, Blocks.a.S(), var11, var10, var12, var2);
 							} else {
 								this.a(var1, f, var11, var10, var12, var2);
 							}
@@ -1994,12 +1994,12 @@ public class class_auj {
 		}
 
 		static {
-			a = class_aim.cI.a(class_ame.b);
-			b = class_aim.cI.a(class_ame.N);
-			c = class_aim.cI.a(class_ame.O);
+			a = Blocks.cI.a(class_ame.b);
+			b = Blocks.cI.a(class_ame.N);
+			c = Blocks.cI.a(class_ame.O);
 			d = b;
-			e = class_aim.cJ.S();
-			f = class_aim.j.S();
+			e = Blocks.cJ.S();
+			f = Blocks.j.S();
 			g = b(2, 0, 0);
 			h = b(2, 2, 0);
 			i = b(0, 1, 0);

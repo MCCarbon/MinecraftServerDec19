@@ -405,7 +405,7 @@ public class class_li {
 								List var5 = class_li.this.b.a(var1, var7, var2, var1 + 16, var7 + 16, var2 + 16);
 
 								for (int var6 = 0; var6 < var5.size(); ++var6) {
-									this.a((class_aoi) var5.get(var6));
+									this.a((TileEntity) var5.get(var6));
 								}
 							}
 						}
@@ -429,7 +429,7 @@ public class class_li {
 			}
 		}
 
-		private void a(class_aoi var1) {
+		private void a(TileEntity var1) {
 			if (var1 != null) {
 				class_ff var2 = var1.x_();
 				if (var2 != null) {

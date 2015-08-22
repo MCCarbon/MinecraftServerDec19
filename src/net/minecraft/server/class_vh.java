@@ -5,20 +5,20 @@ public class class_vh extends class_ve {
 	public class_vh(class_ago var1) {
 		super(var1);
 		this.a(0.9F, 1.3F);
-		bw = class_aim.bw;
+		bw = Blocks.bw;
 	}
 
 	@Override
 	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		if ((var3 != null) && (var3.b() == class_acq.B) && (this.k() >= 0) && !var1.bI.d) {
+		if ((var3 != null) && (var3.b() == Items.B) && (this.k() >= 0) && !var1.bI.d) {
 			if (--var3.b == 0) {
-				var1.a(var2, (new class_aco(class_acq.C)));
-			} else if (!var1.bq.a(new class_aco(class_acq.C))) {
-				var1.a(new class_aco(class_acq.C), false);
+				var1.a(var2, (new class_aco(Items.C)));
+			} else if (!var1.bq.a(new class_aco(Items.C))) {
+				var1.a(new class_aco(Items.C), false);
 			}
 
 			return true;
-		} else if ((var3 != null) && (var3.b() == class_acq.bg) && (this.k() >= 0)) {
+		} else if ((var3 != null) && (var3.b() == Items.bg) && (this.k() >= 0)) {
 			L();
 			o.a(class_cy.b, s, t + K / 2.0F, u, 0.0D, 0.0D, 0.0D, new int[0]);
 			if (!o.D) {
@@ -33,7 +33,7 @@ public class class_vh extends class_ve {
 				o.a(var4);
 
 				for (int var5 = 0; var5 < 5; ++var5) {
-					o.a((new class_xg(o, s, t + K, u, new class_aco(class_aim.Q))));
+					o.a((new class_xg(o, s, t + K, u, new class_aco(Blocks.Q))));
 				}
 
 				var3.a(1, var1);

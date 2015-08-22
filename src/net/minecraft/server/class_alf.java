@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public abstract class class_alf extends class_ail {
+public abstract class class_alf extends Block {
 	public static final class_aqb b = class_aqb.a("level", 0, 15);
 
 	protected class_alf(class_avq var1) {
@@ -67,7 +67,7 @@ public abstract class class_alf extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return null;
 	}
 
@@ -121,7 +121,7 @@ public abstract class class_alf extends class_ail {
 	}
 
 	@Override
-	public class_aym a(class_ago var1, class_cj var2, class_qx var3, class_aym var4) {
+	public class_aym a(class_ago var1, class_cj var2, Entity var3, class_aym var4) {
 		return var4.e(h(var1, var2));
 	}
 
@@ -136,7 +136,7 @@ public abstract class class_alf extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		this.f(var1, var2, var3);
 	}
 
@@ -157,13 +157,13 @@ public abstract class class_alf extends class_ail {
 			if (var4) {
 				Integer var9 = (Integer) var3.b(b);
 				if (var9.intValue() == 0) {
-					var1.a(var2, class_aim.Z.S());
+					var1.a(var2, Blocks.Z.S());
 					this.d(var1, var2);
 					return true;
 				}
 
 				if (var9.intValue() <= 4) {
-					var1.a(var2, class_aim.e.S());
+					var1.a(var2, Blocks.e.S());
 					this.d(var1, var2);
 					return true;
 				}
@@ -202,9 +202,9 @@ public abstract class class_alf extends class_ail {
 
 	public static class_ajr a(class_avq var0) {
 		if (var0 == class_avq.h) {
-			return class_aim.i;
+			return Blocks.i;
 		} else if (var0 == class_avq.i) {
-			return class_aim.k;
+			return Blocks.k;
 		} else {
 			throw new IllegalArgumentException("Invalid material");
 		}
@@ -212,9 +212,9 @@ public abstract class class_alf extends class_ail {
 
 	public static class_anh b(class_avq var0) {
 		if (var0 == class_avq.h) {
-			return class_aim.j;
+			return Blocks.j;
 		} else if (var0 == class_avq.i) {
-			return class_aim.l;
+			return Blocks.l;
 		} else {
 			throw new IllegalArgumentException("Invalid material");
 		}

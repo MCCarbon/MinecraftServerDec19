@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 
-public class class_adh extends class_acm {
-	private class_ail a;
-	private class_ail b;
+public class class_adh extends Item {
+	private Block a;
+	private Block b;
 
-	public class_adh(class_ail var1, class_ail var2) {
+	public class_adh(Block var1, Block var2) {
 		a = var1;
 		b = var2;
 		this.a(class_abp.l);

@@ -14,12 +14,12 @@ public class class_br extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.time.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length > 1) {
 			int var3;
 			if (var2[0].equals("set")) {
@@ -64,18 +64,18 @@ public class class_br extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return var2.length == 1 ? a(var2, new String[] { "set", "add", "query" }) : ((var2.length == 2) && var2[0].equals("set") ? a(var2, new String[] { "day", "night" }) : ((var2.length == 2) && var2[0].equals("query") ? a(var2, new String[] { "daytime", "gametime" }) : null));
 	}
 
-	protected void a(class_m var1, int var2) {
+	protected void a(ICommandListener var1, int var2) {
 		for (int var3 = 0; var3 < MinecraftServer.P().d.length; ++var3) {
 			MinecraftServer.P().d[var3].b((long) var2);
 		}
 
 	}
 
-	protected void b(class_m var1, int var2) {
+	protected void b(ICommandListener var1, int var2) {
 		for (int var3 = 0; var3 < MinecraftServer.P().d.length; ++var3) {
 			class_ll var4 = MinecraftServer.P().d[var3];
 			var4.b(var4.N() + var2);

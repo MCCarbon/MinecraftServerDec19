@@ -36,9 +36,9 @@ public class class_atp extends class_asa {
 				for (var9 = var3.n() - var7; (var9 <= (var3.n() + var7)) && var5; ++var9) {
 					for (var10 = var3.p() - var7; (var10 <= (var3.p() + var7)) && var5; ++var10) {
 						if ((var6 >= 0) && (var6 < 256)) {
-							class_ail var11 = var1.p(var8.c(var9, var6, var10)).c();
+							Block var11 = var1.p(var8.c(var9, var6, var10)).c();
 							if ((var11.v() != class_avq.a) && (var11.v() != class_avq.j)) {
-								if ((var11 != class_aim.j) && (var11 != class_aim.i)) {
+								if ((var11 != Blocks.j) && (var11 != Blocks.i)) {
 									var5 = false;
 								} else if (var6 > var3.o()) {
 									var5 = false;
@@ -54,8 +54,8 @@ public class class_atp extends class_asa {
 			if (!var5) {
 				return false;
 			} else {
-				class_ail var17 = var1.p(var3.b()).c();
-				if (((var17 == class_aim.c) || (var17 == class_aim.d)) && (var3.o() < (256 - var4 - 1))) {
+				Block var17 = var1.p(var3.b()).c();
+				if (((var17 == Blocks.c) || (var17 == Blocks.d)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 
 					int var12;
@@ -83,8 +83,8 @@ public class class_atp extends class_asa {
 					}
 
 					for (var18 = 0; var18 < var4; ++var18) {
-						class_ail var20 = var1.p(var3.b(var18)).c();
-						if ((var20.v() == class_avq.a) || (var20.v() == class_avq.j) || (var20 == class_aim.i) || (var20 == class_aim.j)) {
+						Block var20 = var1.p(var3.b(var18)).c();
+						if ((var20.v() == class_avq.a) || (var20.v() == class_avq.j) || (var20 == Blocks.i) || (var20 == Blocks.j)) {
 							this.a(var1, var3.b(var18), a);
 						}
 					}
@@ -133,7 +133,7 @@ public class class_atp extends class_asa {
 	}
 
 	private void a(class_ago var1, class_cj var2, class_apy var3) {
-		class_apn var4 = class_aim.bn.S().a(var3, Boolean.valueOf(true));
+		class_apn var4 = Blocks.bn.S().a(var3, Boolean.valueOf(true));
 		this.a(var1, var2, var4);
 		int var5 = 4;
 
@@ -145,7 +145,7 @@ public class class_atp extends class_asa {
 	}
 
 	static {
-		a = class_aim.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
-		b = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
+		b = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

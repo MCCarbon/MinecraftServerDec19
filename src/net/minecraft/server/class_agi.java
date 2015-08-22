@@ -33,7 +33,7 @@ public class class_agi {
 		}
 	}
 
-	public double a(class_qx var1) {
+	public double a(Entity var1) {
 		double var2 = (a * 16) + 8;
 		double var4 = (b * 16) + 8;
 		double var6 = var2 - var1.s;

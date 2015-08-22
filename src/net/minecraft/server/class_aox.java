@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 
-public class class_aox extends class_aoi implements class_ks {
+public class class_aox extends TileEntity implements class_ks {
 	private final class_agf a = new class_agf() {
 		@Override
 		public void a(int var1) {
-			class_aox.this.b.c(class_aox.this.c, class_aim.ac, var1, 0);
+			class_aox.this.b.c(class_aox.this.c, Blocks.ac, var1, 0);
 		}
 
 		@Override

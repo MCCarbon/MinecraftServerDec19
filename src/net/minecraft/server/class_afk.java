@@ -14,7 +14,7 @@ public enum class_afk {
 	j,
 	k;
 
-	public boolean a(class_acm var1) {
+	public boolean a(Item var1) {
 		if (this == a) {
 			return true;
 		} else if ((this == j) && var1.m()) {

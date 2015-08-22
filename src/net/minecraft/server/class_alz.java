@@ -25,7 +25,7 @@ public class class_alz extends class_aks {
 			}
 
 			if ((var5 > 0) && !var1.p(var6.a()).c().x()) {
-				class_qx var7 = class_ads.a(var1, class_qz.a(class_yd.class), var6.n() + 0.5D, var6.o() + 1.1D, var6.p() + 0.5D);
+				Entity var7 = class_ads.a(var1, EntityTypes.a(class_yd.class), var6.n() + 0.5D, var6.o() + 1.1D, var6.p() + 0.5D);
 				if (var7 != null) {
 					var7.aj = var7.at();
 				}
@@ -81,18 +81,18 @@ public class class_alz extends class_aks {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		class_cq.class_a_in_class_cq var5 = (class_cq.class_a_in_class_cq) var3.b(a);
 		class_alz.class_a_in_class_alz var6;
 		if (var5 == class_cq.class_a_in_class_cq.a) {
 			var6 = new class_alz.class_a_in_class_alz(var1, var2, class_cq.class_a_in_class_cq.a);
 			if (!var6.d() || (var6.e < (var6.h * var6.g))) {
-				var1.a(var2, class_aim.a.S());
+				var1.a(var2, Blocks.a.S());
 			}
 		} else if (var5 == class_cq.class_a_in_class_cq.c) {
 			var6 = new class_alz.class_a_in_class_alz(var1, var2, class_cq.class_a_in_class_cq.c);
 			if (!var6.d() || (var6.e < (var6.h * var6.g))) {
-				var1.a(var2, class_aim.a.S());
+				var1.a(var2, Blocks.a.S());
 			}
 		}
 
@@ -104,7 +104,7 @@ public class class_alz extends class_aks {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		if ((var4.m == null) && (var4.l == null)) {
 			var4.d(var2);
 		}
@@ -127,7 +127,7 @@ public class class_alz extends class_aks {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -210,17 +210,17 @@ public class class_alz extends class_aks {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_c_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_c_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_c_in_class_ail.d.ordinal()] = 1;
+				b[Block.class_c_in_class_ail.d.ordinal()] = 1;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.b.ordinal()] = 2;
+				b[Block.class_c_in_class_ail.b.ordinal()] = 2;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
@@ -287,13 +287,13 @@ public class class_alz extends class_aks {
 			int var3;
 			for (var3 = 0; var3 < 22; ++var3) {
 				class_cj var4 = var1.a(var2, var3);
-				if (!this.a(a.p(var4).c()) || (a.p(var4.b()).c() != class_aim.Z)) {
+				if (!this.a(a.p(var4).c()) || (a.p(var4.b()).c() != Blocks.Z)) {
 					break;
 				}
 			}
 
-			class_ail var5 = a.p(var1.a(var2, var3)).c();
-			return var5 == class_aim.Z ? var3 : 0;
+			Block var5 = a.p(var1.a(var2, var3)).c();
+			return var5 == Blocks.Z ? var3 : 0;
 		}
 
 		public int a() {
@@ -309,23 +309,23 @@ public class class_alz extends class_aks {
 			label56: for (g = 0; g < 21; ++g) {
 				for (var1 = 0; var1 < h; ++var1) {
 					class_cj var2 = f.a(c, var1).b(g);
-					class_ail var3 = a.p(var2).c();
+					Block var3 = a.p(var2).c();
 					if (!this.a(var3)) {
 						break label56;
 					}
 
-					if (var3 == class_aim.aY) {
+					if (var3 == Blocks.aY) {
 						++e;
 					}
 
 					if (var1 == 0) {
 						var3 = a.p(var2.a(d)).c();
-						if (var3 != class_aim.Z) {
+						if (var3 != Blocks.Z) {
 							break label56;
 						}
 					} else if (var1 == (h - 1)) {
 						var3 = a.p(var2.a(c)).c();
-						if (var3 != class_aim.Z) {
+						if (var3 != Blocks.Z) {
 							break label56;
 						}
 					}
@@ -333,7 +333,7 @@ public class class_alz extends class_aks {
 			}
 
 			for (var1 = 0; var1 < h; ++var1) {
-				if (a.p(f.a(c, var1).b(g)).c() != class_aim.Z) {
+				if (a.p(f.a(c, var1).b(g)).c() != Blocks.Z) {
 					g = 0;
 					break;
 				}
@@ -349,8 +349,8 @@ public class class_alz extends class_aks {
 			}
 		}
 
-		protected boolean a(class_ail var1) {
-			return (var1.J == class_avq.a) || (var1 == class_aim.ab) || (var1 == class_aim.aY);
+		protected boolean a(Block var1) {
+			return (var1.J == class_avq.a) || (var1 == Blocks.ab) || (var1 == Blocks.aY);
 		}
 
 		public boolean d() {
@@ -362,7 +362,7 @@ public class class_alz extends class_aks {
 				class_cj var2 = f.a(c, var1);
 
 				for (int var3 = 0; var3 < g; ++var3) {
-					a.a(var2.b(var3), class_aim.aY.S().a(class_alz.a, b), 2);
+					a.a(var2.b(var3), Blocks.aY.S().a(class_alz.a, b), 2);
 				}
 			}
 

@@ -17,8 +17,8 @@ public class class_ajf extends class_aiq implements class_ain {
 	}
 
 	@Override
-	protected boolean c(class_ail var1) {
-		return var1 == class_aim.ak;
+	protected boolean c(Block var1) {
+		return var1 == Blocks.ak;
 	}
 
 	protected class_aqb l() {
@@ -70,7 +70,7 @@ public class class_ajf extends class_aiq implements class_ain {
 		return class_oa.a(var1.s, 2, 5);
 	}
 
-	protected static float a(class_ail var0, class_ago var1, class_cj var2) {
+	protected static float a(Block var0, class_ago var1, class_cj var2) {
 		float var3 = 1.0F;
 		class_cj var4 = var2.b();
 
@@ -78,7 +78,7 @@ public class class_ajf extends class_aiq implements class_ain {
 			for (int var6 = -1; var6 <= 1; ++var6) {
 				float var7 = 0.0F;
 				class_apn var8 = var1.p(var4.a(var5, 0, var6));
-				if (var8.c() == class_aim.ak) {
+				if (var8.c() == Blocks.ak) {
 					var7 = 1.0F;
 					if (((Integer) var8.b(class_aka.a)).intValue() > 0) {
 						var7 = 3.0F;
@@ -116,12 +116,12 @@ public class class_ajf extends class_aiq implements class_ain {
 		return ((var1.k(var2) >= 8) || var1.i(var2)) && this.c(var1.p(var2.b()).c());
 	}
 
-	protected class_acm o() {
-		return class_acq.P;
+	protected Item o() {
+		return Items.P;
 	}
 
-	protected class_acm p() {
-		return class_acq.Q;
+	protected Item p() {
+		return Items.Q;
 	}
 
 	@Override
@@ -143,7 +143,7 @@ public class class_ajf extends class_aiq implements class_ain {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return this.e(var1) ? p() : o();
 	}
 

@@ -122,7 +122,7 @@ public class class_atv {
 			}
 		}
 
-		class_ail var6 = null;
+		Block var6 = null;
 
 		try {
 			String var7 = var3[var3.length - 1];
@@ -132,14 +132,14 @@ public class class_atv {
 					var5 = Integer.parseInt(var3[1]);
 				}
 
-				var6 = class_ail.c(Integer.parseInt(var3[0]));
+				var6 = Block.c(Integer.parseInt(var3[0]));
 			} else {
 				var3 = var7.split(":", 3);
-				var6 = var3.length > 1 ? class_ail.b(var3[0] + ":" + var3[1]) : null;
+				var6 = var3.length > 1 ? Block.b(var3[0] + ":" + var3[1]) : null;
 				if (var6 != null) {
 					var5 = var3.length > 2 ? Integer.parseInt(var3[2]) : 0;
 				} else {
-					var6 = class_ail.b(var3[0]);
+					var6 = Block.b(var3[0]);
 					if (var6 != null) {
 						var5 = var3.length > 1 ? Integer.parseInt(var3[1]) : 0;
 					}
@@ -150,7 +150,7 @@ public class class_atv {
 				}
 			}
 
-			if (var6 == class_aim.a) {
+			if (var6 == Blocks.a) {
 				var5 = 0;
 			}
 
@@ -250,9 +250,9 @@ public class class_atv {
 	public static class_atv e() {
 		class_atv var0 = new class_atv();
 		var0.a(class_ahb.q.az);
-		var0.c().add(new class_atw(1, class_aim.h));
-		var0.c().add(new class_atw(2, class_aim.d));
-		var0.c().add(new class_atw(1, class_aim.c));
+		var0.c().add(new class_atw(1, Blocks.h));
+		var0.c().add(new class_atw(2, Blocks.d));
+		var0.c().add(new class_atw(1, Blocks.c));
 		var0.d();
 		var0.b().put("village", Maps.newHashMap());
 		return var0;

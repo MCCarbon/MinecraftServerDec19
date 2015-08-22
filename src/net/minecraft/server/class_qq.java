@@ -72,7 +72,7 @@ public class class_qq {
 
 	}
 
-	public void a(class_qx var1, class_qx var2, class_rg var3, int var4, double var5) {
+	public void a(Entity var1, Entity var2, class_rg var3, int var4, double var5) {
 		int var7;
 		if (((this != class_qs.f) || var3.bt()) && ((this != class_qs.g) || !var3.bt())) {
 			if (((this == class_qs.g) && !var3.bt()) || ((this == class_qs.f) && var3.bt())) {

@@ -204,7 +204,7 @@ public class class_aqz implements class_aqt, class_ayh {
 			var19 = var1.t()[var8].iterator();
 
 			while (var19.hasNext()) {
-				class_qx var21 = (class_qx) var19.next();
+				Entity var21 = (Entity) var19.next();
 				var11 = new class_dn();
 				if (var21.d(var11)) {
 					var1.g(true);
@@ -218,7 +218,7 @@ public class class_aqz implements class_aqt, class_ayh {
 		var19 = var1.s().values().iterator();
 
 		while (var19.hasNext()) {
-			class_aoi var22 = (class_aoi) var19.next();
+			TileEntity var22 = (TileEntity) var19.next();
 			var11 = new class_dn();
 			var22.b(var11);
 			var18.a(var11);
@@ -234,7 +234,7 @@ public class class_aqz implements class_aqt, class_ayh {
 			while (var25.hasNext()) {
 				class_agz var26 = (class_agz) var25.next();
 				class_dn var15 = new class_dn();
-				class_ke var16 = (class_ke) class_ail.c.b(var26.a());
+				class_ke var16 = (class_ke) Block.c.b(var26.a());
 				var15.a("i", var16 == null ? "" : var16.toString());
 				var15.a("x", var26.a.n());
 				var15.a("y", var26.a.o());
@@ -288,14 +288,14 @@ public class class_aqz implements class_aqt, class_ayh {
 		if (var17 != null) {
 			for (int var18 = 0; var18 < var17.c(); ++var18) {
 				class_dn var20 = var17.b(var18);
-				class_qx var22 = class_qz.a(var20, var1);
+				Entity var22 = EntityTypes.a(var20, var1);
 				var5.g(true);
 				if (var22 != null) {
 					var5.a(var22);
-					class_qx var26 = var22;
+					Entity var26 = var22;
 
 					for (class_dn var28 = var20; var28.b("Riding", 10); var28 = var28.o("Riding")) {
-						class_qx var31 = class_qz.a(var28.o("Riding"), var1);
+						Entity var31 = EntityTypes.a(var28.o("Riding"), var1);
 						if (var31 != null) {
 							var5.a(var31);
 							var26.a(var31);
@@ -311,7 +311,7 @@ public class class_aqz implements class_aqt, class_ayh {
 		if (var19 != null) {
 			for (int var21 = 0; var21 < var19.c(); ++var21) {
 				class_dn var24 = var19.b(var21);
-				class_aoi var27 = class_aoi.c(var24);
+				TileEntity var27 = TileEntity.c(var24);
 				if (var27 != null) {
 					var5.a(var27);
 				}
@@ -323,11 +323,11 @@ public class class_aqz implements class_aqt, class_ayh {
 			if (var23 != null) {
 				for (int var25 = 0; var25 < var23.c(); ++var25) {
 					class_dn var29 = var23.b(var25);
-					class_ail var30;
+					Block var30;
 					if (var29.b("i", 8)) {
-						var30 = class_ail.b(var29.l("i"));
+						var30 = Block.b(var29.l("i"));
 					} else {
-						var30 = class_ail.c(var29.h("i"));
+						var30 = Block.c(var29.h("i"));
 					}
 
 					var1.b(new class_cj(var29.h("x"), var29.h("y"), var29.h("z")), var30, var29.h("t"), var29.h("p"));

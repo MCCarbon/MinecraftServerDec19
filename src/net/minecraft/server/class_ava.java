@@ -29,7 +29,7 @@ public class class_ava {
 		return d;
 	}
 
-	public void a(class_ago var1, class_cj var2, class_cj var3, boolean var4, class_ail var5) {
+	public void a(class_ago var1, class_cj var2, class_cj var3, boolean var4, Block var5) {
 		if ((var3.n() >= 1) && (var3.o() >= 1) && (var3.p() >= 1)) {
 			class_cj var6 = var2.a(var3).a(-1, -1, -1);
 			ArrayList var7 = Lists.newArrayList();
@@ -65,7 +65,7 @@ public class class_ava {
 						var15 = var1.p(var13);
 					} while ((var5 != null) && (var5 == var15.c()));
 
-					class_aoi var16 = var1.s(var13);
+					TileEntity var16 = var1.s(var13);
 					if (var16 != null) {
 						class_dn var17 = new class_dn();
 						var16.b(var17);
@@ -84,15 +84,15 @@ public class class_ava {
 	}
 
 	private void a(class_ago var1, class_cj var2, class_cj var3) {
-		List var4 = var1.a(class_qx.class, new class_ayk(var2, var3), new Predicate() {
-			public boolean a(class_qx var1) {
+		List var4 = var1.a(Entity.class, new class_ayk(var2, var3), new Predicate() {
+			public boolean a(Entity var1) {
 				return !(var1 instanceof class_yu);
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		});
 		b.clear();
@@ -101,7 +101,7 @@ public class class_ava {
 		class_dn var8;
 		class_cj var9;
 		for (Iterator var5 = var4.iterator(); var5.hasNext(); b.add(new class_ava.class_b_in_class_ava(var7, var9, var8, null))) {
-			class_qx var6 = (class_qx) var5.next();
+			Entity var6 = (Entity) var5.next();
 			var7 = new class_aym(var6.s - var2.n(), var6.t - var2.o(), var6.u - var2.p());
 			var8 = new class_dn();
 			var6.d(var8);
@@ -132,7 +132,7 @@ public class class_ava {
 			} while ((var4 != null) && !var4.b(var7));
 
 			class_apn var8 = var6.b;
-			if ((var8.c() == class_aim.de) && (var6.c != null)) {
+			if ((var8.c() == Blocks.de) && (var6.c != null)) {
 				class_apb.class_a_in_class_apb var9 = class_apb.class_a_in_class_apb.valueOf(var6.c.l("mode"));
 				if (var9 == class_apb.class_a_in_class_apb.d) {
 					var3.put(var7, var6.c.l("metadata"));
@@ -158,13 +158,13 @@ public class class_ava {
 
 	public void b(class_ago var1, class_cj var2, class_auz var3) {
 		if (!a.isEmpty() && (c.n() >= 1) && (c.o() >= 1) && (c.p() >= 1)) {
-			class_ail var4 = var3.f();
+			Block var4 = var3.f();
 			class_aua var5 = var3.g();
 			Iterator var6 = a.iterator();
 
 			while (true) {
 				class_ava.class_a_in_class_ava var7;
-				class_ail var8;
+				Block var8;
 				class_cj var9;
 				do {
 					do {
@@ -192,7 +192,7 @@ public class class_ava {
 
 									var1.c(var13, var7.b.c());
 									if (var7.c != null) {
-										class_aoi var14 = var1.s(var13);
+										TileEntity var14 = var1.s(var13);
 										if (var14 != null) {
 											var14.o_();
 										}
@@ -203,14 +203,14 @@ public class class_ava {
 							var7 = (class_ava.class_a_in_class_ava) var6.next();
 							var8 = var7.b.c();
 						} while ((var4 != null) && (var4 == var8));
-					} while (var3.h() && (var8 == class_aim.de));
+					} while (var3.h() && (var8 == Blocks.de));
 
 					var9 = a(var3, var7.a).a(var2);
 				} while ((var5 != null) && !var5.b(var9));
 
 				class_apn var10 = var8.a(var7.b, var3.b());
 				class_apn var11 = var8.a(var10, var3.c());
-				class_aoi var12;
+				TileEntity var12;
 				if (var7.c != null) {
 					var12 = var1.s(var9);
 					if (var12 != null) {
@@ -218,7 +218,7 @@ public class class_ava {
 							((class_pp) var12).l();
 						}
 
-						var1.a(var9, class_aim.cv.S(), 4);
+						var1.a(var9, Blocks.cv.S(), 4);
 					}
 				}
 
@@ -235,7 +235,7 @@ public class class_ava {
 		}
 	}
 
-	private void a(class_ago var1, class_cj var2, class_ail.class_a_in_class_ail var3, class_ail.class_c_in_class_ail var4, class_aua var5) {
+	private void a(class_ago var1, class_cj var2, Block.class_a_in_class_ail var3, Block.class_c_in_class_ail var4, class_aua var5) {
 		Iterator var6 = b.iterator();
 
 		while (true) {
@@ -260,9 +260,9 @@ public class class_ava {
 			var9.a("Pos", var12);
 			var9.a("UUID", UUID.randomUUID());
 
-			class_qx var13;
+			Entity var13;
 			try {
-				var13 = class_qz.a(var9, var1);
+				var13 = EntityTypes.a(var9, var1);
 			} catch (Exception var15) {
 				var13 = null;
 			}
@@ -284,7 +284,7 @@ public class class_ava {
 		}
 	}
 
-	public class_cj a(class_ail.class_c_in_class_ail var1) {
+	public class_cj a(Block.class_c_in_class_ail var1) {
 		switch (class_ava.SyntheticClass_1.a[var1.ordinal()]) {
 			case 1:
 			case 2:
@@ -294,7 +294,7 @@ public class class_ava {
 		}
 	}
 
-	private static class_cj a(class_cj var0, class_ail.class_a_in_class_ail var1, class_ail.class_c_in_class_ail var2) {
+	private static class_cj a(class_cj var0, Block.class_a_in_class_ail var1, Block.class_c_in_class_ail var2) {
 		int var3 = var0.n();
 		int var4 = var0.o();
 		int var5 = var0.p();
@@ -322,7 +322,7 @@ public class class_ava {
 		}
 	}
 
-	private static class_aym a(class_aym var0, class_ail.class_a_in_class_ail var1, class_ail.class_c_in_class_ail var2) {
+	private static class_aym a(class_aym var0, Block.class_a_in_class_ail var1, Block.class_c_in_class_ail var2) {
 		double var3 = var0.a;
 		double var5 = var0.b;
 		double var7 = var0.c;
@@ -358,7 +358,7 @@ public class class_ava {
 			class_ava.class_a_in_class_ava var4 = (class_ava.class_a_in_class_ava) var3.next();
 			var5 = new class_dn();
 			var5.a("pos", this.a(new int[] { var4.a.n(), var4.a.o(), var4.a.p() }));
-			var5.a("state", class_ail.f(var4.b));
+			var5.a("state", Block.f(var4.b));
 			if (var4.c != null) {
 				var5.a("nbt", var4.c);
 			}
@@ -397,7 +397,7 @@ public class class_ava {
 			class_du var6 = var5.c("pos", 3);
 			class_cj var7 = new class_cj(var6.c(0), var6.c(1), var6.c(2));
 			int var8 = var5.h("state");
-			class_apn var9 = class_ail.d(var8);
+			class_apn var9 = Block.d(var8);
 			class_dn var10;
 			if (var5.e("nbt")) {
 				var10 = var5.o("nbt");
@@ -455,37 +455,37 @@ public class class_ava {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				b[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var5) {
 				;
 			}
 
 			try {
-				b[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				b[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
-			a = new int[class_ail.class_c_in_class_ail.values().length];
+			a = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

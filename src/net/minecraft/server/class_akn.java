@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_akn extends class_ail {
+public class class_akn extends Block {
 	protected class_akn() {
 		super(class_avq.c);
 		this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
@@ -25,8 +25,8 @@ public class class_akn extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_aim.d.a(class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Blocks.d.a(Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
 	}
 
 	@Override
@@ -35,10 +35,10 @@ public class class_akn extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		super.a(var1, var2, var3, var4);
 		if (var1.p(var2.a()).c().v().a()) {
-			var1.a(var2, class_aim.d.S());
+			var1.a(var2, Blocks.d.S());
 		}
 
 	}

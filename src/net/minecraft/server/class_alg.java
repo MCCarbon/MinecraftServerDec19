@@ -36,7 +36,7 @@ public abstract class class_alg extends class_amr {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -85,16 +85,16 @@ public abstract class class_alg extends class_amr {
 				;
 			}
 
-			b = new int[class_ail.class_c_in_class_ail.values().length];
+			b = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				b[class_ail.class_c_in_class_ail.d.ordinal()] = 1;
+				b[Block.class_c_in_class_ail.d.ordinal()] = 1;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.b.ordinal()] = 2;
+				b[Block.class_c_in_class_ail.b.ordinal()] = 2;
 			} catch (NoSuchFieldError var3) {
 				;
 			}

@@ -230,7 +230,7 @@ public abstract class class_yu extends class_rg {
 	@Override
 	public void an() {
 		if (!o.D && aA()) {
-			this.a((class_qx) null);
+			this.a((Entity) null);
 			this.c(false);
 		} else {
 			double var1 = s;
@@ -315,7 +315,7 @@ public abstract class class_yu extends class_rg {
 			List var5 = o.b(this, var4);
 
 			for (int var6 = 0; var6 < var5.size(); ++var6) {
-				class_qx var7 = (class_qx) var5.get(var6);
+				Entity var7 = (Entity) var5.get(var6);
 				if (!var7.I) {
 					this.d(var7);
 				}
@@ -324,7 +324,7 @@ public abstract class class_yu extends class_rg {
 
 	}
 
-	private void d(class_qx var1) {
+	private void d(Entity var1) {
 		var1.d(this);
 	}
 
@@ -348,7 +348,7 @@ public abstract class class_yu extends class_rg {
 		this.b(s, t, u);
 		w = 0.10000000149011612D;
 		if (e_().equals("Notch")) {
-			this.a(new class_aco(class_acq.e, 1), true, false);
+			this.a(new class_aco(Items.e, 1), true, false);
 		}
 
 		if (!o.S().b("keepInventory")) {
@@ -377,7 +377,7 @@ public abstract class class_yu extends class_rg {
 	}
 
 	@Override
-	public void b(class_qx var1, int var2) {
+	public void b(Entity var1, int var2) {
 		this.l(var2);
 		Collection var3 = cx().a(class_ayy.f);
 		if (var1 instanceof class_yu) {
@@ -398,7 +398,7 @@ public abstract class class_yu extends class_rg {
 
 	}
 
-	private Collection e(class_qx var1) {
+	private Collection e(Entity var1) {
 		class_ayp var2 = cx().h(e_());
 		if (var2 != null) {
 			int var3 = var2.l().getId();
@@ -477,10 +477,10 @@ public abstract class class_yu extends class_rg {
 	protected void a(class_xg var1) {
 		o.a(var1);
 		class_aco var2 = var1.j();
-		this.a(class_nh.f(class_acm.b(var2.b())), var2.b);
+		this.a(class_nh.f(Item.b(var2.b())), var2.b);
 	}
 
-	public float a(class_ail var1) {
+	public float a(Block var1) {
 		float var2 = bq.a(var1);
 		if (var2 > 1.0F) {
 			int var3 = class_afl.e(this);
@@ -525,7 +525,7 @@ public abstract class class_yu extends class_rg {
 		return var2;
 	}
 
-	public boolean b(class_ail var1) {
+	public boolean b(Block var1) {
 		return bq.b(var1);
 	}
 
@@ -623,7 +623,7 @@ public abstract class class_yu extends class_rg {
 				if (var2 == 0.0F) {
 					return false;
 				} else {
-					class_qx var3 = var1.j();
+					Entity var3 = var1.j();
 					if ((var3 instanceof class_yx) && (((class_yx) var3).e != null)) {
 						var3 = ((class_yx) var3).e;
 					}
@@ -647,7 +647,7 @@ public abstract class class_yu extends class_rg {
 
 	@Override
 	protected void k(float var1) {
-		if ((var1 > 0.0F) && (bm != null) && (bm.b() == class_acq.cK)) {
+		if ((var1 > 0.0F) && (bm != null) && (bm.b() == Items.cK)) {
 			int var2 = 1 + class_oa.d(var1);
 			bm.a(var2, this);
 			if (bm.b == 0) {
@@ -725,7 +725,7 @@ public abstract class class_yu extends class_rg {
 	public void a(class_aco var1) {
 	}
 
-	public class_pw a(class_qx var1, class_aco var2, class_pu var3) {
+	public class_pw a(Entity var1, class_aco var2, class_pu var3) {
 		if (w()) {
 			if (var1 instanceof class_pp) {
 				this.a((class_pp) var1);
@@ -769,7 +769,7 @@ public abstract class class_yu extends class_rg {
 		return -0.35D;
 	}
 
-	public void f(class_qx var1) {
+	public void f(Entity var1) {
 		if (var1.aJ()) {
 			if (!var1.m(this)) {
 				float var2 = (float) this.a(class_yf.e).e();
@@ -873,14 +873,14 @@ public abstract class class_yu extends class_rg {
 							class_yu var28 = (class_yu) var1;
 							class_aco var30 = bG();
 							class_aco var32 = var28.bX() ? var28.ca() : null;
-							if ((var30 != null) && (var32 != null) && (var30.b() instanceof class_aay) && (var32.b() == class_acq.cK)) {
+							if ((var30 != null) && (var32 != null) && (var30.b() instanceof class_aay) && (var32.b() == Items.cK)) {
 								float var25 = 0.25F + (class_afl.e(this) * 0.05F);
 								if (var6) {
 									var25 += 0.75F;
 								}
 
 								if (V.nextFloat() < var25) {
-									var28.cB().a(class_acq.cK, 100);
+									var28.cB().a(Items.cK, 100);
 									o.a(var28, (byte) 30);
 								}
 							}
@@ -935,10 +935,10 @@ public abstract class class_yu extends class_rg {
 		}
 	}
 
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 	}
 
-	public void c(class_qx var1) {
+	public void c(Entity var1) {
 	}
 
 	public void ci() {
@@ -997,7 +997,7 @@ public abstract class class_yu extends class_rg {
 		}
 
 		if (az()) {
-			this.a((class_qx) null);
+			this.a((Entity) null);
 		}
 
 		this.a(0.2F, 0.2F);
@@ -1058,7 +1058,7 @@ public abstract class class_yu extends class_rg {
 	public void a(boolean var1, boolean var2, boolean var3) {
 		this.a(0.6F, 1.8F);
 		class_apn var4 = o.p(bF);
-		if ((bF != null) && (var4.c() == class_aim.C)) {
+		if ((bF != null) && (var4.c() == Blocks.C)) {
 			o.a(bF, var4.a(class_aij.b, Boolean.valueOf(false)), 4);
 			class_cj var5 = class_aij.a(o, bF, 0);
 			if (var5 == null) {
@@ -1081,12 +1081,12 @@ public abstract class class_yu extends class_rg {
 	}
 
 	private boolean n() {
-		return o.p(bF).c() == class_aim.C;
+		return o.p(bF).c() == Blocks.C;
 	}
 
 	public static class_cj a(class_ago var0, class_cj var1, boolean var2) {
-		class_ail var3 = var0.p(var1).c();
-		if (var3 != class_aim.C) {
+		Block var3 = var0.p(var1).c();
+		if (var3 != Blocks.C) {
 			if (!var2) {
 				return null;
 			} else {
@@ -1273,7 +1273,7 @@ public abstract class class_yu extends class_rg {
 			this.b(class_my.s);
 		}
 
-		class_qz.class_a_in_class_qz var2 = (class_qz.class_a_in_class_qz) class_qz.a.get(class_qz.b(var1));
+		EntityTypes.class_a_in_class_qz var2 = (EntityTypes.class_a_in_class_qz) EntityTypes.a.get(EntityTypes.b(var1));
 		if (var2 != null) {
 			this.b(var2.d);
 		}
@@ -1329,7 +1329,7 @@ public abstract class class_yu extends class_rg {
 
 		if ((var1 > 0) && ((bJ % 5) == 0) && (i < (W - 100.0F))) {
 			float var2 = bJ > 30 ? 1.0F : bJ / 30.0F;
-			o.a((class_qx) this, "random.levelup", var2 * 0.75F, 1.0F);
+			o.a((Entity) this, "random.levelup", var2 * 0.75F, 1.0F);
 			i = W;
 		}
 
@@ -1371,7 +1371,7 @@ public abstract class class_yu extends class_rg {
 			return false;
 		} else {
 			class_cj var4 = var1.a(var2.d());
-			class_ail var5 = o.p(var4).c();
+			Block var5 = o.p(var4).c();
 			return var3.d(var5) || var3.x();
 		}
 	}

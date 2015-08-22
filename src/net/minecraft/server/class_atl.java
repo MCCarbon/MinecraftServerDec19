@@ -45,8 +45,8 @@ public class class_atl extends class_asa {
 			if (!var5) {
 				return false;
 			} else {
-				class_ail var20 = var1.p(var3.b()).c();
-				if (((var20 == class_aim.c) || (var20 == class_aim.d)) && (var3.o() < (256 - var4 - 1))) {
+				Block var20 = var1.p(var3.b()).c();
+				if (((var20 == Blocks.c) || (var20 == Blocks.d)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 					class_cq var21 = class_cq.class_c_in_class_cq.a.a(var2);
 					int var22 = var4 - var2.nextInt(4) - 1;
@@ -165,7 +165,7 @@ public class class_atl extends class_asa {
 	}
 
 	static {
-		a = class_aim.s.S().a(class_alq.b, class_aly.class_a_in_class_aly.e);
-		b = class_aim.u.S().a(class_alp.P, class_aly.class_a_in_class_aly.e).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.s.S().a(class_alq.b, class_aly.class_a_in_class_aly.e);
+		b = Blocks.u.S().a(class_alp.P, class_aly.class_a_in_class_aly.e).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

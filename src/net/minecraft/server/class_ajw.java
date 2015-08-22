@@ -10,12 +10,12 @@ public class class_ajw extends class_ajk {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(b, var2.a((class_cq) var1.b(b)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(b, var2.b((class_cq) var1.b(b)));
 	}
 
@@ -61,7 +61,7 @@ public class class_ajw extends class_ajk {
 	@Override
 	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
 		class_apn var9 = var1.p(var2.a(var3.d()));
-		if (var9.c() == class_aim.cQ) {
+		if (var9.c() == Blocks.cQ) {
 			class_cq var10 = (class_cq) var9.b(b);
 			if (var10 == var3) {
 				return S().a(b, var3.d());
@@ -76,7 +76,7 @@ public class class_ajw extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 	}
 
 	@Override

@@ -183,7 +183,7 @@ public class class_aok extends class_aow implements class_ks, class_pp {
 	protected class_aok a(class_cq var1) {
 		class_cj var2 = c.a(var1);
 		if (this.b(var2)) {
-			class_aoi var3 = b.s(var2);
+			TileEntity var3 = b.s(var2);
 			if (var3 instanceof class_aok) {
 				class_aok var4 = (class_aok) var3;
 				var4.a(this, var1.d());
@@ -198,7 +198,7 @@ public class class_aok extends class_aow implements class_ks, class_pp {
 		if (b == null) {
 			return false;
 		} else {
-			class_ail var2 = b.p(var1).c();
+			Block var2 = b.p(var1).c();
 			return (var2 instanceof class_aiw) && (((class_aiw) var2).b == n());
 		}
 	}

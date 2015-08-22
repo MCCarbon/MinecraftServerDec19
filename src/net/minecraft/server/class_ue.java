@@ -22,7 +22,7 @@ public class class_ue extends class_sr {
 		}
 
 		c = new Predicate() {
-			public boolean a(class_qx var1) {
+			public boolean a(Entity var1) {
 				if (!(var1 instanceof class_yu)) {
 					return false;
 				} else if (((class_yu) var1).bI.a) {
@@ -49,7 +49,7 @@ public class class_ue extends class_sr {
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		};
 		d = new class_uf.class_a_in_class_uf(var1);

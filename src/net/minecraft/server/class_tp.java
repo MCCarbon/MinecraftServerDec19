@@ -34,7 +34,7 @@ public class class_tp extends class_sr {
 	}
 
 	protected boolean f() {
-		return (a.bG() != null) && (a.bG().b() == class_acq.f);
+		return (a.bG() != null) && (a.bG().b() == Items.f);
 	}
 
 	@Override

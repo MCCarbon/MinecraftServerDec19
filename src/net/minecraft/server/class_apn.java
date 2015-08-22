@@ -15,5 +15,5 @@ public interface class_apn {
 
 	ImmutableMap b();
 
-	class_ail c();
+	Block c();
 }

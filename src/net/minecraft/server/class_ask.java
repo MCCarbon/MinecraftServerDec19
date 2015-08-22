@@ -12,9 +12,9 @@ public class class_ask extends class_asp {
 	private final class_apn d;
 
 	public class_ask() {
-		b = class_aim.U.S().a(class_anm.N, class_anm.class_a_in_class_anm.b).a(class_akq.a, class_akq.class_a_in_class_akq.b);
-		c = class_aim.A.S();
-		d = class_aim.i.S();
+		b = Blocks.U.S().a(class_anm.N, class_anm.class_a_in_class_anm.b).a(class_akq.a, class_akq.class_a_in_class_akq.b);
+		c = Blocks.A.S();
+		d = Blocks.i.S();
 	}
 
 	@Override
@@ -87,6 +87,6 @@ public class class_ask extends class_asp {
 	}
 
 	static {
-		a = class_apv.a(class_aim.m).a(class_ams.a, Predicates.equalTo(class_ams.class_a_in_class_ams.a));
+		a = class_apv.a(Blocks.m).a(class_ams.a, Predicates.equalTo(class_ams.class_a_in_class_ams.a));
 	}
 }

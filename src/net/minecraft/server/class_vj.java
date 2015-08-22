@@ -17,7 +17,7 @@ public class class_vj extends class_vc {
 		i.a(1, new class_tj(this, 1.25D));
 		i.a(2, bv = new class_sk(this, 0.3F));
 		i.a(3, new class_sj(this, 1.0D));
-		i.a(4, new class_tw(this, 1.2D, class_acq.cd, false));
+		i.a(4, new class_tw(this, 1.2D, Items.cd, false));
 		i.a(4, new class_tw(this, 1.2D, false, bu));
 		i.a(5, new class_sq(this, 1.1D));
 		i.a(6, new class_tn(this, 1.0D));
@@ -35,11 +35,11 @@ public class class_vj extends class_vc {
 	@Override
 	public boolean co() {
 		class_aco var1 = ((class_yu) l).bG();
-		if ((var1 != null) && (var1.b() == class_acq.cd)) {
+		if ((var1 != null) && (var1.b() == Items.cd)) {
 			return true;
 		} else {
 			var1 = ((class_yu) l).bH();
-			return (var1 != null) && (var1.b() == class_acq.cd);
+			return (var1 != null) && (var1.b() == Items.cd);
 		}
 	}
 
@@ -77,7 +77,7 @@ public class class_vj extends class_vc {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.pig.step", 0.15F, 1.0F);
 	}
 
@@ -88,14 +88,14 @@ public class class_vj extends class_vc {
 		} else if (!cE() || o.D || ((l != null) && (l != var1))) {
 			return false;
 		} else {
-			var1.a((class_qx) this);
+			var1.a((Entity) this);
 			return true;
 		}
 	}
 
 	@Override
-	protected class_acm D() {
-		return ay() ? class_acq.ao : class_acq.an;
+	protected Item D() {
+		return ay() ? Items.ao : Items.an;
 	}
 
 	@Override
@@ -104,14 +104,14 @@ public class class_vj extends class_vc {
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			if (ay()) {
-				this.a(class_acq.ao, 1);
+				this.a(Items.ao, 1);
 			} else {
-				this.a(class_acq.an, 1);
+				this.a(Items.an, 1);
 			}
 		}
 
 		if (cE()) {
-			this.a(class_acq.aC, 1);
+			this.a(Items.aC, 1);
 		}
 
 	}
@@ -133,7 +133,7 @@ public class class_vj extends class_vc {
 	public void a(class_xc var1) {
 		if (!o.D && !I) {
 			class_yd var2 = new class_yd(o);
-			var2.a(class_rc.a, (new class_aco(class_acq.D)));
+			var2.a(class_rc.a, (new class_aco(Items.D)));
 			var2.b(s, t, u, y, z);
 			var2.k(cw());
 			if (k_()) {
@@ -176,6 +176,6 @@ public class class_vj extends class_vc {
 
 	static {
 		bt = class_kc.a(class_vj.class, class_kb.g);
-		bu = Sets.newHashSet((Object[]) (new class_acm[] { class_acq.bW, class_acq.bX, class_acq.cO }));
+		bu = Sets.newHashSet((Object[]) (new Item[] { Items.bW, Items.bX, Items.cO }));
 	}
 }

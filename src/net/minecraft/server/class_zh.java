@@ -22,7 +22,7 @@ public class class_zh extends class_zj {
 				var2 = 3;
 			}
 
-			var1.d.a(class_qi.a((class_qx) this, (class_qx) this.j()), var2);
+			var1.d.a(class_qi.a((Entity) this, (Entity) this.j()), var2);
 		}
 
 		for (int var3 = 0; var3 < 8; ++var3) {

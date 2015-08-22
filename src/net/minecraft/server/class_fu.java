@@ -6,12 +6,12 @@ public class class_fu implements class_ff {
 	private class_cj a;
 	private int b;
 	private int c;
-	private class_ail d;
+	private Block d;
 
 	public class_fu() {
 	}
 
-	public class_fu(class_cj var1, class_ail var2, int var3, int var4) {
+	public class_fu(class_cj var1, Block var2, int var3, int var4) {
 		a = var1;
 		b = var3;
 		c = var4;
@@ -23,7 +23,7 @@ public class class_fu implements class_ff {
 		a = var1.e();
 		b = var1.readUnsignedByte();
 		c = var1.readUnsignedByte();
-		d = class_ail.c(var1.g() & 4095);
+		d = Block.c(var1.g() & 4095);
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class class_fu implements class_ff {
 		var1.a(a);
 		var1.writeByte(b);
 		var1.writeByte(c);
-		var1.b(class_ail.a(d) & 4095);
+		var1.b(Block.a(d) & 4095);
 	}
 
 	public void a(class_fj var1) {

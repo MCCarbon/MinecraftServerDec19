@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Optional;
 
-public class class_vw extends class_qx {
+public class class_vw extends Entity {
 	private static final class_jz b;
 	public int a;
 
@@ -31,8 +31,8 @@ public class class_vw extends class_qx {
 		++a;
 		if (!o.D) {
 			class_cj var1 = new class_cj(this);
-			if ((o.t instanceof class_arh) && (o.p(var1).c() != class_aim.ab)) {
-				o.a(var1, class_aim.ab.S());
+			if ((o.t instanceof class_arh) && (o.p(var1).c() != Blocks.ab)) {
+				o.a(var1, Blocks.ab.S());
 			}
 		}
 
@@ -69,7 +69,7 @@ public class class_vw extends class_qx {
 			if (!I && !o.D) {
 				L();
 				if (!o.D) {
-					o.a((class_qx) null, s, t, u, 6.0F, true);
+					o.a((Entity) null, s, t, u, 6.0F, true);
 					if (o.t instanceof class_arh) {
 						class_arh var3 = (class_arh) o.t;
 						class_arg var4 = var3.s();

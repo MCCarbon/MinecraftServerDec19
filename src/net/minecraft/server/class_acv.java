@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_acv extends class_acm {
+public class class_acv extends Item {
 	public class_acv() {
 		this.d(1);
 		this.a(class_abp.f);
@@ -18,10 +18,10 @@ public class class_acv extends class_acm {
 		}
 
 		if (var3 instanceof class_yu) {
-			((class_yu) var3).b(class_nh.c(class_acm.b(this)));
+			((class_yu) var3).b(class_nh.c(Item.b(this)));
 		}
 
-		return var1.b <= 0 ? new class_aco(class_acq.ay) : var1;
+		return var1.b <= 0 ? new class_aco(Items.ay) : var1;
 	}
 
 	@Override

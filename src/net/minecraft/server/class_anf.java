@@ -4,12 +4,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class class_anf extends class_ail {
+public class class_anf extends Block {
 	public static final class_apz a;
 	public static final class_aqa b;
 	public static final class_aqa N;
 	private static final int[][] O;
-	private final class_ail P;
+	private final Block P;
 	private final class_apn Q;
 	private boolean R;
 	private int S;
@@ -55,13 +55,13 @@ public class class_anf extends class_ail {
 
 	}
 
-	public static boolean c(class_ail var0) {
+	public static boolean c(Block var0) {
 		return var0 instanceof class_anf;
 	}
 
 	public static boolean a(class_ags var0, class_cj var1, class_apn var2) {
 		class_apn var3 = var0.p(var1);
-		class_ail var4 = var3.c();
+		Block var4 = var3.c();
 		return c(var4) && (var3.b(b) == var2.b(b)) && (var3.b(a) == var2.b(a));
 	}
 
@@ -71,7 +71,7 @@ public class class_anf extends class_ail {
 		class_anf.class_a_in_class_anf var5 = (class_anf.class_a_in_class_anf) var3.b(b);
 		boolean var6 = var5 == class_anf.class_a_in_class_anf.a;
 		class_apn var7;
-		class_ail var8;
+		Block var8;
 		class_cq var9;
 		if (var4 == class_cq.f) {
 			var7 = var1.p(var2.f());
@@ -136,7 +136,7 @@ public class class_anf extends class_ail {
 		class_anf.class_a_in_class_anf var5 = (class_anf.class_a_in_class_anf) var3.b(b);
 		boolean var6 = var5 == class_anf.class_a_in_class_anf.a;
 		class_apn var7;
-		class_ail var8;
+		Block var8;
 		class_cq var9;
 		if (var4 == class_cq.f) {
 			var7 = var1.p(var2.e());
@@ -213,7 +213,7 @@ public class class_anf extends class_ail {
 		float var12 = 0.5F;
 		boolean var13 = true;
 		class_apn var14;
-		class_ail var15;
+		Block var15;
 		class_cq var16;
 		if (var4 == class_cq.f) {
 			var9 = 0.5F;
@@ -297,7 +297,7 @@ public class class_anf extends class_ail {
 		float var12 = 1.0F;
 		boolean var13 = false;
 		class_apn var14;
-		class_ail var15;
+		Block var15;
 		class_cq var16;
 		if (var4 == class_cq.f) {
 			var14 = var1.p(var2.e());
@@ -369,7 +369,7 @@ public class class_anf extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		this.e(var1, var2);
 		super.a(var1, var2, var3, var4, var5, var6);
 		boolean var7 = h(var1, var2);
@@ -392,7 +392,7 @@ public class class_anf extends class_ail {
 	}
 
 	@Override
-	public float a(class_qx var1) {
+	public float a(Entity var1) {
 		return P.a(var1);
 	}
 
@@ -402,7 +402,7 @@ public class class_anf extends class_ail {
 	}
 
 	@Override
-	public class_aym a(class_ago var1, class_cj var2, class_qx var3, class_aym var4) {
+	public class_aym a(class_ago var1, class_cj var2, Entity var3, class_aym var4) {
 		return P.a(var1, var2, var3, var4);
 	}
 
@@ -423,7 +423,7 @@ public class class_anf extends class_ail {
 
 	@Override
 	public void d(class_ago var1, class_cj var2, class_apn var3) {
-		this.a(var1, var2, Q, class_aim.a);
+		this.a(var1, var2, Q, Blocks.a);
 		P.d(var1, var2, Q);
 	}
 
@@ -433,7 +433,7 @@ public class class_anf extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_qx var3) {
+	public void a(class_ago var1, class_cj var2, Entity var3) {
 		P.a(var1, var2, var3);
 	}
 
@@ -555,12 +555,12 @@ public class class_anf extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -571,15 +571,15 @@ public class class_anf extends class_ail {
 					if (var3.k() == class_cq.class_a_in_class_cq.c) {
 						switch (class_anf.SyntheticClass_1.a[var4.ordinal()]) {
 							case 1:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.c);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.c);
 							case 2:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.b);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.b);
 							case 3:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.e);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.e);
 							case 4:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.d);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.d);
 							default:
-								return this.a(var1, class_ail.class_c_in_class_ail.c);
+								return this.a(var1, Block.class_c_in_class_ail.c);
 						}
 					}
 					break;
@@ -587,15 +587,15 @@ public class class_anf extends class_ail {
 					if (var3.k() == class_cq.class_a_in_class_cq.a) {
 						switch (class_anf.SyntheticClass_1.a[var4.ordinal()]) {
 							case 1:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.b);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.b);
 							case 2:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.c);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.c);
 							case 3:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.e);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.e);
 							case 4:
-								return this.a(var1, class_ail.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.d);
+								return this.a(var1, Block.class_c_in_class_ail.c).a(N, class_anf.class_b_in_class_anf.d);
 							case 5:
-								return this.a(var1, class_ail.class_c_in_class_ail.c);
+								return this.a(var1, Block.class_c_in_class_ail.c);
 						}
 					}
 			}
@@ -621,17 +621,17 @@ public class class_anf extends class_ail {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				b[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var7) {
 				;
 			}
 
 			try {
-				b[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				b[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var6) {
 				;
 			}

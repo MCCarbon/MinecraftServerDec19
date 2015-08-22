@@ -15,13 +15,13 @@ public class class_aqq {
 	public class_aqq(class_aqq.class_a_in_class_aqq var1) {
 		d = Lists.newArrayList((Object[]) a);
 		e = var1;
-		b.a(class_aim.a.S(), 0);
+		b.a(Blocks.a.S(), 0);
 		++c;
 	}
 
 	public class_apn a(int var1) {
 		class_apn var2 = (class_apn) b.a(var1);
-		return var2 == null ? class_aim.a.S() : var2;
+		return var2 == null ? Blocks.a.S() : var2;
 	}
 
 	public int a(class_apn var1) {
@@ -46,7 +46,7 @@ public class class_aqq {
 
 		while (var2.hasNext()) {
 			class_apn var3 = (class_apn) var2.next();
-			var1.b(class_ail.d.a(var3));
+			var1.b(Block.d.a(var3));
 			var1.b(b.a(var3));
 		}
 

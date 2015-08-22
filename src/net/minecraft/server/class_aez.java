@@ -6,7 +6,7 @@ public class class_aez {
 	private Object[][] b;
 
 	public class_aez() {
-		b = new Object[][] { { class_aim.f, class_aim.e, class_acq.l, class_acq.k, class_acq.m }, { class_acq.q, class_acq.u, class_acq.b, class_acq.y, class_acq.F }, { class_acq.p, class_acq.t, class_acq.a, class_acq.x, class_acq.E }, { class_acq.r, class_acq.v, class_acq.c, class_acq.z, class_acq.G }, { class_acq.K, class_acq.L, class_acq.M, class_acq.N, class_acq.O } };
+		b = new Object[][] { { Blocks.f, Blocks.e, Items.l, Items.k, Items.m }, { Items.q, Items.u, Items.b, Items.y, Items.F }, { Items.p, Items.t, Items.a, Items.x, Items.E }, { Items.r, Items.v, Items.c, Items.z, Items.G }, { Items.K, Items.L, Items.M, Items.N, Items.O } };
 	}
 
 	public void a(class_aet var1) {
@@ -14,11 +14,11 @@ public class class_aez {
 			Object var3 = b[0][var2];
 
 			for (int var4 = 0; var4 < (b.length - 1); ++var4) {
-				class_acm var5 = (class_acm) b[var4 + 1][var2];
-				var1.a(new class_aco(var5), new Object[] { a[var4], Character.valueOf('#'), class_acq.A, Character.valueOf('X'), var3 });
+				Item var5 = (Item) b[var4 + 1][var2];
+				var1.a(new class_aco(var5), new Object[] { a[var4], Character.valueOf('#'), Items.A, Character.valueOf('X'), var3 });
 			}
 		}
 
-		var1.a(new class_aco(class_acq.bg), new Object[] { " #", "# ", Character.valueOf('#'), class_acq.l });
+		var1.a(new class_aco(Items.bg), new Object[] { " #", "# ", Character.valueOf('#'), Items.l });
 	}
 }

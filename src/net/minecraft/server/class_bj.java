@@ -23,12 +23,12 @@ public class class_bj extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.spreadplayers.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 6) {
 			throw new class_cf("commands.spreadplayers.usage", new Object[0]);
 		} else {
@@ -46,7 +46,7 @@ public class class_bj extends class_i {
 			while (var17 < var2.length) {
 				String var15 = var2[var17++];
 				if (class_o.b(var15)) {
-					List var16 = class_o.b(var1, var15, class_qx.class);
+					List var16 = class_o.b(var1, var15, Entity.class);
 					if (var16.isEmpty()) {
 						throw new class_ca();
 					}
@@ -67,12 +67,12 @@ public class class_bj extends class_i {
 				throw new class_ca();
 			} else {
 				var1.a(new class_fb("commands.spreadplayers.spreading." + (var13 ? "teams" : "players"), new Object[] { Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9) }));
-				this.a(var1, var14, new class_bj.class_a_in_class_bj(var5, var7), var9, var11, ((class_qx) var14.get(0)).o, var13);
+				this.a(var1, var14, new class_bj.class_a_in_class_bj(var5, var7), var9, var11, ((Entity) var14.get(0)).o, var13);
 			}
 		}
 	}
 
-	private void a(class_m var1, List var2, class_bj.class_a_in_class_bj var3, double var4, double var6, class_ago var8, boolean var9) throws class_bz {
+	private void a(ICommandListener var1, List var2, class_bj.class_a_in_class_bj var3, double var4, double var6, class_ago var8, boolean var9) throws class_bz {
 		Random var10 = new Random();
 		double var11 = var3.a - var6;
 		double var13 = var3.b - var6;
@@ -93,7 +93,7 @@ public class class_bj extends class_i {
 		Iterator var3 = var1.iterator();
 
 		while (var3.hasNext()) {
-			class_qx var4 = (class_qx) var3.next();
+			Entity var4 = (Entity) var3.next();
 			if (var4 instanceof class_yu) {
 				var2.add(((class_yu) var4).aE());
 			} else {
@@ -179,7 +179,7 @@ public class class_bj extends class_i {
 		HashMap var8 = Maps.newHashMap();
 
 		for (int var9 = 0; var9 < var1.size(); ++var9) {
-			class_qx var10 = (class_qx) var1.get(var9);
+			Entity var10 = (Entity) var1.get(var9);
 			class_bj.class_a_in_class_bj var11;
 			if (var4) {
 				class_ayu var12 = var10 instanceof class_yu ? ((class_yu) var10).aE() : null;
@@ -222,7 +222,7 @@ public class class_bj extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return (var2.length >= 1) && (var2.length <= 2) ? b(var2, 0, var3) : null;
 	}
 

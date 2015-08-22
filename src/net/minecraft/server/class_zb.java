@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Optional;
 
-public class class_zb extends class_qx {
+public class class_zb extends Entity {
 	private static final class_jz a;
 	private int b;
 	private int c;

@@ -2,15 +2,15 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_alh extends class_ail {
+public class class_alh extends Block {
 	protected class_alh() {
 		super(class_avq.C, class_avr.u);
 		this.a(class_abp.b);
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.bh;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.bh;
 	}
 
 	@Override

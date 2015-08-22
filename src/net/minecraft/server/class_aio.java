@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aio extends class_ail {
+public class class_aio extends Block {
 	public class_aio() {
 		super(class_avq.d);
 		this.a(class_abp.b);
@@ -14,7 +14,7 @@ public class class_aio extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.aN;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.aN;
 	}
 }

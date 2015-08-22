@@ -5,7 +5,7 @@ public class class_adp extends class_abb {
 	private final class_akq b;
 	private final class_akq c;
 
-	public class_adp(class_ail var1, class_akq var2, class_akq var3) {
+	public class_adp(Block var1, class_akq var2, class_akq var3) {
 		super(var1);
 		b = var2;
 		c = var3;

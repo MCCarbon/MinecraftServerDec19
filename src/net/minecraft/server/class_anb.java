@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_anb extends class_ail {
+public class class_anb extends Block {
 	public class_anb() {
 		super(class_avq.p, class_avr.B);
 		this.a(class_abp.b);
@@ -14,7 +14,7 @@ public class class_anb extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		var4.v *= 0.4D;
 		var4.x *= 0.4D;
 	}

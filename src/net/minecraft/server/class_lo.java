@@ -12,7 +12,7 @@ import com.google.common.collect.Sets;
 
 public class class_lo {
 	private static final Logger p = LogManager.getLogger();
-	public class_qx a;
+	public Entity a;
 	public int b;
 	public int c;
 	public int d;
@@ -31,13 +31,13 @@ public class class_lo {
 	private boolean t;
 	private boolean u;
 	private int v;
-	private class_qx w;
+	private Entity w;
 	private boolean x;
 	private boolean y;
 	public boolean n;
 	public Set o = Sets.newHashSet();
 
-	public class_lo(class_qx var1, int var2, int var3, boolean var4) {
+	public class_lo(Entity var1, int var2, int var3, boolean var4) {
 		a = var1;
 		b = var2;
 		c = var3;
@@ -81,14 +81,14 @@ public class class_lo {
 			class_wu var2 = (class_wu) a;
 			class_aco var3 = var2.n();
 			if ((var3 != null) && (var3.b() instanceof class_acu)) {
-				class_axl var4 = class_acq.bf.a(var3, a.o);
+				class_axl var4 = Items.bf.a(var3, a.o);
 				Iterator var5 = var1.iterator();
 
 				while (var5.hasNext()) {
 					class_yu var6 = (class_yu) var5.next();
 					class_lm var7 = (class_lm) var6;
 					var4.a(var7, var3);
-					class_ff var8 = class_acq.bf.a(var3, a.o, var7);
+					class_ff var8 = Items.bf.a(var3, a.o, var7);
 					if (var8 != null) {
 						var7.a.a(var8);
 					}
@@ -366,7 +366,7 @@ public class class_lo {
 			class_yu var9 = ((class_wy) a).b;
 			return new class_fk(a, 90, var9 != null ? var9.G() : a.G());
 		} else {
-			class_qx var8;
+			Entity var8;
 			if (a instanceof class_zi) {
 				var8 = ((class_zi) a).e;
 				return new class_fk(a, 91, var8 != null ? var8.G() : a.G());
@@ -426,7 +426,7 @@ public class class_lo {
 					return new class_fk(a, 51);
 				} else if (a instanceof class_xf) {
 					class_xf var5 = (class_xf) a;
-					return new class_fk(a, 70, class_ail.f(var5.j()));
+					return new class_fk(a, 70, Block.f(var5.j()));
 				} else if (a instanceof class_ws) {
 					return new class_fk(a, 78);
 				} else if (a instanceof class_ww) {

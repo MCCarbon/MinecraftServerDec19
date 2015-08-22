@@ -28,14 +28,14 @@ public class class_vl extends class_vc {
 		i.a(0, new class_so(this));
 		i.a(1, new class_tj(this, 1.25D));
 		i.a(2, new class_sj(this, 1.0D));
-		i.a(3, new class_tw(this, 1.1D, class_acq.Q, false));
+		i.a(3, new class_tw(this, 1.1D, Items.Q, false));
 		i.a(4, new class_sq(this, 1.1D));
 		i.a(5, by);
 		i.a(6, new class_tn(this, 1.0D));
 		i.a(7, new class_sw(this, class_yu.class, 6.0F));
 		i.a(8, new class_tm(this));
-		bu.a(0, new class_aco(class_acq.aY));
-		bu.a(1, new class_aco(class_acq.aY));
+		bu.a(0, new class_aco(Items.aY));
+		bu.a(1, new class_aco(Items.aY));
 	}
 
 	@Override
@@ -69,35 +69,35 @@ public class class_vl extends class_vc {
 	@Override
 	protected void b(boolean var1, int var2) {
 		if (!cF()) {
-			this.a(new class_aco(class_acm.a(class_aim.L), 1, cE().a()), 0.0F);
+			this.a(new class_aco(Item.a(Blocks.L), 1, cE().a()), 0.0F);
 		}
 
 		int var3 = V.nextInt(2) + 1 + V.nextInt(1 + var2);
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			if (ay()) {
-				this.a(class_acq.bp, 1);
+				this.a(Items.bp, 1);
 			} else {
-				this.a(class_acq.bo, 1);
+				this.a(Items.bo, 1);
 			}
 		}
 
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acm.a(class_aim.L);
+	protected Item D() {
+		return Item.a(Blocks.L);
 	}
 
 	@Override
 	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		if ((var3 != null) && (var3.b() == class_acq.bg) && !cF() && !i_()) {
+		if ((var3 != null) && (var3.b() == Items.bg) && !cF() && !i_()) {
 			if (!o.D) {
 				this.m(true);
 				int var4 = 1 + V.nextInt(3);
 
 				for (int var5 = 0; var5 < var4; ++var5) {
-					class_xg var6 = this.a(new class_aco(class_acm.a(class_aim.L), 1, cE().a()), 1.0F);
+					class_xg var6 = this.a(new class_aco(Item.a(Blocks.L), 1, cE().a()), 1.0F);
 					var6.w += V.nextFloat() * 0.05F;
 					var6.v += (V.nextFloat() - V.nextFloat()) * 0.1F;
 					var6.x += (V.nextFloat() - V.nextFloat()) * 0.1F;
@@ -141,7 +141,7 @@ public class class_vl extends class_vc {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.sheep.step", 0.15F, 1.0F);
 	}
 
@@ -203,7 +203,7 @@ public class class_vl extends class_vc {
 		bu.a(1).b(var4);
 		class_aco var5 = class_aet.a().a(bu, ((class_vl) var1).o);
 		int var6;
-		if ((var5 != null) && (var5.b() == class_acq.aY)) {
+		if ((var5 != null) && (var5.b() == Items.aY)) {
 			var6 = var5.i();
 		} else {
 			var6 = o.s.nextBoolean() ? var3 : var4;

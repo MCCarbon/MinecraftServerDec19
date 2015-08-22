@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_ajl extends class_ail {
+public class class_ajl extends Block {
 	public static final class_aqa a = class_aqa.a("variant", class_ajl.class_a_in_class_ajl.class);
 	public static final class_apy b = class_apy.a("snowy");
 
@@ -19,8 +19,8 @@ public class class_ajl extends class_ail {
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
 		if (var1.b(a) == class_ajl.class_a_in_class_ajl.c) {
-			class_ail var4 = var2.p(var3.a()).c();
-			var1 = var1.a(b, Boolean.valueOf((var4 == class_aim.aJ) || (var4 == class_aim.aH)));
+			Block var4 = var2.p(var3.a()).c();
+			var1 = var1.a(b, Boolean.valueOf((var4 == Blocks.aJ) || (var4 == Blocks.aH)));
 		}
 
 		return var1;

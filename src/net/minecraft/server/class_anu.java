@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class class_anu extends class_ail {
+public class class_anu extends Block {
 	public static final class_apy a = class_apy.a("powered");
 	public static final class_apy b = class_apy.a("suspended");
 	public static final class_apy N = class_apy.a("attached");
@@ -42,17 +42,17 @@ public class class_anu extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.H;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.H;
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.H);
+		return new class_aco(Items.H);
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		boolean var5 = ((Boolean) var3.b(b)).booleanValue();
 		boolean var6 = !class_ago.a(var1, var2.b());
 		if (var5 != var6) {
@@ -92,7 +92,7 @@ public class class_anu extends class_ail {
 	@Override
 	public void a(class_ago var1, class_cj var2, class_apn var3, class_yu var4) {
 		if (!var1.D) {
-			if ((var4.bG() != null) && (var4.bG().b() == class_acq.bg)) {
+			if ((var4.bG() != null) && (var4.bG().b() == Items.bg)) {
 				var1.a(var2, var3.a(O, Boolean.valueOf(true)), 4);
 			}
 
@@ -109,14 +109,14 @@ public class class_anu extends class_ail {
 			for (int var8 = 1; var8 < 42; ++var8) {
 				class_cj var9 = var2.a(var7, var8);
 				class_apn var10 = var1.p(var9);
-				if (var10.c() == class_aim.bR) {
+				if (var10.c() == Blocks.bR) {
 					if (var10.b(class_anv.a) == var7.d()) {
-						class_aim.bR.a(var1, var9, var10, false, true, var8, var3);
+						Blocks.bR.a(var1, var9, var10, false, true, var8, var3);
 					}
 					break;
 				}
 
-				if (var10.c() != class_aim.bS) {
+				if (var10.c() != Blocks.bS) {
 					break;
 				}
 			}
@@ -125,7 +125,7 @@ public class class_anu extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		if (!var1.D) {
 			if (!((Boolean) var3.b(a)).booleanValue()) {
 				this.d(var1, var2);
@@ -150,12 +150,12 @@ public class class_anu extends class_ail {
 		class_apn var3 = var1.p(var2);
 		boolean var4 = ((Boolean) var3.b(a)).booleanValue();
 		boolean var5 = false;
-		List var6 = var1.b((class_qx) null, (new class_ayk(var2.n() + B, var2.o() + C, var2.p() + D, var2.n() + E, var2.o() + F, var2.p() + G)));
+		List var6 = var1.b((Entity) null, (new class_ayk(var2.n() + B, var2.o() + C, var2.p() + D, var2.n() + E, var2.o() + F, var2.p() + G)));
 		if (!var6.isEmpty()) {
 			Iterator var7 = var6.iterator();
 
 			while (var7.hasNext()) {
-				class_qx var8 = (class_qx) var7.next();
+				Entity var8 = (Entity) var7.next();
 				if (!var8.aO()) {
 					var5 = true;
 					break;
@@ -178,11 +178,11 @@ public class class_anu extends class_ail {
 	public static boolean c(class_ags var0, class_cj var1, class_apn var2, class_cq var3) {
 		class_cj var4 = var1.a(var3);
 		class_apn var5 = var0.p(var4);
-		class_ail var6 = var5.c();
-		if (var6 == class_aim.bR) {
+		Block var6 = var5.c();
+		if (var6 == Blocks.bR) {
 			class_cq var9 = var3.d();
 			return var5.b(class_anv.a) == var9;
-		} else if (var6 == class_aim.bS) {
+		} else if (var6 == Blocks.bS) {
 			boolean var7 = ((Boolean) var2.b(b)).booleanValue();
 			boolean var8 = ((Boolean) var5.b(b)).booleanValue();
 			return var7 == var8;
@@ -219,7 +219,7 @@ public class class_anu extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -237,7 +237,7 @@ public class class_anu extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -262,37 +262,37 @@ public class class_anu extends class_ail {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				b[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var5) {
 				;
 			}
 
 			try {
-				b[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				b[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
-			a = new int[class_ail.class_c_in_class_ail.values().length];
+			a = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

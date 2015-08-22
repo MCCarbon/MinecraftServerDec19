@@ -5,5 +5,5 @@ import java.util.UUID;
 public interface class_rm {
 	UUID b();
 
-	class_qx l_();
+	Entity l_();
 }

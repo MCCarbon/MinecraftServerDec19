@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 
-public class class_akb extends class_ail {
+public class class_akb extends Block {
 	public static final class_apy a = class_apy.a("north");
 	public static final class_apy b = class_apy.a("east");
 	public static final class_apy N = class_apy.a("south");
@@ -19,7 +19,7 @@ public class class_akb extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		boolean var7 = this.e(var1, var2.c());
 		boolean var8 = this.e(var1, var2.d());
 		boolean var9 = this.e(var1, var2.e());
@@ -112,8 +112,8 @@ public class class_akb extends class_ail {
 	}
 
 	public boolean e(class_ags var1, class_cj var2) {
-		class_ail var3 = var1.p(var2).c();
-		return var3 == class_aim.cv ? false : ((!(var3 instanceof class_akb) || (var3.J != J)) && !(var3 instanceof class_akc) ? (var3.J.k() && var3.d() ? var3.J != class_avq.C : false) : true);
+		Block var3 = var1.p(var2).c();
+		return var3 == Blocks.cv ? false : ((!(var3 instanceof class_akb) || (var3.J != J)) && !(var3 instanceof class_akc) ? (var3.J.k() && var3.d() ? var3.J != class_avq.C : false) : true);
 	}
 
 	@Override
@@ -132,7 +132,7 @@ public class class_akb extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -150,7 +150,7 @@ public class class_akb extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -175,37 +175,37 @@ public class class_akb extends class_ail {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				b[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var5) {
 				;
 			}
 
 			try {
-				b[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				b[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
-			a = new int[class_ail.class_c_in_class_ail.values().length];
+			a = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

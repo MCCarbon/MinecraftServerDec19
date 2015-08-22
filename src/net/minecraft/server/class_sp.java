@@ -63,8 +63,8 @@ public class class_sp extends class_sr {
 
 	private boolean a(class_cj var1) {
 		class_apn var2 = a.p(var1);
-		class_ail var3 = var2.c();
-		return var3 == class_aim.a ? true : !var3.d();
+		Block var3 = var2.c();
+		return var3 == Blocks.a ? true : !var3.d();
 	}
 
 	@Override

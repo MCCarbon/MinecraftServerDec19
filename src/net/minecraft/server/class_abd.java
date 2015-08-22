@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 
-public class class_abd extends class_acm {
+public class class_abd extends Item {
 	public class_abd() {
 		i = 1;
 		this.a(class_abp.e);
@@ -35,7 +35,7 @@ public class class_abd extends class_acm {
 			List var29 = var2.b(var3, var3.aX().a(var26.a * var22, var26.b * var22, var26.c * var22).b(var28, var28, var28));
 
 			for (int var30 = 0; var30 < var29.size(); ++var30) {
-				class_qx var31 = (class_qx) var29.get(var30);
+				Entity var31 = (Entity) var29.get(var30);
 				if (var31.ag()) {
 					float var32 = var31.ar();
 					class_ayk var33 = var31.aX().b(var32, var32, var32);
@@ -49,7 +49,7 @@ public class class_abd extends class_acm {
 				return new class_px(class_pw.b, var1);
 			} else if (var25.a == class_ayl.class_a_in_class_ayl.b) {
 				class_cj var34 = var25.a();
-				if (var2.p(var34).c() == class_aim.aH) {
+				if (var2.p(var34).c() == Blocks.aH) {
 					var34 = var34.b();
 				}
 
@@ -66,7 +66,7 @@ public class class_abd extends class_acm {
 						--var1.b;
 					}
 
-					var3.b(class_nh.c(class_acm.b(this)));
+					var3.b(class_nh.c(Item.b(this)));
 					return new class_px(class_pw.a, var1);
 				}
 			} else {

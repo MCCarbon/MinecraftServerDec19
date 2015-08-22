@@ -20,12 +20,12 @@ public class class_p extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.achievement.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 2) {
 			throw new class_cf("commands.achievement.usage", new Object[0]);
 		} else {
@@ -145,7 +145,7 @@ public class class_p extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		if (var2.length == 1) {
 			return a(var2, new String[] { "give", "take" });
 		} else if (var2.length != 2) {

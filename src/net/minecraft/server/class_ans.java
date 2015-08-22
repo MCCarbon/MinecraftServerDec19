@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_ans extends class_ail {
+public class class_ans extends Block {
 	protected boolean Q;
 
 	protected class_ans(class_avq var1, boolean var2) {

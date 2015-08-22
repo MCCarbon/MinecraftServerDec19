@@ -21,12 +21,12 @@ public class class_zl extends class_zj {
 				return;
 			}
 
-			var1.d.a(class_qi.a((class_qx) this, (class_qx) var2), 0.0F);
+			var1.d.a(class_qi.a((Entity) this, (Entity) var2), 0.0F);
 		}
 
 		if (var1.a == class_ayl.class_a_in_class_ayl.b) {
 			class_cj var3 = var1.a();
-			class_aoi var4 = o.s(var3);
+			TileEntity var4 = o.s(var3);
 			if (var4 instanceof class_apc) {
 				class_apc var5 = (class_apc) var4;
 				if (var2 != null) {
@@ -56,7 +56,7 @@ public class class_zl extends class_zj {
 					}
 
 					if (var2.az()) {
-						var2.a((class_qx) null);
+						var2.a((Entity) null);
 					}
 
 					var2.a(s, t, u);

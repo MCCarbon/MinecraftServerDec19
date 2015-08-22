@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_ajz extends class_ail {
+public class class_ajz extends Block {
 	public static boolean N;
 
 	public class_ajz() {
@@ -20,7 +20,7 @@ public class class_ajz extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		var1.a(var2, this, this.a(var1));
 	}
 
@@ -66,9 +66,9 @@ public class class_ajz extends class_ail {
 	}
 
 	public static boolean d(class_ago var0, class_cj var1) {
-		class_ail var2 = var0.p(var1).c();
+		Block var2 = var0.p(var1).c();
 		class_avq var3 = var2.J;
-		return (var2 == class_aim.ab) || (var3 == class_avq.a) || (var3 == class_avq.h) || (var3 == class_avq.i);
+		return (var2 == Blocks.ab) || (var3 == class_avq.a) || (var3 == class_avq.h) || (var3 == class_avq.i);
 	}
 
 	public void a_(class_ago var1, class_cj var2) {

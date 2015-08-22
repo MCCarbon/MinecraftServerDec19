@@ -11,12 +11,12 @@ public abstract class class_aut extends class_aur {
 	protected class_cj c;
 
 	public class_aut() {
-		b = d.a(true).a(class_aim.a);
+		b = d.a(true).a(Blocks.a);
 	}
 
 	public class_aut(int var1) {
 		super(var1);
-		b = d.a(true).a(class_aim.a);
+		b = d.a(true).a(Blocks.a);
 	}
 
 	protected void a(class_ava var1, class_cj var2, class_auz var3) {
@@ -58,7 +58,7 @@ public abstract class class_aut extends class_aur {
 	protected abstract void a(String var1, class_cj var2, class_ago var3, Random var4, class_aua var5);
 
 	private void h() {
-		class_ail.class_c_in_class_ail var1 = b.c();
+		Block.class_c_in_class_ail var1 = b.c();
 		class_cj var2 = a.a(var1);
 		l = new class_aua(0, 0, 0, var2.n(), var2.o() - 1, var2.p());
 		switch (class_aut.SyntheticClass_1.a[var1.ordinal()]) {
@@ -87,29 +87,29 @@ public abstract class class_aut extends class_aur {
 	// $FF: synthetic class
 	static class SyntheticClass_1 {
 		// $FF: synthetic field
-		static final int[] a = new int[class_ail.class_c_in_class_ail.values().length];
+		static final int[] a = new int[Block.class_c_in_class_ail.values().length];
 
 		static {
 			try {
-				a[class_ail.class_c_in_class_ail.a.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.a.ordinal()] = 1;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 2;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 3;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 4;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 4;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

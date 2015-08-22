@@ -39,7 +39,7 @@ public class class_aar extends class_aas {
 		}
 
 		c = 0;
-		if (var1.b() == class_acm.a(class_aim.ai)) {
+		if (var1.b() == Item.a(Blocks.ai)) {
 			b.b(class_my.h);
 		}
 
@@ -47,7 +47,7 @@ public class class_aar extends class_aas {
 			b.b(class_my.i);
 		}
 
-		if (var1.b() == class_acm.a(class_aim.al)) {
+		if (var1.b() == Item.a(Blocks.al)) {
 			b.b(class_my.j);
 		}
 
@@ -55,15 +55,15 @@ public class class_aar extends class_aas {
 			b.b(class_my.l);
 		}
 
-		if (var1.b() == class_acq.R) {
+		if (var1.b() == Items.R) {
 			b.b(class_my.m);
 		}
 
-		if (var1.b() == class_acq.bb) {
+		if (var1.b() == Items.bb) {
 			b.b(class_my.n);
 		}
 
-		if ((var1.b() instanceof class_acz) && (((class_acz) var1.b()).g() != class_acm.class_a_in_class_acm.a)) {
+		if ((var1.b() instanceof class_acz) && (((class_acz) var1.b()).g() != Item.class_a_in_class_acm.a)) {
 			b.b(class_my.o);
 		}
 
@@ -71,15 +71,15 @@ public class class_aar extends class_aas {
 			b.b(class_my.r);
 		}
 
-		if (var1.b() == class_acm.a(class_aim.bC)) {
+		if (var1.b() == Item.a(Blocks.bC)) {
 			b.b(class_my.E);
 		}
 
-		if (var1.b() == class_acm.a(class_aim.X)) {
+		if (var1.b() == Item.a(Blocks.X)) {
 			b.b(class_my.G);
 		}
 
-		if ((var1.b() == class_acq.aq) && (var1.i() == 1)) {
+		if ((var1.b() == Items.aq) && (var1.i() == 1)) {
 			b.b(class_my.M);
 		}
 

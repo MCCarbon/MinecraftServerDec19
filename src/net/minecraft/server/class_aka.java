@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_aka extends class_ail {
+public class class_aka extends Block {
 	public static final class_aqb a = class_aqb.a("moisture", 0, 7);
 
 	protected class_aka() {
@@ -36,7 +36,7 @@ public class class_aka extends class_ail {
 			if (var5 > 0) {
 				var1.a(var2, var3.a(a, Integer.valueOf(var5 - 1)), 2);
 			} else if (!this.d(var1, var2)) {
-				var1.a(var2, class_aim.d.S());
+				var1.a(var2, Blocks.d.S());
 			}
 		} else if (var5 < 7) {
 			var1.a(var2, var3.a(a, Integer.valueOf(7)), 2);
@@ -45,14 +45,14 @@ public class class_aka extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_qx var3, float var4) {
+	public void a(class_ago var1, class_cj var2, Entity var3, float var4) {
 		if (var3 instanceof class_rg) {
 			if (!var1.D && (var1.s.nextFloat() < (var4 - 0.5F))) {
 				if (!(var3 instanceof class_yu) && !var1.S().b("mobGriefing")) {
 					return;
 				}
 
-				var1.a(var2, class_aim.d.S());
+				var1.a(var2, Blocks.d.S());
 			}
 
 			super.a(var1, var2, var3, var4);
@@ -60,7 +60,7 @@ public class class_aka extends class_ail {
 	}
 
 	private boolean d(class_ago var1, class_cj var2) {
-		class_ail var3 = var1.p(var2.a()).c();
+		Block var3 = var1.p(var2.a()).c();
 		return (var3 instanceof class_ajf) || (var3 instanceof class_ani);
 	}
 
@@ -80,22 +80,22 @@ public class class_aka extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		super.a(var1, var2, var3, var4);
 		if (var1.p(var2.a()).c().v().a()) {
-			var1.a(var2, class_aim.d.S());
+			var1.a(var2, Blocks.d.S());
 		}
 
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_aim.d.a(class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Blocks.d.a(Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_aim.d);
+		return new class_aco(Blocks.d);
 	}
 
 	@Override

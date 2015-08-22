@@ -142,7 +142,7 @@ public abstract class class_ake extends class_aiq {
 		b;
 
 		public class_ake a() {
-			return this == a ? class_aim.N : class_aim.O;
+			return this == a ? Blocks.N : Blocks.O;
 		}
 	}
 }

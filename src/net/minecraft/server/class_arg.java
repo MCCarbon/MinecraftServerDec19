@@ -84,7 +84,7 @@ public class class_arg {
 		}
 
 		f = class_aps.a().a(new String[] { "       ", "       ", "       ", "   #   ", "       ", "       ", "       " }).a(new String[] { "       ", "       ", "       ", "   #   ", "       ", "       ", "       " }).a(new String[] { "       ", "       ", "       ", "   #   ", "       ", "       ", "       " }).a(new String[] { "  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  " })
-				.a(new String[] { "       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       " }).a('#', class_apq.a(class_apu.a(class_aim.h))).b();
+				.a(new String[] { "       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       " }).a('#', class_apq.a(class_apu.a(Blocks.h))).b();
 	}
 
 	public class_dn a() {
@@ -212,7 +212,7 @@ public class class_arg {
 					d.g(var6);
 				}
 
-				d.a((class_qx) null, var3.a() + 0.5F, var3.d(), var3.b() + 0.5F, 5.0F, true);
+				d.a((Entity) null, var3.a() + 0.5F, var3.d(), var3.b() + 0.5F, 5.0F, true);
 				class_atm var7 = new class_atm();
 				var7.a(var3);
 				var7.a(false);
@@ -229,7 +229,7 @@ public class class_arg {
 				Iterator var4 = var3.s().values().iterator();
 
 				while (var4.hasNext()) {
-					class_aoi var5 = (class_aoi) var4.next();
+					TileEntity var5 = (TileEntity) var4.next();
 					if (var5 instanceof class_apd) {
 						return true;
 					}
@@ -249,7 +249,7 @@ public class class_arg {
 				Iterator var4 = var3.s().values().iterator();
 
 				while (var4.hasNext()) {
-					class_aoi var5 = (class_aoi) var4.next();
+					TileEntity var5 = (TileEntity) var4.next();
 					if (var5 instanceof class_apd) {
 						class_apr.class_b_in_class_apr var6 = f.a(d, var5.v());
 						if (var6 != null) {
@@ -332,7 +332,7 @@ public class class_arg {
 			this.a(true);
 			l();
 			if (!l) {
-				d.a(d.m(class_aso.a), class_aim.bI.S());
+				d.a(d.m(class_aso.a), Blocks.bI.S());
 			}
 
 			l = true;
@@ -358,7 +358,7 @@ public class class_arg {
 	private void a(boolean var1) {
 		class_aso var2 = new class_aso(var1);
 		if (o == null) {
-			for (o = d.r(class_aso.a).b(); (d.p(o).c() == class_aim.h) && (o.o() > d.H()); o = o.b()) {
+			for (o = d.r(class_aso.a).b(); (d.p(o).c() == Blocks.h) && (o.o() > d.H()); o = o.b()) {
 				;
 			}
 		}
@@ -388,7 +388,7 @@ public class class_arg {
 
 	public void a(class_vw var1, class_qi var2) {
 		k();
-		class_qx var3 = d.a(m);
+		Entity var3 = d.a(m);
 		if (var3 instanceof class_vx) {
 			((class_vx) var3).a(var1, new class_cj(var1), var2);
 		}
@@ -406,8 +406,8 @@ public class class_arg {
 					for (int var3 = 0; var3 < f.b(); ++var3) {
 						for (int var4 = 0; var4 < f.a(); ++var4) {
 							class_apq var5 = var1.a(var2, var3, var4);
-							if ((var5.a().c() == class_aim.h) || (var5.a().c() == class_aim.bF)) {
-								d.a(var5.d(), class_aim.bH.S());
+							if ((var5.a().c() == Blocks.h) || (var5.a().c() == Blocks.bF)) {
+								d.a(var5.d(), Blocks.bH.S());
 							}
 						}
 					}

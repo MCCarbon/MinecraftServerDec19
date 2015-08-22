@@ -67,12 +67,12 @@ public class class_yh extends class_yc implements class_ye {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.skeleton.step", 0.15F, 1.0F);
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		if (super.r(var1)) {
 			if ((cF() == 1) && (var1 instanceof class_rg)) {
 				((class_rg) var1).c(new class_qr(class_qs.t, 200));
@@ -144,14 +144,14 @@ public class class_yh extends class_yc implements class_ye {
 			}
 		} else if ((var1.j() instanceof class_xu) && ((class_xu) var1.j()).n() && ((class_xu) var1.j()).cI()) {
 			((class_xu) var1.j()).cJ();
-			this.a(new class_aco(class_acq.cc, 1, cF() == 1 ? 1 : 0), 0.0F);
+			this.a(new class_aco(Items.cc, 1, cF() == 1 ? 1 : 0), 0.0F);
 		}
 
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.g;
+	protected Item D() {
+		return Items.g;
 	}
 
 	@Override
@@ -162,20 +162,20 @@ public class class_yh extends class_yc implements class_ye {
 			var3 = V.nextInt(3 + var2) - 1;
 
 			for (var4 = 0; var4 < var3; ++var4) {
-				this.a(class_acq.j, 1);
+				this.a(Items.j, 1);
 			}
 		} else {
 			var3 = V.nextInt(3 + var2);
 
 			for (var4 = 0; var4 < var3; ++var4) {
-				this.a(class_acq.g, 1);
+				this.a(Items.g, 1);
 			}
 		}
 
 		var3 = V.nextInt(3 + var2);
 
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.aZ, 1);
+			this.a(Items.aZ, 1);
 		}
 
 	}
@@ -183,7 +183,7 @@ public class class_yh extends class_yc implements class_ye {
 	@Override
 	protected void bx() {
 		if (cF() == 1) {
-			this.a(new class_aco(class_acq.cc, 1, 1), 0.0F);
+			this.a(new class_aco(Items.cc, 1, 1), 0.0F);
 		}
 
 	}
@@ -191,7 +191,7 @@ public class class_yh extends class_yc implements class_ye {
 	@Override
 	protected void a(class_pt var1) {
 		super.a(var1);
-		this.a(class_rc.a, new class_aco(class_acq.f));
+		this.a(class_rc.a, new class_aco(Items.f));
 	}
 
 	@Override
@@ -200,7 +200,7 @@ public class class_yh extends class_yc implements class_ye {
 		if ((o.t instanceof class_are) && (bj().nextInt(5) > 0)) {
 			i.a(4, bt);
 			this.a(1);
-			this.a(class_rc.a, new class_aco(class_acq.s));
+			this.a(class_rc.a, new class_aco(Items.s));
 			this.a(class_yf.e).a(4.0D);
 		} else {
 			i.a(4, c);
@@ -212,7 +212,7 @@ public class class_yh extends class_yc implements class_ye {
 		if (this.a(class_rc.f) == null) {
 			Calendar var3 = o.aa();
 			if (((var3.get(2) + 1) == 10) && (var3.get(5) == 31) && (V.nextFloat() < 0.25F)) {
-				this.a(class_rc.f, new class_aco(V.nextFloat() < 0.1F ? class_aim.aZ : class_aim.aU));
+				this.a(class_rc.f, new class_aco(V.nextFloat() < 0.1F ? Blocks.aZ : Blocks.aU));
 				bq[class_rc.f.b()] = 0.0F;
 			}
 		}
@@ -224,7 +224,7 @@ public class class_yh extends class_yc implements class_ye {
 		i.a(bt);
 		i.a(c);
 		class_aco var1 = bG();
-		if ((var1 != null) && (var1.b() == class_acq.f)) {
+		if ((var1 != null) && (var1.b() == Items.f)) {
 			i.a(4, c);
 		} else {
 			i.a(4, bt);

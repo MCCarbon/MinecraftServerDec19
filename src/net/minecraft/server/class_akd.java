@@ -5,7 +5,7 @@ import java.util.Random;
 
 import com.google.common.collect.Maps;
 
-public class class_akd extends class_ail {
+public class class_akd extends Block {
 	public static final class_aqb a = class_aqb.a("age", 0, 15);
 	public static final class_apy b = class_apy.a("north");
 	public static final class_apy N = class_apy.a("east");
@@ -17,7 +17,7 @@ public class class_akd extends class_ail {
 
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
-		return !class_ago.a(var2, var3.b()) && !class_aim.ab.e(var2, var3.b()) ? var1.a(b, Boolean.valueOf(this.e(var2, var3.c()))).a(N, Boolean.valueOf(this.e(var2, var3.f()))).a(O, Boolean.valueOf(this.e(var2, var3.d()))).a(P, Boolean.valueOf(this.e(var2, var3.e()))).a(Q, Boolean.valueOf(this.e(var2, var3.a()))) : S();
+		return !class_ago.a(var2, var3.b()) && !Blocks.ab.e(var2, var3.b()) ? var1.a(b, Boolean.valueOf(this.e(var2, var3.c()))).a(N, Boolean.valueOf(this.e(var2, var3.f()))).a(O, Boolean.valueOf(this.e(var2, var3.d()))).a(P, Boolean.valueOf(this.e(var2, var3.e()))).a(Q, Boolean.valueOf(this.e(var2, var3.a()))) : S();
 	}
 
 	protected class_akd() {
@@ -27,44 +27,44 @@ public class class_akd extends class_ail {
 	}
 
 	public static void l() {
-		class_aim.ab.a(class_aim.f, 5, 20);
-		class_aim.ab.a(class_aim.bL, 5, 20);
-		class_aim.ab.a(class_aim.bM, 5, 20);
-		class_aim.ab.a(class_aim.bo, 5, 20);
-		class_aim.ab.a(class_aim.bp, 5, 20);
-		class_aim.ab.a(class_aim.bq, 5, 20);
-		class_aim.ab.a(class_aim.br, 5, 20);
-		class_aim.ab.a(class_aim.bs, 5, 20);
-		class_aim.ab.a(class_aim.bt, 5, 20);
-		class_aim.ab.a(class_aim.aO, 5, 20);
-		class_aim.ab.a(class_aim.aP, 5, 20);
-		class_aim.ab.a(class_aim.aQ, 5, 20);
-		class_aim.ab.a(class_aim.aR, 5, 20);
-		class_aim.ab.a(class_aim.aS, 5, 20);
-		class_aim.ab.a(class_aim.aT, 5, 20);
-		class_aim.ab.a(class_aim.ad, 5, 20);
-		class_aim.ab.a(class_aim.bV, 5, 20);
-		class_aim.ab.a(class_aim.bU, 5, 20);
-		class_aim.ab.a(class_aim.bW, 5, 20);
-		class_aim.ab.a(class_aim.r, 5, 5);
-		class_aim.ab.a(class_aim.s, 5, 5);
-		class_aim.ab.a(class_aim.t, 30, 60);
-		class_aim.ab.a(class_aim.u, 30, 60);
-		class_aim.ab.a(class_aim.X, 30, 20);
-		class_aim.ab.a(class_aim.W, 15, 100);
-		class_aim.ab.a(class_aim.H, 60, 100);
-		class_aim.ab.a(class_aim.cF, 60, 100);
-		class_aim.ab.a(class_aim.N, 60, 100);
-		class_aim.ab.a(class_aim.O, 60, 100);
-		class_aim.ab.a(class_aim.I, 60, 100);
-		class_aim.ab.a(class_aim.L, 30, 60);
-		class_aim.ab.a(class_aim.bn, 15, 100);
-		class_aim.ab.a(class_aim.cA, 5, 5);
-		class_aim.ab.a(class_aim.cx, 60, 20);
-		class_aim.ab.a(class_aim.cy, 60, 20);
+		Blocks.ab.a(Blocks.f, 5, 20);
+		Blocks.ab.a(Blocks.bL, 5, 20);
+		Blocks.ab.a(Blocks.bM, 5, 20);
+		Blocks.ab.a(Blocks.bo, 5, 20);
+		Blocks.ab.a(Blocks.bp, 5, 20);
+		Blocks.ab.a(Blocks.bq, 5, 20);
+		Blocks.ab.a(Blocks.br, 5, 20);
+		Blocks.ab.a(Blocks.bs, 5, 20);
+		Blocks.ab.a(Blocks.bt, 5, 20);
+		Blocks.ab.a(Blocks.aO, 5, 20);
+		Blocks.ab.a(Blocks.aP, 5, 20);
+		Blocks.ab.a(Blocks.aQ, 5, 20);
+		Blocks.ab.a(Blocks.aR, 5, 20);
+		Blocks.ab.a(Blocks.aS, 5, 20);
+		Blocks.ab.a(Blocks.aT, 5, 20);
+		Blocks.ab.a(Blocks.ad, 5, 20);
+		Blocks.ab.a(Blocks.bV, 5, 20);
+		Blocks.ab.a(Blocks.bU, 5, 20);
+		Blocks.ab.a(Blocks.bW, 5, 20);
+		Blocks.ab.a(Blocks.r, 5, 5);
+		Blocks.ab.a(Blocks.s, 5, 5);
+		Blocks.ab.a(Blocks.t, 30, 60);
+		Blocks.ab.a(Blocks.u, 30, 60);
+		Blocks.ab.a(Blocks.X, 30, 20);
+		Blocks.ab.a(Blocks.W, 15, 100);
+		Blocks.ab.a(Blocks.H, 60, 100);
+		Blocks.ab.a(Blocks.cF, 60, 100);
+		Blocks.ab.a(Blocks.N, 60, 100);
+		Blocks.ab.a(Blocks.O, 60, 100);
+		Blocks.ab.a(Blocks.I, 60, 100);
+		Blocks.ab.a(Blocks.L, 30, 60);
+		Blocks.ab.a(Blocks.bn, 15, 100);
+		Blocks.ab.a(Blocks.cA, 5, 5);
+		Blocks.ab.a(Blocks.cx, 60, 20);
+		Blocks.ab.a(Blocks.cy, 60, 20);
 	}
 
-	public void a(class_ail var1, int var2, int var3) {
+	public void a(Block var1, int var2, int var3) {
 		R.put(var1, Integer.valueOf(var2));
 		S.put(var1, Integer.valueOf(var3));
 	}
@@ -101,9 +101,9 @@ public class class_akd extends class_ail {
 				var1.g(var2);
 			}
 
-			class_ail var5 = var1.p(var2.b()).c();
-			boolean var6 = var5 == class_aim.aV;
-			if ((var1.t instanceof class_arh) && (var5 == class_aim.h)) {
+			Block var5 = var1.p(var2.b()).c();
+			boolean var6 = var5 == Blocks.aV;
+			if ((var1.t instanceof class_arh) && (var5 == Blocks.h)) {
 				var6 = true;
 			}
 
@@ -189,12 +189,12 @@ public class class_akd extends class_ail {
 		return false;
 	}
 
-	private int c(class_ail var1) {
+	private int c(Block var1) {
 		Integer var2 = (Integer) S.get(var1);
 		return var2 == null ? 0 : var2.intValue();
 	}
 
-	private int d(class_ail var1) {
+	private int d(Block var1) {
 		Integer var2 = (Integer) R.get(var1);
 		return var2 == null ? 0 : var2.intValue();
 	}
@@ -214,8 +214,8 @@ public class class_akd extends class_ail {
 				var1.g(var2);
 			}
 
-			if (var7.c() == class_aim.W) {
-				class_aim.W.e(var1, var2, var7.a(class_anq.a, Boolean.valueOf(true)));
+			if (var7.c() == Blocks.W) {
+				Blocks.W.e(var1, var2, var7.a(class_anq.a, Boolean.valueOf(true)));
 			}
 		}
 
@@ -267,7 +267,7 @@ public class class_akd extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!class_ago.a(var1, var2.b()) && !this.e(var1, var2)) {
 			var1.g(var2);
 		}
@@ -276,7 +276,7 @@ public class class_akd extends class_ail {
 
 	@Override
 	public void d(class_ago var1, class_cj var2, class_apn var3) {
-		if ((var1.t.p().a() > 0) || !class_aim.aY.d(var1, var2)) {
+		if ((var1.t.p().a() > 0) || !Blocks.aY.d(var1, var2)) {
 			if (!class_ago.a(var1, var2.b()) && !this.e(var1, var2)) {
 				var1.g(var2);
 			} else {

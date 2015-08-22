@@ -10,14 +10,14 @@ public class class_aej implements class_aes {
 		for (int var5 = 0; var5 < var1.n_(); ++var5) {
 			class_aco var6 = var1.a(var5);
 			if (var6 != null) {
-				if (var6.b() == class_acq.bS) {
+				if (var6.b() == Items.bS) {
 					if (var4 != null) {
 						return false;
 					}
 
 					var4 = var6;
 				} else {
-					if (var6.b() != class_acq.bR) {
+					if (var6.b() != Items.bR) {
 						return false;
 					}
 
@@ -37,14 +37,14 @@ public class class_aej implements class_aes {
 		for (int var4 = 0; var4 < var1.n_(); ++var4) {
 			class_aco var5 = var1.a(var4);
 			if (var5 != null) {
-				if (var5.b() == class_acq.bS) {
+				if (var5.b() == Items.bS) {
 					if (var3 != null) {
 						return null;
 					}
 
 					var3 = var5;
 				} else {
-					if (var5.b() != class_acq.bR) {
+					if (var5.b() != Items.bR) {
 						return null;
 					}
 
@@ -54,7 +54,7 @@ public class class_aej implements class_aes {
 		}
 
 		if ((var3 != null) && (var2 >= 1) && (class_aeb.h(var3) < 2)) {
-			class_aco var6 = new class_aco(class_acq.bS, var2);
+			class_aco var6 = new class_aco(Items.bS, var2);
 			var6.d((class_dn) var3.o().b());
 			var6.o().a("generation", class_aeb.h(var3) + 1);
 			if (var3.s()) {

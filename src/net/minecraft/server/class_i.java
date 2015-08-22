@@ -32,7 +32,7 @@ public abstract class class_i implements class_k {
 		return new class_cc("commands.tellraw.jsonException", new Object[] { var2 });
 	}
 
-	protected static class_dn a(class_qx var0) {
+	protected static class_dn a(Entity var0) {
 		class_dn var1 = new class_dn();
 		var0.e(var1);
 		if (var0 instanceof class_yu) {
@@ -55,12 +55,12 @@ public abstract class class_i implements class_k {
 	}
 
 	@Override
-	public boolean a(class_m var1) {
+	public boolean a(ICommandListener var1) {
 		return var1.a(this.a(), this.c());
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return null;
 	}
 
@@ -106,7 +106,7 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static class_cj a(class_m var0, String[] var1, int var2, boolean var3) throws class_cb {
+	public static class_cj a(ICommandListener var0, String[] var1, int var2, boolean var3) throws class_cb {
 		class_cj var4 = var0.c();
 		return new class_cj(b(var4.n(), var1[var2], -30000000, 30000000, var3), b(var4.o(), var1[var2 + 1], 0, 256, false), b(var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
 	}
@@ -151,7 +151,7 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static class_lm b(class_m var0) throws class_cd {
+	public static class_lm b(ICommandListener var0) throws class_cd {
 		if (var0 instanceof class_lm) {
 			return (class_lm) var0;
 		} else {
@@ -159,7 +159,7 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static class_lm a(class_m var0, String var1) throws class_cd {
+	public static class_lm a(ICommandListener var0, String var1) throws class_cd {
 		class_lm var2 = class_o.a(var0, var1);
 		if (var2 == null) {
 			try {
@@ -180,11 +180,11 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static class_qx b(class_m var0, String var1) throws class_ca {
-		return a(var0, var1, class_qx.class);
+	public static Entity b(ICommandListener var0, String var1) throws class_ca {
+		return a(var0, var1, Entity.class);
 	}
 
-	public static class_qx a(class_m var0, String var1, Class var2) throws class_ca {
+	public static Entity a(ICommandListener var0, String var1, Class var2) throws class_ca {
 		Object var3 = class_o.a(var0, var1, var2);
 		MinecraftServer var4 = MinecraftServer.P();
 		if (var3 == null) {
@@ -204,17 +204,17 @@ public abstract class class_i implements class_k {
 		}
 
 		if ((var3 != null) && var2.isAssignableFrom(var3.getClass())) {
-			return (class_qx) var3;
+			return (Entity) var3;
 		} else {
 			throw new class_ca();
 		}
 	}
 
-	public static List c(class_m var0, String var1) throws class_ca {
-		return class_o.b(var1) ? class_o.b(var0, var1, class_qx.class) : Lists.newArrayList((Object[]) (new class_qx[] { b(var0, var1) }));
+	public static List c(ICommandListener var0, String var1) throws class_ca {
+		return class_o.b(var1) ? class_o.b(var0, var1, Entity.class) : Lists.newArrayList((Object[]) (new Entity[] { b(var0, var1) }));
 	}
 
-	public static String d(class_m var0, String var1) throws class_cd {
+	public static String d(ICommandListener var0, String var1) throws class_cd {
 		try {
 			return a(var0, var1).e_();
 		} catch (class_cd var3) {
@@ -226,7 +226,7 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static String e(class_m var0, String var1) throws class_ca {
+	public static String e(ICommandListener var0, String var1) throws class_ca {
 		try {
 			return a(var0, var1).e_();
 		} catch (class_cd var5) {
@@ -242,11 +242,11 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static class_eu a(class_m var0, String[] var1, int var2) throws class_cd {
+	public static class_eu a(ICommandListener var0, String[] var1, int var2) throws class_cd {
 		return b(var0, var1, var2, false);
 	}
 
-	public static class_eu b(class_m var0, String[] var1, int var2, boolean var3) throws class_cd {
+	public static class_eu b(ICommandListener var0, String[] var1, int var2, boolean var3) throws class_cd {
 		class_fa var4 = new class_fa("");
 
 		for (int var5 = var2; var5 < var1.length; ++var5) {
@@ -359,9 +359,9 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static class_acm f(class_m var0, String var1) throws class_cb {
+	public static Item f(ICommandListener var0, String var1) throws class_cb {
 		class_ke var2 = new class_ke(var1);
-		class_acm var3 = (class_acm) class_acm.e.c(var2);
+		Item var3 = (Item) Item.e.c(var2);
 		if (var3 == null) {
 			throw new class_cb("commands.give.item.notFound", new Object[] { var2 });
 		} else {
@@ -369,12 +369,12 @@ public abstract class class_i implements class_k {
 		}
 	}
 
-	public static class_ail g(class_m var0, String var1) throws class_cb {
+	public static Block g(ICommandListener var0, String var1) throws class_cb {
 		class_ke var2 = new class_ke(var1);
-		if (!class_ail.c.d(var2)) {
+		if (!Block.c.d(var2)) {
 			throw new class_cb("commands.give.block.notFound", new Object[] { var2 });
 		} else {
-			class_ail var3 = (class_ail) class_ail.c.c(var2);
+			Block var3 = (Block) Block.c.c(var2);
 			if (var3 == null) {
 				throw new class_cb("commands.give.block.notFound", new Object[] { var2 });
 			} else {
@@ -507,11 +507,11 @@ public abstract class class_i implements class_k {
 		return false;
 	}
 
-	public static void a(class_m var0, class_k var1, String var2, Object... var3) {
+	public static void a(ICommandListener var0, class_k var1, String var2, Object... var3) {
 		a(var0, var1, 0, var2, var3);
 	}
 
-	public static void a(class_m var0, class_k var1, int var2, String var3, Object... var4) {
+	public static void a(ICommandListener var0, class_k var1, int var2, String var3, Object... var4) {
 		if (a != null) {
 			a.a(var0, var1, var2, var3, var4);
 		}

@@ -299,7 +299,7 @@ public class class_ku extends MinecraftServer implements class_kp {
 		return o.a("snooper-enabled", true);
 	}
 
-	public void a(String var1, class_m var2) {
+	public void a(String var1, ICommandListener var2) {
 		l.add(new class_kj(var1, var2));
 	}
 

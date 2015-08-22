@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.gson.JsonParseException;
 
-public class class_aoz extends class_aoi {
+public class class_aoz extends TileEntity {
 	public final class_eu[] a = new class_eu[] { new class_fa(""), new class_fa(""), new class_fa(""), new class_fa("") };
 	public int f = -1;
 	private boolean g = true;
@@ -25,7 +25,7 @@ public class class_aoz extends class_aoi {
 	public void a(class_dn var1) {
 		g = false;
 		super.a(var1);
-		class_m var2 = new class_m() {
+		ICommandListener var2 = new ICommandListener() {
 			@Override
 			public String e_() {
 				return "Sign";
@@ -61,7 +61,7 @@ public class class_aoz extends class_aoi {
 			}
 
 			@Override
-			public class_qx f() {
+			public Entity f() {
 				return null;
 			}
 
@@ -82,7 +82,7 @@ public class class_aoz extends class_aoi {
 				class_eu var5 = class_eu.class_a_in_class_eu.a(var4);
 
 				try {
-					a[var3] = class_ev.a(var2, var5, (class_qx) null);
+					a[var3] = class_ev.a(var2, var5, (Entity) null);
 				} catch (class_bz var7) {
 					a[var3] = var5;
 				}
@@ -119,7 +119,7 @@ public class class_aoz extends class_aoi {
 	}
 
 	public boolean b(final class_yu var1) {
-		class_m var2 = new class_m() {
+		ICommandListener var2 = new ICommandListener() {
 			@Override
 			public String e_() {
 				return var1.e_();
@@ -155,7 +155,7 @@ public class class_aoz extends class_aoi {
 			}
 
 			@Override
-			public class_qx f() {
+			public Entity f() {
 				return var1;
 			}
 

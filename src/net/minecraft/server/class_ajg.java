@@ -54,11 +54,11 @@ public class class_ajg extends class_aif {
 				return true;
 			} else {
 				if (b) {
-					var1.a(var2, class_aim.cl.S().a(a, var3.b(a)), 4);
-					class_aim.cl.e(var1, var2);
+					var1.a(var2, Blocks.cl.S().a(a, var3.b(a)), 4);
+					Blocks.cl.e(var1, var2);
 				} else {
-					var1.a(var2, class_aim.cm.S().a(a, var3.b(a)), 4);
-					class_aim.cm.e(var1, var2);
+					var1.a(var2, Blocks.cm.S().a(a, var3.b(a)), 4);
+					Blocks.cm.e(var1, var2);
 				}
 
 				return true;
@@ -69,13 +69,13 @@ public class class_ajg extends class_aif {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acm.a(class_aim.cl);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Item.a(Blocks.cl);
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_aim.cl);
+		return new class_aco(Blocks.cl);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class class_ajg extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aon();
 	}
 

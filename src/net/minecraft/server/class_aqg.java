@@ -40,7 +40,7 @@ public class class_aqg {
 		return (var1.d > this.b()) && (var1.a < d()) && (var1.f > this.c()) && (var1.c < e());
 	}
 
-	public double a(class_qx var1) {
+	public double a(Entity var1) {
 		return this.b(var1.s, var1.u);
 	}
 

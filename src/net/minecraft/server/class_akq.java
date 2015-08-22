@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public abstract class class_akq extends class_ail {
+public abstract class class_akq extends Block {
 	public static final class_aqa a = class_aqa.a("half", class_akq.class_a_in_class_akq.class);
 
 	public class_akq(class_avq var1) {
@@ -50,7 +50,7 @@ public abstract class class_akq extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		this.a(var1, var2);
 		super.a(var1, var2, var3, var4, var5, var6);
 	}

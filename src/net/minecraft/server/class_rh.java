@@ -25,7 +25,7 @@ public abstract class class_rh extends class_rg {
 	private boolean bv;
 	private boolean bw;
 	private boolean bx;
-	private class_qx by;
+	private Entity by;
 	private class_dn bz;
 
 	public class_rh(class_ago var1) {
@@ -187,13 +187,13 @@ public abstract class class_rh extends class_rg {
 		return null;
 	}
 
-	protected class_acm D() {
+	protected Item D() {
 		return null;
 	}
 
 	@Override
 	protected void b(boolean var1, int var2) {
-		class_acm var3 = D();
+		Item var3 = D();
 		if (var3 != null) {
 			int var4 = V.nextInt(3);
 			if (var2 > 0) {
@@ -407,7 +407,7 @@ public abstract class class_rh extends class_rg {
 				this.a(var5, 0.0F);
 			}
 
-			if ((var2.b() == class_acq.k) && (var1.m() != null)) {
+			if ((var2.b() == Items.k) && (var1.m() != null)) {
 				class_yu var8 = o.a(var1.m());
 				if (var8 != null) {
 					var8.b(class_my.x);
@@ -505,7 +505,7 @@ public abstract class class_rh extends class_rg {
 		return 10;
 	}
 
-	public void a(class_qx var1, float var2, float var3) {
+	public void a(Entity var1, float var2, float var3) {
 		double var4 = var1.s - s;
 		double var8 = var1.u - u;
 		double var6;
@@ -671,7 +671,7 @@ public abstract class class_rh extends class_rg {
 
 					var4 = false;
 					if (var9 == null) {
-						class_acm var10 = a(var8, var2);
+						Item var10 = a(var8, var2);
 						if (var10 != null) {
 							this.a(var8, new class_aco(var10));
 						}
@@ -683,58 +683,58 @@ public abstract class class_rh extends class_rg {
 	}
 
 	public static class_rc c(class_aco var0) {
-		return (var0.b() != class_acm.a(class_aim.aU)) && (var0.b() != class_acq.cc) ? (var0.b() instanceof class_aav ? ((class_aav) var0.b()).b : class_rc.a) : class_rc.f;
+		return (var0.b() != Item.a(Blocks.aU)) && (var0.b() != Items.cc) ? (var0.b() instanceof class_aav ? ((class_aav) var0.b()).b : class_rc.a) : class_rc.f;
 	}
 
-	public static class_acm a(class_rc var0, int var1) {
+	public static Item a(class_rc var0, int var1) {
 		switch (class_rh.SyntheticClass_1.b[var0.ordinal()]) {
 			case 1:
 				if (var1 == 0) {
-					return class_acq.S;
+					return Items.S;
 				} else if (var1 == 1) {
-					return class_acq.ai;
+					return Items.ai;
 				} else if (var1 == 2) {
-					return class_acq.W;
+					return Items.W;
 				} else if (var1 == 3) {
-					return class_acq.aa;
+					return Items.aa;
 				} else if (var1 == 4) {
-					return class_acq.ae;
+					return Items.ae;
 				}
 			case 2:
 				if (var1 == 0) {
-					return class_acq.T;
+					return Items.T;
 				} else if (var1 == 1) {
-					return class_acq.aj;
+					return Items.aj;
 				} else if (var1 == 2) {
-					return class_acq.X;
+					return Items.X;
 				} else if (var1 == 3) {
-					return class_acq.ab;
+					return Items.ab;
 				} else if (var1 == 4) {
-					return class_acq.af;
+					return Items.af;
 				}
 			case 3:
 				if (var1 == 0) {
-					return class_acq.U;
+					return Items.U;
 				} else if (var1 == 1) {
-					return class_acq.ak;
+					return Items.ak;
 				} else if (var1 == 2) {
-					return class_acq.Y;
+					return Items.Y;
 				} else if (var1 == 3) {
-					return class_acq.ac;
+					return Items.ac;
 				} else if (var1 == 4) {
-					return class_acq.ag;
+					return Items.ag;
 				}
 			case 4:
 				if (var1 == 0) {
-					return class_acq.V;
+					return Items.V;
 				} else if (var1 == 1) {
-					return class_acq.al;
+					return Items.al;
 				} else if (var1 == 2) {
-					return class_acq.Z;
+					return Items.Z;
 				} else if (var1 == 3) {
-					return class_acq.ad;
+					return Items.ad;
 				} else if (var1 == 4) {
-					return class_acq.ah;
+					return Items.ah;
 				}
 			default:
 				return null;
@@ -810,7 +810,7 @@ public abstract class class_rh extends class_rg {
 			this.a(true, !var1.bI.d);
 			return true;
 		} else {
-			if ((var2 != null) && (var2.b() == class_acq.cs) && ct()) {
+			if ((var2 != null) && (var2.b() == Items.cs) && ct()) {
 				if (!(this instanceof class_ro) || !((class_ro) this).cE()) {
 					this.a(var1, true);
 					--var2.b;
@@ -853,11 +853,11 @@ public abstract class class_rh extends class_rg {
 			bx = false;
 			by = null;
 			if (!o.D && var2) {
-				this.a(class_acq.cs, 1);
+				this.a(Items.cs, 1);
 			}
 
 			if (!o.D && var1 && (o instanceof class_ll)) {
-				((class_ll) o).u().a(this, (new class_hm(1, this, (class_qx) null)));
+				((class_ll) o).u().a(this, (new class_hm(1, this, (Entity) null)));
 			}
 		}
 
@@ -871,11 +871,11 @@ public abstract class class_rh extends class_rg {
 		return bx;
 	}
 
-	public class_qx cv() {
+	public Entity cv() {
 		return by;
 	}
 
-	public void a(class_qx var1, boolean var2) {
+	public void a(Entity var1, boolean var2) {
 		bx = true;
 		by = var1;
 		if (!o.D && var2 && (o instanceof class_ll)) {

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class class_aaw extends class_acm {
+public class class_aaw extends Item {
 	public class_aaw() {
 		this.a(class_abp.c);
 	}
@@ -27,7 +27,7 @@ public class class_aaw extends class_acm {
 					double var14 = var11.n();
 					double var16 = var11.o();
 					double var18 = var11.p();
-					List var20 = var3.b((class_qx) null, class_ayk.a(var14, var16, var18, var14 + 1.0D, var16 + 2.0D, var18 + 1.0D));
+					List var20 = var3.b((Entity) null, class_ayk.a(var14, var16, var18, var14 + 1.0D, var16 + 2.0D, var18 + 1.0D));
 					if (!var20.isEmpty()) {
 						return class_pw.c;
 					} else {

@@ -27,9 +27,9 @@ public class class_atm extends class_asp {
 				while (var5.hasNext()) {
 					class_cj.class_a_in_class_cj var6 = (class_cj.class_a_in_class_cj) var5.next();
 					if ((var6.c((double) var3.n(), (double) var6.o(), (double) var3.p()) <= (var4 * var4) + 1) && (var6.o() < b.d())) {
-						this.a(var1, var6, class_aim.Z.S());
+						this.a(var1, var6, Blocks.Z.S());
 					} else if (var6.o() > 65) {
-						this.a(var1, var6, class_aim.a.S());
+						this.a(var1, var6, Blocks.a.S());
 					}
 				}
 
@@ -37,12 +37,12 @@ public class class_atm extends class_asp {
 					for (int var7 = -2; var7 <= 2; ++var7) {
 						for (int var9 = -2; var9 <= 2; ++var9) {
 							if ((class_oa.a(var7) == 2) || (class_oa.a(var9) == 2)) {
-								this.a(var1, new class_cj(var3.n() + var7, b.d(), var3.p() + var9), class_aim.bi.S());
-								this.a(var1, new class_cj(var3.n() + var7, b.d() + 1, var3.p() + var9), class_aim.bi.S());
-								this.a(var1, new class_cj(var3.n() + var7, b.d() + 2, var3.p() + var9), class_aim.bi.S());
+								this.a(var1, new class_cj(var3.n() + var7, b.d(), var3.p() + var9), Blocks.bi.S());
+								this.a(var1, new class_cj(var3.n() + var7, b.d() + 1, var3.p() + var9), Blocks.bi.S());
+								this.a(var1, new class_cj(var3.n() + var7, b.d() + 2, var3.p() + var9), Blocks.bi.S());
 							}
 
-							this.a(var1, new class_cj(var3.n() + var7, b.d() + 3, var3.p() + var9), class_aim.bi.S());
+							this.a(var1, new class_cj(var3.n() + var7, b.d() + 3, var3.p() + var9), Blocks.bi.S());
 						}
 					}
 				}
@@ -53,7 +53,7 @@ public class class_atm extends class_asp {
 					var1.a(var8);
 				}
 
-				this.a(var1, new class_cj(var3.n(), b.d(), var3.p()), class_aim.h.S());
+				this.a(var1, new class_cj(var3.n(), b.d(), var3.p()), Blocks.h.S());
 				return true;
 			}
 		}

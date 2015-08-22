@@ -55,8 +55,8 @@ public class class_ahm extends class_ahb {
 	}
 
 	static {
-		aE = class_aim.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.d);
-		aF = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
-		aG = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		aE = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.d);
+		aF = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
+		aG = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

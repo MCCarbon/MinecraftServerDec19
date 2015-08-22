@@ -19,8 +19,8 @@ public class class_tw extends class_sr {
 	private boolean l;
 	private boolean m;
 
-	public class_tw(class_rn var1, double var2, class_acm var4, boolean var5) {
-		this(var1, var2, var5, Sets.newHashSet((Object[]) (new class_acm[] { var4 })));
+	public class_tw(class_rn var1, double var2, Item var4, boolean var5) {
+		this(var1, var2, var5, Sets.newHashSet((Object[]) (new Item[] { var4 })));
 	}
 
 	public class_tw(class_rn var1, double var2, boolean var4, Set var5) {

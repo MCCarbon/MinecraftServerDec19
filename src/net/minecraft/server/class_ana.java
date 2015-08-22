@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_ana extends class_ail {
+public class class_ana extends Block {
 	public static final class_aqb a = class_aqb.a("layers", 1, 8);
 
 	protected class_ana() {
@@ -54,12 +54,12 @@ public class class_ana extends class_ail {
 	@Override
 	public boolean c(class_ago var1, class_cj var2) {
 		class_apn var3 = var1.p(var2.b());
-		class_ail var4 = var3.c();
-		return (var4 != class_aim.aI) && (var4 != class_aim.cB) ? (var4.v() == class_avq.j ? true : ((var4 == this) && (((Integer) var3.b(a)).intValue() >= 7) ? true : var4.c() && var4.J.c())) : false;
+		Block var4 = var3.c();
+		return (var4 != Blocks.aI) && (var4 != Blocks.cB) ? (var4.v() == class_avq.j ? true : ((var4 == this) && (((Integer) var3.b(a)).intValue() >= 7) ? true : var4.c() && var4.J.c())) : false;
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		this.f(var1, var2, var3);
 	}
 
@@ -74,15 +74,15 @@ public class class_ana extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
-		a(var1, var3, new class_aco(class_acq.aF, ((Integer) var4.b(a)).intValue() + 1, 0));
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
+		a(var1, var3, new class_aco(Items.aF, ((Integer) var4.b(a)).intValue() + 1, 0));
 		var1.g(var3);
-		var2.b(class_nh.a(class_ail.a(this)));
+		var2.b(class_nh.a(Block.a(this)));
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.aF;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.aF;
 	}
 
 	@Override

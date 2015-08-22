@@ -6,8 +6,8 @@ public class class_ahg extends class_ahb {
 	public class_ahg(int var1) {
 		super(var1);
 		au.clear();
-		ak = class_aim.m.S();
-		al = class_aim.m.S();
+		ak = Blocks.m.S();
+		al = Blocks.m.S();
 		as.A = -999;
 		as.D = 2;
 		as.F = 50;

@@ -127,7 +127,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 
 	@Override
 	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		boolean var4 = (var3 != null) && (var3.b() == class_acq.bO);
+		boolean var4 = (var3 != null) && (var3.b() == Items.bO);
 		if (!var4 && al() && !cH() && !i_()) {
 			if (!o.D && ((bz == null) || !bz.isEmpty())) {
 				this.a(var1);
@@ -264,7 +264,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 	@Override
 	public void a(class_qi var1) {
 		if (bt != null) {
-			class_qx var2 = var1.j();
+			Entity var2 = var1.j();
 			if (var2 != null) {
 				if (var2 instanceof class_yu) {
 					bt.a(var2.e_(), -2);
@@ -303,10 +303,10 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 			for (int var3 = 0; var3 < bJ.n_(); ++var3) {
 				class_aco var4 = bJ.a(var3);
 				if (var4 != null) {
-					if ((var4.b() == class_acq.R) && (var4.b >= 3)) {
+					if ((var4.b() == Items.R) && (var4.b >= 3)) {
 						var2 = true;
 						bJ.a(var3, 3);
-					} else if (((var4.b() == class_acq.bX) || (var4.b() == class_acq.bW)) && (var4.b >= 12)) {
+					} else if (((var4.b() == Items.bX) || (var4.b() == Items.bW)) && (var4.b >= 12)) {
 						var2 = true;
 						bJ.a(var3, 12);
 					}
@@ -346,7 +346,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 			var2 += 5;
 		}
 
-		if (var1.a().b() == class_acq.bT) {
+		if (var1.a().b() == Items.bT) {
 			bD += var1.a().b;
 		}
 
@@ -529,7 +529,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 	@Override
 	protected void a(class_xg var1) {
 		class_aco var2 = var1.j();
-		class_acm var3 = var2.b();
+		Item var3 = var2.b();
 		if (this.a(var3)) {
 			class_aco var4 = bJ.a(var2);
 			if (var4 == null) {
@@ -541,8 +541,8 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 
 	}
 
-	private boolean a(class_acm var1) {
-		return (var1 == class_acq.R) || (var1 == class_acq.bX) || (var1 == class_acq.bW) || (var1 == class_acq.Q) || (var1 == class_acq.P);
+	private boolean a(Item var1) {
+		return (var1 == Items.R) || (var1 == Items.bX) || (var1 == Items.bW) || (var1 == Items.Q) || (var1 == Items.P);
 	}
 
 	public boolean cK() {
@@ -564,11 +564,11 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 		for (int var3 = 0; var3 < bJ.n_(); ++var3) {
 			class_aco var4 = bJ.a(var3);
 			if (var4 != null) {
-				if (((var4.b() == class_acq.R) && (var4.b >= (3 * var1))) || ((var4.b() == class_acq.bX) && (var4.b >= (12 * var1))) || ((var4.b() == class_acq.bW) && (var4.b >= (12 * var1)))) {
+				if (((var4.b() == Items.R) && (var4.b >= (3 * var1))) || ((var4.b() == Items.bX) && (var4.b >= (12 * var1))) || ((var4.b() == Items.bW) && (var4.b >= (12 * var1)))) {
 					return true;
 				}
 
-				if (var2 && (var4.b() == class_acq.Q) && (var4.b >= (9 * var1))) {
+				if (var2 && (var4.b() == Items.Q) && (var4.b >= (9 * var1))) {
 					return true;
 				}
 			}
@@ -580,7 +580,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 	public boolean cN() {
 		for (int var1 = 0; var1 < bJ.n_(); ++var1) {
 			class_aco var2 = bJ.a(var1);
-			if ((var2 != null) && ((var2.b() == class_acq.P) || (var2.b() == class_acq.bX) || (var2.b() == class_acq.bW))) {
+			if ((var2 != null) && ((var2.b() == Items.P) || (var2.b() == Items.bX) || (var2.b() == Items.bW))) {
 				return true;
 			}
 		}
@@ -613,33 +613,33 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 		bu = class_kc.a(class_yp.class, class_kb.b);
 		bK = new class_yp.class_f_in_class_yp[][][][] {
 				{
-					{ { new class_yp.class_a_in_class_yp(class_acq.Q, new class_yp.class_g_in_class_yp(18, 22)), new class_yp.class_a_in_class_yp(class_acq.bX, new class_yp.class_g_in_class_yp(15, 19)), new class_yp.class_a_in_class_yp(class_acq.bW, new class_yp.class_g_in_class_yp(15, 19)), new class_yp.class_e_in_class_yp(class_acq.R, new class_yp.class_g_in_class_yp(-4, -2)) },
-						{ new class_yp.class_a_in_class_yp(class_acm.a(class_aim.aU), new class_yp.class_g_in_class_yp(8, 13)), new class_yp.class_e_in_class_yp(class_acq.cf, new class_yp.class_g_in_class_yp(-3, -2)) }, { new class_yp.class_a_in_class_yp(class_acm.a(class_aim.bk), new class_yp.class_g_in_class_yp(7, 12)), new class_yp.class_e_in_class_yp(class_acq.e, new class_yp.class_g_in_class_yp(-5, -7)) },
-						{ new class_yp.class_e_in_class_yp(class_acq.be, new class_yp.class_g_in_class_yp(-6, -10)), new class_yp.class_e_in_class_yp(class_acq.bb, new class_yp.class_g_in_class_yp(1, 1)) } },
-						{ { new class_yp.class_a_in_class_yp(class_acq.H, new class_yp.class_g_in_class_yp(15, 20)), new class_yp.class_a_in_class_yp(class_acq.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_d_in_class_yp(class_acq.aW, new class_yp.class_g_in_class_yp(6, 6), class_acq.aX, new class_yp.class_g_in_class_yp(6, 6)) }, { new class_yp.class_c_in_class_yp(class_acq.aT, new class_yp.class_g_in_class_yp(7, 8)) } },
+					{ { new class_yp.class_a_in_class_yp(Items.Q, new class_yp.class_g_in_class_yp(18, 22)), new class_yp.class_a_in_class_yp(Items.bX, new class_yp.class_g_in_class_yp(15, 19)), new class_yp.class_a_in_class_yp(Items.bW, new class_yp.class_g_in_class_yp(15, 19)), new class_yp.class_e_in_class_yp(Items.R, new class_yp.class_g_in_class_yp(-4, -2)) },
+						{ new class_yp.class_a_in_class_yp(Item.a(Blocks.aU), new class_yp.class_g_in_class_yp(8, 13)), new class_yp.class_e_in_class_yp(Items.cf, new class_yp.class_g_in_class_yp(-3, -2)) }, { new class_yp.class_a_in_class_yp(Item.a(Blocks.bk), new class_yp.class_g_in_class_yp(7, 12)), new class_yp.class_e_in_class_yp(Items.e, new class_yp.class_g_in_class_yp(-5, -7)) },
+						{ new class_yp.class_e_in_class_yp(Items.be, new class_yp.class_g_in_class_yp(-6, -10)), new class_yp.class_e_in_class_yp(Items.bb, new class_yp.class_g_in_class_yp(1, 1)) } },
+						{ { new class_yp.class_a_in_class_yp(Items.H, new class_yp.class_g_in_class_yp(15, 20)), new class_yp.class_a_in_class_yp(Items.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_d_in_class_yp(Items.aW, new class_yp.class_g_in_class_yp(6, 6), Items.aX, new class_yp.class_g_in_class_yp(6, 6)) }, { new class_yp.class_c_in_class_yp(Items.aT, new class_yp.class_g_in_class_yp(7, 8)) } },
 						{
-							{ new class_yp.class_a_in_class_yp(class_acm.a(class_aim.L), new class_yp.class_g_in_class_yp(16, 22)), new class_yp.class_e_in_class_yp(class_acq.bg, new class_yp.class_g_in_class_yp(3, 4)) },
-							{ new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L)), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 1), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 2), new class_yp.class_g_in_class_yp(1, 2)),
-								new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 3), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 4), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 5), new class_yp.class_g_in_class_yp(1, 2)),
-								new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 6), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 7), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 8), new class_yp.class_g_in_class_yp(1, 2)),
-								new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 9), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 10), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 11), new class_yp.class_g_in_class_yp(1, 2)),
-								new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 12), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 13), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 14), new class_yp.class_g_in_class_yp(1, 2)),
-								new class_yp.class_e_in_class_yp(new class_aco(class_acm.a(class_aim.L), 1, 15), new class_yp.class_g_in_class_yp(1, 2)) } },
-								{ { new class_yp.class_a_in_class_yp(class_acq.H, new class_yp.class_g_in_class_yp(15, 20)), new class_yp.class_e_in_class_yp(class_acq.g, new class_yp.class_g_in_class_yp(-12, -8)) }, { new class_yp.class_e_in_class_yp(class_acq.f, new class_yp.class_g_in_class_yp(2, 3)), new class_yp.class_d_in_class_yp(class_acm.a(class_aim.n), new class_yp.class_g_in_class_yp(10, 10), class_acq.am, new class_yp.class_g_in_class_yp(6, 10)) } } },
-								{ { { new class_yp.class_a_in_class_yp(class_acq.aM, new class_yp.class_g_in_class_yp(24, 36)), new class_yp.class_b_in_class_yp() }, { new class_yp.class_a_in_class_yp(class_acq.aN, new class_yp.class_g_in_class_yp(8, 10)), new class_yp.class_e_in_class_yp(class_acq.aS, new class_yp.class_g_in_class_yp(10, 12)), new class_yp.class_e_in_class_yp(class_acm.a(class_aim.X), new class_yp.class_g_in_class_yp(3, 4)) },
-									{ new class_yp.class_a_in_class_yp(class_acq.bS, new class_yp.class_g_in_class_yp(2, 2)), new class_yp.class_e_in_class_yp(class_acq.aU, new class_yp.class_g_in_class_yp(10, 12)), new class_yp.class_e_in_class_yp(class_acm.a(class_aim.w), new class_yp.class_g_in_class_yp(-5, -3)) }, { new class_yp.class_b_in_class_yp() }, { new class_yp.class_b_in_class_yp() }, { new class_yp.class_e_in_class_yp(class_acq.ct, new class_yp.class_g_in_class_yp(20, 22)) } } },
-									{ { { new class_yp.class_a_in_class_yp(class_acq.bv, new class_yp.class_g_in_class_yp(36, 40)), new class_yp.class_a_in_class_yp(class_acq.m, new class_yp.class_g_in_class_yp(8, 10)) }, { new class_yp.class_e_in_class_yp(class_acq.aE, new class_yp.class_g_in_class_yp(-4, -1)), new class_yp.class_e_in_class_yp(new class_aco(class_acq.aY, 1, class_abt.l.b()), new class_yp.class_g_in_class_yp(-2, -1)) },
-										{ new class_yp.class_e_in_class_yp(class_acq.bM, new class_yp.class_g_in_class_yp(7, 11)), new class_yp.class_e_in_class_yp(class_acm.a(class_aim.aX), new class_yp.class_g_in_class_yp(-3, -1)) }, { new class_yp.class_e_in_class_yp(class_acq.bP, new class_yp.class_g_in_class_yp(3, 11)) } } },
+							{ new class_yp.class_a_in_class_yp(Item.a(Blocks.L), new class_yp.class_g_in_class_yp(16, 22)), new class_yp.class_e_in_class_yp(Items.bg, new class_yp.class_g_in_class_yp(3, 4)) },
+							{ new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L)), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 1), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 2), new class_yp.class_g_in_class_yp(1, 2)),
+								new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 3), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 4), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 5), new class_yp.class_g_in_class_yp(1, 2)),
+								new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 6), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 7), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 8), new class_yp.class_g_in_class_yp(1, 2)),
+								new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 9), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 10), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 11), new class_yp.class_g_in_class_yp(1, 2)),
+								new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 12), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 13), new class_yp.class_g_in_class_yp(1, 2)), new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 14), new class_yp.class_g_in_class_yp(1, 2)),
+								new class_yp.class_e_in_class_yp(new class_aco(Item.a(Blocks.L), 1, 15), new class_yp.class_g_in_class_yp(1, 2)) } },
+								{ { new class_yp.class_a_in_class_yp(Items.H, new class_yp.class_g_in_class_yp(15, 20)), new class_yp.class_e_in_class_yp(Items.g, new class_yp.class_g_in_class_yp(-12, -8)) }, { new class_yp.class_e_in_class_yp(Items.f, new class_yp.class_g_in_class_yp(2, 3)), new class_yp.class_d_in_class_yp(Item.a(Blocks.n), new class_yp.class_g_in_class_yp(10, 10), Items.am, new class_yp.class_g_in_class_yp(6, 10)) } } },
+								{ { { new class_yp.class_a_in_class_yp(Items.aM, new class_yp.class_g_in_class_yp(24, 36)), new class_yp.class_b_in_class_yp() }, { new class_yp.class_a_in_class_yp(Items.aN, new class_yp.class_g_in_class_yp(8, 10)), new class_yp.class_e_in_class_yp(Items.aS, new class_yp.class_g_in_class_yp(10, 12)), new class_yp.class_e_in_class_yp(Item.a(Blocks.X), new class_yp.class_g_in_class_yp(3, 4)) },
+									{ new class_yp.class_a_in_class_yp(Items.bS, new class_yp.class_g_in_class_yp(2, 2)), new class_yp.class_e_in_class_yp(Items.aU, new class_yp.class_g_in_class_yp(10, 12)), new class_yp.class_e_in_class_yp(Item.a(Blocks.w), new class_yp.class_g_in_class_yp(-5, -3)) }, { new class_yp.class_b_in_class_yp() }, { new class_yp.class_b_in_class_yp() }, { new class_yp.class_e_in_class_yp(Items.ct, new class_yp.class_g_in_class_yp(20, 22)) } } },
+									{ { { new class_yp.class_a_in_class_yp(Items.bv, new class_yp.class_g_in_class_yp(36, 40)), new class_yp.class_a_in_class_yp(Items.m, new class_yp.class_g_in_class_yp(8, 10)) }, { new class_yp.class_e_in_class_yp(Items.aE, new class_yp.class_g_in_class_yp(-4, -1)), new class_yp.class_e_in_class_yp(new class_aco(Items.aY, 1, class_abt.l.b()), new class_yp.class_g_in_class_yp(-2, -1)) },
+										{ new class_yp.class_e_in_class_yp(Items.bM, new class_yp.class_g_in_class_yp(7, 11)), new class_yp.class_e_in_class_yp(Item.a(Blocks.aX), new class_yp.class_g_in_class_yp(-3, -1)) }, { new class_yp.class_e_in_class_yp(Items.bP, new class_yp.class_g_in_class_yp(3, 11)) } } },
 										{
-											{ { new class_yp.class_a_in_class_yp(class_acq.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_e_in_class_yp(class_acq.aa, new class_yp.class_g_in_class_yp(4, 6)) }, { new class_yp.class_a_in_class_yp(class_acq.l, new class_yp.class_g_in_class_yp(7, 9)), new class_yp.class_e_in_class_yp(class_acq.ab, new class_yp.class_g_in_class_yp(10, 14)) },
-												{ new class_yp.class_a_in_class_yp(class_acq.k, new class_yp.class_g_in_class_yp(3, 4)), new class_yp.class_c_in_class_yp(class_acq.af, new class_yp.class_g_in_class_yp(16, 19)) },
-												{ new class_yp.class_e_in_class_yp(class_acq.Z, new class_yp.class_g_in_class_yp(5, 7)), new class_yp.class_e_in_class_yp(class_acq.Y, new class_yp.class_g_in_class_yp(9, 11)), new class_yp.class_e_in_class_yp(class_acq.W, new class_yp.class_g_in_class_yp(5, 7)), new class_yp.class_e_in_class_yp(class_acq.X, new class_yp.class_g_in_class_yp(11, 15)) } },
-												{ { new class_yp.class_a_in_class_yp(class_acq.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_e_in_class_yp(class_acq.c, new class_yp.class_g_in_class_yp(6, 8)) }, { new class_yp.class_a_in_class_yp(class_acq.l, new class_yp.class_g_in_class_yp(7, 9)), new class_yp.class_c_in_class_yp(class_acq.n, new class_yp.class_g_in_class_yp(9, 10)) },
-													{ new class_yp.class_a_in_class_yp(class_acq.k, new class_yp.class_g_in_class_yp(3, 4)), new class_yp.class_c_in_class_yp(class_acq.w, new class_yp.class_g_in_class_yp(12, 15)), new class_yp.class_c_in_class_yp(class_acq.z, new class_yp.class_g_in_class_yp(9, 12)) } },
-													{ { new class_yp.class_a_in_class_yp(class_acq.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_c_in_class_yp(class_acq.a, new class_yp.class_g_in_class_yp(5, 7)) }, { new class_yp.class_a_in_class_yp(class_acq.l, new class_yp.class_g_in_class_yp(7, 9)), new class_yp.class_c_in_class_yp(class_acq.b, new class_yp.class_g_in_class_yp(9, 11)) },
-														{ new class_yp.class_a_in_class_yp(class_acq.k, new class_yp.class_g_in_class_yp(3, 4)), new class_yp.class_c_in_class_yp(class_acq.y, new class_yp.class_g_in_class_yp(12, 15)) } } },
-														{ { { new class_yp.class_a_in_class_yp(class_acq.an, new class_yp.class_g_in_class_yp(14, 18)), new class_yp.class_a_in_class_yp(class_acq.bm, new class_yp.class_g_in_class_yp(14, 18)) }, { new class_yp.class_a_in_class_yp(class_acq.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_e_in_class_yp(class_acq.ao, new class_yp.class_g_in_class_yp(-7, -5)), new class_yp.class_e_in_class_yp(class_acq.bn, new class_yp.class_g_in_class_yp(-8, -6)) } },
-															{ { new class_yp.class_a_in_class_yp(class_acq.aH, new class_yp.class_g_in_class_yp(9, 12)), new class_yp.class_e_in_class_yp(class_acq.U, new class_yp.class_g_in_class_yp(2, 4)) }, { new class_yp.class_c_in_class_yp(class_acq.T, new class_yp.class_g_in_class_yp(7, 12)) }, { new class_yp.class_e_in_class_yp(class_acq.aC, new class_yp.class_g_in_class_yp(8, 10)) } } } };
+											{ { new class_yp.class_a_in_class_yp(Items.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_e_in_class_yp(Items.aa, new class_yp.class_g_in_class_yp(4, 6)) }, { new class_yp.class_a_in_class_yp(Items.l, new class_yp.class_g_in_class_yp(7, 9)), new class_yp.class_e_in_class_yp(Items.ab, new class_yp.class_g_in_class_yp(10, 14)) },
+												{ new class_yp.class_a_in_class_yp(Items.k, new class_yp.class_g_in_class_yp(3, 4)), new class_yp.class_c_in_class_yp(Items.af, new class_yp.class_g_in_class_yp(16, 19)) },
+												{ new class_yp.class_e_in_class_yp(Items.Z, new class_yp.class_g_in_class_yp(5, 7)), new class_yp.class_e_in_class_yp(Items.Y, new class_yp.class_g_in_class_yp(9, 11)), new class_yp.class_e_in_class_yp(Items.W, new class_yp.class_g_in_class_yp(5, 7)), new class_yp.class_e_in_class_yp(Items.X, new class_yp.class_g_in_class_yp(11, 15)) } },
+												{ { new class_yp.class_a_in_class_yp(Items.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_e_in_class_yp(Items.c, new class_yp.class_g_in_class_yp(6, 8)) }, { new class_yp.class_a_in_class_yp(Items.l, new class_yp.class_g_in_class_yp(7, 9)), new class_yp.class_c_in_class_yp(Items.n, new class_yp.class_g_in_class_yp(9, 10)) },
+													{ new class_yp.class_a_in_class_yp(Items.k, new class_yp.class_g_in_class_yp(3, 4)), new class_yp.class_c_in_class_yp(Items.w, new class_yp.class_g_in_class_yp(12, 15)), new class_yp.class_c_in_class_yp(Items.z, new class_yp.class_g_in_class_yp(9, 12)) } },
+													{ { new class_yp.class_a_in_class_yp(Items.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_c_in_class_yp(Items.a, new class_yp.class_g_in_class_yp(5, 7)) }, { new class_yp.class_a_in_class_yp(Items.l, new class_yp.class_g_in_class_yp(7, 9)), new class_yp.class_c_in_class_yp(Items.b, new class_yp.class_g_in_class_yp(9, 11)) },
+														{ new class_yp.class_a_in_class_yp(Items.k, new class_yp.class_g_in_class_yp(3, 4)), new class_yp.class_c_in_class_yp(Items.y, new class_yp.class_g_in_class_yp(12, 15)) } } },
+														{ { { new class_yp.class_a_in_class_yp(Items.an, new class_yp.class_g_in_class_yp(14, 18)), new class_yp.class_a_in_class_yp(Items.bm, new class_yp.class_g_in_class_yp(14, 18)) }, { new class_yp.class_a_in_class_yp(Items.j, new class_yp.class_g_in_class_yp(16, 24)), new class_yp.class_e_in_class_yp(Items.ao, new class_yp.class_g_in_class_yp(-7, -5)), new class_yp.class_e_in_class_yp(Items.bn, new class_yp.class_g_in_class_yp(-8, -6)) } },
+															{ { new class_yp.class_a_in_class_yp(Items.aH, new class_yp.class_g_in_class_yp(9, 12)), new class_yp.class_e_in_class_yp(Items.U, new class_yp.class_g_in_class_yp(2, 4)) }, { new class_yp.class_c_in_class_yp(Items.T, new class_yp.class_g_in_class_yp(7, 12)) }, { new class_yp.class_e_in_class_yp(Items.aC, new class_yp.class_g_in_class_yp(8, 10)) } } } };
 	}
 
 	static class class_d_in_class_yp implements class_yp.class_f_in_class_yp {
@@ -648,7 +648,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 		public class_aco c;
 		public class_yp.class_g_in_class_yp d;
 
-		public class_d_in_class_yp(class_acm var1, class_yp.class_g_in_class_yp var2, class_acm var3, class_yp.class_g_in_class_yp var4) {
+		public class_d_in_class_yp(Item var1, class_yp.class_g_in_class_yp var2, Item var3, class_yp.class_g_in_class_yp var4) {
 			a = new class_aco(var1);
 			b = var2;
 			c = new class_aco(var3);
@@ -667,7 +667,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 				var4 = d.a(var2);
 			}
 
-			var1.add(new class_agb(new class_aco(a.b(), var3, a.i()), new class_aco(class_acq.bT), new class_aco(c.b(), var4, c.i())));
+			var1.add(new class_agb(new class_aco(a.b(), var3, a.i()), new class_aco(Items.bT), new class_aco(c.b(), var4, c.i())));
 		}
 	}
 
@@ -676,13 +676,13 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 		public void a(class_agc var1, Random var2) {
 			class_afj var3 = (class_afj) class_afj.b.a(var2);
 			int var4 = class_oa.a(var2, var3.d(), var3.b());
-			class_aco var5 = class_acq.ci.a(new class_afm(var3, var4));
+			class_aco var5 = Items.ci.a(new class_afm(var3, var4));
 			int var6 = 2 + var2.nextInt(5 + (var4 * 10)) + (3 * var4);
 			if (var6 > 64) {
 				var6 = 64;
 			}
 
-			var1.add(new class_agb(new class_aco(class_acq.aN), new class_aco(class_acq.bT, var6), var5));
+			var1.add(new class_agb(new class_aco(Items.aN), new class_aco(Items.bT, var6), var5));
 		}
 	}
 
@@ -690,7 +690,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 		public class_aco a;
 		public class_yp.class_g_in_class_yp b;
 
-		public class_c_in_class_yp(class_acm var1, class_yp.class_g_in_class_yp var2) {
+		public class_c_in_class_yp(Item var1, class_yp.class_g_in_class_yp var2) {
 			a = new class_aco(var1);
 			b = var2;
 		}
@@ -702,7 +702,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 				var3 = b.a(var2);
 			}
 
-			class_aco var4 = new class_aco(class_acq.bT, var3, 0);
+			class_aco var4 = new class_aco(Items.bT, var3, 0);
 			class_aco var5 = new class_aco(a.b(), 1, a.i());
 			var5 = class_afl.a(var2, var5, 5 + var2.nextInt(15));
 			var1.add(new class_agb(var4, var5));
@@ -713,7 +713,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 		public class_aco a;
 		public class_yp.class_g_in_class_yp b;
 
-		public class_e_in_class_yp(class_acm var1, class_yp.class_g_in_class_yp var2) {
+		public class_e_in_class_yp(Item var1, class_yp.class_g_in_class_yp var2) {
 			a = new class_aco(var1);
 			b = var2;
 		}
@@ -733,10 +733,10 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 			class_aco var4;
 			class_aco var5;
 			if (var3 < 0) {
-				var4 = new class_aco(class_acq.bT);
+				var4 = new class_aco(Items.bT);
 				var5 = new class_aco(a.b(), -var3, a.i());
 			} else {
-				var4 = new class_aco(class_acq.bT, var3, 0);
+				var4 = new class_aco(Items.bT, var3, 0);
 				var5 = new class_aco(a.b(), 1, a.i());
 			}
 
@@ -745,10 +745,10 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 	}
 
 	static class class_a_in_class_yp implements class_yp.class_f_in_class_yp {
-		public class_acm a;
+		public Item a;
 		public class_yp.class_g_in_class_yp b;
 
-		public class_a_in_class_yp(class_acm var1, class_yp.class_g_in_class_yp var2) {
+		public class_a_in_class_yp(Item var1, class_yp.class_g_in_class_yp var2) {
 			a = var1;
 			b = var2;
 		}
@@ -760,7 +760,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 				var3 = b.a(var2);
 			}
 
-			var1.add(new class_agb(new class_aco(a, var3, 0), class_acq.bT));
+			var1.add(new class_agb(new class_aco(a, var3, 0), Items.bT));
 		}
 	}
 

@@ -9,7 +9,7 @@ public class class_fq implements class_ff {
 	public class_fq() {
 	}
 
-	public class_fq(class_qx var1, int var2) {
+	public class_fq(Entity var1, int var2) {
 		a = var1.G();
 		b = var2;
 	}

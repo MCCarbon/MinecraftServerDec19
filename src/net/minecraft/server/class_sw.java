@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class class_sw extends class_sr {
 	protected class_rh a;
-	protected class_qx b;
+	protected Entity b;
 	protected float c;
 	private int e;
 	private float f;

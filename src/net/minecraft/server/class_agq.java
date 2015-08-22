@@ -14,9 +14,9 @@ public interface class_agq {
 
 	void a(int var1, boolean var2, double var3, double var5, double var7, double var9, double var11, double var13, int... var15);
 
-	void a(class_qx var1);
+	void a(Entity var1);
 
-	void b(class_qx var1);
+	void b(Entity var1);
 
 	void a(String var1, class_cj var2);
 

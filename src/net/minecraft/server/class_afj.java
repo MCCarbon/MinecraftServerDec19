@@ -95,10 +95,10 @@ public abstract class class_afj {
 		return c.a(var1.b());
 	}
 
-	public void a(class_rg var1, class_qx var2, int var3) {
+	public void a(class_rg var1, Entity var2, int var3) {
 	}
 
-	public void b(class_rg var1, class_qx var2, int var3) {
+	public void b(class_rg var1, Entity var2, int var3) {
 	}
 
 	public static void e() {

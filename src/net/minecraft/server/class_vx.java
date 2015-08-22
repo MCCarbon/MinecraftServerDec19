@@ -323,7 +323,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 		Iterator var6 = var1.iterator();
 
 		while (var6.hasNext()) {
-			class_qx var7 = (class_qx) var6.next();
+			Entity var7 = (Entity) var6.next();
 			if (var7 instanceof class_rg) {
 				double var8 = var7.s - var2;
 				double var10 = var7.u - var4;
@@ -340,7 +340,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 
 	private void b(List var1) {
 		for (int var2 = 0; var2 < var1.size(); ++var2) {
-			class_qx var3 = (class_qx) var1.get(var2);
+			Entity var3 = (Entity) var1.get(var2);
 			if (var3 instanceof class_rg) {
 				var3.a(class_qi.a(this), 10.0F);
 				this.a(this, var3);
@@ -367,12 +367,12 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 			for (int var11 = var3; var11 <= var6; ++var11) {
 				for (int var12 = var4; var12 <= var7; ++var12) {
 					class_cj var13 = new class_cj(var10, var11, var12);
-					class_ail var14 = o.p(var13).c();
+					Block var14 = o.p(var13).c();
 					if ((var14.v() != class_avq.a) && (var14.v() != class_avq.o)) {
 						if (!o.S().b("mobGriefing")) {
 							var8 = true;
-						} else if ((var14 != class_aim.cv) && (var14 != class_aim.Z) && (var14 != class_aim.bH) && (var14 != class_aim.h) && (var14 != class_aim.bF) && (var14 != class_aim.bG)) {
-							if ((var14 != class_aim.bX) && (var14 != class_aim.dc) && (var14 != class_aim.dd) && (var14 != class_aim.bi) && (var14 != class_aim.db)) {
+						} else if ((var14 != Blocks.cv) && (var14 != Blocks.Z) && (var14 != Blocks.bH) && (var14 != Blocks.h) && (var14 != Blocks.bF) && (var14 != Blocks.bG)) {
+							if ((var14 != Blocks.bX) && (var14 != Blocks.dc) && (var14 != Blocks.dd) && (var14 != Blocks.bi) && (var14 != Blocks.db)) {
 								var9 = o.g(var13) || var9;
 							} else {
 								var8 = true;
@@ -709,7 +709,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 	}
 
 	@Override
-	public class_qx[] aH() {
+	public Entity[] aH() {
 		return br;
 	}
 

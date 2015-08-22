@@ -3,10 +3,10 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_atk extends class_asp {
-	private class_ail a;
+	private Block a;
 	private int b;
 
-	public class_atk(class_ail var1, int var2) {
+	public class_atk(Block var1, int var2) {
 		a = var1;
 		b = var2;
 	}
@@ -26,8 +26,8 @@ public class class_atk extends class_asp {
 					if (((var8 * var8) + (var9 * var9)) <= (var4 * var4)) {
 						for (int var10 = var3.o() - var5; var10 <= (var3.o() + var5); ++var10) {
 							class_cj var11 = new class_cj(var6, var10, var7);
-							class_ail var12 = var1.p(var11).c();
-							if ((var12 == class_aim.d) || (var12 == class_aim.c)) {
+							Block var12 = var1.p(var11).c();
+							if ((var12 == Blocks.d) || (var12 == Blocks.c)) {
 								var1.a(var11, a.S(), 2);
 							}
 						}

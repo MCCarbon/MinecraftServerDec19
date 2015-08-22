@@ -16,7 +16,7 @@ public class class_lh implements class_agq {
 	}
 
 	@Override
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 		b.u().a(var1);
 		if (var1 instanceof class_lm) {
 			b.t.a((class_lm) var1);
@@ -25,7 +25,7 @@ public class class_lh implements class_agq {
 	}
 
 	@Override
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 		b.u().b(var1);
 		b.ab().a(var1);
 		if (var1 instanceof class_lm) {

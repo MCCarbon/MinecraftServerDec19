@@ -15,7 +15,7 @@ public abstract class class_agf {
 	private int f = 200;
 	private int g = 800;
 	private int h = 4;
-	private class_qx i;
+	private Entity i;
 	private int j = 6;
 	private int k = 16;
 	private int l = 4;
@@ -70,7 +70,7 @@ public abstract class class_agf {
 						break;
 					}
 
-					class_qx var4 = class_qz.a(f(), this.a());
+					Entity var4 = EntityTypes.a(f(), this.a());
 					if (var4 == null) {
 						return;
 					}
@@ -103,7 +103,7 @@ public abstract class class_agf {
 		}
 	}
 
-	private class_qx a(class_qx var1, boolean var2) {
+	private Entity a(Entity var1, boolean var2) {
 		if (c != null) {
 			class_dn var3 = c.b();
 			if ((var1 instanceof class_rh) && (var3.d() == 1) && var3.b("id", 8)) {
@@ -121,9 +121,9 @@ public abstract class class_agf {
 			}
 
 			class_dn var7;
-			for (class_qx var6 = var1; var4.b("Riding", 10); var4 = var7) {
+			for (Entity var6 = var1; var4.b("Riding", 10); var4 = var7) {
 				var7 = var4.o("Riding");
-				class_qx var8 = class_qz.a(var7.l("id"), var1.o);
+				Entity var8 = EntityTypes.a(var7.l("id"), var1.o);
 				if (var8 != null) {
 					class_dn var9 = new class_dn();
 					var8.d(var9);

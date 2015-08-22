@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aby extends class_acm {
+public class class_aby extends Item {
 	@Override
 	public boolean f_(class_aco var1) {
 		return false;
@@ -59,7 +59,7 @@ public class class_aby extends class_acm {
 	}
 
 	public class_oj a(Random var1, int var2, int var3, int var4) {
-		class_aco var5 = new class_aco(class_acq.aN);
+		class_aco var5 = new class_aco(Items.aN);
 		class_afl.a(var1, var5, 30);
 		return new class_oj(var5, var2, var3, var4);
 	}

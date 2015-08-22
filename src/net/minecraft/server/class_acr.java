@@ -3,14 +3,14 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 
-public class class_acr extends class_acm {
+public class class_acr extends Item {
 	public class_acr() {
 		this.a(class_abp.i);
 	}
 
 	@Override
 	public class_pw a(class_aco var1, class_yu var2, class_ago var3, class_cj var4, class_pu var5, class_cq var6, float var7, float var8, float var9) {
-		class_ail var10 = var3.p(var4).c();
+		Block var10 = var3.p(var4).c();
 		if (!(var10 instanceof class_akb)) {
 			return class_pw.b;
 		} else {

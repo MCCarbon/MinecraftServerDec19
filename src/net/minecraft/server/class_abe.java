@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_abe extends class_acm {
+public class class_abe extends Item {
 	@Override
 	public boolean f_(class_aco var1) {
 		return var1.b == 1;

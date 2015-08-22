@@ -33,17 +33,17 @@ public class class_ty extends class_su {
 					class_aco var3 = var1.a(var2);
 					class_aco var4 = null;
 					if (var3 != null) {
-						class_acm var5 = var3.b();
+						Item var5 = var3.b();
 						int var6;
-						if (((var5 == class_acq.R) || (var5 == class_acq.bX) || (var5 == class_acq.bW)) && (var3.b > 3)) {
+						if (((var5 == Items.R) || (var5 == Items.bX) || (var5 == Items.bW)) && (var3.b > 3)) {
 							var6 = var3.b / 2;
 							var3.b -= var6;
 							var4 = new class_aco(var5, var6, var3.i());
-						} else if ((var5 == class_acq.Q) && (var3.b > 5)) {
+						} else if ((var5 == Items.Q) && (var3.b > 5)) {
 							var6 = (var3.b / 2 / 3) * 3;
 							int var7 = var6 / 3;
 							var3.b -= var6;
-							var4 = new class_aco(class_acq.R, var7, 0);
+							var4 = new class_aco(Items.R, var7, 0);
 						}
 
 						if (var3.b <= 0) {

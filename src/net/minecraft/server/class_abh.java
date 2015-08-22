@@ -10,6 +10,6 @@ public class class_abh extends class_aci {
 	@Override
 	public class_aco a(class_aco var1, class_ago var2, class_rg var3) {
 		super.a(var1, var2, var3);
-		return new class_aco(class_acq.B);
+		return new class_aco(Items.B);
 	}
 }

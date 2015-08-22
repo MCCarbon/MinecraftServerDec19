@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aje extends class_ail {
+public class class_aje extends Block {
 	protected class_aje() {
 		super(class_avq.d);
 		this.a(class_abp.c);
@@ -39,7 +39,7 @@ public class class_aje extends class_ail {
 
 		@Override
 		public class_eu f_() {
-			return new class_fb(class_aim.ai.a() + ".name", new Object[0]);
+			return new class_fb(Blocks.ai.a() + ".name", new Object[0]);
 		}
 
 		@Override

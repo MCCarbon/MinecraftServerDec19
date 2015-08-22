@@ -14,7 +14,7 @@ public class class_ia implements class_ff {
 	public class_ia() {
 	}
 
-	public class_ia(class_qx var1) {
+	public class_ia(Entity var1) {
 		a = var1.G();
 		b = class_oa.c(var1.s * 32.0D);
 		c = class_oa.c(var1.t * 32.0D);

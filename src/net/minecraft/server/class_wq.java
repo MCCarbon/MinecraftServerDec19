@@ -82,7 +82,7 @@ public class class_wq extends class_yc implements class_ye {
 		double var6;
 		double var8;
 		if (!o.D && (this.l(0) > 0)) {
-			class_qx var1 = o.a(this.l(0));
+			Entity var1 = o.a(this.l(0));
 			if (var1 != null) {
 				if ((t < var1.t) || (!cF() && (t < (var1.t + 5.0D)))) {
 					if (w < 0.0D) {
@@ -118,7 +118,7 @@ public class class_wq extends class_yc implements class_ye {
 		int var21;
 		for (var20 = 0; var20 < 2; ++var20) {
 			var21 = this.l(var20 + 1);
-			class_qx var3 = null;
+			Entity var3 = null;
 			if (var21 > 0) {
 				var3 = o.a(var21);
 			}
@@ -199,7 +199,7 @@ public class class_wq extends class_yc implements class_ye {
 
 					var13 = this.l(var1);
 					if (var13 > 0) {
-						class_qx var15 = o.a(var13);
+						Entity var15 = o.a(var13);
 						if ((var15 != null) && var15.al() && (this.h(var15) <= 900.0D) && this.t(var15)) {
 							if ((var15 instanceof class_yu) && ((class_yu) var15).bI.a) {
 								this.a(var1, 0);
@@ -254,7 +254,7 @@ public class class_wq extends class_yc implements class_ye {
 								int var9 = var1 + var7;
 								int var10 = var16 + var20;
 								class_cj var11 = new class_cj(var21, var9, var10);
-								class_ail var12 = o.p(var11).c();
+								Block var12 = o.p(var11).c();
 								if ((var12.v() != class_avq.a) && a(var12)) {
 									var18 = o.b(var11, true) || var18;
 								}
@@ -276,8 +276,8 @@ public class class_wq extends class_yc implements class_ye {
 		}
 	}
 
-	public static boolean a(class_ail var0) {
-		return (var0 != class_aim.h) && (var0 != class_aim.bF) && (var0 != class_aim.bG) && (var0 != class_aim.bX) && (var0 != class_aim.dc) && (var0 != class_aim.dd) && (var0 != class_aim.cv);
+	public static boolean a(Block var0) {
+		return (var0 != Blocks.h) && (var0 != Blocks.bF) && (var0 != Blocks.bG) && (var0 != Blocks.bX) && (var0 != Blocks.dc) && (var0 != Blocks.dd) && (var0 != Blocks.cv);
 	}
 
 	public void n() {
@@ -379,7 +379,7 @@ public class class_wq extends class_yc implements class_ye {
 			if ((cE() > 0) && (var1 != class_qi.j)) {
 				return false;
 			} else {
-				class_qx var3;
+				Entity var3;
 				if (cF()) {
 					var3 = var1.i();
 					if (var3 instanceof class_yx) {
@@ -409,7 +409,7 @@ public class class_wq extends class_yc implements class_ye {
 
 	@Override
 	protected void b(boolean var1, int var2) {
-		class_xg var3 = this.a(class_acq.ce, 1);
+		class_xg var3 = this.a(Items.ce, 1);
 		if (var3 != null) {
 			var3.t();
 		}
@@ -472,7 +472,7 @@ public class class_wq extends class_yc implements class_ye {
 	}
 
 	@Override
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 		m = null;
 	}
 
@@ -483,14 +483,14 @@ public class class_wq extends class_yc implements class_ye {
 		bt = new class_jz[] { a, b, c };
 		bu = class_kc.a(class_wq.class, class_kb.b);
 		bD = new Predicate() {
-			public boolean a(class_qx var1) {
+			public boolean a(Entity var1) {
 				return (var1 instanceof class_rg) && (((class_rg) var1).bF() != class_rl.b);
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		};
 	}

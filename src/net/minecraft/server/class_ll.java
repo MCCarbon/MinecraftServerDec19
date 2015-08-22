@@ -267,11 +267,11 @@ public class class_ll extends class_ago implements class_pl {
 					var9 = this.q(new class_cj(var6 + (var8 & 15), 0, var7 + ((var8 >> 8) & 15)));
 					class_cj var10 = var9.b();
 					if (this.w(var10)) {
-						this.a(var10, class_aim.aI.S());
+						this.a(var10, Blocks.aI.S());
 					}
 
 					if (var2 && this.f(var9, true)) {
-						this.a(var9, class_aim.aH.S());
+						this.a(var9, Blocks.aH.S());
 					}
 
 					if (var2 && this.b(var10).e()) {
@@ -294,7 +294,7 @@ public class class_ll extends class_ago implements class_pl {
 							int var15 = (var13 >> 8) & 15;
 							int var16 = (var13 >> 16) & 15;
 							class_apn var17 = var11.a(var14, var16, var15);
-							class_ail var18 = var17.c();
+							Block var18 = var17.c();
 							B.a("randomTick");
 							if (var18.A()) {
 								var18.a(this, new class_cj(var14 + var6, var16 + var11.d(), var15 + var7), var17, s);
@@ -329,24 +329,24 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	public boolean a(class_cj var1, class_ail var2) {
+	public boolean a(class_cj var1, Block var2) {
 		class_agz var3 = new class_agz(var1, var2);
 		return U.contains(var3);
 	}
 
 	@Override
-	public boolean b(class_cj var1, class_ail var2) {
+	public boolean b(class_cj var1, Block var2) {
 		class_agz var3 = new class_agz(var1, var2);
 		return K.contains(var3);
 	}
 
 	@Override
-	public void a(class_cj var1, class_ail var2, int var3) {
+	public void a(class_cj var1, Block var2, int var3) {
 		this.a(var1, var2, var3, 0);
 	}
 
 	@Override
-	public void a(class_cj var1, class_ail var2, int var3, int var4) {
+	public void a(class_cj var1, Block var2, int var3, int var4) {
 		class_agz var5 = new class_agz(var1, var2);
 		byte var6 = 0;
 		if (e && (var2.v() != class_avq.a)) {
@@ -380,7 +380,7 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	public void b(class_cj var1, class_ail var2, int var3, int var4) {
+	public void b(class_cj var1, Block var2, int var3, int var4) {
 		class_agz var5 = new class_agz(var1, var2);
 		var5.a(var4);
 		if (var2.v() != class_avq.a) {
@@ -449,7 +449,7 @@ public class class_ll extends class_ago implements class_pl {
 					byte var5 = 0;
 					if (this.a(var4.a.a(-var5, -var5, -var5), var4.a.a(var5, var5, var5))) {
 						class_apn var6 = this.p(var4.a);
-						if ((var6.c().v() != class_avq.a) && class_ail.a(var6.c(), var4.a())) {
+						if ((var6.c().v() != class_avq.a) && Block.a(var6.c(), var4.a())) {
 							try {
 								var6.c().b(this, var4.a, var6, s);
 							} catch (Throwable var10) {
@@ -515,7 +515,7 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	public void a(class_qx var1, boolean var2) {
+	public void a(Entity var1, boolean var2) {
 		if (!aj() && ((var1 instanceof class_vc) || (var1 instanceof class_vq))) {
 			var1.L();
 		}
@@ -546,7 +546,7 @@ public class class_ll extends class_ago implements class_pl {
 		ArrayList var7 = Lists.newArrayList();
 
 		for (int var8 = 0; var8 < h.size(); ++var8) {
-			class_aoi var9 = (class_aoi) h.get(var8);
+			TileEntity var9 = (TileEntity) h.get(var8);
 			class_cj var10 = var9.v();
 			if ((var10.n() >= var1) && (var10.o() >= var2) && (var10.p() >= var3) && (var10.n() < var4) && (var10.o() < var5) && (var10.p() < var6)) {
 				var7.add(var9);
@@ -718,7 +718,7 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	public boolean a(class_qx var1) {
+	public boolean a(Entity var1) {
 		return !this.i(var1) ? false : super.a(var1);
 	}
 
@@ -728,7 +728,7 @@ public class class_ll extends class_ago implements class_pl {
 		Iterator var3 = var2.iterator();
 
 		while (var3.hasNext()) {
-			class_qx var4 = (class_qx) var3.next();
+			Entity var4 = (Entity) var3.next();
 			if (this.i(var4)) {
 				f.add(var4);
 				this.b(var4);
@@ -737,15 +737,15 @@ public class class_ll extends class_ago implements class_pl {
 
 	}
 
-	private boolean i(class_qx var1) {
+	private boolean i(Entity var1) {
 		if (var1.I) {
-			a.warn("Tried to add entity " + class_qz.b(var1) + " but it was marked as removed already");
+			a.warn("Tried to add entity " + EntityTypes.b(var1) + " but it was marked as removed already");
 			return false;
 		} else {
 			UUID var2 = var1.aQ();
 			if (M.containsKey(var2)) {
 				if (g.contains(var1)) {
-					a.warn("Tried to add entity " + class_qz.b(var1) + " with pending removal and duplicate UUID " + var2.toString());
+					a.warn("Tried to add entity " + EntityTypes.b(var1) + " with pending removal and duplicate UUID " + var2.toString());
 					g.remove(var1);
 				} else {
 					if (!(var1 instanceof class_yu)) {
@@ -763,11 +763,11 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	protected void b(class_qx var1) {
+	protected void b(Entity var1) {
 		super.b(var1);
 		l.a(var1.G(), var1);
 		M.put(var1.aQ(), var1);
-		class_qx[] var2 = var1.aH();
+		Entity[] var2 = var1.aH();
 		if (var2 != null) {
 			for (int var3 = 0; var3 < var2.length; ++var3) {
 				l.a(var2[var3].G(), var2[var3]);
@@ -777,11 +777,11 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	protected void c(class_qx var1) {
+	protected void c(Entity var1) {
 		super.c(var1);
 		l.d(var1.G());
 		M.remove(var1.aQ());
-		class_qx[] var2 = var1.aH();
+		Entity[] var2 = var1.aH();
 		if (var2 != null) {
 			for (int var3 = 0; var3 < var2.length; ++var3) {
 				l.d(var2[var3].G());
@@ -791,7 +791,7 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	public boolean d(class_qx var1) {
+	public boolean d(Entity var1) {
 		if (super.d(var1)) {
 			H.ar().a(var1.s, var1.t, var1.u, 512.0D, t.p().a(), new class_fm(var1));
 			return true;
@@ -801,12 +801,12 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	public void a(class_qx var1, byte var2) {
+	public void a(Entity var1, byte var2) {
 		this.u().b(var1, new class_gk(var1, var2));
 	}
 
 	@Override
-	public class_agk a(class_qx var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
+	public class_agk a(Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
 		class_agk var11 = new class_agk(this, var1, var2, var4, var6, var8, var9, var10);
 		var11.a();
 		var11.a(false);
@@ -827,7 +827,7 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	@Override
-	public void c(class_cj var1, class_ail var2, int var3, int var4) {
+	public void c(class_cj var1, Block var2, int var3, int var4) {
 		class_agg var5 = new class_agg(var1, var2, var3, var4);
 		Iterator var6 = R[S].iterator();
 
@@ -943,8 +943,8 @@ public class class_ll extends class_ago implements class_pl {
 
 	}
 
-	public class_qx a(UUID var1) {
-		return (class_qx) M.get(var1);
+	public Entity a(UUID var1) {
+		return (Entity) M.get(var1);
 	}
 
 	@Override
@@ -958,7 +958,7 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	static {
-		T = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(class_acq.A, 0, 1, 3, 10), new class_oj(class_acm.a(class_aim.f), 0, 1, 3, 10), new class_oj(class_acm.a(class_aim.r), 0, 1, 3, 10), new class_oj(class_acq.v, 0, 1, 1, 3), new class_oj(class_acq.r, 0, 1, 1, 5), new class_oj(class_acq.u, 0, 1, 1, 3), new class_oj(class_acq.q, 0, 1, 1, 5), new class_oj(class_acq.e, 0, 2, 3, 5), new class_oj(class_acq.R, 0, 2, 3, 3), new class_oj(class_acm.a(class_aim.s), 0, 1, 3, 10) }));
+		T = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.A, 0, 1, 3, 10), new class_oj(Item.a(Blocks.f), 0, 1, 3, 10), new class_oj(Item.a(Blocks.r), 0, 1, 3, 10), new class_oj(Items.v, 0, 1, 1, 3), new class_oj(Items.r, 0, 1, 1, 5), new class_oj(Items.u, 0, 1, 1, 3), new class_oj(Items.q, 0, 1, 1, 5), new class_oj(Items.e, 0, 2, 3, 5), new class_oj(Items.R, 0, 2, 3, 3), new class_oj(Item.a(Blocks.s), 0, 1, 3, 10) }));
 	}
 
 	static class class_a_in_class_ll extends ArrayList {

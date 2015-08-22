@@ -17,7 +17,7 @@ public class class_zg extends class_za {
 		if (!o.D) {
 			boolean var2;
 			if (var1.d != null) {
-				var2 = var1.d.a(class_qi.a((class_za) this, (class_qx) b), 5.0F);
+				var2 = var1.d.a(class_qi.a((class_za) this, (Entity) b), 5.0F);
 				if (var2) {
 					this.a(b, var1.d);
 					if (!var1.d.W()) {
@@ -33,7 +33,7 @@ public class class_zg extends class_za {
 				if (var2) {
 					class_cj var3 = var1.a().a(var1.b);
 					if (o.d(var3)) {
-						o.a(var3, class_aim.ab.S());
+						o.a(var3, Blocks.ab.S());
 					}
 				}
 			}

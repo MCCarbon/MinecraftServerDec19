@@ -9,7 +9,7 @@ public class class_amy extends class_aks {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_qx var3, float var4) {
+	public void a(class_ago var1, class_cj var2, Entity var3, float var4) {
 		if (var3.aA()) {
 			super.a(var1, var2, var3, var4);
 		} else {
@@ -19,7 +19,7 @@ public class class_amy extends class_aks {
 	}
 
 	@Override
-	public void a(class_ago var1, class_qx var2) {
+	public void a(class_ago var1, Entity var2) {
 		if (var2.aA()) {
 			super.a(var1, var2);
 		} else if (var2.w < 0.0D) {
@@ -29,7 +29,7 @@ public class class_amy extends class_aks {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_qx var3) {
+	public void a(class_ago var1, class_cj var2, Entity var3) {
 		if ((Math.abs(var3.w) < 0.1D) && !var3.aA()) {
 			double var4 = 0.4D + (Math.abs(var3.w) * 0.2D);
 			var3.v *= var4;

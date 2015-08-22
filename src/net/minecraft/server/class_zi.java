@@ -27,7 +27,7 @@ public class class_zi extends class_yx {
 
 	@Override
 	protected class_aco i() {
-		return new class_aco(class_acq.h);
+		return new class_aco(Items.h);
 	}
 
 	@Override

@@ -42,7 +42,7 @@ public abstract class class_yc extends class_rn implements class_xx {
 		if (this.b(var1)) {
 			return false;
 		} else if (super.a(var1, var2)) {
-			class_qx var3 = var1.j();
+			Entity var3 = var1.j();
 			return (l != var3) && (m != var3) ? true : true;
 		} else {
 			return false;
@@ -65,7 +65,7 @@ public abstract class class_yc extends class_rn implements class_xx {
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		float var2 = (float) this.a(class_yf.e).e();
 		int var3 = 0;
 		if (var1 instanceof class_rg) {
@@ -90,10 +90,10 @@ public abstract class class_yc extends class_rn implements class_xx {
 				class_yu var6 = (class_yu) var1;
 				class_aco var7 = bG();
 				class_aco var8 = var6.bX() ? var6.ca() : null;
-				if ((var7 != null) && (var8 != null) && (var7.b() instanceof class_aay) && (var8.b() == class_acq.cK)) {
+				if ((var7 != null) && (var8 != null) && (var7.b() instanceof class_aay) && (var8.b() == Items.cK)) {
 					float var9 = 0.25F + (class_afl.e(this) * 0.05F);
 					if (V.nextFloat() < var9) {
-						var6.cB().a(class_acq.cK, 100);
+						var6.cB().a(Items.cK, 100);
 						o.a(var6, (byte) 30);
 					}
 				}

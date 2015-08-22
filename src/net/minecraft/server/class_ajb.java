@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_ajb extends class_ail {
+public class class_ajb extends Block {
 	public static final class_aqa a = class_aqa.a("color", class_abt.class);
 
 	public class_ajb(class_avq var1) {

@@ -15,8 +15,8 @@ public class class_aln extends class_aiq {
 	}
 
 	@Override
-	protected boolean c(class_ail var1) {
-		return var1 == class_aim.aW;
+	protected boolean c(Block var1) {
+		return var1 == Blocks.aW;
 	}
 
 	@Override
@@ -47,14 +47,14 @@ public class class_aln extends class_aiq {
 			}
 
 			for (int var7 = 0; var7 < var6; ++var7) {
-				a(var1, var2, new class_aco(class_acq.bA));
+				a(var1, var2, new class_aco(Items.bA));
 			}
 
 		}
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return null;
 	}
 
@@ -65,7 +65,7 @@ public class class_aln extends class_aiq {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.bA);
+		return new class_aco(Items.bA);
 	}
 
 	@Override

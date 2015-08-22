@@ -108,8 +108,8 @@ public abstract class class_alc extends class_ans {
 
 						for (var15 = -var5; var15 <= var5; ++var15) {
 							for (var16 = -var5; var16 <= var5; ++var16) {
-								class_ail var17 = var1.p(var13.c(var7 + var14, var8 + var15, var9 + var16)).c();
-								if ((var17 != class_aim.r) && (var17 != class_aim.s)) {
+								Block var17 = var1.p(var13.c(var7 + var14, var8 + var15, var9 + var16)).c();
+								if ((var17 != Blocks.r) && (var17 != Blocks.s)) {
 									if (var17.v() == class_avq.j) {
 										N[((var14 + var12) * var11) + ((var15 + var12) * var10) + var16 + var12] = -2;
 									} else {
@@ -147,8 +147,8 @@ public abstract class class_alc extends class_ans {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acm.a(class_aim.g);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Item.a(Blocks.g);
 	}
 
 	@Override
@@ -163,7 +163,7 @@ public abstract class class_alc extends class_ans {
 			}
 
 			if (var1.s.nextInt(var6) == 0) {
-				class_acm var7 = this.a(var3, var1.s, var5);
+				Item var7 = this.a(var3, var1.s, var5);
 				a(var1, var2, new class_aco(var7, 1, this.a(var3)));
 			}
 

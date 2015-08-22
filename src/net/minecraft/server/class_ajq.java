@@ -10,7 +10,7 @@ public class class_ajq extends class_ajm {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aop();
 	}
 

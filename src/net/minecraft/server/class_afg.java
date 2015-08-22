@@ -49,7 +49,7 @@ public class class_afg extends class_afj {
 	}
 
 	@Override
-	public void a(class_rg var1, class_qx var2, int var3) {
+	public void a(class_rg var1, Entity var2, int var3) {
 		if (var2 instanceof class_rg) {
 			class_rg var4 = (class_rg) var2;
 			if ((a == 2) && (var4.bF() == class_rl.c)) {

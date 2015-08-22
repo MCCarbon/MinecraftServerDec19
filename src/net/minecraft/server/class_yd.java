@@ -113,7 +113,7 @@ public class class_yd extends class_yl {
 		if (this.b(var1)) {
 			return false;
 		} else {
-			class_qx var3 = var1.j();
+			Entity var3 = var1.j();
 			if (var3 instanceof class_yu) {
 				this.b(var3);
 			}
@@ -122,7 +122,7 @@ public class class_yd extends class_yl {
 		}
 	}
 
-	private void b(class_qx var1) {
+	private void b(Entity var1) {
 		bt = 400 + V.nextInt(400);
 		bu = V.nextInt(40);
 		if (var1 instanceof class_rg) {
@@ -156,13 +156,13 @@ public class class_yd extends class_yl {
 
 		int var4;
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.bv, 1);
+			this.a(Items.bv, 1);
 		}
 
 		var3 = V.nextInt(2 + var2);
 
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.bz, 1);
+			this.a(Items.bz, 1);
 		}
 
 	}
@@ -174,12 +174,12 @@ public class class_yd extends class_yl {
 
 	@Override
 	protected void bx() {
-		this.a(class_acq.m, 1);
+		this.a(Items.m, 1);
 	}
 
 	@Override
 	protected void a(class_pt var1) {
-		this.a(class_rc.a, (new class_aco(class_acq.D)));
+		this.a(class_rc.a, (new class_aco(Items.D)));
 	}
 
 	@Override
@@ -213,7 +213,7 @@ public class class_yd extends class_yl {
 		protected void a(class_rn var1, class_rg var2) {
 			super.a(var1, var2);
 			if (var1 instanceof class_yd) {
-				((class_yd) var1).b((class_qx) var2);
+				((class_yd) var1).b((Entity) var2);
 			}
 
 		}

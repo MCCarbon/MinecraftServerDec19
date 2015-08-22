@@ -92,13 +92,13 @@ public class class_vm extends class_vg implements class_xx {
 		if (!az()) {
 			if (!o.D) {
 				class_apn var2 = o.p(var1);
-				if (var2.c() != class_aim.a) {
+				if (var2.c() != Blocks.a) {
 					class_cq var3;
-					if (var2.c() == class_aim.M) {
+					if (var2.c() == Blocks.M) {
 						var3 = (class_cq) var2.b(class_ajk.b);
 						var1 = var1.a(var3);
 						ac.b(b, Optional.of(var1));
-					} else if (var2.c() == class_aim.K) {
+					} else if (var2.c() == Blocks.K) {
 						var3 = (class_cq) var2.b(class_ajk.b);
 						var1 = var1.a(var3);
 						ac.b(b, Optional.of(var1));
@@ -193,7 +193,7 @@ public class class_vm extends class_vg implements class_xx {
 					Iterator var13 = var12.iterator();
 
 					while (var13.hasNext()) {
-						class_qx var14 = (class_qx) var13.next();
+						Entity var14 = (Entity) var13.next();
 						if (!(var14 instanceof class_vm) && !var14.T) {
 							var14.d(var19, var20, var9);
 						}
@@ -294,7 +294,7 @@ public class class_vm extends class_vg implements class_xx {
 	@Override
 	public boolean a(class_qi var1, float var2) {
 		if (cG() == 0) {
-			class_qx var3 = var1.i();
+			Entity var3 = var1.i();
 			if (var3 instanceof class_yx) {
 				return false;
 			}
@@ -352,7 +352,7 @@ public class class_vm extends class_vg implements class_xx {
 	}
 
 	@Override
-	public void i(class_qx var1) {
+	public void i(Entity var1) {
 	}
 
 	static {

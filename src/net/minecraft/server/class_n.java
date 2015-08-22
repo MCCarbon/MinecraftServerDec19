@@ -12,10 +12,10 @@ public class class_n {
 		d = b;
 	}
 
-	public void a(final class_m var1, class_n.class_a_in_class_n var2, int var3) {
+	public void a(final ICommandListener var1, class_n.class_a_in_class_n var2, int var3) {
 		String var4 = c[var2.a()];
 		if (var4 != null) {
-			class_m var5 = new class_m() {
+			ICommandListener var5 = new ICommandListener() {
 				@Override
 				public String e_() {
 					return var1.e_();
@@ -52,7 +52,7 @@ public class class_n {
 				}
 
 				@Override
-				public class_qx f() {
+				public Entity f() {
 					return var1.f();
 				}
 

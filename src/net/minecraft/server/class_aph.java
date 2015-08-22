@@ -20,8 +20,8 @@ public class class_aph extends class_ajk {
 			class_cq var5 = (class_cq) var3.b(b);
 			if (var5 != null) {
 				class_cj var6 = var2.a(var5.d());
-				class_ail var7 = var1.p(var6).c();
-				if ((var7 == class_aim.J) || (var7 == class_aim.F)) {
+				Block var7 = var1.p(var6).c();
+				if ((var7 == Blocks.J) || (var7 == Blocks.F)) {
 					var1.g(var6);
 				}
 			}
@@ -36,7 +36,7 @@ public class class_aph extends class_ajk {
 		class_cq var4 = ((class_cq) var3.b(b)).d();
 		var2 = var2.a(var4);
 		class_apn var5 = var1.p(var2);
-		if (((var5.c() == class_aim.J) || (var5.c() == class_aim.F)) && ((Boolean) var5.b(class_apg.a)).booleanValue()) {
+		if (((var5.c() == Blocks.J) || (var5.c() == Blocks.F)) && ((Boolean) var5.b(class_apg.a)).booleanValue()) {
 			var5.c().b(var1, var2, var5, 0);
 			var1.g(var2);
 		}
@@ -69,7 +69,7 @@ public class class_aph extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		this.d(var3);
 		super.a(var1, var2, var3, var4, var5, var6);
 		this.e(var3);
@@ -136,11 +136,11 @@ public class class_aph extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		class_cq var5 = (class_cq) var3.b(b);
 		class_cj var6 = var2.a(var5.d());
 		class_apn var7 = var1.p(var6);
-		if ((var7.c() != class_aim.J) && (var7.c() != class_aim.F)) {
+		if ((var7.c() != Blocks.J) && (var7.c() != Blocks.F)) {
 			var1.g(var2);
 		} else {
 			var7.c().a(var1, var6, var7, var4);
@@ -155,7 +155,7 @@ public class class_aph extends class_ajk {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(var3.b(a) == class_aph.class_a_in_class_aph.b ? class_aim.F : class_aim.J);
+		return new class_aco(var3.b(a) == class_aph.class_a_in_class_aph.b ? Blocks.F : Blocks.J);
 	}
 
 	@Override
@@ -175,12 +175,12 @@ public class class_aph extends class_ajk {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(b, var2.a((class_cq) var1.b(b)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(b)));
 	}
 

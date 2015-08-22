@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 
-public abstract class class_za extends class_qx {
+public abstract class class_za extends Entity {
 	private int a = -1;
 	private int f = -1;
 	private int g = -1;
-	private class_ail h;
+	private Block h;
 	private boolean i;
 	public class_rg b;
 	private int as;
@@ -129,7 +129,7 @@ public abstract class class_za extends class_qx {
 		var1.a("xTile", a);
 		var1.a("yTile", f);
 		var1.a("zTile", g);
-		class_ke var2 = (class_ke) class_ail.c.b(h);
+		class_ke var2 = (class_ke) Block.c.b(h);
 		var1.a("inTile", var2 == null ? "" : var2.toString());
 		var1.a("inGround", (byte) (i ? 1 : 0));
 		var1.a("direction", this.a((new double[] { v, w, x })));
@@ -143,9 +143,9 @@ public abstract class class_za extends class_qx {
 		f = var1.h("yTile");
 		g = var1.h("zTile");
 		if (var1.b("inTile", 8)) {
-			h = class_ail.b(var1.l("inTile"));
+			h = Block.b(var1.l("inTile"));
 		} else {
-			h = class_ail.c(var1.f("inTile") & 255);
+			h = Block.c(var1.f("inTile") & 255);
 		}
 
 		i = var1.f("inGround") == 1;

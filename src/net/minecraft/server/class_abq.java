@@ -4,14 +4,14 @@ import java.util.Set;
 
 import com.google.common.collect.Multimap;
 
-public class class_abq extends class_acm {
+public class class_abq extends Item {
 	private Set c;
 	protected float a = 4.0F;
 	private float d;
 	private float l;
-	protected class_acm.class_a_in_class_acm b;
+	protected Item.class_a_in_class_acm b;
 
-	protected class_abq(float var1, float var2, class_acm.class_a_in_class_acm var3, Set var4) {
+	protected class_abq(float var1, float var2, Item.class_a_in_class_acm var3, Set var4) {
 		b = var3;
 		c = var4;
 		i = 1;
@@ -23,7 +23,7 @@ public class class_abq extends class_acm {
 	}
 
 	@Override
-	public float a(class_aco var1, class_ail var2) {
+	public float a(class_aco var1, Block var2) {
 		return c.contains(var2) ? a : 1.0F;
 	}
 
@@ -34,7 +34,7 @@ public class class_abq extends class_acm {
 	}
 
 	@Override
-	public boolean a(class_aco var1, class_ago var2, class_ail var3, class_cj var4, class_rg var5) {
+	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, class_rg var5) {
 		if (var3.f(var2, var4) != 0.0D) {
 			var1.a(1, var5);
 		}
@@ -42,7 +42,7 @@ public class class_abq extends class_acm {
 		return true;
 	}
 
-	public class_acm.class_a_in_class_acm g() {
+	public Item.class_a_in_class_acm g() {
 		return b;
 	}
 

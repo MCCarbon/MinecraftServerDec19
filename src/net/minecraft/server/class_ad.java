@@ -14,16 +14,16 @@ public class class_ad extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.execute.usage";
 	}
 
 	@Override
-	public void a(final class_m var1, String[] var2) throws class_bz {
+	public void a(final ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 5) {
 			throw new class_cf("commands.execute.usage", new Object[0]);
 		} else {
-			final class_qx var3 = a(var1, var2[0], class_qx.class);
+			final Entity var3 = a(var1, var2[0], Entity.class);
 			final double var4 = b(var3.s, var2[1], false);
 			final double var6 = b(var3.t, var2[2], false);
 			final double var8 = b(var3.u, var2[3], false);
@@ -34,7 +34,7 @@ public class class_ad extends class_i {
 				double var13 = b(var4, var2[5], false);
 				double var15 = b(var6, var2[6], false);
 				double var17 = b(var8, var2[7], false);
-				class_ail var19 = g(var1, var2[8]);
+				Block var19 = g(var1, var2[8]);
 				int var20 = a(var2[9], -1, 15);
 				class_cj var21 = new class_cj(var13, var15, var17);
 				class_apn var22 = var12.p(var21);
@@ -46,7 +46,7 @@ public class class_ad extends class_i {
 			}
 
 			String var24 = a(var2, var11);
-			class_m var14 = new class_m() {
+			ICommandListener var14 = new ICommandListener() {
 				@Override
 				public String e_() {
 					return var3.e_();
@@ -83,7 +83,7 @@ public class class_ad extends class_i {
 				}
 
 				@Override
-				public class_qx f() {
+				public Entity f() {
 					return var3;
 				}
 
@@ -112,8 +112,8 @@ public class class_ad extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return var2.length == 1 ? a(var2, MinecraftServer.P().M()) : ((var2.length > 1) && (var2.length <= 4) ? a(var2, 1, var3) : ((var2.length > 5) && (var2.length <= 8) && "detect".equals(var2[4]) ? a(var2, 5, var3) : ((var2.length == 9) && "detect".equals(var2[4]) ? a(var2, class_ail.c.c()) : null)));
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return var2.length == 1 ? a(var2, MinecraftServer.P().M()) : ((var2.length > 1) && (var2.length <= 4) ? a(var2, 1, var3) : ((var2.length > 5) && (var2.length <= 8) && "detect".equals(var2[4]) ? a(var2, 5, var3) : ((var2.length == 9) && "detect".equals(var2[4]) ? a(var2, Block.c.c()) : null)));
 	}
 
 	@Override

@@ -5,19 +5,19 @@ import java.util.List;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
-public class class_yx extends class_qx implements class_zd {
+public class class_yx extends Entity implements class_zd {
 	private static final Predicate f;
 	private static final class_jz g;
 	private int h;
 	private int i;
 	private int as;
-	private class_ail at;
+	private Block at;
 	private int au;
 	protected boolean a;
 	protected int b;
 	public int c;
 	public int d;
-	public class_qx e;
+	public Entity e;
 	private int av;
 	private int aw;
 	private double ax;
@@ -91,7 +91,7 @@ public class class_yx extends class_qx implements class_zd {
 
 		class_cj var13 = new class_cj(h, i, as);
 		class_apn var2 = o.p(var13);
-		class_ail var3 = var2.c();
+		Block var3 = var2.c();
 		if (var3.v() != class_avq.a) {
 			var3.a((class_ags) o, var13);
 			class_ayk var4 = var3.a(o, var13, var2);
@@ -133,7 +133,7 @@ public class class_yx extends class_qx implements class_zd {
 				var5 = new class_aym(var6.c.a, var6.c.b, var6.c.c);
 			}
 
-			class_qx var7 = this.a(var14, var5);
+			Entity var7 = this.a(var14, var5);
 			if (var7 != null) {
 				var6 = new class_ayl(var7);
 			}
@@ -204,7 +204,7 @@ public class class_yx extends class_qx implements class_zd {
 	}
 
 	protected void a(class_ayl var1) {
-		class_qx var2 = var1.d;
+		Entity var2 = var1.d;
 		if (var2 != null) {
 			float var3 = class_oa.a((v * v) + (w * w) + (x * x));
 			int var4 = class_oa.f(var3 * ax);
@@ -289,13 +289,13 @@ public class class_yx extends class_qx implements class_zd {
 	protected void a(class_rg var1) {
 	}
 
-	protected class_qx a(class_aym var1, class_aym var2) {
-		class_qx var3 = null;
+	protected Entity a(class_aym var1, class_aym var2) {
+		Entity var3 = null;
 		List var4 = o.a(this, aX().a(v, w, x).b(1.0D, 1.0D, 1.0D), f);
 		double var5 = 0.0D;
 
 		for (int var7 = 0; var7 < var4.size(); ++var7) {
-			class_qx var8 = (class_qx) var4.get(var7);
+			Entity var8 = (Entity) var4.get(var7);
 			if ((var8 != e) || (aw >= 5)) {
 				float var9 = 0.3F;
 				class_ayk var10 = var8.aX().b(var9, var9, var9);
@@ -319,7 +319,7 @@ public class class_yx extends class_qx implements class_zd {
 		var1.a("yTile", i);
 		var1.a("zTile", as);
 		var1.a("life", (short) av);
-		class_ke var2 = (class_ke) class_ail.c.b(at);
+		class_ke var2 = (class_ke) Block.c.b(at);
 		var1.a("inTile", var2 == null ? "" : var2.toString());
 		var1.a("inData", (byte) au);
 		var1.a("shake", (byte) d);
@@ -335,9 +335,9 @@ public class class_yx extends class_qx implements class_zd {
 		as = var1.h("zTile");
 		av = var1.g("life");
 		if (var1.b("inTile", 8)) {
-			at = class_ail.b(var1.l("inTile"));
+			at = Block.b(var1.l("inTile"));
 		} else {
-			at = class_ail.c(var1.f("inTile") & 255);
+			at = Block.c(var1.f("inTile") & 255);
 		}
 
 		au = var1.f("inData") & 255;
@@ -373,7 +373,7 @@ public class class_yx extends class_qx implements class_zd {
 	}
 
 	protected class_aco i() {
-		return new class_aco(class_acq.g);
+		return new class_aco(Items.g);
 	}
 
 	@Override
@@ -420,14 +420,14 @@ public class class_yx extends class_qx implements class_zd {
 
 	static {
 		f = Predicates.and(new Predicate[] { class_rb.d, class_rb.a, new Predicate() {
-			public boolean a(class_qx var1) {
+			public boolean a(Entity var1) {
 				return var1.ag();
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		} });
 		g = class_kc.a(class_yx.class, class_kb.a);

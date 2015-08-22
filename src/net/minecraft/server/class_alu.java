@@ -22,7 +22,7 @@ public class class_alu extends class_alc {
 	@Override
 	protected void a(class_ago var1, class_cj var2, class_apn var3, int var4) {
 		if ((var3.b(P) == class_aly.class_a_in_class_aly.a) && (var1.s.nextInt(var4) == 0)) {
-			a(var1, var2, new class_aco(class_acq.e));
+			a(var1, var2, new class_aco(Items.e));
 		}
 
 	}
@@ -34,7 +34,7 @@ public class class_alu extends class_alc {
 
 	@Override
 	protected class_aco i(class_apn var1) {
-		return new class_aco(class_acm.a(this), 1, ((class_aly.class_a_in_class_aly) var1.b(P)).a());
+		return new class_aco(Item.a(this), 1, ((class_aly.class_a_in_class_aly) var1.b(P)).a());
 	}
 
 	@Override
@@ -73,10 +73,10 @@ public class class_alu extends class_alc {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
-		if (!var1.D && (var6 != null) && (var6.b() == class_acq.bg)) {
-			var2.b(class_nh.a(class_ail.a(this)));
-			a(var1, var3, new class_aco(class_acm.a(this), 1, ((class_aly.class_a_in_class_aly) var4.b(P)).a()));
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
+		if (!var1.D && (var6 != null) && (var6.b() == Items.bg)) {
+			var2.b(class_nh.a(Block.a(this)));
+			a(var1, var3, new class_aco(Item.a(this), 1, ((class_aly.class_a_in_class_aly) var4.b(P)).a()));
 		} else {
 			super.a(var1, var2, var3, var4, var5, var6);
 		}

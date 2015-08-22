@@ -17,7 +17,7 @@ public class class_aob extends class_aig {
 
 	@Override
 	protected int e(class_ago var1, class_cj var2) {
-		int var3 = Math.min(var1.a(class_qx.class, this.a(var2)).size(), b);
+		int var3 = Math.min(var1.a(Entity.class, this.a(var2)).size(), b);
 		if (var3 > 0) {
 			float var4 = (float) Math.min(b, var3) / (float) b;
 			return class_oa.f(var4 * 15.0F);

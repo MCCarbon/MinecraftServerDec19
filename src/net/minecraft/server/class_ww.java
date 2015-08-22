@@ -70,7 +70,7 @@ public class class_ww extends class_wt {
 	}
 
 	@Override
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 		if (o.S().b("doEntityDrops")) {
 			if (var1 instanceof class_yu) {
 				class_yu var2 = (class_yu) var1;
@@ -79,7 +79,7 @@ public class class_ww extends class_wt {
 				}
 			}
 
-			this.a(new class_aco(class_acq.ap), 0.0F);
+			this.a(new class_aco(Items.ap), 0.0F);
 		}
 	}
 

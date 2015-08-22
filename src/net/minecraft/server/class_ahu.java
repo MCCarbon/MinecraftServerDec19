@@ -51,13 +51,13 @@ public class class_ahu extends class_ahb {
 
 		@Override
 		public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
-			ak = class_aim.c.S();
-			al = class_aim.d.S();
+			ak = Blocks.c.S();
+			al = Blocks.d.S();
 			if (var6 > 1.75D) {
-				ak = class_aim.b.S();
-				al = class_aim.b.S();
+				ak = Blocks.b.S();
+				al = Blocks.b.S();
 			} else if (var6 > -0.5D) {
-				ak = class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
+				ak = Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
 			}
 
 			this.b(var1, var2, var3, var4, var5, var6);

@@ -6,7 +6,7 @@ import com.google.common.collect.Iterables;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 
-public class class_apa extends class_aoi implements class_ks {
+public class class_apa extends TileEntity implements class_ks {
 	private int a;
 	private int f;
 	private GameProfile g = null;

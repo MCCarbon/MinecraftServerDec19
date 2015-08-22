@@ -12,8 +12,8 @@ public class class_ats extends class_asp {
 
 				for (int var6 = 0; var6 < var5; ++var6) {
 					class_cq var7 = var4[var6];
-					if (class_aim.bn.b(var1, var3, var7)) {
-						class_apn var8 = class_aim.bn.S().a(class_anw.b, Boolean.valueOf(var7 == class_cq.c)).a(class_anw.N, Boolean.valueOf(var7 == class_cq.f)).a(class_anw.O, Boolean.valueOf(var7 == class_cq.d)).a(class_anw.P, Boolean.valueOf(var7 == class_cq.e));
+					if (Blocks.bn.b(var1, var3, var7)) {
+						class_apn var8 = Blocks.bn.S().a(class_anw.b, Boolean.valueOf(var7 == class_cq.c)).a(class_anw.N, Boolean.valueOf(var7 == class_cq.f)).a(class_anw.O, Boolean.valueOf(var7 == class_cq.d)).a(class_anw.P, Boolean.valueOf(var7 == class_cq.e));
 						var1.a(var3, var8, 2);
 						break;
 					}

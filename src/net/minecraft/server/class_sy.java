@@ -25,7 +25,7 @@ public class class_sy extends class_sr {
 			if (a == null) {
 				return false;
 			} else if (f() && b.o(true)) {
-				class_qx var1 = d.a(class_yp.class, b.aX().b(8.0D, 3.0D, 8.0D), b);
+				Entity var1 = d.a(class_yp.class, b.aX().b(8.0D, 3.0D, 8.0D), b);
 				if (var1 == null) {
 					return false;
 				} else {

@@ -6,9 +6,9 @@ import java.util.Random;
 public class class_ani extends class_aiq implements class_ain {
 	public static final class_aqb a = class_aqb.a("age", 0, 7);
 	public static final class_apz b;
-	private final class_ail N;
+	private final Block N;
 
-	protected class_ani(class_ail var1) {
+	protected class_ani(Block var1) {
 		this.j(M.b().a(a, Integer.valueOf(0)).a(b, class_cq.b));
 		N = var1;
 		this.a(true);
@@ -34,8 +34,8 @@ public class class_ani extends class_aiq implements class_ain {
 	}
 
 	@Override
-	protected boolean c(class_ail var1) {
-		return var1 == class_aim.ak;
+	protected boolean c(Block var1) {
+		return var1 == Blocks.ak;
 	}
 
 	@Override
@@ -59,8 +59,8 @@ public class class_ani extends class_aiq implements class_ain {
 					}
 
 					var2 = var2.a(class_cq.class_c_in_class_cq.a.a(var4));
-					class_ail var9 = var1.p(var2.b()).c();
-					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == class_aim.ak) || (var9 == class_aim.d) || (var9 == class_aim.c))) {
+					Block var9 = var1.p(var2.b()).c();
+					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == Blocks.ak) || (var9 == Blocks.d) || (var9 == Blocks.c))) {
 						var1.a(var2, N.S());
 					}
 				}
@@ -91,7 +91,7 @@ public class class_ani extends class_aiq implements class_ain {
 	public void a(class_ago var1, class_cj var2, class_apn var3, float var4, int var5) {
 		super.a(var1, var2, var3, var4, var5);
 		if (!var1.D) {
-			class_acm var6 = l();
+			Item var6 = l();
 			if (var6 != null) {
 				int var7 = ((Integer) var3.b(a)).intValue();
 
@@ -105,18 +105,18 @@ public class class_ani extends class_aiq implements class_ain {
 		}
 	}
 
-	protected class_acm l() {
-		return N == class_aim.aU ? class_acq.bi : (N == class_aim.bk ? class_acq.bj : null);
+	protected Item l() {
+		return N == Blocks.aU ? Items.bi : (N == Blocks.bk ? Items.bj : null);
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return null;
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		class_acm var4 = l();
+		Item var4 = l();
 		return var4 == null ? null : new class_aco(var4);
 	}
 

@@ -71,19 +71,19 @@ public class class_amx extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_apa();
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
 		int var4 = 0;
-		class_aoi var5 = var1.s(var2);
+		TileEntity var5 = var1.s(var2);
 		if (var5 instanceof class_apa) {
 			var4 = ((class_apa) var5).d();
 		}
 
-		return new class_aco(class_acq.cc, 1, var4);
+		return new class_aco(Items.cc, 1, var4);
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class class_amx extends class_aif {
 	public void c(class_ago var1, class_cj var2, class_apn var3) {
 		if (!var1.D) {
 			if (!((Boolean) var3.b(b)).booleanValue()) {
-				class_aoi var4 = var1.s(var2);
+				TileEntity var4 = var1.s(var2);
 				if (var4 instanceof class_apa) {
 					class_apa var5 = (class_apa) var4;
 					class_aco var6 = this.b(var1, var2, var3);
@@ -124,8 +124,8 @@ public class class_amx extends class_aif {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.cc;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.cc;
 	}
 
 	public boolean b(class_ago var1, class_cj var2, class_aco var3) {
@@ -146,7 +146,7 @@ public class class_amx extends class_aif {
 				for (var6 = 0; var6 < var4.c(); ++var6) {
 					for (int var13 = 0; var13 < var4.b(); ++var13) {
 						class_apq var8 = var5.a(var6, var13, 0);
-						var1.a(var8.d(), class_aim.a.S(), 2);
+						var1.a(var8.d(), Blocks.a.S(), 2);
 					}
 				}
 
@@ -173,7 +173,7 @@ public class class_amx extends class_aif {
 				for (var16 = 0; var16 < var4.c(); ++var16) {
 					for (int var17 = 0; var17 < var4.b(); ++var17) {
 						class_apq var11 = var5.a(var16, var17, 0);
-						var1.c(var11.d(), class_aim.a);
+						var1.c(var11.d(), Blocks.a);
 					}
 				}
 
@@ -198,12 +198,12 @@ public class class_amx extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 
@@ -214,7 +214,7 @@ public class class_amx extends class_aif {
 
 	protected class_apr l() {
 		if (O == null) {
-			O = class_aps.a().a(new String[] { "   ", "###", "~#~" }).a('#', class_apq.a(class_apv.a(class_aim.aW))).a('~', class_apq.a(class_apv.a(class_aim.a))).b();
+			O = class_aps.a().a(new String[] { "   ", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.aW))).a('~', class_apq.a(class_apv.a(Blocks.a))).b();
 		}
 
 		return O;
@@ -222,7 +222,7 @@ public class class_amx extends class_aif {
 
 	protected class_apr n() {
 		if (P == null) {
-			P = class_aps.a().a(new String[] { "^^^", "###", "~#~" }).a('#', class_apq.a(class_apv.a(class_aim.aW))).a('^', N).a('~', class_apq.a(class_apv.a(class_aim.a))).b();
+			P = class_aps.a().a(new String[] { "^^^", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.aW))).a('^', N).a('~', class_apq.a(class_apv.a(Blocks.a))).b();
 		}
 
 		return P;
@@ -233,7 +233,7 @@ public class class_amx extends class_aif {
 		b = class_apy.a("nodrop");
 		N = new Predicate() {
 			public boolean a(class_apq var1) {
-				return (var1.a() != null) && (var1.a().c() == class_aim.ce) && (var1.b() instanceof class_apa) && (((class_apa) var1.b()).d() == 1);
+				return (var1.a() != null) && (var1.a().c() == Blocks.ce) && (var1.b() instanceof class_apa) && (((class_apa) var1.b()).d() == 1);
 			}
 
 			// $FF: synthetic method

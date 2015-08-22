@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_abj extends class_acm {
+public class class_abj extends Item {
 	public class_abj() {
 		this.a(class_abp.e);
 		this.d(1);
@@ -16,7 +16,7 @@ public class class_abj extends class_acm {
 				var5.cF().g();
 				var1.a(7, var3);
 				if (var1.b == 0) {
-					class_aco var6 = new class_aco(class_acq.aT);
+					class_aco var6 = new class_aco(Items.aT);
 					var6.d(var1.o());
 					return new class_px(class_pw.a, var6);
 				}
@@ -25,7 +25,7 @@ public class class_abj extends class_acm {
 			}
 		}
 
-		var3.b(class_nh.c(class_acm.b(this)));
+		var3.b(class_nh.c(Item.b(this)));
 		return new class_px(class_pw.b, var1);
 	}
 }

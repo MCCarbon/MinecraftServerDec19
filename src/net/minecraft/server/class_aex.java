@@ -8,9 +8,9 @@ public class class_aex {
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			class_abt var5 = var2[var4];
-			class_aco var6 = new class_aco(class_acq.cK, 1, 0);
+			class_aco var6 = new class_aco(Items.cK, 1, 0);
 			class_aog.a(var6, var5);
-			var1.a(var6, new Object[] { "#W ", "#Wo", "#W ", Character.valueOf('#'), new class_aco(class_aim.L, 1, var5.a()), Character.valueOf('W'), class_aim.f, Character.valueOf('o'), class_acq.l });
+			var1.a(var6, new Object[] { "#W ", "#Wo", "#W ", Character.valueOf('#'), new class_aco(Blocks.L, 1, var5.a()), Character.valueOf('W'), Blocks.f, Character.valueOf('o'), Items.l });
 		}
 
 		var1.a(new class_aex.class_a_in_class_aex());
@@ -32,7 +32,7 @@ public class class_aex {
 			for (int var5 = 0; var5 < var1.n_(); ++var5) {
 				class_aco var6 = var1.a(var5);
 				if (var6 != null) {
-					if (var6.b() == class_acq.cJ) {
+					if (var6.b() == Items.cJ) {
 						if (var4 != null) {
 							return false;
 						}
@@ -43,7 +43,7 @@ public class class_aex {
 
 						var4 = var6;
 					} else {
-						if (var6.b() != class_acq.cK) {
+						if (var6.b() != Items.cK) {
 							return false;
 						}
 
@@ -77,12 +77,12 @@ public class class_aex {
 
 			for (int var3 = 0; var3 < var1.n_(); ++var3) {
 				class_aco var4 = var1.a(var3);
-				if ((var4 != null) && (var4.b() == class_acq.cJ)) {
+				if ((var4 != null) && (var4.b() == Items.cJ)) {
 					var2 = var4;
 				}
 			}
 
-			class_aco var5 = new class_aco(class_acq.cK, 1, 0);
+			class_aco var5 = new class_aco(Items.cK, 1, 0);
 			var5.d((class_dn) var2.o().b());
 			class_aog.a(var5, class_abt.a(class_aog.b(var2)));
 			return var5;
@@ -107,7 +107,7 @@ public class class_aex {
 				if (var4 != null) {
 					if (var4.b().r()) {
 						var2[var3] = new class_aco(var4.b().q());
-					} else if (var4.b() == class_acq.cJ) {
+					} else if (var4.b() == Items.cJ) {
 						var2[var3] = var4.k();
 					}
 				}

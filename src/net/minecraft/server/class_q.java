@@ -20,17 +20,17 @@ public class class_q extends class_i {
 	}
 
 	@Override
-	public boolean a(class_m var1) {
+	public boolean a(ICommandListener var1) {
 		return MinecraftServer.P().ar().i().b() && super.a(var1);
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.banip.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if ((var2.length >= 1) && (var2[0].length() > 1)) {
 			class_eu var3 = var2.length >= 2 ? a(var1, var2, 1) : null;
 			Matcher var4 = a.matcher(var2[0]);
@@ -51,11 +51,11 @@ public class class_q extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return var2.length == 1 ? a(var2, MinecraftServer.P().M()) : null;
 	}
 
-	protected void a(class_m var1, String var2, String var3) {
+	protected void a(ICommandListener var1, String var2, String var3) {
 		class_mc var4 = new class_mc(var2, (Date) null, var1.e_(), (Date) null, var3);
 		MinecraftServer.P().ar().i().a(var4);
 		List var5 = MinecraftServer.P().ar().b(var2);

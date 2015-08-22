@@ -7,7 +7,7 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_apc extends class_aoi implements class_ks {
+public class class_apc extends TileEntity implements class_ks {
 	private static final Logger a = LogManager.getLogger();
 	private long f = 0L;
 	private int g = 0;
@@ -47,9 +47,9 @@ public class class_apc extends class_aoi implements class_ks {
 		if (var2) {
 			--g;
 		} else if (!b.D) {
-			List var3 = b.a(class_qx.class, new class_ayk(v()));
+			List var3 = b.a(Entity.class, new class_ayk(v()));
 			if (!var3.isEmpty()) {
-				this.a((class_qx) var3.get(0));
+				this.a((Entity) var3.get(0));
 			}
 		}
 
@@ -93,7 +93,7 @@ public class class_apc extends class_aoi implements class_ks {
 		}
 	}
 
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 		if (!b.D && !d()) {
 			g = 100;
 			if ((h == null) && (b.t instanceof class_arh)) {
@@ -155,7 +155,7 @@ public class class_apc extends class_aoi implements class_ks {
 					for (int var7 = 255; var7 > (var4 == null ? 0 : var4.o()); --var7) {
 						class_cj var8 = new class_cj(var1.n() + var5, var7, var1.p() + var6);
 						class_apn var9 = var0.p(var8);
-						if (var9.c().w() && (var3 || (var9.c() != class_aim.h))) {
+						if (var9.c().w() && (var3 || (var9.c() != Blocks.h))) {
 							var4 = var8;
 							break;
 						}
@@ -193,7 +193,7 @@ public class class_apc extends class_aoi implements class_ks {
 
 							var8 = (class_cj) var7.next();
 							var9 = var0.g(var8);
-						} while (var9.c() != class_aim.bH);
+						} while (var9.c() != Blocks.bH);
 					} while (var0.a(var8.b(1)).w());
 				} while (var0.a(var8.b(2)).w());
 
@@ -207,7 +207,7 @@ public class class_apc extends class_aoi implements class_ks {
 
 	private void b(class_cj var1) {
 		(new class_asm()).b(b, new Random(), var1);
-		class_aoi var2 = b.s(var1);
+		TileEntity var2 = b.s(var1);
 		if (var2 instanceof class_apc) {
 			class_apc var3 = (class_apc) var2;
 			var3.h = new class_cj(v());

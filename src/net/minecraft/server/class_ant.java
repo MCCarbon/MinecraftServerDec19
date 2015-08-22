@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_ant extends class_ail {
+public class class_ant extends Block {
 	public static final class_apz a;
 	public static final class_apy b;
 	public static final class_aqa N;
@@ -91,7 +91,7 @@ public class class_ant extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D) {
 			boolean var5 = var1.z(var2);
 			if (var5 || var4.i()) {
@@ -176,12 +176,12 @@ public class class_ant extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 

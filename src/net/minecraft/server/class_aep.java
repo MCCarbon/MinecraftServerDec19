@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class class_aep extends class_aev {
 	public class_aep() {
-		super(3, 3, new class_aco[] { new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.bf, 0, 32767), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM) }, new class_aco(class_acq.ca, 0, 0));
+		super(3, 3, new class_aco[] { new class_aco(Items.aM), new class_aco(Items.aM), new class_aco(Items.aM), new class_aco(Items.aM), new class_aco(Items.bf, 0, 32767), new class_aco(Items.aM), new class_aco(Items.aM), new class_aco(Items.aM), new class_aco(Items.aM) }, new class_aco(Items.ca, 0, 0));
 	}
 
 	@Override
@@ -15,7 +15,7 @@ public class class_aep extends class_aev {
 
 			for (int var4 = 0; (var4 < var1.n_()) && (var3 == null); ++var4) {
 				class_aco var5 = var1.a(var4);
-				if ((var5 != null) && (var5.b() == class_acq.bf)) {
+				if ((var5 != null) && (var5.b() == Items.bf)) {
 					var3 = var5;
 				}
 			}
@@ -23,7 +23,7 @@ public class class_aep extends class_aev {
 			if (var3 == null) {
 				return false;
 			} else {
-				class_axl var6 = class_acq.bf.a(var3, var2);
+				class_axl var6 = Items.bf.a(var3, var2);
 				return var6 == null ? false : var6.f < 4;
 			}
 		}
@@ -35,7 +35,7 @@ public class class_aep extends class_aev {
 
 		for (int var3 = 0; (var3 < var1.n_()) && (var2 == null); ++var3) {
 			class_aco var4 = var1.a(var3);
-			if ((var4 != null) && (var4.b() == class_acq.bf)) {
+			if ((var4 != null) && (var4.b() == Items.bf)) {
 				var2 = var4;
 			}
 		}

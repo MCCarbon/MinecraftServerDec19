@@ -52,12 +52,12 @@ public class class_xw extends class_yc {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.silverfish.step", 0.15F, 1.0F);
 	}
 
 	@Override
-	protected class_acm D() {
+	protected Item D() {
 		return null;
 	}
 

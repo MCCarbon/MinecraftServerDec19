@@ -44,25 +44,25 @@ public class class_aid extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aog();
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.cJ;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.cJ;
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.cJ);
+		return new class_aco(Items.cJ);
 	}
 
 	@Override
 	public void a(class_ago var1, class_cj var2, class_apn var3, float var4, int var5) {
-		class_aoi var6 = var1.s(var2);
+		TileEntity var6 = var1.s(var2);
 		if (var6 instanceof class_aog) {
-			class_aco var7 = new class_aco(class_acq.cJ, 1, ((class_aog) var6).b());
+			class_aco var7 = new class_aco(Items.cJ, 1, ((class_aog) var6).b());
 			class_dn var8 = new class_dn();
 			var6.b(var8);
 			var8.q("x");
@@ -83,16 +83,16 @@ public class class_aid extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
 		if (var5 instanceof class_aog) {
 			class_aog var7 = (class_aog) var5;
-			class_aco var8 = new class_aco(class_acq.cJ, 1, ((class_aog) var5).b());
+			class_aco var8 = new class_aco(Items.cJ, 1, ((class_aog) var5).b());
 			class_dn var9 = new class_dn();
 			class_aog.a(var9, var7.b(), var7.d());
 			var8.a("BlockEntityTag", var9);
 			a(var1, var3, var8);
 		} else {
-			super.a(var1, var2, var3, var4, (class_aoi) null, var6);
+			super.a(var1, var2, var3, var4, (TileEntity) null, var6);
 		}
 
 	}
@@ -141,17 +141,17 @@ public class class_aid extends class_aif {
 		}
 
 		@Override
-		public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+		public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 			return var1.c() != this ? var1 : var1.a(b, Integer.valueOf(var2.a(((Integer) var1.b(b)).intValue(), 16)));
 		}
 
 		@Override
-		public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+		public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 			return var1.c() != this ? var1 : var1.a(b, Integer.valueOf(var2.a(((Integer) var1.b(b)).intValue(), 16)));
 		}
 
 		@Override
-		public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+		public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 			if (!var1.p(var2.b()).c().v().a()) {
 				this.b(var1, var2, var3, 0);
 				var1.g(var2);
@@ -182,12 +182,12 @@ public class class_aid extends class_aif {
 		}
 
 		@Override
-		public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+		public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 			return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 		}
 
 		@Override
-		public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+		public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 			return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 		}
 
@@ -218,7 +218,7 @@ public class class_aid extends class_aif {
 		}
 
 		@Override
-		public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+		public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 			class_cq var5 = (class_cq) var3.b(a);
 			if (!var1.p(var2.a(var5.d())).c().v().a()) {
 				this.b(var1, var2, var3, 0);

@@ -35,11 +35,11 @@ public class class_arp implements class_aqk {
 	double[] g;
 
 	public class_arp(class_ago var1, boolean var2, long var3) {
-		w = new class_atf(class_aim.co.S(), 14, class_apu.a(class_aim.aV));
-		x = new class_asu(class_aim.k, true);
-		y = new class_asu(class_aim.k, false);
-		z = new class_asf(class_aim.P);
-		A = new class_asf(class_aim.Q);
+		w = new class_atf(Blocks.co.S(), 14, class_apu.a(Blocks.aV));
+		x = new class_asu(Blocks.k, true);
+		y = new class_asu(Blocks.k, false);
+		z = new class_asf(Blocks.P);
+		A = new class_asf(Blocks.Q);
 		B = new class_aug();
 		C = new class_ars();
 		h = var1;
@@ -91,11 +91,11 @@ public class class_arp implements class_aqk {
 							for (int var48 = 0; var48 < 4; ++var48) {
 								class_apn var49 = null;
 								if (((var11 * 8) + var30) < var5) {
-									var49 = class_aim.l.S();
+									var49 = Blocks.l.S();
 								}
 
 								if (var44 > 0.0D) {
-									var49 = class_aim.aV.S();
+									var49 = Blocks.aV.S();
 								}
 
 								int var50 = var41 + (var9 * 4);
@@ -133,34 +133,34 @@ public class class_arp implements class_aqk {
 				boolean var10 = (l[var7 + (var8 * 16)] + (j.nextDouble() * 0.2D)) > 0.0D;
 				int var11 = (int) ((m[var7 + (var8 * 16)] / 3.0D) + 3.0D + (j.nextDouble() * 0.25D));
 				int var12 = -1;
-				class_apn var13 = class_aim.aV.S();
-				class_apn var14 = class_aim.aV.S();
+				class_apn var13 = Blocks.aV.S();
+				class_apn var14 = Blocks.aV.S();
 
 				for (int var15 = 127; var15 >= 0; --var15) {
 					if ((var15 < (127 - j.nextInt(5))) && (var15 > j.nextInt(5))) {
 						class_apn var16 = var3.a(var8, var15, var7);
 						if ((var16.c() != null) && (var16.c().v() != class_avq.a)) {
-							if (var16.c() == class_aim.aV) {
+							if (var16.c() == Blocks.aV) {
 								if (var12 == -1) {
 									if (var11 <= 0) {
 										var13 = null;
-										var14 = class_aim.aV.S();
+										var14 = Blocks.aV.S();
 									} else if ((var15 >= (var4 - 4)) && (var15 <= (var4 + 1))) {
-										var13 = class_aim.aV.S();
-										var14 = class_aim.aV.S();
+										var13 = Blocks.aV.S();
+										var14 = Blocks.aV.S();
 										if (var10) {
-											var13 = class_aim.n.S();
-											var14 = class_aim.aV.S();
+											var13 = Blocks.n.S();
+											var14 = Blocks.aV.S();
 										}
 
 										if (var9) {
-											var13 = class_aim.aW.S();
-											var14 = class_aim.aW.S();
+											var13 = Blocks.aW.S();
+											var14 = Blocks.aW.S();
 										}
 									}
 
 									if ((var15 < var4) && ((var13 == null) || (var13.c().v() == class_avq.a))) {
-										var13 = class_aim.l.S();
+										var13 = Blocks.l.S();
 									}
 
 									var12 = var11;
@@ -178,7 +178,7 @@ public class class_arp implements class_aqk {
 							var12 = -1;
 						}
 					} else {
-						var3.a(var8, var15, var7, class_aim.h.S());
+						var3.a(var8, var15, var7, Blocks.h.S());
 					}
 				}
 			}
@@ -362,7 +362,7 @@ public class class_arp implements class_aqk {
 				return B.b();
 			}
 
-			if (B.a(h, var2) && (h.p(var2.b()).c() == class_aim.by)) {
+			if (B.a(h, var2) && (h.p(var2.b()).c() == Blocks.by)) {
 				return B.b();
 			}
 		}

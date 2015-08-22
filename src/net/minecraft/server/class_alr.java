@@ -25,13 +25,13 @@ public abstract class class_alr extends class_akq {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acm.a(class_aim.cP);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Item.a(Blocks.cP);
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_aim.cP, 1, ((class_alr.class_a_in_class_alr) var3.b(N)).a());
+		return new class_aco(Blocks.cP, 1, ((class_alr.class_a_in_class_alr) var3.b(N)).a());
 	}
 
 	@Override

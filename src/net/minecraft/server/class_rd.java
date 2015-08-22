@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_rd extends class_qx {
+public class class_rd extends Entity {
 	public int a;
 	public int b;
 	public int c;
@@ -146,7 +146,7 @@ public class class_rd extends class_qx {
 		if (!o.D) {
 			if ((c == 0) && (var1.bx == 0)) {
 				var1.bx = 2;
-				o.a((class_qx) var1, "random.orb", 0.1F, 0.5F * (((V.nextFloat() - V.nextFloat()) * 0.7F) + 1.8F));
+				o.a((Entity) var1, "random.orb", 0.1F, 0.5F * (((V.nextFloat() - V.nextFloat()) * 0.7F) + 1.8F));
 				var1.a(this, 1);
 				var1.m(e);
 				L();

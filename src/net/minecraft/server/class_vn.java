@@ -40,8 +40,8 @@ public class class_vn extends class_vg implements class_ye {
 				var2 = class_oa.c(t);
 				var3 = class_oa.c(u + ((((var4 / 2) % 2) * 2) - 1) * 0.25F);
 				class_cj var5 = new class_cj(var1, var2, var3);
-				if ((o.p(var5).c().v() == class_avq.a) && (o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F) && class_aim.aH.c(o, var5)) {
-					o.a(var5, class_aim.aH.S());
+				if ((o.p(var5).c().v() == class_avq.a) && (o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F) && Blocks.aH.c(o, var5)) {
+					o.a(var5, Blocks.aH.S());
 				}
 			}
 		}
@@ -49,8 +49,8 @@ public class class_vn extends class_vg implements class_ye {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.aF;
+	protected Item D() {
+		return Items.aF;
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class class_vn extends class_vg implements class_ye {
 		int var3 = V.nextInt(16);
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.aF, 1);
+			this.a(Items.aF, 1);
 		}
 
 	}

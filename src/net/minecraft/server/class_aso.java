@@ -22,24 +22,24 @@ public class class_aso extends class_asp {
 			if (var6 <= 3.5D) {
 				if (var5.o() < var3.o()) {
 					if (var6 <= 2.5D) {
-						a(var1, var5, class_aim.h.S());
+						a(var1, var5, Blocks.h.S());
 					} else if (var5.o() < var3.o()) {
-						a(var1, var5, class_aim.bH.S());
+						a(var1, var5, Blocks.bH.S());
 					}
 				} else if (var5.o() > var3.o()) {
-					a(var1, var5, class_aim.a.S());
+					a(var1, var5, Blocks.a.S());
 				} else if (var6 > 2.5D) {
-					a(var1, var5, class_aim.h.S());
+					a(var1, var5, Blocks.h.S());
 				} else if (c) {
-					a(var1, new class_cj(var5), class_aim.bF.S());
+					a(var1, new class_cj(var5), Blocks.bF.S());
 				} else {
-					a(var1, new class_cj(var5), class_aim.a.S());
+					a(var1, new class_cj(var5), Blocks.a.S());
 				}
 			}
 		}
 
 		for (int var8 = 0; var8 < 4; ++var8) {
-			a(var1, var3.b(var8), class_aim.h.S());
+			a(var1, var3.b(var8), Blocks.h.S());
 		}
 
 		class_cj var9 = var3.b(2);
@@ -47,7 +47,7 @@ public class class_aso extends class_asp {
 
 		while (var10.hasNext()) {
 			class_cq var11 = (class_cq) var10.next();
-			a(var1, var9.a(var11), class_aim.aa.S().a(class_anr.a, var11));
+			a(var1, var9.a(var11), Blocks.aa.S().a(class_anr.a, var11));
 		}
 
 		return true;

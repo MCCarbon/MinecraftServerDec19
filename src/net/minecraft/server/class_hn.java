@@ -11,7 +11,7 @@ public class class_hn implements class_ff {
 	public class_hn() {
 	}
 
-	public class_hn(class_qx var1) {
+	public class_hn(Entity var1) {
 		this(var1.G(), var1.v, var1.w, var1.x);
 	}
 

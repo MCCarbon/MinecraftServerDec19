@@ -41,7 +41,7 @@ public class class_afl {
 
 	public static Map a(class_aco var0) {
 		LinkedHashMap var1 = Maps.newLinkedHashMap();
-		class_du var2 = var0.b() == class_acq.ci ? class_acq.ci.h(var0) : var0.p();
+		class_du var2 = var0.b() == Items.ci ? Items.ci.h(var0) : var0.p();
 		if (var2 != null) {
 			for (int var3 = 0; var3 < var2.c(); ++var3) {
 				class_afj var4 = class_afj.c(var2.b(var3).g("id"));
@@ -66,8 +66,8 @@ public class class_afl {
 				var7.a("id", (short) class_afj.b(var5));
 				var7.a("lvl", (short) var6);
 				var2.a(var7);
-				if (var1.b() == class_acq.ci) {
-					class_acq.ci.a(var1, new class_afm(var5, var6));
+				if (var1.b() == Items.ci) {
+					Items.ci.a(var1, new class_afm(var5, var6));
 				}
 			}
 		}
@@ -76,7 +76,7 @@ public class class_afl {
 			if (var1.n()) {
 				var1.o().q("ench");
 			}
-		} else if (var1.b() != class_acq.ci) {
+		} else if (var1.b() != Items.ci) {
 			var1.a("ench", var2);
 		}
 
@@ -128,7 +128,7 @@ public class class_afl {
 		return c.a;
 	}
 
-	public static void a(class_rg var0, class_qx var1) {
+	public static void a(class_rg var0, Entity var1) {
 		d.b = var1;
 		d.a = var0;
 		if (var0 != null) {
@@ -141,7 +141,7 @@ public class class_afl {
 
 	}
 
-	public static void b(class_rg var0, class_qx var1) {
+	public static void b(class_rg var0, Entity var1) {
 		e.a = var0;
 		e.b = var1;
 		if (var0 != null) {
@@ -231,7 +231,7 @@ public class class_afl {
 	}
 
 	public static int a(Random var0, int var1, int var2, class_aco var3) {
-		class_acm var4 = var3.b();
+		Item var4 = var3.b();
 		int var5 = var4.c();
 		if (var5 <= 0) {
 			return 0;
@@ -246,9 +246,9 @@ public class class_afl {
 	}
 
 	public static class_aco a(Random var0, class_aco var1, int var2) {
-		boolean var3 = var1.b() == class_acq.aN;
+		boolean var3 = var1.b() == Items.aN;
 		if (var3) {
-			var1.a(class_acq.ci);
+			var1.a(Items.ci);
 		}
 
 		List var4 = b(var0, var1, var2);
@@ -257,7 +257,7 @@ public class class_afl {
 		while (var5.hasNext()) {
 			class_afm var6 = (class_afm) var5.next();
 			if (var3) {
-				class_acq.ci.a(var1, var6);
+				Items.ci.a(var1, var6);
 			} else {
 				var1.a(var6.b, var6.c);
 			}
@@ -268,7 +268,7 @@ public class class_afl {
 
 	public static List b(Random var0, class_aco var1, int var2) {
 		ArrayList var3 = Lists.newArrayList();
-		class_acm var4 = var1.b();
+		Item var4 = var1.b();
 		int var5 = var4.c();
 		if (var5 <= 0) {
 			return var3;
@@ -308,8 +308,8 @@ public class class_afl {
 
 	public static List a(int var0, class_aco var1) {
 		ArrayList var2 = Lists.newArrayList();
-		class_acm var3 = var1.b();
-		boolean var4 = var1.b() == class_acq.aN;
+		Item var3 = var1.b();
+		boolean var4 = var1.b() == Items.aN;
 		Iterator var5 = class_afj.b.iterator();
 
 		while (true) {
@@ -339,7 +339,7 @@ public class class_afl {
 
 	static final class class_a_in_class_afl implements class_afl.class_c_in_class_afl {
 		public class_rg a;
-		public class_qx b;
+		public Entity b;
 
 		private class_a_in_class_afl() {
 		}
@@ -357,7 +357,7 @@ public class class_afl {
 
 	static final class class_b_in_class_afl implements class_afl.class_c_in_class_afl {
 		public class_rg a;
-		public class_qx b;
+		public Entity b;
 
 		private class_b_in_class_afl() {
 		}

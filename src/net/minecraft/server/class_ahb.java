@@ -99,8 +99,8 @@ public abstract class class_ahb {
 	protected class_atp aC;
 
 	protected class_ahb(int var1) {
-		ak = class_aim.c.S();
-		al = class_aim.d.S();
+		ak = Blocks.c.S();
+		al = Blocks.d.S();
 		am = 5169201;
 		an = a.a;
 		ao = a.b;
@@ -275,16 +275,16 @@ public abstract class class_ahb {
 
 		for (int var16 = 255; var16 >= 0; --var16) {
 			if (var16 <= var2.nextInt(5)) {
-				var3.a(var14, var16, var13, class_aim.h.S());
+				var3.a(var14, var16, var13, Blocks.h.S());
 			} else {
 				class_apn var17 = var3.a(var14, var16, var13);
 				if (var17.c().v() == class_avq.a) {
 					var11 = -1;
-				} else if (var17.c() == class_aim.b) {
+				} else if (var17.c() == Blocks.b) {
 					if (var11 == -1) {
 						if (var12 <= 0) {
 							var9 = null;
-							var10 = class_aim.b.S();
+							var10 = Blocks.b.S();
 						} else if ((var16 >= (var8 - 4)) && (var16 <= (var8 + 1))) {
 							var9 = ak;
 							var10 = al;
@@ -292,9 +292,9 @@ public abstract class class_ahb {
 
 						if ((var16 < var8) && ((var9 == null) || (var9.c().v() == class_avq.a))) {
 							if (this.a(var15.c(var4, var16, var5)) < 0.15F) {
-								var9 = class_aim.aI.S();
+								var9 = Blocks.aI.S();
 							} else {
-								var9 = class_aim.j.S();
+								var9 = Blocks.j.S();
 							}
 						}
 
@@ -303,17 +303,17 @@ public abstract class class_ahb {
 							var3.a(var14, var16, var13, var9);
 						} else if (var16 < (var8 - 7 - var12)) {
 							var9 = null;
-							var10 = class_aim.b.S();
-							var3.a(var14, var16, var13, class_aim.n.S());
+							var10 = Blocks.b.S();
+							var3.a(var14, var16, var13, Blocks.n.S());
 						} else {
 							var3.a(var14, var16, var13, var10);
 						}
 					} else if (var11 > 0) {
 						--var11;
 						var3.a(var14, var16, var13, var10);
-						if ((var11 == 0) && (var10.c() == class_aim.m)) {
+						if ((var11 == 0) && (var10.c() == Blocks.m)) {
 							var11 = var2.nextInt(4) + Math.max(0, var16 - 63);
-							var10 = var10.b(class_ams.a) == class_ams.class_a_in_class_ams.b ? class_aim.cM.S() : class_aim.A.S();
+							var10 = var10.b(class_ams.a) == class_ams.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.A.S();
 						}
 					}
 				}

@@ -7,8 +7,8 @@ import java.util.Random;
 public abstract class class_aur {
 	protected class_aua l;
 	private class_cq a;
-	private class_ail.class_a_in_class_ail b;
-	private class_ail.class_c_in_class_ail c;
+	private Block.class_a_in_class_ail b;
+	private Block.class_c_in_class_ail c;
 	protected int m;
 
 	public class_aur() {
@@ -171,11 +171,11 @@ public abstract class class_aur {
 	protected void a(class_ago var1, class_apn var2, int var3, int var4, int var5, class_aua var6) {
 		class_cj var7 = new class_cj(this.a(var3, var5), this.d(var4), this.b(var3, var5));
 		if (var6.b(var7)) {
-			if (b != class_ail.class_a_in_class_ail.a) {
+			if (b != Block.class_a_in_class_ail.a) {
 				var2 = var2.c().a(var2, b);
 			}
 
-			if (c != class_ail.class_c_in_class_ail.a) {
+			if (c != Block.class_c_in_class_ail.a) {
 				var2 = var2.c().a(var2, c);
 			}
 
@@ -188,14 +188,14 @@ public abstract class class_aur {
 		int var7 = this.d(var3);
 		int var8 = this.b(var2, var4);
 		class_cj var9 = new class_cj(var6, var7, var8);
-		return !var5.b(var9) ? class_aim.a.S() : var1.p(var9);
+		return !var5.b(var9) ? Blocks.a.S() : var1.p(var9);
 	}
 
 	protected void a(class_ago var1, class_aua var2, int var3, int var4, int var5, int var6, int var7, int var8) {
 		for (int var9 = var4; var9 <= var7; ++var9) {
 			for (int var10 = var3; var10 <= var6; ++var10) {
 				for (int var11 = var5; var11 <= var8; ++var11) {
-					this.a(var1, class_aim.a.S(), var10, var9, var11, var2);
+					this.a(var1, Blocks.a.S(), var10, var9, var11, var2);
 				}
 			}
 		}
@@ -288,7 +288,7 @@ public abstract class class_aur {
 		class_cj var6 = new class_cj(this.a(var2, var4), this.d(var3), this.b(var2, var4));
 		if (var5.b(var6)) {
 			while (!var1.d(var6) && (var6.o() < 255)) {
-				var1.a(var6, class_aim.a.S(), 2);
+				var1.a(var6, Blocks.a.S(), 2);
 				var6 = var6.a();
 			}
 
@@ -310,10 +310,10 @@ public abstract class class_aur {
 
 	protected boolean a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
 		class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-		if (var2.b(var9) && (var1.p(var9).c() != class_aim.ae)) {
-			class_apn var10 = class_aim.ae.S();
-			var1.a(var9, class_aim.ae.g(var1, var9, var10), 2);
-			class_aoi var11 = var1.s(var9);
+		if (var2.b(var9) && (var1.p(var9).c() != Blocks.ae)) {
+			class_apn var10 = Blocks.ae.S();
+			var1.a(var9, Blocks.ae.g(var1, var9, var10), 2);
+			TileEntity var11 = var1.s(var9);
 			if (var11 instanceof class_aok) {
 				class_oj.a(var3, var7, ((class_aok) var11), var8);
 			}
@@ -326,9 +326,9 @@ public abstract class class_aur {
 
 	protected boolean a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, class_cq var7, List var8, int var9) {
 		class_cj var10 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-		if (var2.b(var10) && (var1.p(var10).c() != class_aim.z)) {
-			this.a(var1, class_aim.z.S().a(class_ajm.a, var7), var4, var5, var6, var2);
-			class_aoi var11 = var1.s(var10);
+		if (var2.b(var10) && (var1.p(var10).c() != Blocks.z)) {
+			this.a(var1, Blocks.z.S().a(class_ajm.a, var7), var4, var5, var6, var2);
+			TileEntity var11 = var1.s(var10);
 			if (var11 instanceof class_aoo) {
 				class_oj.a(var3, var8, (class_aoo) var11, var9);
 			}
@@ -340,8 +340,8 @@ public abstract class class_aur {
 	}
 
 	protected void a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, class_cq var7) {
-		this.a(var1, class_aim.ao.S().a(class_ajn.a, var7), var4, var5, var6, var2);
-		this.a(var1, class_aim.ao.S().a(class_ajn.a, var7).a(class_ajn.P, class_ajn.class_a_in_class_ajn.a), var4, var5 + 1, var6, var2);
+		this.a(var1, Blocks.ao.S().a(class_ajn.a, var7), var4, var5, var6, var2);
+		this.a(var1, Blocks.ao.S().a(class_ajn.a, var7).a(class_ajn.P, class_ajn.class_a_in_class_ajn.a), var4, var5 + 1, var6, var2);
 	}
 
 	public void a(int var1, int var2, int var3) {
@@ -355,25 +355,25 @@ public abstract class class_aur {
 	public void a(class_cq var1) {
 		a = var1;
 		if (var1 == null) {
-			c = class_ail.class_c_in_class_ail.a;
-			b = class_ail.class_a_in_class_ail.a;
+			c = Block.class_c_in_class_ail.a;
+			b = Block.class_a_in_class_ail.a;
 		} else {
 			switch (class_aur.SyntheticClass_1.a[var1.ordinal()]) {
 				case 2:
-					b = class_ail.class_a_in_class_ail.b;
-					c = class_ail.class_c_in_class_ail.a;
+					b = Block.class_a_in_class_ail.b;
+					c = Block.class_c_in_class_ail.a;
 					break;
 				case 3:
-					b = class_ail.class_a_in_class_ail.b;
-					c = class_ail.class_c_in_class_ail.b;
+					b = Block.class_a_in_class_ail.b;
+					c = Block.class_c_in_class_ail.b;
 					break;
 				case 4:
-					b = class_ail.class_a_in_class_ail.a;
-					c = class_ail.class_c_in_class_ail.b;
+					b = Block.class_a_in_class_ail.a;
+					c = Block.class_c_in_class_ail.b;
 					break;
 				default:
-					b = class_ail.class_a_in_class_ail.a;
-					c = class_ail.class_c_in_class_ail.a;
+					b = Block.class_a_in_class_ail.a;
+					c = Block.class_c_in_class_ail.a;
 			}
 		}
 
@@ -416,7 +416,7 @@ public abstract class class_aur {
 		protected class_apn a;
 
 		protected class_a_in_class_aur() {
-			a = class_aim.a.S();
+			a = Blocks.a.S();
 		}
 
 		public abstract void a(Random var1, int var2, int var3, int var4, boolean var5);

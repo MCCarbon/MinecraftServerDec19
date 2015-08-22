@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aba extends class_acm {
+public class class_aba extends Item {
 	public class_aba() {
 		this.a(class_abp.c);
 	}
@@ -14,7 +14,7 @@ public class class_aba extends class_acm {
 			return class_pw.c;
 		} else {
 			class_apn var10 = var3.p(var4);
-			class_ail var11 = var10.c();
+			Block var11 = var10.c();
 			boolean var12 = var11.a(var3, var4);
 			if (!var12) {
 				var4 = var4.a();
@@ -28,7 +28,7 @@ public class class_aba extends class_acm {
 				boolean var17 = var12 || var3.d(var4);
 				boolean var18 = var16 || var3.d(var15);
 				if (var17 && var18 && class_ago.a(var3, var4.b()) && class_ago.a(var3, var15.b())) {
-					class_apn var19 = class_aim.C.S().a(class_aij.b, Boolean.valueOf(false)).a(class_akx.O, var14).a(class_aij.a, class_aij.class_a_in_class_aij.b);
+					class_apn var19 = Blocks.C.S().a(class_aij.b, Boolean.valueOf(false)).a(class_akx.O, var14).a(class_aij.a, class_aij.class_a_in_class_aij.b);
 					if (var3.a(var4, var19, 3)) {
 						class_apn var20 = var19.a(class_aij.a, class_aij.class_a_in_class_aij.a);
 						var3.a(var15, var20, 3);

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class class_aif extends class_ail implements class_ajy {
+public abstract class class_aif extends Block implements class_ajy {
 	protected class_aif(class_avq var1) {
 		this(var1, var1.r());
 	}
@@ -33,7 +33,7 @@ public abstract class class_aif extends class_ail implements class_ajy {
 	@Override
 	public boolean a(class_ago var1, class_cj var2, class_apn var3, int var4, int var5) {
 		super.a(var1, var2, var3, var4, var5);
-		class_aoi var6 = var1.s(var2);
+		TileEntity var6 = var1.s(var2);
 		return var6 == null ? false : var6.c(var4, var5);
 	}
 }

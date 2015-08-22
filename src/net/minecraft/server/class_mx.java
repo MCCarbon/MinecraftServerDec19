@@ -9,11 +9,11 @@ public class class_mx extends class_nd {
 	public final class_aco d;
 	private boolean m;
 
-	public class_mx(String var1, String var2, int var3, int var4, class_acm var5, class_mx var6) {
+	public class_mx(String var1, String var2, int var3, int var4, Item var5, class_mx var6) {
 		this(var1, var2, var3, var4, new class_aco(var5), var6);
 	}
 
-	public class_mx(String var1, String var2, int var3, int var4, class_ail var5, class_mx var6) {
+	public class_mx(String var1, String var2, int var3, int var4, Block var5, class_mx var6) {
 		this(var1, var2, var3, var4, new class_aco(var5), var6);
 	}
 

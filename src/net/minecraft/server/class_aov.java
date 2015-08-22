@@ -436,9 +436,9 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 		int var9 = class_oa.c(var3);
 		int var10 = class_oa.c(var5);
 		class_cj var11 = new class_cj(var8, var9, var10);
-		class_ail var12 = var0.p(var11).c();
+		Block var12 = var0.p(var11).c();
 		if (var12.B()) {
-			class_aoi var13 = var0.s(var11);
+			TileEntity var13 = var0.s(var11);
 			if (var13 instanceof class_pp) {
 				var7 = var13;
 				if ((var7 instanceof class_aok) && (var12 instanceof class_aiw)) {
@@ -448,7 +448,7 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 		}
 
 		if (var7 == null) {
-			List var14 = var0.a((class_qx) null, (new class_ayk(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D)), class_rb.c);
+			List var14 = var0.a((Entity) null, (new class_ayk(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D)), class_rb.c);
 			if (!var14.isEmpty()) {
 				var7 = var14.get(var0.s.nextInt(var14.size()));
 			}

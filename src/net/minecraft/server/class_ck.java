@@ -15,5 +15,5 @@ public interface class_ck extends class_cu {
 
 	int f();
 
-	class_aoi h();
+	TileEntity h();
 }

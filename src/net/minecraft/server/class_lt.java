@@ -157,7 +157,7 @@ public class class_lt implements class_id, class_ks {
 						d.ar().d(b);
 						if (b.m != null) {
 							if (var9 > 4.0D) {
-								class_qx var45 = b.m;
+								Entity var45 = b.m;
 								b.a.a((new class_ia(var45)));
 								this.a(b.s, b.t, b.u, b.y, b.z);
 							}
@@ -436,7 +436,7 @@ public class class_lt implements class_id, class_ks {
 	public void a(class_ja var1) {
 		class_fh.a(var1, this, b.v());
 		if (b.w()) {
-			class_qx var2 = null;
+			Entity var2 = null;
 			class_ll[] var3 = d.d;
 			int var4 = var3.length;
 
@@ -452,7 +452,7 @@ public class class_lt implements class_id, class_ks {
 
 			if (var2 != null) {
 				b.e(b);
-				b.a((class_qx) null);
+				b.a((Entity) null);
 				if (var2.o != b.o) {
 					class_ll var7 = b.v();
 					class_ll var8 = (class_ll) var2.o;
@@ -631,7 +631,7 @@ public class class_lt implements class_id, class_ks {
 	public void a(class_io var1) {
 		class_fh.a(var1, this, b.v());
 		class_ll var2 = d.a(b.am);
-		class_qx var3 = var1.a(var2);
+		Entity var3 = var1.a(var2);
 		b.A();
 		if (var3 != null) {
 			boolean var4 = b.t(var3);
@@ -765,7 +765,7 @@ public class class_lt implements class_id, class_ks {
 				class_dn var4 = var3.o().o("BlockEntityTag");
 				if (var4.e("x") && var4.e("y") && var4.e("z")) {
 					class_cj var5 = new class_cj(var4.h("x"), var4.h("y"), var4.h("z"));
-					class_aoi var6 = b.o.s(var5);
+					TileEntity var6 = b.o.s(var5);
 					if (var6 != null) {
 						class_dn var7 = new class_dn();
 						var6.b(var7);
@@ -816,7 +816,7 @@ public class class_lt implements class_id, class_ks {
 		class_ll var2 = d.a(b.am);
 		class_cj var3 = var1.a();
 		if (var2.e(var3)) {
-			class_aoi var4 = var2.s(var3);
+			TileEntity var4 = var2.s(var3);
 			if (!(var4 instanceof class_aoz)) {
 				return;
 			}
@@ -902,7 +902,7 @@ public class class_lt implements class_id, class_ks {
 					return;
 				}
 
-				if ((var97.b() == class_acq.bR) && (var97.b() == var105.b())) {
+				if ((var97.b() == Items.bR) && (var97.b() == var105.b())) {
 					var105.a("pages", var97.o().c("pages", 8));
 				}
 			} catch (Exception var85) {
@@ -928,11 +928,11 @@ public class class_lt implements class_id, class_ks {
 					return;
 				}
 
-				if ((var97.b() == class_acq.bS) && (var105.b() == class_acq.bR)) {
+				if ((var97.b() == Items.bS) && (var105.b() == Items.bR)) {
 					var105.a("author", (new class_ea(b.e_())));
 					var105.a("title", (new class_ea(var97.o().l("title"))));
 					var105.a("pages", var97.o().c("pages", 8));
-					var105.a(class_acq.bS);
+					var105.a(Items.bS);
 				}
 			} catch (Exception var83) {
 				c.error("Couldn\'t sign book", var83);
@@ -966,12 +966,12 @@ public class class_lt implements class_id, class_ks {
 				byte var92 = var2.readByte();
 				class_age var98 = null;
 				if (var92 == 0) {
-					class_aoi var100 = b.o.s(new class_cj(var2.readInt(), var2.readInt(), var2.readInt()));
+					TileEntity var100 = b.o.s(new class_cj(var2.readInt(), var2.readInt(), var2.readInt()));
 					if (var100 instanceof class_aol) {
 						var98 = ((class_aol) var100).b();
 					}
 				} else if (var92 == 1) {
-					class_qx var102 = b.o.a(var2.readInt());
+					Entity var102 = b.o.a(var2.readInt());
 					if (var102 instanceof class_xj) {
 						var98 = ((class_xj) var102).i();
 					}
@@ -1013,7 +1013,7 @@ public class class_lt implements class_id, class_ks {
 					class_age var3 = null;
 					class_aol var4 = null;
 					class_cj var5 = new class_cj(var2.readInt(), var2.readInt(), var2.readInt());
-					class_aoi var6 = b.o.s(var5);
+					TileEntity var6 = b.o.s(var5);
 					if (var6 instanceof class_aol) {
 						var4 = (class_aol) var6;
 						var3 = var4.b();
@@ -1028,15 +1028,15 @@ public class class_lt implements class_id, class_ks {
 						class_apn var12;
 						switch (class_lt.SyntheticClass_1.d[var9.ordinal()]) {
 							case 1:
-								var12 = class_aim.dd.S();
+								var12 = Blocks.dd.S();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 								break;
 							case 2:
-								var12 = class_aim.dc.S();
+								var12 = Blocks.dc.S();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 								break;
 							case 3:
-								var12 = class_aim.bX.S();
+								var12 = Blocks.bX.S();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 						}
 
@@ -1096,7 +1096,7 @@ public class class_lt implements class_id, class_ks {
 				try {
 					if (b.a(4, "") && b.bI.d) {
 						class_cj var91 = new class_cj(var2.readInt(), var2.readInt(), var2.readInt());
-						class_aoi var96 = b.o.s(var91);
+						TileEntity var96 = b.o.s(var91);
 						if (var96 instanceof class_apb) {
 							class_apb var99 = (class_apb) var96;
 							byte var104 = var2.readByte();
@@ -1106,9 +1106,9 @@ public class class_lt implements class_id, class_ks {
 							var99.b(new class_cj(var2.readInt(), var2.readInt(), var2.readInt()));
 							var99.c(new class_cj(var2.readInt(), var2.readInt(), var2.readInt()));
 							String var108 = var2.c(32);
-							var99.a(class_ail.class_a_in_class_ail.valueOf(var108));
+							var99.a(Block.class_a_in_class_ail.valueOf(var108));
 							String var109 = var2.c(32);
-							var99.a(class_ail.class_c_in_class_ail.valueOf(var109));
+							var99.a(Block.class_c_in_class_ail.valueOf(var109));
 							var99.b(var2.c(128));
 							var99.a(var2.readBoolean());
 							if (var104 == 2) {

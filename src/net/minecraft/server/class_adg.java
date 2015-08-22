@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 
 public class class_adg extends class_aci {
-	private class_ail b;
-	private class_ail c;
+	private Block b;
+	private Block c;
 
-	public class_adg(int var1, float var2, class_ail var3, class_ail var4) {
+	public class_adg(int var1, float var2, Block var3, Block var4) {
 		super(var1, var2, false);
 		b = var3;
 		c = var4;

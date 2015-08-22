@@ -12,7 +12,7 @@ public class class_ahh extends class_ahb {
 
 	protected class_ahh(int var1, boolean var2) {
 		super(var1);
-		aD = new class_atf(class_aim.be.S().a(class_alj.a, class_alj.class_a_in_class_alj.a), 9);
+		aD = new class_atf(Blocks.be.S().a(class_alj.a, class_alj.class_a_in_class_alj.a), 9);
 		aE = new class_ato(false);
 		aF = 0;
 		aG = 1;
@@ -43,8 +43,8 @@ public class class_ahh extends class_ahb {
 			var7 = var2.nextInt(28) + 4;
 			int var8 = var2.nextInt(16);
 			class_cj var9 = var3.a(var6, var7, var8);
-			if (var1.p(var9).c() == class_aim.b) {
-				var1.a(var9, class_aim.bP.S(), 2);
+			if (var1.p(var9).c() == Blocks.b) {
+				var1.a(var9, Blocks.bP.S(), 2);
 			}
 		}
 
@@ -59,14 +59,14 @@ public class class_ahh extends class_ahb {
 
 	@Override
 	public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
-		ak = class_aim.c.S();
-		al = class_aim.d.S();
+		ak = Blocks.c.S();
+		al = Blocks.d.S();
 		if (((var6 < -1.0D) || (var6 > 2.0D)) && (aI == aH)) {
-			ak = class_aim.n.S();
-			al = class_aim.n.S();
+			ak = Blocks.n.S();
+			al = Blocks.n.S();
 		} else if ((var6 > 1.0D) && (aI != aG)) {
-			ak = class_aim.b.S();
-			al = class_aim.b.S();
+			ak = Blocks.b.S();
+			al = Blocks.b.S();
 		}
 
 		this.b(var1, var2, var3, var4, var5, var6);

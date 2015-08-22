@@ -18,12 +18,12 @@ public class class_ar extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.op.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if ((var2.length == 1) && (var2[0].length() > 0)) {
 			MinecraftServer var3 = MinecraftServer.P();
 			GameProfile var4 = var3.aH().a(var2[0]);
@@ -39,7 +39,7 @@ public class class_ar extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		if (var2.length == 1) {
 			String var4 = var2[var2.length - 1];
 			ArrayList var5 = Lists.newArrayList();

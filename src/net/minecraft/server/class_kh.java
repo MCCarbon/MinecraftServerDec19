@@ -19,7 +19,7 @@ public class class_kh {
 	}
 
 	static void b() {
-		class_ajm.N.a(class_acq.g, new class_kg() {
+		class_ajm.N.a(Items.g, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
 				class_yx var4 = new class_yx(var1, var2.a(), var2.b(), var2.c());
@@ -27,7 +27,7 @@ public class class_kh {
 				return var4;
 			}
 		});
-		class_ajm.N.a(class_acq.i, new class_kg() {
+		class_ajm.N.a(Items.i, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
 				class_zo var4 = new class_zo(var1, var2.a(), var2.b(), var2.c(), var3);
@@ -35,7 +35,7 @@ public class class_kh {
 				return var4;
 			}
 		});
-		class_ajm.N.a(class_acq.h, new class_kg() {
+		class_ajm.N.a(Items.h, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
 				class_zi var4 = new class_zi(var1, var2.a(), var2.b(), var2.c());
@@ -43,19 +43,19 @@ public class class_kh {
 				return var4;
 			}
 		});
-		class_ajm.N.a(class_acq.aR, new class_kg() {
+		class_ajm.N.a(Items.aR, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
 				return new class_zk(var1, var2.a(), var2.b(), var2.c());
 			}
 		});
-		class_ajm.N.a(class_acq.aF, new class_kg() {
+		class_ajm.N.a(Items.aF, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
 				return new class_zh(var1, var2.a(), var2.b(), var2.c());
 			}
 		});
-		class_ajm.N.a(class_acq.bP, new class_kg() {
+		class_ajm.N.a(Items.bP, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
 				return new class_zm(var1, var2.a(), var2.b(), var2.c());
@@ -71,7 +71,7 @@ public class class_kh {
 				return super.b() * 1.25F;
 			}
 		});
-		class_ajm.N.a(class_acq.bC, new class_cr() {
+		class_ajm.N.a(Items.bC, new class_cr() {
 			@Override
 			public class_aco a(class_ck var1, final class_aco var2) {
 				return (new class_kg() {
@@ -92,7 +92,7 @@ public class class_kh {
 				}).a(var1, var2);
 			}
 		});
-		class_ajm.N.a(class_acq.bD, new class_cr() {
+		class_ajm.N.a(Items.bD, new class_cr() {
 			@Override
 			public class_aco a(class_ck var1, final class_aco var2) {
 				return (new class_kg() {
@@ -113,14 +113,14 @@ public class class_kh {
 				}).a(var1, var2);
 			}
 		});
-		class_ajm.N.a(class_acq.bO, new class_cn() {
+		class_ajm.N.a(Items.bO, new class_cn() {
 			@Override
 			public class_aco b(class_ck var1, class_aco var2) {
 				class_cq var3 = class_ajm.b(var1.f());
 				double var4 = var1.a() + var3.g();
 				double var6 = var1.d().o() + 0.2F;
 				double var8 = var1.c() + var3.i();
-				class_qx var10 = class_ads.a(var1.i(), class_ads.h(var2), var4, var6, var8);
+				Entity var10 = class_ads.a(var1.i(), class_ads.h(var2), var4, var6, var8);
 				if ((var10 instanceof class_rg) && var2.s()) {
 					var10.c(var2.q());
 				}
@@ -130,7 +130,7 @@ public class class_kh {
 				return var2;
 			}
 		});
-		class_ajm.N.a(class_acq.cg, new class_cn() {
+		class_ajm.N.a(Items.cg, new class_cn() {
 			@Override
 			public class_aco b(class_ck var1, class_aco var2) {
 				class_cq var3 = class_ajm.b(var1.f());
@@ -148,7 +148,7 @@ public class class_kh {
 				var1.i().b(1002, var1.d(), 0);
 			}
 		});
-		class_ajm.N.a(class_acq.bQ, new class_cn() {
+		class_ajm.N.a(Items.bQ, new class_cn() {
 			@Override
 			public class_aco b(class_ck var1, class_aco var2) {
 				class_cq var3 = class_ajm.b(var1.f());
@@ -171,7 +171,7 @@ public class class_kh {
 				var1.i().b(1009, var1.d(), 0);
 			}
 		});
-		class_ajm.N.a(class_acq.aG, new class_cn() {
+		class_ajm.N.a(Items.aG, new class_cn() {
 			private final class_cn b = new class_cn();
 
 			@Override
@@ -213,7 +213,7 @@ public class class_kh {
 				class_abi var3 = (class_abi) var2.b();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
 				if (var3.a(var1.i(), var4)) {
-					var2.a(class_acq.ay);
+					var2.a(Items.ay);
 					var2.b = 1;
 					return var2;
 				} else {
@@ -221,9 +221,9 @@ public class class_kh {
 				}
 			}
 		};
-		class_ajm.N.a(class_acq.aA, var0);
-		class_ajm.N.a(class_acq.az, var0);
-		class_ajm.N.a(class_acq.ay, new class_cn() {
+		class_ajm.N.a(Items.aA, var0);
+		class_ajm.N.a(Items.az, var0);
+		class_ajm.N.a(Items.ay, new class_cn() {
 			private final class_cn b = new class_cn();
 
 			@Override
@@ -231,17 +231,17 @@ public class class_kh {
 				class_ago var3 = var1.i();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
 				class_apn var5 = var3.p(var4);
-				class_ail var6 = var5.c();
+				Block var6 = var5.c();
 				class_avq var7 = var6.v();
-				class_acm var8;
+				Item var8;
 				if (class_avq.h.equals(var7) && (var6 instanceof class_alf) && (((Integer) var5.b(class_alf.b)).intValue() == 0)) {
-					var8 = class_acq.az;
+					var8 = Items.az;
 				} else {
 					if (!class_avq.i.equals(var7) || !(var6 instanceof class_alf) || (((Integer) var5.b(class_alf.b)).intValue() != 0)) {
 						return super.b(var1, var2);
 					}
 
-					var8 = class_acq.aA;
+					var8 = Items.aA;
 				}
 
 				var3.g(var4);
@@ -255,7 +255,7 @@ public class class_kh {
 				return var2;
 			}
 		});
-		class_ajm.N.a(class_acq.d, new class_cn() {
+		class_ajm.N.a(Items.d, new class_cn() {
 			private boolean b = true;
 
 			@Override
@@ -263,12 +263,12 @@ public class class_kh {
 				class_ago var3 = var1.i();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
 				if (var3.d(var4)) {
-					var3.a(var4, class_aim.ab.S());
+					var3.a(var4, Blocks.ab.S());
 					if (var2.a(1, var3.s)) {
 						var2.b = 0;
 					}
-				} else if (var3.p(var4).c() == class_aim.W) {
-					class_aim.W.e(var3, var4, class_aim.W.S().a(class_anq.a, Boolean.valueOf(true)));
+				} else if (var3.p(var4).c() == Blocks.W) {
+					Blocks.W.e(var3, var4, Blocks.W.S().a(class_anq.a, Boolean.valueOf(true)));
 					var3.g(var4);
 				} else {
 					b = false;
@@ -287,7 +287,7 @@ public class class_kh {
 
 			}
 		});
-		class_ajm.N.a(class_acq.aY, new class_cn() {
+		class_ajm.N.a(Items.aY, new class_cn() {
 			private boolean b = true;
 
 			@Override
@@ -319,7 +319,7 @@ public class class_kh {
 
 			}
 		});
-		class_ajm.N.a(class_acm.a(class_aim.W), new class_cn() {
+		class_ajm.N.a(Item.a(Blocks.W), new class_cn() {
 			@Override
 			protected class_aco b(class_ck var1, class_aco var2) {
 				class_ago var3 = var1.i();
@@ -331,7 +331,7 @@ public class class_kh {
 				return var2;
 			}
 		});
-		class_ajm.N.a(class_acq.cc, new class_cn() {
+		class_ajm.N.a(Items.cc, new class_cn() {
 			private boolean b = true;
 
 			@Override
@@ -339,11 +339,11 @@ public class class_kh {
 				class_ago var3 = var1.i();
 				class_cq var4 = class_ajm.b(var1.f());
 				class_cj var5 = var1.d().a(var4);
-				class_amx var6 = class_aim.ce;
+				class_amx var6 = Blocks.ce;
 				if (var3.d(var5) && var6.b(var3, var5, var2)) {
 					if (!var3.D) {
 						var3.a(var5, var6.S().a(class_amx.a, class_cq.b), 3);
-						class_aoi var7 = var3.s(var5);
+						TileEntity var7 = var3.s(var5);
 						if (var7 instanceof class_apa) {
 							if (var2.i() == 3) {
 								GameProfile var8 = null;
@@ -365,7 +365,7 @@ public class class_kh {
 							}
 
 							((class_apa) var7).b(var4.d().b() * 4);
-							class_aim.ce.a(var3, var5, (class_apa) var7);
+							Blocks.ce.a(var3, var5, (class_apa) var7);
 						}
 
 						--var2.b;
@@ -387,14 +387,14 @@ public class class_kh {
 
 			}
 		});
-		class_ajm.N.a(class_acm.a(class_aim.aU), new class_cn() {
+		class_ajm.N.a(Item.a(Blocks.aU), new class_cn() {
 			private boolean b = true;
 
 			@Override
 			protected class_aco b(class_ck var1, class_aco var2) {
 				class_ago var3 = var1.i();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
-				class_amf var5 = (class_amf) class_aim.aU;
+				class_amf var5 = (class_amf) Blocks.aU;
 				if (var3.d(var4) && var5.d(var3, var4)) {
 					if (!var3.D) {
 						var3.a(var4, var5.S(), 3);
@@ -427,11 +427,11 @@ public class class_kh {
 				d();
 			}
 
-			class_ail.U();
+			Block.U();
 			class_akd.l();
 			class_qq.k();
 			class_afj.e();
-			class_acm.t();
+			Item.t();
 			class_aec.c();
 			class_aed.a();
 			class_nh.a();

@@ -115,12 +115,12 @@ public class class_asb extends class_asa {
 
 	void a(class_cj var1) {
 		for (int var2 = 0; var2 < i; ++var2) {
-			this.a(var1.b(var2), this.b(var2), class_aim.t.S().a(class_alc.b, Boolean.valueOf(false)));
+			this.a(var1.b(var2), this.b(var2), Blocks.t.S().a(class_alc.b, Boolean.valueOf(false)));
 		}
 
 	}
 
-	void a(class_cj var1, class_cj var2, class_ail var3) {
+	void a(class_cj var1, class_cj var2, Block var3) {
 		class_cj var4 = var2.a(-var1.n(), -var1.o(), -var1.p());
 		int var5 = this.b(var4);
 		float var6 = (float) var4.n() / (float) var5;
@@ -175,7 +175,7 @@ public class class_asb extends class_asa {
 	void c() {
 		class_cj var1 = m;
 		class_cj var2 = m.b(b);
-		class_ail var3 = class_aim.r;
+		Block var3 = Blocks.r;
 		this.a(var1, var2, var3);
 		if (g == 2) {
 			this.a(var1.f(), var2.f(), var3);
@@ -193,7 +193,7 @@ public class class_asb extends class_asa {
 			int var3 = var2.q();
 			class_cj var4 = new class_cj(m.n(), var3, m.p());
 			if (!var4.equals(var2) && this.c(var3 - m.o())) {
-				this.a(var4, var2, class_aim.r);
+				this.a(var4, var2, Blocks.r);
 			}
 		}
 
@@ -245,8 +245,8 @@ public class class_asb extends class_asa {
 	}
 
 	private boolean f() {
-		class_ail var1 = l.p(m.b()).c();
-		if ((var1 != class_aim.d) && (var1 != class_aim.c) && (var1 != class_aim.ak)) {
+		Block var1 = l.p(m.b()).c();
+		if ((var1 != Blocks.d) && (var1 != Blocks.c) && (var1 != Blocks.ak)) {
 			return false;
 		} else {
 			int var2 = this.a(m, m.b(a - 1));

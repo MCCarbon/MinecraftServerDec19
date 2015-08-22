@@ -8,7 +8,7 @@ public class class_yk extends class_yc implements class_ye {
 	private static final UUID a = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
 	private static final class_rr b;
 	private static final class_jz c;
-	private static final class_acm[] bt;
+	private static final Item[] bt;
 	private int bu;
 
 	public class_yk(class_ago var1) {
@@ -67,7 +67,7 @@ public class class_yk extends class_yc implements class_ye {
 					this.a(false);
 					class_aco var6 = bG();
 					this.a(class_rc.a, (class_aco) null);
-					if ((var6 != null) && (var6.b() == class_acq.bB)) {
+					if ((var6 != null) && (var6.b() == Items.bB)) {
 						List var5 = class_adb.h(var6);
 						if (var5 != null) {
 							Iterator var3 = var5.iterator();
@@ -94,7 +94,7 @@ public class class_yk extends class_yc implements class_ye {
 				}
 
 				if (var1 != null) {
-					this.a(class_rc.a, class_adb.a(new class_aco(class_acq.bB), var1));
+					this.a(class_rc.a, class_adb.a(new class_aco(Items.bB), var1));
 					bu = bG().l();
 					this.a(true);
 					class_rq var2 = this.a(class_yf.d);
@@ -131,7 +131,7 @@ public class class_yk extends class_yc implements class_ye {
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			int var5 = V.nextInt(3);
-			class_acm var6 = bt[V.nextInt(bt.length)];
+			Item var6 = bt[V.nextInt(bt.length)];
 			if (var2 > 0) {
 				var5 += V.nextInt(var2 + 1);
 			}
@@ -160,7 +160,7 @@ public class class_yk extends class_yc implements class_ye {
 				var12 = class_aee.H;
 			}
 
-			class_zn var13 = new class_zn(o, this, class_adb.a(new class_aco(class_acq.bC), var12), false);
+			class_zn var13 = new class_zn(o, this, class_adb.a(new class_aco(Items.bC), var12), false);
 			var13.z -= -20.0F;
 			var13.c(var5, var7 + var11 * 0.2F, var9, 0.75F, 8.0F);
 			o.a(var13);
@@ -175,6 +175,6 @@ public class class_yk extends class_yc implements class_ye {
 	static {
 		b = (new class_rr(a, "Drinking speed penalty", -0.25D, 0)).a(false);
 		c = class_kc.a(class_yk.class, class_kb.g);
-		bt = new class_acm[] { class_acq.aV, class_acq.ba, class_acq.aE, class_acq.bG, class_acq.bE, class_acq.J, class_acq.A, class_acq.A };
+		bt = new Item[] { Items.aV, Items.ba, Items.aE, Items.bG, Items.bE, Items.J, Items.A, Items.A };
 	}
 }

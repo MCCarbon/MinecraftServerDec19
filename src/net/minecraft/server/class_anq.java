@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_anq extends class_ail {
+public class class_anq extends Block {
 	public static final class_apy a = class_apy.a("explode");
 
 	public class_anq() {
@@ -21,7 +21,7 @@ public class class_anq extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (var1.z(var2)) {
 			this.e(var1, var2, var3.a(a, Boolean.valueOf(true)));
 			var1.g(var2);
@@ -56,10 +56,10 @@ public class class_anq extends class_ail {
 
 	@Override
 	public boolean a(class_ago var1, class_cj var2, class_apn var3, class_yu var4, class_pu var5, class_aco var6, class_cq var7, float var8, float var9, float var10) {
-		if ((var6 != null) && ((var6.b() == class_acq.d) || (var6.b() == class_acq.bQ))) {
+		if ((var6 != null) && ((var6.b() == Items.d) || (var6.b() == Items.bQ))) {
 			this.a(var1, var2, var3.a(a, Boolean.valueOf(true)), (class_rg) var4);
 			var1.g(var2);
-			if (var6.b() == class_acq.d) {
+			if (var6.b() == Items.d) {
 				var6.a(1, var4);
 			} else if (!var4.bI.d) {
 				--var6.b;
@@ -72,7 +72,7 @@ public class class_anq extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		if (!var1.D && (var4 instanceof class_yx)) {
 			class_yx var5 = (class_yx) var4;
 			if (var5.ay()) {

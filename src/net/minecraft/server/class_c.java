@@ -165,8 +165,8 @@ public class class_c {
 		return d;
 	}
 
-	public static void a(class_c var0, final class_cj var1, final class_ail var2, final int var3) {
-		final int var4 = class_ail.a(var2);
+	public static void a(class_c var0, final class_cj var1, final Block var2, final int var3) {
+		final int var4 = Block.a(var2);
 		var0.a("Block type", new Callable() {
 			public String a() throws Exception {
 				try {

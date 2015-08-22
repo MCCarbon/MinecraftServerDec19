@@ -49,7 +49,7 @@ public class class_aqj implements class_aqq.class_a_in_class_aqq {
 		class_aql var3 = null;
 
 		for (int var4 = 0; var4 < 4096; ++var4) {
-			int var5 = class_ail.d.a(this.b(var4));
+			int var5 = Block.d.a(this.b(var4));
 			int var6 = var4 & 15;
 			int var7 = (var4 >> 8) & 15;
 			int var8 = (var4 >> 4) & 15;
@@ -75,7 +75,7 @@ public class class_aqj implements class_aqq.class_a_in_class_aqq {
 			int var7 = (var4 >> 4) & 15;
 			int var8 = var3 == null ? 0 : var3.a(var5, var6, var7);
 			int var9 = (var8 << 12) | ((var1[var4] & 255) << 4) | var2.a(var5, var6, var7);
-			this.a(var4, (class_apn) class_ail.d.a(var9));
+			this.a(var4, (class_apn) Block.d.a(var9));
 		}
 
 	}

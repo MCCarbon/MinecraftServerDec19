@@ -13,7 +13,7 @@ public class class_anh extends class_alf {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!this.f(var1, var2, var3)) {
 			this.g(var1, var2, var3);
 		}
@@ -36,10 +36,10 @@ public class class_anh extends class_alf {
 
 					for (int var7 = 0; var7 < var5; ++var7) {
 						var6 = var6.a(var4.nextInt(3) - 1, 1, var4.nextInt(3) - 1);
-						class_ail var8 = var1.p(var6).c();
+						Block var8 = var1.p(var6).c();
 						if (var8.J == class_avq.a) {
 							if (this.e(var1, var6)) {
-								var1.a(var6, class_aim.ab.S());
+								var1.a(var6, Blocks.ab.S());
 								return;
 							}
 						} else if (var8.J.c()) {
@@ -50,7 +50,7 @@ public class class_anh extends class_alf {
 					for (int var9 = 0; var9 < 3; ++var9) {
 						class_cj var10 = var2.a(var4.nextInt(3) - 1, 0, var4.nextInt(3) - 1);
 						if (var1.d(var10.a()) && this.k(var1, var10)) {
-							var1.a(var10.a(), class_aim.ab.S());
+							var1.a(var10.a(), Blocks.ab.S());
 						}
 					}
 				}

@@ -24,14 +24,14 @@ public class class_auc {
 		class_aup.a(class_auc.class_a_in_class_auc.class, "ECP");
 	}
 
-	private static class_auc.class_a_in_class_auc b(class_auc.class_a_in_class_auc var0, class_cj var1, String var2, class_ail.class_c_in_class_ail var3, boolean var4) {
+	private static class_auc.class_a_in_class_auc b(class_auc.class_a_in_class_auc var0, class_cj var1, String var2, Block.class_c_in_class_ail var3, boolean var4) {
 		class_auc.class_a_in_class_auc var5 = new class_auc.class_a_in_class_auc(var2, var0.c, var3, var4);
 		class_cj var6 = var0.a.a(var0.b, var1, var5.b, class_cj.a);
 		var5.a(var6.n(), var6.o(), var6.p());
 		return var5;
 	}
 
-	public static void a(class_cj var0, class_ail.class_c_in_class_ail var1, List var2, Random var3) {
+	public static void a(class_cj var0, Block.class_c_in_class_ail var1, List var2, Random var3) {
 		k.a();
 		f.a();
 		i.a();
@@ -76,9 +76,9 @@ public class class_auc {
 	}
 
 	static {
-		c = (new class_auz()).a(true).a(class_aim.a);
-		d = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(class_acq.k, 0, 2, 7, 5), new class_oj(class_acq.l, 0, 4, 8, 10), new class_oj(class_acq.m, 0, 2, 7, 15), new class_oj(class_acq.bT, 0, 2, 6, 2), new class_oj(class_acq.cN, 0, 1, 10, 5), new class_oj(class_acq.aC, 0, 1, 1, 3), new class_oj(class_acq.cp, 0, 1, 1, 1), new class_oj(class_acq.cq, 0, 1, 1, 1), new class_oj(class_acq.cr, 0, 1, 1, 1) }));
-		e = Lists.newArrayList((Object[]) (new class_acm[] { class_acq.w, class_acq.ah, class_acq.af, class_acq.ag, class_acq.ae, class_acq.y, class_acq.x, class_acq.n, class_acq.ad, class_acq.ab, class_acq.ac, class_acq.aa, class_acq.b, class_acq.a }));
+		c = (new class_auz()).a(true).a(Blocks.a);
+		d = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.k, 0, 2, 7, 5), new class_oj(Items.l, 0, 4, 8, 10), new class_oj(Items.m, 0, 2, 7, 15), new class_oj(Items.bT, 0, 2, 6, 2), new class_oj(Items.cN, 0, 1, 10, 5), new class_oj(Items.aC, 0, 1, 1, 3), new class_oj(Items.cp, 0, 1, 1, 1), new class_oj(Items.cq, 0, 1, 1, 1), new class_oj(Items.cr, 0, 1, 1, 1) }));
+		e = Lists.newArrayList((Object[]) (new Item[] { Items.w, Items.ah, Items.af, Items.ag, Items.ae, Items.y, Items.x, Items.n, Items.ad, Items.ab, Items.ac, Items.aa, Items.b, Items.a }));
 		f = new class_auc.class_b_in_class_auc() {
 			@Override
 			public void a() {
@@ -89,7 +89,7 @@ public class class_auc {
 				if (var1 > 8) {
 					return false;
 				} else {
-					class_ail.class_c_in_class_ail var6 = var2.b.c();
+					Block.class_c_in_class_ail var6 = var2.b.c();
 					class_auc.class_a_in_class_auc var7;
 					var4.add(var7 = class_auc.b(var2, var3, "base_floor", var6, true));
 					int var8 = var5.nextInt(3);
@@ -110,7 +110,7 @@ public class class_auc {
 				}
 			}
 		};
-		g = Lists.newArrayList((Object[]) (new class_oh[] { new class_oh(class_ail.class_c_in_class_ail.a, new class_cj(1, -1, 0)), new class_oh(class_ail.class_c_in_class_ail.b, new class_cj(6, -1, 1)), new class_oh(class_ail.class_c_in_class_ail.d, new class_cj(0, -1, 5)), new class_oh(class_ail.class_c_in_class_ail.c, new class_cj(5, -1, 6)) }));
+		g = Lists.newArrayList((Object[]) (new class_oh[] { new class_oh(Block.class_c_in_class_ail.a, new class_cj(1, -1, 0)), new class_oh(Block.class_c_in_class_ail.b, new class_cj(6, -1, 1)), new class_oh(Block.class_c_in_class_ail.d, new class_cj(0, -1, 5)), new class_oh(Block.class_c_in_class_ail.c, new class_cj(5, -1, 6)) }));
 		h = new class_auc.class_b_in_class_auc() {
 			@Override
 			public void a() {
@@ -118,7 +118,7 @@ public class class_auc {
 
 			@Override
 			public boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
-				class_ail.class_c_in_class_ail var6 = var2.b.c();
+				Block.class_c_in_class_ail var6 = var2.b.c();
 				class_auc.class_a_in_class_auc var7;
 				var4.add(var7 = class_auc.b(var2, new class_cj(3 + var5.nextInt(2), -3, 3 + var5.nextInt(2)), "tower_base", var6, true));
 				var4.add(var7 = class_auc.b(var7, new class_cj(0, 7, 0), "tower_piece", var6, true));
@@ -139,7 +139,7 @@ public class class_auc {
 						class_oh var11 = (class_oh) var13.next();
 						if (var5.nextBoolean()) {
 							class_auc.class_a_in_class_auc var12;
-							var4.add(var12 = class_auc.b(var8, (class_cj) var11.b(), "bridge_end", var6.a((class_ail.class_c_in_class_ail) var11.a()), true));
+							var4.add(var12 = class_auc.b(var8, (class_cj) var11.b(), "bridge_end", var6.a((Block.class_c_in_class_ail) var11.a()), true));
 							class_auc.b(class_auc.i, var1 + 1, var12, (class_cj) null, var4, var5);
 						}
 					}
@@ -166,7 +166,7 @@ public class class_auc {
 
 			@Override
 			public boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
-				class_ail.class_c_in_class_ail var6 = var2.b.c();
+				Block.class_c_in_class_ail var6 = var2.b.c();
 				int var7 = var5.nextInt(4) + 1;
 				class_auc.class_a_in_class_auc var8;
 				var4.add(var8 = class_auc.b(var2, new class_cj(0, 0, -4), "bridge_piece", var6, true));
@@ -195,12 +195,12 @@ public class class_auc {
 					return false;
 				}
 
-				var4.add(var8 = class_auc.b(var8, new class_cj(4, var9, 0), "bridge_end", var6.a(class_ail.class_c_in_class_ail.c), true));
+				var4.add(var8 = class_auc.b(var8, new class_cj(4, var9, 0), "bridge_end", var6.a(Block.class_c_in_class_ail.c), true));
 				var8.m = -1;
 				return true;
 			}
 		};
-		j = Lists.newArrayList((Object[]) (new class_oh[] { new class_oh(class_ail.class_c_in_class_ail.a, new class_cj(4, -1, 0)), new class_oh(class_ail.class_c_in_class_ail.b, new class_cj(12, -1, 4)), new class_oh(class_ail.class_c_in_class_ail.d, new class_cj(0, -1, 8)), new class_oh(class_ail.class_c_in_class_ail.c, new class_cj(8, -1, 12)) }));
+		j = Lists.newArrayList((Object[]) (new class_oh[] { new class_oh(Block.class_c_in_class_ail.a, new class_cj(4, -1, 0)), new class_oh(Block.class_c_in_class_ail.b, new class_cj(12, -1, 4)), new class_oh(Block.class_c_in_class_ail.d, new class_cj(0, -1, 8)), new class_oh(Block.class_c_in_class_ail.c, new class_cj(8, -1, 12)) }));
 		k = new class_auc.class_b_in_class_auc() {
 			@Override
 			public void a() {
@@ -208,7 +208,7 @@ public class class_auc {
 
 			@Override
 			public boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
-				class_ail.class_c_in_class_ail var7 = var2.b.c();
+				Block.class_c_in_class_ail var7 = var2.b.c();
 				class_auc.class_a_in_class_auc var6;
 				var4.add(var6 = class_auc.b(var2, new class_cj(-3, 4, -3), "fat_tower_base", var7, true));
 				var4.add(var6 = class_auc.b(var6, new class_cj(0, 4, 0), "fat_tower_middle", var7, true));
@@ -221,7 +221,7 @@ public class class_auc {
 						class_oh var10 = (class_oh) var9.next();
 						if (var5.nextBoolean()) {
 							class_auc.class_a_in_class_auc var11;
-							var4.add(var11 = class_auc.b(var6, (class_cj) var10.b(), "bridge_end", var7.a((class_ail.class_c_in_class_ail) var10.a()), true));
+							var4.add(var11 = class_auc.b(var6, (class_cj) var10.b(), "bridge_end", var7.a((Block.class_c_in_class_ail) var10.a()), true));
 							class_auc.b(class_auc.i, var1 + 1, var11, (class_cj) null, var4, var5);
 						}
 					}
@@ -241,13 +241,13 @@ public class class_auc {
 
 	public static class class_a_in_class_auc extends class_aut {
 		private String d;
-		private class_ail.class_c_in_class_ail e;
+		private Block.class_c_in_class_ail e;
 		private boolean f;
 
 		public class_a_in_class_auc() {
 		}
 
-		public class_a_in_class_auc(String var1, class_cj var2, class_ail.class_c_in_class_ail var3, boolean var4) {
+		public class_a_in_class_auc(String var1, class_cj var2, Block.class_c_in_class_ail var3, boolean var4) {
 			super(0);
 			d = var1;
 			e = var3;
@@ -279,7 +279,7 @@ public class class_auc {
 		protected void b(class_dn var1) {
 			super.b(var1);
 			d = var1.l("Template");
-			e = class_ail.class_c_in_class_ail.valueOf(var1.l("Rot"));
+			e = Block.class_c_in_class_ail.valueOf(var1.l("Rot"));
 			f = var1.p("OW");
 			this.a(c);
 		}
@@ -289,13 +289,13 @@ public class class_auc {
 			if (var1.startsWith("Chest")) {
 				class_cj var6 = var2.b();
 				if (var5.b(var6)) {
-					class_aoi var7 = var3.s(var6);
+					TileEntity var7 = var3.s(var6);
 					if (var7 instanceof class_aok) {
 						ArrayList var8 = Lists.newArrayList((Iterable) class_auc.d);
 						Iterator var9 = class_auc.e.iterator();
 
 						while (var9.hasNext()) {
-							class_acm var10 = (class_acm) var9.next();
+							Item var10 = (Item) var9.next();
 							var8.add(new class_oj(class_afl.a(var4, new class_aco(var10), 20 + var4.nextInt(20)), 1, 1, 3));
 						}
 

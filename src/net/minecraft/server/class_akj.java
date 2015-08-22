@@ -14,8 +14,8 @@ public class class_akj extends class_aif {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acm.a(class_aim.al);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Item.a(Blocks.al);
 	}
 
 	@Override
@@ -25,10 +25,10 @@ public class class_akj extends class_aif {
 
 	private void f(class_ago var1, class_cj var2, class_apn var3) {
 		if (!var1.D) {
-			class_ail var4 = var1.p(var2.c()).c();
-			class_ail var5 = var1.p(var2.d()).c();
-			class_ail var6 = var1.p(var2.e()).c();
-			class_ail var7 = var1.p(var2.f()).c();
+			Block var4 = var1.p(var2.c()).c();
+			Block var5 = var1.p(var2.d()).c();
+			Block var6 = var1.p(var2.e()).c();
+			Block var7 = var1.p(var2.f()).c();
 			class_cq var8 = (class_cq) var3.b(a);
 			if ((var8 == class_cq.c) && var4.q() && !var5.q()) {
 				var8 = class_cq.d;
@@ -49,7 +49,7 @@ public class class_akj extends class_aif {
 		if (var1.D) {
 			return true;
 		} else {
-			class_aoi var11 = var1.s(var2);
+			TileEntity var11 = var1.s(var2);
 			if (var11 instanceof class_aot) {
 				var4.a((class_pp) ((class_aot) var11));
 				var4.b(class_nh.Z);
@@ -61,14 +61,14 @@ public class class_akj extends class_aif {
 
 	public static void a(boolean var0, class_ago var1, class_cj var2) {
 		class_apn var3 = var1.p(var2);
-		class_aoi var4 = var1.s(var2);
+		TileEntity var4 = var1.s(var2);
 		N = true;
 		if (var0) {
-			var1.a(var2, class_aim.am.S().a(a, var3.b(a)), 3);
-			var1.a(var2, class_aim.am.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.am.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.am.S().a(a, var3.b(a)), 3);
 		} else {
-			var1.a(var2, class_aim.al.S().a(a, var3.b(a)), 3);
-			var1.a(var2, class_aim.al.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.al.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.al.S().a(a, var3.b(a)), 3);
 		}
 
 		N = false;
@@ -80,7 +80,7 @@ public class class_akj extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aot();
 	}
 
@@ -93,7 +93,7 @@ public class class_akj extends class_aif {
 	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
 		var1.a(var2, var3.a(a, var4.aV().d()), 2);
 		if (var5.s()) {
-			class_aoi var6 = var1.s(var2);
+			TileEntity var6 = var1.s(var2);
 			if (var6 instanceof class_aot) {
 				((class_aot) var6).a(var5.q());
 			}
@@ -104,7 +104,7 @@ public class class_akj extends class_aif {
 	@Override
 	public void c(class_ago var1, class_cj var2, class_apn var3) {
 		if (!N) {
-			class_aoi var4 = var1.s(var2);
+			TileEntity var4 = var1.s(var2);
 			if (var4 instanceof class_aot) {
 				class_pr.a(var1, var2, (class_aot) var4);
 				var1.f(var2, this);
@@ -126,7 +126,7 @@ public class class_akj extends class_aif {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_aim.al);
+		return new class_aco(Blocks.al);
 	}
 
 	@Override
@@ -150,12 +150,12 @@ public class class_akj extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 

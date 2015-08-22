@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_amh extends class_ail {
+public class class_amh extends Block {
 	public static final class_aqa a = class_aqa.a("variant", class_amh.class_a_in_class_amh.class);
 
 	public class_amh() {
@@ -36,7 +36,7 @@ public class class_amh extends class_ail {
 	@Override
 	protected class_aco i(class_apn var1) {
 		class_amh.class_a_in_class_amh var2 = (class_amh.class_a_in_class_amh) var1.b(a);
-		return (var2 != class_amh.class_a_in_class_amh.d) && (var2 != class_amh.class_a_in_class_amh.e) ? super.i(var1) : new class_aco(class_acm.a(this), 1, class_amh.class_a_in_class_amh.c.a());
+		return (var2 != class_amh.class_a_in_class_amh.d) && (var2 != class_amh.class_a_in_class_amh.e) ? super.i(var1) : new class_aco(Item.a(this), 1, class_amh.class_a_in_class_amh.c.a());
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class class_amh extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -88,17 +88,17 @@ public class class_amh extends class_ail {
 		// $FF: synthetic field
 		static final int[] b;
 		// $FF: synthetic field
-		static final int[] c = new int[class_ail.class_c_in_class_ail.values().length];
+		static final int[] c = new int[Block.class_c_in_class_ail.values().length];
 
 		static {
 			try {
-				c[class_ail.class_c_in_class_ail.d.ordinal()] = 1;
+				c[Block.class_c_in_class_ail.d.ordinal()] = 1;
 			} catch (NoSuchFieldError var7) {
 				;
 			}
 
 			try {
-				c[class_ail.class_c_in_class_ail.b.ordinal()] = 2;
+				c[Block.class_c_in_class_ail.b.ordinal()] = 2;
 			} catch (NoSuchFieldError var6) {
 				;
 			}

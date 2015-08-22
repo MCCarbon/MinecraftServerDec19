@@ -15,12 +15,12 @@ public class class_ai extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.gamerule.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		class_agm var3 = this.d();
 		String var4 = var2.length > 0 ? var2[0] : "";
 		String var5 = var2.length > 1 ? a(var2, 1) : "";
@@ -63,7 +63,7 @@ public class class_ai extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		if (var2.length == 1) {
 			return a(var2, this.d().b());
 		} else {

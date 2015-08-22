@@ -64,7 +64,7 @@ public class class_si extends class_sl {
 		if ((g == 240) && (a.o.ac() == class_ps.d)) {
 			a.o.g(b);
 			a.o.b(1012, b, 0);
-			a.o.b(2001, b, class_ail.a(c));
+			a.o.b(2001, b, Block.a(c));
 		}
 
 	}

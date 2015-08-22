@@ -42,7 +42,7 @@ import com.mojang.authlib.GameProfileRepository;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 
-public abstract class MinecraftServer implements Runnable, class_m, class_pl, class_qe {
+public abstract class MinecraftServer implements Runnable, ICommandListener, class_pl, class_qe {
 	private static final Logger k = LogManager.getLogger();
 	public static final File a = new File("usercache.json");
 	private static MinecraftServer l;
@@ -756,7 +756,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_pl, cl
 		return var1;
 	}
 
-	public List a(class_m var1, String var2, class_cj var3, boolean var4) {
+	public List a(ICommandListener var1, String var2, class_cj var3, boolean var4) {
 		ArrayList var5 = Lists.newArrayList();
 		boolean var6 = var2.startsWith("/");
 		if (var6) {
@@ -1091,7 +1091,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_pl, cl
 	}
 
 	@Override
-	public class_qx f() {
+	public Entity f() {
 		return null;
 	}
 
@@ -1156,14 +1156,14 @@ public abstract class MinecraftServer implements Runnable, class_m, class_pl, cl
 		Y = 0L;
 	}
 
-	public class_qx a(UUID var1) {
+	public Entity a(UUID var1) {
 		class_ll[] var2 = d;
 		int var3 = var2.length;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			class_ll var5 = var2[var4];
 			if (var5 != null) {
-				class_qx var6 = var5.a(var1);
+				Entity var6 = var5.a(var1);
 				if (var6 != null) {
 					return var6;
 				}

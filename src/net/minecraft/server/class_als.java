@@ -13,9 +13,9 @@ public class class_als extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		boolean var5 = var1.z(var2);
-		class_aoi var6 = var1.s(var2);
+		TileEntity var6 = var1.s(var2);
 		if (var6 instanceof class_aoy) {
 			class_aoy var7 = (class_aoy) var6;
 			if (var7.f != var5) {
@@ -34,7 +34,7 @@ public class class_als extends class_aif {
 		if (var1.D) {
 			return true;
 		} else {
-			class_aoi var11 = var1.s(var2);
+			TileEntity var11 = var1.s(var2);
 			if (var11 instanceof class_aoy) {
 				class_aoy var12 = (class_aoy) var11;
 				var12.b();
@@ -49,7 +49,7 @@ public class class_als extends class_aif {
 	@Override
 	public void a(class_ago var1, class_cj var2, class_yu var3) {
 		if (!var1.D) {
-			class_aoi var4 = var1.s(var2);
+			TileEntity var4 = var1.s(var2);
 			if (var4 instanceof class_aoy) {
 				((class_aoy) var4).a(var1, var2);
 				var3.b(class_nh.S);
@@ -59,7 +59,7 @@ public class class_als extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aoy();
 	}
 

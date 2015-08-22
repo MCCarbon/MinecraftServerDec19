@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_acy extends class_acm {
+public class class_acy extends Item {
 	public class_acy() {
 		this.a(class_abp.i);
 	}

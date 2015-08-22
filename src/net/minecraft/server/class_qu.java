@@ -17,9 +17,9 @@ public abstract class class_qu extends class_rn {
 
 	@Override
 	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		if ((var3 != null) && (var3.b() == class_acq.bO)) {
+		if ((var3 != null) && (var3.b() == Items.bO)) {
 			if (!o.D) {
-				Class var4 = class_qz.a(var3.i());
+				Class var4 = EntityTypes.a(var3.i());
 				if ((var4 != null) && (this.getClass() == var4)) {
 					class_qu var5 = this.a(this);
 					if (var5 != null) {

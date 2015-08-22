@@ -10,7 +10,7 @@ public class class_sg extends class_sr {
 	protected class_rn a;
 	private double d;
 	private double e;
-	protected class_qx b;
+	protected Entity b;
 	private float f;
 	private class_axc g;
 	private class_um h;
@@ -23,14 +23,14 @@ public class class_sg extends class_sr {
 
 	public class_sg(class_rn var1, Class var2, Predicate var3, float var4, double var5, double var7) {
 		c = new Predicate() {
-			public boolean a(class_qx var1) {
+			public boolean a(Entity var1) {
 				return var1.al() && a.v().a(var1);
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		};
 		a = var1;
@@ -49,7 +49,7 @@ public class class_sg extends class_sr {
 		if (var1.isEmpty()) {
 			return false;
 		} else {
-			b = (class_qx) var1.get(0);
+			b = (Entity) var1.get(0);
 			class_aym var2 = class_us.b(a, 16, 7, new class_aym(b.s, b.t, b.u));
 			if (var2 == null) {
 				return false;

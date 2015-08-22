@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aiz extends class_ail {
+public class class_aiz extends Block {
 	private class_apr a;
 
 	public class_aiz() {
@@ -11,8 +11,8 @@ public class class_aiz extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.aK;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.aK;
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class class_aiz extends class_ail {
 
 	protected class_apr l() {
 		if (a == null) {
-			a = class_aps.a().a(new String[] { "##  ##", "##  ##", "  ##  ", " #### ", " #### ", " #  # " }).a('#', class_apq.a(class_apv.a(class_aim.aL))).b();
+			a = class_aps.a().a(new String[] { "##  ##", "##  ##", "  ##  ", " #### ", " #### ", " #  # " }).a('#', class_apq.a(class_apv.a(Blocks.aL))).b();
 		}
 
 		return a;
@@ -41,7 +41,7 @@ public class class_aiz extends class_ail {
 			int var5;
 			for (var4 = 0; var4 < l().c(); ++var4) {
 				for (var5 = 0; var5 < l().b(); ++var5) {
-					var1.a(var3.a(var4, var5, 0).d(), class_aim.a.S(), 2);
+					var1.a(var3.a(var4, var5, 0).d(), Blocks.a.S(), 2);
 				}
 			}
 
@@ -55,7 +55,7 @@ public class class_aiz extends class_ail {
 			for (var4 = 0; var4 < l().c(); ++var4) {
 				for (var5 = 0; var5 < l().b(); ++var5) {
 					class_apq var6 = var3.a(var4, var5, 0);
-					var1.c(var6.d(), class_aim.a);
+					var1.c(var6.d(), Blocks.a);
 				}
 			}
 		}

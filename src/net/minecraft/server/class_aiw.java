@@ -99,7 +99,7 @@ public class class_aiw extends class_aif {
 		}
 
 		if (var5.s()) {
-			class_aoi var15 = var1.s(var2);
+			TileEntity var15 = var1.s(var2);
 			if (var15 instanceof class_aok) {
 				((class_aok) var15).a(var5.q());
 			}
@@ -116,10 +116,10 @@ public class class_aiw extends class_aif {
 			class_apn var6 = var1.p(var2.e());
 			class_apn var7 = var1.p(var2.f());
 			class_cq var8 = (class_cq) var3.b(a);
-			class_ail var9 = var4.c();
-			class_ail var10 = var5.c();
-			class_ail var11 = var6.c();
-			class_ail var12 = var7.c();
+			Block var9 = var4.c();
+			Block var10 = var5.c();
+			Block var11 = var6.c();
+			Block var12 = var7.c();
 			if ((var9 != this) && (var10 != this)) {
 				boolean var21 = var9.q();
 				boolean var22 = var10.q();
@@ -139,8 +139,8 @@ public class class_aiw extends class_aif {
 						var8 = class_cq.c;
 					}
 
-					class_ail var19 = var24.c();
-					class_ail var20 = var25.c();
+					Block var19 = var24.c();
+					Block var20 = var25.c();
 					if ((var21 || var19.q()) && !var22 && !var20.q()) {
 						var8 = class_cq.d;
 					}
@@ -165,8 +165,8 @@ public class class_aiw extends class_aif {
 					var8 = class_cq.e;
 				}
 
-				class_ail var17 = var14.c();
-				class_ail var18 = var15.c();
+				Block var17 = var14.c();
+				Block var18 = var15.c();
 				if ((var11.q() || var17.q()) && !var12.q() && !var18.q()) {
 					var8 = class_cq.f;
 				}
@@ -285,9 +285,9 @@ public class class_aiw extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		super.a(var1, var2, var3, var4);
-		class_aoi var5 = var1.s(var2);
+		TileEntity var5 = var1.s(var2);
 		if (var5 instanceof class_aok) {
 			var5.E();
 		}
@@ -296,7 +296,7 @@ public class class_aiw extends class_aif {
 
 	@Override
 	public void c(class_ago var1, class_cj var2, class_apn var3) {
-		class_aoi var4 = var1.s(var2);
+		TileEntity var4 = var1.s(var2);
 		if (var4 instanceof class_pp) {
 			class_pr.a(var1, var2, (class_pp) var4);
 			var1.f(var2, this);
@@ -325,7 +325,7 @@ public class class_aiw extends class_aif {
 	}
 
 	public class_qa e(class_ago var1, class_cj var2) {
-		class_aoi var3 = var1.s(var2);
+		TileEntity var3 = var1.s(var2);
 		if (!(var3 instanceof class_aok)) {
 			return null;
 		} else {
@@ -338,10 +338,10 @@ public class class_aiw extends class_aif {
 				while (true) {
 					while (true) {
 						class_cq var6;
-						class_aoi var9;
+						TileEntity var9;
 						do {
 							class_cj var7;
-							class_ail var8;
+							Block var8;
 							do {
 								if (!var5.hasNext()) {
 									return (class_qa) var4;
@@ -371,7 +371,7 @@ public class class_aiw extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return new class_aok();
 	}
 
@@ -386,7 +386,7 @@ public class class_aiw extends class_aif {
 			return 0;
 		} else {
 			int var5 = 0;
-			class_aoi var6 = var1.s(var2);
+			TileEntity var6 = var1.s(var2);
 			if (var6 instanceof class_aok) {
 				var5 = ((class_aok) var6).l;
 			}
@@ -417,7 +417,7 @@ public class class_aiw extends class_aif {
 				return false;
 			}
 
-			class_qx var4 = (class_qx) var3.next();
+			Entity var4 = (Entity) var3.next();
 			var5 = (class_vi) var4;
 		} while (!var5.cG());
 
@@ -450,12 +450,12 @@ public class class_aiw extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 

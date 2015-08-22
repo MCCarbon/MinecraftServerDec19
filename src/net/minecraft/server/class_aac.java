@@ -54,7 +54,7 @@ public class class_aac extends class_zu {
 
 	@Override
 	public boolean a(class_yu var1) {
-		return g.p(h).c() != class_aim.ai ? false : var1.e(h.n() + 0.5D, h.o() + 0.5D, h.p() + 0.5D) <= 64.0D;
+		return g.p(h).c() != Blocks.ai ? false : var1.e(h.n() + 0.5D, h.o() + 0.5D, h.p() + 0.5D) <= 64.0D;
 	}
 
 	@Override

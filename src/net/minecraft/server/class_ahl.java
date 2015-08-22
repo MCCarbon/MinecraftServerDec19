@@ -11,7 +11,7 @@ public class class_ahl extends class_ahb {
 		super(var1);
 		aD = var2;
 		if (var2) {
-			ak = class_aim.aJ.S();
+			ak = Blocks.aJ.S();
 		}
 
 		au.clear();

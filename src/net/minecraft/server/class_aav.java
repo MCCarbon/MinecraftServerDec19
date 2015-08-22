@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.google.common.base.Predicates;
 
-public class class_aav extends class_acm {
+public class class_aav extends Item {
 	private static final int[] l = new int[] { 13, 15, 16, 11 };
 	public static final String[] a = new String[] { "minecraft:items/empty_armor_slot_boots", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_helmet" };
 	private static final class_cr m = new class_cn() {
@@ -159,8 +159,8 @@ public class class_aav extends class_acm {
 			return i;
 		}
 
-		public class_acm b() {
-			return this == a ? class_acq.aH : (this == b ? class_acq.l : (this == d ? class_acq.m : (this == c ? class_acq.l : (this == e ? class_acq.k : null))));
+		public Item b() {
+			return this == a ? Items.aH : (this == b ? Items.l : (this == d ? Items.m : (this == c ? Items.l : (this == e ? Items.k : null))));
 		}
 	}
 }

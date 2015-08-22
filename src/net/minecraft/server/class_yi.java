@@ -158,7 +158,7 @@ public class class_yi extends class_rh implements class_xx {
 	}
 
 	@Override
-	public void i(class_qx var1) {
+	public void i(Entity var1) {
 		super.i(var1);
 		if ((var1 instanceof class_vp) && cB()) {
 			this.d((class_rg) var1);
@@ -207,8 +207,8 @@ public class class_yi extends class_rh implements class_xx {
 	}
 
 	@Override
-	protected class_acm D() {
-		return cF() == 1 ? class_acq.aO : null;
+	protected Item D() {
+		return cF() == 1 ? Items.aO : null;
 	}
 
 	@Override

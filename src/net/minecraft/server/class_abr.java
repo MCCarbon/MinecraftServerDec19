@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 
-public class class_abr extends class_acm {
-	private class_ail a;
+public class class_abr extends Item {
+	private Block a;
 
-	public class_abr(class_ail var1) {
+	public class_abr(Block var1) {
 		a = var1;
 		this.a(class_abp.d);
 	}
@@ -15,7 +15,7 @@ public class class_abr extends class_acm {
 			return class_pw.c;
 		} else {
 			class_apn var10 = var3.p(var4);
-			class_ail var11 = var10.c();
+			Block var11 = var10.c();
 			if (!var11.a(var3, var4)) {
 				var4 = var4.a(var6);
 			}
@@ -30,7 +30,7 @@ public class class_abr extends class_acm {
 		}
 	}
 
-	public static void a(class_ago var0, class_cj var1, class_cq var2, class_ail var3) {
+	public static void a(class_ago var0, class_cj var1, class_cq var2, Block var3) {
 		class_cj var4 = var1.a(var2.e());
 		class_cj var5 = var1.a(var2.f());
 		int var6 = (var0.p(var5).c().x() ? 1 : 0) + (var0.p(var5.a()).c().x() ? 1 : 0);

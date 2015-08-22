@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_anj extends class_ail {
+public class class_anj extends Block {
 	public static final class_aqa a = class_aqa.a("variant", class_anj.class_a_in_class_anj.class);
 
 	public class_anj() {
@@ -22,8 +22,8 @@ public class class_anj extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return var1.b(a) == class_anj.class_a_in_class_anj.a ? class_acm.a(class_aim.e) : class_acm.a(class_aim.b);
+	public Item a(class_apn var1, Random var2, int var3) {
+		return var1.b(a) == class_anj.class_a_in_class_anj.a ? Item.a(Blocks.e) : Item.a(Blocks.b);
 	}
 
 	@Override

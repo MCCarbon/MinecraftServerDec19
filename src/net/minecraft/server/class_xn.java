@@ -29,7 +29,7 @@ public class class_xn extends class_xh {
 	public void a(int var1, int var2, int var3, boolean var4) {
 		if (var4) {
 			if (l != null) {
-				l.a((class_qx) null);
+				l.a((Entity) null);
 			}
 
 			if (q() == 0) {

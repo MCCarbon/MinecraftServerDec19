@@ -38,10 +38,10 @@ public class class_ahw extends class_ahb {
 
 			for (int var12 = 255; var12 >= 0; --var12) {
 				if (var3.a(var11, var12, var10).c().v() != class_avq.a) {
-					if ((var12 == 62) && (var3.a(var11, var12, var10).c() != class_aim.j)) {
-						var3.a(var11, var12, var10, class_aim.j.S());
+					if ((var12 == 62) && (var3.a(var11, var12, var10).c() != Blocks.j)) {
+						var3.a(var11, var12, var10, Blocks.j.S());
 						if (var8 < 0.12D) {
-							var3.a(var11, var12 + 1, var10, class_aim.bx.S());
+							var3.a(var11, var12 + 1, var10, Blocks.bx.S());
 						}
 					}
 					break;

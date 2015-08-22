@@ -62,7 +62,7 @@ public class class_zw extends class_zu {
 
 				a = 0;
 				class_apn var5 = var2.p(var3);
-				if (!var1.bI.d && !var2.D && (var5.c() == class_aim.cf) && (var1.bj().nextFloat() < 0.12F)) {
+				if (!var1.bI.d && !var2.D && (var5.c() == Blocks.cf) && (var1.bj().nextFloat() < 0.12F)) {
 					int var4 = ((Integer) var5.b(class_aic.b)).intValue();
 					++var4;
 					if (var4 > 2) {
@@ -117,7 +117,7 @@ public class class_zw extends class_zu {
 			int var17 = var3 + var1.A() + (var6 == null ? 0 : var6.A());
 			k = 0;
 			if (var6 != null) {
-				boolean var8 = (var6.b() == class_acq.ci) && !class_acq.ci.h(var6).c_();
+				boolean var8 = (var6.b() == Items.ci) && !Items.ci.h(var6).c_();
 				int var9;
 				int var10;
 				int var11;
@@ -179,7 +179,7 @@ public class class_zw extends class_zu {
 						var13 = ((Integer) var19.get(var21)).intValue();
 						var13 = var12 == var13 ? var13 + 1 : Math.max(var13, var12);
 						boolean var14 = var21.a(var1);
-						if (m.bI.d || (var1.b() == class_acq.ci)) {
+						if (m.bI.d || (var1.b() == Items.ci)) {
 							var14 = true;
 						}
 
@@ -287,7 +287,7 @@ public class class_zw extends class_zu {
 
 	@Override
 	public boolean a(class_yu var1) {
-		return i.p(j).c() != class_aim.cf ? false : var1.e(j.n() + 0.5D, j.o() + 0.5D, j.p() + 0.5D) <= 64.0D;
+		return i.p(j).c() != Blocks.cf ? false : var1.e(j.n() + 0.5D, j.o() + 0.5D, j.p() + 0.5D) <= 64.0D;
 	}
 
 	@Override

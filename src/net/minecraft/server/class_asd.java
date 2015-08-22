@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.Random;
 
 public class class_asd extends class_asp {
-	private final class_ail a;
+	private final Block a;
 	private final int b;
 
-	public class_asd(class_ail var1, int var2) {
+	public class_asd(Block var1, int var2) {
 		super(false);
 		a = var1;
 		b = var2;
@@ -22,8 +22,8 @@ public class class_asd extends class_asp {
 					break label50;
 				}
 
-				class_ail var4 = var1.p(var3.b()).c();
-				if ((var4 != class_aim.c) && (var4 != class_aim.d) && (var4 != class_aim.b)) {
+				Block var4 = var1.p(var3.b()).c();
+				if ((var4 != Blocks.c) && (var4 != Blocks.d) && (var4 != Blocks.b)) {
 					break label50;
 				}
 			}

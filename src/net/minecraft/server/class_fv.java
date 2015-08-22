@@ -17,13 +17,13 @@ public class class_fv implements class_ff {
 	@Override
 	public void a(PacketDataSerializer var1) throws IOException {
 		a = var1.e();
-		b = (class_apn) class_ail.d.a(var1.g());
+		b = (class_apn) Block.d.a(var1.g());
 	}
 
 	@Override
 	public void b(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
-		var1.b(class_ail.d.a(b));
+		var1.b(Block.d.a(b));
 	}
 
 	public void a(class_fj var1) {

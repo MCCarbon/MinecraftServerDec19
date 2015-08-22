@@ -49,7 +49,7 @@ public class class_uf extends class_uj {
 						}
 
 						class_aco var9 = var1x.a(class_rc.f);
-						if ((var9 != null) && (var9.b() == class_acq.cc)) {
+						if ((var9 != null) && (var9.b() == Items.cc)) {
 							int var5 = var9.h();
 							boolean var6x = (var1 instanceof class_yh) && (((class_yh) var1).cF() == 0) && (var5 == 0);
 							boolean var7 = (var1 instanceof class_yl) && (var5 == 2);
@@ -104,13 +104,13 @@ public class class_uf extends class_uj {
 	}
 
 	public static class class_a_in_class_uf implements Comparator {
-		private final class_qx a;
+		private final Entity a;
 
-		public class_a_in_class_uf(class_qx var1) {
+		public class_a_in_class_uf(Entity var1) {
 			a = var1;
 		}
 
-		public int a(class_qx var1, class_qx var2) {
+		public int a(Entity var1, Entity var2) {
 			double var3 = a.h(var1);
 			double var5 = a.h(var2);
 			return var3 < var5 ? -1 : (var3 > var5 ? 1 : 0);
@@ -119,7 +119,7 @@ public class class_uf extends class_uj {
 		// $FF: synthetic method
 		@Override
 		public int compare(Object var1, Object var2) {
-			return this.a((class_qx) var1, (class_qx) var2);
+			return this.a((Entity) var1, (Entity) var2);
 		}
 	}
 }

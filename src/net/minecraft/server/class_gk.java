@@ -9,7 +9,7 @@ public class class_gk implements class_ff {
 	public class_gk() {
 	}
 
-	public class_gk(class_qx var1, byte var2) {
+	public class_gk(Entity var1, byte var2) {
 		a = var1.G();
 		b = var2;
 	}

@@ -71,7 +71,7 @@ public class class_bd extends class_j implements class_h {
 	}
 
 	@Override
-	public void a(class_m var1, class_k var2, int var3, String var4, Object... var5) {
+	public void a(ICommandListener var1, class_k var2, int var3, String var4, Object... var5) {
 		boolean var6 = true;
 		MinecraftServer var7 = MinecraftServer.P();
 		if (!var1.s_()) {

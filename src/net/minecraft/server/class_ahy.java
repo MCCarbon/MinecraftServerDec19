@@ -9,8 +9,8 @@ public class class_ahy extends class_ahb {
 		av.clear();
 		aw.clear();
 		at.add(new class_ahb.class_c_in_class_ahb(class_xv.class, 10, 4, 4));
-		ak = class_aim.d.S();
-		al = class_aim.d.S();
+		ak = Blocks.d.S();
+		al = Blocks.d.S();
 		as = new class_ahz();
 	}
 }

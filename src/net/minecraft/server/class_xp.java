@@ -19,7 +19,7 @@ public class class_xp extends class_xh {
 
 	@Override
 	public class_apn u() {
-		return class_aim.W.S();
+		return Blocks.W.S();
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class class_xp extends class_xh {
 
 	@Override
 	public boolean a(class_qi var1, float var2) {
-		class_qx var3 = var1.i();
+		Entity var3 = var1.i();
 		if (var3 instanceof class_yx) {
 			class_yx var4 = (class_yx) var3;
 			if (var4.ay()) {
@@ -59,7 +59,7 @@ public class class_xp extends class_xh {
 		super.a(var1);
 		double var2 = (v * v) + (x * x);
 		if (!var1.c() && o.S().b("doEntityDrops")) {
-			this.a(new class_aco(class_aim.W, 1), 0.0F);
+			this.a(new class_aco(Blocks.W, 1), 0.0F);
 		}
 
 		if (var1.o() || var1.c() || (var2 >= 0.009999999776482582D)) {

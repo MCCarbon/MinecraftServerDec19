@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aom extends class_aoi {
+public class class_aom extends TileEntity {
 	private int a;
 
 	@Override

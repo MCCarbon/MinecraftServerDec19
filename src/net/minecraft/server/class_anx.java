@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_anx extends class_ail {
+public class class_anx extends Block {
 	public static final class_apy a = class_apy.a("up");
 	public static final class_apy b = class_apy.a("north");
 	public static final class_apy N = class_apy.a("east");
@@ -9,7 +9,7 @@ public class class_anx extends class_ail {
 	public static final class_apy P = class_apy.a("west");
 	public static final class_aqa Q = class_aqa.a("variant", class_anx.class_a_in_class_anx.class);
 
-	public class_anx(class_ail var1) {
+	public class_anx(Block var1) {
 		super(var1.J);
 		this.j(M.b().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false)).a(P, Boolean.valueOf(false)).a(Q, class_anx.class_a_in_class_anx.a));
 		this.c(var1.w);
@@ -86,8 +86,8 @@ public class class_anx extends class_ail {
 	}
 
 	public boolean e(class_ags var1, class_cj var2) {
-		class_ail var3 = var1.p(var2).c();
-		return var3 == class_aim.cv ? false : ((var3 != this) && !(var3 instanceof class_akc) ? (var3.J.k() && var3.d() ? var3.J != class_avq.C : false) : true);
+		Block var3 = var1.p(var2).c();
+		return var3 == Blocks.cv ? false : ((var3 != this) && !(var3 instanceof class_akc) ? (var3.J.k() && var3.d() ? var3.J != class_avq.C : false) : true);
 	}
 
 	@Override

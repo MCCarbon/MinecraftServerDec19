@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class class_axe extends class_axb {
 	@Override
-	public void a(class_ags var1, class_qx var2) {
+	public void a(class_ags var1, Entity var2) {
 		super.a(var1, var2);
 	}
 
@@ -50,7 +50,7 @@ public class class_axe extends class_axb {
 		for (int var5 = var1; var5 < (var1 + d); ++var5) {
 			for (int var6 = var2; var6 < (var2 + e); ++var6) {
 				for (int var7 = var3; var7 < (var3 + f); ++var7) {
-					class_ail var8 = a.p(var4.c(var5, var6, var7)).c();
+					Block var8 = a.p(var4.c(var5, var6, var7)).c();
 					if (var8.v() != class_avq.h) {
 						return class_awz.e;
 					}

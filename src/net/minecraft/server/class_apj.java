@@ -13,17 +13,17 @@ public class class_apj extends class_aif {
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		return null;
 	}
 
-	public static class_aoi a(class_apn var0, class_cq var1, boolean var2, boolean var3) {
+	public static TileEntity a(class_apn var0, class_cq var1, boolean var2, boolean var3) {
 		return new class_api(var0, var1, var2, var3);
 	}
 
 	@Override
 	public void c(class_ago var1, class_cj var2, class_apn var3) {
-		class_aoi var4 = var1.s(var2);
+		TileEntity var4 = var1.s(var2);
 		if (var4 instanceof class_api) {
 			((class_api) var4).h();
 		} else {
@@ -73,7 +73,7 @@ public class class_apj extends class_aif {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return null;
 	}
 
@@ -94,7 +94,7 @@ public class class_apj extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D) {
 			var1.s(var2);
 		}
@@ -121,7 +121,7 @@ public class class_apj extends class_aif {
 		class_api var3 = this.e(var1, var2);
 		if (var3 != null) {
 			class_apn var4 = var3.b();
-			class_ail var5 = var4.c();
+			Block var5 = var4.c();
 			if ((var5 == this) || (var5.v() == class_avq.a)) {
 				return;
 			}
@@ -131,7 +131,7 @@ public class class_apj extends class_aif {
 				var6 = 1.0F - var6;
 			}
 
-			if ((var5 == class_aim.J) || (var5 == class_aim.F)) {
+			if ((var5 == Blocks.J) || (var5 == Blocks.F)) {
 				var6 = 0.0F;
 			}
 
@@ -208,7 +208,7 @@ public class class_apj extends class_aif {
 	}
 
 	private class_api e(class_ags var1, class_cj var2) {
-		class_aoi var3 = var1.s(var2);
+		TileEntity var3 = var1.s(var2);
 		return var3 instanceof class_api ? (class_api) var3 : null;
 	}
 
@@ -223,12 +223,12 @@ public class class_apj extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(a)));
 	}
 

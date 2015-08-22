@@ -29,7 +29,7 @@ public class class_apk {
 	public boolean a() {
 		e.clear();
 		f.clear();
-		class_ail var1 = a.p(c).c();
+		Block var1 = a.p(c).c();
 		if (!class_apg.a(var1, a, c, d, false)) {
 			if (var1.k() != 1) {
 				return false;
@@ -42,7 +42,7 @@ public class class_apk {
 		} else {
 			for (int var2 = 0; var2 < e.size(); ++var2) {
 				class_cj var3 = (class_cj) e.get(var2);
-				if ((a.p(var3).c() == class_aim.cE) && !b(var3)) {
+				if ((a.p(var3).c() == Blocks.cE) && !b(var3)) {
 					return false;
 				}
 			}
@@ -52,7 +52,7 @@ public class class_apk {
 	}
 
 	private boolean a(class_cj var1) {
-		class_ail var2 = a.p(var1).c();
+		Block var2 = a.p(var1).c();
 		if (var2.v() == class_avq.a) {
 			return true;
 		} else if (!class_apg.a(var2, a, var1, d, false)) {
@@ -66,7 +66,7 @@ public class class_apk {
 			if ((var3 + e.size()) > 12) {
 				return false;
 			} else {
-				while (var2 == class_aim.cE) {
+				while (var2 == Blocks.cE) {
 					class_cj var4 = var1.a(d.d(), var3);
 					var2 = a.p(var4).c();
 					if ((var2.v() == class_avq.a) || !class_apg.a(var2, a, var4, d, false) || var4.equals(b)) {
@@ -97,7 +97,7 @@ public class class_apk {
 
 						for (int var8 = 0; var8 <= (var7 + var10); ++var8) {
 							class_cj var9 = (class_cj) e.get(var8);
-							if ((a.p(var9).c() == class_aim.cE) && !b(var9)) {
+							if ((a.p(var9).c() == Blocks.cE) && !b(var9)) {
 								return false;
 							}
 						}

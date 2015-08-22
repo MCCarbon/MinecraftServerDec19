@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public abstract class class_aih extends class_ail {
+public abstract class class_aih extends Block {
 	protected final boolean a;
 
 	public static boolean d(class_ago var0, class_cj var1) {
@@ -13,8 +13,8 @@ public abstract class class_aih extends class_ail {
 	}
 
 	public static boolean d(class_apn var0) {
-		class_ail var1 = var0.c();
-		return (var1 == class_aim.av) || (var1 == class_aim.D) || (var1 == class_aim.E) || (var1 == class_aim.cs);
+		Block var1 = var0.c();
+		return (var1 == Blocks.av) || (var1 == Blocks.D) || (var1 == Blocks.E) || (var1 == Blocks.cs);
 	}
 
 	protected class_aih(boolean var1) {
@@ -74,7 +74,7 @@ public abstract class class_aih extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D) {
 			class_aih.class_b_in_class_aih var5 = (class_aih.class_b_in_class_aih) var3.b(n());
 			boolean var6 = false;
@@ -102,7 +102,7 @@ public abstract class class_aih extends class_ail {
 		}
 	}
 
-	protected void b(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	protected void b(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 	}
 
 	protected class_apn a(class_ago var1, class_cj var2, class_apn var3, boolean var4) {

@@ -54,11 +54,11 @@ public class class_wu extends class_wt {
 	}
 
 	@Override
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 		this.a(var1, true);
 	}
 
-	public void a(class_qx var1, boolean var2) {
+	public void a(Entity var1, boolean var2) {
 		if (o.S().b("doEntityDrops")) {
 			class_aco var3 = this.n();
 			if (var1 instanceof class_yu) {
@@ -70,7 +70,7 @@ public class class_wu extends class_wt {
 			}
 
 			if (var2) {
-				this.a(new class_aco(class_acq.bU), 0.0F);
+				this.a(new class_aco(Items.bU), 0.0F);
 			}
 
 			if ((var3 != null) && (V.nextFloat() < e)) {
@@ -84,7 +84,7 @@ public class class_wu extends class_wt {
 
 	private void b(class_aco var1) {
 		if (var1 != null) {
-			if (var1.b() == class_acq.bf) {
+			if (var1.b() == Items.bf) {
 				class_axl var2 = ((class_acu) var1.b()).a(var1, o);
 				var2.i.remove("frame-" + G());
 			}
@@ -111,7 +111,7 @@ public class class_wu extends class_wt {
 		J().b(c, Optional.fromNullable(var1));
 		J().b(c);
 		if (var2 && (a != null)) {
-			o.f(a, class_aim.a);
+			o.f(a, Blocks.a);
 		}
 
 	}
@@ -127,7 +127,7 @@ public class class_wu extends class_wt {
 	private void a(int var1, boolean var2) {
 		J().b(d, Integer.valueOf(var1 % 8));
 		if (var2 && (a != null)) {
-			o.f(a, class_aim.a);
+			o.f(a, Blocks.a);
 		}
 
 	}

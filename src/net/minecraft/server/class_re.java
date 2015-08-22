@@ -11,7 +11,7 @@ public abstract class class_re extends class_rh {
 	}
 
 	@Override
-	protected void a(double var1, boolean var3, class_ail var4, class_cj var5) {
+	protected void a(double var1, boolean var3, Block var4, class_cj var5) {
 	}
 
 	@Override

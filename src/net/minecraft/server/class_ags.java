@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public interface class_ags {
-	class_aoi s(class_cj var1);
+	TileEntity s(class_cj var1);
 
 	class_apn p(class_cj var1);
 

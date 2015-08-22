@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class class_aiy extends class_ail {
+public class class_aiy extends Block {
 	public static final class_apy a = class_apy.a("north");
 	public static final class_apy b = class_apy.a("east");
 	public static final class_apy N = class_apy.a("south");
@@ -20,13 +20,13 @@ public class class_aiy extends class_ail {
 
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
-		class_ail var4 = var2.p(var3.b()).c();
-		class_ail var5 = var2.p(var3.a()).c();
-		class_ail var6 = var2.p(var3.c()).c();
-		class_ail var7 = var2.p(var3.f()).c();
-		class_ail var8 = var2.p(var3.d()).c();
-		class_ail var9 = var2.p(var3.e()).c();
-		return var1.a(Q, Boolean.valueOf((var4 == this) || (var4 == class_aim.cS) || (var4 == class_aim.bH))).a(P, Boolean.valueOf((var5 == this) || (var5 == class_aim.cS))).a(a, Boolean.valueOf((var6 == this) || (var6 == class_aim.cS))).a(b, Boolean.valueOf((var7 == this) || (var7 == class_aim.cS))).a(N, Boolean.valueOf((var8 == this) || (var8 == class_aim.cS))).a(O, Boolean.valueOf((var9 == this) || (var9 == class_aim.cS)));
+		Block var4 = var2.p(var3.b()).c();
+		Block var5 = var2.p(var3.a()).c();
+		Block var6 = var2.p(var3.c()).c();
+		Block var7 = var2.p(var3.f()).c();
+		Block var8 = var2.p(var3.d()).c();
+		Block var9 = var2.p(var3.e()).c();
+		return var1.a(Q, Boolean.valueOf((var4 == this) || (var4 == Blocks.cS) || (var4 == Blocks.bH))).a(P, Boolean.valueOf((var5 == this) || (var5 == Blocks.cS))).a(a, Boolean.valueOf((var6 == this) || (var6 == Blocks.cS))).a(b, Boolean.valueOf((var7 == this) || (var7 == Blocks.cS))).a(N, Boolean.valueOf((var8 == this) || (var8 == Blocks.cS))).a(O, Boolean.valueOf((var9 == this) || (var9 == Blocks.cS)));
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class class_aiy extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		var3 = this.a(var3, var1, var2);
 		float var7 = 0.1875F;
 		float var8 = 0.8125F;
@@ -95,8 +95,8 @@ public class class_aiy extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.cL;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.cL;
 	}
 
 	@Override
@@ -125,7 +125,7 @@ public class class_aiy extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!this.d(var1, var2)) {
 			var1.a(var2, this, 1);
 		}
@@ -137,14 +137,14 @@ public class class_aiy extends class_ail {
 		boolean var4 = var1.d(var2.b());
 		Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
 
-		class_ail var9;
+		Block var9;
 		do {
 			class_cj var7;
-			class_ail var8;
+			Block var8;
 			do {
 				if (!var5.hasNext()) {
-					class_ail var10 = var1.p(var2.b()).c();
-					if ((var10 != this) && (var10 != class_aim.bH)) {
+					Block var10 = var1.p(var2.b()).c();
+					if ((var10 != this) && (var10 != Blocks.bH)) {
 						return false;
 					}
 
@@ -161,7 +161,7 @@ public class class_aiy extends class_ail {
 			}
 
 			var9 = var1.p(var7.b()).c();
-		} while ((var9 != this) && (var9 != class_aim.bH));
+		} while ((var9 != this) && (var9 != Blocks.bH));
 
 		return true;
 	}

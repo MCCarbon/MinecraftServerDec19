@@ -27,7 +27,7 @@ public class class_aja extends class_akx implements class_ain {
 	public boolean f(class_ago var1, class_cj var2, class_apn var3) {
 		var2 = var2.a((class_cq) var3.b(O));
 		class_apn var4 = var1.p(var2);
-		return (var4.c() == class_aim.r) && (var4.b(class_alv.b) == class_aly.class_a_in_class_aly.d);
+		return (var4.c() == Blocks.r) && (var4.b(class_alv.b) == class_aly.class_a_in_class_aly.d);
 	}
 
 	@Override
@@ -74,12 +74,12 @@ public class class_aja extends class_akx implements class_ain {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(O, var2.a((class_cq) var1.b(O)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(O)));
 	}
 
@@ -99,7 +99,7 @@ public class class_aja extends class_akx implements class_ain {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!this.f(var1, var2, var3)) {
 			this.g(var1, var2, var3);
 		}
@@ -107,7 +107,7 @@ public class class_aja extends class_akx implements class_ain {
 	}
 
 	private void g(class_ago var1, class_cj var2, class_apn var3) {
-		var1.a(var2, class_aim.a.S(), 3);
+		var1.a(var2, Blocks.a.S(), 3);
 		this.b(var1, var2, var3, 0);
 	}
 
@@ -120,14 +120,14 @@ public class class_aja extends class_akx implements class_ain {
 		}
 
 		for (int var8 = 0; var8 < var7; ++var8) {
-			a(var1, var2, new class_aco(class_acq.aY, 1, class_abt.m.b()));
+			a(var1, var2, new class_aco(Items.aY, 1, class_abt.m.b()));
 		}
 
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(class_acq.aY, 1, class_abt.m.b());
+		return new class_aco(Items.aY, 1, class_abt.m.b());
 	}
 
 	@Override

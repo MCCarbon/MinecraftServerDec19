@@ -4,18 +4,18 @@ import java.util.Iterator;
 import java.util.List;
 
 public class class_ev {
-	public static class_eu a(class_m var0, class_eu var1, class_qx var2) throws class_bz {
+	public static class_eu a(ICommandListener var0, class_eu var1, Entity var2) throws class_bz {
 		Object var3 = null;
 		if (var1 instanceof class_ex) {
 			class_ex var4 = (class_ex) var1;
 			String var5 = var4.g();
 			if (class_o.b(var5)) {
-				List var6 = class_o.b(var0, var5, class_qx.class);
+				List var6 = class_o.b(var0, var5, Entity.class);
 				if (var6.size() != 1) {
 					throw new class_ca();
 				}
 
-				var5 = ((class_qx) var6.get(0)).e_();
+				var5 = ((Entity) var6.get(0)).e_();
 			}
 
 			var3 = (var2 != null) && var5.equals("*") ? new class_ex(var2.e_(), var4.h()) : new class_ex(var5, var4.h());

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 
-public class class_aog extends class_aoi {
+public class class_aog extends TileEntity {
 	private int a;
 	private class_du f;
 	private boolean g;
@@ -137,14 +137,14 @@ public class class_aog extends class_aoi {
 		C("half_vertical_right", "vhr", " ##", " ##", " ##"),
 		D("half_horizontal_bottom", "hhb", "   ", "###", "###"),
 		E("border", "bo", "###", "# #", "###"),
-		F("curly_border", "cbo", new class_aco(class_aim.bn)),
-		G("creeper", "cre", new class_aco(class_acq.cc, 1, 4)),
+		F("curly_border", "cbo", new class_aco(Blocks.bn)),
+		G("creeper", "cre", new class_aco(Items.cc, 1, 4)),
 		H("gradient", "gra", "# #", " # ", " # "),
 		I("gradient_up", "gru", " # ", " # ", "# #"),
-		J("bricks", "bri", new class_aco(class_aim.V)),
-		K("skull", "sku", new class_aco(class_acq.cc, 1, 1)),
-		L("flower", "flo", new class_aco(class_aim.O, 1, class_ake.class_a_in_class_ake.j.b())),
-		M("mojang", "moj", new class_aco(class_acq.aq, 1, 1));
+		J("bricks", "bri", new class_aco(Blocks.V)),
+		K("skull", "sku", new class_aco(Items.cc, 1, 1)),
+		L("flower", "flo", new class_aco(Blocks.O, 1, class_ake.class_a_in_class_ake.j.b())),
+		M("mojang", "moj", new class_aco(Items.aq, 1, 1));
 
 		private String N;
 		private String O;

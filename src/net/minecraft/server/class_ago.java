@@ -102,7 +102,7 @@ public abstract class class_ago implements class_ags {
 		x.d(true);
 	}
 
-	public class_ail c(class_cj var1) {
+	public Block c(class_cj var1) {
 		class_cj var2;
 		for (var2 = new class_cj(var1.n(), H(), var1.p()); !this.d(var2.a()); var2 = var2.a()) {
 			;
@@ -192,12 +192,12 @@ public abstract class class_ago implements class_ags {
 			return false;
 		} else {
 			class_aqn var4 = this.f(var1);
-			class_ail var5 = var2.c();
+			Block var5 = var2.c();
 			class_apn var6 = var4.a(var1, var2);
 			if (var6 == null) {
 				return false;
 			} else {
-				class_ail var7 = var6.c();
+				Block var7 = var6.c();
 				if ((var5.r() != var7.r()) || (var5.t() != var7.t())) {
 					B.a("checkLight");
 					x(var1);
@@ -221,21 +221,21 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean g(class_cj var1) {
-		return this.a(var1, class_aim.a.S(), 3);
+		return this.a(var1, Blocks.a.S(), 3);
 	}
 
 	public boolean b(class_cj var1, boolean var2) {
 		class_apn var3 = p(var1);
-		class_ail var4 = var3.c();
+		Block var4 = var3.c();
 		if (var4.v() == class_avq.a) {
 			return false;
 		} else {
-			this.b(2001, var1, class_ail.f(var3));
+			this.b(2001, var1, Block.f(var3));
 			if (var2) {
 				var4.b(this, var1, var3, 0);
 			}
 
-			return this.a(var1, class_aim.a.S(), 3);
+			return this.a(var1, Blocks.a.S(), 3);
 		}
 	}
 
@@ -250,7 +250,7 @@ public abstract class class_ago implements class_ags {
 
 	}
 
-	public void c(class_cj var1, class_ail var2) {
+	public void c(class_cj var1, Block var2) {
 		if (x.t() != class_agt.g) {
 			this.d(var1, var2);
 		}
@@ -285,7 +285,7 @@ public abstract class class_ago implements class_ags {
 
 	}
 
-	public void d(class_cj var1, class_ail var2) {
+	public void d(class_cj var1, Block var2) {
 		this.e(var1.e(), var2);
 		this.e(var1.f(), var2);
 		this.e(var1.b(), var2);
@@ -294,7 +294,7 @@ public abstract class class_ago implements class_ags {
 		this.e(var1.d(), var2);
 	}
 
-	public void a(class_cj var1, class_ail var2, class_cq var3) {
+	public void a(class_cj var1, Block var2, class_cq var3) {
 		if (var3 != class_cq.e) {
 			this.e(var1.e(), var2);
 		}
@@ -321,7 +321,7 @@ public abstract class class_ago implements class_ags {
 
 	}
 
-	public void e(class_cj var1, final class_ail var2) {
+	public void e(class_cj var1, final Block var2) {
 		if (!D) {
 			class_apn var3 = p(var1);
 
@@ -333,9 +333,9 @@ public abstract class class_ago implements class_ags {
 				var6.a("Source block type", new Callable() {
 					public String a() throws Exception {
 						try {
-							return String.format("ID #%d (%s // %s)", new Object[] { Integer.valueOf(class_ail.a(var2)), var2.a(), var2.getClass().getCanonicalName() });
+							return String.format("ID #%d (%s // %s)", new Object[] { Integer.valueOf(Block.a(var2)), var2.a(), var2.getClass().getCanonicalName() });
 						} catch (Throwable var2x) {
-							return "ID #" + class_ail.a(var2);
+							return "ID #" + Block.a(var2);
 						}
 					}
 
@@ -351,7 +351,7 @@ public abstract class class_ago implements class_ags {
 		}
 	}
 
-	public boolean a(class_cj var1, class_ail var2) {
+	public boolean a(class_cj var1, Block var2) {
 		return false;
 	}
 
@@ -368,7 +368,7 @@ public abstract class class_ago implements class_ags {
 				return false;
 			} else {
 				for (var2 = var2.b(); var2.o() > var1.o(); var2 = var2.b()) {
-					class_ail var3 = p(var2).c();
+					Block var3 = p(var2).c();
 					if ((var3.r() > 0) && !var3.v().d()) {
 						return false;
 					}
@@ -502,7 +502,7 @@ public abstract class class_ago implements class_ags {
 	@Override
 	public class_apn p(class_cj var1) {
 		if (!this.a(var1)) {
-			return class_aim.a.S();
+			return Blocks.a.S();
 		} else {
 			class_aqn var2 = this.f(var1);
 			return var2.g(var1);
@@ -532,7 +532,7 @@ public abstract class class_ago implements class_ags {
 				int var11 = class_oa.c(var1.c);
 				class_cj var12 = new class_cj(var9, var10, var11);
 				class_apn var13 = p(var12);
-				class_ail var14 = var13.c();
+				Block var14 = var13.c();
 				if ((!var4 || (var14.a(this, var12, var13) != null)) && var14.a(var13, var3)) {
 					class_ayl var15 = var14.a(this, var12, var1, var2);
 					if (var15 != null) {
@@ -629,7 +629,7 @@ public abstract class class_ago implements class_ags {
 					var11 = class_oa.c(var1.c) - (var36 == class_cq.d ? 1 : 0);
 					var12 = new class_cj(var9, var10, var11);
 					class_apn var37 = p(var12);
-					class_ail var38 = var37.c();
+					Block var38 = var37.c();
 					if (!var4 || (var38.a(this, var12, var37) != null)) {
 						if (var38.a(var37, var3)) {
 							class_ayl var39 = var38.a(this, var12, var1, var2);
@@ -651,7 +651,7 @@ public abstract class class_ago implements class_ags {
 		}
 	}
 
-	public void a(class_qx var1, String var2, float var3, float var4) {
+	public void a(Entity var1, String var2, float var3, float var4) {
 		for (int var5 = 0; var5 < u.size(); ++var5) {
 			((class_agq) u.get(var5)).a(var2, var1.s, var1.t, var1.u, var3, var4);
 		}
@@ -693,12 +693,12 @@ public abstract class class_ago implements class_ags {
 
 	}
 
-	public boolean d(class_qx var1) {
+	public boolean d(Entity var1) {
 		k.add(var1);
 		return true;
 	}
 
-	public boolean a(class_qx var1) {
+	public boolean a(Entity var1) {
 		int var2 = class_oa.c(var1.s / 16.0D);
 		int var3 = class_oa.c(var1.u / 16.0D);
 		boolean var4 = var1.n;
@@ -722,27 +722,27 @@ public abstract class class_ago implements class_ags {
 		}
 	}
 
-	protected void b(class_qx var1) {
+	protected void b(Entity var1) {
 		for (int var2 = 0; var2 < u.size(); ++var2) {
 			((class_agq) u.get(var2)).a(var1);
 		}
 
 	}
 
-	protected void c(class_qx var1) {
+	protected void c(Entity var1) {
 		for (int var2 = 0; var2 < u.size(); ++var2) {
 			((class_agq) u.get(var2)).b(var1);
 		}
 
 	}
 
-	public void e(class_qx var1) {
+	public void e(Entity var1) {
 		if (var1.l != null) {
-			var1.l.a((class_qx) null);
+			var1.l.a((Entity) null);
 		}
 
 		if (var1.m != null) {
-			var1.a((class_qx) null);
+			var1.a((Entity) null);
 		}
 
 		var1.L();
@@ -754,7 +754,7 @@ public abstract class class_ago implements class_ags {
 
 	}
 
-	public void f(class_qx var1) {
+	public void f(Entity var1) {
 		var1.L();
 		if (var1 instanceof class_yu) {
 			j.remove(var1);
@@ -775,7 +775,7 @@ public abstract class class_ago implements class_ags {
 		u.add(var1);
 	}
 
-	public List a(class_qx var1, class_ayk var2) {
+	public List a(Entity var1, class_ayk var2) {
 		ArrayList var3 = Lists.newArrayList();
 		int var4 = class_oa.c(var2.a);
 		int var5 = class_oa.c(var2.d + 1.0D);
@@ -786,7 +786,7 @@ public abstract class class_ago implements class_ags {
 		class_aqg var10 = ah();
 		boolean var11 = (var1 != null) && var1.aZ();
 		boolean var12 = (var1 != null) && this.a(var10, var1);
-		class_apn var13 = class_aim.b.S();
+		class_apn var13 = Blocks.b.S();
 		class_cj.class_a_in_class_cj var14 = new class_cj.class_a_in_class_cj();
 
 		for (int var15 = var4; var15 < var5; ++var15) {
@@ -818,7 +818,7 @@ public abstract class class_ago implements class_ags {
 			List var22 = this.b(var1, var2.b(var21, var21, var21));
 
 			for (int var23 = 0; var23 < var22.size(); ++var23) {
-				class_qx var19 = (class_qx) var22.get(var23);
+				Entity var19 = (Entity) var22.get(var23);
 				if ((var1.l != var19) && (var1.m != var19)) {
 					class_ayk var20 = var19.V();
 					if ((var20 != null) && var20.b(var2)) {
@@ -836,7 +836,7 @@ public abstract class class_ago implements class_ags {
 		return var3;
 	}
 
-	public boolean a(class_aqg var1, class_qx var2) {
+	public boolean a(class_aqg var1, Entity var2) {
 		double var3 = var1.b();
 		double var5 = var1.c();
 		double var7 = var1.d();
@@ -875,10 +875,10 @@ public abstract class class_ago implements class_ags {
 						if ((var10 >= -30000000) && (var10 < 30000000) && (var11 >= -30000000) && (var11 < 30000000)) {
 							var13 = p(var9);
 						} else {
-							var13 = class_aim.h.S();
+							var13 = Blocks.h.S();
 						}
 
-						var13.c().a(this, var9, var13, var1, var2, (class_qx) null);
+						var13.c().a(this, var9, var13, var1, var2, (Entity) null);
 					}
 				}
 			}
@@ -931,17 +931,17 @@ public abstract class class_ago implements class_ags {
 		return var3;
 	}
 
-	public boolean b(class_cj var1, class_ail var2) {
+	public boolean b(class_cj var1, Block var2) {
 		return true;
 	}
 
-	public void a(class_cj var1, class_ail var2, int var3) {
+	public void a(class_cj var1, Block var2, int var3) {
 	}
 
-	public void a(class_cj var1, class_ail var2, int var3, int var4) {
+	public void a(class_cj var1, Block var2, int var3, int var4) {
 	}
 
-	public void b(class_cj var1, class_ail var2, int var3, int var4) {
+	public void b(class_cj var1, Block var2, int var3, int var4) {
 	}
 
 	public void k() {
@@ -949,11 +949,11 @@ public abstract class class_ago implements class_ags {
 		B.a("global");
 
 		int var1;
-		class_qx var2;
+		Entity var2;
 		class_b var4;
 		class_c var5;
 		for (var1 = 0; var1 < k.size(); ++var1) {
-			var2 = (class_qx) k.get(var1);
+			var2 = (Entity) k.get(var1);
 
 			try {
 				++var2.W;
@@ -981,7 +981,7 @@ public abstract class class_ago implements class_ags {
 		int var3;
 		int var14;
 		for (var1 = 0; var1 < g.size(); ++var1) {
-			var2 = (class_qx) g.get(var1);
+			var2 = (Entity) g.get(var1);
 			var3 = var2.ae;
 			var14 = var2.ag;
 			if (var2.ad && this.a(var3, var14, true)) {
@@ -990,14 +990,14 @@ public abstract class class_ago implements class_ags {
 		}
 
 		for (var1 = 0; var1 < g.size(); ++var1) {
-			this.c((class_qx) g.get(var1));
+			this.c((Entity) g.get(var1));
 		}
 
 		g.clear();
 		B.c("regular");
 
 		for (var1 = 0; var1 < f.size(); ++var1) {
-			var2 = (class_qx) f.get(var1);
+			var2 = (Entity) f.get(var1);
 			if (var2.m != null) {
 				if (!var2.m.I && (var2.m.l == var2)) {
 					continue;
@@ -1040,7 +1040,7 @@ public abstract class class_ago implements class_ags {
 		Iterator var15 = i.iterator();
 
 		while (var15.hasNext()) {
-			class_aoi var10 = (class_aoi) var15.next();
+			TileEntity var10 = (TileEntity) var15.next();
 			if (!var10.x() && var10.t()) {
 				class_cj var12 = var10.v();
 				if (this.e(var12) && L.a(var12)) {
@@ -1076,7 +1076,7 @@ public abstract class class_ago implements class_ags {
 		B.c("pendingBlockEntities");
 		if (!b.isEmpty()) {
 			for (int var11 = 0; var11 < b.size(); ++var11) {
-				class_aoi var13 = (class_aoi) b.get(var11);
+				TileEntity var13 = (TileEntity) b.get(var11);
 				if (!var13.x()) {
 					if (!h.contains(var13)) {
 						this.a(var13);
@@ -1097,7 +1097,7 @@ public abstract class class_ago implements class_ags {
 		B.b();
 	}
 
-	public boolean a(class_aoi var1) {
+	public boolean a(TileEntity var1) {
 		boolean var2 = h.add(var1);
 		if (var2 && (var1 instanceof class_ks)) {
 			i.add(var1);
@@ -1113,7 +1113,7 @@ public abstract class class_ago implements class_ags {
 			Iterator var2 = var1.iterator();
 
 			while (var2.hasNext()) {
-				class_aoi var3 = (class_aoi) var2.next();
+				TileEntity var3 = (TileEntity) var2.next();
 				h.add(var3);
 				if (var3 instanceof class_ks) {
 					i.add(var3);
@@ -1123,11 +1123,11 @@ public abstract class class_ago implements class_ags {
 
 	}
 
-	public void g(class_qx var1) {
+	public void g(Entity var1) {
 		this.a(var1, true);
 	}
 
-	public void a(class_qx var1, boolean var2) {
+	public void a(Entity var1, boolean var2) {
 		int var3 = class_oa.c(var1.s);
 		int var4 = class_oa.c(var1.u);
 		byte var5 = 32;
@@ -1196,14 +1196,14 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean b(class_ayk var1) {
-		return this.a(var1, (class_qx) null);
+		return this.a(var1, (Entity) null);
 	}
 
-	public boolean a(class_ayk var1, class_qx var2) {
-		List var3 = this.b((class_qx) null, var1);
+	public boolean a(class_ayk var1, Entity var2) {
+		List var3 = this.b((Entity) null, var1);
 
 		for (int var4 = 0; var4 < var3.size(); ++var4) {
-			class_qx var5 = (class_qx) var3.get(var4);
+			Entity var5 = (Entity) var3.get(var4);
 			if (!var5.I && var5.k && (var5 != var2) && ((var2 == null) || ((var2.m != var5) && (var2.l != var5)))) {
 				return false;
 			}
@@ -1224,7 +1224,7 @@ public abstract class class_ago implements class_ags {
 		for (int var9 = var2; var9 <= var3; ++var9) {
 			for (int var10 = var4; var10 <= var5; ++var10) {
 				for (int var11 = var6; var11 <= var7; ++var11) {
-					class_ail var12 = p(var8.c(var9, var10, var11)).c();
+					Block var12 = p(var8.c(var9, var10, var11)).c();
 					if (var12.v() != class_avq.a) {
 						return true;
 					}
@@ -1247,7 +1247,7 @@ public abstract class class_ago implements class_ags {
 		for (int var9 = var2; var9 <= var3; ++var9) {
 			for (int var10 = var4; var10 <= var5; ++var10) {
 				for (int var11 = var6; var11 <= var7; ++var11) {
-					class_ail var12 = p(var8.c(var9, var10, var11)).c();
+					Block var12 = p(var8.c(var9, var10, var11)).c();
 					if (var12.v().d()) {
 						return true;
 					}
@@ -1271,8 +1271,8 @@ public abstract class class_ago implements class_ags {
 			for (int var9 = var2; var9 < var3; ++var9) {
 				for (int var10 = var4; var10 < var5; ++var10) {
 					for (int var11 = var6; var11 < var7; ++var11) {
-						class_ail var12 = p(var8.c(var9, var10, var11)).c();
-						if ((var12 == class_aim.ab) || (var12 == class_aim.k) || (var12 == class_aim.l)) {
+						Block var12 = p(var8.c(var9, var10, var11)).c();
+						if ((var12 == Blocks.ab) || (var12 == Blocks.k) || (var12 == Blocks.l)) {
 							return true;
 						}
 					}
@@ -1283,7 +1283,7 @@ public abstract class class_ago implements class_ags {
 		return false;
 	}
 
-	public boolean a(class_ayk var1, class_avq var2, class_qx var3) {
+	public boolean a(class_ayk var1, class_avq var2, Entity var3) {
 		int var4 = class_oa.c(var1.a);
 		int var5 = class_oa.c(var1.d + 1.0D);
 		int var6 = class_oa.c(var1.b);
@@ -1302,7 +1302,7 @@ public abstract class class_ago implements class_ags {
 					for (int var15 = var8; var15 < var9; ++var15) {
 						var12.c(var13, var14, var15);
 						class_apn var16 = p(var12);
-						class_ail var17 = var16.c();
+						Block var17 = var16.c();
 						if (var17.v() == var2) {
 							double var18 = var14 + 1 - class_alf.b(((Integer) var16.b(class_alf.b)).intValue());
 							if (var7 >= var18) {
@@ -1361,7 +1361,7 @@ public abstract class class_ago implements class_ags {
 			for (int var11 = var5; var11 < var6; ++var11) {
 				for (int var12 = var7; var12 < var8; ++var12) {
 					class_apn var13 = p(var9.c(var10, var11, var12));
-					class_ail var14 = var13.c();
+					Block var14 = var13.c();
 					if (var14.v() == var2) {
 						int var15 = ((Integer) var13.b(class_alf.b)).intValue();
 						double var16 = var11 + 1;
@@ -1380,11 +1380,11 @@ public abstract class class_ago implements class_ags {
 		return false;
 	}
 
-	public class_agk a(class_qx var1, double var2, double var4, double var6, float var8, boolean var9) {
+	public class_agk a(Entity var1, double var2, double var4, double var6, float var8, boolean var9) {
 		return this.a(var1, var2, var4, var6, var8, false, var9);
 	}
 
-	public class_agk a(class_qx var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
+	public class_agk a(Entity var1, double var2, double var4, double var6, float var8, boolean var9, boolean var10) {
 		class_agk var11 = new class_agk(this, var1, var2, var4, var6, var8, var9, var10);
 		var11.a();
 		var11.a(true);
@@ -1424,7 +1424,7 @@ public abstract class class_ago implements class_ags {
 
 	public boolean a(class_yu var1, class_cj var2, class_cq var3) {
 		var2 = var2.a(var3);
-		if (p(var2).c() == class_aim.ab) {
+		if (p(var2).c() == Blocks.ab) {
 			this.a(var1, 1004, var2, 0);
 			this.g(var2);
 			return true;
@@ -1434,16 +1434,16 @@ public abstract class class_ago implements class_ags {
 	}
 
 	@Override
-	public class_aoi s(class_cj var1) {
+	public TileEntity s(class_cj var1) {
 		if (!this.a(var1)) {
 			return null;
 		} else {
-			class_aoi var2 = null;
+			TileEntity var2 = null;
 			int var3;
-			class_aoi var4;
+			TileEntity var4;
 			if (K) {
 				for (var3 = 0; var3 < b.size(); ++var3) {
-					var4 = (class_aoi) b.get(var3);
+					var4 = (TileEntity) b.get(var3);
 					if (!var4.x() && var4.v().equals(var1)) {
 						var2 = var4;
 						break;
@@ -1457,7 +1457,7 @@ public abstract class class_ago implements class_ags {
 
 			if (var2 == null) {
 				for (var3 = 0; var3 < b.size(); ++var3) {
-					var4 = (class_aoi) b.get(var3);
+					var4 = (TileEntity) b.get(var3);
 					if (!var4.x() && var4.v().equals(var1)) {
 						var2 = var4;
 						break;
@@ -1469,14 +1469,14 @@ public abstract class class_ago implements class_ags {
 		}
 	}
 
-	public void a(class_cj var1, class_aoi var2) {
+	public void a(class_cj var1, TileEntity var2) {
 		if ((var2 != null) && !var2.x()) {
 			if (K) {
 				var2.a(var1);
 				Iterator var3 = b.iterator();
 
 				while (var3.hasNext()) {
-					class_aoi var4 = (class_aoi) var3.next();
+					TileEntity var4 = (TileEntity) var3.next();
 					if (var4.v().equals(var1)) {
 						var4.y();
 						var3.remove();
@@ -1493,7 +1493,7 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public void t(class_cj var1) {
-		class_aoi var2 = s(var1);
+		TileEntity var2 = s(var1);
 		if ((var2 != null) && K) {
 			var2.y();
 			b.remove(var2);
@@ -1509,7 +1509,7 @@ public abstract class class_ago implements class_ags {
 
 	}
 
-	public void b(class_aoi var1) {
+	public void b(TileEntity var1) {
 		c.add(var1);
 	}
 
@@ -1521,7 +1521,7 @@ public abstract class class_ago implements class_ags {
 
 	public static boolean a(class_ags var0, class_cj var1) {
 		class_apn var2 = var0.p(var1);
-		class_ail var3 = var2.c();
+		Block var3 = var2.c();
 		return var3.v().k() && var3.d() ? true : (var3 instanceof class_anf ? var2.b(class_anf.b) == class_anf.class_a_in_class_anf.a : (var3 instanceof class_akq ? var2.b(class_akq.a) == class_akq.class_a_in_class_akq.a : (var3 instanceof class_akw ? true : (var3 instanceof class_ana ? ((Integer) var2.b(class_ana.a)).intValue() == 7 : false))));
 	}
 
@@ -1533,7 +1533,7 @@ public abstract class class_ago implements class_ags {
 			if (var3.f()) {
 				return var2;
 			} else {
-				class_ail var4 = p(var1).c();
+				Block var4 = p(var1).c();
 				return var4.v().k() && var4.d();
 			}
 		}
@@ -1630,7 +1630,7 @@ public abstract class class_ago implements class_ags {
 	protected void j() {
 	}
 
-	public void a(class_ail var1, class_cj var2, Random var3) {
+	public void a(Block var1, class_cj var2, Random var3) {
 		e = true;
 		var1.b(this, var2, p(var2), var3);
 		e = false;
@@ -1652,8 +1652,8 @@ public abstract class class_ago implements class_ags {
 		} else {
 			if ((var1.o() >= 0) && (var1.o() < 256) && (this.b(class_agu.b, var1) < 10)) {
 				class_apn var5 = p(var1);
-				class_ail var6 = var5.c();
-				if (((var6 == class_aim.j) || (var6 == class_aim.i)) && (((Integer) var5.b(class_alf.b)).intValue() == 0)) {
+				Block var6 = var5.c();
+				if (((var6 == Blocks.j) || (var6 == Blocks.i)) && (((Integer) var5.b(class_alf.b)).intValue() == 0)) {
 					if (!var2) {
 						return true;
 					}
@@ -1682,8 +1682,8 @@ public abstract class class_ago implements class_ags {
 			return true;
 		} else {
 			if ((var1.o() >= 0) && (var1.o() < 256) && (this.b(class_agu.b, var1) < 10)) {
-				class_ail var5 = p(var1).c();
-				if ((var5.v() == class_avq.a) && class_aim.aH.c(this, var1)) {
+				Block var5 = p(var1).c();
+				if ((var5.v() == class_avq.a) && Blocks.aH.c(this, var1)) {
 					return true;
 				}
 			}
@@ -1706,7 +1706,7 @@ public abstract class class_ago implements class_ags {
 		if ((var2 == class_agu.a) && i(var1)) {
 			return 15;
 		} else {
-			class_ail var3 = p(var1).c();
+			Block var3 = p(var1).c();
 			int var4 = var2 == class_agu.a ? 0 : var3.t();
 			int var5 = var3.r();
 			if ((var5 >= 15) && (var3.t() > 0)) {
@@ -1879,11 +1879,11 @@ public abstract class class_ago implements class_ags {
 		return null;
 	}
 
-	public List b(class_qx var1, class_ayk var2) {
+	public List b(Entity var1, class_ayk var2) {
 		return this.a(var1, var2, class_rb.d);
 	}
 
-	public List a(class_qx var1, class_ayk var2, Predicate var3) {
+	public List a(Entity var1, class_ayk var2, Predicate var3) {
 		ArrayList var4 = Lists.newArrayList();
 		int var5 = class_oa.c((var2.a - 2.0D) / 16.0D);
 		int var6 = class_oa.c((var2.d + 2.0D) / 16.0D);
@@ -1906,7 +1906,7 @@ public abstract class class_ago implements class_ags {
 		Iterator var4 = f.iterator();
 
 		while (var4.hasNext()) {
-			class_qx var5 = (class_qx) var4.next();
+			Entity var5 = (Entity) var4.next();
 			if (var1.isAssignableFrom(var5.getClass()) && var2.apply(var5)) {
 				var3.add(var5);
 			}
@@ -1920,7 +1920,7 @@ public abstract class class_ago implements class_ags {
 		Iterator var4 = j.iterator();
 
 		while (var4.hasNext()) {
-			class_qx var5 = (class_qx) var4.next();
+			Entity var5 = (Entity) var4.next();
 			if (var1.isAssignableFrom(var5.getClass()) && var2.apply(var5)) {
 				var3.add(var5);
 			}
@@ -1951,13 +1951,13 @@ public abstract class class_ago implements class_ags {
 		return var8;
 	}
 
-	public class_qx a(Class var1, class_ayk var2, class_qx var3) {
+	public Entity a(Class var1, class_ayk var2, Entity var3) {
 		List var4 = this.a(var1, var2);
-		class_qx var5 = null;
+		Entity var5 = null;
 		double var6 = Double.MAX_VALUE;
 
 		for (int var8 = 0; var8 < var4.size(); ++var8) {
-			class_qx var9 = (class_qx) var4.get(var8);
+			Entity var9 = (Entity) var4.get(var8);
 			if ((var9 != var3) && class_rb.d.apply(var9)) {
 				double var10 = var3.h(var9);
 				if (var10 <= var6) {
@@ -1970,11 +1970,11 @@ public abstract class class_ago implements class_ags {
 		return var5;
 	}
 
-	public class_qx a(int var1) {
-		return (class_qx) l.a(var1);
+	public Entity a(int var1) {
+		return (Entity) l.a(var1);
 	}
 
-	public void b(class_cj var1, class_aoi var2) {
+	public void b(class_cj var1, TileEntity var2) {
 		if (this.e(var1)) {
 			this.f(var1).e();
 		}
@@ -1986,13 +1986,13 @@ public abstract class class_ago implements class_ags {
 		Iterator var3 = f.iterator();
 
 		while (true) {
-			class_qx var4;
+			Entity var4;
 			do {
 				if (!var3.hasNext()) {
 					return var2;
 				}
 
-				var4 = (class_qx) var3.next();
+				var4 = (Entity) var3.next();
 			} while ((var4 instanceof class_rh) && ((class_rh) var4).cr());
 
 			if (var1.isAssignableFrom(var4.getClass())) {
@@ -2006,7 +2006,7 @@ public abstract class class_ago implements class_ags {
 		Iterator var2 = var1.iterator();
 
 		while (var2.hasNext()) {
-			class_qx var3 = (class_qx) var2.next();
+			Entity var3 = (Entity) var2.next();
 			this.b(var3);
 		}
 
@@ -2016,10 +2016,10 @@ public abstract class class_ago implements class_ags {
 		g.addAll(var1);
 	}
 
-	public boolean a(class_ail var1, class_cj var2, boolean var3, class_cq var4, class_qx var5, class_aco var6) {
-		class_ail var7 = p(var2).c();
+	public boolean a(Block var1, class_cj var2, boolean var3, class_cq var4, Entity var5, class_aco var6) {
+		Block var7 = p(var2).c();
 		class_ayk var8 = var3 ? null : var1.a(this, var2, var1.S());
-		return (var8 != null) && !this.a(var8, var5) ? false : ((var7.v() == class_avq.q) && (var1 == class_aim.cf) ? true : var7.v().j() && var1.a(this, var2, var4, var6));
+		return (var8 != null) && !this.a(var8, var5) ? false : ((var7.v() == class_avq.q) && (var1 == Blocks.cf) ? true : var7.v().j() && var1.a(this, var2, var4, var6));
 	}
 
 	public int H() {
@@ -2077,7 +2077,7 @@ public abstract class class_ago implements class_ags {
 
 	public int c(class_cj var1, class_cq var2) {
 		class_apn var3 = p(var1);
-		class_ail var4 = var3.c();
+		Block var4 = var3.c();
 		return var4.x() ? this.y(var1) : var4.a(this, var1, var3, var2);
 	}
 
@@ -2105,7 +2105,7 @@ public abstract class class_ago implements class_ags {
 		return var2;
 	}
 
-	public class_yu a(class_qx var1, double var2) {
+	public class_yu a(Entity var1, double var2) {
 		return this.a(var1.s, var1.t, var1.u, var2);
 	}
 
@@ -2141,7 +2141,7 @@ public abstract class class_ago implements class_ags {
 		return false;
 	}
 
-	public class_yu a(class_qx var1, double var2, double var4) {
+	public class_yu a(Entity var1, double var2, double var4) {
 		return this.a(var1.s, var1.t, var1.u, var2, var4);
 	}
 
@@ -2240,14 +2240,14 @@ public abstract class class_ago implements class_ags {
 		return true;
 	}
 
-	public void a(class_qx var1, byte var2) {
+	public void a(Entity var1, byte var2) {
 	}
 
 	public class_aqk P() {
 		return v;
 	}
 
-	public void c(class_cj var1, class_ail var2, int var3, int var4) {
+	public void c(class_cj var1, Block var2, int var3, int var4) {
 		var2.a(this, var1, p(var1), var3, var4);
 	}
 
@@ -2417,7 +2417,7 @@ public abstract class class_ago implements class_ags {
 		return C;
 	}
 
-	public void f(class_cj var1, class_ail var2) {
+	public void f(class_cj var1, Block var2) {
 		Iterator var3 = class_cq.class_c_in_class_cq.a.iterator();
 
 		while (var3.hasNext()) {
@@ -2425,12 +2425,12 @@ public abstract class class_ago implements class_ags {
 			class_cj var5 = var1.a(var4);
 			if (this.e(var5)) {
 				class_apn var6 = p(var5);
-				if (class_aim.cj.e(var6.c())) {
+				if (Blocks.cj.e(var6.c())) {
 					var6.c().a(this, var5, var6, var2);
 				} else if (var6.c().x()) {
 					var5 = var5.a(var4);
 					var6 = p(var5);
-					if (class_aim.cj.e(var6.c())) {
+					if (Blocks.cj.e(var6.c())) {
 						var6.c().a(this, var5, var6, var2);
 					}
 				}

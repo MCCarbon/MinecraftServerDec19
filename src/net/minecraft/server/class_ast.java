@@ -7,10 +7,10 @@ public class class_ast extends class_asp {
 	public boolean b(class_ago var1, Random var2, class_cj var3) {
 		if (!var1.d(var3)) {
 			return false;
-		} else if (var1.p(var3.a()).c() != class_aim.aV) {
+		} else if (var1.p(var3.a()).c() != Blocks.aV) {
 			return false;
 		} else {
-			var1.a(var3, class_aim.aX.S(), 2);
+			var1.a(var3, Blocks.aX.S(), 2);
 
 			for (int var4 = 0; var4 < 1500; ++var4) {
 				class_cj var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), -var2.nextInt(12), var2.nextInt(8) - var2.nextInt(8));
@@ -21,7 +21,7 @@ public class class_ast extends class_asp {
 
 					for (int var9 = 0; var9 < var8; ++var9) {
 						class_cq var10 = var7[var9];
-						if (var1.p(var5.a(var10)).c() == class_aim.aX) {
+						if (var1.p(var5.a(var10)).c() == Blocks.aX) {
 							++var6;
 						}
 
@@ -31,7 +31,7 @@ public class class_ast extends class_asp {
 					}
 
 					if (var6 == 1) {
-						var1.a(var5, class_aim.aX.S(), 2);
+						var1.a(var5, Blocks.aX.S(), 2);
 					}
 				}
 			}

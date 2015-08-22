@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_amz extends class_ail {
+public class class_amz extends Block {
 	protected class_amz() {
 		super(class_avq.z);
 		this.a(true);
@@ -10,8 +10,8 @@ public class class_amz extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.aF;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.aF;
 	}
 
 	@Override

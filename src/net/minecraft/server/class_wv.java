@@ -37,7 +37,7 @@ public class class_wv extends class_wt {
 	}
 
 	@Override
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 	}
 
 	@Override
@@ -63,7 +63,7 @@ public class class_wv extends class_wt {
 			List var7;
 			Iterator var8;
 			class_rh var9;
-			if ((var2 != null) && (var2.b() == class_acq.cs)) {
+			if ((var2 != null) && (var2.b() == Items.cs)) {
 				var5 = 7.0D;
 				var7 = o.a(class_rh.class, new class_ayk(s - var5, t - var5, u - var5, s + var5, t + var5, u + var5));
 				var8 = var7.iterator();

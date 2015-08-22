@@ -23,7 +23,7 @@ public class class_lg {
 		e = var1.t().ar().d();
 	}
 
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 		if (var1 instanceof class_lm) {
 			this.a(var1, 512, 2);
 			class_lm var2 = (class_lm) var1;
@@ -93,11 +93,11 @@ public class class_lg {
 
 	}
 
-	public void a(class_qx var1, int var2, int var3) {
+	public void a(Entity var1, int var2, int var3) {
 		this.a(var1, var2, var3, false);
 	}
 
-	public void a(class_qx var1, int var2, final int var3, boolean var4) {
+	public void a(Entity var1, int var2, final int var3, boolean var4) {
 		if (var2 > e) {
 			var2 = e;
 		}
@@ -144,7 +144,7 @@ public class class_lg {
 
 	}
 
-	public void b(class_qx var1) {
+	public void b(Entity var1) {
 		if (var1 instanceof class_lm) {
 			class_lm var2 = (class_lm) var1;
 			Iterator var3 = c.iterator();
@@ -203,7 +203,7 @@ public class class_lg {
 
 	}
 
-	public void a(class_qx var1, class_ff var2) {
+	public void a(Entity var1, class_ff var2) {
 		class_lo var3 = (class_lo) d.a(var1.G());
 		if (var3 != null) {
 			var3.a(var2);
@@ -211,7 +211,7 @@ public class class_lg {
 
 	}
 
-	public void b(class_qx var1, class_ff var2) {
+	public void b(Entity var1, class_ff var2) {
 		class_lo var3 = (class_lo) d.a(var1.G());
 		if (var3 != null) {
 			var3.b(var2);

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aoy extends class_aoi {
+public class class_aoy extends TileEntity {
 	public byte a;
 	public boolean f;
 
@@ -45,7 +45,7 @@ public class class_aoy extends class_aoi {
 				var4 = 4;
 			}
 
-			var1.c(var2, class_aim.B, var4, a);
+			var1.c(var2, Blocks.B, var4, a);
 		}
 	}
 }

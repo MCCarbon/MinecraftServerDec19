@@ -263,7 +263,7 @@ public class class_ws extends class_rg {
 	}
 
 	@Override
-	protected void s(class_qx var1) {
+	protected void s(Entity var1) {
 	}
 
 	@Override
@@ -271,7 +271,7 @@ public class class_ws extends class_rg {
 		List var1 = o.a(this, aX(), bs);
 
 		for (int var2 = 0; var2 < var1.size(); ++var2) {
-			class_qx var3 = (class_qx) var1.get(var2);
+			Entity var3 = (Entity) var1.get(var2);
 			if (this.h(var3) <= 0.2D) {
 				var3.i(this);
 			}
@@ -286,12 +286,12 @@ public class class_ws extends class_rg {
 		} else if (!o.D && !var1.w()) {
 			class_rc var5 = class_rc.a;
 			boolean var6 = var3 != null;
-			class_acm var7 = var6 ? var3.b() : null;
+			Item var7 = var6 ? var3.b() : null;
 			if (var6 && (var7 instanceof class_aav)) {
 				var5 = ((class_aav) var7).b;
 			}
 
-			if (var6 && ((var7 == class_acq.cc) || (var7 == class_acm.a(class_aim.aU)))) {
+			if (var6 && ((var7 == Items.cc) || (var7 == Item.a(Blocks.aU)))) {
 				var5 = class_rc.f;
 			}
 
@@ -350,7 +350,7 @@ public class class_ws extends class_rg {
 		if ((var5 == null) || ((bx & (1 << (var2.c() + 8))) == 0)) {
 			if ((var5 != null) || ((bx & (1 << (var2.c() + 16))) == 0)) {
 				class_aco var6;
-				if (var1.bI.d && ((var5 == null) || (var5.b() == class_acm.a(class_aim.a))) && (var3 != null)) {
+				if (var1.bI.d && ((var5 == null) || (var5.b() == Item.a(Blocks.a))) && (var3 != null)) {
 					var6 = var3.k();
 					var6.b = 1;
 					this.a(var2, var6);
@@ -429,7 +429,7 @@ public class class_ws extends class_rg {
 
 	private void B() {
 		if (o instanceof class_ll) {
-			((class_ll) o).a(class_cy.M, s, t + (K / 1.5D), u, 10, J / 4.0F, K / 4.0F, J / 4.0F, 0.05D, new int[] { class_ail.f(class_aim.f.S()) });
+			((class_ll) o).a(class_cy.M, s, t + (K / 1.5D), u, 10, J / 4.0F, K / 4.0F, J / 4.0F, 0.05D, new int[] { Block.f(Blocks.f.S()) });
 		}
 
 	}
@@ -447,7 +447,7 @@ public class class_ws extends class_rg {
 	}
 
 	private void D() {
-		class_ail.a(o, new class_cj(this), new class_aco(class_acq.co));
+		Block.a(o, new class_cj(this), new class_aco(Items.co));
 		E();
 	}
 
@@ -456,7 +456,7 @@ public class class_ws extends class_rg {
 		for (var1 = 0; var1 < bt.length; ++var1) {
 			if ((bt[var1] != null) && (bt[var1].b > 0)) {
 				if (bt[var1] != null) {
-					class_ail.a(o, (new class_cj(this)).a(), bt[var1]);
+					Block.a(o, (new class_cj(this)).a(), bt[var1]);
 				}
 
 				bt[var1] = null;
@@ -466,7 +466,7 @@ public class class_ws extends class_rg {
 		for (var1 = 0; var1 < bu.length; ++var1) {
 			if ((bu[var1] != null) && (bu[var1].b > 0)) {
 				if (bu[var1] != null) {
-					class_ail.a(o, (new class_cj(this)).a(), bu[var1]);
+					Block.a(o, (new class_cj(this)).a(), bu[var1]);
 				}
 
 				bu[var1] = null;
@@ -682,14 +682,14 @@ public class class_ws extends class_rg {
 		f = class_kc.a(class_ws.class, class_kb.h);
 		g = class_kc.a(class_ws.class, class_kb.h);
 		bs = new Predicate() {
-			public boolean a(class_qx var1) {
+			public boolean a(Entity var1) {
 				return (var1 instanceof class_xh) && (((class_xh) var1).s() == class_xh.class_a_in_class_xh.a);
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		};
 	}

@@ -62,11 +62,11 @@ public class class_aah extends class_aas {
 		}
 
 		b = 0;
-		if (var1.b() == class_acq.l) {
+		if (var1.b() == Items.l) {
 			a.b(class_my.k);
 		}
 
-		if (var1.b() == class_acq.aX) {
+		if (var1.b() == Items.aX) {
 			a.b(class_my.p);
 		}
 

@@ -9,19 +9,19 @@ public class class_zn extends class_zj {
 
 	public class_zn(class_ago var1) {
 		super(var1);
-		d = class_adb.a(new class_aco(class_acq.bB), class_aee.a);
+		d = class_adb.a(new class_aco(Items.bB), class_aee.a);
 	}
 
 	public class_zn(class_ago var1, class_rg var2, class_aco var3, boolean var4) {
 		super(var1, var2);
-		d = class_adb.a(new class_aco(class_acq.bB), class_aee.a);
+		d = class_adb.a(new class_aco(Items.bB), class_aee.a);
 		d = var3;
 		e = var4;
 	}
 
 	public class_zn(class_ago var1, double var2, double var4, double var6, class_aco var8, boolean var9) {
 		super(var1, var2, var4, var6);
-		d = class_adb.a(new class_aco(class_acq.bB), class_aee.a);
+		d = class_adb.a(new class_aco(Items.bB), class_aee.a);
 		d = var8;
 		e = var9;
 	}
@@ -130,8 +130,8 @@ public class class_zn extends class_zj {
 	}
 
 	private void a(class_cj var1) {
-		if (o.p(var1).c() == class_aim.ab) {
-			o.a(var1, class_aim.a.S(), 2);
+		if (o.p(var1).c() == Blocks.ab) {
+			o.a(var1, Blocks.a.S(), 2);
 		}
 
 	}

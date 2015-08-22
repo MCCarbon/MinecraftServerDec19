@@ -14,7 +14,7 @@ public class class_xt extends class_yj {
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		if (super.r(var1)) {
 			if (var1 instanceof class_rg) {
 				byte var2 = 0;

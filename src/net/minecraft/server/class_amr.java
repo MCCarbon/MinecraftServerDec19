@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_amr extends class_ail {
+public class class_amr extends Block {
 	public static final class_aqa N = class_aqa.a("axis", class_cq.class_a_in_class_cq.class);
 
 	protected class_amr(class_avq var1) {
@@ -13,7 +13,7 @@ public class class_amr extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -67,7 +67,7 @@ public class class_amr extends class_ail {
 
 	@Override
 	protected class_aco i(class_apn var1) {
-		return new class_aco(class_acm.a(this));
+		return new class_aco(Item.a(this));
 	}
 
 	@Override
@@ -80,17 +80,17 @@ public class class_amr extends class_ail {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_c_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_c_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_c_in_class_ail.d.ordinal()] = 1;
+				b[Block.class_c_in_class_ail.d.ordinal()] = 1;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.b.ordinal()] = 2;
+				b[Block.class_c_in_class_ail.b.ordinal()] = 2;
 			} catch (NoSuchFieldError var3) {
 				;
 			}

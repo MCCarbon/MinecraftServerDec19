@@ -14,12 +14,12 @@ public class class_v extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.compare.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 9) {
 			throw new class_cf("commands.compare.usage", new Object[0]);
 		} else {
@@ -52,10 +52,10 @@ public class class_v extends class_i {
 								var13.c(var16 + var11.n(), var15 + var11.o(), var14 + var11.p());
 								boolean var17 = false;
 								class_apn var18 = var9.p(var12);
-								if (!var10 || (var18.c() != class_aim.a)) {
+								if (!var10 || (var18.c() != Blocks.a)) {
 									if (var18 == var9.p(var13)) {
-										class_aoi var19 = var9.s(var12);
-										class_aoi var20 = var9.s(var13);
+										TileEntity var19 = var9.s(var12);
+										TileEntity var20 = var9.s(var13);
 										if ((var19 != null) && (var20 != null)) {
 											class_dn var21 = new class_dn();
 											var19.b(var21);
@@ -98,7 +98,7 @@ public class class_v extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : ((var2.length > 3) && (var2.length <= 6) ? a(var2, 3, var3) : ((var2.length > 6) && (var2.length <= 9) ? a(var2, 6, var3) : (var2.length == 10 ? a(var2, new String[] { "masked", "all" }) : null)));
 	}
 }

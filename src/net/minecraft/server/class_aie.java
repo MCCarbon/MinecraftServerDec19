@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aie extends class_ail {
+public class class_aie extends Block {
 	protected class_aie() {
 		super(class_avq.I);
 		z();

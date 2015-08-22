@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class class_akx extends class_ail {
+public abstract class class_akx extends Block {
 	public static final class_apz O;
 
 	protected class_akx(class_avq var1) {

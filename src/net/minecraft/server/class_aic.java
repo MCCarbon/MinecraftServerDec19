@@ -77,7 +77,7 @@ public class class_aic extends class_ajz {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(a, var2.a((class_cq) var1.b(a)));
 	}
 
@@ -112,7 +112,7 @@ public class class_aic extends class_ajz {
 
 		@Override
 		public class_eu f_() {
-			return new class_fb(class_aim.cf.a() + ".name", new Object[0]);
+			return new class_fb(Blocks.cf.a() + ".name", new Object[0]);
 		}
 
 		@Override

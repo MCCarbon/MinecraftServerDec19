@@ -15,7 +15,7 @@ public class class_akc extends class_akx {
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
 		class_cq.class_a_in_class_cq var4 = ((class_cq) var1.b(O)).k();
-		if (((var4 == class_cq.class_a_in_class_cq.c) && ((var2.p(var3.e()).c() == class_aim.bZ) || (var2.p(var3.f()).c() == class_aim.bZ))) || ((var4 == class_cq.class_a_in_class_cq.a) && ((var2.p(var3.c()).c() == class_aim.bZ) || (var2.p(var3.d()).c() == class_aim.bZ)))) {
+		if (((var4 == class_cq.class_a_in_class_cq.c) && ((var2.p(var3.e()).c() == Blocks.bZ) || (var2.p(var3.f()).c() == Blocks.bZ))) || ((var4 == class_cq.class_a_in_class_cq.a) && ((var2.p(var3.c()).c() == Blocks.bZ) || (var2.p(var3.d()).c() == Blocks.bZ)))) {
 			var1 = var1.a(N, Boolean.valueOf(true));
 		}
 
@@ -23,12 +23,12 @@ public class class_akc extends class_akx {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(O, var2.a((class_cq) var1.b(O)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(O)));
 	}
 
@@ -98,7 +98,7 @@ public class class_akc extends class_akx {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D) {
 			boolean var5 = var1.z(var2);
 			if (var5 || var4.i()) {

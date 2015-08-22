@@ -55,7 +55,7 @@ public class class_ln {
 		int var4;
 		if (h) {
 			int var1 = g - j;
-			class_ail var2 = a.p(i).c();
+			Block var2 = a.p(i).c();
 			if (var2.v() == class_avq.a) {
 				h = false;
 			} else {
@@ -72,7 +72,7 @@ public class class_ln {
 				}
 			}
 		} else if (d) {
-			class_ail var5 = a.p(f).c();
+			Block var5 = a.p(f).c();
 			if (var5.v() == class_avq.a) {
 				a.c(b.G(), f, -1);
 				k = -1;
@@ -97,7 +97,7 @@ public class class_ln {
 			}
 
 		} else {
-			class_ail var3 = a.p(var1).c();
+			Block var3 = a.p(var1).c();
 			if (c.c()) {
 				if (c == class_agr.class_a_in_class_agr.e) {
 					return;
@@ -139,7 +139,7 @@ public class class_ln {
 	public void a(class_cj var1) {
 		if (var1.equals(f)) {
 			int var2 = g - e;
-			class_ail var3 = a.p(var1).c();
+			Block var3 = a.p(var1).c();
 			if (var3.v() != class_avq.a) {
 				float var4 = var3.a(b, b.o, var1) * (var2 + 1);
 				if (var4 >= 0.7F) {
@@ -178,7 +178,7 @@ public class class_ln {
 			return false;
 		} else {
 			class_apn var2 = a.p(var1);
-			class_aoi var3 = a.s(var1);
+			TileEntity var3 = a.s(var1);
 			if (c.c()) {
 				if (c == class_agr.class_a_in_class_agr.e) {
 					return false;
@@ -196,7 +196,7 @@ public class class_ln {
 				}
 			}
 
-			a.a(b, 2001, var1, class_ail.f(var2));
+			a.a(b, 2001, var1, Block.f(var2));
 			boolean var8 = this.c(var1);
 			if (d()) {
 				b.a.a((new class_fv(a, var1)));
@@ -256,9 +256,9 @@ public class class_ln {
 
 	public class_pw a(class_yu var1, class_ago var2, class_aco var3, class_pu var4, class_cj var5, class_cq var6, float var7, float var8, float var9) {
 		if (c == class_agr.class_a_in_class_agr.e) {
-			class_aoi var14 = var2.s(var5);
+			TileEntity var14 = var2.s(var5);
 			if (var14 instanceof class_qa) {
-				class_ail var15 = var2.p(var5).c();
+				Block var15 = var2.p(var5).c();
 				class_qa var16 = (class_qa) var14;
 				if ((var16 instanceof class_aok) && (var15 instanceof class_aiw)) {
 					var16 = ((class_aiw) var15).e(var2, var5);

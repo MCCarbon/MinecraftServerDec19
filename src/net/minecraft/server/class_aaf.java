@@ -17,6 +17,6 @@ public class class_aaf extends class_aas {
 	}
 
 	public static boolean c_(class_aco var0) {
-		return (var0 != null) && (var0.b() != null) && (var0.b() == class_acq.ay);
+		return (var0 != null) && (var0.b() != null) && (var0.b() == Items.ay);
 	}
 }

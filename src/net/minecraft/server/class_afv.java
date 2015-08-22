@@ -29,6 +29,6 @@ public class class_afv extends class_afj {
 
 	@Override
 	public boolean a(class_aco var1) {
-		return var1.b() == class_acq.bg ? true : super.a(var1);
+		return var1.b() == Items.bg ? true : super.a(var1);
 	}
 }

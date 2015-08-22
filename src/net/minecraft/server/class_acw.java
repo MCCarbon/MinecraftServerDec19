@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_acw extends class_acm {
+public class class_acw extends Item {
 	private static final class_cr a = new class_cn() {
 		private final class_cn b = new class_cn();
 

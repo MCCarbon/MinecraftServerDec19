@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aoa extends class_ail {
+public class class_aoa extends Block {
 	public class_aoa() {
 		super(class_avq.G);
 		this.a(class_abp.c);
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_qx var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Entity var4) {
 		var4.aG();
 	}
 
@@ -29,8 +29,8 @@ public class class_aoa extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.H;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.H;
 	}
 
 	@Override

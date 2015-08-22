@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import com.google.common.collect.Multimap;
 
-public class class_acl extends class_acm {
+public class class_acl extends Item {
 	private final float b;
-	protected class_acm.class_a_in_class_acm a;
+	protected Item.class_a_in_class_acm a;
 
-	public class_acl(class_acm.class_a_in_class_acm var1) {
+	public class_acl(Item.class_a_in_class_acm var1) {
 		a = var1;
 		i = 1;
 		this.e(var1.a());
@@ -20,20 +20,20 @@ public class class_acl extends class_acm {
 			return class_pw.c;
 		} else {
 			class_apn var10 = var3.p(var4);
-			class_ail var11 = var10.c();
+			Block var11 = var10.c();
 			if ((var6 != class_cq.a) && (var3.p(var4.a()).c().v() == class_avq.a)) {
-				if ((var11 == class_aim.c) || (var11 == class_aim.da)) {
-					this.a(var1, var2, var3, var4, class_aim.ak.S());
+				if ((var11 == Blocks.c) || (var11 == Blocks.da)) {
+					this.a(var1, var2, var3, var4, Blocks.ak.S());
 					return class_pw.a;
 				}
 
-				if (var11 == class_aim.d) {
+				if (var11 == Blocks.d) {
 					switch (class_acl.SyntheticClass_1.a[((class_ajl.class_a_in_class_ajl) var10.b(class_ajl.a)).ordinal()]) {
 						case 1:
-							this.a(var1, var2, var3, var4, class_aim.ak.S());
+							this.a(var1, var2, var3, var4, Blocks.ak.S());
 							return class_pw.a;
 						case 2:
-							this.a(var1, var2, var3, var4, class_aim.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a));
+							this.a(var1, var2, var3, var4, Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a));
 							return class_pw.a;
 					}
 				}

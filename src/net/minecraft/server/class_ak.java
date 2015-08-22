@@ -18,7 +18,7 @@ public class class_ak extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.help.usage";
 	}
 
@@ -28,7 +28,7 @@ public class class_ak extends class_i {
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		List var3 = this.d(var1);
 		boolean var4 = true;
 		int var5 = (var3.size() - 1) / 7;
@@ -71,7 +71,7 @@ public class class_ak extends class_i {
 
 	}
 
-	protected List d(class_m var1) {
+	protected List d(ICommandListener var1) {
 		List var2 = MinecraftServer.P().R().a(var1);
 		Collections.sort(var2);
 		return var2;
@@ -82,7 +82,7 @@ public class class_ak extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		if (var2.length == 1) {
 			Set var4 = this.d().keySet();
 			return a(var2, (String[]) var4.toArray(new String[var4.size()]));

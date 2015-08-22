@@ -9,7 +9,7 @@ public class class_ve extends class_vc {
 		i.a(0, new class_so(this));
 		i.a(1, new class_tj(this, 2.0D));
 		i.a(2, new class_sj(this, 1.0D));
-		i.a(3, new class_tw(this, 1.25D, class_acq.Q, false));
+		i.a(3, new class_tw(this, 1.25D, Items.Q, false));
 		i.a(4, new class_sq(this, 1.25D));
 		i.a(5, new class_tn(this, 1.0D));
 		i.a(6, new class_sw(this, class_yu.class, 6.0F));
@@ -39,7 +39,7 @@ public class class_ve extends class_vc {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.cow.step", 0.15F, 1.0F);
 	}
 
@@ -49,8 +49,8 @@ public class class_ve extends class_vc {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.aH;
+	protected Item D() {
+		return Items.aH;
 	}
 
 	@Override
@@ -59,16 +59,16 @@ public class class_ve extends class_vc {
 
 		int var4;
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(class_acq.aH, 1);
+			this.a(Items.aH, 1);
 		}
 
 		var3 = V.nextInt(3) + 1 + V.nextInt(1 + var2);
 
 		for (var4 = 0; var4 < var3; ++var4) {
 			if (ay()) {
-				this.a(class_acq.bl, 1);
+				this.a(Items.bl, 1);
 			} else {
-				this.a(class_acq.bk, 1);
+				this.a(Items.bk, 1);
 			}
 		}
 
@@ -76,11 +76,11 @@ public class class_ve extends class_vc {
 
 	@Override
 	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		if ((var3 != null) && (var3.b() == class_acq.ay) && !var1.bI.d && !i_()) {
+		if ((var3 != null) && (var3.b() == Items.ay) && !var1.bI.d && !i_()) {
 			if (--var3.b == 0) {
-				var1.a(var2, (new class_aco(class_acq.aI)));
-			} else if (!var1.bq.a(new class_aco(class_acq.aI))) {
-				var1.a(new class_aco(class_acq.aI), false);
+				var1.a(var2, (new class_aco(Items.aI)));
+			} else if (!var1.bq.a(new class_aco(Items.aI))) {
+				var1.a(new class_aco(Items.aI), false);
 			}
 
 			return true;

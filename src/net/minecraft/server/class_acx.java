@@ -3,10 +3,10 @@ package net.minecraft.server;
 import com.google.common.base.Function;
 
 public class class_acx extends class_abb {
-	protected final class_ail b;
+	protected final Block b;
 	protected final Function c;
 
-	public class_acx(class_ail var1, class_ail var2, Function var3) {
+	public class_acx(Block var1, Block var2, Function var3) {
 		super(var1);
 		b = var2;
 		c = var3;
@@ -14,7 +14,7 @@ public class class_acx extends class_abb {
 		this.a(true);
 	}
 
-	public class_acx(class_ail var1, class_ail var2, final String[] var3) {
+	public class_acx(Block var1, Block var2, final String[] var3) {
 		this(var1, var2, new Function() {
 			public String a(class_aco var1) {
 				int var2 = var1.i();

@@ -48,7 +48,7 @@ public class class_akf extends class_aif {
 			} else if (var11.c() != null) {
 				return false;
 			} else {
-				class_ail var12 = class_ail.a(var6.b());
+				Block var12 = Block.a(var6.b());
 				if (!this.a(var12, var6.i())) {
 					return false;
 				} else {
@@ -68,8 +68,8 @@ public class class_akf extends class_aif {
 		}
 	}
 
-	private boolean a(class_ail var1, int var2) {
-		return (var1 != class_aim.N) && (var1 != class_aim.O) && (var1 != class_aim.aK) && (var1 != class_aim.P) && (var1 != class_aim.Q) && (var1 != class_aim.g) && (var1 != class_aim.I) ? (var1 == class_aim.H) && (var2 == class_ano.class_a_in_class_ano.c.a()) : true;
+	private boolean a(Block var1, int var2) {
+		return (var1 != Blocks.N) && (var1 != Blocks.O) && (var1 != Blocks.aK) && (var1 != Blocks.P) && (var1 != Blocks.Q) && (var1 != Blocks.g) && (var1 != Blocks.I) ? (var1 == Blocks.H) && (var2 == class_ano.class_a_in_class_ano.c.a()) : true;
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class class_akf extends class_aif {
 			}
 		}
 
-		return new class_aco(class_acq.bV);
+		return new class_aco(Items.bV);
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class class_akf extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!class_ago.a(var1, var2.b())) {
 			this.b(var1, var2, var3, 0);
 			var1.g(var2);
@@ -115,76 +115,76 @@ public class class_akf extends class_aif {
 		if (var4.bI.d) {
 			class_aos var5 = this.e(var1, var2);
 			if (var5 != null) {
-				var5.a((class_acm) null, 0);
+				var5.a((Item) null, 0);
 			}
 		}
 
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
-		return class_acq.bV;
+	public Item a(class_apn var1, Random var2, int var3) {
+		return Items.bV;
 	}
 
 	private class_aos e(class_ago var1, class_cj var2) {
-		class_aoi var3 = var1.s(var2);
+		TileEntity var3 = var1.s(var2);
 		return var3 instanceof class_aos ? (class_aos) var3 : null;
 	}
 
 	@Override
-	public class_aoi a(class_ago var1, int var2) {
+	public TileEntity a(class_ago var1, int var2) {
 		Object var3 = null;
 		int var4 = 0;
 		switch (var2) {
 			case 1:
-				var3 = class_aim.O;
+				var3 = Blocks.O;
 				var4 = class_ake.class_a_in_class_ake.b.b();
 				break;
 			case 2:
-				var3 = class_aim.N;
+				var3 = Blocks.N;
 				break;
 			case 3:
-				var3 = class_aim.g;
+				var3 = Blocks.g;
 				var4 = class_aly.class_a_in_class_aly.a.a();
 				break;
 			case 4:
-				var3 = class_aim.g;
+				var3 = Blocks.g;
 				var4 = class_aly.class_a_in_class_aly.b.a();
 				break;
 			case 5:
-				var3 = class_aim.g;
+				var3 = Blocks.g;
 				var4 = class_aly.class_a_in_class_aly.c.a();
 				break;
 			case 6:
-				var3 = class_aim.g;
+				var3 = Blocks.g;
 				var4 = class_aly.class_a_in_class_aly.d.a();
 				break;
 			case 7:
-				var3 = class_aim.Q;
+				var3 = Blocks.Q;
 				break;
 			case 8:
-				var3 = class_aim.P;
+				var3 = Blocks.P;
 				break;
 			case 9:
-				var3 = class_aim.aK;
+				var3 = Blocks.aK;
 				break;
 			case 10:
-				var3 = class_aim.I;
+				var3 = Blocks.I;
 				break;
 			case 11:
-				var3 = class_aim.H;
+				var3 = Blocks.H;
 				var4 = class_ano.class_a_in_class_ano.c.a();
 				break;
 			case 12:
-				var3 = class_aim.g;
+				var3 = Blocks.g;
 				var4 = class_aly.class_a_in_class_aly.e.a();
 				break;
 			case 13:
-				var3 = class_aim.g;
+				var3 = Blocks.g;
 				var4 = class_aly.class_a_in_class_aly.f.a();
 		}
 
-		return new class_aos(class_acm.a((class_ail) var3), var4);
+		return new class_aos(Item.a((Block) var3), var4);
 	}
 
 	@Override
@@ -200,14 +200,14 @@ public class class_akf extends class_aif {
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
 		class_akf.class_a_in_class_akf var4 = class_akf.class_a_in_class_akf.a;
-		class_aoi var5 = var2.s(var3);
+		TileEntity var5 = var2.s(var3);
 		if (var5 instanceof class_aos) {
 			class_aos var6 = (class_aos) var5;
-			class_acm var7 = var6.c();
+			Item var7 = var6.c();
 			if (var7 instanceof class_abb) {
 				int var8 = var6.d();
-				class_ail var9 = class_ail.a(var7);
-				if (var9 == class_aim.g) {
+				Block var9 = Block.a(var7);
+				if (var9 == Blocks.g) {
 					switch (class_akf.SyntheticClass_1.a[class_aly.class_a_in_class_aly.a(var8).ordinal()]) {
 						case 1:
 							var4 = class_akf.class_a_in_class_akf.l;
@@ -230,7 +230,7 @@ public class class_akf extends class_aif {
 						default:
 							var4 = class_akf.class_a_in_class_akf.a;
 					}
-				} else if (var9 == class_aim.H) {
+				} else if (var9 == Blocks.H) {
 					switch (var8) {
 						case 0:
 							var4 = class_akf.class_a_in_class_akf.t;
@@ -241,9 +241,9 @@ public class class_akf extends class_aif {
 						default:
 							var4 = class_akf.class_a_in_class_akf.a;
 					}
-				} else if (var9 == class_aim.N) {
+				} else if (var9 == Blocks.N) {
 					var4 = class_akf.class_a_in_class_akf.k;
-				} else if (var9 == class_aim.O) {
+				} else if (var9 == Blocks.O) {
 					switch (class_akf.SyntheticClass_1.b[class_ake.class_a_in_class_ake.a(class_ake.class_b_in_class_ake.b, var8).ordinal()]) {
 						case 1:
 							var4 = class_akf.class_a_in_class_akf.b;
@@ -275,13 +275,13 @@ public class class_akf extends class_aif {
 						default:
 							var4 = class_akf.class_a_in_class_akf.a;
 					}
-				} else if (var9 == class_aim.Q) {
+				} else if (var9 == Blocks.Q) {
 					var4 = class_akf.class_a_in_class_akf.r;
-				} else if (var9 == class_aim.P) {
+				} else if (var9 == Blocks.P) {
 					var4 = class_akf.class_a_in_class_akf.s;
-				} else if (var9 == class_aim.I) {
+				} else if (var9 == Blocks.I) {
 					var4 = class_akf.class_a_in_class_akf.t;
-				} else if (var9 == class_aim.aK) {
+				} else if (var9 == Blocks.aK) {
 					var4 = class_akf.class_a_in_class_akf.v;
 				}
 			}

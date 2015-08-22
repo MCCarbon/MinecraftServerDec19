@@ -63,7 +63,7 @@ public abstract class class_rn extends class_rh {
 	protected void cs() {
 		super.cs();
 		if (cu() && (cv() != null) && (cv().o == o)) {
-			class_qx var1 = cv();
+			Entity var1 = cv();
 			this.a(new class_cj((int) var1.s, (int) var1.t, (int) var1.u), 5);
 			float var2 = this.g(var1);
 			if ((this instanceof class_ro) && ((class_ro) this).cG()) {

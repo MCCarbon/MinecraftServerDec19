@@ -14,12 +14,12 @@ public class class_ah extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.gamemode.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length <= 0) {
 			throw new class_cf("commands.gamemode.usage", new Object[0]);
 		} else {
@@ -41,13 +41,13 @@ public class class_ah extends class_i {
 		}
 	}
 
-	protected class_agr.class_a_in_class_agr h(class_m var1, String var2) throws class_cb {
+	protected class_agr.class_a_in_class_agr h(ICommandListener var1, String var2) throws class_cb {
 		return !var2.equalsIgnoreCase(class_agr.class_a_in_class_agr.b.b()) && !var2.equalsIgnoreCase("s") ? (!var2.equalsIgnoreCase(class_agr.class_a_in_class_agr.c.b()) && !var2.equalsIgnoreCase("c") ? (!var2.equalsIgnoreCase(class_agr.class_a_in_class_agr.d.b()) && !var2.equalsIgnoreCase("a") ? (!var2.equalsIgnoreCase(class_agr.class_a_in_class_agr.e.b()) && !var2.equalsIgnoreCase("sp") ? class_agr.a(a(var2, 0, class_agr.class_a_in_class_agr.values().length - 2))
 				: class_agr.class_a_in_class_agr.e) : class_agr.class_a_in_class_agr.d) : class_agr.class_a_in_class_agr.c) : class_agr.class_a_in_class_agr.b;
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return var2.length == 1 ? a(var2, new String[] { "survival", "creative", "adventure", "spectator" }) : (var2.length == 2 ? a(var2, this.d()) : null);
 	}
 

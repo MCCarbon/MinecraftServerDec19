@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class class_anp extends class_ail {
+public class class_anp extends Block {
 	public static final class_apy b = class_apy.a("north");
 	public static final class_apy N = class_apy.a("east");
 	public static final class_apy O = class_apy.a("south");
@@ -23,7 +23,7 @@ public class class_anp extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return !a ? null : super.a(var1, var2, var3);
 	}
 
@@ -38,7 +38,7 @@ public class class_anp extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		boolean var7 = this.c(var1.p(var2.c()).c());
 		boolean var8 = this.c(var1.p(var2.d()).c());
 		boolean var9 = this.c(var1.p(var2.e()).c());
@@ -109,8 +109,8 @@ public class class_anp extends class_ail {
 		this.a(var3, 0.0F, var5, var4, 1.0F, var6);
 	}
 
-	public final boolean c(class_ail var1) {
-		return var1.q() || (var1 == this) || (var1 == class_aim.w) || (var1 == class_aim.cG) || (var1 == class_aim.cH) || (var1 instanceof class_anp);
+	public final boolean c(Block var1) {
+		return var1.q() || (var1 == this) || (var1 == Blocks.w) || (var1 == Blocks.cG) || (var1 == Blocks.cH) || (var1 instanceof class_anp);
 	}
 
 	@Override
@@ -124,7 +124,7 @@ public class class_anp extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -142,7 +142,7 @@ public class class_anp extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -167,37 +167,37 @@ public class class_anp extends class_ail {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] b = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				b[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				b[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var5) {
 				;
 			}
 
 			try {
-				b[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				b[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
-			a = new int[class_ail.class_c_in_class_ail.values().length];
+			a = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				a[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				a[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				a[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				a[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

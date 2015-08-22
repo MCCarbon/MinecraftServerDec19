@@ -11,7 +11,7 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.collect.Maps;
 
-public abstract class class_rg extends class_qx {
+public abstract class class_rg extends Entity {
 	private static final UUID a = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
 	private static final class_rr b;
 	protected static final class_jz as;
@@ -114,14 +114,14 @@ public abstract class class_rg extends class_qx {
 	}
 
 	@Override
-	protected void a(double var1, boolean var3, class_ail var4, class_cj var5) {
+	protected void a(double var1, boolean var3, Block var4, class_cj var5) {
 		if (!Y()) {
 			Z();
 		}
 
 		if (!o.D && (O > 3.0F) && var3) {
 			class_apn var6 = o.p(var5);
-			class_ail var7 = var6.c();
+			Block var7 = var6.c();
 			float var8 = class_oa.f(O - 3.0F);
 			if (var7.v() != class_avq.a) {
 				double var9 = Math.min(0.2F + (var8 / 15.0F), 10.0F);
@@ -130,7 +130,7 @@ public abstract class class_rg extends class_qx {
 				}
 
 				int var11 = (int) (150.0D * var9);
-				((class_ll) o).a(class_cy.M, s, t, u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[] { class_ail.f(var6) });
+				((class_ll) o).a(class_cy.M, s, t, u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[] { Block.f(var6) });
 			}
 		}
 
@@ -182,7 +182,7 @@ public abstract class class_rg extends class_qx {
 				}
 
 				if (!o.D && az() && (m instanceof class_rg)) {
-					this.a((class_qx) null);
+					this.a((Entity) null);
 				}
 			} else {
 				this.h(300);
@@ -305,7 +305,7 @@ public abstract class class_rg extends class_qx {
 		return bw;
 	}
 
-	public void p(class_qx var1) {
+	public void p(Entity var1) {
 		if (var1 instanceof class_rg) {
 			bv = (class_rg) var1;
 		} else {
@@ -638,7 +638,7 @@ public abstract class class_rg extends class_qx {
 				}
 
 				az = 0.0F;
-				class_qx var5 = var1.j();
+				Entity var5 = var1.j();
 				if (var5 != null) {
 					if (var5 instanceof class_rg) {
 						this.a((class_rg) var5);
@@ -730,13 +730,13 @@ public abstract class class_rg extends class_qx {
 			var6 = var6.a((-z * 3.1415927F) / 180.0F);
 			var6 = var6.b((-y * 3.1415927F) / 180.0F);
 			var6 = var6.b(s, t + aY(), u);
-			o.a(class_cy.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[] { class_acm.b(var1.b()) });
+			o.a(class_cy.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[] { Item.b(var1.b()) });
 		}
 
 	}
 
 	public void a(class_qi var1) {
-		class_qx var2 = var1.j();
+		Entity var2 = var1.j();
 		class_rg var3 = bA();
 		if ((ba >= 0) && (var3 != null)) {
 			var3.b(this, ba);
@@ -769,7 +769,7 @@ public abstract class class_rg extends class_qx {
 	protected void a(boolean var1, int var2) {
 	}
 
-	public void a(class_qx var1, float var2, double var3, double var5) {
+	public void a(Entity var1, float var2, double var3, double var5) {
 		if (V.nextDouble() >= this.a(class_yf.c).e()) {
 			ai = true;
 			float var7 = class_oa.a((var3 * var3) + (var5 * var5));
@@ -809,15 +809,15 @@ public abstract class class_rg extends class_qx {
 		} else {
 			class_cj var4 = new class_cj(var1, var2, var3);
 			class_apn var5 = o.p(var4);
-			class_ail var6 = var5.c();
-			return (var6 != class_aim.au) && (var6 != class_aim.bn) ? (var6 instanceof class_ant) && this.a(var4, var5) : true;
+			Block var6 = var5.c();
+			return (var6 != Blocks.au) && (var6 != Blocks.bn) ? (var6 instanceof class_ant) && this.a(var4, var5) : true;
 		}
 	}
 
 	private boolean a(class_cj var1, class_apn var2) {
 		if (((Boolean) var2.b(class_ant.b)).booleanValue()) {
 			class_apn var3 = o.p(var1.b());
-			if ((var3.c() == class_aim.au) && (var3.b(class_alb.a) == var2.b(class_ant.a))) {
+			if ((var3.c() == Blocks.au) && (var3.b(class_alb.a) == var2.b(class_ant.a))) {
 				return true;
 			}
 		}
@@ -842,9 +842,9 @@ public abstract class class_rg extends class_qx {
 			int var6 = class_oa.c(s);
 			int var7 = class_oa.c(t - 0.20000000298023224D);
 			int var8 = class_oa.c(u);
-			class_ail var9 = o.p(new class_cj(var6, var7, var8)).c();
+			Block var9 = o.p(new class_cj(var6, var7, var8)).c();
 			if (var9.v() != class_avq.a) {
-				class_ail.class_d_in_class_ail var10 = var9.H;
+				Block.class_d_in_class_ail var10 = var9.H;
 				this.a(var10.c(), var10.d() * 0.5F, var10.e() * 0.75F);
 			}
 		}
@@ -1079,7 +1079,7 @@ public abstract class class_rg extends class_qx {
 		return bu() <= 0.0F;
 	}
 
-	public void q(class_qx var1) {
+	public void q(Entity var1) {
 		double var3 = var1.s;
 		double var5 = var1.aX().b + var1.K;
 		double var7 = var1.u;
@@ -1256,7 +1256,7 @@ public abstract class class_rg extends class_qx {
 		bx = var1;
 	}
 
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		p(var1);
 		return false;
 	}
@@ -1501,31 +1501,31 @@ public abstract class class_rg extends class_qx {
 
 	protected void bS() {
 		List var1 = o.a(this, aX().b(0.20000000298023224D, 0.0D, 0.20000000298023224D), Predicates.and(class_rb.d, new Predicate() {
-			public boolean a(class_qx var1) {
+			public boolean a(Entity var1) {
 				return var1.ah();
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qx) var1);
+				return this.a((Entity) var1);
 			}
 		}));
 		if (!var1.isEmpty()) {
 			for (int var2 = 0; var2 < var1.size(); ++var2) {
-				class_qx var3 = (class_qx) var1.get(var2);
+				Entity var3 = (Entity) var1.get(var2);
 				s(var3);
 			}
 		}
 
 	}
 
-	protected void s(class_qx var1) {
+	protected void s(Entity var1) {
 		var1.i(this);
 	}
 
 	@Override
-	public void a(class_qx var1) {
+	public void a(Entity var1) {
 		if ((m != null) && (var1 == null)) {
 			if (!o.D) {
 				q(m);
@@ -1553,7 +1553,7 @@ public abstract class class_rg extends class_qx {
 		bc = var1;
 	}
 
-	public void a(class_qx var1, int var2) {
+	public void a(Entity var1, int var2) {
 		if (!var1.I && !o.D) {
 			class_lg var3 = ((class_ll) o).u();
 			if (var1 instanceof class_xg) {
@@ -1571,7 +1571,7 @@ public abstract class class_rg extends class_qx {
 
 	}
 
-	public boolean t(class_qx var1) {
+	public boolean t(Entity var1) {
 		return o.a(new class_aym(s, t + aY(), u), new class_aym(var1.s, var1.t + var1.aY(), var1.u)) == null;
 	}
 
@@ -1724,9 +1724,9 @@ public abstract class class_rg extends class_qx {
 					var7 = var7.b((-y * 3.1415927F) / 180.0F);
 					var7 = var7.b(s, t + aY(), u);
 					if (var1.f()) {
-						o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[] { class_acm.b(var1.b()), var1.i() });
+						o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[] { Item.b(var1.b()), var1.i() });
 					} else {
-						o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[] { class_acm.b(var1.b()) });
+						o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[] { Item.b(var1.b()) });
 					}
 				}
 
@@ -1781,7 +1781,7 @@ public abstract class class_rg extends class_qx {
 
 	public boolean cf() {
 		if (bX() && (bm != null)) {
-			class_acm var1 = bm.b();
+			Item var1 = bm.b();
 			return var1.f(bm) != class_ady.d ? false : (var1.e(bm) - bn) >= 10;
 		} else {
 			return false;

@@ -162,7 +162,7 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 						if (h[1] != null) {
 							--h[1].b;
 							if (h[1].b == 0) {
-								class_acm var3 = h[1].b().q();
+								Item var3 = h[1].b().q();
 								h[1] = var3 != null ? new class_aco(var3) : null;
 							}
 						}
@@ -216,8 +216,8 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 				++h[2].b;
 			}
 
-			if ((h[0].b() == class_acm.a(class_aim.v)) && (h[0].i() == 1) && (h[1] != null) && (h[1].b() == class_acq.ay)) {
-				h[1] = new class_aco(class_acq.az);
+			if ((h[0].b() == Item.a(Blocks.v)) && (h[0].i() == 1) && (h[1] != null) && (h[1].b() == Items.ay)) {
+				h[1] = new class_aco(Items.az);
 			}
 
 			--h[0].b;
@@ -232,10 +232,10 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 		if (var0 == null) {
 			return 0;
 		} else {
-			class_acm var1 = var0.b();
-			if ((var1 instanceof class_abb) && (class_ail.a(var1) != class_aim.a)) {
-				class_ail var2 = class_ail.a(var1);
-				if (var2 == class_aim.bM) {
+			Item var1 = var0.b();
+			if ((var1 instanceof class_abb) && (Block.a(var1) != Blocks.a)) {
+				Block var2 = Block.a(var1);
+				if (var2 == Blocks.bM) {
 					return 150;
 				}
 
@@ -243,12 +243,12 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 					return 300;
 				}
 
-				if (var2 == class_aim.cA) {
+				if (var2 == Blocks.cA) {
 					return 16000;
 				}
 			}
 
-			return (var1 instanceof class_abq) && ((class_abq) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_adv) && ((class_adv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_acl) && ((class_acl) var1).g().equals("WOOD") ? 200 : (var1 == class_acq.A ? 100 : (var1 == class_acq.j ? 1600 : (var1 == class_acq.aA ? 20000 : (var1 == class_acm.a(class_aim.g) ? 100 : (var1 == class_acq.bx ? 2400 : 0)))))));
+			return (var1 instanceof class_abq) && ((class_abq) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_adv) && ((class_adv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_acl) && ((class_acl) var1).g().equals("WOOD") ? 200 : (var1 == Items.A ? 100 : (var1 == Items.j ? 1600 : (var1 == Items.aA ? 20000 : (var1 == Item.a(Blocks.g) ? 100 : (var1 == Items.bx ? 2400 : 0)))))));
 		}
 	}
 
@@ -287,8 +287,8 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 	@Override
 	public boolean b(int var1, class_aco var2, class_cq var3) {
 		if ((var3 == class_cq.a) && (var1 == 1)) {
-			class_acm var4 = var2.b();
-			if ((var4 != class_acq.az) && (var4 != class_acq.ay)) {
+			Item var4 = var2.b();
+			if ((var4 != Items.az) && (var4 != Items.ay)) {
 				return false;
 			}
 		}

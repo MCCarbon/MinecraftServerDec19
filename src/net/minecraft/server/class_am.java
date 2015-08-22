@@ -14,18 +14,18 @@ public class class_am extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.kill.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length == 0) {
 			class_lm var4 = b(var1);
 			var4.I();
 			a(var1, this, "commands.kill.successful", new Object[] { var4.f_() });
 		} else {
-			class_qx var3 = b(var1, var2[0]);
+			Entity var3 = b(var1, var2[0]);
 			var3.I();
 			a(var1, this, "commands.kill.successful", new Object[] { var3.f_() });
 		}
@@ -37,7 +37,7 @@ public class class_am extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		return var2.length == 1 ? a(var2, MinecraftServer.P().M()) : null;
 	}
 }

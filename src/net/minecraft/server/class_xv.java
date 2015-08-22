@@ -71,7 +71,7 @@ public class class_xv extends class_yc {
 	public void b(class_dn var1) {
 		super.b(var1);
 		class_apn var2 = cF();
-		var1.a("carried", (short) class_ail.a(var2.c()));
+		var1.a("carried", (short) Block.a(var2.c()));
 		var1.a("carriedData", (short) var2.c().c(var2));
 	}
 
@@ -80,9 +80,9 @@ public class class_xv extends class_yc {
 		super.a(var1);
 		class_apn var2;
 		if (var1.b("carried", 8)) {
-			var2 = class_ail.b(var1.l("carried")).a(var1.g("carriedData") & '\uffff');
+			var2 = Block.b(var1.l("carried")).a(var1.g("carriedData") & '\uffff');
 		} else {
-			var2 = class_ail.c(var1.g("carried")).a(var1.g("carriedData") & '\uffff');
+			var2 = Block.c(var1.g("carried")).a(var1.g("carriedData") & '\uffff');
 		}
 
 		this.a(var2);
@@ -90,7 +90,7 @@ public class class_xv extends class_yc {
 
 	private boolean a(class_yu var1) {
 		class_aco var2 = var1.bq.b[3];
-		if ((var2 != null) && (var2.b() == class_acm.a(class_aim.aU))) {
+		if ((var2 != null) && (var2.b() == Item.a(Blocks.aU))) {
 			return false;
 		} else {
 			class_aym var3 = var1.g(1.0F).a();
@@ -149,7 +149,7 @@ public class class_xv extends class_yc {
 		return a(this, var1, var3, var5);
 	}
 
-	protected boolean b(class_qx var1) {
+	protected boolean b(Entity var1) {
 		class_aym var2 = new class_aym(s - var1.s, ((aX().b + K / 2.0F) - var1.t) + var1.aY(), u - var1.u);
 		var2 = var2.a();
 		double var3 = 16.0D;
@@ -175,7 +175,7 @@ public class class_xv extends class_yc {
 
 			while (!var17 && (var14.o() > 0)) {
 				class_cj var18 = var14.b();
-				class_ail var19 = var15.p(var18).c();
+				Block var19 = var15.p(var18).c();
 				if (var19.v().c()) {
 					var17 = true;
 				} else {
@@ -231,13 +231,13 @@ public class class_xv extends class_yc {
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.bw;
+	protected Item D() {
+		return Items.bw;
 	}
 
 	@Override
 	protected void b(boolean var1, int var2) {
-		class_acm var3 = D();
+		Item var3 = D();
 		if (var3 != null) {
 			int var4 = V.nextInt(2 + var2);
 
@@ -254,11 +254,11 @@ public class class_xv extends class_yc {
 	}
 
 	public void a(class_apn var1) {
-		ac.b(bu, Integer.valueOf(class_ail.f(var1) & '\uffff'));
+		ac.b(bu, Integer.valueOf(Block.f(var1) & '\uffff'));
 	}
 
 	public class_apn cF() {
-		return class_ail.d(((Integer) ac.a(bu)).intValue() & '\uffff');
+		return Block.d(((Integer) ac.a(bu)).intValue() & '\uffff');
 	}
 
 	@Override
@@ -312,21 +312,21 @@ public class class_xv extends class_yc {
 	static {
 		b = (new class_rr(a, "Attacking speed boost", 0.15000000596046448D, 0)).a(false);
 		c = Sets.newIdentityHashSet();
-		bt = class_aim.a.S();
-		c.add(class_aim.c);
-		c.add(class_aim.d);
-		c.add(class_aim.m);
-		c.add(class_aim.n);
-		c.add(class_aim.N);
-		c.add(class_aim.O);
-		c.add(class_aim.P);
-		c.add(class_aim.Q);
-		c.add(class_aim.W);
-		c.add(class_aim.aK);
-		c.add(class_aim.aL);
-		c.add(class_aim.aU);
-		c.add(class_aim.bk);
-		c.add(class_aim.bw);
+		bt = Blocks.a.S();
+		c.add(Blocks.c);
+		c.add(Blocks.d);
+		c.add(Blocks.m);
+		c.add(Blocks.n);
+		c.add(Blocks.N);
+		c.add(Blocks.O);
+		c.add(Blocks.P);
+		c.add(Blocks.Q);
+		c.add(Blocks.W);
+		c.add(Blocks.aK);
+		c.add(Blocks.aL);
+		c.add(Blocks.aU);
+		c.add(Blocks.bk);
+		c.add(Blocks.bw);
 		bu = class_kc.a(class_xv.class, class_kb.b);
 		bv = class_kc.a(class_xv.class, class_kb.b);
 		bw = class_kc.a(class_xv.class, class_kb.g);
@@ -353,7 +353,7 @@ public class class_xv extends class_yc {
 			int var5 = class_oa.c((a.u - 2.0D) + (var1.nextDouble() * 4.0D));
 			class_cj var6 = new class_cj(var3, var4, var5);
 			class_apn var7 = var2.p(var6);
-			class_ail var8 = var7.c();
+			Block var8 = var7.c();
 			if (class_xv.c.contains(var8)) {
 				a.a(var7);
 				var2.a(var6, class_xv.bt);
@@ -382,8 +382,8 @@ public class class_xv extends class_yc {
 			int var4 = class_oa.c(a.t + (var1.nextDouble() * 2.0D));
 			int var5 = class_oa.c((a.u - 1.0D) + (var1.nextDouble() * 2.0D));
 			class_cj var6 = new class_cj(var3, var4, var5);
-			class_ail var7 = var2.p(var6).c();
-			class_ail var8 = var2.p(var6.b()).c();
+			Block var7 = var2.p(var6).c();
+			Block var8 = var2.p(var6.b()).c();
 			if (this.a(var2, var6, a.cF().c(), var7, var8)) {
 				var2.a(var6, a.cF(), 3);
 				a.a(class_xv.bt);
@@ -391,7 +391,7 @@ public class class_xv extends class_yc {
 
 		}
 
-		private boolean a(class_ago var1, class_cj var2, class_ail var3, class_ail var4, class_ail var5) {
+		private boolean a(class_ago var1, class_cj var2, Block var3, Block var4, Block var5) {
 			return !var3.c(var1, var2) ? false : (var4.v() != class_avq.a ? false : (var5.v() == class_avq.a ? false : var5.d()));
 		}
 	}
@@ -470,7 +470,7 @@ public class class_xv extends class_yc {
 						}
 
 						i = 0;
-					} else if ((d.h(j) > 256.0D) && (i++ >= 30) && j.b((class_qx) d)) {
+					} else if ((d.h(j) > 256.0D) && (i++ >= 30) && j.b((Entity) d)) {
 						i = 0;
 					}
 				}

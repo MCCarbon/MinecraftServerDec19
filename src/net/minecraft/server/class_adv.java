@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import com.google.common.collect.Multimap;
 
-public class class_adv extends class_acm {
+public class class_adv extends Item {
 	private final float a;
-	private final class_acm.class_a_in_class_acm b;
+	private final Item.class_a_in_class_acm b;
 
-	public class_adv(class_acm.class_a_in_class_acm var1) {
+	public class_adv(Item.class_a_in_class_acm var1) {
 		b = var1;
 		i = 1;
 		this.e(var1.a());
@@ -19,8 +19,8 @@ public class class_adv extends class_acm {
 	}
 
 	@Override
-	public float a(class_aco var1, class_ail var2) {
-		if (var2 == class_aim.G) {
+	public float a(class_aco var1, Block var2) {
+		if (var2 == Blocks.G) {
 			return 15.0F;
 		} else {
 			class_avq var3 = var2.v();
@@ -35,7 +35,7 @@ public class class_adv extends class_acm {
 	}
 
 	@Override
-	public boolean a(class_aco var1, class_ago var2, class_ail var3, class_cj var4, class_rg var5) {
+	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, class_rg var5) {
 		if (var3.f(var2, var4) != 0.0D) {
 			var1.a(2, var5);
 		}
@@ -44,8 +44,8 @@ public class class_adv extends class_acm {
 	}
 
 	@Override
-	public boolean b(class_ail var1) {
-		return var1 == class_aim.G;
+	public boolean b(Block var1) {
+		return var1 == Blocks.G;
 	}
 
 	@Override

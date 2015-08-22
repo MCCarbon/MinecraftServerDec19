@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_xq extends class_qx {
+public class class_xq extends Entity {
 	private static final class_jz a;
 	private class_rg b;
 	private int c;

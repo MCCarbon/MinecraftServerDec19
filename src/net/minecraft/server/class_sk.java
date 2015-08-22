@@ -106,7 +106,7 @@ public class class_sk extends class_sr {
 		int var20 = class_oa.d(a.K + var1.K + 1.0F);
 		int var21 = class_oa.d(a.J + 1.0F);
 		if ((var4 != var17) || (var6 != var18)) {
-			class_ail var22 = a.o.p(new class_cj(var4, var5, var6)).c();
+			Block var22 = a.o.p(new class_cj(var4, var5, var6)).c();
 			boolean var23 = !this.a(var22) && ((var22.v() != class_avq.a) || !this.a(a.o.p(new class_cj(var4, var5 - 1, var6)).c()));
 			if (var23 && (class_awz.e == class_axf.a(a.o, a, var17, var5, var18, var19, var20, var21, false, false, true)) && (class_awz.f == class_axf.a(a.o, a, var4, var5 + 1, var6, var19, var20, var21, false, false, true)) && (class_awz.f == class_axf.a(a.o, a, var17, var5 + 1, var18, var19, var20, var21, false, false, true))) {
 				var2.s().a();
@@ -117,10 +117,10 @@ public class class_sk extends class_sr {
 			class_pu var25 = this.a(var1);
 			if (var25 != null) {
 				class_aco var26 = var1.b(var25);
-				if ((var26 != null) && (var26.b() == class_acq.cd)) {
+				if ((var26 != null) && (var26.b() == Items.cd)) {
 					var26.a(1, var1);
 					if (var26.b == 0) {
-						class_aco var24 = new class_aco(class_acq.aT);
+						class_aco var24 = new class_aco(Items.aT);
 						var24.d(var26.o());
 						var1.a(var25, var24);
 					}
@@ -138,7 +138,7 @@ public class class_sk extends class_sr {
 		for (int var4 = 0; var4 < var3; ++var4) {
 			class_pu var5 = var2[var4];
 			class_aco var6 = var1.b(var5);
-			if ((var6 != null) && (var6.b() == class_acq.cd)) {
+			if ((var6 != null) && (var6.b() == Items.cd)) {
 				return var5;
 			}
 		}
@@ -146,7 +146,7 @@ public class class_sk extends class_sr {
 		return null;
 	}
 
-	private boolean a(class_ail var1) {
+	private boolean a(Block var1) {
 		return (var1 instanceof class_anf) || (var1 instanceof class_akq);
 	}
 

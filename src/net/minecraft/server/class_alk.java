@@ -50,7 +50,7 @@ public class class_alk extends class_aiq implements class_ain {
 	}
 
 	@Override
-	protected boolean c(class_ail var1) {
+	protected boolean c(Block var1) {
 		return var1.q();
 	}
 
@@ -58,7 +58,7 @@ public class class_alk extends class_aiq implements class_ain {
 	public boolean g(class_ago var1, class_cj var2, class_apn var3) {
 		if ((var2.o() >= 0) && (var2.o() < 256)) {
 			class_apn var4 = var1.p(var2.b());
-			return var4.c() == class_aim.bw ? true : ((var4.c() == class_aim.d) && (var4.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.c) ? true : (var1.k(var2) < 13) && this.c(var4.c()));
+			return var4.c() == Blocks.bw ? true : ((var4.c() == Blocks.d) && (var4.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.c) ? true : (var1.k(var2) < 13) && this.c(var4.c()));
 		} else {
 			return false;
 		}
@@ -67,10 +67,10 @@ public class class_alk extends class_aiq implements class_ain {
 	public boolean d(class_ago var1, class_cj var2, class_apn var3, Random var4) {
 		var1.g(var2);
 		class_asv var5 = null;
-		if (this == class_aim.P) {
-			var5 = new class_asv(class_aim.bg);
-		} else if (this == class_aim.Q) {
-			var5 = new class_asv(class_aim.bh);
+		if (this == Blocks.P) {
+			var5 = new class_asv(Blocks.bg);
+		} else if (this == Blocks.Q) {
+			var5 = new class_asv(Blocks.bh);
 		}
 
 		if ((var5 != null) && var5.b(var1, var4, var2)) {

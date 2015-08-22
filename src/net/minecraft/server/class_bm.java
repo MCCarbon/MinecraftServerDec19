@@ -14,12 +14,12 @@ public class class_bm extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.summon.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 1) {
 			throw new class_cf("commands.summon.usage", new Object[0]);
 		} else {
@@ -58,9 +58,9 @@ public class class_bm extends class_i {
 
 				var13.a("id", var3);
 
-				class_qx var21;
+				Entity var21;
 				try {
-					var21 = class_qz.a(var13, var12);
+					var21 = EntityTypes.a(var13, var12);
 				} catch (RuntimeException var19) {
 					throw new class_bz("commands.summon.failed", new Object[0]);
 				}
@@ -76,10 +76,10 @@ public class class_bm extends class_i {
 					if (!var12.a(var21)) {
 						throw new class_bz("commands.summon.failed", new Object[0]);
 					} else {
-						class_qx var16 = var21;
+						Entity var16 = var21;
 
 						for (class_dn var17 = var13; (var16 != null) && var17.b("Riding", 10); var17 = var17.o("Riding")) {
-							class_qx var18 = class_qz.a(var17.o("Riding"), var12);
+							Entity var18 = EntityTypes.a(var17.o("Riding"), var12);
 							if (var18 != null) {
 								var18.b(var6, var8, var10, var18.y, var18.z);
 								var12.a(var18);
@@ -97,7 +97,7 @@ public class class_bm extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
-		return var2.length == 1 ? a(var2, class_qz.b()) : ((var2.length > 1) && (var2.length <= 4) ? a(var2, 1, var3) : null);
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+		return var2.length == 1 ? a(var2, EntityTypes.b()) : ((var2.length > 1) && (var2.length <= 4) ? a(var2, 1, var3) : null);
 	}
 }

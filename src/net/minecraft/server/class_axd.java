@@ -10,15 +10,15 @@ public class class_axd {
 		c = var1;
 	}
 
-	public class_axc a(class_ags var1, class_qx var2, class_qx var3, float var4) {
+	public class_axc a(class_ags var1, Entity var2, Entity var3, float var4) {
 		return this.a(var1, var2, var3.s, var3.aX().b, var3.u, var4);
 	}
 
-	public class_axc a(class_ags var1, class_qx var2, class_cj var3, float var4) {
+	public class_axc a(class_ags var1, Entity var2, class_cj var3, float var4) {
 		return this.a(var1, var2, var3.n() + 0.5F, var3.o() + 0.5F, var3.p() + 0.5F, var4);
 	}
 
-	private class_axc a(class_ags var1, class_qx var2, double var3, double var5, double var7, float var9) {
+	private class_axc a(class_ags var1, Entity var2, double var3, double var5, double var7, float var9) {
 		a.a();
 		c.a(var1, var2);
 		class_axa var10 = c.b();

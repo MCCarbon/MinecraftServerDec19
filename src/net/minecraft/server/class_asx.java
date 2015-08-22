@@ -9,7 +9,7 @@ public class class_asx extends class_asp {
 			var3 = var3.b();
 		}
 
-		if (var1.p(var3).c() != class_aim.aJ) {
+		if (var1.p(var3).c() != Blocks.aJ) {
 			return false;
 		} else {
 			var3 = var3.b(var2.nextInt(4));
@@ -31,15 +31,15 @@ public class class_asx extends class_asp {
 					for (int var11 = -var8; var11 <= var8; ++var11) {
 						float var12 = class_oa.a(var11) - 0.25F;
 						if ((((var9 == 0) && (var11 == 0)) || (((var10 * var10) + (var12 * var12)) <= (var7 * var7))) && (((var9 != -var8) && (var9 != var8) && (var11 != -var8) && (var11 != var8)) || (var2.nextFloat() <= 0.75F))) {
-							class_ail var13 = var1.p(var3.a(var9, var6, var11)).c();
-							if ((var13.v() == class_avq.a) || (var13 == class_aim.d) || (var13 == class_aim.aJ) || (var13 == class_aim.aI)) {
-								a(var1, var3.a(var9, var6, var11), class_aim.cB.S());
+							Block var13 = var1.p(var3.a(var9, var6, var11)).c();
+							if ((var13.v() == class_avq.a) || (var13 == Blocks.d) || (var13 == Blocks.aJ) || (var13 == Blocks.aI)) {
+								a(var1, var3.a(var9, var6, var11), Blocks.cB.S());
 							}
 
 							if ((var6 != 0) && (var8 > 1)) {
 								var13 = var1.p(var3.a(var9, -var6, var11)).c();
-								if ((var13.v() == class_avq.a) || (var13 == class_aim.d) || (var13 == class_aim.aJ) || (var13 == class_aim.aI)) {
-									a(var1, var3.a(var9, -var6, var11), class_aim.cB.S());
+								if ((var13.v() == class_avq.a) || (var13 == Blocks.d) || (var13 == Blocks.aJ) || (var13 == Blocks.aI)) {
+									a(var1, var3.a(var9, -var6, var11), Blocks.cB.S());
 								}
 							}
 						}
@@ -63,12 +63,12 @@ public class class_asx extends class_asp {
 					}
 
 					while (var15.o() > 50) {
-						class_ail var17 = var1.p(var15).c();
-						if ((var17.v() != class_avq.a) && (var17 != class_aim.d) && (var17 != class_aim.aJ) && (var17 != class_aim.aI) && (var17 != class_aim.cB)) {
+						Block var17 = var1.p(var15).c();
+						if ((var17.v() != class_avq.a) && (var17 != Blocks.d) && (var17 != Blocks.aJ) && (var17 != Blocks.aI) && (var17 != Blocks.cB)) {
 							break;
 						}
 
-						a(var1, var15, class_aim.cB.S());
+						a(var1, var15, Blocks.cB.S());
 						var15 = var15.b();
 						--var16;
 						if (var16 <= 0) {

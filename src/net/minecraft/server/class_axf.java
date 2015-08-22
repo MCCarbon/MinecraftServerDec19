@@ -9,7 +9,7 @@ public class class_axf extends class_axb {
 	private boolean k;
 
 	@Override
-	public void a(class_ags var1, class_qx var2) {
+	public void a(class_ags var1, Entity var2) {
 		super.a(var1, var2);
 		k = i;
 	}
@@ -27,7 +27,7 @@ public class class_axf extends class_axb {
 			var1 = (int) b.aX().b;
 			class_cj.class_a_in_class_cj var2 = new class_cj.class_a_in_class_cj(class_oa.c(b.s), var1, class_oa.c(b.u));
 
-			for (class_ail var3 = a.p(var2).c(); (var3 == class_aim.i) || (var3 == class_aim.j); var3 = a.p(var2).c()) {
+			for (Block var3 = a.p(var2).c(); (var3 == Blocks.i) || (var3 == Blocks.j); var3 = a.p(var2).c()) {
 				++var1;
 				var2.c(class_oa.c(b.s), var1, class_oa.c(b.u));
 			}
@@ -124,11 +124,11 @@ public class class_axf extends class_axb {
 		}
 	}
 
-	private class_awz a(class_qx var1, int var2, int var3, int var4) {
+	private class_awz a(Entity var1, int var2, int var3, int var4) {
 		return a(a, var1, var2, var3, var4, d, e, f, i, h, g);
 	}
 
-	public static class_awz a(class_ags var0, class_qx var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
+	public static class_awz a(class_ags var0, Entity var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
 		boolean var11 = false;
 		class_cj var12 = new class_cj(var1);
 		class_cj.class_a_in_class_cj var13 = new class_cj.class_a_in_class_cj();
@@ -138,10 +138,10 @@ public class class_axf extends class_axb {
 				for (int var16 = var4; var16 < (var4 + var7); ++var16) {
 					var13.c(var14, var15, var16);
 					class_apn var17 = var0.p(var13);
-					class_ail var18 = var17.c();
+					Block var18 = var17.c();
 					if (var18.v() != class_avq.a) {
-						if ((var18 != class_aim.bd) && (var18 != class_aim.cw)) {
-							if ((var18 != class_aim.i) && (var18 != class_aim.j)) {
+						if ((var18 != Blocks.bd) && (var18 != Blocks.cw)) {
+							if ((var18 != Blocks.i) && (var18 != Blocks.j)) {
 								if (!var10 && (var18 instanceof class_ajn) && (var18.v() == class_avq.d)) {
 									return class_awz.e;
 								}
@@ -165,7 +165,7 @@ public class class_axf extends class_axb {
 								return class_awz.b;
 							}
 
-							if ((var18 == class_aim.bd) || (var18 == class_aim.cw)) {
+							if ((var18 == Blocks.bd) || (var18 == Blocks.cw)) {
 								return class_awz.a;
 							}
 

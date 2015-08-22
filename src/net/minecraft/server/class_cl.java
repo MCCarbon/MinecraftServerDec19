@@ -42,7 +42,7 @@ public class class_cl implements class_ck {
 	}
 
 	@Override
-	public class_aoi h() {
+	public TileEntity h() {
 		return a.s(b);
 	}
 }

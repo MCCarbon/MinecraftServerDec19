@@ -68,20 +68,20 @@ public class class_yj extends class_yc {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.spider.step", 0.15F, 1.0F);
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.H;
+	protected Item D() {
+		return Items.H;
 	}
 
 	@Override
 	protected void b(boolean var1, int var2) {
 		super.b(var1, var2);
 		if (var1 && ((V.nextInt(3) == 0) || (V.nextInt(1 + var2) > 0))) {
-			this.a(class_acq.bG, 1);
+			this.a(Items.bG, 1);
 		}
 
 	}
@@ -128,7 +128,7 @@ public class class_yj extends class_yc {
 			var3.b(s, t, u, y, 0.0F);
 			var3.a(var1, (class_rj) null);
 			o.a(var3);
-			var3.a((class_qx) this);
+			var3.a((Entity) this);
 		}
 
 		if (var4 == null) {

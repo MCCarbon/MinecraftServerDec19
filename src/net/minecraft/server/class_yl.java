@@ -218,7 +218,7 @@ public class class_yl extends class_yc {
 	}
 
 	@Override
-	public boolean r(class_qx var1) {
+	public boolean r(Entity var1) {
 		boolean var2 = super.r(var1);
 		if (var2) {
 			int var3 = o.ac().a();
@@ -246,13 +246,13 @@ public class class_yl extends class_yc {
 	}
 
 	@Override
-	protected void a(class_cj var1, class_ail var2) {
+	protected void a(class_cj var1, Block var2) {
 		this.a("mob.zombie.step", 0.15F, 1.0F);
 	}
 
 	@Override
-	protected class_acm D() {
-		return class_acq.bv;
+	protected Item D() {
+		return Items.bv;
 	}
 
 	@Override
@@ -264,13 +264,13 @@ public class class_yl extends class_yc {
 	protected void bx() {
 		switch (V.nextInt(3)) {
 			case 0:
-				this.a(class_acq.l, 1);
+				this.a(Items.l, 1);
 				break;
 			case 1:
-				this.a(class_acq.bW, 1);
+				this.a(Items.bW, 1);
 				break;
 			case 2:
-				this.a(class_acq.bX, 1);
+				this.a(Items.bX, 1);
 		}
 
 	}
@@ -281,9 +281,9 @@ public class class_yl extends class_yc {
 		if (V.nextFloat() < (o.ac() == class_ps.d ? 0.05F : 0.01F)) {
 			int var2 = V.nextInt(3);
 			if (var2 == 0) {
-				this.a(class_rc.a, (new class_aco(class_acq.n)));
+				this.a(class_rc.a, (new class_aco(Items.n)));
 			} else {
-				this.a(class_rc.a, (new class_aco(class_acq.a)));
+				this.a(class_rc.a, (new class_aco(Items.a)));
 			}
 		}
 
@@ -364,7 +364,7 @@ public class class_yl extends class_yc {
 
 	@Override
 	protected boolean a(class_aco var1) {
-		return (var1.b() == class_acq.aR) && i_() && az() ? false : super.a(var1);
+		return (var1.b() == Items.aR) && i_() && az() ? false : super.a(var1);
 	}
 
 	@Override
@@ -389,7 +389,7 @@ public class class_yl extends class_yc {
 					if (!var5.isEmpty()) {
 						class_vd var6 = (class_vd) var5.get(0);
 						var6.m(true);
-						this.a((class_qx) var6);
+						this.a((Entity) var6);
 					}
 				} else if (o.s.nextFloat() < 0.05D) {
 					class_vd var10 = new class_vd(o);
@@ -397,7 +397,7 @@ public class class_yl extends class_yc {
 					var10.a(var1, (class_rj) null);
 					var10.m(true);
 					o.a(var10);
-					this.a((class_qx) var10);
+					this.a((Entity) var10);
 				}
 			}
 		}
@@ -408,7 +408,7 @@ public class class_yl extends class_yc {
 		if (this.a(class_rc.f) == null) {
 			Calendar var8 = o.aa();
 			if (((var8.get(2) + 1) == 10) && (var8.get(5) == 31) && (V.nextFloat() < 0.25F)) {
-				this.a(class_rc.f, (new class_aco(V.nextFloat() < 0.1F ? class_aim.aZ : class_aim.aU)));
+				this.a(class_rc.f, (new class_aco(V.nextFloat() < 0.1F ? Blocks.aZ : Blocks.aU)));
 				bq[class_rc.f.b()] = 0.0F;
 			}
 		}
@@ -430,7 +430,7 @@ public class class_yl extends class_yc {
 
 	@Override
 	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
-		if ((var3 != null) && (var3.b() == class_acq.aq) && (var3.i() == 0) && cI() && this.a(class_qs.r)) {
+		if ((var3 != null) && (var3.b() == Items.aq) && (var3.i() == 0) && cI() && this.a(class_qs.r)) {
 			if (!var1.bI.d) {
 				--var3.b;
 			}
@@ -492,8 +492,8 @@ public class class_yl extends class_yc {
 			for (int var4 = (int) s - 4; (var4 < ((int) s + 4)) && (var2 < 14); ++var4) {
 				for (int var5 = (int) t - 4; (var5 < ((int) t + 4)) && (var2 < 14); ++var5) {
 					for (int var6 = (int) u - 4; (var6 < ((int) u + 4)) && (var2 < 14); ++var6) {
-						class_ail var7 = o.p(var3.c(var4, var5, var6)).c();
-						if ((var7 == class_aim.bi) || (var7 == class_aim.C)) {
+						Block var7 = o.p(var3.c(var4, var5, var6)).c();
+						if ((var7 == Blocks.bi) || (var7 == Blocks.C)) {
 							if (V.nextFloat() < 0.3F) {
 								++var1;
 							}
@@ -537,7 +537,7 @@ public class class_yl extends class_yc {
 		super.a(var1);
 		if ((var1.j() instanceof class_xu) && !(this instanceof class_yd) && ((class_xu) var1.j()).n() && ((class_xu) var1.j()).cI()) {
 			((class_xu) var1.j()).cJ();
-			this.a(new class_aco(class_acq.cc, 1, 2), 0.0F);
+			this.a(new class_aco(Items.cc, 1, 2), 0.0F);
 		}
 
 	}

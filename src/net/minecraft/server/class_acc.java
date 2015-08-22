@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_acc extends class_acm {
+public class class_acc extends Item {
 	public class_acc() {
 		this.a(class_abp.f);
 	}
@@ -17,7 +17,7 @@ public class class_acc extends class_acm {
 			} else {
 				if (var3.p(var4).c().v() == class_avq.a) {
 					var3.a(var4.n() + 0.5D, var4.o() + 0.5D, var4.p() + 0.5D, "item.fireCharge.use", 1.0F, ((h.nextFloat() - h.nextFloat()) * 0.2F) + 1.0F);
-					var3.a(var4, class_aim.ab.S());
+					var3.a(var4, Blocks.ab.S());
 				}
 
 				if (!var2.bI.d) {

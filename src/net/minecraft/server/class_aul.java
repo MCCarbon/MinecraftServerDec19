@@ -44,31 +44,31 @@ public class class_aul {
 			if (!this.a(var1, var3, 0)) {
 				return false;
 			} else {
-				this.a(var1, var3, 1, 1, 1, 5, 1, 7, class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), false);
-				this.a(var1, var3, 1, 4, 2, 5, 4, 7, class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), false);
-				this.a(var1, var3, 2, 1, 0, 4, 1, 0, class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), false);
-				this.a(var1, var3, 2, 2, 2, 3, 3, 2, class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), false);
-				this.a(var1, var3, 1, 2, 3, 1, 3, 6, class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), false);
-				this.a(var1, var3, 5, 2, 3, 5, 3, 6, class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), false);
-				this.a(var1, var3, 2, 2, 7, 4, 3, 7, class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), class_aim.f.a(class_aly.class_a_in_class_aly.b.a()), false);
-				this.a(var1, var3, 1, 0, 2, 1, 3, 2, class_aim.r.S(), class_aim.r.S(), false);
-				this.a(var1, var3, 5, 0, 2, 5, 3, 2, class_aim.r.S(), class_aim.r.S(), false);
-				this.a(var1, var3, 1, 0, 7, 1, 3, 7, class_aim.r.S(), class_aim.r.S(), false);
-				this.a(var1, var3, 5, 0, 7, 5, 3, 7, class_aim.r.S(), class_aim.r.S(), false);
-				this.a(var1, class_aim.aO.S(), 2, 3, 2, var3);
-				this.a(var1, class_aim.aO.S(), 3, 3, 7, var3);
-				this.a(var1, class_aim.a.S(), 1, 3, 4, var3);
-				this.a(var1, class_aim.a.S(), 5, 3, 4, var3);
-				this.a(var1, class_aim.a.S(), 5, 3, 5, var3);
-				this.a(var1, class_aim.ca.S().a(class_akf.b, class_akf.class_a_in_class_akf.r), 1, 3, 5, var3);
-				this.a(var1, class_aim.ai.S(), 3, 2, 6, var3);
-				this.a(var1, class_aim.bE.S(), 4, 2, 6, var3);
-				this.a(var1, class_aim.aO.S(), 1, 2, 1, var3);
-				this.a(var1, class_aim.aO.S(), 5, 2, 1, var3);
-				class_apn var4 = class_aim.bU.S().a(class_anf.a, class_cq.c);
-				class_apn var5 = class_aim.bU.S().a(class_anf.a, class_cq.f);
-				class_apn var6 = class_aim.bU.S().a(class_anf.a, class_cq.e);
-				class_apn var7 = class_aim.bU.S().a(class_anf.a, class_cq.d);
+				this.a(var1, var3, 1, 1, 1, 5, 1, 7, Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), false);
+				this.a(var1, var3, 1, 4, 2, 5, 4, 7, Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), false);
+				this.a(var1, var3, 2, 1, 0, 4, 1, 0, Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), false);
+				this.a(var1, var3, 2, 2, 2, 3, 3, 2, Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), false);
+				this.a(var1, var3, 1, 2, 3, 1, 3, 6, Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), false);
+				this.a(var1, var3, 5, 2, 3, 5, 3, 6, Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), false);
+				this.a(var1, var3, 2, 2, 7, 4, 3, 7, Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), Blocks.f.a(class_aly.class_a_in_class_aly.b.a()), false);
+				this.a(var1, var3, 1, 0, 2, 1, 3, 2, Blocks.r.S(), Blocks.r.S(), false);
+				this.a(var1, var3, 5, 0, 2, 5, 3, 2, Blocks.r.S(), Blocks.r.S(), false);
+				this.a(var1, var3, 1, 0, 7, 1, 3, 7, Blocks.r.S(), Blocks.r.S(), false);
+				this.a(var1, var3, 5, 0, 7, 5, 3, 7, Blocks.r.S(), Blocks.r.S(), false);
+				this.a(var1, Blocks.aO.S(), 2, 3, 2, var3);
+				this.a(var1, Blocks.aO.S(), 3, 3, 7, var3);
+				this.a(var1, Blocks.a.S(), 1, 3, 4, var3);
+				this.a(var1, Blocks.a.S(), 5, 3, 4, var3);
+				this.a(var1, Blocks.a.S(), 5, 3, 5, var3);
+				this.a(var1, Blocks.ca.S().a(class_akf.b, class_akf.class_a_in_class_akf.r), 1, 3, 5, var3);
+				this.a(var1, Blocks.ai.S(), 3, 2, 6, var3);
+				this.a(var1, Blocks.bE.S(), 4, 2, 6, var3);
+				this.a(var1, Blocks.aO.S(), 1, 2, 1, var3);
+				this.a(var1, Blocks.aO.S(), 5, 2, 1, var3);
+				class_apn var4 = Blocks.bU.S().a(class_anf.a, class_cq.c);
+				class_apn var5 = Blocks.bU.S().a(class_anf.a, class_cq.f);
+				class_apn var6 = Blocks.bU.S().a(class_anf.a, class_cq.e);
+				class_apn var7 = Blocks.bU.S().a(class_anf.a, class_cq.d);
 				this.a(var1, var3, 0, 4, 1, 6, 4, 1, var4, var4, false);
 				this.a(var1, var3, 0, 4, 2, 0, 4, 7, var5, var5, false);
 				this.a(var1, var3, 6, 4, 2, 6, 4, 7, var6, var6, false);
@@ -78,7 +78,7 @@ public class class_aul {
 				int var9;
 				for (var8 = 2; var8 <= 7; var8 += 5) {
 					for (var9 = 1; var9 <= 5; var9 += 4) {
-						this.b(var1, class_aim.r.S(), var9, -1, var8, var3);
+						this.b(var1, Blocks.r.S(), var9, -1, var8, var3);
 					}
 				}
 
@@ -161,10 +161,10 @@ public class class_aul {
 				this.a(var1, var3, 5, 2, 12, 6, 2, 12);
 				this.a(var1, var3, 5, 5, 1, 6, 5, 1);
 				this.a(var1, var3, 5, 5, 13, 6, 5, 13);
-				this.a(var1, class_aim.a.S(), 1, 5, 5, var3);
-				this.a(var1, class_aim.a.S(), 10, 5, 5, var3);
-				this.a(var1, class_aim.a.S(), 1, 5, 9, var3);
-				this.a(var1, class_aim.a.S(), 10, 5, 9, var3);
+				this.a(var1, Blocks.a.S(), 1, 5, 5, var3);
+				this.a(var1, Blocks.a.S(), 10, 5, 5, var3);
+				this.a(var1, Blocks.a.S(), 1, 5, 9, var3);
+				this.a(var1, Blocks.a.S(), 10, 5, 9, var3);
 
 				int var4;
 				for (var4 = 0; var4 <= 14; var4 += 14) {
@@ -194,10 +194,10 @@ public class class_aul {
 				this.a(var1, var3, 4, 9, 10, 4, 9, 10, false, var2, k);
 				this.a(var1, var3, 7, 9, 10, 7, 9, 10, false, var2, k);
 				this.a(var1, var3, 5, 9, 7, 6, 9, 7, false, var2, k);
-				class_apn var9 = class_aim.aw.S().a(class_anf.a, class_cq.f);
-				class_apn var10 = class_aim.aw.S().a(class_anf.a, class_cq.e);
-				class_apn var6 = class_aim.aw.S().a(class_anf.a, class_cq.d);
-				class_apn var7 = class_aim.aw.S().a(class_anf.a, class_cq.c);
+				class_apn var9 = Blocks.aw.S().a(class_anf.a, class_cq.f);
+				class_apn var10 = Blocks.aw.S().a(class_anf.a, class_cq.e);
+				class_apn var6 = Blocks.aw.S().a(class_anf.a, class_cq.d);
+				class_apn var7 = Blocks.aw.S().a(class_anf.a, class_cq.c);
 				this.a(var1, var7, 5, 9, 6, var3);
 				this.a(var1, var7, 6, 9, 6, var3);
 				this.a(var1, var6, 5, 9, 8, var3);
@@ -242,74 +242,74 @@ public class class_aul {
 				this.a(var1, var3, 7, -2, 1, 9, -2, 1, false, var2, k);
 				this.a(var1, var3, 6, -3, 1, 6, -3, 1, false, var2, k);
 				this.a(var1, var3, 6, -1, 1, 6, -1, 1, false, var2, k);
-				this.a(var1, class_aim.bR.S().a(class_anv.a, class_cq.f).a(class_anv.N, Boolean.valueOf(true)), 1, -3, 8, var3);
-				this.a(var1, class_aim.bR.S().a(class_anv.a, class_cq.e).a(class_anv.N, Boolean.valueOf(true)), 4, -3, 8, var3);
-				this.a(var1, class_aim.bS.S().a(class_anu.N, Boolean.valueOf(true)), 2, -3, 8, var3);
-				this.a(var1, class_aim.bS.S().a(class_anu.N, Boolean.valueOf(true)), 3, -3, 8, var3);
-				this.a(var1, class_aim.af.S(), 5, -3, 7, var3);
-				this.a(var1, class_aim.af.S(), 5, -3, 6, var3);
-				this.a(var1, class_aim.af.S(), 5, -3, 5, var3);
-				this.a(var1, class_aim.af.S(), 5, -3, 4, var3);
-				this.a(var1, class_aim.af.S(), 5, -3, 3, var3);
-				this.a(var1, class_aim.af.S(), 5, -3, 2, var3);
-				this.a(var1, class_aim.af.S(), 5, -3, 1, var3);
-				this.a(var1, class_aim.af.S(), 4, -3, 1, var3);
-				this.a(var1, class_aim.Y.S(), 3, -3, 1, var3);
+				this.a(var1, Blocks.bR.S().a(class_anv.a, class_cq.f).a(class_anv.N, Boolean.valueOf(true)), 1, -3, 8, var3);
+				this.a(var1, Blocks.bR.S().a(class_anv.a, class_cq.e).a(class_anv.N, Boolean.valueOf(true)), 4, -3, 8, var3);
+				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 2, -3, 8, var3);
+				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 3, -3, 8, var3);
+				this.a(var1, Blocks.af.S(), 5, -3, 7, var3);
+				this.a(var1, Blocks.af.S(), 5, -3, 6, var3);
+				this.a(var1, Blocks.af.S(), 5, -3, 5, var3);
+				this.a(var1, Blocks.af.S(), 5, -3, 4, var3);
+				this.a(var1, Blocks.af.S(), 5, -3, 3, var3);
+				this.a(var1, Blocks.af.S(), 5, -3, 2, var3);
+				this.a(var1, Blocks.af.S(), 5, -3, 1, var3);
+				this.a(var1, Blocks.af.S(), 4, -3, 1, var3);
+				this.a(var1, Blocks.Y.S(), 3, -3, 1, var3);
 				if (!g) {
 					g = this.a(var1, var3, var2, 3, -2, 1, class_cq.c, j, 2);
 				}
 
-				this.a(var1, class_aim.bn.S().a(class_anw.O, Boolean.valueOf(true)), 3, -2, 2, var3);
-				this.a(var1, class_aim.bR.S().a(class_anv.a, class_cq.c).a(class_anv.N, Boolean.valueOf(true)), 7, -3, 1, var3);
-				this.a(var1, class_aim.bR.S().a(class_anv.a, class_cq.d).a(class_anv.N, Boolean.valueOf(true)), 7, -3, 5, var3);
-				this.a(var1, class_aim.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 2, var3);
-				this.a(var1, class_aim.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 3, var3);
-				this.a(var1, class_aim.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 4, var3);
-				this.a(var1, class_aim.af.S(), 8, -3, 6, var3);
-				this.a(var1, class_aim.af.S(), 9, -3, 6, var3);
-				this.a(var1, class_aim.af.S(), 9, -3, 5, var3);
-				this.a(var1, class_aim.Y.S(), 9, -3, 4, var3);
-				this.a(var1, class_aim.af.S(), 9, -2, 4, var3);
+				this.a(var1, Blocks.bn.S().a(class_anw.O, Boolean.valueOf(true)), 3, -2, 2, var3);
+				this.a(var1, Blocks.bR.S().a(class_anv.a, class_cq.c).a(class_anv.N, Boolean.valueOf(true)), 7, -3, 1, var3);
+				this.a(var1, Blocks.bR.S().a(class_anv.a, class_cq.d).a(class_anv.N, Boolean.valueOf(true)), 7, -3, 5, var3);
+				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 2, var3);
+				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 3, var3);
+				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 4, var3);
+				this.a(var1, Blocks.af.S(), 8, -3, 6, var3);
+				this.a(var1, Blocks.af.S(), 9, -3, 6, var3);
+				this.a(var1, Blocks.af.S(), 9, -3, 5, var3);
+				this.a(var1, Blocks.Y.S(), 9, -3, 4, var3);
+				this.a(var1, Blocks.af.S(), 9, -2, 4, var3);
 				if (!h) {
 					h = this.a(var1, var3, var2, 9, -2, 3, class_cq.e, j, 2);
 				}
 
-				this.a(var1, class_aim.bn.S().a(class_anw.N, Boolean.valueOf(true)), 8, -1, 3, var3);
-				this.a(var1, class_aim.bn.S().a(class_anw.N, Boolean.valueOf(true)), 8, -2, 3, var3);
+				this.a(var1, Blocks.bn.S().a(class_anw.N, Boolean.valueOf(true)), 8, -1, 3, var3);
+				this.a(var1, Blocks.bn.S().a(class_anw.N, Boolean.valueOf(true)), 8, -2, 3, var3);
 				if (!e) {
-					e = this.a(var1, var3, var2, 8, -3, 3, class_oj.a(i, new class_oj[] { class_acq.ci.b(var2) }), 2 + var2.nextInt(5));
+					e = this.a(var1, var3, var2, 8, -3, 3, class_oj.a(i, new class_oj[] { Items.ci.b(var2) }), 2 + var2.nextInt(5));
 				}
 
-				this.a(var1, class_aim.Y.S(), 9, -3, 2, var3);
-				this.a(var1, class_aim.Y.S(), 8, -3, 1, var3);
-				this.a(var1, class_aim.Y.S(), 4, -3, 5, var3);
-				this.a(var1, class_aim.Y.S(), 5, -2, 5, var3);
-				this.a(var1, class_aim.Y.S(), 5, -1, 5, var3);
-				this.a(var1, class_aim.Y.S(), 6, -3, 5, var3);
-				this.a(var1, class_aim.Y.S(), 7, -2, 5, var3);
-				this.a(var1, class_aim.Y.S(), 7, -1, 5, var3);
-				this.a(var1, class_aim.Y.S(), 8, -3, 5, var3);
+				this.a(var1, Blocks.Y.S(), 9, -3, 2, var3);
+				this.a(var1, Blocks.Y.S(), 8, -3, 1, var3);
+				this.a(var1, Blocks.Y.S(), 4, -3, 5, var3);
+				this.a(var1, Blocks.Y.S(), 5, -2, 5, var3);
+				this.a(var1, Blocks.Y.S(), 5, -1, 5, var3);
+				this.a(var1, Blocks.Y.S(), 6, -3, 5, var3);
+				this.a(var1, Blocks.Y.S(), 7, -2, 5, var3);
+				this.a(var1, Blocks.Y.S(), 7, -1, 5, var3);
+				this.a(var1, Blocks.Y.S(), 8, -3, 5, var3);
 				this.a(var1, var3, 9, -1, 1, 9, -1, 5, false, var2, k);
 				this.a(var1, var3, 8, -3, 8, 10, -1, 10);
-				this.a(var1, class_aim.bf.a(class_ank.P), 8, -2, 11, var3);
-				this.a(var1, class_aim.bf.a(class_ank.P), 9, -2, 11, var3);
-				this.a(var1, class_aim.bf.a(class_ank.P), 10, -2, 11, var3);
-				class_apn var11 = class_aim.ay.S().a(class_ale.a, class_ale.class_a_in_class_ale.e);
+				this.a(var1, Blocks.bf.a(class_ank.P), 8, -2, 11, var3);
+				this.a(var1, Blocks.bf.a(class_ank.P), 9, -2, 11, var3);
+				this.a(var1, Blocks.bf.a(class_ank.P), 10, -2, 11, var3);
+				class_apn var11 = Blocks.ay.S().a(class_ale.a, class_ale.class_a_in_class_ale.e);
 				this.a(var1, var11, 8, -2, 12, var3);
 				this.a(var1, var11, 9, -2, 12, var3);
 				this.a(var1, var11, 10, -2, 12, var3);
 				this.a(var1, var3, 8, -3, 8, 8, -3, 10, false, var2, k);
 				this.a(var1, var3, 10, -3, 8, 10, -3, 10, false, var2, k);
-				this.a(var1, class_aim.Y.S(), 10, -2, 9, var3);
-				this.a(var1, class_aim.af.S(), 8, -2, 9, var3);
-				this.a(var1, class_aim.af.S(), 8, -2, 10, var3);
-				this.a(var1, class_aim.af.S(), 10, -1, 9, var3);
-				this.a(var1, class_aim.F.S().a(class_ajk.b, class_cq.b), 9, -2, 8, var3);
-				this.a(var1, class_aim.F.S().a(class_ajk.b, class_cq.e), 10, -2, 8, var3);
-				this.a(var1, class_aim.F.S().a(class_ajk.b, class_cq.e), 10, -1, 8, var3);
-				this.a(var1, class_aim.bb.S().a(class_akx.O, class_cq.c), 10, -2, 10, var3);
+				this.a(var1, Blocks.Y.S(), 10, -2, 9, var3);
+				this.a(var1, Blocks.af.S(), 8, -2, 9, var3);
+				this.a(var1, Blocks.af.S(), 8, -2, 10, var3);
+				this.a(var1, Blocks.af.S(), 10, -1, 9, var3);
+				this.a(var1, Blocks.F.S().a(class_ajk.b, class_cq.b), 9, -2, 8, var3);
+				this.a(var1, Blocks.F.S().a(class_ajk.b, class_cq.e), 10, -2, 8, var3);
+				this.a(var1, Blocks.F.S().a(class_ajk.b, class_cq.e), 10, -1, 8, var3);
+				this.a(var1, Blocks.bb.S().a(class_akx.O, class_cq.c), 10, -2, 10, var3);
 				if (!f) {
-					f = this.a(var1, var3, var2, 9, -3, 10, class_oj.a(i, new class_oj[] { class_acq.ci.b(var2) }), 2 + var2.nextInt(5));
+					f = this.a(var1, var3, var2, 9, -3, 10, class_oj.a(i, new class_oj[] { Items.ci.b(var2) }), 2 + var2.nextInt(5));
 				}
 
 				return true;
@@ -317,8 +317,8 @@ public class class_aul {
 		}
 
 		static {
-			i = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(class_acq.k, 0, 1, 3, 3), new class_oj(class_acq.l, 0, 1, 5, 10), new class_oj(class_acq.m, 0, 2, 7, 15), new class_oj(class_acq.bT, 0, 1, 3, 2), new class_oj(class_acq.aZ, 0, 4, 6, 20), new class_oj(class_acq.bv, 0, 3, 7, 16), new class_oj(class_acq.aC, 0, 1, 1, 3), new class_oj(class_acq.cp, 0, 1, 1, 1), new class_oj(class_acq.cq, 0, 1, 1, 1), new class_oj(class_acq.cr, 0, 1, 1, 1) }));
-			j = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(class_acq.g, 0, 2, 7, 30) }));
+			i = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.k, 0, 1, 3, 3), new class_oj(Items.l, 0, 1, 5, 10), new class_oj(Items.m, 0, 2, 7, 15), new class_oj(Items.bT, 0, 1, 3, 2), new class_oj(Items.aZ, 0, 4, 6, 20), new class_oj(Items.bv, 0, 3, 7, 16), new class_oj(Items.aC, 0, 1, 1, 3), new class_oj(Items.cp, 0, 1, 1, 1), new class_oj(Items.cq, 0, 1, 1, 1), new class_oj(Items.cr, 0, 1, 1, 1) }));
+			j = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.g, 0, 2, 7, 30) }));
 			k = new class_aul.class_b_in_class_aul.class_b_in_class_aul$class_a_in_class_b_in_class_aul();
 		}
 
@@ -329,9 +329,9 @@ public class class_aul {
 			@Override
 			public void a(Random var1, int var2, int var3, int var4, boolean var5) {
 				if (var1.nextFloat() < 0.4F) {
-					a = class_aim.e.S();
+					a = Blocks.e.S();
 				} else {
-					a = class_aim.Y.S();
+					a = Blocks.Y.S();
 				}
 
 			}
@@ -374,188 +374,188 @@ public class class_aul {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, -4, 0, a - 1, 0, c - 1, class_aim.A.S(), class_aim.A.S(), false);
+			this.a(var1, var3, 0, -4, 0, a - 1, 0, c - 1, Blocks.A.S(), Blocks.A.S(), false);
 
 			int var4;
 			for (var4 = 1; var4 <= 9; ++var4) {
-				this.a(var1, var3, var4, var4, var4, a - 1 - var4, var4, c - 1 - var4, class_aim.A.S(), class_aim.A.S(), false);
-				this.a(var1, var3, var4 + 1, var4, var4 + 1, a - 2 - var4, var4, c - 2 - var4, class_aim.a.S(), class_aim.a.S(), false);
+				this.a(var1, var3, var4, var4, var4, a - 1 - var4, var4, c - 1 - var4, Blocks.A.S(), Blocks.A.S(), false);
+				this.a(var1, var3, var4 + 1, var4, var4 + 1, a - 2 - var4, var4, c - 2 - var4, Blocks.a.S(), Blocks.a.S(), false);
 			}
 
 			for (var4 = 0; var4 < a; ++var4) {
 				for (int var5 = 0; var5 < c; ++var5) {
 					byte var6 = -5;
-					this.b(var1, class_aim.A.S(), var4, var6, var5, var3);
+					this.b(var1, Blocks.A.S(), var4, var6, var5, var3);
 				}
 			}
 
-			class_apn var14 = class_aim.bO.S().a(class_anf.a, class_cq.c);
-			class_apn var15 = class_aim.bO.S().a(class_anf.a, class_cq.d);
-			class_apn var16 = class_aim.bO.S().a(class_anf.a, class_cq.f);
-			class_apn var7 = class_aim.bO.S().a(class_anf.a, class_cq.e);
+			class_apn var14 = Blocks.bO.S().a(class_anf.a, class_cq.c);
+			class_apn var15 = Blocks.bO.S().a(class_anf.a, class_cq.d);
+			class_apn var16 = Blocks.bO.S().a(class_anf.a, class_cq.f);
+			class_apn var7 = Blocks.bO.S().a(class_anf.a, class_cq.e);
 			int var8 = ~class_abt.b.b() & 15;
 			int var9 = ~class_abt.l.b() & 15;
-			this.a(var1, var3, 0, 0, 0, 4, 9, 4, class_aim.A.S(), class_aim.a.S(), false);
-			this.a(var1, var3, 1, 10, 1, 3, 10, 3, class_aim.A.S(), class_aim.A.S(), false);
+			this.a(var1, var3, 0, 0, 0, 4, 9, 4, Blocks.A.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 1, 10, 1, 3, 10, 3, Blocks.A.S(), Blocks.A.S(), false);
 			this.a(var1, var14, 2, 10, 0, var3);
 			this.a(var1, var15, 2, 10, 4, var3);
 			this.a(var1, var16, 0, 10, 2, var3);
 			this.a(var1, var7, 4, 10, 2, var3);
-			this.a(var1, var3, a - 5, 0, 0, a - 1, 9, 4, class_aim.A.S(), class_aim.a.S(), false);
-			this.a(var1, var3, a - 4, 10, 1, a - 2, 10, 3, class_aim.A.S(), class_aim.A.S(), false);
+			this.a(var1, var3, a - 5, 0, 0, a - 1, 9, 4, Blocks.A.S(), Blocks.a.S(), false);
+			this.a(var1, var3, a - 4, 10, 1, a - 2, 10, 3, Blocks.A.S(), Blocks.A.S(), false);
 			this.a(var1, var14, a - 3, 10, 0, var3);
 			this.a(var1, var15, a - 3, 10, 4, var3);
 			this.a(var1, var16, a - 5, 10, 2, var3);
 			this.a(var1, var7, a - 1, 10, 2, var3);
-			this.a(var1, var3, 8, 0, 0, 12, 4, 4, class_aim.A.S(), class_aim.a.S(), false);
-			this.a(var1, var3, 9, 1, 0, 11, 3, 4, class_aim.a.S(), class_aim.a.S(), false);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 9, 1, 1, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 9, 2, 1, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 9, 3, 1, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 10, 3, 1, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 11, 3, 1, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 11, 2, 1, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 11, 1, 1, var3);
-			this.a(var1, var3, 4, 1, 1, 8, 3, 3, class_aim.A.S(), class_aim.a.S(), false);
-			this.a(var1, var3, 4, 1, 2, 8, 2, 2, class_aim.a.S(), class_aim.a.S(), false);
-			this.a(var1, var3, 12, 1, 1, 16, 3, 3, class_aim.A.S(), class_aim.a.S(), false);
-			this.a(var1, var3, 12, 1, 2, 16, 2, 2, class_aim.a.S(), class_aim.a.S(), false);
-			this.a(var1, var3, 5, 4, 5, a - 6, 4, c - 6, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, 9, 4, 9, 11, 4, 11, class_aim.a.S(), class_aim.a.S(), false);
-			this.a(var1, var3, 8, 1, 8, 8, 3, 8, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, var3, 12, 1, 8, 12, 3, 8, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, var3, 8, 1, 12, 8, 3, 12, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, var3, 12, 1, 12, 12, 3, 12, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, var3, 1, 1, 5, 4, 4, 11, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, a - 5, 1, 5, a - 2, 4, 11, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, 6, 7, 9, 6, 7, 11, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, a - 7, 7, 9, a - 7, 7, 11, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, 5, 5, 9, 5, 7, 11, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, var3, a - 6, 5, 9, a - 6, 7, 11, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, class_aim.a.S(), 5, 5, 10, var3);
-			this.a(var1, class_aim.a.S(), 5, 6, 10, var3);
-			this.a(var1, class_aim.a.S(), 6, 6, 10, var3);
-			this.a(var1, class_aim.a.S(), a - 6, 5, 10, var3);
-			this.a(var1, class_aim.a.S(), a - 6, 6, 10, var3);
-			this.a(var1, class_aim.a.S(), a - 7, 6, 10, var3);
-			this.a(var1, var3, 2, 4, 4, 2, 6, 4, class_aim.a.S(), class_aim.a.S(), false);
-			this.a(var1, var3, a - 3, 4, 4, a - 3, 6, 4, class_aim.a.S(), class_aim.a.S(), false);
+			this.a(var1, var3, 8, 0, 0, 12, 4, 4, Blocks.A.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 9, 1, 0, 11, 3, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 9, 1, 1, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 9, 2, 1, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 9, 3, 1, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 10, 3, 1, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 11, 3, 1, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 11, 2, 1, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 11, 1, 1, var3);
+			this.a(var1, var3, 4, 1, 1, 8, 3, 3, Blocks.A.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 4, 1, 2, 8, 2, 2, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 12, 1, 1, 16, 3, 3, Blocks.A.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 12, 1, 2, 16, 2, 2, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 5, 4, 5, a - 6, 4, c - 6, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, 9, 4, 9, 11, 4, 11, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 8, 1, 8, 8, 3, 8, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, var3, 12, 1, 8, 12, 3, 8, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, var3, 8, 1, 12, 8, 3, 12, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, var3, 12, 1, 12, 12, 3, 12, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, var3, 1, 1, 5, 4, 4, 11, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, a - 5, 1, 5, a - 2, 4, 11, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, 6, 7, 9, 6, 7, 11, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, a - 7, 7, 9, a - 7, 7, 11, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, 5, 5, 9, 5, 7, 11, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, var3, a - 6, 5, 9, a - 6, 7, 11, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, Blocks.a.S(), 5, 5, 10, var3);
+			this.a(var1, Blocks.a.S(), 5, 6, 10, var3);
+			this.a(var1, Blocks.a.S(), 6, 6, 10, var3);
+			this.a(var1, Blocks.a.S(), a - 6, 5, 10, var3);
+			this.a(var1, Blocks.a.S(), a - 6, 6, 10, var3);
+			this.a(var1, Blocks.a.S(), a - 7, 6, 10, var3);
+			this.a(var1, var3, 2, 4, 4, 2, 6, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, a - 3, 4, 4, a - 3, 6, 4, Blocks.a.S(), Blocks.a.S(), false);
 			this.a(var1, var14, 2, 4, 5, var3);
 			this.a(var1, var14, 2, 3, 4, var3);
 			this.a(var1, var14, a - 3, 4, 5, var3);
 			this.a(var1, var14, a - 3, 3, 4, var3);
-			this.a(var1, var3, 1, 1, 3, 2, 2, 3, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, a - 3, 1, 3, a - 2, 2, 3, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, class_aim.A.S(), 1, 1, 2, var3);
-			this.a(var1, class_aim.A.S(), a - 2, 1, 2, var3);
-			this.a(var1, class_aim.U.a(class_anm.class_a_in_class_anm.b.a()), 1, 2, 2, var3);
-			this.a(var1, class_aim.U.a(class_anm.class_a_in_class_anm.b.a()), a - 2, 2, 2, var3);
+			this.a(var1, var3, 1, 1, 3, 2, 2, 3, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, a - 3, 1, 3, a - 2, 2, 3, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, Blocks.A.S(), 1, 1, 2, var3);
+			this.a(var1, Blocks.A.S(), a - 2, 1, 2, var3);
+			this.a(var1, Blocks.U.a(class_anm.class_a_in_class_anm.b.a()), 1, 2, 2, var3);
+			this.a(var1, Blocks.U.a(class_anm.class_a_in_class_anm.b.a()), a - 2, 2, 2, var3);
 			this.a(var1, var7, 2, 1, 2, var3);
 			this.a(var1, var16, a - 3, 1, 2, var3);
-			this.a(var1, var3, 4, 3, 5, 4, 3, 18, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, a - 5, 3, 5, a - 5, 3, 17, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, 3, 1, 5, 4, 2, 16, class_aim.a.S(), class_aim.a.S(), false);
-			this.a(var1, var3, a - 6, 1, 5, a - 5, 2, 16, class_aim.a.S(), class_aim.a.S(), false);
+			this.a(var1, var3, 4, 3, 5, 4, 3, 18, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, a - 5, 3, 5, a - 5, 3, 17, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, 3, 1, 5, 4, 2, 16, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, a - 6, 1, 5, a - 5, 2, 16, Blocks.a.S(), Blocks.a.S(), false);
 
 			int var10;
 			for (var10 = 5; var10 <= 17; var10 += 2) {
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 4, 1, var10, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), 4, 2, var10, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), a - 5, 1, var10, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), a - 5, 2, var10, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 4, 1, var10, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), 4, 2, var10, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), a - 5, 1, var10, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), a - 5, 2, var10, var3);
 			}
 
-			this.a(var1, class_aim.cu.a(var8), 10, 0, 7, var3);
-			this.a(var1, class_aim.cu.a(var8), 10, 0, 8, var3);
-			this.a(var1, class_aim.cu.a(var8), 9, 0, 9, var3);
-			this.a(var1, class_aim.cu.a(var8), 11, 0, 9, var3);
-			this.a(var1, class_aim.cu.a(var8), 8, 0, 10, var3);
-			this.a(var1, class_aim.cu.a(var8), 12, 0, 10, var3);
-			this.a(var1, class_aim.cu.a(var8), 7, 0, 10, var3);
-			this.a(var1, class_aim.cu.a(var8), 13, 0, 10, var3);
-			this.a(var1, class_aim.cu.a(var8), 9, 0, 11, var3);
-			this.a(var1, class_aim.cu.a(var8), 11, 0, 11, var3);
-			this.a(var1, class_aim.cu.a(var8), 10, 0, 12, var3);
-			this.a(var1, class_aim.cu.a(var8), 10, 0, 13, var3);
-			this.a(var1, class_aim.cu.a(var9), 10, 0, 10, var3);
+			this.a(var1, Blocks.cu.a(var8), 10, 0, 7, var3);
+			this.a(var1, Blocks.cu.a(var8), 10, 0, 8, var3);
+			this.a(var1, Blocks.cu.a(var8), 9, 0, 9, var3);
+			this.a(var1, Blocks.cu.a(var8), 11, 0, 9, var3);
+			this.a(var1, Blocks.cu.a(var8), 8, 0, 10, var3);
+			this.a(var1, Blocks.cu.a(var8), 12, 0, 10, var3);
+			this.a(var1, Blocks.cu.a(var8), 7, 0, 10, var3);
+			this.a(var1, Blocks.cu.a(var8), 13, 0, 10, var3);
+			this.a(var1, Blocks.cu.a(var8), 9, 0, 11, var3);
+			this.a(var1, Blocks.cu.a(var8), 11, 0, 11, var3);
+			this.a(var1, Blocks.cu.a(var8), 10, 0, 12, var3);
+			this.a(var1, Blocks.cu.a(var8), 10, 0, 13, var3);
+			this.a(var1, Blocks.cu.a(var9), 10, 0, 10, var3);
 
 			for (var10 = 0; var10 <= (a - 1); var10 += a - 1) {
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 2, 1, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 2, 2, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 2, 3, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 3, 1, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 3, 2, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 3, 3, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 4, 1, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 4, 2, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 4, 3, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 5, 1, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 5, 2, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 5, 3, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 6, 1, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 6, 2, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 6, 3, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 7, 1, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 7, 2, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 7, 3, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 1, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 2, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 3, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 2, 1, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 2, 2, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 2, 3, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 3, 1, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 3, 2, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 3, 3, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 4, 1, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 4, 2, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 4, 3, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 5, 1, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 5, 2, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 5, 3, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 6, 1, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 6, 2, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 6, 3, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 7, 1, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 7, 2, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 7, 3, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 1, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 2, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 3, var3);
 			}
 
 			for (var10 = 2; var10 <= (a - 3); var10 += a - 3 - 2) {
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 2, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 2, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 2, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 3, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 3, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 3, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10 - 1, 4, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 4, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10 + 1, 4, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 5, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 5, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 5, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10 - 1, 6, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 6, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10 + 1, 6, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10 - 1, 7, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10, 7, 0, var3);
-				this.a(var1, class_aim.cu.a(var8), var10 + 1, 7, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 8, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 0, var3);
-				this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 8, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 2, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 2, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 2, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 3, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 3, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 3, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10 - 1, 4, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 4, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10 + 1, 4, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 5, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 5, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 5, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10 - 1, 6, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), var10, 6, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10 + 1, 6, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10 - 1, 7, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10, 7, 0, var3);
+				this.a(var1, Blocks.cu.a(var8), var10 + 1, 7, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 8, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 0, var3);
+				this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 8, 0, var3);
 			}
 
-			this.a(var1, var3, 8, 4, 0, 12, 6, 0, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, class_aim.a.S(), 8, 6, 0, var3);
-			this.a(var1, class_aim.a.S(), 12, 6, 0, var3);
-			this.a(var1, class_aim.cu.a(var8), 9, 5, 0, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), 10, 5, 0, var3);
-			this.a(var1, class_aim.cu.a(var8), 11, 5, 0, var3);
-			this.a(var1, var3, 8, -14, 8, 12, -11, 12, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, var3, 8, -10, 8, 12, -10, 12, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), false);
-			this.a(var1, var3, 8, -9, 8, 12, -9, 12, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), false);
-			this.a(var1, var3, 8, -8, 8, 12, -1, 12, class_aim.A.S(), class_aim.A.S(), false);
-			this.a(var1, var3, 9, -11, 9, 11, -1, 11, class_aim.a.S(), class_aim.a.S(), false);
-			this.a(var1, class_aim.az.S(), 10, -11, 10, var3);
-			this.a(var1, var3, 9, -13, 9, 11, -13, 11, class_aim.W.S(), class_aim.a.S(), false);
-			this.a(var1, class_aim.a.S(), 8, -11, 10, var3);
-			this.a(var1, class_aim.a.S(), 8, -10, 10, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), 7, -10, 10, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 7, -11, 10, var3);
-			this.a(var1, class_aim.a.S(), 12, -11, 10, var3);
-			this.a(var1, class_aim.a.S(), 12, -10, 10, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), 13, -10, 10, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 13, -11, 10, var3);
-			this.a(var1, class_aim.a.S(), 10, -11, 8, var3);
-			this.a(var1, class_aim.a.S(), 10, -10, 8, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), 10, -10, 7, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 10, -11, 7, var3);
-			this.a(var1, class_aim.a.S(), 10, -11, 12, var3);
-			this.a(var1, class_aim.a.S(), 10, -10, 12, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.b.a()), 10, -10, 13, var3);
-			this.a(var1, class_aim.A.a(class_amt.class_a_in_class_amt.c.a()), 10, -11, 13, var3);
+			this.a(var1, var3, 8, 4, 0, 12, 6, 0, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, Blocks.a.S(), 8, 6, 0, var3);
+			this.a(var1, Blocks.a.S(), 12, 6, 0, var3);
+			this.a(var1, Blocks.cu.a(var8), 9, 5, 0, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), 10, 5, 0, var3);
+			this.a(var1, Blocks.cu.a(var8), 11, 5, 0, var3);
+			this.a(var1, var3, 8, -14, 8, 12, -11, 12, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, var3, 8, -10, 8, 12, -10, 12, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), false);
+			this.a(var1, var3, 8, -9, 8, 12, -9, 12, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), false);
+			this.a(var1, var3, 8, -8, 8, 12, -1, 12, Blocks.A.S(), Blocks.A.S(), false);
+			this.a(var1, var3, 9, -11, 9, 11, -1, 11, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, Blocks.az.S(), 10, -11, 10, var3);
+			this.a(var1, var3, 9, -13, 9, 11, -13, 11, Blocks.W.S(), Blocks.a.S(), false);
+			this.a(var1, Blocks.a.S(), 8, -11, 10, var3);
+			this.a(var1, Blocks.a.S(), 8, -10, 10, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), 7, -10, 10, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 7, -11, 10, var3);
+			this.a(var1, Blocks.a.S(), 12, -11, 10, var3);
+			this.a(var1, Blocks.a.S(), 12, -10, 10, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), 13, -10, 10, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 13, -11, 10, var3);
+			this.a(var1, Blocks.a.S(), 10, -11, 8, var3);
+			this.a(var1, Blocks.a.S(), 10, -10, 8, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), 10, -10, 7, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 10, -11, 7, var3);
+			this.a(var1, Blocks.a.S(), 10, -11, 12, var3);
+			this.a(var1, Blocks.a.S(), 10, -10, 12, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.b.a()), 10, -10, 13, var3);
+			this.a(var1, Blocks.A.a(class_amt.class_a_in_class_amt.c.a()), 10, -11, 13, var3);
 			Iterator var17 = class_cq.class_c_in_class_cq.a.iterator();
 
 			while (var17.hasNext()) {
@@ -563,7 +563,7 @@ public class class_aul {
 				if (!e[var11.b()]) {
 					int var12 = var11.g() * 2;
 					int var13 = var11.i() * 2;
-					e[var11.b()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, class_oj.a(f, new class_oj[] { class_acq.ci.b(var2) }), 2 + var2.nextInt(5));
+					e[var11.b()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, class_oj.a(f, new class_oj[] { Items.ci.b(var2) }), 2 + var2.nextInt(5));
 				}
 			}
 
@@ -571,7 +571,7 @@ public class class_aul {
 		}
 
 		static {
-			f = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(class_acq.k, 0, 1, 3, 3), new class_oj(class_acq.l, 0, 1, 5, 10), new class_oj(class_acq.m, 0, 2, 7, 15), new class_oj(class_acq.bT, 0, 1, 3, 2), new class_oj(class_acq.aZ, 0, 4, 6, 20), new class_oj(class_acq.bv, 0, 3, 7, 16), new class_oj(class_acq.aC, 0, 1, 1, 3), new class_oj(class_acq.cp, 0, 1, 1, 1), new class_oj(class_acq.cq, 0, 1, 1, 1), new class_oj(class_acq.cr, 0, 1, 1, 1) }));
+			f = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.k, 0, 1, 3, 3), new class_oj(Items.l, 0, 1, 5, 10), new class_oj(Items.m, 0, 2, 7, 15), new class_oj(Items.bT, 0, 1, 3, 2), new class_oj(Items.aZ, 0, 4, 6, 20), new class_oj(Items.bv, 0, 3, 7, 16), new class_oj(Items.aC, 0, 1, 1, 3), new class_oj(Items.cp, 0, 1, 1, 1), new class_oj(Items.cq, 0, 1, 1, 1), new class_oj(Items.cr, 0, 1, 1, 1) }));
 		}
 	}
 

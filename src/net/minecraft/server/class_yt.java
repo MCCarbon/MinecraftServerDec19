@@ -48,7 +48,7 @@ public class class_yt implements class_pp {
 		return (var1 >= 0) && (var1 < 9);
 	}
 
-	public int a(class_acm var1, int var2, int var3, class_dn var4) {
+	public int a(Item var1, int var2, int var3, class_dn var4) {
 		int var5 = 0;
 
 		int var6;
@@ -101,7 +101,7 @@ public class class_yt implements class_pp {
 	}
 
 	private int e(class_aco var1) {
-		class_acm var2 = var1.b();
+		Item var2 = var1.b();
 		int var3 = var1.b;
 		int var4 = this.f(var1);
 		if (var4 == -1) {
@@ -203,7 +203,7 @@ public class class_yt implements class_pp {
 			} catch (Throwable var5) {
 				class_b var3 = class_b.a(var5, "Adding item to inventory");
 				class_c var4 = var3.a("Item being added");
-				var4.a("Item ID", Integer.valueOf(class_acm.b(var1.b())));
+				var4.a("Item ID", Integer.valueOf(Item.b(var1.b())));
 				var4.a("Item data", Integer.valueOf(var1.i()));
 				var4.a("Item name", new Callable() {
 					public String a() throws Exception {
@@ -305,7 +305,7 @@ public class class_yt implements class_pp {
 
 	}
 
-	public float a(class_ail var1) {
+	public float a(Block var1) {
 		float var2 = 1.0F;
 		if (a[d] != null) {
 			var2 *= a[d].a(var1);
@@ -413,7 +413,7 @@ public class class_yt implements class_pp {
 		return 64;
 	}
 
-	public boolean b(class_ail var1) {
+	public boolean b(Block var1) {
 		if (var1.v().l()) {
 			return true;
 		} else {

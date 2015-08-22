@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_vv extends class_qx {
+public class class_vv extends Entity {
 	public final class_vu a;
 	public final String b;
 
@@ -35,7 +35,7 @@ public class class_vv extends class_qx {
 	}
 
 	@Override
-	public boolean l(class_qx var1) {
+	public boolean l(Entity var1) {
 		return (this == var1) || (a == var1);
 	}
 }

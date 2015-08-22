@@ -29,12 +29,12 @@ public class class_afu extends class_afj {
 	}
 
 	@Override
-	public void b(class_rg var1, class_qx var2, int var3) {
+	public void b(class_rg var1, Entity var2, int var3) {
 		Random var4 = var1.bj();
 		class_aco var5 = class_afl.b(class_afn.h, var1);
 		if (a(var3, var4)) {
 			if (var2 != null) {
-				var2.a(class_qi.a((class_qx) var1), b(var3, var4));
+				var2.a(class_qi.a((Entity) var1), b(var3, var4));
 				var2.a("damage.thorns", 0.5F, 1.0F);
 			}
 

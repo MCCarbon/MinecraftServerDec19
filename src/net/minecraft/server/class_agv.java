@@ -42,7 +42,7 @@ public final class class_agv {
 										int var17;
 										int var18;
 										int var19;
-										class_ail var20;
+										Block var20;
 										do {
 											if (!var42.hasNext()) {
 												continue label132;
@@ -152,7 +152,7 @@ public final class class_agv {
 		if (!var1.ah().a(var2)) {
 			return false;
 		} else {
-			class_ail var3 = var1.p(var2).c();
+			Block var3 = var1.p(var2).c();
 			if (var0 == class_rh.class_a_in_class_rh.c) {
 				return var3.v().d() && var1.p(var2.b()).c().v().d() && !var1.p(var2.a()).c().x();
 			} else {
@@ -160,8 +160,8 @@ public final class class_agv {
 				if (!class_ago.a(var1, var4)) {
 					return false;
 				} else {
-					class_ail var5 = var1.p(var4).c();
-					boolean var6 = (var5 != class_aim.h) && (var5 != class_aim.cv);
+					Block var5 = var1.p(var4).c();
+					boolean var6 = (var5 != Blocks.h) && (var5 != Blocks.cv);
 					return var6 && !var3.x() && !var3.v().d() && !var1.p(var2.a()).c().x();
 				}
 			}

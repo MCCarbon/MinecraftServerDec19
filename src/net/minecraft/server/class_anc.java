@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 import com.google.common.collect.Lists;
 
-public class class_anc extends class_ail {
+public class class_anc extends Block {
 	public static final class_apy a = class_apy.a("wet");
 
 	protected class_anc() {
@@ -31,7 +31,7 @@ public class class_anc extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		this.f(var1, var2, var3);
 		super.a(var1, var2, var3, var4);
 	}
@@ -39,7 +39,7 @@ public class class_anc extends class_ail {
 	protected void f(class_ago var1, class_cj var2, class_apn var3) {
 		if (!((Boolean) var3.b(a)).booleanValue() && this.d(var1, var2)) {
 			var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
-			var1.b(2001, var2, class_ail.a(class_aim.j));
+			var1.b(2001, var2, Block.a(Blocks.j));
 		}
 
 	}
@@ -62,7 +62,7 @@ public class class_anc extends class_ail {
 				class_cq var12 = var9[var11];
 				class_cj var13 = var7.a(var12);
 				if (var1.p(var13).c().v() == class_avq.h) {
-					var1.a(var13, class_aim.a.S(), 2);
+					var1.a(var13, Blocks.a.S(), 2);
 					var4.add(var13);
 					++var5;
 					if (var8 < 6) {
@@ -80,7 +80,7 @@ public class class_anc extends class_ail {
 
 		while (var14.hasNext()) {
 			var7 = (class_cj) var14.next();
-			var1.d(var7, class_aim.a);
+			var1.d(var7, Blocks.a);
 		}
 
 		return var5 > 0;

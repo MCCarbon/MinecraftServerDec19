@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public class class_aor extends class_aoi implements class_ks {
+public class class_aor extends TileEntity implements class_ks {
 	public float a;
 	public float f;
 	public int g;
@@ -10,7 +10,7 @@ public class class_aor extends class_aoi implements class_ks {
 	@Override
 	public void c() {
 		if (((++h % 20) * 4) == 0) {
-			b.c(c, class_aim.bQ, 1, g);
+			b.c(c, Blocks.bQ, 1, g);
 		}
 
 		f = a;
@@ -69,12 +69,12 @@ public class class_aor extends class_aoi implements class_ks {
 
 	public void b() {
 		++g;
-		b.c(c, class_aim.bQ, 1, g);
+		b.c(c, Blocks.bQ, 1, g);
 	}
 
 	public void d() {
 		--g;
-		b.c(c, class_aim.bQ, 1, g);
+		b.c(c, Blocks.bQ, 1, g);
 	}
 
 	public boolean a(class_yu var1) {

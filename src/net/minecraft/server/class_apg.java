@@ -30,7 +30,7 @@ public class class_apg extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D) {
 			this.f(var1, var2, var3);
 		}
@@ -117,19 +117,19 @@ public class class_apg extends class_ajk {
 			var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
 			var1.a(var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D, "tile.piston.out", 0.5F, (var1.s.nextFloat() * 0.25F) + 0.6F);
 		} else if (var4 == 1) {
-			class_aoi var13 = var1.s(var2.a(var6));
+			TileEntity var13 = var1.s(var2.a(var6));
 			if (var13 instanceof class_api) {
 				((class_api) var13).h();
 			}
 
-			var1.a(var2, class_aim.M.S().a(class_apj.a, var6).a(class_apj.b, N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a), 3);
+			var1.a(var2, Blocks.M.S().a(class_apj.a, var6).a(class_apj.b, N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a), 3);
 			var1.a(var2, class_apj.a(this.a(var5), var6, false, true));
 			if (N) {
 				class_cj var8 = var2.a(var6.g() * 2, var6.h() * 2, var6.i() * 2);
-				class_ail var9 = var1.p(var8).c();
+				Block var9 = var1.p(var8).c();
 				boolean var10 = false;
-				if (var9 == class_aim.M) {
-					class_aoi var11 = var1.s(var8);
+				if (var9 == Blocks.M) {
+					TileEntity var11 = var1.s(var8);
 					if (var11 instanceof class_api) {
 						class_api var12 = (class_api) var11;
 						if ((var12.e() == var6) && var12.d()) {
@@ -139,7 +139,7 @@ public class class_apg extends class_ajk {
 					}
 				}
 
-				if (!var10 && (var9.v() != class_avq.a) && a(var9, var1, var8, var6.d(), false) && ((var9.k() == 0) || (var9 == class_aim.J) || (var9 == class_aim.F))) {
+				if (!var10 && (var9.v() != class_avq.a) && a(var9, var1, var8, var6.d(), false) && ((var9.k() == 0) || (var9 == Blocks.J) || (var9 == Blocks.F))) {
 					this.a(var1, var2, var6, false);
 				}
 			} else {
@@ -194,7 +194,7 @@ public class class_apg extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
 		this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		super.a(var1, var2, var3, var4, var5, var6);
 	}
@@ -230,15 +230,15 @@ public class class_apg extends class_ajk {
 		return var2.aV().d();
 	}
 
-	public static boolean a(class_ail var0, class_ago var1, class_cj var2, class_cq var3, boolean var4) {
-		if (var0 == class_aim.Z) {
+	public static boolean a(Block var0, class_ago var1, class_cj var2, class_cq var3, boolean var4) {
+		if (var0 == Blocks.Z) {
 			return false;
 		} else if (!var1.ah().a(var2)) {
 			return false;
 		} else if ((var2.o() < 0) || ((var3 == class_cq.a) && (var2.o() == 0))) {
 			return false;
 		} else if ((var2.o() <= (var1.W() - 1)) && ((var3 != class_cq.b) || (var2.o() != (var1.W() - 1)))) {
-			if ((var0 != class_aim.J) && (var0 != class_aim.F)) {
+			if ((var0 != Blocks.J) && (var0 != Blocks.F)) {
 				if (var0.f(var1, var2) == -1.0F) {
 					return false;
 				}
@@ -276,14 +276,14 @@ public class class_apg extends class_ajk {
 			return false;
 		} else {
 			int var8 = var6.size() + var7.size();
-			class_ail[] var9 = new class_ail[var8];
+			Block[] var9 = new Block[var8];
 			class_cq var10 = var4 ? var3 : var3.d();
 
 			int var11;
 			class_cj var12;
 			for (var11 = var7.size() - 1; var11 >= 0; --var11) {
 				var12 = (class_cj) var7.get(var11);
-				class_ail var13 = var1.p(var12).c();
+				Block var13 = var1.p(var12).c();
 				var13.b(var1, var12, var1.p(var12), 0);
 				var1.g(var12);
 				--var8;
@@ -294,11 +294,11 @@ public class class_apg extends class_ajk {
 			for (var11 = var6.size() - 1; var11 >= 0; --var11) {
 				var12 = (class_cj) var6.get(var11);
 				var18 = var1.p(var12);
-				class_ail var14 = var18.c();
+				Block var14 = var18.c();
 				var14.c(var18);
 				var1.g(var12);
 				var12 = var12.a(var10);
-				var1.a(var12, class_aim.M.S().a(b, var3), 4);
+				var1.a(var12, Blocks.M.S().a(b, var3), 4);
 				var1.a(var12, class_apj.a(var18, var3, var4, false));
 				--var8;
 				var9[var8] = var14;
@@ -307,8 +307,8 @@ public class class_apg extends class_ajk {
 			class_cj var16 = var2.a(var3);
 			if (var4) {
 				class_aph.class_a_in_class_aph var17 = N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a;
-				var18 = class_aim.K.S().a(class_ajk.b, var3).a(class_aph.a, var17);
-				class_apn var20 = class_aim.M.S().a(class_apj.a, var3).a(class_apj.b, N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a);
+				var18 = Blocks.K.S().a(class_ajk.b, var3).a(class_aph.a, var17);
+				class_apn var20 = Blocks.M.S().a(class_apj.a, var3).a(class_apj.b, N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a);
 				var1.a(var16, var20, 4);
 				var1.a(var16, class_apj.a(var18, var3, true, false));
 			}
@@ -323,7 +323,7 @@ public class class_apg extends class_ajk {
 			}
 
 			if (var4) {
-				var1.d(var16, class_aim.K);
+				var1.d(var16, Blocks.K);
 				var1.d(var2, this);
 			}
 
@@ -348,12 +348,12 @@ public class class_apg extends class_ajk {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		return var1.c() != this ? var1 : var1.a(b, var2.a((class_cq) var1.b(b)));
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(b)));
 	}
 

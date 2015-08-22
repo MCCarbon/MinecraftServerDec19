@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.UUID;
 
-public class class_ads extends class_acm {
+public class class_ads extends Item {
 	public class_ads() {
 		this.a(class_abp.f);
 	}
@@ -26,8 +26,8 @@ public class class_ads extends class_acm {
 			return class_pw.c;
 		} else {
 			class_apn var10 = var3.p(var4);
-			if (var10.c() == class_aim.ac) {
-				class_aoi var11 = var3.s(var4);
+			if (var10.c() == Blocks.ac) {
+				TileEntity var11 = var3.s(var4);
 				if (var11 instanceof class_aox) {
 					class_agf var12 = ((class_aox) var11).b();
 					var12.a(h(var1));
@@ -47,7 +47,7 @@ public class class_ads extends class_acm {
 				var14 = 0.5D;
 			}
 
-			class_qx var13 = a(var3, h(var1), var4.n() + 0.5D, var4.o() + var14, var4.p() + 0.5D);
+			Entity var13 = a(var3, h(var1), var4.n() + 0.5D, var4.o() + var14, var4.p() + 0.5D);
 			if (var13 != null) {
 				if ((var13 instanceof class_rg) && var1.s()) {
 					var13.c(var1.q());
@@ -63,7 +63,7 @@ public class class_ads extends class_acm {
 		}
 	}
 
-	public static void a(class_ago var0, class_yu var1, class_aco var2, class_qx var3) {
+	public static void a(class_ago var0, class_yu var1, class_aco var2, Entity var3) {
 		MinecraftServer var4 = MinecraftServer.P();
 		if ((var4 != null) && (var3 != null)) {
 			class_dn var5 = var2.o();
@@ -94,7 +94,7 @@ public class class_ads extends class_acm {
 				if (!(var2.p(var6).c() instanceof class_alf)) {
 					return new class_px(class_pw.b, var1);
 				} else if (var2.a(var3, var6) && var3.a(var6, var5.b, var1)) {
-					class_qx var7 = a(var2, h(var1), var6.n() + 0.5D, var6.o() + 0.5D, var6.p() + 0.5D);
+					Entity var7 = a(var2, h(var1), var6.n() + 0.5D, var6.o() + 0.5D, var6.p() + 0.5D);
 					if (var7 == null) {
 						return new class_px(class_pw.b, var1);
 					} else {
@@ -107,7 +107,7 @@ public class class_ads extends class_acm {
 							--var1.b;
 						}
 
-						var3.b(class_nh.c(class_acm.b(this)));
+						var3.b(class_nh.c(Item.b(this)));
 						return new class_px(class_pw.a, var1);
 					}
 				} else {
@@ -119,12 +119,12 @@ public class class_ads extends class_acm {
 		}
 	}
 
-	public static class_qx a(class_ago var0, String var1, double var2, double var4, double var6) {
-		if ((var1 != null) && class_qz.a.containsKey(var1)) {
-			class_qx var8 = null;
+	public static Entity a(class_ago var0, String var1, double var2, double var4, double var6) {
+		if ((var1 != null) && EntityTypes.a.containsKey(var1)) {
+			Entity var8 = null;
 
 			for (int var9 = 0; var9 < 1; ++var9) {
-				var8 = class_qz.b(var1, var0);
+				var8 = EntityTypes.b(var1, var0);
 				if (var8 instanceof class_rg) {
 					class_rh var10 = (class_rh) var8;
 					var8.b(var2, var4, var6, class_oa.g(var0.s.nextFloat() * 360.0F), 0.0F);

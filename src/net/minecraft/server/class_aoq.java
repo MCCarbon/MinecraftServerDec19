@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aoq extends class_aoi implements class_ks, class_pv {
+public class class_aoq extends TileEntity implements class_ks, class_pv {
 	public int a;
 	public float f;
 	public float g;

@@ -20,26 +20,26 @@ public class class_ael implements class_aes {
 		for (int var9 = 0; var9 < var1.n_(); ++var9) {
 			class_aco var10 = var1.a(var9);
 			if (var10 != null) {
-				if (var10.b() == class_acq.J) {
+				if (var10.b() == Items.J) {
 					++var4;
-				} else if (var10.b() == class_acq.ch) {
+				} else if (var10.b() == Items.ch) {
 					++var6;
-				} else if (var10.b() == class_acq.aY) {
+				} else if (var10.b() == Items.aY) {
 					++var5;
-				} else if (var10.b() == class_acq.aM) {
+				} else if (var10.b() == Items.aM) {
 					++var3;
-				} else if (var10.b() == class_acq.aV) {
+				} else if (var10.b() == Items.aV) {
 					++var7;
-				} else if (var10.b() == class_acq.k) {
+				} else if (var10.b() == Items.k) {
 					++var7;
-				} else if (var10.b() == class_acq.bQ) {
+				} else if (var10.b() == Items.bQ) {
 					++var8;
-				} else if (var10.b() == class_acq.I) {
+				} else if (var10.b() == Items.I) {
 					++var8;
-				} else if (var10.b() == class_acq.bz) {
+				} else if (var10.b() == Items.bz) {
 					++var8;
 				} else {
-					if (var10.b() != class_acq.cc) {
+					if (var10.b() != Items.cc) {
 						return false;
 					}
 
@@ -53,7 +53,7 @@ public class class_ael implements class_aes {
 			class_dn var16;
 			class_dn var19;
 			if ((var4 >= 1) && (var3 == 1) && (var7 == 0)) {
-				a = new class_aco(class_acq.cg);
+				a = new class_aco(Items.cg);
 				if (var6 > 0) {
 					var16 = new class_dn();
 					var19 = new class_dn();
@@ -61,7 +61,7 @@ public class class_ael implements class_aes {
 
 					for (int var22 = 0; var22 < var1.n_(); ++var22) {
 						class_aco var26 = var1.a(var22);
-						if ((var26 != null) && (var26.b() == class_acq.ch) && var26.n() && var26.o().b("Explosion", 10)) {
+						if ((var26 != null) && (var26.b() == Items.ch) && var26.n() && var26.o().b("Explosion", 10)) {
 							var25.a(var26.o().o("Explosion"));
 						}
 					}
@@ -74,7 +74,7 @@ public class class_ael implements class_aes {
 
 				return true;
 			} else if ((var4 == 1) && (var3 == 0) && (var6 == 0) && (var5 > 0) && (var8 <= 1)) {
-				a = new class_aco(class_acq.ch);
+				a = new class_aco(Items.ch);
 				var16 = new class_dn();
 				var19 = new class_dn();
 				byte var23 = 0;
@@ -83,19 +83,19 @@ public class class_ael implements class_aes {
 				for (int var13 = 0; var13 < var1.n_(); ++var13) {
 					class_aco var14 = var1.a(var13);
 					if (var14 != null) {
-						if (var14.b() == class_acq.aY) {
+						if (var14.b() == Items.aY) {
 							var12.add(Integer.valueOf(class_abu.a[var14.i() & 15]));
-						} else if (var14.b() == class_acq.aV) {
+						} else if (var14.b() == Items.aV) {
 							var19.a("Flicker", true);
-						} else if (var14.b() == class_acq.k) {
+						} else if (var14.b() == Items.k) {
 							var19.a("Trail", true);
-						} else if (var14.b() == class_acq.bQ) {
+						} else if (var14.b() == Items.bQ) {
 							var23 = 1;
-						} else if (var14.b() == class_acq.I) {
+						} else if (var14.b() == Items.I) {
 							var23 = 4;
-						} else if (var14.b() == class_acq.bz) {
+						} else if (var14.b() == Items.bz) {
 							var23 = 2;
-						} else if (var14.b() == class_acq.cc) {
+						} else if (var14.b() == Items.cc) {
 							var23 = 3;
 						}
 					}
@@ -118,9 +118,9 @@ public class class_ael implements class_aes {
 				for (int var17 = 0; var17 < var1.n_(); ++var17) {
 					class_aco var11 = var1.a(var17);
 					if (var11 != null) {
-						if (var11.b() == class_acq.aY) {
+						if (var11.b() == Items.aY) {
 							var15.add(Integer.valueOf(class_abu.a[var11.i() & 15]));
-						} else if (var11.b() == class_acq.ch) {
+						} else if (var11.b() == Items.ch) {
 							a = var11.k();
 							a.b = 1;
 						}

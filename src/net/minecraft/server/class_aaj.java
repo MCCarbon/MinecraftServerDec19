@@ -14,7 +14,7 @@ public class class_aaj extends class_zu {
 		this.a(new class_aas(var2, 0, 8, 18) {
 			@Override
 			public boolean a(class_aco var1) {
-				return super.a(var1) && (var1.b() == class_acq.aC) && !e();
+				return super.a(var1) && (var1.b() == Items.aC) && !e();
 			}
 		});
 		this.a(new class_aas(var2, 1, 8, 36) {

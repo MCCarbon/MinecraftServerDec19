@@ -24,12 +24,12 @@ public class class_bc extends class_i {
 	}
 
 	@Override
-	public String c(class_m var1) {
+	public String c(ICommandListener var1) {
 		return "commands.scoreboard.usage";
 	}
 
 	@Override
-	public void a(class_m var1, String[] var2) throws class_bz {
+	public void a(ICommandListener var1, String[] var2) throws class_bz {
 		if (!this.b(var1, var2)) {
 			if (var2.length < 1) {
 				throw new class_cf("commands.scoreboard.usage", new Object[0]);
@@ -192,7 +192,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	private boolean b(class_m var1, String[] var2) throws class_bz {
+	private boolean b(ICommandListener var1, String[] var2) throws class_bz {
 		int var3 = -1;
 
 		for (int var4 = 0; var4 < var2.length; ++var4) {
@@ -263,7 +263,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void b(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void b(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		String var4 = var2[var3++];
 		String var5 = var2[var3++];
 		class_ays var6 = this.d();
@@ -296,7 +296,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void c(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void c(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		String var4 = var2[var3++];
 		class_ays var5 = this.d();
 		if (var5.d(var4) != null) {
@@ -325,7 +325,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void d(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void d(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ayp var4 = this.e(var2[var3++]);
 		if (var4 != null) {
 			String var5 = var2[var3++].toLowerCase();
@@ -390,7 +390,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void e(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void e(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		class_ayp var5 = this.e(var2[var3]);
 		if (var5 != null) {
@@ -399,7 +399,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void f(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void f(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		if (var2.length > var3) {
 			class_ayp var5 = this.e(var2[var3]);
@@ -437,7 +437,7 @@ public class class_bc extends class_i {
 
 	}
 
-	protected void g(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void g(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		String var5 = var2[var3++];
 		HashSet var6 = Sets.newHashSet();
@@ -463,7 +463,7 @@ public class class_bc extends class_i {
 						Iterator var10 = var13.iterator();
 
 						while (var10.hasNext()) {
-							class_qx var11 = (class_qx) var10.next();
+							Entity var11 = (Entity) var10.next();
 							String var12 = e(var1, var11.aQ().toString());
 							if (var4.a(var12, var5)) {
 								var6.add(var12);
@@ -493,7 +493,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void h(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void h(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		HashSet var5 = Sets.newHashSet();
 		HashSet var6 = Sets.newHashSet();
@@ -518,7 +518,7 @@ public class class_bc extends class_i {
 						Iterator var9 = var12.iterator();
 
 						while (var9.hasNext()) {
-							class_qx var10 = (class_qx) var9.next();
+							Entity var10 = (Entity) var9.next();
 							String var11 = e(var1, var10.aQ().toString());
 							if (var4.f(var11)) {
 								var5.add(var11);
@@ -548,7 +548,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void i(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void i(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		class_ayp var5 = this.e(var2[var3]);
 		if (var5 != null) {
@@ -569,14 +569,14 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void h(class_m var1, String var2) throws class_bz {
+	protected void h(ICommandListener var1, String var2) throws class_bz {
 		class_ays var3 = this.d();
 		class_ayo var4 = this.a(var2, false);
 		var3.k(var4);
 		a(var1, this, "commands.scoreboard.objectives.remove.success", new Object[] { var2 });
 	}
 
-	protected void d(class_m var1) throws class_bz {
+	protected void d(ICommandListener var1) throws class_bz {
 		class_ays var2 = this.d();
 		Collection var3 = var2.c();
 		if (var3.isEmpty()) {
@@ -595,7 +595,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void j(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void j(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		String var5 = var2[var3++];
 		int var6 = class_ays.i(var5);
@@ -617,7 +617,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void k(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void k(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		if (var2.length > var3) {
 			String var5 = e(var1, var2[var3]);
@@ -651,7 +651,7 @@ public class class_bc extends class_i {
 
 	}
 
-	protected void l(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void l(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		String var4 = var2[var3 - 1];
 		int var5 = var3;
 		String var6 = e(var1, var2[var3++]);
@@ -661,7 +661,7 @@ public class class_bc extends class_i {
 			class_ayo var7 = this.a(var2[var3++], true);
 			int var8 = var4.equalsIgnoreCase("set") ? a(var2[var3++]) : a(var2[var3++], 0);
 			if (var2.length > var3) {
-				class_qx var9 = b(var1, var2[var5]);
+				Entity var9 = b(var1, var2[var5]);
 
 				try {
 					class_dn var10 = class_ed.a(a(var2, var3));
@@ -688,7 +688,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void m(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void m(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		String var5 = e(var1, var2[var3++]);
 		if (var2.length > var3) {
@@ -702,7 +702,7 @@ public class class_bc extends class_i {
 
 	}
 
-	protected void n(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void n(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		String var5 = d(var1, var2[var3++]);
 		if (var5.length() > 40) {
@@ -719,7 +719,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void o(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void o(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		String var5 = e(var1, var2[var3++]);
 		if (var5.length() > 40) {
@@ -742,7 +742,7 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void p(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void p(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		class_ays var4 = this.d();
 		String var5 = e(var1, var2[var3++]);
 		class_ayo var6 = this.a(var2[var3++], true);
@@ -794,9 +794,9 @@ public class class_bc extends class_i {
 		}
 	}
 
-	protected void q(class_m var1, String[] var2, int var3) throws class_bz {
+	protected void q(ICommandListener var1, String[] var2, int var3) throws class_bz {
 		String var4 = e(var1, var2[var3]);
-		class_qx var5 = b(var1, var2[var3++]);
+		Entity var5 = b(var1, var2[var3++]);
 		String var6 = var2[var3++];
 		Set var7 = var5.H();
 		if ("list".equals(var6)) {
@@ -846,7 +846,7 @@ public class class_bc extends class_i {
 	}
 
 	@Override
-	public List a(class_m var1, String[] var2, class_cj var3) {
+	public List a(ICommandListener var1, String[] var2, class_cj var3) {
 		if (var2.length == 1) {
 			return a(var2, new String[] { "objectives", "players", "teams" });
 		} else {

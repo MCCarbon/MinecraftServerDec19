@@ -7,18 +7,18 @@ public class class_atw {
 	private int c;
 	private int d;
 
-	public class_atw(int var1, class_ail var2) {
+	public class_atw(int var1, Block var2) {
 		this(3, var1, var2);
 	}
 
-	public class_atw(int var1, int var2, class_ail var3) {
+	public class_atw(int var1, int var2, Block var3) {
 		c = 1;
 		a = var1;
 		c = var2;
 		b = var3.S();
 	}
 
-	public class_atw(int var1, int var2, class_ail var3, int var4) {
+	public class_atw(int var1, int var2, Block var3, int var4) {
 		this(var1, var2, var3);
 		b = var3.a(var4);
 	}
@@ -31,7 +31,7 @@ public class class_atw {
 		return b;
 	}
 
-	private class_ail e() {
+	private Block e() {
 		return b.c();
 	}
 
@@ -51,13 +51,13 @@ public class class_atw {
 	public String toString() {
 		String var1;
 		if (a >= 3) {
-			class_ke var2 = (class_ke) class_ail.c.b(e());
+			class_ke var2 = (class_ke) Block.c.b(e());
 			var1 = var2 == null ? "null" : var2.toString();
 			if (c > 1) {
 				var1 = c + "*" + var1;
 			}
 		} else {
-			var1 = Integer.toString(class_ail.a(e()));
+			var1 = Integer.toString(Block.a(e()));
 			if (c > 1) {
 				var1 = c + "x" + var1;
 			}

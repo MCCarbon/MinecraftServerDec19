@@ -37,7 +37,7 @@ public class class_agx implements class_ags {
 	}
 
 	@Override
-	public class_aoi s(class_cj var1) {
+	public TileEntity s(class_cj var1) {
 		int var2 = (var1.n() >> 4) - a;
 		int var3 = (var1.p() >> 4) - b;
 		return c[var2][var3].a(var1, class_aqn.class_a_in_class_aqn.a);
@@ -56,7 +56,7 @@ public class class_agx implements class_ags {
 			}
 		}
 
-		return class_aim.a.S();
+		return Blocks.a.S();
 	}
 
 	@Override

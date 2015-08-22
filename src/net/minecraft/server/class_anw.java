@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_anw extends class_ail {
+public class class_anw extends Block {
 	public static final class_apy a = class_apy.a("up");
 	public static final class_apy b = class_apy.a("north");
 	public static final class_apy N = class_apy.a("east");
@@ -126,7 +126,7 @@ public class class_anw extends class_ail {
 		}
 	}
 
-	private boolean c(class_ail var1) {
+	private boolean c(Block var1) {
 		return var1.d() && var1.J.c();
 	}
 
@@ -166,7 +166,7 @@ public class class_anw extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		if (!var1.D && !this.f(var1, var2, var3)) {
 			this.b(var1, var2, var3, 0);
 			var1.g(var2);
@@ -225,7 +225,7 @@ public class class_anw extends class_ail {
 					if (var18.k().c() && !((Boolean) var3.b(a(var18))).booleanValue()) {
 						if (!var7) {
 							var20 = var2.a(var18);
-							class_ail var22 = var1.p(var20).c();
+							Block var22 = var1.p(var20).c();
 							if (var22.J == class_avq.a) {
 								var24 = var18.e();
 								class_cq var25 = var18.f();
@@ -253,7 +253,7 @@ public class class_anw extends class_ail {
 						if (var2.o() > 1) {
 							var20 = var2.b();
 							class_apn var11 = var1.p(var20);
-							class_ail var12 = var11.c();
+							Block var12 = var11.c();
 							class_apn var13;
 							Iterator var14;
 							class_cq var15;
@@ -302,7 +302,7 @@ public class class_anw extends class_ail {
 	}
 
 	@Override
-	public class_acm a(class_apn var1, Random var2, int var3) {
+	public Item a(class_apn var1, Random var2, int var3) {
 		return null;
 	}
 
@@ -312,10 +312,10 @@ public class class_anw extends class_ail {
 	}
 
 	@Override
-	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, class_aoi var5, class_aco var6) {
-		if (!var1.D && (var6 != null) && (var6.b() == class_acq.bg)) {
-			var2.b(class_nh.a(class_ail.a(this)));
-			a(var1, var3, (new class_aco(class_aim.bn, 1, 0)));
+	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
+		if (!var1.D && (var6 != null) && (var6.b() == Items.bg)) {
+			var2.b(class_nh.a(Block.a(this)));
+			a(var1, var3, (new class_aco(Blocks.bn, 1, 0)));
 		} else {
 			super.a(var1, var2, var3, var4, var5, var6);
 		}
@@ -355,7 +355,7 @@ public class class_anw extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_c_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -373,7 +373,7 @@ public class class_anw extends class_ail {
 	}
 
 	@Override
-	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+	public class_apn a(class_apn var1, Block.class_a_in_class_ail var2) {
 		if (var1.c() != this) {
 			return var1;
 		} else {
@@ -431,37 +431,37 @@ public class class_anw extends class_ail {
 		// $FF: synthetic field
 		static final int[] b;
 		// $FF: synthetic field
-		static final int[] c = new int[class_ail.class_a_in_class_ail.values().length];
+		static final int[] c = new int[Block.class_a_in_class_ail.values().length];
 
 		static {
 			try {
-				c[class_ail.class_a_in_class_ail.b.ordinal()] = 1;
+				c[Block.class_a_in_class_ail.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var10) {
 				;
 			}
 
 			try {
-				c[class_ail.class_a_in_class_ail.c.ordinal()] = 2;
+				c[Block.class_a_in_class_ail.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var9) {
 				;
 			}
 
-			b = new int[class_ail.class_c_in_class_ail.values().length];
+			b = new int[Block.class_c_in_class_ail.values().length];
 
 			try {
-				b[class_ail.class_c_in_class_ail.c.ordinal()] = 1;
+				b[Block.class_c_in_class_ail.c.ordinal()] = 1;
 			} catch (NoSuchFieldError var8) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.d.ordinal()] = 2;
+				b[Block.class_c_in_class_ail.d.ordinal()] = 2;
 			} catch (NoSuchFieldError var7) {
 				;
 			}
 
 			try {
-				b[class_ail.class_c_in_class_ail.b.ordinal()] = 3;
+				b[Block.class_c_in_class_ail.b.ordinal()] = 3;
 			} catch (NoSuchFieldError var6) {
 				;
 			}

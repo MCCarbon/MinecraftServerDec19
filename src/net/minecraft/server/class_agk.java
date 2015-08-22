@@ -18,12 +18,12 @@ public class class_agk {
 	private final double e;
 	private final double f;
 	private final double g;
-	private final class_qx h;
+	private final Entity h;
 	private final float i;
 	private final List j = Lists.newArrayList();
 	private final Map k = Maps.newHashMap();
 
-	public class_agk(class_ago var1, class_qx var2, double var3, double var5, double var7, float var9, boolean var10, boolean var11) {
+	public class_agk(class_ago var1, Entity var2, double var3, double var5, double var7, float var9, boolean var10, boolean var11) {
 		d = var1;
 		h = var2;
 		i = var9;
@@ -60,7 +60,7 @@ public class class_agk {
 							class_cj var22 = new class_cj(var15, var17, var19);
 							class_apn var23 = d.p(var22);
 							if (var23.c().v() != class_avq.a) {
-								float var24 = h != null ? h.a(this, d, var22, var23) : var23.c().a((class_qx) null);
+								float var24 = h != null ? h.a(this, d, var22, var23) : var23.c().a((Entity) null);
 								var14 -= (var24 + 0.3F) * 0.3F;
 							}
 
@@ -89,7 +89,7 @@ public class class_agk {
 		class_aym var11 = new class_aym(e, f, g);
 
 		for (int var34 = 0; var34 < var33.size(); ++var34) {
-			class_qx var13 = (class_qx) var33.get(var34);
+			Entity var13 = (Entity) var33.get(var34);
 			if (!var13.bb()) {
 				double var35 = var13.f(e, f, g) / var30;
 				if (var35 <= 1.0D) {
@@ -137,7 +137,7 @@ public class class_agk {
 
 			while (var2.hasNext()) {
 				var3 = (class_cj) var2.next();
-				class_ail var4 = d.p(var3).c();
+				Block var4 = d.p(var3).c();
 				if (var1) {
 					double var5 = var3.n() + d.s.nextFloat();
 					double var7 = var3.o() + d.s.nextFloat();
@@ -163,7 +163,7 @@ public class class_agk {
 						var4.a(d, var3, d.p(var3), 1.0F / i, 0);
 					}
 
-					d.a(var3, class_aim.a.S(), 3);
+					d.a(var3, Blocks.a.S(), 3);
 					var4.a(d, var3, this);
 				}
 			}
@@ -175,7 +175,7 @@ public class class_agk {
 			while (var2.hasNext()) {
 				var3 = (class_cj) var2.next();
 				if ((d.p(var3).c().v() == class_avq.a) && d.p(var3.b()).c().q() && (c.nextInt(3) == 0)) {
-					d.a(var3, class_aim.ab.S());
+					d.a(var3, Blocks.ab.S());
 				}
 			}
 		}

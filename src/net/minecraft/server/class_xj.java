@@ -27,7 +27,7 @@ public class class_xj extends class_xh {
 		}
 
 		@Override
-		public class_qx f() {
+		public Entity f() {
 			return class_xj.this;
 		}
 	};
@@ -69,7 +69,7 @@ public class class_xj extends class_xh {
 
 	@Override
 	public class_apn u() {
-		return class_aim.bX.S();
+		return Blocks.bX.S();
 	}
 
 	public class_age i() {
