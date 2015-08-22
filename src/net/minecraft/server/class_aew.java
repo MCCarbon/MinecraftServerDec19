@@ -1,77 +1,76 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-public class class_aew implements IBlockAccess {
-   protected int a;
-   protected int b;
-   protected Chunk[][] c;
-   protected boolean d;
-   protected World e;
+import com.google.common.collect.Lists;
 
-   public class_aew(World var1, BlockPosition var2, BlockPosition var3, int var4) {
-      this.e = var1;
-      this.a = var2.getX() - var4 >> 4;
-      this.b = var2.getZ() - var4 >> 4;
-      int var5 = var3.getX() + var4 >> 4;
-      int var6 = var3.getZ() + var4 >> 4;
-      this.c = new Chunk[var5 - this.a + 1][var6 - this.b + 1];
-      this.d = true;
+public class class_aew implements class_aes {
+	private final class_aco a;
+	private final List b;
 
-      int var7;
-      int var8;
-      for(var7 = this.a; var7 <= var5; ++var7) {
-         for(var8 = this.b; var8 <= var6; ++var8) {
-            this.c[var7 - this.a][var8 - this.b] = var1.getChunkAt(var7, var8);
-         }
-      }
+	public class_aew(class_aco var1, List var2) {
+		a = var1;
+		b = var2;
+	}
 
-      for(var7 = var2.getX() >> 4; var7 <= var3.getX() >> 4; ++var7) {
-         for(var8 = var2.getZ() >> 4; var8 <= var3.getZ() >> 4; ++var8) {
-            Chunk var9 = this.c[var7 - this.a][var8 - this.b];
-            if(var9 != null && !var9.c(var2.getY(), var3.getY())) {
-               this.d = false;
-            }
-         }
-      }
+	@Override
+	public class_aco b() {
+		return a;
+	}
 
-   }
+	@Override
+	public class_aco[] b(class_aab var1) {
+		class_aco[] var2 = new class_aco[var1.n_()];
 
-   public TileEntity getTileEntity(BlockPosition var1) {
-      int var2 = (var1.getX() >> 4) - this.a;
-      int var3 = (var1.getZ() >> 4) - this.b;
-      return this.c[var2][var3].a(var1, Chunk.class_a_in_class_aok.a);
-   }
+		for (int var3 = 0; var3 < var2.length; ++var3) {
+			class_aco var4 = var1.a(var3);
+			if ((var4 != null) && var4.b().r()) {
+				var2[var3] = new class_aco(var4.b().q());
+			}
+		}
 
-   public IBlockData getType(BlockPosition var1) {
-      if(var1.getY() >= 0 && var1.getY() < 256) {
-         int var2 = (var1.getX() >> 4) - this.a;
-         int var3 = (var1.getZ() >> 4) - this.b;
-         if(var2 >= 0 && var2 < this.c.length && var3 >= 0 && var3 < this.c[var2].length) {
-            Chunk var4 = this.c[var2][var3];
-            if(var4 != null) {
-               return var4.getBlockData(var1);
-            }
-         }
-      }
+		return var2;
+	}
 
-      return Blocks.AIR.getBlockData();
-   }
+	@Override
+	public boolean a(class_aab var1, class_ago var2) {
+		ArrayList var3 = Lists.newArrayList((Iterable) b);
 
-   public boolean isEmpty(BlockPosition var1) {
-      return this.getType(var1).getBlock().getMaterial() == Material.AIR;
-   }
+		for (int var4 = 0; var4 < var1.h(); ++var4) {
+			for (int var5 = 0; var5 < var1.i(); ++var5) {
+				class_aco var6 = var1.c(var5, var4);
+				if (var6 != null) {
+					boolean var7 = false;
+					Iterator var8 = var3.iterator();
 
-   public int a(BlockPosition var1, EnumDirection var2) {
-      IBlockData var3 = this.getType(var1);
-      return var3.getBlock().b((IBlockAccess)this, var1, var3, (EnumDirection)var2);
-   }
+					while (var8.hasNext()) {
+						class_aco var9 = (class_aco) var8.next();
+						if ((var6.b() == var9.b()) && ((var9.i() == 32767) || (var6.i() == var9.i()))) {
+							var7 = true;
+							var3.remove(var9);
+							break;
+						}
+					}
+
+					if (!var7) {
+						return false;
+					}
+				}
+			}
+		}
+
+		return var3.isEmpty();
+	}
+
+	@Override
+	public class_aco a(class_aab var1) {
+		return a.k();
+	}
+
+	@Override
+	public int a() {
+		return b.size();
+	}
 }

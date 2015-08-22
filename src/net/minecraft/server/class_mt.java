@@ -1,86 +1,318 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import java.util.List;
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+import java.net.PortUnreachableException;
+import java.net.SocketAddress;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Random;
 
-public class class_mt {
-   public static int a;
-   public static int b;
-   public static int c;
-   public static int d;
-   public static List e = Lists.newArrayList();
-   public static class_ms f;
-   public static class_ms g;
-   public static class_ms h;
-   public static class_ms i;
-   public static class_ms j;
-   public static class_ms k;
-   public static class_ms l;
-   public static class_ms m;
-   public static class_ms n;
-   public static class_ms o;
-   public static class_ms p;
-   public static class_ms q;
-   public static class_ms r;
-   public static class_ms s;
-   public static class_ms t;
-   public static class_ms u;
-   public static class_ms v;
-   public static class_ms w;
-   public static class_ms x;
-   public static class_ms y;
-   public static class_ms z;
-   public static class_ms A;
-   public static class_ms B;
-   public static class_ms C;
-   public static class_ms D;
-   public static class_ms E;
-   public static class_ms F;
-   public static class_ms G;
-   public static class_ms H;
-   public static class_ms I;
-   public static class_ms J;
-   public static class_ms K;
-   public static class_ms L;
-   public static class_ms M;
+import com.google.common.collect.Maps;
 
-   public static void a() {
-   }
+public class class_mt extends class_ms {
+	private long h;
+	private int i;
+	private int j;
+	private int k;
+	private String l;
+	private String m;
+	private DatagramSocket n;
+	private byte[] o = new byte[1460];
+	private DatagramPacket p;
+	private Map q;
+	private String r;
+	private String s;
+	private Map t;
+	private long u;
+	private class_mo v;
+	private long w;
 
-   static {
-      f = (new class_ms("achievement.openInventory", "openInventory", 0, 0, Items.BOOK, (class_ms)null)).a().c();
-      g = (new class_ms("achievement.mineWood", "mineWood", 2, 1, Blocks.LOG, f)).c();
-      h = (new class_ms("achievement.buildWorkBench", "buildWorkBench", 4, -1, Blocks.CRAFTING_TABLE, g)).c();
-      i = (new class_ms("achievement.buildPickaxe", "buildPickaxe", 4, 2, Items.WOODEN_PICKAXE, h)).c();
-      j = (new class_ms("achievement.buildFurnace", "buildFurnace", 3, 4, Blocks.FURNACE, i)).c();
-      k = (new class_ms("achievement.acquireIron", "acquireIron", 1, 4, Items.IRON_INGOT, j)).c();
-      l = (new class_ms("achievement.buildHoe", "buildHoe", 2, -3, Items.WOODEN_HOE, h)).c();
-      m = (new class_ms("achievement.makeBread", "makeBread", -1, -3, Items.BREAD, l)).c();
-      n = (new class_ms("achievement.bakeCake", "bakeCake", 0, -5, Items.CAKE, l)).c();
-      o = (new class_ms("achievement.buildBetterPickaxe", "buildBetterPickaxe", 6, 2, Items.STONE_PICKAXE, i)).c();
-      p = (new class_ms("achievement.cookFish", "cookFish", 2, 6, Items.COOKED_FISH, j)).c();
-      q = (new class_ms("achievement.onARail", "onARail", 2, 3, Blocks.RAIL, k)).b().c();
-      r = (new class_ms("achievement.buildSword", "buildSword", 6, -1, Items.WOODEN_SWORD, h)).c();
-      s = (new class_ms("achievement.killEnemy", "killEnemy", 8, -1, Items.BONE, r)).c();
-      t = (new class_ms("achievement.killCow", "killCow", 7, -3, Items.LEATHER, r)).c();
-      u = (new class_ms("achievement.flyPig", "flyPig", 9, -3, Items.SADDLE, t)).b().c();
-      v = (new class_ms("achievement.snipeSkeleton", "snipeSkeleton", 7, 0, Items.BOW, s)).b().c();
-      w = (new class_ms("achievement.diamonds", "diamonds", -1, 5, Blocks.DIAMOND_ORE, k)).c();
-      x = (new class_ms("achievement.diamondsToYou", "diamondsToYou", -1, 2, Items.DIAMOND, w)).c();
-      y = (new class_ms("achievement.portal", "portal", -1, 7, Blocks.OBSIDIAN, w)).c();
-      z = (new class_ms("achievement.ghast", "ghast", -4, 8, Items.GHAST_TEAR, y)).b().c();
-      A = (new class_ms("achievement.blazeRod", "blazeRod", 0, 9, Items.BLAZE_ROD, y)).c();
-      B = (new class_ms("achievement.potion", "potion", 2, 8, Items.POTION, A)).c();
-      C = (new class_ms("achievement.theEnd", "theEnd", 3, 10, Items.ENDER_EYE, A)).b().c();
-      D = (new class_ms("achievement.theEnd2", "theEnd2", 4, 13, Blocks.DRAGON_EGG, C)).b().c();
-      E = (new class_ms("achievement.enchantments", "enchantments", -4, 4, Blocks.ENCHANTING_TABLE, w)).c();
-      F = (new class_ms("achievement.overkill", "overkill", -4, 1, Items.DIAMOND_SWORD, E)).b().c();
-      G = (new class_ms("achievement.bookcase", "bookcase", -3, 6, Blocks.BOOKSHELF, E)).c();
-      H = (new class_ms("achievement.breedCow", "breedCow", 7, -5, Items.WHEAT, t)).c();
-      I = (new class_ms("achievement.spawnWither", "spawnWither", 7, 12, new ItemStack(Items.SKULL, 1, 1), D)).c();
-      J = (new class_ms("achievement.killWither", "killWither", 7, 10, Items.NETHER_STAR, I)).c();
-      K = (new class_ms("achievement.fullBeacon", "fullBeacon", 7, 8, Blocks.BEACON, J)).b().c();
-      L = (new class_ms("achievement.exploreAllBiomes", "exploreAllBiomes", 4, 8, Items.DIAMOND_BOOTS, C)).a(class_ne.class).b().c();
-      M = (new class_ms("achievement.overpowered", "overpowered", 6, 4, new ItemStack(Items.GOLDEN_APPLE, 1, 1), o)).b().c();
-   }
+	public class_mt(class_kp var1) {
+		super(var1, "Query Listener");
+		i = var1.a("query.port", 0);
+		s = var1.G();
+		j = var1.H();
+		l = var1.I();
+		k = var1.L();
+		m = var1.W();
+		w = 0L;
+		r = "0.0.0.0";
+		if (!s.isEmpty() && !r.equals(s)) {
+			r = s;
+		} else {
+			s = "0.0.0.0";
+
+			try {
+				InetAddress var2 = InetAddress.getLocalHost();
+				r = var2.getHostAddress();
+			} catch (UnknownHostException var3) {
+				this.c("Unable to determine local host IP, please set server-ip in \'" + var1.b() + "\' : " + var3.getMessage());
+			}
+		}
+
+		if (0 == i) {
+			i = j;
+			this.b("Setting default query port to " + i);
+			var1.a("query.port", Integer.valueOf(i));
+			var1.a("debug", Boolean.valueOf(false));
+			var1.a();
+		}
+
+		q = Maps.newHashMap();
+		v = new class_mo(1460);
+		t = Maps.newHashMap();
+		u = (new Date()).getTime();
+	}
+
+	private void a(byte[] var1, DatagramPacket var2) throws IOException {
+		n.send(new DatagramPacket(var1, var1.length, var2.getSocketAddress()));
+	}
+
+	private boolean a(DatagramPacket var1) throws IOException {
+		byte[] var2 = var1.getData();
+		int var3 = var1.getLength();
+		SocketAddress var4 = var1.getSocketAddress();
+		this.a("Packet len " + var3 + " [" + var4 + "]");
+		if ((3 <= var3) && (-2 == var2[0]) && (-3 == var2[1])) {
+			this.a("Packet \'" + class_mp.a(var2[2]) + "\' [" + var4 + "]");
+			switch (var2[2]) {
+				case 0:
+					if (!this.c(var1).booleanValue()) {
+						this.a("Invalid challenge [" + var4 + "]");
+						return false;
+					} else if (15 == var3) {
+						this.a(this.b(var1), var1);
+						this.a("Rules [" + var4 + "]");
+					} else {
+						class_mo var5 = new class_mo(1460);
+						var5.a(0);
+						var5.a(this.a(var1.getSocketAddress()));
+						var5.a(l);
+						var5.a("SMP");
+						var5.a(m);
+						var5.a(Integer.toString(this.d()));
+						var5.a(Integer.toString(k));
+						var5.a((short) j);
+						var5.a(r);
+						this.a(var5.a(), var1);
+						this.a("Status [" + var4 + "]");
+					}
+				default:
+					return true;
+				case 9:
+					this.d(var1);
+					this.a("Challenge [" + var4 + "]");
+					return true;
+			}
+		} else {
+			this.a("Invalid packet [" + var4 + "]");
+			return false;
+		}
+	}
+
+	private byte[] b(DatagramPacket var1) throws IOException {
+		long var2 = MinecraftServer.aB();
+		if (var2 < (w + 5000L)) {
+			byte[] var9 = v.a();
+			byte[] var10 = this.a(var1.getSocketAddress());
+			var9[1] = var10[0];
+			var9[2] = var10[1];
+			var9[3] = var10[2];
+			var9[4] = var10[3];
+			return var9;
+		} else {
+			w = var2;
+			v.b();
+			v.a(0);
+			v.a(this.a(var1.getSocketAddress()));
+			v.a("splitnum");
+			v.a(128);
+			v.a(0);
+			v.a("hostname");
+			v.a(l);
+			v.a("gametype");
+			v.a("SMP");
+			v.a("game_id");
+			v.a("MINECRAFT");
+			v.a("version");
+			v.a(b.J());
+			v.a("plugins");
+			v.a(b.d_());
+			v.a("map");
+			v.a(m);
+			v.a("numplayers");
+			v.a("" + this.d());
+			v.a("maxplayers");
+			v.a("" + k);
+			v.a("hostport");
+			v.a("" + j);
+			v.a("hostip");
+			v.a(r);
+			v.a(0);
+			v.a(1);
+			v.a("player_");
+			v.a(0);
+			String[] var4 = b.M();
+			String[] var5 = var4;
+			int var6 = var4.length;
+
+			for (int var7 = 0; var7 < var6; ++var7) {
+				String var8 = var5[var7];
+				v.a(var8);
+			}
+
+			v.a(0);
+			return v.a();
+		}
+	}
+
+	private byte[] a(SocketAddress var1) {
+		return ((class_mt.class_a_in_class_mt) t.get(var1)).c();
+	}
+
+	private Boolean c(DatagramPacket var1) {
+		SocketAddress var2 = var1.getSocketAddress();
+		if (!t.containsKey(var2)) {
+			return Boolean.valueOf(false);
+		} else {
+			byte[] var3 = var1.getData();
+			return ((class_mt.class_a_in_class_mt) t.get(var2)).a() != class_mp.c(var3, 7, var1.getLength()) ? Boolean.valueOf(false) : Boolean.valueOf(true);
+		}
+	}
+
+	private void d(DatagramPacket var1) throws IOException {
+		class_mt.class_a_in_class_mt var2 = new class_mt.class_a_in_class_mt(var1);
+		t.put(var1.getSocketAddress(), var2);
+		this.a(var2.b(), var1);
+	}
+
+	private void f() {
+		if (a) {
+			long var1 = MinecraftServer.aB();
+			if (var1 >= (h + 30000L)) {
+				h = var1;
+				Iterator var3 = t.entrySet().iterator();
+
+				while (var3.hasNext()) {
+					Entry var4 = (Entry) var3.next();
+					if (((class_mt.class_a_in_class_mt) var4.getValue()).a(var1).booleanValue()) {
+						var3.remove();
+					}
+				}
+
+			}
+		}
+	}
+
+	@Override
+	public void run() {
+		this.b("Query running on " + s + ":" + i);
+		h = MinecraftServer.aB();
+		p = new DatagramPacket(o, o.length);
+
+		try {
+			while (a) {
+				try {
+					n.receive(p);
+					f();
+					this.a(p);
+				} catch (SocketTimeoutException var7) {
+					f();
+				} catch (PortUnreachableException var8) {
+					;
+				} catch (IOException var9) {
+					this.a(var9);
+				}
+			}
+		} finally {
+			e();
+		}
+
+	}
+
+	@Override
+	public void a() {
+		if (!a) {
+			if ((0 < i) && ('\uffff' >= i)) {
+				if (g()) {
+					super.a();
+				}
+
+			} else {
+				this.c("Invalid query port " + i + " found in \'" + b.b() + "\' (queries disabled)");
+			}
+		}
+	}
+
+	private void a(Exception var1) {
+		if (a) {
+			this.c("Unexpected exception, buggy JRE? (" + var1.toString() + ")");
+			if (!g()) {
+				this.d("Failed to recover from buggy JRE, shutting down!");
+				a = false;
+			}
+
+		}
+	}
+
+	private boolean g() {
+		try {
+			n = new DatagramSocket(i, InetAddress.getByName(s));
+			this.a(n);
+			n.setSoTimeout(500);
+			return true;
+		} catch (SocketException var2) {
+			this.c("Unable to initialise query system on " + s + ":" + i + " (Socket): " + var2.getMessage());
+		} catch (UnknownHostException var3) {
+			this.c("Unable to initialise query system on " + s + ":" + i + " (Unknown Host): " + var3.getMessage());
+		} catch (Exception var4) {
+			this.c("Unable to initialise query system on " + s + ":" + i + " (E): " + var4.getMessage());
+		}
+
+		return false;
+	}
+
+	class class_a_in_class_mt {
+		private long b = (new Date()).getTime();
+		private int c;
+		private byte[] d;
+		private byte[] e;
+		private String f;
+
+		public class_a_in_class_mt(DatagramPacket var2) {
+			byte[] var3 = var2.getData();
+			d = new byte[4];
+			d[0] = var3[3];
+			d[1] = var3[4];
+			d[2] = var3[5];
+			d[3] = var3[6];
+			f = new String(d);
+			c = (new Random()).nextInt(16777216);
+			e = String.format("\t%s%d\u0000", new Object[] { f, Integer.valueOf(c) }).getBytes();
+		}
+
+		public Boolean a(long var1) {
+			return Boolean.valueOf(b < var1);
+		}
+
+		public int a() {
+			return c;
+		}
+
+		public byte[] b() {
+			return e;
+		}
+
+		public byte[] c() {
+			return d;
+		}
+	}
 }

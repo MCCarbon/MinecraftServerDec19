@@ -1,46 +1,33 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Scoreboard;
-import net.minecraft.server.class_awt;
 
-public class class_awj {
-   private final Scoreboard a;
-   private final String b;
-   private final class_awt c;
-   private class_awt.class_a_in_class_awt d;
-   private String e;
+public class class_awj extends class_awi {
+	public class_awj(long var1, class_awi var3) {
+		super(var1);
+		a = var3;
+	}
 
-   public class_awj(Scoreboard var1, String var2, class_awt var3) {
-      this.a = var1;
-      this.b = var2;
-      this.c = var3;
-      this.e = var2;
-      this.d = var3.c();
-   }
+	@Override
+	public int[] a(int var1, int var2, int var3, int var4) {
+		int[] var5 = a.a(var1 - 1, var2 - 1, var3 + 2, var4 + 2);
+		int[] var6 = class_awg.a(var3 * var4);
 
-   public String b() {
-      return this.b;
-   }
+		for (int var7 = 0; var7 < var4; ++var7) {
+			for (int var8 = 0; var8 < var3; ++var8) {
+				this.a((long) (var8 + var1), (long) (var7 + var2));
+				int var9 = var5[var8 + 1 + ((var7 + 1) * (var3 + 2))];
+				if (this.a(57) == 0) {
+					if (var9 == class_ahb.q.az) {
+						var6[var8 + (var7 * var3)] = class_ahb.q.az + 128;
+					} else {
+						var6[var8 + (var7 * var3)] = var9;
+					}
+				} else {
+					var6[var8 + (var7 * var3)] = var9;
+				}
+			}
+		}
 
-   public class_awt c() {
-      return this.c;
-   }
-
-   public String d() {
-      return this.e;
-   }
-
-   public void a(String var1) {
-      this.e = var1;
-      this.a.b(this);
-   }
-
-   public class_awt.class_a_in_class_awt e() {
-      return this.d;
-   }
-
-   public void a(class_awt.class_a_in_class_awt var1) {
-      this.d = var1;
-      this.a.b(this);
-   }
+		return var6;
+	}
 }

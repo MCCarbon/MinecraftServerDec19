@@ -1,89 +1,76 @@
 package net.minecraft.server;
 
-public class class_rt extends class_rm {
-   private EntityVillager b;
-   private EntityVillager c;
-   private World d;
-   private int e;
-   class_tp a;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
-   public class_rt(EntityVillager var1) {
-      this.b = var1;
-      this.d = var1.world;
-      this.a(3);
-   }
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
 
-   public boolean a() {
-      if(this.b.getAge() != 0) {
-         return false;
-      } else if(this.b.getRandom().nextInt(500) != 0) {
-         return false;
-      } else {
-         this.a = this.d.af().a(new BlockPosition(this.b), 0);
-         if(this.a == null) {
-            return false;
-         } else if(this.f() && this.b.o(true)) {
-            Entity var1 = this.d.a((Class)EntityVillager.class, (AxisAlignedBB)this.b.getBoundingBox().grow(8.0D, 3.0D, 8.0D), (Entity)this.b);
-            if(var1 == null) {
-               return false;
-            } else {
-               this.c = (EntityVillager)var1;
-               return this.c.getAge() == 0 && this.c.o(true);
-            }
-         } else {
-            return false;
-         }
-      }
-   }
+public abstract class class_rt {
+	protected final Map a = Maps.newHashMap();
+	protected final Map b = new class_ns();
+	protected final Multimap c = HashMultimap.create();
 
-   public void c() {
-      this.e = 300;
-      this.b.m(true);
-   }
+	public class_rq a(class_rp var1) {
+		return (class_rq) a.get(var1);
+	}
 
-   public void d() {
-      this.a = null;
-      this.c = null;
-      this.b.m(false);
-   }
+	public class_rq a(String var1) {
+		return (class_rq) b.get(var1);
+	}
 
-   public boolean b() {
-      return this.e >= 0 && this.f() && this.b.getAge() == 0 && this.b.o(false);
-   }
+	public class_rq b(class_rp var1) {
+		if (b.containsKey(var1.a())) {
+			throw new IllegalArgumentException("Attribute is already registered!");
+		} else {
+			class_rq var2 = c(var1);
+			b.put(var1.a(), var2);
+			a.put(var1, var2);
 
-   public void e() {
-      --this.e;
-      this.b.q().a(this.c, 10.0F, 30.0F);
-      if(this.b.h(this.c) > 2.25D) {
-         this.b.u().a((Entity)this.c, 0.25D);
-      } else if(this.e == 0 && this.c.cB()) {
-         this.g();
-      }
+			for (class_rp var3 = var1.d(); var3 != null; var3 = var3.d()) {
+				c.put(var3, var1);
+			}
 
-      if(this.b.getRandom().nextInt(35) == 0) {
-         this.d.a((Entity)this.b, (byte)12);
-      }
+			return var2;
+		}
+	}
 
-   }
+	protected abstract class_rq c(class_rp var1);
 
-   private boolean f() {
-      if(!this.a.i()) {
-         return false;
-      } else {
-         int var1 = (int)((double)((float)this.a.c()) * 0.35D);
-         return this.a.e() < var1;
-      }
-   }
+	public Collection a() {
+		return b.values();
+	}
 
-   private void g() {
-      EntityVillager var1 = this.b.b((EntityAgeable)this.c);
-      this.c.b(6000);
-      this.b.b(6000);
-      this.c.p(false);
-      this.b.p(false);
-      var1.b(-24000);
-      var1.setPositionRotation(this.b.locX, this.b.locY, this.b.locZ, 0.0F, 0.0F);
-      this.d.addEntity((Entity)var1);
-      this.d.a((Entity)var1, (byte)12);
-   }
+	public void a(class_rq var1) {
+	}
+
+	public void a(Multimap var1) {
+		Iterator var2 = var1.entries().iterator();
+
+		while (var2.hasNext()) {
+			Entry var3 = (Entry) var2.next();
+			class_rq var4 = this.a((String) var3.getKey());
+			if (var4 != null) {
+				var4.c((class_rr) var3.getValue());
+			}
+		}
+
+	}
+
+	public void b(Multimap var1) {
+		Iterator var2 = var1.entries().iterator();
+
+		while (var2.hasNext()) {
+			Entry var3 = (Entry) var2.next();
+			class_rq var4 = this.a((String) var3.getKey());
+			if (var4 != null) {
+				var4.c((class_rr) var3.getValue());
+				var4.b((class_rr) var3.getValue());
+			}
+		}
+
+	}
 }

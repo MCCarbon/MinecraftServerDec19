@@ -1,71 +1,96 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Sets;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Set;
 
-public class class_le extends class_oh {
-   private final Set g = Sets.newHashSet();
-   private final Set h;
-   private boolean i;
+public class class_le extends class_ln {
+	private boolean c;
+	private boolean d;
+	private int e;
+	private int f;
 
-   public class_le(IChatBaseComponent var1, class_oh.class_a_in_class_oh var2, class_oh.class_b_in_class_oh var3, boolean var4, boolean var5) {
-      super(MathHelper.getRandomUUID(), var1, var2, var3, var4, var5);
-      this.h = Collections.unmodifiableSet(this.g);
-      this.i = true;
-   }
+	public class_le(class_ago var1) {
+		super(var1);
+	}
 
-   public void a(float var1) {
-      if(var1 != this.b) {
-         super.a(var1);
-         this.a(PacketPlayOutBossBar.BossBarType.c);
-      }
+	@Override
+	public void a() {
+		super.a();
+		++f;
+		long var1 = a.M();
+		long var3 = (var1 / 24000L) + 1L;
+		if (!c && (f > 20)) {
+			c = true;
+			b.a.a((new class_gn(5, 0.0F)));
+		}
 
-   }
+		d = var1 > 120500L;
+		if (d) {
+			++e;
+		}
 
-   private void a(PacketPlayOutBossBar.BossBarType var1) {
-      if(this.i) {
-         PacketPlayOutBossBar var2 = new PacketPlayOutBossBar(var1, this);
-         Iterator var3 = this.g.iterator();
+		if ((var1 % 24000L) == 500L) {
+			if (var3 <= 6L) {
+				b.a((new class_fb("demo.day." + var3, new Object[0])));
+			}
+		} else if (var3 == 1L) {
+			if (var1 == 100L) {
+				b.a.a((new class_gn(5, 101.0F)));
+			} else if (var1 == 175L) {
+				b.a.a((new class_gn(5, 102.0F)));
+			} else if (var1 == 250L) {
+				b.a.a((new class_gn(5, 103.0F)));
+			}
+		} else if ((var3 == 5L) && ((var1 % 24000L) == 22000L)) {
+			b.a((new class_fb("demo.day.warning", new Object[0])));
+		}
 
-         while(var3.hasNext()) {
-            EntityPlayer var4 = (EntityPlayer)var3.next();
-            var4.playerConnection.sendPacket((Packet)var2);
-         }
-      }
+	}
 
-   }
+	private void f() {
+		if (e > 100) {
+			b.a((new class_fb("demo.reminder", new Object[0])));
+			e = 0;
+		}
 
-   public void a(EntityPlayer var1) {
-      if(this.g.add(var1) && this.i) {
-         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.BossBarType.a, this)));
-      }
+	}
 
-   }
+	@Override
+	public void a(class_cj var1, class_cq var2) {
+		if (d) {
+			f();
+		} else {
+			super.a(var1, var2);
+		}
+	}
 
-   public void b(EntityPlayer var1) {
-      if(this.g.remove(var1) && this.i) {
-         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.BossBarType.b, this)));
-      }
+	@Override
+	public void a(class_cj var1) {
+		if (!d) {
+			super.a(var1);
+		}
+	}
 
-   }
+	@Override
+	public boolean b(class_cj var1) {
+		return d ? false : super.b(var1);
+	}
 
-   public void c(boolean var1) {
-      if(var1 != this.i) {
-         this.i = var1;
-         Iterator var2 = this.g.iterator();
+	@Override
+	public class_pw a(class_yu var1, class_ago var2, class_aco var3, class_pu var4) {
+		if (d) {
+			f();
+			return class_pw.b;
+		} else {
+			return super.a(var1, var2, var3, var4);
+		}
+	}
 
-         while(var2.hasNext()) {
-            EntityPlayer var3 = (EntityPlayer)var2.next();
-            var3.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(var1? PacketPlayOutBossBar.BossBarType.a: PacketPlayOutBossBar.BossBarType.b, this)));
-         }
-      }
-
-   }
-
-   public Collection c() {
-      return this.h;
-   }
+	@Override
+	public class_pw a(class_yu var1, class_ago var2, class_aco var3, class_pu var4, class_cj var5, class_cq var6, float var7, float var8, float var9) {
+		if (d) {
+			f();
+			return class_pw.b;
+		} else {
+			return super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9);
+		}
+	}
 }

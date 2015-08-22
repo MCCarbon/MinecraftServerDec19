@@ -1,38 +1,40 @@
 package net.minecraft.server;
 
-public class class_sv extends class_td {
-   EntityVillagerGolem a;
-   EntityLiving b;
 
-   public class_sv(EntityVillagerGolem var1) {
-      super(var1, false, true);
-      this.a = var1;
-      this.a(1);
-   }
+public class class_sv extends class_sr {
+	class_rh a;
+	class_rg b;
+	float c;
 
-   public boolean a() {
-      class_tp var1 = this.a.n();
-      if(var1 == null) {
-         return false;
-      } else {
-         this.b = var1.b((EntityLiving)this.a);
-         if(this.b instanceof EntityCreeper) {
-            return false;
-         } else if(!this.a(this.b, false)) {
-            if(this.e.getRandom().nextInt(20) == 0) {
-               this.b = var1.c((EntityLiving)this.a);
-               return this.a(this.b, false);
-            } else {
-               return false;
-            }
-         } else {
-            return true;
-         }
-      }
-   }
+	public class_sv(class_rh var1, float var2) {
+		a = var1;
+		c = var2;
+		this.a(5);
+	}
 
-   public void c() {
-      this.a.d(this.b);
-      super.c();
-   }
+	@Override
+	public boolean a() {
+		b = a.w();
+		if (b == null) {
+			return false;
+		} else {
+			double var1 = a.h(b);
+			return (var1 >= 4.0D) && (var1 <= 16.0D) ? (!a.C ? false : a.bj().nextInt(5) == 0) : false;
+		}
+	}
+
+	@Override
+	public boolean b() {
+		return !a.C;
+	}
+
+	@Override
+	public void c() {
+		double var1 = b.s - a.s;
+		double var3 = b.u - a.u;
+		float var5 = class_oa.a((var1 * var1) + (var3 * var3));
+		a.v += ((var1 / var5) * 0.5D * 0.800000011920929D) + (a.v * 0.20000000298023224D);
+		a.x += ((var3 / var5) * 0.5D * 0.800000011920929D) + (a.x * 0.20000000298023224D);
+		a.w = c;
+	}
 }

@@ -1,62 +1,119 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MathHelper;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Random;
 
-public class class_aut {
-   public final int a;
-   public final int b;
-   public final int c;
-   private final int j;
-   public int d = -1;
-   public float e;
-   public float f;
-   public float g;
-   public class_aut h;
-   public boolean i;
+public abstract class class_aut extends class_aur {
+	private static final class_auz d = new class_auz();
+	protected class_ava a;
+	protected class_auz b;
+	protected class_cj c;
 
-   public class_aut(int var1, int var2, int var3) {
-      this.a = var1;
-      this.b = var2;
-      this.c = var3;
-      this.j = a(var1, var2, var3);
-   }
+	public class_aut() {
+		b = d.a(true).a(class_aim.a);
+	}
 
-   public static int a(int var0, int var1, int var2) {
-      return var1 & 255 | (var0 & 32767) << 8 | (var2 & 32767) << 24 | (var0 < 0?Integer.MIN_VALUE:0) | (var2 < 0?'耀':0);
-   }
+	public class_aut(int var1) {
+		super(var1);
+		b = d.a(true).a(class_aim.a);
+	}
 
-   public float a(class_aut var1) {
-      float var2 = (float)(var1.a - this.a);
-      float var3 = (float)(var1.b - this.b);
-      float var4 = (float)(var1.c - this.c);
-      return MathHelper.sqrt(var2 * var2 + var3 * var3 + var4 * var4);
-   }
+	protected void a(class_ava var1, class_cj var2, class_auz var3) {
+		a = var1;
+		this.a(class_cq.c);
+		c = var2;
+		b = var3;
+		h();
+	}
 
-   public float b(class_aut var1) {
-      float var2 = (float)(var1.a - this.a);
-      float var3 = (float)(var1.b - this.b);
-      float var4 = (float)(var1.c - this.c);
-      return var2 * var2 + var3 * var3 + var4 * var4;
-   }
+	@Override
+	protected void a(class_dn var1) {
+		var1.a("TPX", c.n());
+		var1.a("TPY", c.o());
+		var1.a("TPZ", c.p());
+	}
 
-   public boolean equals(Object var1) {
-      if(!(var1 instanceof class_aut)) {
-         return false;
-      } else {
-         class_aut var2 = (class_aut)var1;
-         return this.j == var2.j && this.a == var2.a && this.b == var2.b && this.c == var2.c;
-      }
-   }
+	@Override
+	protected void b(class_dn var1) {
+		c = new class_cj(var1.h("TPX"), var1.h("TPY"), var1.h("TPZ"));
+	}
 
-   public int hashCode() {
-      return this.j;
-   }
+	@Override
+	public boolean a(class_ago var1, Random var2, class_aua var3) {
+		b.a(var3);
+		a.b(var1, c, b);
+		Map var4 = a.a(c, b);
+		Iterator var5 = var4.keySet().iterator();
 
-   public boolean a() {
-      return this.d >= 0;
-   }
+		while (var5.hasNext()) {
+			class_cj var6 = (class_cj) var5.next();
+			String var7 = (String) var4.get(var6);
+			this.a(var7, var6, var1, var2, var3);
+		}
 
-   public String toString() {
-      return this.a + ", " + this.b + ", " + this.c;
-   }
+		return true;
+	}
+
+	protected abstract void a(String var1, class_cj var2, class_ago var3, Random var4, class_aua var5);
+
+	private void h() {
+		class_ail.class_c_in_class_ail var1 = b.c();
+		class_cj var2 = a.a(var1);
+		l = new class_aua(0, 0, 0, var2.n(), var2.o() - 1, var2.p());
+		switch (class_aut.SyntheticClass_1.a[var1.ordinal()]) {
+			case 1:
+			default:
+				break;
+			case 2:
+				l.a(-var2.n(), 0, 0);
+				break;
+			case 3:
+				l.a(0, 0, -var2.p());
+				break;
+			case 4:
+				l.a(-var2.n(), 0, -var2.p());
+		}
+
+		l.a(c.n(), c.o(), c.p());
+	}
+
+	@Override
+	public void a(int var1, int var2, int var3) {
+		super.a(var1, var2, var3);
+		c = c.a(var1, var2, var3);
+	}
+
+	// $FF: synthetic class
+	static class SyntheticClass_1 {
+		// $FF: synthetic field
+		static final int[] a = new int[class_ail.class_c_in_class_ail.values().length];
+
+		static {
+			try {
+				a[class_ail.class_c_in_class_ail.a.ordinal()] = 1;
+			} catch (NoSuchFieldError var4) {
+				;
+			}
+
+			try {
+				a[class_ail.class_c_in_class_ail.b.ordinal()] = 2;
+			} catch (NoSuchFieldError var3) {
+				;
+			}
+
+			try {
+				a[class_ail.class_c_in_class_ail.d.ordinal()] = 3;
+			} catch (NoSuchFieldError var2) {
+				;
+			}
+
+			try {
+				a[class_ail.class_c_in_class_ail.c.ordinal()] = 4;
+			} catch (NoSuchFieldError var1) {
+				;
+			}
+
+		}
+	}
 }

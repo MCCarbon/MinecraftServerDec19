@@ -1,202 +1,314 @@
 package net.minecraft.server;
 
-import java.util.concurrent.Callable;
-import net.minecraft.server.WorldType;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_api;
-import net.minecraft.server.class_ato;
-import net.minecraft.server.class_atp;
-import net.minecraft.server.class_atq;
-import net.minecraft.server.class_atr;
-import net.minecraft.server.class_ats;
-import net.minecraft.server.class_att;
-import net.minecraft.server.class_atu;
-import net.minecraft.server.class_aty;
-import net.minecraft.server.class_aub;
-import net.minecraft.server.class_aud;
-import net.minecraft.server.class_aue;
-import net.minecraft.server.class_auf;
-import net.minecraft.server.class_aug;
-import net.minecraft.server.class_auh;
-import net.minecraft.server.class_aui;
-import net.minecraft.server.class_auj;
-import net.minecraft.server.class_auk;
-import net.minecraft.server.class_auo;
-import net.minecraft.server.class_aup;
-import net.minecraft.server.class_b;
-import net.minecraft.server.class_c;
-import net.minecraft.server.class_e;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
-public abstract class class_auc {
-   private long c;
-   protected class_auc a;
-   private long d;
-   protected long b;
+import com.google.common.collect.Lists;
 
-   public static class_auc[] a(long var0, WorldType var2, String var3) {
-      class_aub var4 = new class_aub(1L);
-      class_aty var13 = new class_aty(2000L, var4);
-      class_atq var14 = new class_atq(1L, var13);
-      class_aup var15 = new class_aup(2001L, var14);
-      var14 = new class_atq(2L, var15);
-      var14 = new class_atq(50L, var14);
-      var14 = new class_atq(70L, var14);
-      class_auf var16 = new class_auf(2L, var14);
-      class_ats var17 = new class_ats(2L, var16);
-      var14 = new class_atq(3L, var17);
-      class_atp var18 = new class_atp(2L, var14, class_atp.class_a_in_class_atp.a);
-      var18 = new class_atp(2L, var18, class_atp.class_a_in_class_atp.b);
-      var18 = new class_atp(3L, var18, class_atp.class_a_in_class_atp.c);
-      var15 = new class_aup(2002L, var18);
-      var15 = new class_aup(2003L, var15);
-      var14 = new class_atq(4L, var15);
-      class_atr var20 = new class_atr(5L, var14);
-      class_ato var23 = new class_ato(4L, var20);
-      class_auc var26 = class_aup.b(1000L, var23, 0);
-      class_api var5 = null;
-      int var6 = 4;
-      int var7 = var6;
-      if(var2 == WorldType.CUSTOMIZED && !var3.isEmpty()) {
-         var5 = class_api.class_a_in_class_api.a(var3).b();
-         var6 = var5.G;
-         var7 = var5.H;
-      }
+public class class_auc {
+	public static final class_auy a = new class_auy();
+	private static final class_auz b = (new class_auz()).a(true);
+	private static final class_auz c;
+	private static final List d;
+	private static final List e;
+	private static final class_auc.class_b_in_class_auc f;
+	private static final List g;
+	private static final class_auc.class_b_in_class_auc h;
+	private static final class_auc.class_b_in_class_auc i;
+	private static final List j;
+	private static final class_auc.class_b_in_class_auc k;
 
-      if(var2 == WorldType.LARGE_BIOMES) {
-         var6 = 6;
-      }
+	public static void a() {
+		class_aup.a(class_auc.class_a_in_class_auc.class, "ECP");
+	}
 
-      class_auc var8 = class_aup.b(1000L, var26, 0);
-      class_aug var19 = new class_aug(100L, var8);
-      class_atu var9 = new class_atu(200L, var26, var2, var3);
-      class_auc var21 = class_aup.b(1000L, var9, 2);
-      class_att var24 = new class_att(1000L, var21);
-      class_auc var10 = class_aup.b(1000L, var19, 2);
-      class_aue var27 = new class_aue(1000L, var24, var10);
-      var8 = class_aup.b(1000L, var19, 2);
-      var8 = class_aup.b(1000L, var8, var7);
-      class_auh var22 = new class_auh(1L, var8);
-      class_auk var25 = new class_auk(1000L, var22);
-      Object var28 = new class_aud(1001L, var27);
+	private static class_auc.class_a_in_class_auc b(class_auc.class_a_in_class_auc var0, class_cj var1, String var2, class_ail.class_c_in_class_ail var3, boolean var4) {
+		class_auc.class_a_in_class_auc var5 = new class_auc.class_a_in_class_auc(var2, var0.c, var3, var4);
+		class_cj var6 = var0.a.a(var0.b, var1, var5.b, class_cj.a);
+		var5.a(var6.n(), var6.o(), var6.p());
+		return var5;
+	}
 
-      for(int var11 = 0; var11 < var6; ++var11) {
-         var28 = new class_aup((long)(1000 + var11), (class_auc)var28);
-         if(var11 == 0) {
-            var28 = new class_atq(3L, (class_auc)var28);
-         }
+	public static void a(class_cj var0, class_ail.class_c_in_class_ail var1, List var2, Random var3) {
+		k.a();
+		f.a();
+		i.a();
+		h.a();
+		class_auc.class_a_in_class_auc var4 = new class_auc.class_a_in_class_auc("base_floor", var0, var1, true);
+		var2.add(var4);
+		class_auc.class_a_in_class_auc var5;
+		var2.add(var5 = b(var4, new class_cj(-1, 0, -1), "second_floor", var1, false));
+		var2.add(var5 = b(var5, new class_cj(-1, 4, -1), "third_floor", var1, false));
+		var2.add(var5 = b(var5, new class_cj(-1, 8, -1), "third_roof", var1, true));
+		b(h, 1, var5, (class_cj) null, var2, var3);
+	}
 
-         if(var11 == 1 || var6 == 1) {
-            var28 = new class_auj(1000L, (class_auc)var28);
-         }
-      }
+	private static boolean b(class_auc.class_b_in_class_auc var0, int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
+		if (var1 > 8) {
+			return false;
+		} else {
+			ArrayList var6 = Lists.newArrayList();
+			if (var0.a(var1, var2, var3, var6, var5)) {
+				boolean var7 = false;
+				int var8 = var5.nextInt();
+				Iterator var9 = var6.iterator();
 
-      class_auk var29 = new class_auk(1000L, (class_auc)var28);
-      class_aui var30 = new class_aui(100L, var29, var25);
-      class_auo var12 = new class_auo(10L, var30);
-      var30.a(var0);
-      var12.a(var0);
-      return new class_auc[]{var30, var12, var30};
-   }
+				while (var9.hasNext()) {
+					class_aur var10 = (class_aur) var9.next();
+					var10.m = var8;
+					class_aur var11 = class_aur.a(var4, var10.c());
+					if ((var11 != null) && (var11.m != var2.m)) {
+						var7 = true;
+						break;
+					}
+				}
 
-   public class_auc(long var1) {
-      this.b = var1;
-      this.b *= this.b * 6364136223846793005L + 1442695040888963407L;
-      this.b += var1;
-      this.b *= this.b * 6364136223846793005L + 1442695040888963407L;
-      this.b += var1;
-      this.b *= this.b * 6364136223846793005L + 1442695040888963407L;
-      this.b += var1;
-   }
+				if (!var7) {
+					var4.addAll(var6);
+					return true;
+				}
+			}
 
-   public void a(long var1) {
-      this.c = var1;
-      if(this.a != null) {
-         this.a.a(var1);
-      }
+			return false;
+		}
+	}
 
-      this.c *= this.c * 6364136223846793005L + 1442695040888963407L;
-      this.c += this.b;
-      this.c *= this.c * 6364136223846793005L + 1442695040888963407L;
-      this.c += this.b;
-      this.c *= this.c * 6364136223846793005L + 1442695040888963407L;
-      this.c += this.b;
-   }
+	static {
+		c = (new class_auz()).a(true).a(class_aim.a);
+		d = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(class_acq.k, 0, 2, 7, 5), new class_oj(class_acq.l, 0, 4, 8, 10), new class_oj(class_acq.m, 0, 2, 7, 15), new class_oj(class_acq.bT, 0, 2, 6, 2), new class_oj(class_acq.cN, 0, 1, 10, 5), new class_oj(class_acq.aC, 0, 1, 1, 3), new class_oj(class_acq.cp, 0, 1, 1, 1), new class_oj(class_acq.cq, 0, 1, 1, 1), new class_oj(class_acq.cr, 0, 1, 1, 1) }));
+		e = Lists.newArrayList((Object[]) (new class_acm[] { class_acq.w, class_acq.ah, class_acq.af, class_acq.ag, class_acq.ae, class_acq.y, class_acq.x, class_acq.n, class_acq.ad, class_acq.ab, class_acq.ac, class_acq.aa, class_acq.b, class_acq.a }));
+		f = new class_auc.class_b_in_class_auc() {
+			@Override
+			public void a() {
+			}
 
-   public void a(long var1, long var3) {
-      this.d = this.c;
-      this.d *= this.d * 6364136223846793005L + 1442695040888963407L;
-      this.d += var1;
-      this.d *= this.d * 6364136223846793005L + 1442695040888963407L;
-      this.d += var3;
-      this.d *= this.d * 6364136223846793005L + 1442695040888963407L;
-      this.d += var1;
-      this.d *= this.d * 6364136223846793005L + 1442695040888963407L;
-      this.d += var3;
-   }
+			@Override
+			public boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
+				if (var1 > 8) {
+					return false;
+				} else {
+					class_ail.class_c_in_class_ail var6 = var2.b.c();
+					class_auc.class_a_in_class_auc var7;
+					var4.add(var7 = class_auc.b(var2, var3, "base_floor", var6, true));
+					int var8 = var5.nextInt(3);
+					if (var8 == 0) {
+						var4.add(class_auc.b(var7, new class_cj(-1, 4, -1), "base_roof", var6, true));
+					} else if (var8 == 1) {
+						var4.add(var7 = class_auc.b(var7, new class_cj(-1, 0, -1), "second_floor_2", var6, false));
+						var4.add(var7 = class_auc.b(var7, new class_cj(-1, 8, -1), "second_roof", var6, false));
+						class_auc.b(class_auc.h, var1 + 1, var7, (class_cj) null, var4, var5);
+					} else if (var8 == 2) {
+						var4.add(var7 = class_auc.b(var7, new class_cj(-1, 0, -1), "second_floor_2", var6, false));
+						var4.add(var7 = class_auc.b(var7, new class_cj(-1, 4, -1), "third_floor_c", var6, false));
+						var4.add(var7 = class_auc.b(var7, new class_cj(-1, 8, -1), "third_roof", var6, true));
+						class_auc.b(class_auc.h, var1 + 1, var7, (class_cj) null, var4, var5);
+					}
 
-   protected int a(int var1) {
-      int var2 = (int)((this.d >> 24) % (long)var1);
-      if(var2 < 0) {
-         var2 += var1;
-      }
+					return true;
+				}
+			}
+		};
+		g = Lists.newArrayList((Object[]) (new class_oh[] { new class_oh(class_ail.class_c_in_class_ail.a, new class_cj(1, -1, 0)), new class_oh(class_ail.class_c_in_class_ail.b, new class_cj(6, -1, 1)), new class_oh(class_ail.class_c_in_class_ail.d, new class_cj(0, -1, 5)), new class_oh(class_ail.class_c_in_class_ail.c, new class_cj(5, -1, 6)) }));
+		h = new class_auc.class_b_in_class_auc() {
+			@Override
+			public void a() {
+			}
 
-      this.d *= this.d * 6364136223846793005L + 1442695040888963407L;
-      this.d += this.c;
-      return var2;
-   }
+			@Override
+			public boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
+				class_ail.class_c_in_class_ail var6 = var2.b.c();
+				class_auc.class_a_in_class_auc var7;
+				var4.add(var7 = class_auc.b(var2, new class_cj(3 + var5.nextInt(2), -3, 3 + var5.nextInt(2)), "tower_base", var6, true));
+				var4.add(var7 = class_auc.b(var7, new class_cj(0, 7, 0), "tower_piece", var6, true));
+				class_auc.class_a_in_class_auc var8 = var5.nextInt(3) == 0 ? var7 : null;
+				int var9 = 1 + var5.nextInt(3);
 
-   public abstract int[] a(int var1, int var2, int var3, int var4);
+				for (int var10 = 0; var10 < var9; ++var10) {
+					var4.add(var7 = class_auc.b(var7, new class_cj(0, 4, 0), "tower_piece", var6, true));
+					if ((var10 < (var9 - 1)) && var5.nextBoolean()) {
+						var8 = var7;
+					}
+				}
 
-   protected static boolean a(int var0, int var1) {
-      if(var0 == var1) {
-         return true;
-      } else if(var0 != BiomeBase.MESA_PLATEU_F.id && var0 != BiomeBase.MESA_PLATEU.id) {
-         final BiomeBase var2 = BiomeBase.getBiome(var0);
-         final BiomeBase var3 = BiomeBase.getBiome(var1);
+				if (var8 != null) {
+					Iterator var13 = class_auc.g.iterator();
 
-         try {
-            return var2 != null && var3 != null?var2.a(var3):false;
-         } catch (Throwable var7) {
-            class_b var5 = class_b.a(var7, "Comparing biomes");
-            class_c var6 = var5.a("Biomes being compared");
-            var6.a((String)"Biome A ID", (Object)Integer.valueOf(var0));
-            var6.a((String)"Biome B ID", (Object)Integer.valueOf(var1));
-            var6.a("Biome A", new Callable() {
-               public String a() throws Exception {
-                  return String.valueOf(var2);
-               }
+					while (var13.hasNext()) {
+						class_oh var11 = (class_oh) var13.next();
+						if (var5.nextBoolean()) {
+							class_auc.class_a_in_class_auc var12;
+							var4.add(var12 = class_auc.b(var8, (class_cj) var11.b(), "bridge_end", var6.a((class_ail.class_c_in_class_ail) var11.a()), true));
+							class_auc.b(class_auc.i, var1 + 1, var12, (class_cj) null, var4, var5);
+						}
+					}
 
-               // $FF: synthetic method
-               public Object call() throws Exception {
-                  return this.a();
-               }
-            });
-            var6.a("Biome B", new Callable() {
-               public String a() throws Exception {
-                  return String.valueOf(var3);
-               }
+					var4.add(class_auc.b(var7, new class_cj(-1, 4, -1), "tower_top", var6, true));
+				} else {
+					if (var1 != 7) {
+						return class_auc.b(class_auc.k, var1 + 1, var7, (class_cj) null, var4, var5);
+					}
 
-               // $FF: synthetic method
-               public Object call() throws Exception {
-                  return this.a();
-               }
-            });
-            throw new class_e(var5);
-         }
-      } else {
-         return var1 == BiomeBase.MESA_PLATEU_F.id || var1 == BiomeBase.MESA_PLATEU.id;
-      }
-   }
+					var4.add(class_auc.b(var7, new class_cj(-1, 4, -1), "tower_top", var6, true));
+				}
 
-   protected static boolean b(int var0) {
-      return var0 == BiomeBase.OCEAN.id || var0 == BiomeBase.DEEP_OCEAN.id || var0 == BiomeBase.FROZEN_OCEAN.id;
-   }
+				return true;
+			}
+		};
+		i = new class_auc.class_b_in_class_auc() {
+			public boolean a;
 
-   protected int a(int... var1) {
-      return var1[this.a(var1.length)];
-   }
+			@Override
+			public void a() {
+				a = false;
+			}
 
-   protected int b(int var1, int var2, int var3, int var4) {
-      return var2 == var3 && var3 == var4?var2:(var1 == var2 && var1 == var3?var1:(var1 == var2 && var1 == var4?var1:(var1 == var3 && var1 == var4?var1:(var1 == var2 && var3 != var4?var1:(var1 == var3 && var2 != var4?var1:(var1 == var4 && var2 != var3?var1:(var2 == var3 && var1 != var4?var2:(var2 == var4 && var1 != var3?var2:(var3 == var4 && var1 != var2?var3:this.a(new int[]{var1, var2, var3, var4}))))))))));
-   }
+			@Override
+			public boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
+				class_ail.class_c_in_class_ail var6 = var2.b.c();
+				int var7 = var5.nextInt(4) + 1;
+				class_auc.class_a_in_class_auc var8;
+				var4.add(var8 = class_auc.b(var2, new class_cj(0, 0, -4), "bridge_piece", var6, true));
+				var8.m = -1;
+				byte var9 = 0;
+
+				for (int var10 = 0; var10 < var7; ++var10) {
+					if (var5.nextBoolean()) {
+						var4.add(var8 = class_auc.b(var8, new class_cj(0, var9, -4), "bridge_piece", var6, true));
+						var9 = 0;
+					} else {
+						if (var5.nextBoolean()) {
+							var4.add(var8 = class_auc.b(var8, new class_cj(0, var9, -4), "bridge_steep_stairs", var6, true));
+						} else {
+							var4.add(var8 = class_auc.b(var8, new class_cj(0, var9, -8), "bridge_gentle_stairs", var6, true));
+						}
+
+						var9 = 4;
+					}
+				}
+
+				if (!a && (var5.nextInt(10 - var1) == 0)) {
+					var4.add(class_auc.b(var8, new class_cj(-8 + var5.nextInt(8), var9, -70 + var5.nextInt(10)), "ship", var6, true));
+					a = true;
+				} else if (!class_auc.b(class_auc.f, var1 + 1, var8, new class_cj(-3, var9 + 1, -11), var4, var5)) {
+					return false;
+				}
+
+				var4.add(var8 = class_auc.b(var8, new class_cj(4, var9, 0), "bridge_end", var6.a(class_ail.class_c_in_class_ail.c), true));
+				var8.m = -1;
+				return true;
+			}
+		};
+		j = Lists.newArrayList((Object[]) (new class_oh[] { new class_oh(class_ail.class_c_in_class_ail.a, new class_cj(4, -1, 0)), new class_oh(class_ail.class_c_in_class_ail.b, new class_cj(12, -1, 4)), new class_oh(class_ail.class_c_in_class_ail.d, new class_cj(0, -1, 8)), new class_oh(class_ail.class_c_in_class_ail.c, new class_cj(8, -1, 12)) }));
+		k = new class_auc.class_b_in_class_auc() {
+			@Override
+			public void a() {
+			}
+
+			@Override
+			public boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5) {
+				class_ail.class_c_in_class_ail var7 = var2.b.c();
+				class_auc.class_a_in_class_auc var6;
+				var4.add(var6 = class_auc.b(var2, new class_cj(-3, 4, -3), "fat_tower_base", var7, true));
+				var4.add(var6 = class_auc.b(var6, new class_cj(0, 4, 0), "fat_tower_middle", var7, true));
+
+				for (int var8 = 0; (var8 < 2) && (var5.nextInt(3) != 0); ++var8) {
+					var4.add(var6 = class_auc.b(var6, new class_cj(0, 8, 0), "fat_tower_middle", var7, true));
+					Iterator var9 = class_auc.j.iterator();
+
+					while (var9.hasNext()) {
+						class_oh var10 = (class_oh) var9.next();
+						if (var5.nextBoolean()) {
+							class_auc.class_a_in_class_auc var11;
+							var4.add(var11 = class_auc.b(var6, (class_cj) var10.b(), "bridge_end", var7.a((class_ail.class_c_in_class_ail) var10.a()), true));
+							class_auc.b(class_auc.i, var1 + 1, var11, (class_cj) null, var4, var5);
+						}
+					}
+				}
+
+				var4.add(class_auc.b(var6, new class_cj(-2, 8, -2), "fat_tower_top", var7, true));
+				return true;
+			}
+		};
+	}
+
+	interface class_b_in_class_auc {
+		void a();
+
+		boolean a(int var1, class_auc.class_a_in_class_auc var2, class_cj var3, List var4, Random var5);
+	}
+
+	public static class class_a_in_class_auc extends class_aut {
+		private String d;
+		private class_ail.class_c_in_class_ail e;
+		private boolean f;
+
+		public class_a_in_class_auc() {
+		}
+
+		public class_a_in_class_auc(String var1, class_cj var2, class_ail.class_c_in_class_ail var3, boolean var4) {
+			super(0);
+			d = var1;
+			e = var3;
+			f = var4;
+			this.a(var2);
+		}
+
+		private void a(class_cj var1) {
+			class_ava var2 = class_auc.a.a(new class_ke("endcity/" + d));
+			class_auz var3;
+			if (f) {
+				var3 = class_auc.b.a().a(e);
+			} else {
+				var3 = class_auc.c.a().a(e);
+			}
+
+			this.a(var2, var1, var3);
+		}
+
+		@Override
+		protected void a(class_dn var1) {
+			super.a(var1);
+			var1.a("Template", d);
+			var1.a("Rot", e.name());
+			var1.a("OW", f);
+		}
+
+		@Override
+		protected void b(class_dn var1) {
+			super.b(var1);
+			d = var1.l("Template");
+			e = class_ail.class_c_in_class_ail.valueOf(var1.l("Rot"));
+			f = var1.p("OW");
+			this.a(c);
+		}
+
+		@Override
+		protected void a(String var1, class_cj var2, class_ago var3, Random var4, class_aua var5) {
+			if (var1.startsWith("Chest")) {
+				class_cj var6 = var2.b();
+				if (var5.b(var6)) {
+					class_aoi var7 = var3.s(var6);
+					if (var7 instanceof class_aok) {
+						ArrayList var8 = Lists.newArrayList((Iterable) class_auc.d);
+						Iterator var9 = class_auc.e.iterator();
+
+						while (var9.hasNext()) {
+							class_acm var10 = (class_acm) var9.next();
+							var8.add(new class_oj(class_afl.a(var4, new class_aco(var10), 20 + var4.nextInt(20)), 1, 1, 3));
+						}
+
+						class_oj.a(var4, var8, ((class_aok) var7), 2 + var4.nextInt(5));
+					}
+				}
+			} else if (var1.startsWith("Sentry")) {
+				class_vm var11 = new class_vm(var3);
+				var11.b(var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D);
+				var11.f(var2);
+				var3.a(var11);
+			}
+
+		}
+	}
 }

@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.regex.Pattern;
+
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
 public enum EnumChatFormat {
 
@@ -33,89 +33,104 @@ public enum EnumChatFormat {
 	ITALIC("ITALIC", 'o', true),
 	RESET("RESET", 'r', -1);
 
-	private static final Map<String, EnumChatFormat> BY_NAME = Maps.newHashMap();
-	private static final Pattern x = Pattern.compile("(?i)" + String.valueOf('§') + "[0-9A-FK-OR]");
+	private static final Map<String, EnumChatFormat> BY_CHAR;
+	private static final Pattern pattern;
+	private final String y;
+	private final boolean isFormat;
+	private final String B;
+	private final int C;
 
-	static {
-		for (EnumChatFormat format : values()) {
-			BY_NAME.put(toName(format.name), format);
-		}
+	private static String c(String var0) {
+		return var0.toLowerCase().replaceAll("[^a-z]", "");
 	}
 
-	private static String toName(String name) {
-		return name.toLowerCase().replaceAll("[^a-z]", "");
+	private EnumChatFormat(String var3, char var4, int var5) {
+		this(var3, var4, false, var5);
 	}
 
-	private final String name;
-	private final boolean isFormatting;
-	private final String asString;
-	private final int id;
-
-	private EnumChatFormat(String name, char c, int id) {
-		this(name, c, false, id);
+	private EnumChatFormat(String var3, char var4, boolean var5) {
+		this(var3, var4, var5, -1);
 	}
 
-	private EnumChatFormat(String name, char c, boolean isFormatting) {
-		this(name, c, isFormatting, -1);
-	}
-
-	private EnumChatFormat(String name, char c, boolean isFormatting, int id) {
-		this.name = name;
-		this.isFormatting = isFormatting;
-		this.id = id;
-		this.asString = "§" + c;
+	private EnumChatFormat(String var3, char var4, boolean var5, int var6) {
+		y = var3;
+		isFormat = var5;
+		C = var6;
+		B = "§" + var4;
 	}
 
 	public int getId() {
-		return this.id;
+		return C;
 	}
 
-	public boolean isFormatting() {
-		return this.isFormatting;
+	public boolean isFormat() {
+		return isFormat;
 	}
 
-	public boolean isColor() {
-		return !this.isFormatting && this != RESET;
+	public boolean d() {
+		return !isFormat && (this != RESET);
 	}
 
-	public String getName() {
-		return this.name().toLowerCase();
+	public String e() {
+		return name().toLowerCase();
 	}
 
 	@Override
 	public String toString() {
-		return this.asString;
+		return B;
 	}
 
-	public static String stripFormatting(String string) {
-		return string == null ? null : x.matcher(string).replaceAll("");
+	public static String stripFormat(String var0) {
+		return var0 == null ? null : pattern.matcher(var0).replaceAll("");
 	}
 
-	public static EnumChatFormat getByName(String name) {
-		return name == null ? null : BY_NAME.get(toName(name));
+	public static EnumChatFormat getByName(String var0) {
+		return var0 == null ? null : (EnumChatFormat) BY_CHAR.get(c(var0));
 	}
 
 	public static EnumChatFormat getById(int id) {
 		if (id < 0) {
 			return RESET;
 		} else {
-			for (EnumChatFormat format : values()) {
-				if (format.getId() == id) {
-					return format;
+			EnumChatFormat[] var1 = values();
+			int var2 = var1.length;
+
+			for (int var3 = 0; var3 < var2; ++var3) {
+				EnumChatFormat var4 = var1[var3];
+				if (var4.getId() == id) {
+					return var4;
 				}
 			}
+
 			return null;
 		}
 	}
 
-	public static Collection<String> getNames(boolean includeColors, boolean includeFormatting) {
-		ArrayList<String> names = Lists.newArrayList();
-		for (EnumChatFormat format : values()) {
-			if ((!format.isColor() || includeColors) && (!format.isFormatting() || includeFormatting)) {
-				names.add(format.getName());
+	public static Collection<String> a(boolean var0, boolean var1) {
+		ArrayList<String> var2 = Lists.newArrayList();
+		EnumChatFormat[] var3 = values();
+		int var4 = var3.length;
+
+		for (int var5 = 0; var5 < var4; ++var5) {
+			EnumChatFormat var6 = var3[var5];
+			if ((!var6.d() || var0) && (!var6.isFormat() || var1)) {
+				var2.add(var6.e());
 			}
 		}
-		return names;
+
+		return var2;
 	}
 
+	static {
+		BY_CHAR = Maps.newHashMap();
+		pattern = Pattern.compile("(?i)" + String.valueOf('§') + "[0-9A-FK-OR]");
+		EnumChatFormat[] var0 = values();
+		int var1 = var0.length;
+
+		for (int var2 = 0; var2 < var1; ++var2) {
+			EnumChatFormat var3 = var0[var2];
+			BY_CHAR.put(c(var3.y), var3);
+		}
+
+	}
 }

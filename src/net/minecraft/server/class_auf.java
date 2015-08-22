@@ -1,37 +1,17 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aua;
-import net.minecraft.server.class_auc;
+import java.util.Random;
 
-public class class_auf extends class_auc {
-   public class_auf(long var1, class_auc var3) {
-      super(var1);
-      this.a = var3;
-   }
+public class class_auf extends class_aus {
+	public class_auf() {
+	}
 
-   public int[] a(int var1, int var2, int var3, int var4) {
-      int var5 = var1 - 1;
-      int var6 = var2 - 1;
-      int var7 = var3 + 2;
-      int var8 = var4 + 2;
-      int[] var9 = this.a.a(var5, var6, var7, var8);
-      int[] var10 = class_aua.a(var3 * var4);
-
-      for(int var11 = 0; var11 < var4; ++var11) {
-         for(int var12 = 0; var12 < var3; ++var12) {
-            int var13 = var9[var12 + 1 + (var11 + 1 - 1) * (var3 + 2)];
-            int var14 = var9[var12 + 1 + 1 + (var11 + 1) * (var3 + 2)];
-            int var15 = var9[var12 + 1 - 1 + (var11 + 1) * (var3 + 2)];
-            int var16 = var9[var12 + 1 + (var11 + 1 + 1) * (var3 + 2)];
-            int var17 = var9[var12 + 1 + (var11 + 1) * var7];
-            var10[var12 + var11 * var3] = var17;
-            this.a((long)(var12 + var1), (long)(var11 + var2));
-            if(var17 == 0 && var13 == 0 && var14 == 0 && var15 == 0 && var16 == 0 && this.a(2) == 0) {
-               var10[var12 + var11 * var3] = 1;
-            }
-         }
-      }
-
-      return var10;
-   }
+	public class_auf(class_ago var1, Random var2, int var3, int var4) {
+		super(var3, var4);
+		class_aue.class_c_in_class_aue var5 = new class_aue.class_c_in_class_aue(0, var2, (var3 << 4) + 2, (var4 << 4) + 2);
+		a.add(var5);
+		var5.a(var5, a, var2);
+		d();
+		this.a(var1, var2, 10);
+	}
 }

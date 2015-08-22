@@ -1,52 +1,50 @@
 package net.minecraft.server;
 
-import net.minecraft.server.NBTTagFloat;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
 
 public class class_dc {
-   protected final float a;
-   protected final float b;
-   protected final float c;
+	protected final float a;
+	protected final float b;
+	protected final float c;
 
-   public class_dc(float var1, float var2, float var3) {
-      this.a = var1;
-      this.b = var2;
-      this.c = var3;
-   }
+	public class_dc(float var1, float var2, float var3) {
+		a = var1;
+		b = var2;
+		c = var3;
+	}
 
-   public class_dc(NBTTagList var1) {
-      this.a = var1.getFloat(0);
-      this.b = var1.getFloat(1);
-      this.c = var1.getFloat(2);
-   }
+	public class_dc(class_du var1) {
+		a = var1.f(0);
+		b = var1.f(1);
+		c = var1.f(2);
+	}
 
-   public NBTTagList a() {
-      NBTTagList var1 = new NBTTagList();
-      var1.add((NBTTag)(new NBTTagFloat(this.a)));
-      var1.add((NBTTag)(new NBTTagFloat(this.b)));
-      var1.add((NBTTag)(new NBTTagFloat(this.c)));
-      return var1;
-   }
+	public class_du a() {
+		class_du var1 = new class_du();
+		var1.a((new class_dr(a)));
+		var1.a((new class_dr(b)));
+		var1.a((new class_dr(c)));
+		return var1;
+	}
 
-   public boolean equals(Object var1) {
-      if(!(var1 instanceof class_dc)) {
-         return false;
-      } else {
-         class_dc var2 = (class_dc)var1;
-         return this.a == var2.a && this.b == var2.b && this.c == var2.c;
-      }
-   }
+	@Override
+	public boolean equals(Object var1) {
+		if (!(var1 instanceof class_dc)) {
+			return false;
+		} else {
+			class_dc var2 = (class_dc) var1;
+			return (a == var2.a) && (b == var2.b) && (c == var2.c);
+		}
+	}
 
-   public float b() {
-      return this.a;
-   }
+	public float b() {
+		return a;
+	}
 
-   public float c() {
-      return this.b;
-   }
+	public float c() {
+		return b;
+	}
 
-   public float d() {
-      return this.c;
-   }
+	public float d() {
+		return c;
+	}
 }

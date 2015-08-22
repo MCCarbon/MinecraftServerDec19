@@ -1,87 +1,111 @@
 package net.minecraft.server;
 
-public class class_sj extends class_rm {
-   private final EntityInsentient a;
-   private final IRangedEntity b;
-   private EntityLiving c;
-   private int d;
-   private double e;
-   private int f;
-   private int g;
-   private int h;
-   private float i;
-   private float j;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
-   public class_sj(IRangedEntity var1, double var2, int var4, float var5) {
-      this(var1, var2, var4, var4, var5);
-   }
+public class class_sj extends class_sr {
+	private class_vc d;
+	class_ago a;
+	private class_vc e;
+	int b;
+	double c;
 
-   public class_sj(IRangedEntity var1, double var2, int var4, int var5, float var6) {
-      this.d = -1;
-      if(!(var1 instanceof EntityLiving)) {
-         throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
-      } else {
-         this.b = var1;
-         this.a = (EntityInsentient)var1;
-         this.e = var2;
-         this.g = var4;
-         this.h = var5;
-         this.i = var6;
-         this.j = var6 * var6;
-         this.a(3);
-      }
-   }
+	public class_sj(class_vc var1, double var2) {
+		d = var1;
+		a = var1.o;
+		c = var2;
+		this.a(3);
+	}
 
-   public boolean a() {
-      EntityLiving var1 = this.a.w();
-      if(var1 == null) {
-         return false;
-      } else {
-         this.c = var1;
-         return true;
-      }
-   }
+	@Override
+	public boolean a() {
+		if (!d.cK()) {
+			return false;
+		} else {
+			e = f();
+			return e != null;
+		}
+	}
 
-   public boolean b() {
-      return this.a() || !this.a.u().m();
-   }
+	@Override
+	public boolean b() {
+		return e.al() && e.cK() && (b < 60);
+	}
 
-   public void d() {
-      this.c = null;
-      this.f = 0;
-      this.d = -1;
-   }
+	@Override
+	public void d() {
+		e = null;
+		b = 0;
+	}
 
-   public void e() {
-      double var1 = this.a.e(this.c.locX, this.c.getBoundingBox().yMin, this.c.locZ);
-      boolean var3 = this.a.v().a(this.c);
-      if(var3) {
-         ++this.f;
-      } else {
-         this.f = 0;
-      }
+	@Override
+	public void e() {
+		d.q().a(e, 10.0F, d.ch());
+		d.u().a(e, c);
+		++b;
+		if ((b >= 60) && (d.h(e) < 9.0D)) {
+			g();
+		}
 
-      if(var1 <= (double)this.j && this.f >= 20) {
-         this.a.u().n();
-      } else {
-         this.a.u().a((Entity)this.c, this.e);
-      }
+	}
 
-      this.a.q().a(this.c, 30.0F, 30.0F);
-      float var4;
-      if(--this.d == 0) {
-         if(var1 > (double)this.j || !var3) {
-            return;
-         }
+	private class_vc f() {
+		float var1 = 8.0F;
+		List var2 = a.a(d.getClass(), d.aX().b(var1, var1, var1));
+		double var3 = Double.MAX_VALUE;
+		class_vc var5 = null;
+		Iterator var6 = var2.iterator();
 
-         var4 = MathHelper.sqrt(var1) / this.i;
-         float var5 = MathHelper.clamp(var4, 0.1F, 1.0F);
-         this.b.a(this.c, var5);
-         this.d = MathHelper.floor(var4 * (float)(this.h - this.g) + (float)this.g);
-      } else if(this.d < 0) {
-         var4 = MathHelper.sqrt(var1) / this.i;
-         this.d = MathHelper.floor(var4 * (float)(this.h - this.g) + (float)this.g);
-      }
+		while (var6.hasNext()) {
+			class_vc var7 = (class_vc) var6.next();
+			if (d.a(var7) && (d.h(var7) < var3)) {
+				var5 = var7;
+				var3 = d.h(var7);
+			}
+		}
 
-   }
+		return var5;
+	}
+
+	private void g() {
+		class_qu var1 = d.a((class_qu) e);
+		if (var1 != null) {
+			class_yu var2 = d.cJ();
+			if ((var2 == null) && (e.cJ() != null)) {
+				var2 = e.cJ();
+			}
+
+			if (var2 != null) {
+				var2.b(class_nh.B);
+				if (d instanceof class_ve) {
+					var2.b(class_my.H);
+				}
+			}
+
+			d.b(6000);
+			e.b(6000);
+			d.cL();
+			e.cL();
+			var1.b(-24000);
+			var1.b(d.s, d.t, d.u, 0.0F, 0.0F);
+			a.a(var1);
+			Random var3 = d.bj();
+
+			for (int var4 = 0; var4 < 7; ++var4) {
+				double var5 = var3.nextGaussian() * 0.02D;
+				double var7 = var3.nextGaussian() * 0.02D;
+				double var9 = var3.nextGaussian() * 0.02D;
+				double var11 = (var3.nextDouble() * d.J * 2.0D) - d.J;
+				double var13 = 0.5D + (var3.nextDouble() * d.K);
+				double var15 = (var3.nextDouble() * d.J * 2.0D) - d.J;
+				a.a(class_cy.I, d.s + var11, d.t + var13, d.u + var15, var5, var7, var9, new int[0]);
+			}
+
+			if (a.S().b("doMobLoot")) {
+				a.a((new class_rd(a, d.s, d.t, d.u, var3.nextInt(7) + 1)));
+			}
+
+		}
+	}
 }

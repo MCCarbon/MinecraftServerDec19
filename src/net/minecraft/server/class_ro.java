@@ -1,104 +1,180 @@
 package net.minecraft.server;
 
-public class class_ro extends class_rx {
-   private final EntityVillager c;
-   private boolean d;
-   private boolean e;
-   private int f;
+import java.util.UUID;
 
-   public class_ro(EntityVillager var1, double var2) {
-      super(var1, var2, 16);
-      this.c = var1;
-   }
+import com.google.common.base.Optional;
 
-   public boolean a() {
-      if(this.a <= 0) {
-         if(!this.c.world.R().getBooleanValue("mobGriefing")) {
-            return false;
-         }
+public abstract class class_ro extends class_vc implements class_rm {
+	protected static final class_jz bt;
+	protected static final class_jz bu;
+	protected class_tt bv = new class_tt(this);
 
-         this.f = -1;
-         this.d = this.c.cJ();
-         this.e = this.c.cI();
-      }
+	public class_ro(class_ago var1) {
+		super(var1);
+		cF();
+	}
 
-      return super.a();
-   }
+	@Override
+	protected void h() {
+		super.h();
+		ac.a(bt, Byte.valueOf((byte) 0));
+		ac.a(bu, Optional.absent());
+	}
 
-   public boolean b() {
-      return this.f >= 0 && super.b();
-   }
+	@Override
+	public void b(class_dn var1) {
+		super.b(var1);
+		if (this.b() == null) {
+			var1.a("OwnerUUID", "");
+		} else {
+			var1.a("OwnerUUID", this.b().toString());
+		}
 
-   public void c() {
-      super.c();
-   }
+		var1.a("Sitting", cG());
+	}
 
-   public void d() {
-      super.d();
-   }
+	@Override
+	public void a(class_dn var1) {
+		super.a(var1);
+		String var2 = "";
+		if (var1.b("OwnerUUID", 8)) {
+			var2 = var1.l("OwnerUUID");
+		} else {
+			String var3 = var1.l("Owner");
+			var2 = class_md.a(var3);
+		}
 
-   public void e() {
-      super.e();
-      this.c.q().a((double)this.b.getX() + 0.5D, (double)(this.b.getY() + 1), (double)this.b.getZ() + 0.5D, 10.0F, (float)this.c.cd());
-      if(this.f()) {
-         World var1 = this.c.world;
-         BlockPosition var2 = this.b.up();
-         IBlockData var3 = var1.getType(var2);
-         Block var4 = var3.getBlock();
-         if(this.f == 0 && var4 instanceof BlockCrops && ((BlockCrops)var4).e(var3)) {
-            var1.setAir(var2, true);
-         } else if(this.f == 1 && var4 == Blocks.AIR) {
-            InventorySubContainer var5 = this.c.cF();
+		if (!var2.isEmpty()) {
+			this.b(UUID.fromString(var2));
+			this.n(true);
+		}
 
-            for(int var6 = 0; var6 < var5.getSize(); ++var6) {
-               ItemStack var7 = var5.getItem(var6);
-               boolean var8 = false;
-               if(var7 != null) {
-                  if(var7.getItem() == Items.WHEAT_SEEDS) {
-                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
-                     var8 = true;
-                  } else if(var7.getItem() == Items.POTATO) {
-                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
-                     var8 = true;
-                  } else if(var7.getItem() == Items.CARROT) {
-                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
-                     var8 = true;
-                  }
-               }
+		bv.a(var1.p("Sitting"));
+		this.o(var1.p("Sitting"));
+	}
 
-               if(var8) {
-                  --var7.count;
-                  if(var7.count <= 0) {
-                     var5.setItem(var6, (ItemStack)null);
-                  }
-                  break;
-               }
-            }
-         }
+	protected void m(boolean var1) {
+		class_cy var2 = class_cy.I;
+		if (!var1) {
+			var2 = class_cy.l;
+		}
 
-         this.f = -1;
-         this.a = 10;
-      }
+		for (int var3 = 0; var3 < 7; ++var3) {
+			double var4 = V.nextGaussian() * 0.02D;
+			double var6 = V.nextGaussian() * 0.02D;
+			double var8 = V.nextGaussian() * 0.02D;
+			o.a(var2, (s + V.nextFloat() * J * 2.0F) - J, t + 0.5D + V.nextFloat() * K, (u + V.nextFloat() * J * 2.0F) - J, var4, var6, var8, new int[0]);
+		}
 
-   }
+	}
 
-   protected boolean a(World var1, BlockPosition var2) {
-      Block var3 = var1.getType(var2).getBlock();
-      if(var3 == Blocks.FARMLAND) {
-         var2 = var2.up();
-         IBlockData var4 = var1.getType(var2);
-         var3 = var4.getBlock();
-         if(var3 instanceof BlockCrops && ((BlockCrops)var3).e(var4) && this.e && (this.f == 0 || this.f < 0)) {
-            this.f = 0;
-            return true;
-         }
+	public boolean cE() {
+		return (((Byte) ac.a(bt)).byteValue() & 4) != 0;
+	}
 
-         if(var3 == Blocks.AIR && this.d && (this.f == 1 || this.f < 0)) {
-            this.f = 1;
-            return true;
-         }
-      }
+	public void n(boolean var1) {
+		byte var2 = ((Byte) ac.a(bt)).byteValue();
+		if (var1) {
+			ac.b(bt, Byte.valueOf((byte) (var2 | 4)));
+		} else {
+			ac.b(bt, Byte.valueOf((byte) (var2 & -5)));
+		}
 
-      return false;
-   }
+		cF();
+	}
+
+	protected void cF() {
+	}
+
+	public boolean cG() {
+		return (((Byte) ac.a(bt)).byteValue() & 1) != 0;
+	}
+
+	public void o(boolean var1) {
+		byte var2 = ((Byte) ac.a(bt)).byteValue();
+		if (var1) {
+			ac.b(bt, Byte.valueOf((byte) (var2 | 1)));
+		} else {
+			ac.b(bt, Byte.valueOf((byte) (var2 & -2)));
+		}
+
+	}
+
+	@Override
+	public UUID b() {
+		return (UUID) ((Optional) ac.a(bu)).orNull();
+	}
+
+	public void b(UUID var1) {
+		ac.b(bu, Optional.fromNullable(var1));
+	}
+
+	public class_rg cH() {
+		try {
+			UUID var1 = this.b();
+			return var1 == null ? null : o.b(var1);
+		} catch (IllegalArgumentException var2) {
+			return null;
+		}
+	}
+
+	public boolean d(class_rg var1) {
+		return var1 == cH();
+	}
+
+	public class_tt cI() {
+		return bv;
+	}
+
+	public boolean a(class_rg var1, class_rg var2) {
+		return true;
+	}
+
+	@Override
+	public class_ayu aE() {
+		if (cE()) {
+			class_rg var1 = cH();
+			if (var1 != null) {
+				return var1.aE();
+			}
+		}
+
+		return super.aE();
+	}
+
+	@Override
+	public boolean k(class_qx var1) {
+		if (cE()) {
+			class_rg var2 = cH();
+			if (var1 == var2) {
+				return true;
+			}
+
+			if (var2 != null) {
+				return var2.k(var1);
+			}
+		}
+
+		return super.k(var1);
+	}
+
+	@Override
+	public void a(class_qi var1) {
+		if (!o.D && o.S().b("showDeathMessages") && k_() && (cH() instanceof class_lm)) {
+			((class_lm) cH()).a(bz().b());
+		}
+
+		super.a(var1);
+	}
+
+	// $FF: synthetic method
+	@Override
+	public class_qx l_() {
+		return cH();
+	}
+
+	static {
+		bt = class_kc.a(class_ro.class, class_kb.a);
+		bu = class_kc.a(class_ro.class, class_kb.l);
+	}
 }

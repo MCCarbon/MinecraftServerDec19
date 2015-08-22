@@ -1,360 +1,522 @@
 package net.minecraft.server;
 
-import java.io.DataInputStream;
-import java.io.DataOutput;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.IOException;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+public class class_aov extends class_aow implements class_aou, class_ks {
+	private class_aco[] a = new class_aco[5];
+	private String f;
+	private int g = -1;
 
-public class class_aov implements IChunkLoader, class_awc {
-   private static final Logger a = LogManager.getLogger();
-   private Map b = new ConcurrentHashMap();
-   private Set c = Collections.newSetFromMap(new ConcurrentHashMap());
-   private final File d;
-   private boolean e = false;
+	@Override
+	public void a(class_dn var1) {
+		super.a(var1);
+		class_du var2 = var1.c("Items", 10);
+		a = new class_aco[n_()];
+		if (var1.b("CustomName", 8)) {
+			f = var1.l("CustomName");
+		}
 
-   public class_aov(File var1) {
-      this.d = var1;
-   }
+		g = var1.h("TransferCooldown");
 
-   public Chunk a(World var1, int var2, int var3) throws IOException {
-      ChunkCoordIntPair var4 = new ChunkCoordIntPair(var2, var3);
-      NBTTagCompound var5 = (NBTTagCompound)this.b.get(var4);
-      if(var5 == null) {
-         DataInputStream var6 = RegionFileCache.c(this.d, var2, var3);
-         if(var6 == null) {
-            return null;
-         }
+		for (int var3 = 0; var3 < var2.c(); ++var3) {
+			class_dn var4 = var2.b(var3);
+			byte var5 = var4.f("Slot");
+			if ((var5 >= 0) && (var5 < a.length)) {
+				a[var5] = class_aco.a(var4);
+			}
+		}
 
-         var5 = NBTCompressedStreamTools.fromDataStream(var6);
-      }
+	}
 
-      return this.a(var1, var2, var3, var5);
-   }
+	@Override
+	public void b(class_dn var1) {
+		super.b(var1);
+		class_du var2 = new class_du();
 
-   protected Chunk a(World var1, int var2, int var3, NBTTagCompound var4) {
-      if(!var4.hasOfType("Level", 10)) {
-         a.error("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
-         return null;
-      } else {
-         NBTTagCompound var5 = var4.getCompound("Level");
-         if(!var5.hasOfType("Sections", 9)) {
-            a.error("Chunk file at " + var2 + "," + var3 + " is missing block data, skipping");
-            return null;
-         } else {
-            Chunk var6 = this.a(var1, var5);
-            if(!var6.a(var2, var3)) {
-               a.error("Chunk file at " + var2 + "," + var3 + " is in the wrong location; relocating. (Expected " + var2 + ", " + var3 + ", got " + var6.locX + ", " + var6.locZ + ")");
-               var5.put("xPos", var2);
-               var5.put("zPos", var3);
-               var6 = this.a(var1, var5);
-            }
+		for (int var3 = 0; var3 < a.length; ++var3) {
+			if (a[var3] != null) {
+				class_dn var4 = new class_dn();
+				var4.a("Slot", (byte) var3);
+				a[var3].b(var4);
+				var2.a(var4);
+			}
+		}
 
-            return var6;
-         }
-      }
-   }
+		var1.a("Items", var2);
+		var1.a("TransferCooldown", g);
+		if (k_()) {
+			var1.a("CustomName", f);
+		}
 
-   public void a(World var1, Chunk var2) throws IOException, SessionException {
-      var1.J();
+	}
 
-      try {
-         NBTTagCompound var3 = new NBTTagCompound();
-         NBTTagCompound var4 = new NBTTagCompound();
-         var3.put((String)"Level", (NBTTag)var4);
-         this.a(var2, var1, var4);
-         this.a(var2.j(), var3);
-      } catch (Exception var5) {
-         a.error((String)"Failed to save chunk", (Throwable)var5);
-      }
+	@Override
+	public int n_() {
+		return a.length;
+	}
 
-   }
+	@Override
+	public class_aco a(int var1) {
+		return a[var1];
+	}
 
-   protected void a(ChunkCoordIntPair var1, NBTTagCompound var2) {
-      if(!this.c.contains(var1)) {
-         this.b.put(var1, var2);
-      }
+	@Override
+	public class_aco a(int var1, int var2) {
+		if (a[var1] != null) {
+			class_aco var3;
+			if (a[var1].b <= var2) {
+				var3 = a[var1];
+				a[var1] = null;
+				return var3;
+			} else {
+				var3 = a[var1].a(var2);
+				if (a[var1].b == 0) {
+					a[var1] = null;
+				}
 
-      class_awb.a().a(this);
-   }
+				return var3;
+			}
+		} else {
+			return null;
+		}
+	}
 
-   public boolean c() {
-      if(this.b.isEmpty()) {
-         if(this.e) {
-            a.info("ThreadedAnvilChunkStorage ({}): All chunks are saved", new Object[]{this.d.getName()});
-         }
+	@Override
+	public class_aco b(int var1) {
+		if (a[var1] != null) {
+			class_aco var2 = a[var1];
+			a[var1] = null;
+			return var2;
+		} else {
+			return null;
+		}
+	}
 
-         return false;
-      } else {
-         ChunkCoordIntPair var1 = (ChunkCoordIntPair)this.b.keySet().iterator().next();
+	@Override
+	public void a(int var1, class_aco var2) {
+		a[var1] = var2;
+		if ((var2 != null) && (var2.b > p_())) {
+			var2.b = p_();
+		}
 
-         boolean var3;
-         try {
-            this.c.add(var1);
-            NBTTagCompound var2 = (NBTTagCompound)this.b.remove(var1);
-            if(var2 != null) {
-               try {
-                  this.b(var1, var2);
-               } catch (Exception var7) {
-                  a.error((String)"Failed to save chunk", (Throwable)var7);
-               }
-            }
+	}
 
-            var3 = true;
-         } finally {
-            this.c.remove(var1);
-         }
+	@Override
+	public String e_() {
+		return k_() ? f : "container.hopper";
+	}
 
-         return var3;
-      }
-   }
+	@Override
+	public boolean k_() {
+		return (f != null) && !f.isEmpty();
+	}
 
-   private void b(ChunkCoordIntPair var1, NBTTagCompound var2) throws IOException {
-      DataOutputStream var3 = RegionFileCache.d(this.d, var1.a, var1.b);
-      NBTCompressedStreamTools.writeToData((NBTTagCompound)var2, (DataOutput)var3);
-      var3.close();
-   }
+	public void a(String var1) {
+		f = var1;
+	}
 
-   public void b(World var1, Chunk var2) throws IOException {
-   }
+	@Override
+	public int p_() {
+		return 64;
+	}
 
-   public void a() {
-   }
+	@Override
+	public boolean a(class_yu var1) {
+		return b.s(c) != this ? false : var1.e(c.n() + 0.5D, c.o() + 0.5D, c.p() + 0.5D) <= 64.0D;
+	}
 
-   public void b() {
-      try {
-         this.e = true;
+	@Override
+	public void b(class_yu var1) {
+	}
 
-         while(true) {
-            if(this.c()) {
-               continue;
-            }
-         }
-      } finally {
-         this.e = false;
-      }
+	@Override
+	public void c(class_yu var1) {
+	}
 
-   }
+	@Override
+	public boolean b(int var1, class_aco var2) {
+		return true;
+	}
 
-   private void a(Chunk var1, World var2, NBTTagCompound var3) {
-      var3.put("V", (byte)1);
-      var3.put("xPos", var1.locX);
-      var3.put("zPos", var1.locZ);
-      var3.put("LastUpdate", var2.L());
-      var3.put("HeightMap", var1.q());
-      var3.put("TerrainPopulated", var1.t());
-      var3.put("LightPopulated", var1.u());
-      var3.put("InhabitedTime", var1.w());
-      ChunkSection[] var4 = var1.getSections();
-      NBTTagList var5 = new NBTTagList();
-      boolean var6 = !var2.worldProvider.m();
-      ChunkSection[] var7 = var4;
-      int var8 = var4.length;
+	@Override
+	public void c() {
+		if ((b != null) && !b.D) {
+			--g;
+			if (!n()) {
+				d(0);
+				m();
+			}
 
-      NBTTagCompound var11;
-      for(int var9 = 0; var9 < var8; ++var9) {
-         ChunkSection var10 = var7[var9];
-         if(var10 != null) {
-            var11 = new NBTTagCompound();
-            var11.put("Y", (byte)(var10.getYPosition() >> 4 & 255));
-            byte[] var12 = new byte[var10.g().length];
-            class_aoi var13 = new class_aoi();
-            class_aoi var14 = null;
+		}
+	}
 
-            for(int var15 = 0; var15 < var10.g().length; ++var15) {
-               char var16 = var10.g()[var15];
-               int var17 = var15 & 15;
-               int var18 = var15 >> 8 & 15;
-               int var19 = var15 >> 4 & 15;
-               if(var16 >> 12 != 0) {
-                  if(var14 == null) {
-                     var14 = new class_aoi();
-                  }
+	public boolean m() {
+		if ((b != null) && !b.D) {
+			if (!n() && class_akw.f(u())) {
+				boolean var1 = false;
+				if (!p()) {
+					var1 = r();
+				}
 
-                  var14.a(var17, var18, var19, var16 >> 12);
-               }
+				if (!q()) {
+					var1 = a(this) || var1;
+				}
 
-               var12[var15] = (byte)(var16 >> 4 & 255);
-               var13.a(var17, var18, var19, var16 & 15);
-            }
+				if (var1) {
+					d(8);
+					o_();
+					return true;
+				}
+			}
 
-            var11.put("Blocks", var12);
-            var11.put("Data", var13.a());
-            if(var14 != null) {
-               var11.put("Add", var14.a());
-            }
+			return false;
+		} else {
+			return false;
+		}
+	}
 
-            var11.put("BlockLight", var10.h().a());
-            if(var6) {
-               var11.put("SkyLight", var10.i().a());
-            } else {
-               var11.put("SkyLight", new byte[var10.h().a().length]);
-            }
+	private boolean p() {
+		class_aco[] var1 = a;
+		int var2 = var1.length;
 
-            var5.add((NBTTag)var11);
-         }
-      }
+		for (int var3 = 0; var3 < var2; ++var3) {
+			class_aco var4 = var1[var3];
+			if (var4 != null) {
+				return false;
+			}
+		}
 
-      var3.put((String)"Sections", (NBTTag)var5);
-      var3.put("Biomes", var1.getBiomeIndex());
-      var1.g(false);
-      NBTTagList var20 = new NBTTagList();
+		return true;
+	}
 
-      Iterator var22;
-      for(var8 = 0; var8 < var1.s().length; ++var8) {
-         var22 = var1.s()[var8].iterator();
+	private boolean q() {
+		class_aco[] var1 = a;
+		int var2 = var1.length;
 
-         while(var22.hasNext()) {
-            Entity var24 = (Entity)var22.next();
-            var11 = new NBTTagCompound();
-            if(var24.d(var11)) {
-               var1.g(true);
-               var20.add((NBTTag)var11);
-            }
-         }
-      }
+		for (int var3 = 0; var3 < var2; ++var3) {
+			class_aco var4 = var1[var3];
+			if ((var4 == null) || (var4.b != var4.c())) {
+				return false;
+			}
+		}
 
-      var3.put((String)"Entities", (NBTTag)var20);
-      NBTTagList var21 = new NBTTagList();
-      var22 = var1.r().values().iterator();
+		return true;
+	}
 
-      while(var22.hasNext()) {
-         TileEntity var25 = (TileEntity)var22.next();
-         var11 = new NBTTagCompound();
-         var25.write(var11);
-         var21.add((NBTTag)var11);
-      }
+	private boolean r() {
+		class_pp var1 = H();
+		if (var1 == null) {
+			return false;
+		} else {
+			class_cq var2 = class_akw.b(u()).d();
+			if (this.a(var1, var2)) {
+				return false;
+			} else {
+				for (int var3 = 0; var3 < n_(); ++var3) {
+					if (this.a(var3) != null) {
+						class_aco var4 = this.a(var3).k();
+						class_aco var5 = a(var1, this.a(var3, 1), var2);
+						if ((var5 == null) || (var5.b == 0)) {
+							var1.o_();
+							return true;
+						}
 
-      var3.put((String)"TileEntities", (NBTTag)var21);
-      List var23 = var2.a(var1, false);
-      if(var23 != null) {
-         long var26 = var2.L();
-         NBTTagList var27 = new NBTTagList();
-         Iterator var28 = var23.iterator();
+						this.a(var3, var4);
+					}
+				}
 
-         while(var28.hasNext()) {
-            class_aex var29 = (class_aex)var28.next();
-            NBTTagCompound var30 = new NBTTagCompound();
-            MinecraftKey var31 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var29.a());
-            var30.put("i", var31 == null?"":var31.toString());
-            var30.put("x", var29.a.getX());
-            var30.put("y", var29.a.getY());
-            var30.put("z", var29.a.getZ());
-            var30.put("t", (int)(var29.b - var26));
-            var30.put("p", var29.c);
-            var27.add((NBTTag)var30);
-         }
+				return false;
+			}
+		}
+	}
 
-         var3.put((String)"TileTicks", (NBTTag)var27);
-      }
+	private boolean a(class_pp var1, class_cq var2) {
+		if (var1 instanceof class_qf) {
+			class_qf var7 = (class_qf) var1;
+			int[] var8 = var7.a(var2);
 
-   }
+			for (int var9 = 0; var9 < var8.length; ++var9) {
+				class_aco var6 = var7.a(var8[var9]);
+				if ((var6 == null) || (var6.b != var6.c())) {
+					return false;
+				}
+			}
+		} else {
+			int var3 = var1.n_();
 
-   private Chunk a(World var1, NBTTagCompound var2) {
-      int var3 = var2.getInt("xPos");
-      int var4 = var2.getInt("zPos");
-      Chunk var5 = new Chunk(var1, var3, var4);
-      var5.a(var2.getIntArray("HeightMap"));
-      var5.d(var2.getBoolean("TerrainPopulated"));
-      var5.e(var2.getBoolean("LightPopulated"));
-      var5.c(var2.getLong("InhabitedTime"));
-      NBTTagList var6 = var2.getList("Sections", 10);
-      byte var7 = 16;
-      ChunkSection[] var8 = new ChunkSection[var7];
-      boolean var9 = !var1.worldProvider.m();
+			for (int var4 = 0; var4 < var3; ++var4) {
+				class_aco var5 = var1.a(var4);
+				if ((var5 == null) || (var5.b != var5.c())) {
+					return false;
+				}
+			}
+		}
 
-      for(int var10 = 0; var10 < var6.getSize(); ++var10) {
-         NBTTagCompound var11 = var6.getCompound(var10);
-         byte var12 = var11.getByte("Y");
-         ChunkSection var13 = new ChunkSection(var12 << 4, var9);
-         byte[] var14 = var11.getByteArray("Blocks");
-         class_aoi var15 = new class_aoi(var11.getByteArray("Data"));
-         class_aoi var16 = var11.hasOfType("Add", 7)?new class_aoi(var11.getByteArray("Add")):null;
-         char[] var17 = new char[var14.length];
+		return true;
+	}
 
-         for(int var18 = 0; var18 < var17.length; ++var18) {
-            int var19 = var18 & 15;
-            int var20 = var18 >> 8 & 15;
-            int var21 = var18 >> 4 & 15;
-            int var22 = var16 != null?var16.a(var19, var20, var21):0;
-            var17[var18] = (char)(var22 << 12 | (var14[var18] & 255) << 4 | var15.a(var19, var20, var21));
-         }
+	private static boolean b(class_pp var0, class_cq var1) {
+		if (var0 instanceof class_qf) {
+			class_qf var2 = (class_qf) var0;
+			int[] var3 = var2.a(var1);
 
-         var13.a(var17);
-         var13.a(new class_aoi(var11.getByteArray("BlockLight")));
-         if(var9) {
-            var13.b(new class_aoi(var11.getByteArray("SkyLight")));
-         }
+			for (int var4 = 0; var4 < var3.length; ++var4) {
+				if (var2.a(var3[var4]) != null) {
+					return false;
+				}
+			}
+		} else {
+			int var5 = var0.n_();
 
-         var13.e();
-         var8[var12] = var13;
-      }
+			for (int var6 = 0; var6 < var5; ++var6) {
+				if (var0.a(var6) != null) {
+					return false;
+				}
+			}
+		}
 
-      var5.a(var8);
-      if(var2.hasOfType("Biomes", 7)) {
-         var5.a(var2.getByteArray("Biomes"));
-      }
+		return true;
+	}
 
-      NBTTagList var23 = var2.getList("Entities", 10);
-      if(var23 != null) {
-         for(int var24 = 0; var24 < var23.getSize(); ++var24) {
-            NBTTagCompound var26 = var23.getCompound(var24);
-            Entity var28 = EntityTypes.a(var26, var1);
-            var5.g(true);
-            if(var28 != null) {
-               var5.a(var28);
-               Entity var32 = var28;
+	public static boolean a(class_aou var0) {
+		class_pp var1 = b(var0);
+		if (var1 != null) {
+			class_cq var2 = class_cq.a;
+			if (b(var1, var2)) {
+				return false;
+			}
 
-               for(NBTTagCompound var34 = var26; var34.hasOfType("Riding", 10); var34 = var34.getCompound("Riding")) {
-                  Entity var37 = EntityTypes.a(var34.getCompound("Riding"), var1);
-                  if(var37 != null) {
-                     var5.a(var37);
-                     var32.a(var37);
-                  }
+			if (var1 instanceof class_qf) {
+				class_qf var3 = (class_qf) var1;
+				int[] var4 = var3.a(var2);
 
-                  var32 = var37;
-               }
-            }
-         }
-      }
+				for (int var5 = 0; var5 < var4.length; ++var5) {
+					if (a(var0, var1, var4[var5], var2)) {
+						return true;
+					}
+				}
+			} else {
+				int var7 = var1.n_();
 
-      NBTTagList var25 = var2.getList("TileEntities", 10);
-      if(var25 != null) {
-         for(int var27 = 0; var27 < var25.getSize(); ++var27) {
-            NBTTagCompound var30 = var25.getCompound(var27);
-            TileEntity var33 = TileEntity.fromNBT(var30);
-            if(var33 != null) {
-               var5.a(var33);
-            }
-         }
-      }
+				for (int var9 = 0; var9 < var7; ++var9) {
+					if (a(var0, var1, var9, var2)) {
+						return true;
+					}
+				}
+			}
+		} else {
+			Iterator var6 = a(var0.z(), var0.A(), var0.B() + 1.0D, var0.C()).iterator();
 
-      if(var2.hasOfType("TileTicks", 9)) {
-         NBTTagList var29 = var2.getList("TileTicks", 10);
-         if(var29 != null) {
-            for(int var31 = 0; var31 < var29.getSize(); ++var31) {
-               NBTTagCompound var35 = var29.getCompound(var31);
-               Block var36;
-               if(var35.hasOfType("i", 8)) {
-                  var36 = Block.getByName(var35.getString("i"));
-               } else {
-                  var36 = Block.getById(var35.getInt("i"));
-               }
+			while (var6.hasNext()) {
+				class_xg var8 = (class_xg) var6.next();
+				if (a(var0, var8)) {
+					return true;
+				}
+			}
+		}
 
-               var1.b(new BlockPosition(var35.getInt("x"), var35.getInt("y"), var35.getInt("z")), var36, var35.getInt("t"), var35.getInt("p"));
-            }
-         }
-      }
+		return false;
+	}
 
-      return var5;
-   }
+	private static boolean a(class_aou var0, class_pp var1, int var2, class_cq var3) {
+		class_aco var4 = var1.a(var2);
+		if ((var4 != null) && b(var1, var4, var2, var3)) {
+			class_aco var5 = var4.k();
+			class_aco var6 = a(var0, var1.a(var2, 1), (class_cq) null);
+			if ((var6 == null) || (var6.b == 0)) {
+				var1.o_();
+				return true;
+			}
+
+			var1.a(var2, var5);
+		}
+
+		return false;
+	}
+
+	public static boolean a(class_pp var0, class_xg var1) {
+		boolean var2 = false;
+		if (var1 == null) {
+			return false;
+		} else {
+			class_aco var3 = var1.j().k();
+			class_aco var4 = a(var0, var3, (class_cq) null);
+			if ((var4 != null) && (var4.b != 0)) {
+				var1.a(var4);
+			} else {
+				var2 = true;
+				var1.L();
+			}
+
+			return var2;
+		}
+	}
+
+	public static class_aco a(class_pp var0, class_aco var1, class_cq var2) {
+		if ((var0 instanceof class_qf) && (var2 != null)) {
+			class_qf var6 = (class_qf) var0;
+			int[] var7 = var6.a(var2);
+
+			for (int var5 = 0; (var5 < var7.length) && (var1 != null) && (var1.b > 0); ++var5) {
+				var1 = c(var0, var1, var7[var5], var2);
+			}
+		} else {
+			int var3 = var0.n_();
+
+			for (int var4 = 0; (var4 < var3) && (var1 != null) && (var1.b > 0); ++var4) {
+				var1 = c(var0, var1, var4, var2);
+			}
+		}
+
+		if ((var1 != null) && (var1.b == 0)) {
+			var1 = null;
+		}
+
+		return var1;
+	}
+
+	private static boolean a(class_pp var0, class_aco var1, int var2, class_cq var3) {
+		return !var0.b(var2, var1) ? false : !(var0 instanceof class_qf) || ((class_qf) var0).a(var2, var1, var3);
+	}
+
+	private static boolean b(class_pp var0, class_aco var1, int var2, class_cq var3) {
+		return !(var0 instanceof class_qf) || ((class_qf) var0).b(var2, var1, var3);
+	}
+
+	private static class_aco c(class_pp var0, class_aco var1, int var2, class_cq var3) {
+		class_aco var4 = var0.a(var2);
+		if (a(var0, var1, var2, var3)) {
+			boolean var5 = false;
+			if (var4 == null) {
+				var0.a(var2, var1);
+				var1 = null;
+				var5 = true;
+			} else if (a(var4, var1)) {
+				int var6 = var1.c() - var4.b;
+				int var7 = Math.min(var1.b, var6);
+				var1.b -= var7;
+				var4.b += var7;
+				var5 = var7 > 0;
+			}
+
+			if (var5) {
+				if (var0 instanceof class_aov) {
+					class_aov var8 = (class_aov) var0;
+					if (var8.o()) {
+						var8.d(8);
+					}
+
+					var0.o_();
+				}
+
+				var0.o_();
+			}
+		}
+
+		return var1;
+	}
+
+	private class_pp H() {
+		class_cq var1 = class_akw.b(u());
+		return b(z(), c.n() + var1.g(), c.o() + var1.h(), c.p() + var1.i());
+	}
+
+	public static class_pp b(class_aou var0) {
+		return b(var0.z(), var0.A(), var0.B() + 1.0D, var0.C());
+	}
+
+	public static List a(class_ago var0, double var1, double var3, double var5) {
+		return var0.a(class_xg.class, new class_ayk(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), class_rb.a);
+	}
+
+	public static class_pp b(class_ago var0, double var1, double var3, double var5) {
+		Object var7 = null;
+		int var8 = class_oa.c(var1);
+		int var9 = class_oa.c(var3);
+		int var10 = class_oa.c(var5);
+		class_cj var11 = new class_cj(var8, var9, var10);
+		class_ail var12 = var0.p(var11).c();
+		if (var12.B()) {
+			class_aoi var13 = var0.s(var11);
+			if (var13 instanceof class_pp) {
+				var7 = var13;
+				if ((var7 instanceof class_aok) && (var12 instanceof class_aiw)) {
+					var7 = ((class_aiw) var12).e(var0, var11);
+				}
+			}
+		}
+
+		if (var7 == null) {
+			List var14 = var0.a((class_qx) null, (new class_ayk(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D)), class_rb.c);
+			if (!var14.isEmpty()) {
+				var7 = var14.get(var0.s.nextInt(var14.size()));
+			}
+		}
+
+		return (class_pp) var7;
+	}
+
+	private static boolean a(class_aco var0, class_aco var1) {
+		return var0.b() != var1.b() ? false : (var0.i() != var1.i() ? false : (var0.b > var0.c() ? false : class_aco.a(var0, var1)));
+	}
+
+	@Override
+	public double A() {
+		return c.n() + 0.5D;
+	}
+
+	@Override
+	public double B() {
+		return c.o() + 0.5D;
+	}
+
+	@Override
+	public double C() {
+		return c.p() + 0.5D;
+	}
+
+	public void d(int var1) {
+		g = var1;
+	}
+
+	public boolean n() {
+		return g > 0;
+	}
+
+	public boolean o() {
+		return g <= 1;
+	}
+
+	@Override
+	public String k() {
+		return "minecraft:hopper";
+	}
+
+	@Override
+	public class_zu a(class_yt var1, class_yu var2) {
+		return new class_aai(var1, this, var2);
+	}
+
+	@Override
+	public int c(int var1) {
+		return 0;
+	}
+
+	@Override
+	public void b(int var1, int var2) {
+	}
+
+	@Override
+	public int g() {
+		return 0;
+	}
+
+	@Override
+	public void l() {
+		for (int var1 = 0; var1 < a.length; ++var1) {
+			a[var1] = null;
+		}
+
+	}
 }

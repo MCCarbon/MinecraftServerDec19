@@ -1,97 +1,128 @@
 package net.minecraft.server;
 
-import java.util.Random;
 
-public class class_aqw extends class_aqy {
-   public class_aqw(boolean var1, int var2, int var3, IBlockData var4, IBlockData var5) {
-      super(var1, var2, var3, var4, var5);
-   }
+public class class_aqw {
+	public static class_aqw.class_a_in_class_aqw a(class_dn var0) {
+		int var1 = var0.h("xPos");
+		int var2 = var0.h("zPos");
+		class_aqw.class_a_in_class_aqw var3 = new class_aqw.class_a_in_class_aqw(var1, var2);
+		var3.g = var0.m("Blocks");
+		var3.f = new class_aqp(var0.m("Data"), 7);
+		var3.e = new class_aqp(var0.m("SkyLight"), 7);
+		var3.d = new class_aqp(var0.m("BlockLight"), 7);
+		var3.c = var0.m("HeightMap");
+		var3.b = var0.p("TerrainPopulated");
+		var3.h = var0.c("Entities", 10);
+		var3.i = var0.c("TileEntities", 10);
+		var3.j = var0.c("TileTicks", 10);
 
-   public boolean generate(World var1, Random var2, BlockPosition var3) {
-      int var4 = this.a(var2);
-      if(!this.a(var1, var2, var3, var4)) {
-         return false;
-      } else {
-         this.c(var1, var3.up(var4), 2);
+		try {
+			var3.a = var0.i("LastUpdate");
+		} catch (ClassCastException var5) {
+			var3.a = var0.h("LastUpdate");
+		}
 
-         for(int var5 = var3.getY() + var4 - 2 - var2.nextInt(4); var5 > var3.getY() + var4 / 2; var5 -= 2 + var2.nextInt(4)) {
-            float var6 = var2.nextFloat() * 3.1415927F * 2.0F;
-            int var7 = var3.getX() + (int)(0.5F + MathHelper.cos(var6) * 4.0F);
-            int var8 = var3.getZ() + (int)(0.5F + MathHelper.sin(var6) * 4.0F);
+		return var3;
+	}
 
-            int var9;
-            for(var9 = 0; var9 < 5; ++var9) {
-               var7 = var3.getX() + (int)(1.5F + MathHelper.cos(var6) * (float)var9);
-               var8 = var3.getZ() + (int)(1.5F + MathHelper.sin(var6) * (float)var9);
-               this.setTypeAndData(var1, new BlockPosition(var7, var5 - 3 + var9 / 2, var8), this.b);
-            }
+	public static void a(class_aqw.class_a_in_class_aqw var0, class_dn var1, class_ahf var2) {
+		var1.a("xPos", var0.k);
+		var1.a("zPos", var0.l);
+		var1.a("LastUpdate", var0.a);
+		int[] var3 = new int[var0.c.length];
 
-            var9 = 1 + var2.nextInt(2);
-            int var10 = var5;
+		for (int var4 = 0; var4 < var0.c.length; ++var4) {
+			var3[var4] = var0.c[var4];
+		}
 
-            for(int var11 = var5 - var9; var11 <= var10; ++var11) {
-               int var12 = var11 - var10;
-               this.b(var1, new BlockPosition(var7, var11, var8), 1 - var12);
-            }
-         }
+		var1.a("HeightMap", var3);
+		var1.a("TerrainPopulated", var0.b);
+		class_du var16 = new class_du();
 
-         for(int var13 = 0; var13 < var4; ++var13) {
-            BlockPosition var14 = var3.up(var13);
-            if(this.a(var1.getType(var14).getBlock())) {
-               this.setTypeAndData(var1, var14, this.b);
-               if(var13 > 0) {
-                  this.a(var1, var2, var14.west(), BlockVine.N);
-                  this.a(var1, var2, var14.north(), BlockVine.O);
-               }
-            }
+		int var7;
+		int var8;
+		for (int var5 = 0; var5 < 8; ++var5) {
+			boolean var6 = true;
 
-            if(var13 < var4 - 1) {
-               BlockPosition var15 = var14.east();
-               if(this.a(var1.getType(var15).getBlock())) {
-                  this.setTypeAndData(var1, var15, this.b);
-                  if(var13 > 0) {
-                     this.a(var1, var2, var15.east(), BlockVine.P);
-                     this.a(var1, var2, var15.north(), BlockVine.O);
-                  }
-               }
+			for (var7 = 0; (var7 < 16) && var6; ++var7) {
+				for (var8 = 0; (var8 < 16) && var6; ++var8) {
+					for (int var9 = 0; var9 < 16; ++var9) {
+						int var10 = (var7 << 11) | (var9 << 7) | (var8 + (var5 << 4));
+						byte var11 = var0.g[var10];
+						if (var11 != 0) {
+							var6 = false;
+							break;
+						}
+					}
+				}
+			}
 
-               BlockPosition var16 = var14.south().east();
-               if(this.a(var1.getType(var16).getBlock())) {
-                  this.setTypeAndData(var1, var16, this.b);
-                  if(var13 > 0) {
-                     this.a(var1, var2, var16.east(), BlockVine.P);
-                     this.a(var1, var2, var16.south(), BlockVine.b);
-                  }
-               }
+			if (!var6) {
+				byte[] var19 = new byte[4096];
+				class_aql var20 = new class_aql();
+				class_aql var21 = new class_aql();
+				class_aql var22 = new class_aql();
 
-               BlockPosition var17 = var14.south();
-               if(this.a(var1.getType(var17).getBlock())) {
-                  this.setTypeAndData(var1, var17, this.b);
-                  if(var13 > 0) {
-                     this.a(var1, var2, var17.west(), BlockVine.N);
-                     this.a(var1, var2, var17.south(), BlockVine.b);
-                  }
-               }
-            }
-         }
+				for (int var23 = 0; var23 < 16; ++var23) {
+					for (int var12 = 0; var12 < 16; ++var12) {
+						for (int var13 = 0; var13 < 16; ++var13) {
+							int var14 = (var23 << 11) | (var13 << 7) | (var12 + (var5 << 4));
+							byte var15 = var0.g[var14];
+							var19[(var12 << 8) | (var13 << 4) | var23] = (byte) (var15 & 255);
+							var20.a(var23, var12, var13, var0.f.a(var23, var12 + (var5 << 4), var13));
+							var21.a(var23, var12, var13, var0.e.a(var23, var12 + (var5 << 4), var13));
+							var22.a(var23, var12, var13, var0.d.a(var23, var12 + (var5 << 4), var13));
+						}
+					}
+				}
 
-         return true;
-      }
-   }
+				class_dn var24 = new class_dn();
+				var24.a("Y", (byte) (var5 & 255));
+				var24.a("Blocks", var19);
+				var24.a("Data", var20.a());
+				var24.a("SkyLight", var21.a());
+				var24.a("BlockLight", var22.a());
+				var16.a(var24);
+			}
+		}
 
-   private void a(World var1, Random var2, BlockPosition var3, BlockStateBoolean var4) {
-      if(var2.nextInt(3) > 0 && var1.isEmpty(var3)) {
-         this.setTypeAndData(var1, var3, Blocks.VINE.getBlockData().set(var4, Boolean.valueOf(true)));
-      }
+		var1.a("Sections", var16);
+		byte[] var17 = new byte[256];
+		class_cj.class_a_in_class_cj var18 = new class_cj.class_a_in_class_cj();
 
-   }
+		for (var7 = 0; var7 < 16; ++var7) {
+			for (var8 = 0; var8 < 16; ++var8) {
+				var18.c((var0.k << 4) | var7, 0, (var0.l << 4) | var8);
+				var17[(var8 << 4) | var7] = (byte) (var2.a(var18, class_ahb.ad).az & 255);
+			}
+		}
 
-   private void c(World var1, BlockPosition var2, int var3) {
-      byte var4 = 2;
+		var1.a("Biomes", var17);
+		var1.a("Entities", var0.h);
+		var1.a("TileEntities", var0.i);
+		if (var0.j != null) {
+			var1.a("TileTicks", var0.j);
+		}
 
-      for(int var5 = -var4; var5 <= 0; ++var5) {
-         this.a(var1, var2.up(var5), var3 + 1 - var5);
-      }
+	}
 
-   }
+	public static class class_a_in_class_aqw {
+		public long a;
+		public boolean b;
+		public byte[] c;
+		public class_aqp d;
+		public class_aqp e;
+		public class_aqp f;
+		public byte[] g;
+		public class_du h;
+		public class_du i;
+		public class_du j;
+		public final int k;
+		public final int l;
+
+		public class_a_in_class_aqw(int var1, int var2) {
+			k = var1;
+			l = var2;
+		}
+	}
 }

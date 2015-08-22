@@ -1,13 +1,30 @@
 package net.minecraft.server;
 
-public interface class_qk {
-   String a();
 
-   double a(double var1);
+public class class_qk extends class_qj {
+	private final class_qx s;
 
-   double b();
+	public class_qk(String var1, class_qx var2, class_qx var3) {
+		super(var1, var2);
+		s = var3;
+	}
 
-   boolean c();
+	@Override
+	public class_qx i() {
+		return r;
+	}
 
-   class_qk d();
+	@Override
+	public class_qx j() {
+		return s;
+	}
+
+	@Override
+	public class_eu c(class_rg var1) {
+		class_eu var2 = s == null ? r.f_() : s.f_();
+		class_aco var3 = s instanceof class_rg ? ((class_rg) s).bG() : null;
+		String var4 = "death.attack." + q;
+		String var5 = var4 + ".item";
+		return (var3 != null) && var3.s() && class_di.c(var5) ? new class_fb(var5, new Object[] { var1.f_(), var2, var3.B() }) : new class_fb(var4, new Object[] { var1.f_(), var2 });
+	}
 }

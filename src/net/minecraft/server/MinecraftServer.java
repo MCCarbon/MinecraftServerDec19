@@ -1,16 +1,5 @@
 package net.minecraft.server;
 
-import com.google.common.base.Charsets;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Queues;
-import com.google.common.util.concurrent.Futures;
-import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.ListenableFutureTask;
-import com.mojang.authlib.GameProfile;
-import com.mojang.authlib.GameProfileRepository;
-import com.mojang.authlib.minecraft.MinecraftSessionService;
-import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.ByteBufOutputStream;
 import io.netty.buffer.Unpooled;
@@ -38,148 +27,118 @@ import java.util.concurrent.FutureTask;
 
 import javax.imageio.ImageIO;
 
-import net.minecraft.server.World;
-import net.minecraft.server.SessionException;
-import net.minecraft.server.class_aep;
-import net.minecraft.server.WorldSettings;
-import net.minecraft.server.WorldType;
-import net.minecraft.server.WorldLoaderServer;
-import net.minecraft.server.WorldData;
-import net.minecraft.server.IDataManager;
-import net.minecraft.server.class_avq;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_b;
-import net.minecraft.server.CommandDispatcher;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_e;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.Packet;
-import net.minecraft.server.class_g;
-import net.minecraft.server.PacketPlayOutUpdateTime;
-import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.ServerPing;
-import net.minecraft.server.Bootstrap;
-import net.minecraft.server.ITickAble;
-import net.minecraft.server.DedicatedServer;
-import net.minecraft.server.class_ky;
-import net.minecraft.server.class_l;
-import net.minecraft.server.class_la;
-import net.minecraft.server.class_lc;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.ServerConnection;
-import net.minecraft.server.class_lv;
-import net.minecraft.server.PlayerList;
-import net.minecraft.server.ICommandListener;
-import net.minecraft.server.CommandObjectiveExecutor;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.MethodProfiler;
-import net.minecraft.server.IProgressUpdate;
-import net.minecraft.server.class_of;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_ox;
-import net.minecraft.server.class_oy;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
-
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public abstract class MinecraftServer implements Runnable, ICommandListener, class_of, class_oy {
+import com.google.common.base.Charsets;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Queues;
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.ListenableFuture;
+import com.google.common.util.concurrent.ListenableFutureTask;
+import com.mojang.authlib.GameProfile;
+import com.mojang.authlib.GameProfileRepository;
+import com.mojang.authlib.minecraft.MinecraftSessionService;
+import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 
+public abstract class MinecraftServer implements Runnable, class_m, class_pl, class_qe {
 	private static final Logger k = LogManager.getLogger();
 	public static final File a = new File("usercache.json");
 	private static MinecraftServer l;
-	private final class_avq m;
-	private final class_ox n = new class_ox("server", this, az());
+	private final class_axw m;
+	private final class_qd n = new class_qd("server", this, aB());
 	private final File o;
-	private final List<ITickAble> p = Lists.newArrayList();
+	private final List p = Lists.newArrayList();
 	protected final class_l b;
-	public final MethodProfiler c = new MethodProfiler();
-	private final ServerConnection q;
-	private final ServerPing r = new ServerPing();
+	public final class_ob c = new class_ob();
+	private final class_ls q;
+	private final class_ju r = new class_ju();
 	private final Random s = new Random();
-	private String t;
-	private int u = -1;
-	public WorldServer[] d;
-	private PlayerList v;
-	private boolean w = true;
-	private boolean x;
-	private int y;
+	private final class_oo t;
+	private String u;
+	private int v = -1;
+	public class_ll[] d;
+	private class_me w;
+	private boolean x = true;
+	private boolean y;
+	private int z;
 	protected final Proxy e;
 	public String f;
 	public int g;
-	private boolean onlinemode;
 	private boolean A;
 	private boolean B;
 	private boolean C;
 	private boolean D;
-	private String E;
-	private int F;
-	private int G = 0;
+	private boolean E;
+	private String F;
+	private int G;
+	private int H = 0;
 	public final long[] h = new long[100];
 	public long[][] i;
-	private KeyPair H;
-	private String I;
+	private KeyPair I;
 	private String J;
-	private boolean L;
+	private String K;
 	private boolean M;
 	private boolean N;
-	private String O = "";
+	private boolean O;
 	private String P = "";
-	private boolean Q;
-	private long R;
-	private String S;
-	private boolean T;
+	private String Q = "";
+	private boolean R;
+	private long S;
+	private String T;
 	private boolean U;
-	private final YggdrasilAuthenticationService V;
-	private final MinecraftSessionService W;
-	private long X = 0L;
-	private final GameProfileRepository Y;
-	private final class_lv Z;
-	protected final Queue<ListenableFutureTask<?>> processQueue = Queues.newArrayDeque();
-	private Thread mainthread;
-	private long ab = az();
+	private boolean V;
+	private final YggdrasilAuthenticationService W;
+	private final MinecraftSessionService X;
+	private long Y = 0L;
+	private final GameProfileRepository Z;
+	private final class_ma aa;
+	protected final Queue j = Queues.newArrayDeque();
+	private Thread ab;
+	private long ac = aB();
 
-	public MinecraftServer(File var1, Proxy var2, File var3) {
-		this.e = var2;
+	public MinecraftServer(File var1, Proxy var2, File var3, class_oo var4) {
+		e = var2;
 		l = this;
-		this.o = var1;
-		this.q = new ServerConnection(this);
-		this.Z = new class_lv(this, var3);
-		this.b = this.h();
-		this.m = new WorldLoaderServer(var1);
-		this.V = new YggdrasilAuthenticationService(var2, UUID.randomUUID().toString());
-		this.W = this.V.createMinecraftSessionService();
-		this.Y = this.V.createProfileRepository();
+		o = var1;
+		q = new class_ls(this);
+		aa = new class_ma(this, var3);
+		b = this.h();
+		m = new class_axp(var1, var4);
+		W = new YggdrasilAuthenticationService(var2, UUID.randomUUID().toString());
+		X = W.createMinecraftSessionService();
+		Z = W.createProfileRepository();
+		t = var4;
 	}
 
-	protected CommandDispatcher h() {
-		return new CommandDispatcher();
+	protected class_bd h() {
+		return new class_bd();
 	}
 
 	protected abstract boolean i() throws IOException;
 
 	protected void a(String var1) {
-		if (this.Y().b(var1)) {
+		if (aa().b(var1)) {
 			k.info("Converting map!");
 			this.b("menu.convertingLevel");
-			this.Y().a(var1, new IProgressUpdate() {
+			aa().a(var1, new class_oc() {
 				private long b = System.currentTimeMillis();
 
+				@Override
 				public void a(String var1) {
 				}
 
+				@Override
 				public void a(int var1) {
-					if (System.currentTimeMillis() - this.b >= 1000L) {
-						this.b = System.currentTimeMillis();
+					if ((System.currentTimeMillis() - b) >= 1000L) {
+						b = System.currentTimeMillis();
 						MinecraftServer.k.info("Converting... " + var1 + "%");
 					}
 
 				}
 
+				@Override
 				public void c(String var1) {
 				}
 			});
@@ -188,36 +147,36 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	protected synchronized void b(String var1) {
-		this.S = var1;
+		T = var1;
 	}
 
-	protected void a(String var1, String var2, long var3, WorldType var5, String var6) {
+	protected void a(String var1, String var2, long var3, class_agt var5, String var6) {
 		this.a(var1);
 		this.b("menu.loadingLevel");
-		this.d = new WorldServer[3];
-		this.i = new long[this.d.length][100];
-		IDataManager var7 = this.m.a(var1, true);
-		this.a(this.U(), var7);
-		WorldData var9 = var7.getWorldData();
-		WorldSettings var8;
+		d = new class_ll[3];
+		i = new long[d.length][100];
+		class_axu var7 = m.a(var1, true);
+		this.a(W(), var7);
+		class_axt var9 = var7.d();
+		class_agr var8;
 		if (var9 == null) {
-			if (this.X()) {
-				var8 = class_ky.a;
+			if (Z()) {
+				var8 = class_ld.a;
 			} else {
-				var8 = new WorldSettings(var3, this.m(), this.l(), this.o(), var5);
+				var8 = new class_agr(var3, m(), this.l(), o(), var5);
 				var8.a(var6);
-				if (this.M) {
+				if (N) {
 					var8.a();
 				}
 			}
 
-			var9 = new WorldData(var8, var2);
+			var9 = new class_axt(var8, var2);
 		} else {
 			var9.a(var2);
-			var8 = new WorldSettings(var9);
+			var8 = new class_agr(var9);
 		}
 
-		for (int var10 = 0; var10 < this.d.length; ++var10) {
+		for (int var10 = 0; var10 < d.length; ++var10) {
 			byte var11 = 0;
 			if (var10 == 1) {
 				var11 = -1;
@@ -228,26 +187,26 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 			}
 
 			if (var10 == 0) {
-				if (this.X()) {
-					this.d[var10] = (WorldServer) (new class_ky(this, var7, var9, var11, this.c)).b();
+				if (Z()) {
+					d[var10] = (class_ll) (new class_ld(this, var7, var9, var11, c)).b();
 				} else {
-					this.d[var10] = (WorldServer) (new WorldServer(this, var7, var9, var11, this.c)).b();
+					d[var10] = (class_ll) (new class_ll(this, var7, var9, var11, c)).b();
 				}
 
-				this.d[var10].a(var8);
+				d[var10].a(var8);
 			} else {
-				this.d[var10] = (WorldServer) (new class_la(this, var7, var11, this.d[0], this.c)).b();
+				d[var10] = (class_ll) (new class_lf(this, var7, var11, d[0], c)).b();
 			}
 
-			this.d[var10].a((class_aep) (new class_lc(this, this.d[var10])));
-			if (!this.isLocal()) {
-				this.d[var10].Q().a(this.m());
+			d[var10].a((new class_lh(this, d[var10])));
+			if (!V()) {
+				d[var10].R().a(m());
 			}
 		}
 
-		this.v.a(this.d);
-		this.a(this.n());
-		this.k();
+		w.a(d);
+		this.a(n());
+		k();
 	}
 
 	protected void k() {
@@ -259,28 +218,28 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		this.b("menu.generatingTerrain");
 		byte var6 = 0;
 		k.info("Preparing start region for level " + var6);
-		WorldServer var7 = this.d[var6];
-		BlockPosition var8 = var7.N();
-		long var9 = az();
+		class_ll var7 = d[var6];
+		class_cj var8 = var7.O();
+		long var9 = aB();
 
-		for (int var11 = -192; var11 <= 192 && this.v(); var11 += 16) {
-			for (int var12 = -192; var12 <= 192 && this.v(); var12 += 16) {
-				long var13 = az();
-				if (var13 - var9 > 1000L) {
-					this.a_("Preparing spawn area", var5 * 100 / 625);
+		for (int var11 = -192; (var11 <= 192) && v(); var11 += 16) {
+			for (int var12 = -192; (var12 <= 192) && v(); var12 += 16) {
+				long var13 = aB();
+				if ((var13 - var9) > 1000L) {
+					this.a_("Preparing spawn area", (var5 * 100) / 625);
 					var9 = var13;
 				}
 
 				++var5;
-				var7.b.c(var8.getX() + var11 >> 4, var8.getZ() + var12 >> 4);
+				var7.b.c((var8.n() + var11) >> 4, (var8.p() + var12) >> 4);
 			}
 		}
 
-		this.s();
+		s();
 	}
 
-	protected void a(String var1, IDataManager var2) {
-		File var3 = new File(var2.getDirectory(), "resources.zip");
+	protected void a(String var1, class_axu var2) {
+		File var3 = new File(var2.b(), "resources.zip");
 		if (var3.isFile()) {
 			this.a_("level://" + var1 + "/" + var3.getName(), "");
 		}
@@ -289,9 +248,9 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 
 	public abstract boolean l();
 
-	public abstract WorldSettings.EnumGameMode m();
+	public abstract class_agr.class_a_in_class_agr m();
 
-	public abstract class_om n();
+	public abstract class_ps n();
 
 	public abstract boolean o();
 
@@ -302,31 +261,31 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	public abstract boolean r();
 
 	protected void a_(String var1, int var2) {
-		this.f = var1;
-		this.g = var2;
+		f = var1;
+		g = var2;
 		k.info(var1 + ": " + var2 + "%");
 	}
 
 	protected void s() {
-		this.f = null;
-		this.g = 0;
+		f = null;
+		g = 0;
 	}
 
 	protected void a(boolean var1) {
-		if (!this.N) {
-			WorldServer[] var2 = this.d;
+		if (!O) {
+			class_ll[] var2 = d;
 			int var3 = var2.length;
 
 			for (int var4 = 0; var4 < var3; ++var4) {
-				WorldServer var5 = var2[var4];
+				class_ll var5 = var2[var4];
 				if (var5 != null) {
 					if (!var1) {
-						k.info("Saving chunks for level \'" + var5.Q().k() + "\'/" + var5.worldProvider.p().b());
+						k.info("Saving chunks for level \'" + var5.R().j() + "\'/" + var5.t.p().b());
 					}
 
 					try {
-						var5.a(true, (IProgressUpdate) null);
-					} catch (SessionException var7) {
+						var5.a(true, (class_oc) null);
+					} catch (class_agp var7) {
 						k.warn(var7.getMessage());
 					}
 				}
@@ -336,67 +295,68 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	protected void t() {
-		if (!this.N) {
+		if (!O) {
 			k.info("Stopping server");
-			if (this.aq() != null) {
-				this.aq().shutdownNetwork();
+			if (as() != null) {
+				as().b();
 			}
 
-			if (this.v != null) {
+			if (w != null) {
 				k.info("Saving players");
-				this.v.j();
-				this.v.u();
+				w.j();
+				w.u();
 			}
 
-			if (this.d != null) {
+			if (d != null) {
 				k.info("Saving worlds");
 				this.a(false);
 
-				for (int var1 = 0; var1 < this.d.length; ++var1) {
-					WorldServer var2 = this.d[var1];
-					var2.p();
+				for (int var1 = 0; var1 < d.length; ++var1) {
+					class_ll var2 = d[var1];
+					var2.q();
 				}
 			}
 
-			if (this.n.d()) {
-				this.n.e();
+			if (n.d()) {
+				n.e();
 			}
 
 		}
 	}
 
 	public String u() {
-		return this.t;
+		return u;
 	}
 
 	public void c(String var1) {
-		this.t = var1;
+		u = var1;
 	}
 
 	public boolean v() {
-		return this.w;
+		return x;
 	}
 
 	public void w() {
-		this.w = false;
+		x = false;
 	}
 
+	@Override
 	public void run() {
 		try {
 			if (this.i()) {
-				this.ab = az();
+				ac = aB();
 				long var1 = 0L;
-				this.r.a((IChatBaseComponent) (new ChatComponentText(this.E)));
-				this.r.a(new ServerPing.ServerData("15w31c", 51));
-				this.a(this.r);
+				r.a((new class_fa(F)));
+				r.a(new class_ju.class_c_in_class_ju("15w34d", 61));
+				this.a(r);
 
-				while (this.w) {
-					long var48 = az();
-					long var5 = var48 - this.ab;
-					if (var5 > 2000L && this.ab - this.R >= 15000L) {
+				while (x) {
+					long var48 = aB();
+					long var5 = var48 - ac;
+					if ((var5 > 2000L) && ((ac - S) >= 15000L)) {
 						k.warn("Can\'t keep up! Did the system time change, or is the server overloaded? Running {}ms behind, skipping {} tick(s)", new Object[] { Long.valueOf(var5), Long.valueOf(var5 / 50L) });
 						var5 = 2000L;
-						this.R = this.ab;
+						S = ac;
 					}
 
 					if (var5 < 0L) {
@@ -405,19 +365,19 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 					}
 
 					var1 += var5;
-					this.ab = var48;
-					if (this.d[0].g()) {
-						this.A();
+					ac = var48;
+					if (d[0].g()) {
+						C();
 						var1 = 0L;
 					} else {
 						while (var1 > 50L) {
 							var1 -= 50L;
-							this.A();
+							C();
 						}
 					}
 
 					Thread.sleep(Math.max(1L, 50L - var1));
-					this.Q = true;
+					R = true;
 				}
 			} else {
 				this.a((class_b) null);
@@ -431,7 +391,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 				var2 = this.b(new class_b("Exception in server tick loop", var46));
 			}
 
-			File var3 = new File(new File(this.y(), "crash-reports"), "crash-" + (new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss")).format(new Date()) + "-server.txt");
+			File var3 = new File(new File(A(), "crash-reports"), "crash-" + (new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss")).format(new Date()) + "-server.txt");
 			if (var2.a(var3)) {
 				k.error("This crash report has been saved to: " + var3.getAbsolutePath());
 			} else {
@@ -441,20 +401,24 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 			this.a(var2);
 		} finally {
 			try {
-				this.x = true;
-				this.t();
+				y = true;
+				t();
 			} catch (Throwable var44) {
 				k.error("Exception stopping the server", var44);
 			} finally {
-				this.z();
+				B();
 			}
 
 		}
 
 	}
 
-	private void a(ServerPing var1) {
+	public void a(class_ju var1) {
 		File var2 = this.d("server-icon.png");
+		if (!var2.exists()) {
+			var2 = aa().b(W(), "icon.png");
+		}
+
 		if (var2.isFile()) {
 			ByteBuf var3 = Unpooled.buffer();
 
@@ -466,7 +430,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 				ByteBuf var5 = Base64.encode(var3);
 				var1.a("data:image/png;base64," + var5.toString(Charsets.UTF_8));
 			} catch (Exception var9) {
-				k.error((String) "Couldn\'t load server icon", (Throwable) var9);
+				k.error("Couldn\'t load server icon", var9);
 			} finally {
 				var3.release();
 			}
@@ -474,138 +438,139 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 
 	}
 
-	public File y() {
+	public File A() {
 		return new File(".");
 	}
 
 	protected void a(class_b var1) {
 	}
 
-	protected void z() {
+	protected void B() {
 	}
 
-	protected void A() {
+	protected void C() {
 		long var1 = System.nanoTime();
-		++this.y;
-		if (this.T) {
-			this.T = false;
-			this.c.a = true;
-			this.c.a();
+		++z;
+		if (U) {
+			U = false;
+			c.a = true;
+			c.a();
 		}
 
-		this.c.a("root");
-		this.B();
-		if (var1 - this.X >= 5000000000L) {
-			this.X = var1;
-			this.r.a(new ServerPing.ServerPingPlayerSample(this.J(), this.I()));
-			GameProfile[] var3 = new GameProfile[Math.min(this.I(), 12)];
-			int var4 = MathHelper.getRandomIntInRange((Random) this.s, 0, this.I() - var3.length);
+		c.a("root");
+		D();
+		if ((var1 - Y) >= 5000000000L) {
+			Y = var1;
+			r.a(new class_ju.class_a_in_class_ju(L(), K()));
+			GameProfile[] var3 = new GameProfile[Math.min(K(), 12)];
+			int var4 = class_oa.a(s, 0, K() - var3.length);
 
 			for (int var5 = 0; var5 < var3.length; ++var5) {
-				var3[var5] = ((EntityPlayer) this.v.v().get(var4 + var5)).cf();
+				var3[var5] = ((class_lm) w.v().get(var4 + var5)).cl();
 			}
 
 			Collections.shuffle(Arrays.asList(var3));
-			this.r.b().a(var3);
+			r.b().a(var3);
 		}
 
-		if (this.y % 900 == 0) {
-			this.c.a("save");
-			this.v.j();
+		if ((z % 900) == 0) {
+			c.a("save");
+			w.j();
 			this.a(true);
-			this.c.b();
+			c.b();
 		}
 
-		this.c.a("tallying");
-		this.h[this.y % 100] = System.nanoTime() - var1;
-		this.c.b();
-		this.c.a("snooper");
-		if (!this.n.d() && this.y > 100) {
-			this.n.a();
+		c.a("tallying");
+		h[z % 100] = System.nanoTime() - var1;
+		c.b();
+		c.a("snooper");
+		if (!n.d() && (z > 100)) {
+			n.a();
 		}
 
-		if (this.y % 6000 == 0) {
-			this.n.b();
+		if ((z % 6000) == 0) {
+			n.b();
 		}
 
-		this.c.b();
-		this.c.b();
+		c.b();
+		c.b();
 	}
 
-	public void B() {
-		this.c.a("jobs");
-		synchronized (this.processQueue) {
-			while (!this.processQueue.isEmpty()) {
-				class_g.a((FutureTask<?>) this.processQueue.poll(), k);
+	public void D() {
+		c.a("jobs");
+		Queue var1 = j;
+		synchronized (j) {
+			while (!j.isEmpty()) {
+				class_g.a((FutureTask) j.poll(), k);
 			}
 		}
 
-		this.c.c("levels");
+		c.c("levels");
 
 		int var10;
-		for (var10 = 0; var10 < this.d.length; ++var10) {
+		for (var10 = 0; var10 < d.length; ++var10) {
 			long var2 = System.nanoTime();
-			if (var10 == 0 || this.C()) {
-				WorldServer var4 = this.d[var10];
-				this.c.a(var4.Q().k());
-				if (this.y % 20 == 0) {
-					this.c.a("timeSync");
-					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.L(), var4.M(), var4.R().getBooleanValue("doDaylightCycle"))), var4.worldProvider.p().a());
-					this.c.b();
+			if ((var10 == 0) || E()) {
+				class_ll var4 = d[var10];
+				c.a(var4.R().j());
+				if ((z % 20) == 0) {
+					c.a("timeSync");
+					w.a((new class_hv(var4.M(), var4.N(), var4.S().b("doDaylightCycle"))), var4.t.p().a());
+					c.b();
 				}
 
-				this.c.a("tick");
+				c.a("tick");
 
 				class_b var6;
 				try {
 					var4.d();
 				} catch (Throwable var8) {
 					var6 = class_b.a(var8, "Exception ticking world");
-					var4.a((class_b) var6);
+					var4.a(var6);
 					throw new class_e(var6);
 				}
 
 				try {
-					var4.j();
+					var4.k();
 				} catch (Throwable var7) {
 					var6 = class_b.a(var7, "Exception ticking world entities");
-					var4.a((class_b) var6);
+					var4.a(var6);
 					throw new class_e(var6);
 				}
 
-				this.c.b();
-				this.c.a("tracker");
-				var4.t().a();
-				this.c.b();
-				this.c.b();
+				c.b();
+				c.a("tracker");
+				var4.u().a();
+				c.b();
+				c.b();
 			}
 
-			this.i[var10][this.y % 100] = System.nanoTime() - var2;
+			i[var10][z % 100] = System.nanoTime() - var2;
 		}
 
-		this.c.c("connection");
-		this.aq().handleNetwork();
-		this.c.c("players");
-		this.v.tick();
-		this.c.c("tickables");
+		c.c("connection");
+		as().c();
+		c.c("players");
+		w.e();
+		c.c("tickables");
 
-		for (var10 = 0; var10 < this.p.size(); ++var10) {
-			((ITickAble) this.p.get(var10)).tick();
+		for (var10 = 0; var10 < p.size(); ++var10) {
+			((class_ks) p.get(var10)).c();
 		}
 
-		this.c.b();
+		c.b();
 	}
 
-	public boolean C() {
+	public boolean E() {
 		return true;
 	}
 
-	public void a(ITickAble var1) {
-		this.p.add(var1);
+	public void a(class_ks var1) {
+		p.add(var1);
 	}
 
 	public static void main(String[] var0) {
-		Bootstrap.init();
+		class_kh.c();
 
 		try {
 			boolean var1 = true;
@@ -618,10 +583,10 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 
 			for (int var8 = 0; var8 < var0.length; ++var8) {
 				String var9 = var0[var8];
-				String var10 = var8 == var0.length - 1 ? null : var0[var8 + 1];
+				String var10 = var8 == (var0.length - 1) ? null : var0[var8 + 1];
 				boolean var11 = false;
 				if (!var9.equals("nogui") && !var9.equals("--nogui")) {
-					if (var9.equals("--port") && var10 != null) {
+					if (var9.equals("--port") && (var10 != null)) {
 						var11 = true;
 
 						try {
@@ -629,13 +594,13 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 						} catch (NumberFormatException var13) {
 							;
 						}
-					} else if (var9.equals("--singleplayer") && var10 != null) {
+					} else if (var9.equals("--singleplayer") && (var10 != null)) {
 						var11 = true;
 						var2 = var10;
-					} else if (var9.equals("--universe") && var10 != null) {
+					} else if (var9.equals("--universe") && (var10 != null)) {
 						var11 = true;
 						var3 = var10;
-					} else if (var9.equals("--world") && var10 != null) {
+					} else if (var9.equals("--world") && (var10 != null)) {
 						var11 = true;
 						var4 = var10;
 					} else if (var9.equals("--demo")) {
@@ -652,7 +617,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 				}
 			}
 
-			final DedicatedServer var15 = new DedicatedServer(new File(var3));
+			final class_ku var15 = new class_ku(new File(var3), class_op.a());
 			if (var2 != null) {
 				var15.i(var2);
 			}
@@ -674,75 +639,76 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 			}
 
 			if (var1 && !GraphicsEnvironment.isHeadless()) {
-				var15.aQ();
+				var15.aT();
 			}
 
-			var15.D();
+			var15.F();
 			Runtime.getRuntime().addShutdownHook(new Thread("Server Shutdown Thread") {
+				@Override
 				public void run() {
 					var15.t();
 				}
 			});
 		} catch (Exception var14) {
-			k.fatal((String) "Failed to start the minecraft server", (Throwable) var14);
+			k.fatal("Failed to start the minecraft server", var14);
 		}
 
 	}
 
-	public void D() {
-		this.mainthread = new Thread(this, "Server thread");
-		this.mainthread.start();
+	public void F() {
+		ab = new Thread(this, "Server thread");
+		ab.start();
 	}
 
 	public File d(String var1) {
-		return new File(this.y(), var1);
+		return new File(A(), var1);
 	}
 
-	public void info(String var1) {
+	public void e(String var1) {
 		k.info(var1);
 	}
 
-	public void warning(String var1) {
+	public void f(String var1) {
 		k.warn(var1);
 	}
 
-	public WorldServer getWorldServer(int var1) {
-		return var1 == -1 ? this.d[1] : (var1 == 1 ? this.d[2] : this.d[0]);
-	}
-
-	public String E() {
-		return this.t;
-	}
-
-	public int F() {
-		return this.u;
+	public class_ll a(int var1) {
+		return var1 == -1 ? d[1] : (var1 == 1 ? d[2] : d[0]);
 	}
 
 	public String G() {
-		return this.E;
+		return u;
 	}
 
-	public String getVersion() {
-		return "15w31c";
+	public int H() {
+		return v;
 	}
 
-	public int I() {
-		return this.v.getOnlinePlayers();
+	public String I() {
+		return F;
 	}
 
-	public int J() {
-		return this.v.getMaxPlayers();
+	public String J() {
+		return "15w34d";
 	}
 
-	public String[] getPlayers() {
-		return this.v.f();
+	public int K() {
+		return w.o();
 	}
 
-	public GameProfile[] L() {
-		return this.v.g();
+	public int L() {
+		return w.p();
 	}
 
-	public boolean isDebugging() {
+	public String[] M() {
+		return w.f();
+	}
+
+	public GameProfile[] N() {
+		return w.g();
+	}
+
+	public boolean O() {
 		return false;
 	}
 
@@ -751,7 +717,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	public void h(String var1) {
-		if (this.isDebugging()) {
+		if (O()) {
 			k.info(var1);
 		}
 
@@ -762,23 +728,25 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	public class_b b(class_b var1) {
-		var1.g().a("Profiler Position", new Callable<Object>() {
+		var1.g().a("Profiler Position", new Callable() {
 			public String a() throws Exception {
-				return MinecraftServer.this.c.a ? MinecraftServer.this.c.c() : "N/A (disabled)";
+				return c.a ? c.c() : "N/A (disabled)";
 			}
 
 			// $FF: synthetic method
+			@Override
 			public Object call() throws Exception {
 				return this.a();
 			}
 		});
-		if (this.v != null) {
-			var1.g().a("Player Count", new Callable<Object>() {
+		if (w != null) {
+			var1.g().a("Player Count", new Callable() {
 				public String a() {
-					return MinecraftServer.this.v.getOnlinePlayers() + " / " + MinecraftServer.this.v.getMaxPlayers() + "; " + MinecraftServer.this.v.v();
+					return w.o() + " / " + w.p() + "; " + w.v();
 				}
 
 				// $FF: synthetic method
+				@Override
 				public Object call() throws Exception {
 					return this.a();
 				}
@@ -788,197 +756,205 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		return var1;
 	}
 
-	public List<String> a(ICommandListener var1, String var2, BlockPosition var3) {
-		ArrayList<String> var4 = Lists.newArrayList();
-		if (var2.startsWith("/")) {
+	public List a(class_m var1, String var2, class_cj var3, boolean var4) {
+		ArrayList var5 = Lists.newArrayList();
+		boolean var6 = var2.startsWith("/");
+		if (var6) {
 			var2 = var2.substring(1);
-			boolean var11 = !var2.contains(" ");
-			List<?> var12 = this.b.a(var1, var2, var3);
-			if (var12 != null) {
-				Iterator<?> var13 = var12.iterator();
+		}
 
-				while (var13.hasNext()) {
-					String var14 = (String) var13.next();
-					if (var11) {
-						var4.add("/" + var14);
+		if (!var6 && !var4) {
+			String[] var13 = var2.split(" ", -1);
+			String var14 = var13[var13.length - 1];
+			String[] var15 = w.f();
+			int var16 = var15.length;
+
+			for (int var11 = 0; var11 < var16; ++var11) {
+				String var12 = var15[var11];
+				if (class_i.a(var14, var12)) {
+					var5.add(var12);
+				}
+			}
+
+			return var5;
+		} else {
+			boolean var7 = !var2.contains(" ");
+			List var8 = b.a(var1, var2, var3);
+			if (var8 != null) {
+				Iterator var9 = var8.iterator();
+
+				while (var9.hasNext()) {
+					String var10 = (String) var9.next();
+					if (var7) {
+						var5.add("/" + var10);
 					} else {
-						var4.add(var14);
+						var5.add(var10);
 					}
 				}
 			}
 
-			return var4;
-		} else {
-			String[] var5 = var2.split(" ", -1);
-			String var6 = var5[var5.length - 1];
-			String[] var7 = this.v.f();
-			int var8 = var7.length;
-
-			for (int var9 = 0; var9 < var8; ++var9) {
-				String var10 = var7[var9];
-				if (CommandAbstract.a(var6, var10)) {
-					var4.add(var10);
-				}
-			}
-
-			return var4;
+			return var5;
 		}
 	}
 
-	public static MinecraftServer getServer() {
+	public static MinecraftServer P() {
 		return l;
 	}
 
-	public boolean O() {
-		return this.o != null;
+	public boolean Q() {
+		return o != null;
 	}
 
-	public String getName() {
+	@Override
+	public String e_() {
 		return "Server";
 	}
 
-	public void sendMessage(IChatBaseComponent var1) {
+	@Override
+	public void a(class_eu var1) {
 		k.info(var1.c());
 	}
 
+	@Override
 	public boolean a(int var1, String var2) {
 		return true;
 	}
 
-	public class_l P() {
-		return this.b;
+	public class_l R() {
+		return b;
 	}
 
-	public KeyPair getKeyPair() {
-		return this.H;
+	public KeyPair S() {
+		return I;
 	}
 
-	public int R() {
-		return this.u;
+	public int T() {
+		return v;
 	}
 
 	public void b(int var1) {
-		this.u = var1;
-	}
-
-	public String S() {
-		return this.I;
-	}
-
-	public void i(String var1) {
-		this.I = var1;
-	}
-
-	public boolean isLocal() {
-		return this.I != null;
+		v = var1;
 	}
 
 	public String U() {
-		return this.J;
+		return J;
+	}
+
+	public void i(String var1) {
+		J = var1;
+	}
+
+	public boolean V() {
+		return J != null;
+	}
+
+	public String W() {
+		return K;
 	}
 
 	public void j(String var1) {
-		this.J = var1;
+		K = var1;
 	}
 
 	public void a(KeyPair var1) {
-		this.H = var1;
+		I = var1;
 	}
 
-	public void a(class_om var1) {
-		for (int var2 = 0; var2 < this.d.length; ++var2) {
-			WorldServer var3 = this.d[var2];
+	public void a(class_ps var1) {
+		for (int var2 = 0; var2 < d.length; ++var2) {
+			class_ll var3 = d[var2];
 			if (var3 != null) {
-				if (var3.Q().t()) {
-					var3.Q().a(class_om.d);
+				if (var3.R().s()) {
+					var3.R().a(class_ps.d);
 					var3.a(true, true);
-				} else if (this.isLocal()) {
-					var3.Q().a(var1);
-					var3.a(var3.ab() != class_om.a, true);
+				} else if (V()) {
+					var3.R().a(var1);
+					var3.a(var3.ac() != class_ps.a, true);
 				} else {
-					var3.Q().a(var1);
-					var3.a(this.W(), this.A);
+					var3.R().a(var1);
+					var3.a(Y(), B);
 				}
 			}
 		}
 
 	}
 
-	protected boolean W() {
+	protected boolean Y() {
 		return true;
 	}
 
-	public boolean X() {
-		return this.L;
+	public boolean Z() {
+		return M;
 	}
 
 	public void b(boolean var1) {
-		this.L = var1;
+		M = var1;
 	}
 
 	public void c(boolean var1) {
-		this.M = var1;
+		N = var1;
 	}
 
-	public class_avq Y() {
-		return this.m;
+	public class_axw aa() {
+		return m;
 	}
 
-	public void aa() {
-		this.N = true;
-		this.Y().d();
+	public void ac() {
+		O = true;
+		aa().d();
 
-		for (int var1 = 0; var1 < this.d.length; ++var1) {
-			WorldServer var2 = this.d[var1];
+		for (int var1 = 0; var1 < d.length; ++var1) {
+			class_ll var2 = d[var1];
 			if (var2 != null) {
-				var2.p();
+				var2.q();
 			}
 		}
 
-		this.Y().e(this.d[0].P().g());
-		this.w();
+		aa().e(d[0].Q().g());
+		w();
 	}
 
-	public String ab() {
-		return this.O;
+	public String ad() {
+		return P;
 	}
 
-	public String ac() {
-		return this.P;
+	public String ae() {
+		return Q;
 	}
 
 	public void a_(String var1, String var2) {
-		this.O = var1;
-		this.P = var2;
+		P = var1;
+		Q = var2;
 	}
 
-	public void a(class_ox var1) {
+	@Override
+	public void a(class_qd var1) {
 		var1.a("whitelist_enabled", Boolean.valueOf(false));
 		var1.a("whitelist_count", Integer.valueOf(0));
-		if (this.v != null) {
-			var1.a("players_current", Integer.valueOf(this.I()));
-			var1.a("players_max", Integer.valueOf(this.J()));
-			var1.a("players_seen", Integer.valueOf(this.v.q().length));
+		if (w != null) {
+			var1.a("players_current", Integer.valueOf(K()));
+			var1.a("players_max", Integer.valueOf(L()));
+			var1.a("players_seen", Integer.valueOf(w.q().length));
 		}
 
-		var1.a("uses_auth", Boolean.valueOf(this.onlinemode));
-		var1.a("gui_state", this.as() ? "enabled" : "disabled");
-		var1.a("run_time", Long.valueOf((az() - var1.g()) / 60L * 1000L));
-		var1.a("avg_tick_ms", Integer.valueOf((int) (MathHelper.getAverage(this.h) * 1.0E-6D)));
+		var1.a("uses_auth", Boolean.valueOf(A));
+		var1.a("gui_state", au() ? "enabled" : "disabled");
+		var1.a("run_time", Long.valueOf(((aB() - var1.g()) / 60L) * 1000L));
+		var1.a("avg_tick_ms", Integer.valueOf((int) (class_oa.a(h) * 1.0E-6D)));
 		int var2 = 0;
-		if (this.d != null) {
-			for (int var3 = 0; var3 < this.d.length; ++var3) {
-				if (this.d[var3] != null) {
-					WorldServer var4 = this.d[var3];
-					WorldData var5 = var4.Q();
-					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.worldProvider.p().a()));
-					var1.a("world[" + var2 + "][mode]", var5.r());
-					var1.a("world[" + var2 + "][difficulty]", var4.ab());
-					var1.a("world[" + var2 + "][hardcore]", Boolean.valueOf(var5.t()));
-					var1.a("world[" + var2 + "][generator_name]", var5.u().a());
-					var1.a("world[" + var2 + "][generator_version]", Integer.valueOf(var5.u().d()));
-					var1.a("world[" + var2 + "][height]", Integer.valueOf(this.F));
-					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.O().getLoadedChunks()));
+		if (d != null) {
+			for (int var3 = 0; var3 < d.length; ++var3) {
+				if (d[var3] != null) {
+					class_ll var4 = d[var3];
+					class_axt var5 = var4.R();
+					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.t.p().a()));
+					var1.a("world[" + var2 + "][mode]", var5.q());
+					var1.a("world[" + var2 + "][difficulty]", var4.ac());
+					var1.a("world[" + var2 + "][hardcore]", Boolean.valueOf(var5.s()));
+					var1.a("world[" + var2 + "][generator_name]", var5.t().a());
+					var1.a("world[" + var2 + "][generator_version]", Integer.valueOf(var5.t().d()));
+					var1.a("world[" + var2 + "][height]", Integer.valueOf(G));
+					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.P().g()));
 					++var2;
 				}
 			}
@@ -987,200 +963,207 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		var1.a("worlds", Integer.valueOf(var2));
 	}
 
-	public void b(class_ox var1) {
-		var1.b("singleplayer", Boolean.valueOf(this.isLocal()));
-		var1.b("server_brand", this.getServerModName());
+	@Override
+	public void b(class_qd var1) {
+		var1.b("singleplayer", Boolean.valueOf(V()));
+		var1.b("server_brand", getServerModName());
 		var1.b("gui_supported", GraphicsEnvironment.isHeadless() ? "headless" : "supported");
-		var1.b("dedicated", Boolean.valueOf(this.ae()));
+		var1.b("dedicated", Boolean.valueOf(ag()));
 	}
 
-	public boolean ad() {
+	@Override
+	public boolean af() {
 		return true;
 	}
 
-	public abstract boolean ae();
+	public abstract boolean ag();
 
-	public boolean isOnlineMode() {
-		return this.onlinemode;
+	public boolean ah() {
+		return A;
 	}
 
-	public void setOnlineMode(boolean onlinemode) {
-		this.onlinemode = onlinemode;
+	public void d(boolean var1) {
+		A = var1;
 	}
 
-	public boolean ag() {
-		return this.A;
+	public boolean ai() {
+		return B;
 	}
 
 	public void e(boolean var1) {
-		this.A = var1;
-	}
-
-	public boolean ah() {
-		return this.B;
-	}
-
-	public abstract boolean ai();
-
-	public void f(boolean var1) {
-		this.B = var1;
+		B = var1;
 	}
 
 	public boolean aj() {
-		return this.C;
+		return C;
+	}
+
+	public abstract boolean ak();
+
+	public void f(boolean var1) {
+		C = var1;
+	}
+
+	public boolean al() {
+		return D;
 	}
 
 	public void g(boolean var1) {
-		this.C = var1;
+		D = var1;
 	}
 
-	public boolean ak() {
-		return this.D;
+	public boolean am() {
+		return E;
 	}
 
 	public void h(boolean var1) {
-		this.D = var1;
+		E = var1;
 	}
 
-	public abstract boolean al();
+	public abstract boolean an();
 
-	public String am() {
-		return this.E;
+	public String ao() {
+		return F;
 	}
 
 	public void l(String var1) {
-		this.E = var1;
+		F = var1;
 	}
 
-	public int an() {
-		return this.F;
+	public int ap() {
+		return G;
 	}
 
 	public void c(int var1) {
-		this.F = var1;
+		G = var1;
 	}
 
-	public boolean ao() {
-		return this.x;
+	public boolean aq() {
+		return y;
 	}
 
-	public PlayerList getPlayerList() {
-		return this.v;
+	public class_me ar() {
+		return w;
 	}
 
-	public void a(PlayerList var1) {
-		this.v = var1;
+	public void a(class_me var1) {
+		w = var1;
 	}
 
-	public void a(WorldSettings.EnumGameMode var1) {
-		for (int var2 = 0; var2 < this.d.length; ++var2) {
-			getServer().d[var2].Q().a(var1);
+	public void a(class_agr.class_a_in_class_agr var1) {
+		for (int var2 = 0; var2 < d.length; ++var2) {
+			P().d[var2].R().a(var1);
 		}
 
 	}
 
-	public ServerConnection aq() {
-		return this.q;
+	public class_ls as() {
+		return q;
 	}
 
-	public boolean as() {
+	public boolean au() {
 		return false;
 	}
 
-	public abstract String a(WorldSettings.EnumGameMode var1, boolean var2);
+	public abstract String a(class_agr.class_a_in_class_agr var1, boolean var2);
 
-	public int at() {
-		return this.y;
+	public int av() {
+		return z;
 	}
 
-	public void au() {
-		this.T = true;
+	public void aw() {
+		U = true;
 	}
 
-	public BlockPosition c() {
-		return BlockPosition.ZERO;
+	@Override
+	public class_cj c() {
+		return class_cj.a;
 	}
 
-	public Vec3D d() {
-		return new Vec3D(0.0D, 0.0D, 0.0D);
+	@Override
+	public class_aym d() {
+		return new class_aym(0.0D, 0.0D, 0.0D);
 	}
 
-	public World e() {
-		return this.d[0];
+	@Override
+	public class_ago e() {
+		return d[0];
 	}
 
-	public Entity f() {
+	@Override
+	public class_qx f() {
 		return null;
 	}
 
-	public int aw() {
+	public int ay() {
 		return 16;
 	}
 
-	public boolean a(World var1, BlockPosition var2, EntityHuman var3) {
+	public boolean a(class_ago var1, class_cj var2, class_yu var3) {
 		return false;
 	}
 
 	public void i(boolean var1) {
-		this.U = var1;
+		V = var1;
 	}
 
-	public boolean ax() {
-		return this.U;
+	public boolean az() {
+		return V;
 	}
 
-	public Proxy ay() {
-		return this.e;
+	public Proxy aA() {
+		return e;
 	}
 
-	public static long az() {
+	public static long aB() {
 		return System.currentTimeMillis();
 	}
 
-	public int aA() {
-		return this.G;
+	public int aC() {
+		return H;
 	}
 
 	public void d(int var1) {
-		this.G = var1;
+		H = var1;
 	}
 
-	public IChatBaseComponent getScoreboardDisplayName() {
-		return new ChatComponentText(this.getName());
+	@Override
+	public class_eu f_() {
+		return new class_fa(e_());
 	}
 
-	public boolean aB() {
+	public boolean aD() {
 		return true;
 	}
 
-	public MinecraftSessionService aD() {
-		return this.W;
+	public MinecraftSessionService aF() {
+		return X;
 	}
 
-	public GameProfileRepository aE() {
-		return this.Y;
+	public GameProfileRepository aG() {
+		return Z;
 	}
 
-	public class_lv aF() {
-		return this.Z;
+	public class_ma aH() {
+		return aa;
 	}
 
-	public ServerPing aG() {
-		return this.r;
+	public class_ju aI() {
+		return r;
 	}
 
-	public void aH() {
-		this.X = 0L;
+	public void aJ() {
+		Y = 0L;
 	}
 
-	public Entity a(UUID var1) {
-		WorldServer[] var2 = this.d;
+	public class_qx a(UUID var1) {
+		class_ll[] var2 = d;
 		int var3 = var2.length;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			WorldServer var5 = var2[var4];
+			class_ll var5 = var2[var4];
 			if (var5 != null) {
-				Entity var6 = var5.getEntityByUUID(var1);
+				class_qx var6 = var5.a(var1);
 				if (var6 != null) {
 					return var6;
 				}
@@ -1190,23 +1173,26 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		return null;
 	}
 
-	public boolean u_() {
-		return getServer().d[0].R().getBooleanValue("sendCommandFeedback");
+	@Override
+	public boolean s_() {
+		return P().d[0].S().b("sendCommandFeedback");
 	}
 
-	public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
+	@Override
+	public void a(class_n.class_a_in_class_n var1, int var2) {
 	}
 
-	public int aI() {
+	public int aK() {
 		return 29999984;
 	}
 
-	public ListenableFuture<?> a(Callable<?> var1) {
+	public ListenableFuture a(Callable var1) {
 		Validate.notNull(var1);
-		if (!this.isMainThread() && !this.ao()) {
-			ListenableFutureTask<?> var2 = ListenableFutureTask.create(var1);
-			synchronized (this.processQueue) {
-				this.processQueue.add(var2);
+		if (!aL() && !aq()) {
+			ListenableFutureTask var2 = ListenableFutureTask.create(var1);
+			Queue var3 = j;
+			synchronized (j) {
+				j.add(var2);
 				return var2;
 			}
 		} else {
@@ -1218,25 +1204,30 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		}
 	}
 
-	public ListenableFuture<?> a(Runnable var1) {
+	@Override
+	public ListenableFuture a(Runnable var1) {
 		Validate.notNull(var1);
 		return this.a(Executors.callable(var1));
 	}
 
-	public boolean isMainThread() {
-		return Thread.currentThread() == this.mainthread;
+	@Override
+	public boolean aL() {
+		return Thread.currentThread() == ab;
 	}
 
-	public int getCompressionThreshold() {
+	public int aM() {
 		return 256;
 	}
 
-	public long aL() {
-		return this.ab;
+	public long aN() {
+		return ac;
 	}
 
-	public Thread aM() {
-		return this.mainthread;
+	public Thread aO() {
+		return ab;
 	}
 
+	public class_oo aP() {
+		return t;
+	}
 }

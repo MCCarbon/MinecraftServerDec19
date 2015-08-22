@@ -1,93 +1,166 @@
 package net.minecraft.server;
 
-public class class_sk extends class_rm {
-   private final EntitySkeleton a;
-   private EntityLiving b;
-   private int c = -1;
-   private double d;
-   private int e;
-   private int f;
-   private int g;
-   private float h;
-   private float i;
 
-   public class_sk(EntitySkeleton var1, double var2, int var4, int var5, float var6) {
-      this.a = var1;
-      this.d = var2;
-      this.f = var4;
-      this.g = var5;
-      this.h = var6;
-      this.i = var6 * var6;
-      this.a(3);
-   }
+public class class_sk extends class_sr {
+	private final class_rh a;
+	private final float b;
+	private float c;
+	private boolean d;
+	private int e;
+	private int f;
 
-   public boolean a() {
-      EntityLiving var1 = this.a.w();
-      if(var1 == null) {
-         return false;
-      } else {
-         this.b = var1;
-         return this.f();
-      }
-   }
+	public class_sk(class_rh var1, float var2) {
+		a = var1;
+		b = var2;
+		this.a(7);
+	}
 
-   protected boolean f() {
-      return this.a.bA() != null && this.a.bA().getItem() == Items.BOW;
-   }
+	@Override
+	public void c() {
+		c = 0.0F;
+	}
 
-   public boolean b() {
-      return (this.a() || !this.a.u().m()) && this.f();
-   }
+	@Override
+	public void d() {
+		d = false;
+		c = 0.0F;
+	}
 
-   public void c() {
-      super.c();
-      this.a.a(true);
-   }
+	@Override
+	public boolean a() {
+		return a.al() && (a.l != null) && (a.l instanceof class_yu) && (d || a.co());
+	}
 
-   public void d() {
-      super.c();
-      this.a.a(false);
-      this.b = null;
-      this.e = 0;
-      this.c = -1;
-      this.a.bZ();
-   }
+	@Override
+	public void e() {
+		class_yu var1 = (class_yu) a.l;
+		class_rn var2 = (class_rn) a;
+		float var3 = class_oa.g(var1.y - a.y) * 0.5F;
+		if (var3 > 5.0F) {
+			var3 = 5.0F;
+		}
 
-   public void e() {
-      double var1 = this.a.e(this.b.locX, this.b.getBoundingBox().yMin, this.b.locZ);
-      boolean var3 = this.a.v().a(this.b);
-      boolean var4 = this.e > 0;
-      if(var3 != var4) {
-         this.e = 0;
-      }
+		if (var3 < -5.0F) {
+			var3 = -5.0F;
+		}
 
-      if(var3) {
-         ++this.e;
-      } else {
-         --this.e;
-      }
+		a.y = class_oa.g(a.y + var3);
+		if (c < b) {
+			c += (b - c) * 0.01F;
+		}
 
-      if(var1 <= (double)this.i && this.e >= 20) {
-         this.a.u().n();
-      } else {
-         this.a.u().a((Entity)this.b, this.d);
-      }
+		if (c > b) {
+			c = b;
+		}
 
-      this.a.q().a(this.b, 30.0F, 30.0F);
-      if(this.a.bS()) {
-         if(!var3 && this.e < -60) {
-            this.a.bZ();
-         } else if(var3) {
-            int var5 = this.a.bX();
-            if(var5 >= 20) {
-               this.a.bZ();
-               this.a.a(this.b, ItemBow.getPercentReady(var5));
-               this.c = this.f;
-            }
-         }
-      } else if(--this.c <= 0 && this.e >= -60) {
-         this.a.c(EnumUsedHand.MAIN_HAND);
-      }
+		int var4 = class_oa.c(a.s);
+		int var5 = class_oa.c(a.t);
+		int var6 = class_oa.c(a.u);
+		float var7 = c;
+		if (d) {
+			if (e++ > f) {
+				d = false;
+			}
 
-   }
+			var7 += var7 * 1.15F * class_oa.a(((float) e / (float) f) * 3.1415927F);
+		}
+
+		float var8 = 0.91F;
+		if (a.C) {
+			var8 = a.o.p(new class_cj(class_oa.d((float) var4), class_oa.d((float) var5) - 1, class_oa.d((float) var6))).c().L * 0.91F;
+		}
+
+		float var9 = 0.16277136F / (var8 * var8 * var8);
+		float var10 = class_oa.a((var2.y * 3.1415927F) / 180.0F);
+		float var11 = class_oa.b((var2.y * 3.1415927F) / 180.0F);
+		float var12 = var2.bP() * var9;
+		float var13 = Math.max(var7, 1.0F);
+		var13 = var12 / var13;
+		float var14 = var7 * var13;
+		float var15 = -(var14 * var10);
+		float var16 = var14 * var11;
+		if (class_oa.e(var15) > class_oa.e(var16)) {
+			if (var15 < 0.0F) {
+				var15 -= a.J / 2.0F;
+			}
+
+			if (var15 > 0.0F) {
+				var15 += a.J / 2.0F;
+			}
+
+			var16 = 0.0F;
+		} else {
+			var15 = 0.0F;
+			if (var16 < 0.0F) {
+				var16 -= a.J / 2.0F;
+			}
+
+			if (var16 > 0.0F) {
+				var16 += a.J / 2.0F;
+			}
+		}
+
+		int var17 = class_oa.c(a.s + var15);
+		int var18 = class_oa.c(a.u + var16);
+		int var19 = class_oa.d(a.J + 1.0F);
+		int var20 = class_oa.d(a.K + var1.K + 1.0F);
+		int var21 = class_oa.d(a.J + 1.0F);
+		if ((var4 != var17) || (var6 != var18)) {
+			class_ail var22 = a.o.p(new class_cj(var4, var5, var6)).c();
+			boolean var23 = !this.a(var22) && ((var22.v() != class_avq.a) || !this.a(a.o.p(new class_cj(var4, var5 - 1, var6)).c()));
+			if (var23 && (class_awz.e == class_axf.a(a.o, a, var17, var5, var18, var19, var20, var21, false, false, true)) && (class_awz.f == class_axf.a(a.o, a, var4, var5 + 1, var6, var19, var20, var21, false, false, true)) && (class_awz.f == class_axf.a(a.o, a, var17, var5 + 1, var18, var19, var20, var21, false, false, true))) {
+				var2.s().a();
+			}
+		}
+
+		if (!var1.bI.d && (c >= (b * 0.5F)) && (a.bj().nextFloat() < 0.006F) && !d) {
+			class_pu var25 = this.a(var1);
+			if (var25 != null) {
+				class_aco var26 = var1.b(var25);
+				if ((var26 != null) && (var26.b() == class_acq.cd)) {
+					var26.a(1, var1);
+					if (var26.b == 0) {
+						class_aco var24 = new class_aco(class_acq.aT);
+						var24.d(var26.o());
+						var1.a(var25, var24);
+					}
+				}
+			}
+		}
+
+		a.g(0.0F, var7);
+	}
+
+	protected class_pu a(class_yu var1) {
+		class_pu[] var2 = class_pu.values();
+		int var3 = var2.length;
+
+		for (int var4 = 0; var4 < var3; ++var4) {
+			class_pu var5 = var2[var4];
+			class_aco var6 = var1.b(var5);
+			if ((var6 != null) && (var6.b() == class_acq.cd)) {
+				return var5;
+			}
+		}
+
+		return null;
+	}
+
+	private boolean a(class_ail var1) {
+		return (var1 instanceof class_anf) || (var1 instanceof class_akq);
+	}
+
+	public boolean f() {
+		return d;
+	}
+
+	public void g() {
+		d = true;
+		e = 0;
+		f = a.bj().nextInt(841) + 140;
+	}
+
+	public boolean h() {
+		return !f() && (c > (b * 0.3F));
+	}
 }

@@ -1,15 +1,23 @@
 package net.minecraft.server;
 
-public class class_pj extends MobEffectType {
-   public class_pj(boolean var1, int var2) {
-      super(var1, var2);
-   }
 
-   public boolean b() {
-      return true;
-   }
+public abstract class class_pj implements class_oq {
+	private final String a;
+	private final String b;
 
-   public boolean a(int var1, int var2) {
-      return var1 >= 1;
-   }
+	public class_pj(String var1, String var2) {
+		a = var1;
+		b = var2;
+	}
+
+	@Override
+	public class_dn a(class_on var1, class_dn var2, int var3) {
+		if (var2.l(a).equals(b)) {
+			var2 = b(var1, var2, var3);
+		}
+
+		return var2;
+	}
+
+	abstract class_dn b(class_on var1, class_dn var2, int var3);
 }

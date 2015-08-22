@@ -1,58 +1,40 @@
 package net.minecraft.server;
 
+import java.io.File;
+import java.net.SocketAddress;
+
 import com.google.gson.JsonObject;
-import com.mojang.authlib.GameProfile;
-import java.util.UUID;
-import net.minecraft.server.JsonListEntry;
 
-public class class_mb extends JsonListEntry {
-   private final int a;
-   private final boolean b;
+public class class_mb extends class_mi {
+	public class_mb(File var1) {
+		super(var1);
+	}
 
-   public class_mb(GameProfile var1, int var2, boolean var3) {
-      super(var1);
-      this.a = var2;
-      this.b = var3;
-   }
+	@Override
+	protected class_mh a(JsonObject var1) {
+		return new class_mc(var1);
+	}
 
-   public class_mb(JsonObject var1) {
-      super(b(var1), var1);
-      this.a = var1.has("level")?var1.get("level").getAsInt():0;
-      this.b = var1.has("bypassesPlayerLimit") && var1.get("bypassesPlayerLimit").getAsBoolean();
-   }
+	public boolean a(SocketAddress var1) {
+		String var2 = this.c(var1);
+		return this.d(var2);
+	}
 
-   public int a() {
-      return this.a;
-   }
+	public class_mc b(SocketAddress var1) {
+		String var2 = this.c(var1);
+		return (class_mc) this.b(var2);
+	}
 
-   public boolean b() {
-      return this.b;
-   }
+	private String c(SocketAddress var1) {
+		String var2 = var1.toString();
+		if (var2.contains("/")) {
+			var2 = var2.substring(var2.indexOf(47) + 1);
+		}
 
-   protected void a(JsonObject var1) {
-      if(this.f() != null) {
-         var1.addProperty("uuid", ((GameProfile)this.f()).getId() == null?"":((GameProfile)this.f()).getId().toString());
-         var1.addProperty("name", ((GameProfile)this.f()).getName());
-         super.a(var1);
-         var1.addProperty("level", (Number)Integer.valueOf(this.a));
-         var1.addProperty("bypassesPlayerLimit", Boolean.valueOf(this.b));
-      }
-   }
+		if (var2.contains(":")) {
+			var2 = var2.substring(0, var2.indexOf(58));
+		}
 
-   private static GameProfile b(JsonObject var0) {
-      if(var0.has("uuid") && var0.has("name")) {
-         String var1 = var0.get("uuid").getAsString();
-
-         UUID var2;
-         try {
-            var2 = UUID.fromString(var1);
-         } catch (Throwable var4) {
-            return null;
-         }
-
-         return new GameProfile(var2, var0.get("name").getAsString());
-      } else {
-         return null;
-      }
-   }
+		return var2;
+	}
 }

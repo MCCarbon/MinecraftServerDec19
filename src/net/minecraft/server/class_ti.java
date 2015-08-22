@@ -1,47 +1,38 @@
 package net.minecraft.server;
 
-public class class_ti extends class_tg {
-   public class_ti(EntityInsentient var1, World var2) {
-      super(var1, var2);
-   }
 
-   protected class_auw a() {
-      return new class_auw(new class_auy());
-   }
+public class class_ti extends class_sl {
+	boolean g;
+	int h;
 
-   protected boolean b() {
-      return this.o();
-   }
+	public class_ti(class_rh var1, boolean var2) {
+		super(var1);
+		a = var1;
+		g = var2;
+	}
 
-   protected Vec3D c() {
-      return new Vec3D(this.b.locX, this.b.locY + (double)this.b.length * 0.5D, this.b.locZ);
-   }
+	@Override
+	public boolean b() {
+		return g && (h > 0) && super.b();
+	}
 
-   protected void l() {
-      Vec3D var1 = this.c();
-      float var2 = this.b.width * this.b.width;
-      byte var3 = 6;
-      if(var1.distanceSquared(this.d.a(this.b, this.d.e())) < (double)var2) {
-         this.d.a();
-      }
+	@Override
+	public void c() {
+		h = 20;
+		c.a(a.o, b, true);
+	}
 
-      for(int var4 = Math.min(this.d.e() + var3, this.d.d() - 1); var4 > this.d.e(); --var4) {
-         Vec3D var5 = this.d.a(this.b, var4);
-         if(var5.distanceSquared(var1) <= 36.0D && this.a(var1, var5, 0, 0, 0)) {
-            this.d.c(var4);
-            break;
-         }
-      }
+	@Override
+	public void d() {
+		if (g) {
+			c.a(a.o, b, false);
+		}
 
-      this.a(var1);
-   }
+	}
 
-   protected void d() {
-      super.d();
-   }
-
-   protected boolean a(Vec3D var1, Vec3D var2, int var3, int var4, int var5) {
-      MovingObjectPosition var6 = this.c.rayTrace(var1, new Vec3D(var2.x, var2.y + (double)this.b.length * 0.5D, var2.z), false, true, false);
-      return var6 == null || var6.type == MovingObjectPosition.EnumMovingObjectType.MISS;
-   }
+	@Override
+	public void e() {
+		--h;
+		super.e();
+	}
 }

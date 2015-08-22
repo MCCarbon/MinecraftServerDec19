@@ -1,221 +1,182 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.Random;
 
-public class class_avf extends PersistentBase {
-   public int b;
-   public int c;
-   public byte d;
-   public byte e;
-   public byte[] f = new byte[16384];
-   public List g = Lists.newArrayList();
-   private Map i = Maps.newHashMap();
-   public Map h = Maps.newLinkedHashMap();
+public class class_avf extends class_avl {
+	private int[] d;
+	public double a;
+	public double b;
+	public double c;
+	private static final double[] e = new double[] { 1.0D, -1.0D, 1.0D, -1.0D, 1.0D, -1.0D, 1.0D, -1.0D, 0.0D, 0.0D, 0.0D, 0.0D, 1.0D, 0.0D, -1.0D, 0.0D };
+	private static final double[] f = new double[] { 1.0D, 1.0D, -1.0D, -1.0D, 0.0D, 0.0D, 0.0D, 0.0D, 1.0D, -1.0D, 1.0D, -1.0D, 1.0D, -1.0D, 1.0D, -1.0D };
+	private static final double[] g = new double[] { 0.0D, 0.0D, 0.0D, 0.0D, 1.0D, 1.0D, -1.0D, -1.0D, 1.0D, 1.0D, -1.0D, -1.0D, 0.0D, 1.0D, 0.0D, -1.0D };
+	private static final double[] h = new double[] { 1.0D, -1.0D, 1.0D, -1.0D, 1.0D, -1.0D, 1.0D, -1.0D, 0.0D, 0.0D, 0.0D, 0.0D, 1.0D, 0.0D, -1.0D, 0.0D };
+	private static final double[] i = new double[] { 0.0D, 0.0D, 0.0D, 0.0D, 1.0D, 1.0D, -1.0D, -1.0D, 1.0D, 1.0D, -1.0D, -1.0D, 0.0D, 1.0D, 0.0D, -1.0D };
 
-   public class_avf(String var1) {
-      super(var1);
-   }
+	public class_avf() {
+		this(new Random());
+	}
 
-   public void a(double var1, double var3, int var5) {
-      int var6 = 128 * (1 << var5);
-      int var7 = MathHelper.floor((var1 + 64.0D) / (double)var6);
-      int var8 = MathHelper.floor((var3 + 64.0D) / (double)var6);
-      this.b = var7 * var6 + var6 / 2 - 64;
-      this.c = var8 * var6 + var6 / 2 - 64;
-   }
+	public class_avf(Random var1) {
+		d = new int[512];
+		a = var1.nextDouble() * 256.0D;
+		b = var1.nextDouble() * 256.0D;
+		c = var1.nextDouble() * 256.0D;
 
-   public void a(NBTTagCompound var1) {
-      this.d = var1.getByte("dimension");
-      this.b = var1.getInt("xCenter");
-      this.c = var1.getInt("zCenter");
-      this.e = var1.getByte("scale");
-      this.e = (byte)MathHelper.clamp(this.e, 0, 4);
-      short var2 = var1.getShort("width");
-      short var3 = var1.getShort("height");
-      if(var2 == 128 && var3 == 128) {
-         this.f = var1.getByteArray("colors");
-      } else {
-         byte[] var4 = var1.getByteArray("colors");
-         this.f = new byte[16384];
-         int var5 = (128 - var2) / 2;
-         int var6 = (128 - var3) / 2;
+		int var2;
+		for (var2 = 0; var2 < 256; d[var2] = var2++) {
+			;
+		}
 
-         for(int var7 = 0; var7 < var3; ++var7) {
-            int var8 = var7 + var6;
-            if(var8 >= 0 || var8 < 128) {
-               for(int var9 = 0; var9 < var2; ++var9) {
-                  int var10 = var9 + var5;
-                  if(var10 >= 0 || var10 < 128) {
-                     this.f[var10 + var8 * 128] = var4[var9 + var7 * var2];
-                  }
-               }
-            }
-         }
-      }
+		for (var2 = 0; var2 < 256; ++var2) {
+			int var3 = var1.nextInt(256 - var2) + var2;
+			int var4 = d[var2];
+			d[var2] = d[var3];
+			d[var3] = var4;
+			d[var2 + 256] = d[var2];
+		}
 
-   }
+	}
 
-   public void b(NBTTagCompound var1) {
-      var1.put("dimension", this.d);
-      var1.put("xCenter", this.b);
-      var1.put("zCenter", this.c);
-      var1.put("scale", this.e);
-      var1.put("width", (short)128);
-      var1.put("height", (short)128);
-      var1.put("colors", this.f);
-   }
+	public final double b(double var1, double var3, double var5) {
+		return var3 + (var1 * (var5 - var3));
+	}
 
-   public void a(EntityHuman var1, ItemStack var2) {
-      if(!this.i.containsKey(var1)) {
-         class_avf.class_a_in_class_avf var3 = new class_avf.class_a_in_class_avf(var1);
-         this.i.put(var1, var3);
-         this.g.add(var3);
-      }
+	public final double a(int var1, double var2, double var4) {
+		int var6 = var1 & 15;
+		return (h[var6] * var2) + (i[var6] * var4);
+	}
 
-      if(!var1.inventory.c(var2)) {
-         this.h.remove(var1.getName());
-      }
+	public final double a(int var1, double var2, double var4, double var6) {
+		int var8 = var1 & 15;
+		return (e[var8] * var2) + (f[var8] * var4) + (g[var8] * var6);
+	}
 
-      for(int var6 = 0; var6 < this.g.size(); ++var6) {
-         class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.g.get(var6);
-         if(var4.a.dead || !var4.a.inventory.c(var2) && !var2.isInItemFrame()) {
-            this.i.remove(var4.a);
-            this.g.remove(var4);
-         } else if(!var2.isInItemFrame() && var4.a.dimension == this.d) {
-            this.a(0, var4.a.world, var4.a.getName(), var4.a.locX, var4.a.locZ, (double)var4.a.yaw);
-         }
-      }
+	public void a(double[] var1, double var2, double var4, double var6, int var8, int var9, int var10, double var11, double var13, double var15, double var17) {
+		int var10001;
+		int var19;
+		int var22;
+		double var31;
+		double var35;
+		int var37;
+		double var38;
+		int var40;
+		int var41;
+		double var42;
+		int var75;
+		if (var9 == 1) {
+			boolean var64 = false;
+			boolean var65 = false;
+			boolean var21 = false;
+			boolean var68 = false;
+			double var70 = 0.0D;
+			double var73 = 0.0D;
+			var75 = 0;
+			double var77 = 1.0D / var17;
 
-      if(var2.isInItemFrame()) {
-         EntityItemFrame var7 = var2.getItemFrame();
-         BlockPosition var8 = var7.n();
-         this.a(1, var1.world, "frame-" + var7.getId(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
-      }
+			for (int var30 = 0; var30 < var8; ++var30) {
+				var31 = var2 + (var30 * var11) + a;
+				int var78 = (int) var31;
+				if (var31 < var78) {
+					--var78;
+				}
 
-      if(var2.hasTag() && var2.getTag().hasOfType("Decorations", 9)) {
-         NBTTagList var9 = var2.getTag().getList("Decorations", 10);
+				int var34 = var78 & 255;
+				var31 -= var78;
+				var35 = var31 * var31 * var31 * ((var31 * ((var31 * 6.0D) - 15.0D)) + 10.0D);
 
-         for(int var10 = 0; var10 < var9.getSize(); ++var10) {
-            NBTTagCompound var5 = var9.getCompound(var10);
-            if(!this.h.containsKey(var5.getString("id"))) {
-               this.a(var5.getByte("type"), var1.world, var5.getString("id"), var5.getDouble("x"), var5.getDouble("z"), var5.getDouble("rot"));
-            }
-         }
-      }
+				for (var37 = 0; var37 < var10; ++var37) {
+					var38 = var6 + (var37 * var15) + c;
+					var40 = (int) var38;
+					if (var38 < var40) {
+						--var40;
+					}
 
-   }
+					var41 = var40 & 255;
+					var38 -= var40;
+					var42 = var38 * var38 * var38 * ((var38 * ((var38 * 6.0D) - 15.0D)) + 10.0D);
+					var19 = d[var34] + 0;
+					int var66 = d[var19] + var41;
+					int var67 = d[var34 + 1] + 0;
+					var22 = d[var67] + var41;
+					var70 = b(var35, this.a(d[var66], var31, var38), this.a(d[var22], var31 - 1.0D, 0.0D, var38));
+					var73 = b(var35, this.a(d[var66 + 1], var31, 0.0D, var38 - 1.0D), this.a(d[var22 + 1], var31 - 1.0D, 0.0D, var38 - 1.0D));
+					double var79 = b(var42, var70, var73);
+					var10001 = var75++;
+					var1[var10001] += var79 * var77;
+				}
+			}
 
-   private void a(int var1, World var2, String var3, double var4, double var6, double var8) {
-      int var10 = 1 << this.e;
-      float var11 = (float)(var4 - (double)this.b) / (float)var10;
-      float var12 = (float)(var6 - (double)this.c) / (float)var10;
-      byte var13 = (byte)((int)((double)(var11 * 2.0F) + 0.5D));
-      byte var14 = (byte)((int)((double)(var12 * 2.0F) + 0.5D));
-      byte var16 = 63;
-      byte var15;
-      if(var11 >= (float)(-var16) && var12 >= (float)(-var16) && var11 <= (float)var16 && var12 <= (float)var16) {
-         var8 += var8 < 0.0D?-8.0D:8.0D;
-         var15 = (byte)((int)(var8 * 16.0D / 360.0D));
-         if(this.d < 0) {
-            int var17 = (int)(var2.Q().g() / 10L);
-            var15 = (byte)(var17 * var17 * 34187121 + var17 * 121 >> 15 & 15);
-         }
-      } else {
-         if(Math.abs(var11) >= 320.0F || Math.abs(var12) >= 320.0F) {
-            this.h.remove(var3);
-            return;
-         }
+		} else {
+			var19 = 0;
+			double var20 = 1.0D / var17;
+			var22 = -1;
+			boolean var23 = false;
+			boolean var24 = false;
+			boolean var25 = false;
+			boolean var26 = false;
+			boolean var27 = false;
+			boolean var28 = false;
+			double var29 = 0.0D;
+			var31 = 0.0D;
+			double var33 = 0.0D;
+			var35 = 0.0D;
 
-         var1 = 6;
-         var15 = 0;
-         if(var11 <= (float)(-var16)) {
-            var13 = (byte)((int)((double)(var16 * 2) + 2.5D));
-         }
+			for (var37 = 0; var37 < var8; ++var37) {
+				var38 = var2 + (var37 * var11) + a;
+				var40 = (int) var38;
+				if (var38 < var40) {
+					--var40;
+				}
 
-         if(var12 <= (float)(-var16)) {
-            var14 = (byte)((int)((double)(var16 * 2) + 2.5D));
-         }
+				var41 = var40 & 255;
+				var38 -= var40;
+				var42 = var38 * var38 * var38 * ((var38 * ((var38 * 6.0D) - 15.0D)) + 10.0D);
 
-         if(var11 >= (float)var16) {
-            var13 = (byte)(var16 * 2 + 1);
-         }
+				for (int var44 = 0; var44 < var10; ++var44) {
+					double var45 = var6 + (var44 * var15) + c;
+					int var47 = (int) var45;
+					if (var45 < var47) {
+						--var47;
+					}
 
-         if(var12 >= (float)var16) {
-            var14 = (byte)(var16 * 2 + 1);
-         }
-      }
+					int var48 = var47 & 255;
+					var45 -= var47;
+					double var49 = var45 * var45 * var45 * ((var45 * ((var45 * 6.0D) - 15.0D)) + 10.0D);
 
-      this.h.put(var3, new class_ave((byte)var1, var13, var14, var15));
-   }
+					for (int var51 = 0; var51 < var9; ++var51) {
+						double var52 = var4 + (var51 * var13) + b;
+						int var54 = (int) var52;
+						if (var52 < var54) {
+							--var54;
+						}
 
-   public Packet a(ItemStack var1, World var2, EntityHuman var3) {
-      class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.i.get(var3);
-      return var4 == null?null:var4.a(var1);
-   }
+						int var55 = var54 & 255;
+						var52 -= var54;
+						double var56 = var52 * var52 * var52 * ((var52 * ((var52 * 6.0D) - 15.0D)) + 10.0D);
+						if ((var51 == 0) || (var55 != var22)) {
+							var22 = var55;
+							int var69 = d[var41] + var55;
+							int var71 = d[var69] + var48;
+							int var72 = d[var69 + 1] + var48;
+							int var74 = d[var41 + 1] + var55;
+							var75 = d[var74] + var48;
+							int var76 = d[var74 + 1] + var48;
+							var29 = b(var42, this.a(d[var71], var38, var52, var45), this.a(d[var75], var38 - 1.0D, var52, var45));
+							var31 = b(var42, this.a(d[var72], var38, var52 - 1.0D, var45), this.a(d[var76], var38 - 1.0D, var52 - 1.0D, var45));
+							var33 = b(var42, this.a(d[var71 + 1], var38, var52, var45 - 1.0D), this.a(d[var75 + 1], var38 - 1.0D, var52, var45 - 1.0D));
+							var35 = b(var42, this.a(d[var72 + 1], var38, var52 - 1.0D, var45 - 1.0D), this.a(d[var76 + 1], var38 - 1.0D, var52 - 1.0D, var45 - 1.0D));
+						}
 
-   public void a(int var1, int var2) {
-      super.c();
-      Iterator var3 = this.g.iterator();
+						double var58 = b(var56, var29, var31);
+						double var60 = b(var56, var33, var35);
+						double var62 = b(var49, var58, var60);
+						var10001 = var19++;
+						var1[var10001] += var62 * var20;
+					}
+				}
+			}
 
-      while(var3.hasNext()) {
-         class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)var3.next();
-         var4.a(var1, var2);
-      }
-
-   }
-
-   public class_avf.class_a_in_class_avf a(EntityHuman var1) {
-      class_avf.class_a_in_class_avf var2 = (class_avf.class_a_in_class_avf)this.i.get(var1);
-      if(var2 == null) {
-         var2 = new class_avf.class_a_in_class_avf(var1);
-         this.i.put(var1, var2);
-         this.g.add(var2);
-      }
-
-      return var2;
-   }
-
-   public class class_a_in_class_avf {
-      public final EntityHuman a;
-      private boolean d = true;
-      private int e = 0;
-      private int f = 0;
-      private int g = 127;
-      private int h = 127;
-      private int i;
-      public int b;
-
-      public class_a_in_class_avf(EntityHuman var2) {
-         this.a = var2;
-      }
-
-      public Packet a(ItemStack var1) {
-         if(this.d) {
-            this.d = false;
-            return new PacketPlayOutMap(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, this.e, this.f, this.g + 1 - this.e, this.h + 1 - this.f);
-         } else {
-            return this.i++ % 5 == 0?new PacketPlayOutMap(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, 0, 0, 0, 0):null;
-         }
-      }
-
-      public void a(int var1, int var2) {
-         if(this.d) {
-            this.e = Math.min(this.e, var1);
-            this.f = Math.min(this.f, var2);
-            this.g = Math.max(this.g, var1);
-            this.h = Math.max(this.h, var2);
-         } else {
-            this.d = true;
-            this.e = var1;
-            this.f = var2;
-            this.g = var1;
-            this.h = var2;
-         }
-
-      }
-   }
+		}
+	}
 }

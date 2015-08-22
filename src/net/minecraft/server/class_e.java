@@ -1,23 +1,24 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_b;
 
 public class class_e extends RuntimeException {
-   private final class_b a;
+	private final class_b a;
 
-   public class_e(class_b var1) {
-      this.a = var1;
-   }
+	public class_e(class_b var1) {
+		a = var1;
+	}
 
-   public class_b a() {
-      return this.a;
-   }
+	public class_b a() {
+		return a;
+	}
 
-   public Throwable getCause() {
-      return this.a.b();
-   }
+	@Override
+	public Throwable getCause() {
+		return a.b();
+	}
 
-   public String getMessage() {
-      return this.a.a();
-   }
+	@Override
+	public String getMessage() {
+		return a.a();
+	}
 }

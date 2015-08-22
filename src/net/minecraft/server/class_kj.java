@@ -1,14 +1,12 @@
 package net.minecraft.server;
 
-public final class class_kj extends RuntimeException {
-   public static final class_kj a = new class_kj();
 
-   private class_kj() {
-      this.setStackTrace(new StackTraceElement[0]);
-   }
+public class class_kj {
+	public final String a;
+	public final class_m b;
 
-   public synchronized Throwable fillInStackTrace() {
-      this.setStackTrace(new StackTraceElement[0]);
-      return this;
-   }
+	public class_kj(String var1, class_m var2) {
+		a = var1;
+		b = var2;
+	}
 }

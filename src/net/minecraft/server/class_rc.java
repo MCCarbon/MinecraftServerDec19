@@ -1,61 +1,43 @@
 package net.minecraft.server;
 
-public class class_rc extends class_rm {
-   private EntityWolf a;
-   private EntityHuman b;
-   private World c;
-   private float d;
-   private int e;
+public enum class_rc {
+	a("MAINHAND", 0, class_rc.class_a_in_class_rc.a, 0, 0, "mainhand"),
+	b("OFFHAND", 1, class_rc.class_a_in_class_rc.a, 1, 5, "offhand"),
+	c("FEET", 2, class_rc.class_a_in_class_rc.b, 0, 1, "feet"),
+	d("LEGS", 3, class_rc.class_a_in_class_rc.b, 1, 2, "legs"),
+	e("TORSO", 4, class_rc.class_a_in_class_rc.b, 2, 3, "torso"),
+	f("HEAD", 5, class_rc.class_a_in_class_rc.b, 3, 4, "head");
 
-   public class_rc(EntityWolf var1, float var2) {
-      this.a = var1;
-      this.c = var1.world;
-      this.d = var2;
-      this.a(2);
-   }
+	private final class_rc.class_a_in_class_rc g;
+	private final int h;
+	private final int i;
+	private final String j;
 
-   public boolean a() {
-      this.b = this.c.a(this.a, (double)this.d);
-      return this.b == null?false:this.a(this.b);
-   }
+	private class_rc(String name, int ordinal, class_rc.class_a_in_class_rc var3, int var4, int var5, String var6) {
+		this(var3, var4, var5, var6);
+	}
 
-   public boolean b() {
-      return !this.b.isAlive()?false:(this.a.h(this.b) > (double)(this.d * this.d)?false:this.e > 0 && this.a(this.b));
-   }
+	private class_rc(class_rc.class_a_in_class_rc var3, int var4, int var5, String var6) {
+		g = var3;
+		h = var4;
+		i = var5;
+		j = var6;
+	}
 
-   public void c() {
-      this.a.q(true);
-      this.e = 40 + this.a.getRandom().nextInt(40);
-   }
+	public class_rc.class_a_in_class_rc a() {
+		return g;
+	}
 
-   public void d() {
-      this.a.q(false);
-      this.b = null;
-   }
+	public int b() {
+		return h;
+	}
 
-   public void e() {
-      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.getHeadHeight(), this.b.locZ, 10.0F, (float)this.a.cd());
-      --this.e;
-   }
+	public int c() {
+		return i;
+	}
 
-   private boolean a(EntityHuman var1) {
-      EnumUsedHand[] var2 = EnumUsedHand.values();
-      int var3 = var2.length;
-
-      for(int var4 = 0; var4 < var3; ++var4) {
-         EnumUsedHand var5 = var2[var4];
-         ItemStack var6 = var1.getItemInHand((EnumUsedHand)var5);
-         if(var6 != null) {
-            if(this.a.cA() && var6.getItem() == Items.BONE) {
-               return true;
-            }
-
-            if(this.a.d(var6)) {
-               return true;
-            }
-         }
-      }
-
-      return false;
-   }
+	public static enum class_a_in_class_rc {
+		a,
+		b;
+	}
 }

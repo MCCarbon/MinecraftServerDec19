@@ -1,175 +1,222 @@
 package net.minecraft.server;
 
-import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.ChunkSnapshot;
-import net.minecraft.server.WorldGenBase;
-import net.minecraft.server.MathHelper;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Pattern;
 
-public class class_apo extends WorldGenBase {
-   protected void a(long var1, int var3, int var4, ChunkSnapshot var5, double var6, double var8, double var10) {
-      this.a(var1, var3, var4, var5, var6, var8, var10, 1.0F + this.b.nextFloat() * 6.0F, 0.0F, 0.0F, -1, -1, 0.5D);
-   }
+import com.google.common.base.Function;
+import com.google.common.base.Objects;
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableSortedMap;
+import com.google.common.collect.ImmutableTable;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 
-   protected void a(long var1, int var3, int var4, ChunkSnapshot var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {
-      double var19 = (double)(var3 * 16 + 8);
-      double var21 = (double)(var4 * 16 + 8);
-      float var23 = 0.0F;
-      float var24 = 0.0F;
-      Random var25 = new Random(var1);
-      if(var16 <= 0) {
-         int var26 = this.a * 16 - 16;
-         var16 = var26 - var25.nextInt(var26 / 4);
-      }
+public class class_apo {
+	private static final Pattern a = Pattern.compile("^[a-z0-9_]+$");
+	private static final Function b = new Function() {
+		public String a(class_aqc var1) {
+			return var1 == null ? "<NULL>" : var1.a();
+		}
 
-      boolean var52 = false;
-      if(var15 == -1) {
-         var15 = var16 / 2;
-         var52 = true;
-      }
+		// $FF: synthetic method
+		@Override
+		public Object apply(Object var1) {
+			return this.a((class_aqc) var1);
+		}
+	};
+	private final class_ail c;
+	private final ImmutableSortedMap d;
+	private final ImmutableList e;
 
-      int var27 = var25.nextInt(var16 / 2) + var16 / 4;
+	public class_apo(class_ail var1, class_aqc... var2) {
+		c = var1;
+		HashMap var3 = Maps.newHashMap();
+		class_aqc[] var4 = var2;
+		int var5 = var2.length;
 
-      for(boolean var28 = var25.nextInt(6) == 0; var15 < var16; ++var15) {
-         double var29 = 1.5D + (double)(MathHelper.sin((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
-         double var31 = var29 * var17;
-         float var33 = MathHelper.cos(var14);
-         float var34 = MathHelper.sin(var14);
-         var6 += (double)(MathHelper.cos(var13) * var33);
-         var8 += (double)var34;
-         var10 += (double)(MathHelper.sin(var13) * var33);
-         if(var28) {
-            var14 *= 0.92F;
-         } else {
-            var14 *= 0.7F;
-         }
+		for (int var6 = 0; var6 < var5; ++var6) {
+			class_aqc var7 = var4[var6];
+			a(var1, var7);
+			var3.put(var7.a(), var7);
+		}
 
-         var14 += var24 * 0.1F;
-         var13 += var23 * 0.1F;
-         var24 *= 0.9F;
-         var23 *= 0.75F;
-         var24 += (var25.nextFloat() - var25.nextFloat()) * var25.nextFloat() * 2.0F;
-         var23 += (var25.nextFloat() - var25.nextFloat()) * var25.nextFloat() * 4.0F;
-         if(!var52 && var15 == var27 && var12 > 1.0F) {
-            this.a(var25.nextLong(), var3, var4, var5, var6, var8, var10, var25.nextFloat() * 0.5F + 0.5F, var13 - 1.5707964F, var14 / 3.0F, var15, var16, 1.0D);
-            this.a(var25.nextLong(), var3, var4, var5, var6, var8, var10, var25.nextFloat() * 0.5F + 0.5F, var13 + 1.5707964F, var14 / 3.0F, var15, var16, 1.0D);
-            return;
-         }
+		d = ImmutableSortedMap.copyOf(var3);
+		LinkedHashMap var11 = Maps.newLinkedHashMap();
+		ArrayList var12 = Lists.newArrayList();
+		Iterable var13 = class_cm.a(e());
+		Iterator var14 = var13.iterator();
 
-         if(var52 || var25.nextInt(4) != 0) {
-            double var35 = var6 - var19;
-            double var37 = var10 - var21;
-            double var39 = (double)(var16 - var15);
-            double var41 = (double)(var12 + 2.0F + 16.0F);
-            if(var35 * var35 + var37 * var37 - var39 * var39 > var41 * var41) {
-               return;
-            }
+		while (var14.hasNext()) {
+			List var8 = (List) var14.next();
+			Map var9 = class_cw.b(d.values(), var8);
+			class_apo.class_a_in_class_apo var10 = new class_apo.class_a_in_class_apo(var1, ImmutableMap.copyOf(var9), null);
+			var11.put(var9, var10);
+			var12.add(var10);
+		}
 
-            if(var6 >= var19 - 16.0D - var29 * 2.0D && var10 >= var21 - 16.0D - var29 * 2.0D && var6 <= var19 + 16.0D + var29 * 2.0D && var10 <= var21 + 16.0D + var29 * 2.0D) {
-               int var53 = MathHelper.floor(var6 - var29) - var3 * 16 - 1;
-               int var36 = MathHelper.floor(var6 + var29) - var3 * 16 + 1;
-               int var54 = MathHelper.floor(var8 - var31) - 1;
-               int var38 = MathHelper.floor(var8 + var31) + 1;
-               int var55 = MathHelper.floor(var10 - var29) - var4 * 16 - 1;
-               int var40 = MathHelper.floor(var10 + var29) - var4 * 16 + 1;
-               if(var53 < 0) {
-                  var53 = 0;
-               }
+		var14 = var12.iterator();
 
-               if(var36 > 16) {
-                  var36 = 16;
-               }
+		while (var14.hasNext()) {
+			class_apo.class_a_in_class_apo var15 = (class_apo.class_a_in_class_apo) var14.next();
+			var15.a(var11);
+		}
 
-               if(var54 < 1) {
-                  var54 = 1;
-               }
+		e = ImmutableList.copyOf((Collection) var12);
+	}
 
-               if(var38 > 120) {
-                  var38 = 120;
-               }
+	public static String a(class_ail var0, class_aqc var1) {
+		String var2 = var1.a();
+		if (!a.matcher(var2).matches()) {
+			throw new IllegalArgumentException("Block: " + var0.getClass() + " has invalidly named property: " + var2);
+		} else {
+			Iterator var3 = var1.c().iterator();
 
-               if(var55 < 0) {
-                  var55 = 0;
-               }
+			String var5;
+			do {
+				if (!var3.hasNext()) {
+					return var2;
+				}
 
-               if(var40 > 16) {
-                  var40 = 16;
-               }
+				Comparable var4 = (Comparable) var3.next();
+				var5 = var1.a(var4);
+			} while (a.matcher(var5).matches());
 
-               boolean var56 = false;
+			throw new IllegalArgumentException("Block: " + var0.getClass() + " has property: " + var2 + " with invalidly named value: " + var5);
+		}
+	}
 
-               int var42;
-               for(var42 = var53; !var56 && var42 < var36; ++var42) {
-                  for(int var43 = var55; !var56 && var43 < var40; ++var43) {
-                     for(int var44 = var38 + 1; !var56 && var44 >= var54 - 1; --var44) {
-                        if(var44 >= 0 && var44 < 128) {
-                           IBlockData var45 = var5.a(var42, var44, var43);
-                           if(var45.getBlock() == Blocks.FLOWING_LAVA || var45.getBlock() == Blocks.LAVA) {
-                              var56 = true;
-                           }
+	public ImmutableList a() {
+		return e;
+	}
 
-                           if(var44 != var54 - 1 && var42 != var53 && var42 != var36 - 1 && var43 != var55 && var43 != var40 - 1) {
-                              var44 = var54;
-                           }
-                        }
-                     }
-                  }
-               }
+	private List e() {
+		ArrayList var1 = Lists.newArrayList();
+		ImmutableCollection var2 = d.values();
+		Iterator var3 = var2.iterator();
 
-               if(!var56) {
-                  for(var42 = var53; var42 < var36; ++var42) {
-                     double var57 = ((double)(var42 + var3 * 16) + 0.5D - var6) / var29;
+		while (var3.hasNext()) {
+			class_aqc var4 = (class_aqc) var3.next();
+			var1.add(var4.c());
+		}
 
-                     for(int var58 = var55; var58 < var40; ++var58) {
-                        double var46 = ((double)(var58 + var4 * 16) + 0.5D - var10) / var29;
+		return var1;
+	}
 
-                        for(int var48 = var38; var48 > var54; --var48) {
-                           double var49 = ((double)(var48 - 1) + 0.5D - var8) / var31;
-                           if(var49 > -0.7D && var57 * var57 + var49 * var49 + var46 * var46 < 1.0D) {
-                              IBlockData var51 = var5.a(var42, var48, var58);
-                              if(var51.getBlock() == Blocks.NETHERRACK || var51.getBlock() == Blocks.DIRT || var51.getBlock() == Blocks.GRASS) {
-                                 var5.a(var42, var48, var58, Blocks.AIR.getBlockData());
-                              }
-                           }
-                        }
-                     }
-                  }
+	public class_apn b() {
+		return (class_apn) e.get(0);
+	}
 
-                  if(var52) {
-                     break;
-                  }
-               }
-            }
-         }
-      }
+	public class_ail c() {
+		return c;
+	}
 
-   }
+	public Collection d() {
+		return d.values();
+	}
 
-   protected void a(World var1, int var2, int var3, int var4, int var5, ChunkSnapshot var6) {
-      int var7 = this.b.nextInt(this.b.nextInt(this.b.nextInt(10) + 1) + 1);
-      if(this.b.nextInt(5) != 0) {
-         var7 = 0;
-      }
+	@Override
+	public String toString() {
+		return Objects.toStringHelper(this).add("block", class_ail.c.b(c)).add("properties", Iterables.transform(d.values(), b)).toString();
+	}
 
-      for(int var8 = 0; var8 < var7; ++var8) {
-         double var9 = (double)(var2 * 16 + this.b.nextInt(16));
-         double var11 = (double)this.b.nextInt(128);
-         double var13 = (double)(var3 * 16 + this.b.nextInt(16));
-         int var15 = 1;
-         if(this.b.nextInt(4) == 0) {
-            this.a(this.b.nextLong(), var4, var5, var6, var9, var11, var13);
-            var15 += this.b.nextInt(4);
-         }
+	static class class_a_in_class_apo extends class_apm {
+		private final class_ail a;
+		private final ImmutableMap b;
+		private ImmutableTable c;
 
-         for(int var16 = 0; var16 < var15; ++var16) {
-            float var17 = this.b.nextFloat() * 3.1415927F * 2.0F;
-            float var18 = (this.b.nextFloat() - 0.5F) * 2.0F / 8.0F;
-            float var19 = this.b.nextFloat() * 2.0F + this.b.nextFloat();
-            this.a(this.b.nextLong(), var4, var5, var6, var9, var11, var13, var19 * 2.0F, var17, var18, 0, 0, 0.5D);
-         }
-      }
+		private class_a_in_class_apo(class_ail var1, ImmutableMap var2) {
+			a = var1;
+			b = var2;
+		}
 
-   }
+		@Override
+		public Collection a() {
+			return Collections.unmodifiableCollection(b.keySet());
+		}
+
+		@Override
+		public Comparable b(class_aqc var1) {
+			if (!b.containsKey(var1)) {
+				throw new IllegalArgumentException("Cannot get property " + var1 + " as it does not exist in " + a.R());
+			} else {
+				return (Comparable) var1.b().cast(b.get(var1));
+			}
+		}
+
+		@Override
+		public class_apn a(class_aqc var1, Comparable var2) {
+			if (!b.containsKey(var1)) {
+				throw new IllegalArgumentException("Cannot set property " + var1 + " as it does not exist in " + a.R());
+			} else if (!var1.c().contains(var2)) {
+				throw new IllegalArgumentException("Cannot set property " + var1 + " to " + var2 + " on block " + class_ail.c.b(a) + ", it is not an allowed value");
+			} else {
+				return b.get(var1) == var2 ? this : (class_apn) c.get(var1, var2);
+			}
+		}
+
+		@Override
+		public ImmutableMap b() {
+			return b;
+		}
+
+		@Override
+		public class_ail c() {
+			return a;
+		}
+
+		@Override
+		public boolean equals(Object var1) {
+			return this == var1;
+		}
+
+		@Override
+		public int hashCode() {
+			return b.hashCode();
+		}
+
+		public void a(Map var1) {
+			if (c != null) {
+				throw new IllegalStateException();
+			} else {
+				HashBasedTable var2 = HashBasedTable.create();
+				Iterator var3 = b.keySet().iterator();
+
+				while (var3.hasNext()) {
+					class_aqc var4 = (class_aqc) var3.next();
+					Iterator var5 = var4.c().iterator();
+
+					while (var5.hasNext()) {
+						Comparable var6 = (Comparable) var5.next();
+						if (var6 != b.get(var4)) {
+							var2.put(var4, var6, var1.get(this.b(var4, var6)));
+						}
+					}
+				}
+
+				c = ImmutableTable.copyOf(var2);
+			}
+		}
+
+		private Map b(class_aqc var1, Comparable var2) {
+			HashMap var3 = Maps.newHashMap(b);
+			var3.put(var1, var2);
+			return var3;
+		}
+
+		// $FF: synthetic method
+		class_a_in_class_apo(class_ail var1, ImmutableMap var2, Object var3) {
+			this(var1, var2);
+		}
+	}
 }

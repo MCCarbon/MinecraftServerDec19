@@ -1,61 +1,64 @@
 package net.minecraft.server;
 
-public class class_sn extends class_rm {
-   private EntityHorse a;
-   private double b;
-   private double c;
-   private double d;
-   private double e;
+import java.util.Random;
 
-   public class_sn(EntityHorse var1, double var2) {
-      this.a = var1;
-      this.b = var2;
-      this.a(1);
-   }
+public class class_sn extends class_sr {
+	private class_rn a;
+	private double b;
+	private double c;
+	private double d;
+	private double e;
+	private class_ago f;
 
-   public boolean a() {
-      if(!this.a.cD() && this.a.passenger != null) {
-         Vec3D var1 = class_tm.a(this.a, 5, 4);
-         if(var1 == null) {
-            return false;
-         } else {
-            this.c = var1.x;
-            this.d = var1.y;
-            this.e = var1.z;
-            return true;
-         }
-      } else {
-         return false;
-      }
-   }
+	public class_sn(class_rn var1, double var2) {
+		a = var1;
+		e = var2;
+		f = var1.o;
+		this.a(1);
+	}
 
-   public void c() {
-      this.a.u().a(this.c, this.d, this.e, this.b);
-   }
+	@Override
+	public boolean a() {
+		if (!f.z()) {
+			return false;
+		} else if (!a.ay()) {
+			return false;
+		} else if (!f.i(new class_cj(a.s, a.aX().b, a.u))) {
+			return false;
+		} else {
+			class_aym var1 = f();
+			if (var1 == null) {
+				return false;
+			} else {
+				b = var1.a;
+				c = var1.b;
+				d = var1.c;
+				return true;
+			}
+		}
+	}
 
-   public boolean b() {
-      return !this.a.u().m() && this.a.passenger != null;
-   }
+	@Override
+	public boolean b() {
+		return !a.u().m();
+	}
 
-   public void e() {
-      if(this.a.getRandom().nextInt(50) == 0) {
-         if(this.a.passenger instanceof EntityHuman) {
-            int var1 = this.a.cR();
-            int var2 = this.a.cX();
-            if(var2 > 0 && this.a.getRandom().nextInt(var2) < var1) {
-               this.a.f((EntityHuman)this.a.passenger);
-               this.a.world.a((Entity)this.a, (byte)7);
-               return;
-            }
+	@Override
+	public void c() {
+		a.u().a(b, c, d, e);
+	}
 
-            this.a.p(5);
-         }
+	private class_aym f() {
+		Random var1 = a.bj();
+		class_cj var2 = new class_cj(a.s, a.aX().b, a.u);
 
-         this.a.passenger.a((Entity)null);
-         this.a.passenger = null;
-         this.a.dl();
-         this.a.world.a((Entity)this.a, (byte)6);
-      }
+		for (int var3 = 0; var3 < 10; ++var3) {
+			class_cj var4 = var2.a(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);
+			if (!f.i(var4) && (a.a(var4) < 0.0F)) {
+				return new class_aym(var4.n(), var4.o(), var4.p());
+			}
+		}
 
-   }
+		return null;
+	}
 }

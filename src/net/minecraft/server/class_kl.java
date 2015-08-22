@@ -1,222 +1,60 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_awj;
-import net.minecraft.server.class_awk;
-import net.minecraft.server.class_awl;
-import net.minecraft.server.Scoreboard;
-import net.minecraft.server.class_awo;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutScoreboardDisplayObjective;
-import net.minecraft.server.PacketPlayOutScoreboardObjective;
-import net.minecraft.server.PacketPlayOutScoreboardTeam;
-import net.minecraft.server.PacketPlayOutScoreboardScore;
-import net.minecraft.server.EntityPlayer;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Properties;
 
-public class class_kl extends Scoreboard {
-   private final MinecraftServer a;
-   private final Set b = Sets.newHashSet();
-   private class_awo c;
+import org.apache.commons.io.IOUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-   public class_kl(MinecraftServer var1) {
-      this.a = var1;
-   }
+public class class_kl {
+	private static final Logger a = LogManager.getLogger();
+	private final File b;
+	private final boolean c;
 
-   public void a(class_awl var1) {
-      super.a(var1);
-      if(this.b.contains(var1.d())) {
-         this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardScore(var1)));
-      }
+	public class_kl(File var1) {
+		b = var1;
+		c = this.a(var1);
+	}
 
-      this.b();
-   }
+	private boolean a(File var1) {
+		FileInputStream var2 = null;
+		boolean var3 = false;
 
-   public void a(String var1) {
-      super.a(var1);
-      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardScore(var1)));
-      this.b();
-   }
+		try {
+			Properties var4 = new Properties();
+			var2 = new FileInputStream(var1);
+			var4.load(var2);
+			var3 = Boolean.parseBoolean(var4.getProperty("eula", "false"));
+		} catch (Exception var8) {
+			a.warn("Failed to load " + var1);
+			b();
+		} finally {
+			IOUtils.closeQuietly(var2);
+		}
 
-   public void a(String var1, class_awj var2) {
-      super.a(var1, var2);
-      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardScore(var1, var2)));
-      this.b();
-   }
+		return var3;
+	}
 
-   public void a(int var1, class_awj var2) {
-      class_awj var3 = this.a(var1);
-      super.a(var1, var2);
-      if(var3 != var2 && var3 != null) {
-         if(this.h(var3) > 0) {
-            this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardDisplayObjective(var1, var2)));
-         } else {
-            this.g(var3);
-         }
-      }
+	public boolean a() {
+		return c;
+	}
 
-      if(var2 != null) {
-         if(this.b.contains(var2)) {
-            this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardDisplayObjective(var1, var2)));
-         } else {
-            this.e(var2);
-         }
-      }
+	public void b() {
+		FileOutputStream var1 = null;
 
-      this.b();
-   }
+		try {
+			Properties var2 = new Properties();
+			var1 = new FileOutputStream(b);
+			var2.setProperty("eula", "false");
+			var2.store(var1, "By changing the setting below to TRUE you are indicating your agreement to our EULA (https://account.mojang.com/documents/minecraft_eula).");
+		} catch (Exception var6) {
+			a.warn("Failed to save " + b, var6);
+		} finally {
+			IOUtils.closeQuietly(var1);
+		}
 
-   public boolean a(String var1, String var2) {
-      if(super.a(var1, var2)) {
-         class_awk var3 = this.d(var2);
-         this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var3, Arrays.asList(new String[]{var1}), 3)));
-         this.b();
-         return true;
-      } else {
-         return false;
-      }
-   }
-
-   public void a(String var1, class_awk var2) {
-      super.a(var1, var2);
-      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var2, Arrays.asList(new String[]{var1}), 4)));
-      this.b();
-   }
-
-   public void a(class_awj var1) {
-      super.a(var1);
-      this.b();
-   }
-
-   public void b(class_awj var1) {
-      super.b(var1);
-      if(this.b.contains(var1)) {
-         this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardObjective(var1, 2)));
-      }
-
-      this.b();
-   }
-
-   public void c(class_awj var1) {
-      super.c(var1);
-      if(this.b.contains(var1)) {
-         this.g(var1);
-      }
-
-      this.b();
-   }
-
-   public void a(class_awk var1) {
-      super.a(var1);
-      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 0)));
-      this.b();
-   }
-
-   public void b(class_awk var1) {
-      super.b(var1);
-      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 2)));
-      this.b();
-   }
-
-   public void c(class_awk var1) {
-      super.c(var1);
-      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 1)));
-      this.b();
-   }
-
-   public void a(class_awo var1) {
-      this.c = var1;
-   }
-
-   protected void b() {
-      if(this.c != null) {
-         this.c.c();
-      }
-
-   }
-
-   public List d(class_awj var1) {
-      ArrayList var2 = Lists.newArrayList();
-      var2.add(new PacketPlayOutScoreboardObjective(var1, 0));
-
-      for(int var3 = 0; var3 < 19; ++var3) {
-         if(this.a(var3) == var1) {
-            var2.add(new PacketPlayOutScoreboardDisplayObjective(var3, var1));
-         }
-      }
-
-      Iterator var5 = this.i(var1).iterator();
-
-      while(var5.hasNext()) {
-         class_awl var4 = (class_awl)var5.next();
-         var2.add(new PacketPlayOutScoreboardScore(var4));
-      }
-
-      return var2;
-   }
-
-   public void e(class_awj var1) {
-      List var2 = this.d(var1);
-      Iterator var3 = this.a.getPlayerList().v().iterator();
-
-      while(var3.hasNext()) {
-         EntityPlayer var4 = (EntityPlayer)var3.next();
-         Iterator var5 = var2.iterator();
-
-         while(var5.hasNext()) {
-            Packet var6 = (Packet)var5.next();
-            var4.playerConnection.sendPacket(var6);
-         }
-      }
-
-      this.b.add(var1);
-   }
-
-   public List f(class_awj var1) {
-      ArrayList var2 = Lists.newArrayList();
-      var2.add(new PacketPlayOutScoreboardObjective(var1, 1));
-
-      for(int var3 = 0; var3 < 19; ++var3) {
-         if(this.a(var3) == var1) {
-            var2.add(new PacketPlayOutScoreboardDisplayObjective(var3, var1));
-         }
-      }
-
-      return var2;
-   }
-
-   public void g(class_awj var1) {
-      List var2 = this.f(var1);
-      Iterator var3 = this.a.getPlayerList().v().iterator();
-
-      while(var3.hasNext()) {
-         EntityPlayer var4 = (EntityPlayer)var3.next();
-         Iterator var5 = var2.iterator();
-
-         while(var5.hasNext()) {
-            Packet var6 = (Packet)var5.next();
-            var4.playerConnection.sendPacket(var6);
-         }
-      }
-
-      this.b.remove(var1);
-   }
-
-   public int h(class_awj var1) {
-      int var2 = 0;
-
-      for(int var3 = 0; var3 < 19; ++var3) {
-         if(this.a(var3) == var1) {
-            ++var2;
-         }
-      }
-
-      return var2;
-   }
+	}
 }

@@ -1,27 +1,29 @@
 package net.minecraft.server;
 
-import net.minecraft.server.IPosition;
 
-public class class_da implements IPosition {
-   protected final double a;
-   protected final double b;
-   protected final double c;
+public class class_da implements class_cz {
+	protected final double a;
+	protected final double b;
+	protected final double c;
 
-   public class_da(double var1, double var3, double var5) {
-      this.a = var1;
-      this.b = var3;
-      this.c = var5;
-   }
+	public class_da(double var1, double var3, double var5) {
+		a = var1;
+		b = var3;
+		c = var5;
+	}
 
-   public double getX() {
-      return this.a;
-   }
+	@Override
+	public double a() {
+		return a;
+	}
 
-   public double getY() {
-      return this.b;
-   }
+	@Override
+	public double b() {
+		return b;
+	}
 
-   public double getZ() {
-      return this.c;
-   }
+	@Override
+	public double c() {
+		return c;
+	}
 }

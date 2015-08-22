@@ -1,54 +1,50 @@
 package net.minecraft.server;
 
-public class class_sa extends class_rm {
-   World a;
-   EntityInsentient b;
-   EntityLiving c;
-   int d;
 
-   public class_sa(EntityInsentient var1) {
-      this.b = var1;
-      this.a = var1.world;
-      this.a(3);
-   }
+public class class_sa {
+	private class_rg a;
+	private int b;
+	private float c;
 
-   public boolean a() {
-      EntityLiving var1 = this.b.w();
-      if(var1 == null) {
-         return false;
-      } else {
-         this.c = var1;
-         return true;
-      }
-   }
+	public class_sa(class_rg var1) {
+		a = var1;
+	}
 
-   public boolean b() {
-      return !this.c.isAlive()?false:(this.b.h(this.c) > 225.0D?false:!this.b.u().m() || this.a());
-   }
+	public void a() {
+		double var1 = a.s - a.p;
+		double var3 = a.u - a.r;
+		if (((var1 * var1) + (var3 * var3)) > 2.500000277905201E-7D) {
+			a.aM = a.y;
+			a.aO = this.a(a.aM, a.aO, 75.0F);
+			c = a.aO;
+			b = 0;
+		} else {
+			float var5 = 75.0F;
+			if (Math.abs(a.aO - c) > 15.0F) {
+				b = 0;
+				c = a.aO;
+			} else {
+				++b;
+				boolean var6 = true;
+				if (b > 10) {
+					var5 = Math.max(1.0F - ((b - 10) / 10.0F), 0.0F) * 75.0F;
+				}
+			}
 
-   public void d() {
-      this.c = null;
-      this.b.u().n();
-   }
+			a.aM = this.a(a.aO, a.aM, var5);
+		}
+	}
 
-   public void e() {
-      this.b.q().a(this.c, 30.0F, 30.0F);
-      double var1 = (double)(this.b.width * 2.0F * this.b.width * 2.0F);
-      double var3 = this.b.e(this.c.locX, this.c.getBoundingBox().yMin, this.c.locZ);
-      double var5 = 0.8D;
-      if(var3 > var1 && var3 < 16.0D) {
-         var5 = 1.33D;
-      } else if(var3 < 225.0D) {
-         var5 = 0.6D;
-      }
+	private float a(float var1, float var2, float var3) {
+		float var4 = class_oa.g(var1 - var2);
+		if (var4 < -var3) {
+			var4 = -var3;
+		}
 
-      this.b.u().a((Entity)this.c, var5);
-      this.d = Math.max(this.d - 1, 0);
-      if(var3 <= var1) {
-         if(this.d <= 0) {
-            this.d = 20;
-            this.b.r(this.c);
-         }
-      }
-   }
+		if (var4 >= var3) {
+			var4 = var3;
+		}
+
+		return var1 - var4;
+	}
 }

@@ -1,54 +1,75 @@
 package net.minecraft.server;
 
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EntityCreature;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_to;
-import net.minecraft.server.class_tp;
 
-public class class_sl extends class_rm {
-   private EntityCreature a;
-   private class_to b;
+public abstract class class_sl extends class_sr {
+	protected class_rh a;
+	protected class_cj b;
+	protected class_ajn c;
+	boolean d;
+	float e;
+	float f;
 
-   public class_sl(EntityCreature var1) {
-      this.a = var1;
-      if(!(var1.u() instanceof class_tf)) {
-         throw new IllegalArgumentException("Unsupported mob type for RestrictOpenDoorGoal");
-      }
-   }
+	public class_sl(class_rh var1) {
+		b = class_cj.a;
+		a = var1;
+		if (!(var1.u() instanceof class_ul)) {
+			throw new IllegalArgumentException("Unsupported mob type for DoorInteractGoal");
+		}
+	}
 
-   public boolean a() {
-      if(this.a.world.x()) {
-         return false;
-      } else {
-         BlockPosition var1 = new BlockPosition(this.a);
-         class_tp var2 = this.a.world.af().a(var1, 16);
-         if(var2 == null) {
-            return false;
-         } else {
-            this.b = var2.b(var1);
-            return this.b == null?false:(double)this.b.b(var1) < 2.25D;
-         }
-      }
-   }
+	@Override
+	public boolean a() {
+		if (!a.D) {
+			return false;
+		} else {
+			class_ul var1 = (class_ul) a.u();
+			class_axc var2 = var1.j();
+			if ((var2 != null) && !var2.b() && var1.g()) {
+				for (int var3 = 0; var3 < Math.min(var2.e() + 2, var2.d()); ++var3) {
+					class_axa var4 = var2.a(var3);
+					b = new class_cj(var4.a, var4.b + 1, var4.c);
+					if (a.e(b.n(), a.t, b.p()) <= 2.25D) {
+						c = this.a(b);
+						if (c != null) {
+							return true;
+						}
+					}
+				}
 
-   public boolean b() {
-      return this.a.world.x()?false:!this.b.i() && this.b.c(new BlockPosition(this.a));
-   }
+				b = (new class_cj(a)).a();
+				c = this.a(b);
+				return c != null;
+			} else {
+				return false;
+			}
+		}
+	}
 
-   public void c() {
-      ((class_tf)this.a.u()).b(false);
-      ((class_tf)this.a.u()).c(false);
-   }
+	@Override
+	public boolean b() {
+		return !d;
+	}
 
-   public void d() {
-      ((class_tf)this.a.u()).b(true);
-      ((class_tf)this.a.u()).c(true);
-      this.b = null;
-   }
+	@Override
+	public void c() {
+		d = false;
+		e = (float) (b.n() + 0.5F - a.s);
+		f = (float) (b.p() + 0.5F - a.u);
+	}
 
-   public void e() {
-      this.b.b();
-   }
+	@Override
+	public void e() {
+		float var1 = (float) (b.n() + 0.5F - a.s);
+		float var2 = (float) (b.p() + 0.5F - a.u);
+		float var3 = (e * var1) + (f * var2);
+		if (var3 < 0.0F) {
+			d = true;
+		}
+
+	}
+
+	private class_ajn a(class_cj var1) {
+		class_ail var2 = a.o.p(var1).c();
+		return (var2 instanceof class_ajn) && (var2.v() == class_avq.d) ? (class_ajn) var2 : null;
+	}
 }

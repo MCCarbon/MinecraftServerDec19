@@ -1,55 +1,110 @@
 package net.minecraft.server;
 
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_aua;
-import net.minecraft.server.class_auc;
+import java.util.Random;
 
-public class class_ato extends class_auc {
-   public class_ato(long var1, class_auc var3) {
-      super(var1);
-      this.a = var3;
-   }
+public class class_ato extends class_asa {
+	private static final class_apn a;
+	private static final class_apn b;
 
-   public int[] a(int var1, int var2, int var3, int var4) {
-      int var5 = var1 - 1;
-      int var6 = var2 - 1;
-      int var7 = var3 + 2;
-      int var8 = var4 + 2;
-      int[] var9 = this.a.a(var5, var6, var7, var8);
-      int[] var10 = class_aua.a(var3 * var4);
+	public class_ato(boolean var1) {
+		super(var1);
+	}
 
-      for(int var11 = 0; var11 < var4; ++var11) {
-         for(int var12 = 0; var12 < var3; ++var12) {
-            int var13 = var9[var12 + 1 + (var11 + 1 - 1) * (var3 + 2)];
-            int var14 = var9[var12 + 1 + 1 + (var11 + 1) * (var3 + 2)];
-            int var15 = var9[var12 + 1 - 1 + (var11 + 1) * (var3 + 2)];
-            int var16 = var9[var12 + 1 + (var11 + 1 + 1) * (var3 + 2)];
-            int var17 = var9[var12 + 1 + (var11 + 1) * var7];
-            int var18 = 0;
-            if(var13 == 0) {
-               ++var18;
-            }
+	@Override
+	public boolean b(class_ago var1, Random var2, class_cj var3) {
+		int var4 = var2.nextInt(4) + 6;
+		int var5 = 1 + var2.nextInt(2);
+		int var6 = var4 - var5;
+		int var7 = 2 + var2.nextInt(2);
+		boolean var8 = true;
+		if ((var3.o() >= 1) && ((var3.o() + var4 + 1) <= 256)) {
+			int var13;
+			int var21;
+			for (int var9 = var3.o(); (var9 <= (var3.o() + 1 + var4)) && var8; ++var9) {
+				boolean var10 = true;
+				if ((var9 - var3.o()) < var5) {
+					var21 = 0;
+				} else {
+					var21 = var7;
+				}
 
-            if(var14 == 0) {
-               ++var18;
-            }
+				class_cj.class_a_in_class_cj var11 = new class_cj.class_a_in_class_cj();
 
-            if(var15 == 0) {
-               ++var18;
-            }
+				for (int var12 = var3.n() - var21; (var12 <= (var3.n() + var21)) && var8; ++var12) {
+					for (var13 = var3.p() - var21; (var13 <= (var3.p() + var21)) && var8; ++var13) {
+						if ((var9 >= 0) && (var9 < 256)) {
+							class_ail var14 = var1.p(var11.c(var12, var9, var13)).c();
+							if ((var14.v() != class_avq.a) && (var14.v() != class_avq.j)) {
+								var8 = false;
+							}
+						} else {
+							var8 = false;
+						}
+					}
+				}
+			}
 
-            if(var16 == 0) {
-               ++var18;
-            }
+			if (!var8) {
+				return false;
+			} else {
+				class_ail var20 = var1.p(var3.b()).c();
+				if (((var20 == class_aim.c) || (var20 == class_aim.d) || (var20 == class_aim.ak)) && (var3.o() < (256 - var4 - 1))) {
+					this.a(var1, var3.b());
+					var21 = var2.nextInt(2);
+					int var22 = 1;
+					byte var23 = 0;
 
-            if(var17 == 0 && var18 > 3) {
-               var10[var12 + var11 * var3] = BiomeBase.DEEP_OCEAN.id;
-            } else {
-               var10[var12 + var11 * var3] = var17;
-            }
-         }
-      }
+					int var24;
+					for (var13 = 0; var13 <= var6; ++var13) {
+						var24 = (var3.o() + var4) - var13;
 
-      return var10;
-   }
+						for (int var15 = var3.n() - var21; var15 <= (var3.n() + var21); ++var15) {
+							int var16 = var15 - var3.n();
+
+							for (int var17 = var3.p() - var21; var17 <= (var3.p() + var21); ++var17) {
+								int var18 = var17 - var3.p();
+								if ((Math.abs(var16) != var21) || (Math.abs(var18) != var21) || (var21 <= 0)) {
+									class_cj var19 = new class_cj(var15, var24, var17);
+									if (!var1.p(var19).c().q()) {
+										this.a(var1, var19, b);
+									}
+								}
+							}
+						}
+
+						if (var21 >= var22) {
+							var21 = var23;
+							var23 = 1;
+							++var22;
+							if (var22 > var7) {
+								var22 = var7;
+							}
+						} else {
+							++var21;
+						}
+					}
+
+					var13 = var2.nextInt(3);
+
+					for (var24 = 0; var24 < (var4 - var13); ++var24) {
+						class_ail var25 = var1.p(var3.b(var24)).c();
+						if ((var25.v() == class_avq.a) || (var25.v() == class_avq.j)) {
+							this.a(var1, var3.b(var24), a);
+						}
+					}
+
+					return true;
+				} else {
+					return false;
+				}
+			}
+		} else {
+			return false;
+		}
+	}
+
+	static {
+		a = class_aim.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
+		b = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
+	}
 }

@@ -1,71 +1,132 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Maps;
-import java.util.Collection;
+import java.util.AbstractSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Map.Entry;
 
-public class class_nm implements Map {
-   private final Map a = Maps.newLinkedHashMap();
+import com.google.common.collect.Iterators;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
-   public int size() {
-      return this.a.size();
-   }
+public class class_nm extends AbstractSet {
+	private static final Set a = Sets.newHashSet();
+	private final Map b = Maps.newHashMap();
+	private final Set c = Sets.newIdentityHashSet();
+	private final Class d;
+	private final List e = Lists.newArrayList();
 
-   public boolean isEmpty() {
-      return this.a.isEmpty();
-   }
+	public class_nm(Class var1) {
+		d = var1;
+		c.add(var1);
+		b.put(var1, e);
+		Iterator var2 = a.iterator();
 
-   public boolean containsKey(Object var1) {
-      return this.a.containsKey(var1.toString().toLowerCase());
-   }
+		while (var2.hasNext()) {
+			Class var3 = (Class) var2.next();
+			this.a(var3);
+		}
 
-   public boolean containsValue(Object var1) {
-      return this.a.containsKey(var1);
-   }
+	}
 
-   public Object get(Object var1) {
-      return this.a.get(var1.toString().toLowerCase());
-   }
+	protected void a(Class var1) {
+		a.add(var1);
+		Iterator var2 = e.iterator();
 
-   public Object a(String var1, Object var2) {
-      return this.a.put(var1.toLowerCase(), var2);
-   }
+		while (var2.hasNext()) {
+			Object var3 = var2.next();
+			if (var1.isAssignableFrom(var3.getClass())) {
+				this.a(var3, var1);
+			}
+		}
 
-   public Object remove(Object var1) {
-      return this.a.remove(var1.toString().toLowerCase());
-   }
+		c.add(var1);
+	}
 
-   public void putAll(Map var1) {
-      Iterator var2 = var1.entrySet().iterator();
+	protected Class b(Class var1) {
+		if (d.isAssignableFrom(var1)) {
+			if (!c.contains(var1)) {
+				this.a(var1);
+			}
 
-      while(var2.hasNext()) {
-         Entry var3 = (Entry)var2.next();
-         this.a((String)var3.getKey(), var3.getValue());
-      }
+			return var1;
+		} else {
+			throw new IllegalArgumentException("Don\'t know how to search for " + var1);
+		}
+	}
 
-   }
+	@Override
+	public boolean add(Object var1) {
+		Iterator var2 = c.iterator();
 
-   public void clear() {
-      this.a.clear();
-   }
+		while (var2.hasNext()) {
+			Class var3 = (Class) var2.next();
+			if (var3.isAssignableFrom(var1.getClass())) {
+				this.a(var1, var3);
+			}
+		}
 
-   public Set keySet() {
-      return this.a.keySet();
-   }
+		return true;
+	}
 
-   public Collection values() {
-      return this.a.values();
-   }
+	private void a(Object var1, Class var2) {
+		List var3 = (List) b.get(var2);
+		if (var3 == null) {
+			b.put(var2, Lists.newArrayList(new Object[] { var1 }));
+		} else {
+			var3.add(var1);
+		}
 
-   public Set entrySet() {
-      return this.a.entrySet();
-   }
+	}
 
-   // $FF: synthetic method
-   public Object put(Object var1, Object var2) {
-      return this.a((String)var1, var2);
-   }
+	@Override
+	public boolean remove(Object var1) {
+		Object var2 = var1;
+		boolean var3 = false;
+		Iterator var4 = c.iterator();
+
+		while (var4.hasNext()) {
+			Class var5 = (Class) var4.next();
+			if (var5.isAssignableFrom(var2.getClass())) {
+				List var6 = (List) b.get(var5);
+				if ((var6 != null) && var6.remove(var2)) {
+					var3 = true;
+				}
+			}
+		}
+
+		return var3;
+	}
+
+	@Override
+	public boolean contains(Object var1) {
+		return Iterators.contains(c(var1.getClass()).iterator(), var1);
+	}
+
+	public Iterable c(final Class var1) {
+		return new Iterable() {
+			@Override
+			public Iterator iterator() {
+				List var1x = (List) b.get(class_nm.this.b(var1));
+				if (var1x == null) {
+					return Iterators.emptyIterator();
+				} else {
+					Iterator var2 = var1x.iterator();
+					return Iterators.filter(var2, var1);
+				}
+			}
+		};
+	}
+
+	@Override
+	public Iterator iterator() {
+		return e.isEmpty() ? Iterators.emptyIterator() : Iterators.unmodifiableIterator(e.iterator());
+	}
+
+	@Override
+	public int size() {
+		return e.size();
+	}
 }

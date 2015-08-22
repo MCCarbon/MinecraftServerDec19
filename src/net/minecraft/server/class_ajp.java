@@ -1,149 +1,106 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockStepAbstract;
-import net.minecraft.server.BlockSand;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.INamable;
-import net.minecraft.server.CreativeTab;
 
-public abstract class class_ajp extends BlockStepAbstract {
-   public static final BlockStateBoolean b = BlockStateBoolean.of("seamless");
-   public static final BlockStateEnum N = BlockStateEnum.of("variant", class_ajp.class_a_in_class_ajp.class);
+public class class_ajp extends class_ail {
+	public class_ajp() {
+		super(class_avq.D, class_avr.E);
+		this.a(0.0625F, 0.0F, 0.0625F, 0.9375F, 1.0F, 0.9375F);
+	}
 
-   public class_ajp() {
-      super(Material.STONE);
-      IBlockData var1 = this.blockStateList.getFirst();
-      if(this.isDouble()) {
-         var1 = var1.set(b, Boolean.valueOf(false));
-      } else {
-         var1 = var1.set(HALF, BlockStepAbstract.EnumSlabHalf.BOTTOM);
-      }
+	@Override
+	public void d(class_ago var1, class_cj var2, class_apn var3) {
+		var1.a(var2, this, this.a(var1));
+	}
 
-      this.setBlockData(var1.set(N, class_ajp.class_a_in_class_ajp.a));
-      this.setCreativeTab((CreativeTab)CreativeTab.BUILDING_BLOCKS);
-   }
+	@Override
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+		var1.a(var2, this, this.a(var1));
+	}
 
-   public String getName() {
-      return LocaleI18n.get(this.getInternalName() + ".red_sandstone.name");
-   }
+	@Override
+	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
+		this.d(var1, var2);
+	}
 
-   public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getItemOf((Block)Blocks.STONE_SLAB2);
-   }
+	private void d(class_ago var1, class_cj var2) {
+		if (class_ajz.d(var1, var2.b()) && (var2.o() >= 0)) {
+			byte var3 = 32;
+			if (!class_ajz.N && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
+				var1.a((new class_xf(var1, var2.n() + 0.5F, var2.o(), var2.p() + 0.5F, S())));
+			} else {
+				var1.g(var2);
 
-   public String b(int var1) {
-      return super.getInternalName() + "." + class_ajp.class_a_in_class_ajp.a(var1).d();
-   }
+				class_cj var4;
+				for (var4 = var2; class_ajz.d(var1, var4) && (var4.o() > 0); var4 = var4.b()) {
+					;
+				}
 
-   public IBlockState getVariant() {
-      return N;
-   }
+				if (var4.o() > 0) {
+					var1.a(var4, S(), 2);
+				}
+			}
 
-   public Object a(ItemStack var1) {
-      return class_ajp.class_a_in_class_ajp.a(var1.i() & 7);
-   }
+		}
+	}
 
-   public IBlockData fromLegacyData(int var1) {
-      IBlockData var2 = this.getBlockData().set(N, class_ajp.class_a_in_class_ajp.a(var1 & 7));
-      if(this.isDouble()) {
-         var2 = var2.set(b, Boolean.valueOf((var1 & 8) != 0));
-      } else {
-         var2 = var2.set(HALF, (var1 & 8) == 0?BlockStepAbstract.EnumSlabHalf.BOTTOM:BlockStepAbstract.EnumSlabHalf.TOP);
-      }
+	@Override
+	public boolean a(class_ago var1, class_cj var2, class_apn var3, class_yu var4, class_pu var5, class_aco var6, class_cq var7, float var8, float var9, float var10) {
+		this.e(var1, var2);
+		return true;
+	}
 
-      return var2;
-   }
+	@Override
+	public void a(class_ago var1, class_cj var2, class_yu var3) {
+		this.e(var1, var2);
+	}
 
-   public int toLegacyData(IBlockData var1) {
-      byte var2 = 0;
-      int var3 = var2 | ((class_ajp.class_a_in_class_ajp)var1.get(N)).a();
-      if(this.isDouble()) {
-         if(((Boolean)var1.get(b)).booleanValue()) {
-            var3 |= 8;
-         }
-      } else if(var1.get(HALF) == BlockStepAbstract.EnumSlabHalf.TOP) {
-         var3 |= 8;
-      }
+	private void e(class_ago var1, class_cj var2) {
+		class_apn var3 = var1.p(var2);
+		if (var3.c() == this) {
+			for (int var4 = 0; var4 < 1000; ++var4) {
+				class_cj var5 = var2.a(var1.s.nextInt(16) - var1.s.nextInt(16), var1.s.nextInt(8) - var1.s.nextInt(8), var1.s.nextInt(16) - var1.s.nextInt(16));
+				if (var1.p(var5).c().J == class_avq.a) {
+					if (var1.D) {
+						for (int var6 = 0; var6 < 128; ++var6) {
+							double var7 = var1.s.nextDouble();
+							float var9 = (var1.s.nextFloat() - 0.5F) * 0.2F;
+							float var10 = (var1.s.nextFloat() - 0.5F) * 0.2F;
+							float var11 = (var1.s.nextFloat() - 0.5F) * 0.2F;
+							double var12 = var5.n() + ((var2.n() - var5.n()) * var7) + ((var1.s.nextDouble() - 0.5D) * 1.0D) + 0.5D;
+							double var14 = (var5.o() + ((var2.o() - var5.o()) * var7) + (var1.s.nextDouble() * 1.0D)) - 0.5D;
+							double var16 = var5.p() + ((var2.p() - var5.p()) * var7) + ((var1.s.nextDouble() - 0.5D) * 1.0D) + 0.5D;
+							var1.a(class_cy.y, var12, var14, var16, var9, var10, var11, new int[0]);
+						}
+					} else {
+						var1.a(var5, var3, 2);
+						var1.g(var2);
+					}
 
-      return var3;
-   }
+					return;
+				}
+			}
 
-   protected BlockStateList getStateList() {
-      return this.isDouble()?new BlockStateList(this, new IBlockState[]{b, N}):new BlockStateList(this, new IBlockState[]{HALF, N});
-   }
+		}
+	}
 
-   public MaterialMapColor getMapColor(IBlockData var1) {
-      return ((class_ajp.class_a_in_class_ajp)var1.get(N)).c();
-   }
+	@Override
+	public int a(class_ago var1) {
+		return 5;
+	}
 
-   public int getDropData(IBlockData var1) {
-      return ((class_ajp.class_a_in_class_ajp)var1.get(N)).a();
-   }
+	@Override
+	public boolean c() {
+		return false;
+	}
 
-   public static enum class_a_in_class_ajp implements INamable {
-      a(0, "red_sandstone", BlockSand.EnumSandVariant.RED_SAND.getMapColor());
+	@Override
+	public boolean d() {
+		return false;
+	}
 
-      private static final class_ajp.class_a_in_class_ajp[] b;
-      private final int c;
-      private final String d;
-      private final MaterialMapColor e;
-
-      private class_a_in_class_ajp(int var3, String var4, MaterialMapColor var5) {
-         this.c = var3;
-         this.d = var4;
-         this.e = var5;
-      }
-
-      public int a() {
-         return this.c;
-      }
-
-      public MaterialMapColor c() {
-         return this.e;
-      }
-
-      public String toString() {
-         return this.d;
-      }
-
-      public static class_ajp.class_a_in_class_ajp a(int var0) {
-         if(var0 < 0 || var0 >= b.length) {
-            var0 = 0;
-         }
-
-         return b[var0];
-      }
-
-      public String getName() {
-         return this.d;
-      }
-
-      public String d() {
-         return this.d;
-      }
-
-      static {
-         b = new class_ajp.class_a_in_class_ajp[values().length];
-         class_ajp.class_a_in_class_ajp[] var0 = values();
-         int var1 = var0.length;
-
-         for(int var2 = 0; var2 < var1; ++var2) {
-            class_ajp.class_a_in_class_ajp var3 = var0[var2];
-            b[var3.a()] = var3;
-         }
-
-      }
-   }
+	@Override
+	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
+		return null;
+	}
 }

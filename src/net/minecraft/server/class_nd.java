@@ -1,58 +1,113 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Maps;
-import java.util.Map;
-import net.minecraft.server.class_ms;
-import net.minecraft.server.class_my;
-import net.minecraft.server.class_na;
-import net.minecraft.server.class_nb;
-import net.minecraft.server.EntityHuman;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class class_nd {
-   protected final Map a = Maps.newConcurrentMap();
+	public final String e;
+	private final class_eu a;
+	public boolean f;
+	private final class_ne b;
+	private final class_ayy c;
+	private Class d;
+	private static NumberFormat k;
+	public static class_ne g;
+	private static DecimalFormat l;
+	public static class_ne h;
+	public static class_ne i;
+	public static class_ne j;
 
-   public boolean a(class_ms var1) {
-      return this.a((class_my)var1) > 0;
-   }
+	public class_nd(String var1, class_eu var2, class_ne var3) {
+		e = var1;
+		a = var2;
+		b = var3;
+		c = new class_aza(this);
+		class_ayy.a.put(c.a(), c);
+	}
 
-   public boolean b(class_ms var1) {
-      return var1.c == null || this.a(var1.c);
-   }
+	public class_nd(String var1, class_eu var2) {
+		this(var1, var2, g);
+	}
 
-   public void b(EntityHuman var1, class_my var2, int var3) {
-      if(!var2.d() || this.b((class_ms)var2)) {
-         this.a(var1, var2, this.a(var2) + var3);
-      }
-   }
+	public class_nd i() {
+		f = true;
+		return this;
+	}
 
-   public void a(EntityHuman var1, class_my var2, int var3) {
-      class_na var4 = (class_na)this.a.get(var2);
-      if(var4 == null) {
-         var4 = new class_na();
-         this.a.put(var2, var4);
-      }
+	public class_nd h() {
+		if (class_nh.a.containsKey(e)) {
+			throw new RuntimeException("Duplicate stat id: \"" + ((class_nd) class_nh.a.get(e)).a + "\" and \"" + a + "\" at id " + e);
+		} else {
+			class_nh.b.add(this);
+			class_nh.a.put(e, this);
+			return this;
+		}
+	}
 
-      var4.a(var3);
-   }
+	public boolean d() {
+		return false;
+	}
 
-   public int a(class_my var1) {
-      class_na var2 = (class_na)this.a.get(var1);
-      return var2 == null?0:var2.a();
-   }
+	public class_eu e() {
+		class_eu var1 = a.f();
+		var1.b().a(EnumChatFormat.GRAY);
+		var1.b().a(new class_ew(class_ew.class_a_in_class_ew.b, new class_fa(e)));
+		return var1;
+	}
 
-   public class_nb b(class_my var1) {
-      class_na var2 = (class_na)this.a.get(var1);
-      return var2 != null?var2.b():null;
-   }
+	public class_eu j() {
+		class_eu var1 = e();
+		class_eu var2 = (new class_fa("[")).a(var1).a("]");
+		var2.a(var1.b());
+		return var2;
+	}
 
-   public class_nb a(class_my var1, class_nb var2) {
-      class_na var3 = (class_na)this.a.get(var1);
-      if(var3 == null) {
-         var3 = new class_na();
-         this.a.put(var1, var3);
-      }
+	@Override
+	public boolean equals(Object var1) {
+		if (this == var1) {
+			return true;
+		} else if ((var1 != null) && (this.getClass() == var1.getClass())) {
+			class_nd var2 = (class_nd) var1;
+			return e.equals(var2.e);
+		} else {
+			return false;
+		}
+	}
 
-      var3.a(var2);
-      return var2;
-   }
+	@Override
+	public int hashCode() {
+		return e.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return "Stat{id=" + e + ", nameId=" + a + ", awardLocallyOnly=" + f + ", formatter=" + b + ", objectiveCriteria=" + c + '}';
+	}
+
+	public class_ayy k() {
+		return c;
+	}
+
+	public Class l() {
+		return d;
+	}
+
+	public class_nd b(Class var1) {
+		d = var1;
+		return this;
+	}
+
+	static {
+		k = NumberFormat.getIntegerInstance(Locale.US);
+		g = new class_ne() {
+		};
+		l = new DecimalFormat("########0.00");
+		h = new class_ne() {
+		};
+		i = new class_ne() {
+		};
+		j = new class_ne() {
+		};
+	}
 }

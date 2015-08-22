@@ -1,100 +1,55 @@
 package net.minecraft.server;
 
-import com.google.common.util.concurrent.ListeningExecutorService;
-import com.google.common.util.concurrent.MoreExecutors;
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.Proxy;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicInteger;
-import net.minecraft.server.MinecraftServer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.apache.commons.lang3.Validate;
 
 public class class_nl {
-   public static final ListeningExecutorService a = MoreExecutors.listeningDecorator(Executors.newCachedThreadPool((new ThreadFactoryBuilder()).setDaemon(true).setNameFormat("Downloader %d").build()));
-   private static final AtomicInteger b = new AtomicInteger(0);
-   private static final Logger c = LogManager.getLogger();
+	private final long[] a;
+	private final int b;
+	private final long c;
+	private final int d;
 
-   public static String a(Map var0) {
-      StringBuilder var1 = new StringBuilder();
-      Iterator var2 = var0.entrySet().iterator();
+	public class_nl(int var1, int var2) {
+		Validate.inclusiveBetween(1L, 32L, var1);
+		d = var2;
+		b = var1;
+		c = (1L << var1) - 1L;
+		a = new long[class_oa.c(var2 * var1, 64) / 64];
+	}
 
-      while(var2.hasNext()) {
-         Entry var3 = (Entry)var2.next();
-         if(var1.length() > 0) {
-            var1.append('&');
-         }
+	public void a(int var1, int var2) {
+		Validate.inclusiveBetween(0L, d - 1, var1);
+		Validate.inclusiveBetween(0L, c, var2);
+		int var3 = var1 * b;
+		int var4 = var3 / 64;
+		int var5 = (((var1 + 1) * b) - 1) / 64;
+		int var6 = var3 % 64;
+		a[var4] = (a[var4] & ~(c << var6)) | ((var2 & c) << var6);
+		if (var4 != var5) {
+			int var7 = 64 - var6;
+			a[var5] = ((a[var5] >>> var7) << var7) | ((var2 & c) >> var7);
+		}
 
-         try {
-            var1.append(URLEncoder.encode((String)var3.getKey(), "UTF-8"));
-         } catch (UnsupportedEncodingException var6) {
-            var6.printStackTrace();
-         }
+	}
 
-         if(var3.getValue() != null) {
-            var1.append('=');
+	public int a(int var1) {
+		Validate.inclusiveBetween(0L, d - 1, var1);
+		int var2 = var1 * b;
+		int var3 = var2 / 64;
+		int var4 = (((var1 + 1) * b) - 1) / 64;
+		int var5 = var2 % 64;
+		if (var3 == var4) {
+			return (int) ((a[var3] >>> var5) & c);
+		} else {
+			int var6 = 64 - var5;
+			return (int) (((a[var3] >>> var5) | (a[var4] << var6)) & c);
+		}
+	}
 
-            try {
-               var1.append(URLEncoder.encode(var3.getValue().toString(), "UTF-8"));
-            } catch (UnsupportedEncodingException var5) {
-               var5.printStackTrace();
-            }
-         }
-      }
+	public long[] a() {
+		return a;
+	}
 
-      return var1.toString();
-   }
-
-   public static String a(URL var0, Map var1, boolean var2) {
-      return a(var0, a(var1), var2);
-   }
-
-   private static String a(URL var0, String var1, boolean var2) {
-      try {
-         Proxy var3 = MinecraftServer.getServer() == null?null:MinecraftServer.getServer().ay();
-         if(var3 == null) {
-            var3 = Proxy.NO_PROXY;
-         }
-
-         HttpURLConnection var4 = (HttpURLConnection)var0.openConnection(var3);
-         var4.setRequestMethod("POST");
-         var4.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-         var4.setRequestProperty("Content-Length", "" + var1.getBytes().length);
-         var4.setRequestProperty("Content-Language", "en-US");
-         var4.setUseCaches(false);
-         var4.setDoInput(true);
-         var4.setDoOutput(true);
-         DataOutputStream var5 = new DataOutputStream(var4.getOutputStream());
-         var5.writeBytes(var1);
-         var5.flush();
-         var5.close();
-         BufferedReader var6 = new BufferedReader(new InputStreamReader(var4.getInputStream()));
-         StringBuffer var8 = new StringBuffer();
-
-         String var7;
-         while((var7 = var6.readLine()) != null) {
-            var8.append(var7);
-            var8.append('\r');
-         }
-
-         var6.close();
-         return var8.toString();
-      } catch (Exception var9) {
-         if(!var2) {
-            c.error((String)("Could not post to " + var0), (Throwable)var9);
-         }
-
-         return "";
-      }
-   }
+	public int c() {
+		return b;
+	}
 }

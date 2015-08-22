@@ -2,201 +2,87 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public abstract class class_ahh extends BlockDirectional {
-   protected final boolean N;
+public class class_ahh extends class_ahb {
+	private class_asp aD;
+	private class_ato aE;
+	private int aF;
+	private int aG;
+	private int aH;
+	private int aI;
 
-   protected class_ahh(boolean var1) {
-      super(Material.ORIENTABLE);
-      this.N = var1;
-      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
-   }
+	protected class_ahh(int var1, boolean var2) {
+		super(var1);
+		aD = new class_atf(class_aim.be.S().a(class_alj.a, class_alj.class_a_in_class_alj.a), 9);
+		aE = new class_ato(false);
+		aF = 0;
+		aG = 1;
+		aH = 2;
+		aI = aF;
+		if (var2) {
+			as.A = 3;
+			aI = aG;
+		}
 
-   public boolean isFullCube() {
-      return false;
-   }
+	}
 
-   public boolean canPlace(World var1, BlockPosition var2) {
-      return World.a((IBlockAccess)var1, (BlockPosition)var2.down())?super.canPlace(var1, var2):false;
-   }
+	@Override
+	public class_asa a(Random var1) {
+		return var1.nextInt(3) > 0 ? aE : super.a(var1);
+	}
 
-   public boolean e(World var1, BlockPosition var2) {
-      return World.a((IBlockAccess)var1, (BlockPosition)var2.down());
-   }
+	@Override
+	public void a(class_ago var1, Random var2, class_cj var3) {
+		super.a(var1, var2, var3);
+		int var4 = 3 + var2.nextInt(6);
 
-   public void randomTick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-   }
+		int var5;
+		int var6;
+		int var7;
+		for (var5 = 0; var5 < var4; ++var5) {
+			var6 = var2.nextInt(16);
+			var7 = var2.nextInt(28) + 4;
+			int var8 = var2.nextInt(16);
+			class_cj var9 = var3.a(var6, var7, var8);
+			if (var1.p(var9).c() == class_aim.b) {
+				var1.a(var9, class_aim.bP.S(), 2);
+			}
+		}
 
-   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      if(!this.b((IBlockAccess) var1, var2, var3)) {
-         boolean var5 = this.e(var1, var2, var3);
-         if(this.N && !var5) {
-            var1.setTypeAndData((BlockPosition)var2, (IBlockData)this.k(var3), 2);
-         } else if(!this.N) {
-            var1.setTypeAndData((BlockPosition)var2, (IBlockData)this.e(var3), 2);
-            if(!var5) {
-               var1.a(var2, this.e(var3).getBlock(), this.m(var3), -1);
-            }
-         }
+		for (var4 = 0; var4 < 7; ++var4) {
+			var5 = var2.nextInt(16);
+			var6 = var2.nextInt(64);
+			var7 = var2.nextInt(16);
+			aD.b(var1, var2, var3.a(var5, var6, var7));
+		}
 
-      }
-   }
+	}
 
-   protected boolean l(IBlockData var1) {
-      return this.N;
-   }
+	@Override
+	public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
+		ak = class_aim.c.S();
+		al = class_aim.d.S();
+		if (((var6 < -1.0D) || (var6 > 2.0D)) && (aI == aH)) {
+			ak = class_aim.n.S();
+			al = class_aim.n.S();
+		} else if ((var6 > 1.0D) && (aI != aG)) {
+			ak = class_aim.b.S();
+			al = class_aim.b.S();
+		}
 
-   public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
-      return this.a(var1, var2, var3, var4);
-   }
+		this.b(var1, var2, var3, var4, var5, var6);
+	}
 
-   public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
-      return !this.l(var3)?0:(var3.get(FACING) == var4?this.a(var1, var2, var3):0);
-   }
+	private class_ahh b(class_ahb var1) {
+		aI = aH;
+		this.a(var1.ai, true);
+		this.a(var1.ah + " M");
+		this.a(new class_ahb.class_a_in_class_ahb(var1.an, var1.ao));
+		this.a(var1.ap, var1.aq);
+		return this;
+	}
 
-   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(this.e(var1, var2)) {
-         this.g(var1, var2, var3);
-      } else {
-         this.dropNaturallyForSure(var1, var2, var3, 0);
-         var1.setAir(var2);
-         EnumDirection[] var5 = EnumDirection.values();
-         int var6 = var5.length;
-
-         for(int var7 = 0; var7 < var6; ++var7) {
-            EnumDirection var8 = var5[var7];
-            var1.applyPhysics((BlockPosition)var2.shift(var8), (Block)this);
-         }
-
-      }
-   }
-
-   protected void g(World var1, BlockPosition var2, IBlockData var3) {
-      if(!this.b((IBlockAccess) var1, var2, var3)) {
-         boolean var4 = this.e(var1, var2, var3);
-         if((this.N && !var4 || !this.N && var4) && !var1.a((BlockPosition)var2, (Block)this)) {
-            byte var5 = -1;
-            if(this.i(var1, var2, var3)) {
-               var5 = -3;
-            } else if(this.N) {
-               var5 = -2;
-            }
-
-            var1.a(var2, this, this.d(var3), var5);
-         }
-
-      }
-   }
-
-   public boolean b(IBlockAccess var1, BlockPosition var2, IBlockData var3) {
-      return false;
-   }
-
-   protected boolean e(World var1, BlockPosition var2, IBlockData var3) {
-      return this.f(var1, var2, var3) > 0;
-   }
-
-   protected int f(World var1, BlockPosition var2, IBlockData var3) {
-      EnumDirection var4 = (EnumDirection)var3.get(FACING);
-      BlockPosition var5 = var2.shift(var4);
-      int var6 = var1.c(var5, var4);
-      if(var6 >= 15) {
-         return var6;
-      } else {
-         IBlockData var7 = var1.getType(var5);
-         return Math.max(var6, var7.getBlock() == Blocks.REDSTONE_WIRE?((Integer)var7.get(BlockRedstoneWire.P)).intValue():0);
-      }
-   }
-
-   protected int c(IBlockAccess var1, BlockPosition var2, IBlockData var3) {
-      EnumDirection var4 = (EnumDirection)var3.get(FACING);
-      EnumDirection var5 = var4.rotateY();
-      EnumDirection var6 = var4.rotateYCCW();
-      return Math.max(this.c(var1, var2.shift(var5), var5), this.c(var1, var2.shift(var6), var6));
-   }
-
-   protected int c(IBlockAccess var1, BlockPosition var2, EnumDirection var3) {
-      IBlockData var4 = var1.getType(var2);
-      Block var5 = var4.getBlock();
-      return this.c(var5)?(var5 == Blocks.REDSTONE_WIRE?((Integer)var4.get(BlockRedstoneWire.P)).intValue():var1.a(var2, var3)):0;
-   }
-
-   public boolean isPowerSource() {
-      return true;
-   }
-
-   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return this.getBlockData().set(FACING, var8.aR().opposite());
-   }
-
-   public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      if(this.e(var1, var2, var3)) {
-         var1.a((BlockPosition)var2, (Block)this, 1);
-      }
-
-   }
-
-   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
-      this.h(var1, var2, var3);
-   }
-
-   protected void h(World var1, BlockPosition var2, IBlockData var3) {
-      EnumDirection var4 = (EnumDirection)var3.get(FACING);
-      BlockPosition var5 = var2.shift(var4.opposite());
-      var1.d(var5, this);
-      var1.a((BlockPosition)var5, (Block)this, (EnumDirection)var4);
-   }
-
-   public void postBreak(World var1, BlockPosition var2, IBlockData var3) {
-      if(this.N) {
-         EnumDirection[] var4 = EnumDirection.values();
-         int var5 = var4.length;
-
-         for(int var6 = 0; var6 < var5; ++var6) {
-            EnumDirection var7 = var4[var6];
-            var1.applyPhysics((BlockPosition)var2.shift(var7), (Block)this);
-         }
-      }
-
-      super.postBreak(var1, var2, var3);
-   }
-
-   public boolean isOpaqueCube() {
-      return false;
-   }
-
-   protected boolean c(Block var1) {
-      return var1.isPowerSource();
-   }
-
-   protected int a(IBlockAccess var1, BlockPosition var2, IBlockData var3) {
-      return 15;
-   }
-
-   public static boolean d(Block var0) {
-      return Blocks.UNPOWERED_REPEATER.e(var0) || Blocks.UNPOWERED_COMPARATOR.e(var0);
-   }
-
-   public boolean e(Block var1) {
-      return var1 == this.e(this.getBlockData()).getBlock() || var1 == this.k(this.getBlockData()).getBlock();
-   }
-
-   public boolean i(World var1, BlockPosition var2, IBlockData var3) {
-      EnumDirection var4 = ((EnumDirection)var3.get(FACING)).opposite();
-      BlockPosition var5 = var2.shift(var4);
-      return d(var1.getType(var5).getBlock())?var1.getType(var5).get(FACING) != var4:false;
-   }
-
-   protected int m(IBlockData var1) {
-      return this.d(var1);
-   }
-
-   protected abstract int d(IBlockData var1);
-
-   protected abstract IBlockData e(IBlockData var1);
-
-   protected abstract IBlockData k(IBlockData var1);
-
-   public boolean b(Block var1) {
-      return this.e(var1);
-   }
+	@Override
+	protected class_ahb d(int var1) {
+		return (new class_ahh(var1, false)).b(this);
+	}
 }

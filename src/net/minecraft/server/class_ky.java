@@ -1,23 +1,29 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.WorldSettings;
-import net.minecraft.server.WorldType;
-import net.minecraft.server.WorldData;
-import net.minecraft.server.IDataManager;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.MethodProfiler;
+import java.util.Vector;
 
-public class class_ky extends WorldServer {
-   private static final long I = (long)"North Carolina".hashCode();
-   public static final WorldSettings a;
+import javax.swing.JList;
 
-   public class_ky(MinecraftServer var1, IDataManager var2, WorldData var3, int var4, MethodProfiler var5) {
-      super(var1, var2, var3, var4, var5);
-      this.x.a(a);
-   }
+public class class_ky extends JList implements class_ks {
+	private MinecraftServer a;
+	private int b;
 
-   static {
-      a = (new WorldSettings(I, WorldSettings.EnumGameMode.SURVIVAL, true, false, WorldType.NORMAL)).a();
-   }
+	public class_ky(MinecraftServer var1) {
+		a = var1;
+		var1.a(this);
+	}
+
+	@Override
+	public void c() {
+		if ((b++ % 20) == 0) {
+			Vector var1 = new Vector();
+
+			for (int var2 = 0; var2 < a.ar().v().size(); ++var2) {
+				var1.add(((class_lm) a.ar().v().get(var2)).e_());
+			}
+
+			this.setListData(var1);
+		}
+
+	}
 }

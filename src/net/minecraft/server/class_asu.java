@@ -1,115 +1,71 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ChunkCoordIntPair;
-import net.minecraft.server.Block;
-import net.minecraft.server.StructureBoundingBox;
+import java.util.Random;
 
-public class class_asu {
-   private Block.class_a_in_class_agj a;
-   private Block.EnumRotation b;
-   private boolean c;
-   private boolean d;
-   private ChunkCoordIntPair e;
-   private StructureBoundingBox f;
-   private boolean g;
+public class class_asu extends class_asp {
+	private final class_ail a;
+	private final boolean b;
 
-   public class_asu() {
-      this(Block.class_a_in_class_agj.NONE, Block.EnumRotation.NONE, false, false, (StructureBoundingBox)null);
-   }
+	public class_asu(class_ail var1, boolean var2) {
+		a = var1;
+		b = var2;
+	}
 
-   public class_asu(Block.class_a_in_class_agj var1, Block.EnumRotation var2, boolean var3, boolean var4, StructureBoundingBox var5) {
-      this.b = var2;
-      this.a = var1;
-      this.c = var3;
-      this.d = var4;
-      this.e = null;
-      this.f = var5;
-      this.g = true;
-   }
+	@Override
+	public boolean b(class_ago var1, Random var2, class_cj var3) {
+		if (var1.p(var3.a()).c() != class_aim.aV) {
+			return false;
+		} else if ((var1.p(var3).c().v() != class_avq.a) && (var1.p(var3).c() != class_aim.aV)) {
+			return false;
+		} else {
+			int var4 = 0;
+			if (var1.p(var3.e()).c() == class_aim.aV) {
+				++var4;
+			}
 
-   public class_asu a() {
-      return (new class_asu(this.a, this.b, this.c, this.d, this.f)).a(this.e).c(this.g);
-   }
+			if (var1.p(var3.f()).c() == class_aim.aV) {
+				++var4;
+			}
 
-   public class_asu a(Block.class_a_in_class_agj var1) {
-      this.a = var1;
-      return this;
-   }
+			if (var1.p(var3.c()).c() == class_aim.aV) {
+				++var4;
+			}
 
-   public class_asu a(Block.EnumRotation var1) {
-      this.b = var1;
-      return this;
-   }
+			if (var1.p(var3.d()).c() == class_aim.aV) {
+				++var4;
+			}
 
-   public class_asu a(boolean var1) {
-      this.c = var1;
-      return this;
-   }
+			if (var1.p(var3.b()).c() == class_aim.aV) {
+				++var4;
+			}
 
-   public class_asu b(boolean var1) {
-      this.d = var1;
-      return this;
-   }
+			int var5 = 0;
+			if (var1.d(var3.e())) {
+				++var5;
+			}
 
-   public class_asu a(ChunkCoordIntPair var1) {
-      this.e = var1;
-      return this;
-   }
+			if (var1.d(var3.f())) {
+				++var5;
+			}
 
-   public class_asu a(StructureBoundingBox var1) {
-      this.f = var1;
-      return this;
-   }
+			if (var1.d(var3.c())) {
+				++var5;
+			}
 
-   public Block.class_a_in_class_agj b() {
-      return this.a;
-   }
+			if (var1.d(var3.d())) {
+				++var5;
+			}
 
-   public class_asu c(boolean var1) {
-      this.g = var1;
-      return this;
-   }
+			if (var1.d(var3.b())) {
+				++var5;
+			}
 
-   public Block.EnumRotation c() {
-      return this.b;
-   }
+			if ((!b && (var4 == 4) && (var5 == 1)) || (var4 == 5)) {
+				var1.a(var3, a.S(), 2);
+				var1.a(a, var3, var2);
+			}
 
-   public boolean e() {
-      return this.c;
-   }
-
-   public boolean f() {
-      return this.d;
-   }
-
-   public StructureBoundingBox g() {
-      if(this.f == null && this.e != null) {
-         this.i();
-      }
-
-      return this.f;
-   }
-
-   public boolean h() {
-      return this.g;
-   }
-
-   void i() {
-      this.f = this.b(this.e);
-   }
-
-   private StructureBoundingBox b(ChunkCoordIntPair var1) {
-      if(var1 == null) {
-         return null;
-      } else {
-         int var2 = var1.a * 16;
-         int var3 = var1.b * 16;
-         return new StructureBoundingBox(var2, 0, var3, var2 + 16 - 1, 255, var3 + 16 - 1);
-      }
-   }
-
-   // $FF: synthetic method
-   public Object clone() throws CloneNotSupportedException {
-      return this.a();
-   }
+			return true;
+		}
+	}
 }

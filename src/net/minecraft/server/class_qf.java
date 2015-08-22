@@ -1,7 +1,10 @@
 package net.minecraft.server;
 
-public enum class_qf {
-   a,
-   b,
-   c;
+
+public interface class_qf extends class_pp {
+	int[] a(class_cq var1);
+
+	boolean a(int var1, class_aco var2, class_cq var3);
+
+	boolean b(int var1, class_aco var2, class_cq var3);
 }

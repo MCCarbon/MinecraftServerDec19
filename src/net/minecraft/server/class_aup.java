@@ -1,59 +1,95 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aua;
-import net.minecraft.server.class_auc;
+import java.util.Map;
 
-public class class_aup extends class_auc {
-   public class_aup(long var1, class_auc var3) {
-      super(var1);
-      super.a = var3;
-   }
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-   public int[] a(int var1, int var2, int var3, int var4) {
-      int var5 = var1 >> 1;
-      int var6 = var2 >> 1;
-      int var7 = (var3 >> 1) + 2;
-      int var8 = (var4 >> 1) + 2;
-      int[] var9 = this.a.a(var5, var6, var7, var8);
-      int var10 = var7 - 1 << 1;
-      int var11 = var8 - 1 << 1;
-      int[] var12 = class_aua.a(var10 * var11);
+import com.google.common.collect.Maps;
 
-      int var14;
-      for(int var13 = 0; var13 < var8 - 1; ++var13) {
-         var14 = (var13 << 1) * var10;
-         int var15 = 0;
-         int var16 = var9[var15 + 0 + (var13 + 0) * var7];
+public class class_aup {
+	private static final Logger a = LogManager.getLogger();
+	private static Map b = Maps.newHashMap();
+	private static Map c = Maps.newHashMap();
+	private static Map d = Maps.newHashMap();
+	private static Map e = Maps.newHashMap();
 
-         for(int var17 = var9[var15 + 0 + (var13 + 1) * var7]; var15 < var7 - 1; ++var15) {
-            this.a((long)(var15 + var5 << 1), (long)(var13 + var6 << 1));
-            int var18 = var9[var15 + 1 + (var13 + 0) * var7];
-            int var19 = var9[var15 + 1 + (var13 + 1) * var7];
-            var12[var14] = var16;
-            var12[var14++ + var10] = this.a(new int[]{var16, var17});
-            var12[var14] = this.a(new int[]{var16, var18});
-            var12[var14++ + var10] = this.b(var16, var18, var17, var19);
-            var16 = var18;
-            var17 = var19;
-         }
-      }
+	private static void b(Class var0, String var1) {
+		b.put(var1, var0);
+		c.put(var0, var1);
+	}
 
-      int[] var20 = class_aua.a(var3 * var4);
+	static void a(Class var0, String var1) {
+		d.put(var1, var0);
+		e.put(var0, var1);
+	}
 
-      for(var14 = 0; var14 < var4; ++var14) {
-         System.arraycopy(var12, (var14 + (var2 & 1)) * var10 + (var1 & 1), var20, var14 * var3, var3);
-      }
+	public static String a(class_aus var0) {
+		return (String) c.get(var0.getClass());
+	}
 
-      return var20;
-   }
+	public static String a(class_aur var0) {
+		return (String) e.get(var0.getClass());
+	}
 
-   public static class_auc b(long var0, class_auc var2, int var3) {
-      Object var4 = var2;
+	public static class_aus a(class_dn var0, class_ago var1) {
+		class_aus var2 = null;
 
-      for(int var5 = 0; var5 < var3; ++var5) {
-         var4 = new class_aup(var0 + (long)var5, (class_auc)var4);
-      }
+		try {
+			Class var3 = (Class) b.get(var0.l("id"));
+			if (var3 != null) {
+				var2 = (class_aus) var3.newInstance();
+			}
+		} catch (Exception var4) {
+			a.warn("Failed Start with id " + var0.l("id"));
+			var4.printStackTrace();
+		}
 
-      return (class_auc)var4;
-   }
+		if (var2 != null) {
+			var2.a(var1, var0);
+		} else {
+			a.warn("Skipping Structure with id " + var0.l("id"));
+		}
+
+		return var2;
+	}
+
+	public static class_aur b(class_dn var0, class_ago var1) {
+		class_aur var2 = null;
+
+		try {
+			Class var3 = (Class) d.get(var0.l("id"));
+			if (var3 != null) {
+				var2 = (class_aur) var3.newInstance();
+			}
+		} catch (Exception var4) {
+			a.warn("Failed Piece with id " + var0.l("id"));
+			var4.printStackTrace();
+		}
+
+		if (var2 != null) {
+			var2.a(var1, var0);
+		} else {
+			a.warn("Skipping Piece with id " + var0.l("id"));
+		}
+
+		return var2;
+	}
+
+	static {
+		b(class_auf.class, "Mineshaft");
+		b(class_auu.class_a_in_class_auu.class, "Village");
+		b(class_aug.class_a_in_class_aug.class, "Fortress");
+		b(class_aum.class_a_in_class_aum.class, "Stronghold");
+		b(class_auk.class_a_in_class_auk.class, "Temple");
+		b(class_aui.class_a_in_class_aui.class, "Monument");
+		b(class_aub.class_a_in_class_aub.class, "EndCity");
+		class_aue.a();
+		class_auv.a();
+		class_auh.a();
+		class_aun.a();
+		class_aul.a();
+		class_auj.a();
+		class_auc.a();
+	}
 }

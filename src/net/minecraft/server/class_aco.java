@@ -1,105 +1,535 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Maps;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
+import java.text.DecimalFormat;
+import java.util.Random;
 
-public class class_aco {
-   private static final class_aco a = new class_aco();
-   private Map b = Maps.newHashMap();
-   private Map c = Maps.newHashMap();
+import com.google.common.collect.HashMultimap;
+import com.google.common.collect.Multimap;
 
-   public static class_aco a() {
-      return a;
-   }
+public final class class_aco {
+	public static final DecimalFormat a = new DecimalFormat("#.##");
+	public int b;
+	public int c;
+	private class_acm d;
+	private class_dn e;
+	private int f;
+	private class_wu g;
+	private class_ail h;
+	private boolean i;
+	private class_ail j;
+	private boolean k;
 
-   private class_aco() {
-      this.a(Blocks.IRON_ORE, new ItemStack(Items.IRON_INGOT), 0.7F);
-      this.a(Blocks.GOLD_ORE, new ItemStack(Items.GOLD_INGOT), 1.0F);
-      this.a(Blocks.DIAMOND_ORE, new ItemStack(Items.DIAMOND), 1.0F);
-      this.a((Block)Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1F);
-      this.a(Items.PORKCHOP, new ItemStack(Items.COOKED_PORKCHOP), 0.35F);
-      this.a(Items.BEEF, new ItemStack(Items.COOKED_BEEF), 0.35F);
-      this.a(Items.CHICKEN, new ItemStack(Items.COOKED_CHICKEN), 0.35F);
-      this.a(Items.RABBIT, new ItemStack(Items.COOKED_RABBIT), 0.35F);
-      this.a(Items.MUTTON, new ItemStack(Items.COOKED_MUTTON), 0.35F);
-      this.a(Blocks.COBBLESTONE, new ItemStack(Blocks.STONE), 0.1F);
-      this.a(new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.b), new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.O), 0.1F);
-      this.a(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.3F);
-      this.a(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.35F);
-      this.a((Block)Blocks.CACTUS, new ItemStack(Items.DYE, 1, EnumColor.n.b()), 0.2F);
-      this.a(Blocks.LOG, new ItemStack(Items.COAL, 1, 1), 0.15F);
-      this.a(Blocks.LOG2, new ItemStack(Items.COAL, 1, 1), 0.15F);
-      this.a(Blocks.EMERALD_ORE, new ItemStack(Items.EMERALD), 1.0F);
-      this.a(Items.POTATO, new ItemStack(Items.BAKED_POTATO), 0.35F);
-      this.a(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1F);
-      this.a(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.15F);
-      this.a(Items.CHORUS_FRUIT, new ItemStack(Items.CHORUS_FRUIT_POPPED), 0.1F);
-      ItemFish.class_a_in_class_aak[] var1 = ItemFish.class_a_in_class_aak.values();
-      int var2 = var1.length;
+	public class_aco(class_ail var1) {
+		this(var1, 1);
+	}
 
-      for(int var3 = 0; var3 < var2; ++var3) {
-         ItemFish.class_a_in_class_aak var4 = var1[var3];
-         if(var4.g()) {
-            this.a(new ItemStack(Items.FISH, 1, var4.a()), new ItemStack(Items.COOKED_FISH, 1, var4.a()), 0.35F);
-         }
-      }
+	public class_aco(class_ail var1, int var2) {
+		this(var1, var2, 0);
+	}
 
-      this.a(Blocks.COAL_ORE, new ItemStack(Items.COAL), 0.1F);
-      this.a(Blocks.REDSTONE_ORE, new ItemStack(Items.REDSTONE), 0.7F);
-      this.a(Blocks.LAPIS_ORE, new ItemStack(Items.DYE, 1, EnumColor.l.b()), 0.2F);
-      this.a(Blocks.QUARTZ_ORE, new ItemStack(Items.QUARTZ), 0.2F);
-   }
+	public class_aco(class_ail var1, int var2, int var3) {
+		this(class_acm.a(var1), var2, var3);
+	}
 
-   public void a(Block var1, ItemStack var2, float var3) {
-      this.a(Item.getItemOf(var1), var2, var3);
-   }
+	public class_aco(class_acm var1) {
+		this(var1, 1);
+	}
 
-   public void a(Item var1, ItemStack var2, float var3) {
-      this.a(new ItemStack(var1, 1, 32767), var2, var3);
-   }
+	public class_aco(class_acm var1, int var2) {
+		this(var1, var2, 0);
+	}
 
-   public void a(ItemStack var1, ItemStack var2, float var3) {
-      this.b.put(var1, var2);
-      this.c.put(var2, Float.valueOf(var3));
-   }
+	public class_aco(class_acm var1, int var2, int var3) {
+		h = null;
+		i = false;
+		j = null;
+		k = false;
+		d = var1;
+		b = var2;
+		f = var3;
+		if (f < 0) {
+			f = 0;
+		}
 
-   public ItemStack a(ItemStack var1) {
-      Iterator var2 = this.b.entrySet().iterator();
+	}
 
-      Entry var3;
-      do {
-         if(!var2.hasNext()) {
-            return null;
-         }
+	public static class_aco a(class_dn var0) {
+		class_aco var1 = new class_aco();
+		var1.c(var0);
+		return var1.b() != null ? var1 : null;
+	}
 
-         var3 = (Entry)var2.next();
-      } while(!this.a(var1, (ItemStack)var3.getKey()));
+	private class_aco() {
+		h = null;
+		i = false;
+		j = null;
+		k = false;
+	}
 
-      return (ItemStack)var3.getValue();
-   }
+	public class_aco a(int var1) {
+		class_aco var2 = new class_aco(d, var1, f);
+		if (e != null) {
+			var2.e = (class_dn) e.b();
+		}
 
-   private boolean a(ItemStack var1, ItemStack var2) {
-      return var2.getItem() == var1.getItem() && (var2.i() == 32767 || var2.i() == var1.i());
-   }
+		b -= var1;
+		return var2;
+	}
 
-   public Map b() {
-      return this.b;
-   }
+	public class_acm b() {
+		return d;
+	}
 
-   public float b(ItemStack var1) {
-      Iterator var2 = this.c.entrySet().iterator();
+	public class_pw a(class_yu var1, class_ago var2, class_cj var3, class_pu var4, class_cq var5, float var6, float var7, float var8) {
+		class_pw var9 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
+		if (var9 == class_pw.a) {
+			var1.b(class_nh.c(class_acm.b(d)));
+		}
 
-      Entry var3;
-      do {
-         if(!var2.hasNext()) {
-            return 0.0F;
-         }
+		return var9;
+	}
 
-         var3 = (Entry)var2.next();
-      } while(!this.a(var1, (ItemStack)var3.getKey()));
+	public float a(class_ail var1) {
+		return this.b().a(this, var1);
+	}
 
-      return ((Float)var3.getValue()).floatValue();
-   }
+	public class_px a(class_ago var1, class_yu var2, class_pu var3) {
+		return this.b().a(this, var1, var2, var3);
+	}
+
+	public class_aco a(class_ago var1, class_rg var2) {
+		return this.b().a(this, var1, var2);
+	}
+
+	public class_dn b(class_dn var1) {
+		class_ke var2 = (class_ke) class_acm.e.b(d);
+		var1.a("id", var2 == null ? "minecraft:air" : var2.toString());
+		var1.a("Count", (byte) b);
+		var1.a("Damage", (short) f);
+		if (e != null) {
+			var1.a("tag", e);
+		}
+
+		return var1;
+	}
+
+	public void c(class_dn var1) {
+		d = class_acm.d(var1.l("id"));
+		b = var1.f("Count");
+		f = var1.g("Damage");
+		if (f < 0) {
+			f = 0;
+		}
+
+		if (var1.b("tag", 10)) {
+			e = var1.o("tag");
+			if (d != null) {
+				d.a(e);
+			}
+		}
+
+	}
+
+	public int c() {
+		return this.b().j();
+	}
+
+	public boolean d() {
+		return (this.c() > 1) && (!e() || !g());
+	}
+
+	public boolean e() {
+		return d == null ? false : (d.l() <= 0 ? false : !n() || !o().p("Unbreakable"));
+	}
+
+	public boolean f() {
+		return d.k();
+	}
+
+	public boolean g() {
+		return e() && (f > 0);
+	}
+
+	public int h() {
+		return f;
+	}
+
+	public int i() {
+		return f;
+	}
+
+	public void b(int var1) {
+		f = var1;
+		if (f < 0) {
+			f = 0;
+		}
+
+	}
+
+	public int j() {
+		return d == null ? 0 : d.l();
+	}
+
+	public boolean a(int var1, Random var2) {
+		if (!e()) {
+			return false;
+		} else {
+			if (var1 > 0) {
+				int var3 = class_afl.a(class_afn.r, this);
+				int var4 = 0;
+
+				for (int var5 = 0; (var3 > 0) && (var5 < var1); ++var5) {
+					if (class_afh.a(this, var3, var2)) {
+						++var4;
+					}
+				}
+
+				var1 -= var4;
+				if (var1 <= 0) {
+					return false;
+				}
+			}
+
+			f += var1;
+			return f > j();
+		}
+	}
+
+	public void a(int var1, class_rg var2) {
+		if (!(var2 instanceof class_yu) || !((class_yu) var2).bI.d) {
+			if (e()) {
+				if (this.a(var1, var2.bj())) {
+					var2.b(this);
+					--b;
+					if (var2 instanceof class_yu) {
+						class_yu var3 = (class_yu) var2;
+						var3.b(class_nh.d(class_acm.b(d)));
+					}
+
+					if (b < 0) {
+						b = 0;
+					}
+
+					f = 0;
+				}
+
+			}
+		}
+	}
+
+	public void a(class_rg var1, class_yu var2) {
+		boolean var3 = d.a(this, var1, var2);
+		if (var3) {
+			var2.b(class_nh.c(class_acm.b(d)));
+		}
+
+	}
+
+	public void a(class_ago var1, class_ail var2, class_cj var3, class_yu var4) {
+		boolean var5 = d.a(this, var1, var2, var3, var4);
+		if (var5) {
+			var4.b(class_nh.c(class_acm.b(d)));
+		}
+
+	}
+
+	public boolean b(class_ail var1) {
+		return d.b(var1);
+	}
+
+	public boolean a(class_yu var1, class_rg var2, class_pu var3) {
+		return d.a(this, var1, var2, var3);
+	}
+
+	public class_aco k() {
+		class_aco var1 = new class_aco(d, b, f);
+		if (e != null) {
+			var1.e = (class_dn) e.b();
+		}
+
+		return var1;
+	}
+
+	public static boolean a(class_aco var0, class_aco var1) {
+		return (var0 == null) && (var1 == null) ? true : ((var0 != null) && (var1 != null) ? ((var0.e == null) && (var1.e != null) ? false : (var0.e == null) || var0.e.equals(var1.e)) : false);
+	}
+
+	public static boolean b(class_aco var0, class_aco var1) {
+		return (var0 == null) && (var1 == null) ? true : ((var0 != null) && (var1 != null) ? var0.d(var1) : false);
+	}
+
+	private boolean d(class_aco var1) {
+		return b != var1.b ? false : (d != var1.d ? false : (f != var1.f ? false : ((e == null) && (var1.e != null) ? false : (e == null) || e.equals(var1.e))));
+	}
+
+	public static boolean c(class_aco var0, class_aco var1) {
+		return var0 == var1 ? true : ((var0 != null) && (var1 != null) ? var0.a(var1) : false);
+	}
+
+	public boolean a(class_aco var1) {
+		return (var1 != null) && (d == var1.d) && (f == var1.f);
+	}
+
+	public String a() {
+		return d.e_(this);
+	}
+
+	public static class_aco b(class_aco var0) {
+		return var0 == null ? null : var0.k();
+	}
+
+	@Override
+	public String toString() {
+		return b + "x" + d.a() + "@" + f;
+	}
+
+	public void a(class_ago var1, class_qx var2, int var3, boolean var4) {
+		if (c > 0) {
+			--c;
+		}
+
+		if (d != null) {
+			d.a(this, var1, var2, var3, var4);
+		}
+
+	}
+
+	public void a(class_ago var1, class_yu var2, int var3) {
+		var2.a(class_nh.b(class_acm.b(d)), var3);
+		d.b(this, var1, var2);
+	}
+
+	public int l() {
+		return this.b().e(this);
+	}
+
+	public class_ady m() {
+		return this.b().f(this);
+	}
+
+	public void a(class_ago var1, class_rg var2, int var3) {
+		this.b().a(this, var1, var2, var3);
+	}
+
+	public boolean n() {
+		return e != null;
+	}
+
+	public class_dn o() {
+		return e;
+	}
+
+	public class_dn a(String var1, boolean var2) {
+		if ((e != null) && e.b(var1, 10)) {
+			return e.o(var1);
+		} else if (var2) {
+			class_dn var3 = new class_dn();
+			this.a(var1, var3);
+			return var3;
+		} else {
+			return null;
+		}
+	}
+
+	public class_du p() {
+		return e == null ? null : e.c("ench", 10);
+	}
+
+	public void d(class_dn var1) {
+		e = var1;
+	}
+
+	public String q() {
+		String var1 = this.b().a(this);
+		if ((e != null) && e.b("display", 10)) {
+			class_dn var2 = e.o("display");
+			if (var2.b("Name", 8)) {
+				var1 = var2.l("Name");
+			}
+		}
+
+		return var1;
+	}
+
+	public class_aco c(String var1) {
+		if (e == null) {
+			e = new class_dn();
+		}
+
+		if (!e.b("display", 10)) {
+			e.a("display", (new class_dn()));
+		}
+
+		e.o("display").a("Name", var1);
+		return this;
+	}
+
+	public void r() {
+		if (e != null) {
+			if (e.b("display", 10)) {
+				class_dn var1 = e.o("display");
+				var1.q("Name");
+				if (var1.c_()) {
+					e.q("display");
+					if (e.c_()) {
+						this.d((class_dn) null);
+					}
+				}
+
+			}
+		}
+	}
+
+	public boolean s() {
+		return e == null ? false : (!e.b("display", 10) ? false : e.o("display").b("Name", 8));
+	}
+
+	public class_adc u() {
+		return this.b().g(this);
+	}
+
+	public boolean v() {
+		return !this.b().f_(this) ? false : !w();
+	}
+
+	public void a(class_afj var1, int var2) {
+		if (e == null) {
+			this.d(new class_dn());
+		}
+
+		if (!e.b("ench", 9)) {
+			e.a("ench", (new class_du()));
+		}
+
+		class_du var3 = e.c("ench", 10);
+		class_dn var4 = new class_dn();
+		var4.a("id", (short) class_afj.b(var1));
+		var4.a("lvl", (short) ((byte) var2));
+		var3.a(var4);
+	}
+
+	public boolean w() {
+		return (e != null) && e.b("ench", 9);
+	}
+
+	public void a(String var1, class_eb var2) {
+		if (e == null) {
+			this.d(new class_dn());
+		}
+
+		e.a(var1, var2);
+	}
+
+	public boolean x() {
+		return this.b().s();
+	}
+
+	public boolean y() {
+		return g != null;
+	}
+
+	public void a(class_wu var1) {
+		g = var1;
+	}
+
+	public class_wu z() {
+		return g;
+	}
+
+	public int A() {
+		return n() && e.b("RepairCost", 3) ? e.h("RepairCost") : 0;
+	}
+
+	public void c(int var1) {
+		if (!n()) {
+			e = new class_dn();
+		}
+
+		e.a("RepairCost", var1);
+	}
+
+	public Multimap a(class_rc var1) {
+		Object var2;
+		if (n() && e.b("AttributeModifiers", 9)) {
+			var2 = HashMultimap.create();
+			class_du var3 = e.c("AttributeModifiers", 10);
+
+			for (int var4 = 0; var4 < var3.c(); ++var4) {
+				class_dn var5 = var3.b(var4);
+				class_rr var6 = class_yf.a(var5);
+				if ((var6 != null) && (var6.a().getLeastSignificantBits() != 0L) && (var6.a().getMostSignificantBits() != 0L)) {
+					((Multimap) var2).put(var5.l("AttributeName"), var6);
+				}
+			}
+		} else {
+			var2 = this.b().a(var1);
+		}
+
+		return (Multimap) var2;
+	}
+
+	public void a(class_acm var1) {
+		d = var1;
+	}
+
+	public class_eu B() {
+		class_fa var1 = new class_fa(q());
+		if (s()) {
+			var1.b().b(Boolean.valueOf(true));
+		}
+
+		class_eu var2 = (new class_fa("[")).a(var1).a("]");
+		if (d != null) {
+			class_dn var3 = new class_dn();
+			this.b(var3);
+			var2.b().a(new class_ew(class_ew.class_a_in_class_ew.c, new class_fa(var3.toString())));
+			var2.b().a(u().e);
+		}
+
+		return var2;
+	}
+
+	public boolean c(class_ail var1) {
+		if (var1 == h) {
+			return i;
+		} else {
+			h = var1;
+			if (n() && e.b("CanDestroy", 9)) {
+				class_du var2 = e.c("CanDestroy", 8);
+
+				for (int var3 = 0; var3 < var2.c(); ++var3) {
+					class_ail var4 = class_ail.b(var2.g(var3));
+					if (var4 == var1) {
+						i = true;
+						return true;
+					}
+				}
+			}
+
+			i = false;
+			return false;
+		}
+	}
+
+	public boolean d(class_ail var1) {
+		if (var1 == j) {
+			return k;
+		} else {
+			j = var1;
+			if (n() && e.b("CanPlaceOn", 9)) {
+				class_du var2 = e.c("CanPlaceOn", 8);
+
+				for (int var3 = 0; var3 < var2.c(); ++var3) {
+					class_ail var4 = class_ail.b(var2.g(var3));
+					if (var4 == var1) {
+						k = true;
+						return true;
+					}
+				}
+			}
+
+			k = false;
+			return false;
+		}
+	}
 }

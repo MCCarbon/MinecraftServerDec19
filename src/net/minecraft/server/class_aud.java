@@ -1,35 +1,39 @@
 package net.minecraft.server;
 
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_aua;
-import net.minecraft.server.class_auc;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
-public class class_aud extends class_auc {
-   public class_aud(long var1, class_auc var3) {
-      super(var1);
-      this.a = var3;
-   }
+public class class_aud extends class_auo {
+	private double d = 0.004D;
 
-   public int[] a(int var1, int var2, int var3, int var4) {
-      int[] var5 = this.a.a(var1 - 1, var2 - 1, var3 + 2, var4 + 2);
-      int[] var6 = class_aua.a(var3 * var4);
+	public class_aud() {
+	}
 
-      for(int var7 = 0; var7 < var4; ++var7) {
-         for(int var8 = 0; var8 < var3; ++var8) {
-            this.a((long)(var8 + var1), (long)(var7 + var2));
-            int var9 = var5[var8 + 1 + (var7 + 1) * (var3 + 2)];
-            if(this.a(57) == 0) {
-               if(var9 == BiomeBase.PLAINS.id) {
-                  var6[var8 + var7 * var3] = BiomeBase.PLAINS.id + 128;
-               } else {
-                  var6[var8 + var7 * var3] = var9;
-               }
-            } else {
-               var6[var8 + var7 * var3] = var9;
-            }
-         }
-      }
+	@Override
+	public String a() {
+		return "Mineshaft";
+	}
 
-      return var6;
-   }
+	public class_aud(Map var1) {
+		Iterator var2 = var1.entrySet().iterator();
+
+		while (var2.hasNext()) {
+			Entry var3 = (Entry) var2.next();
+			if (((String) var3.getKey()).equals("chance")) {
+				d = class_oa.a((String) var3.getValue(), d);
+			}
+		}
+
+	}
+
+	@Override
+	protected boolean a(int var1, int var2) {
+		return (b.nextDouble() < d) && (b.nextInt(80) < Math.max(Math.abs(var1), Math.abs(var2)));
+	}
+
+	@Override
+	protected class_aus b(int var1, int var2) {
+		return new class_auf(c, b, var1, var2);
+	}
 }

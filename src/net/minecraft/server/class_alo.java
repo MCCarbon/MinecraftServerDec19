@@ -1,0 +1,14 @@
+package net.minecraft.server;
+
+
+public class class_alo extends class_ail {
+	public class_alo() {
+		super(class_avq.e);
+		this.a(class_abp.b);
+	}
+
+	@Override
+	public class_avr g(class_apn var1) {
+		return class_avr.K;
+	}
+}

@@ -1,33 +1,67 @@
 package net.minecraft.server;
 
-public class class_sh extends class_rm {
-   private EntityInsentient a;
-   private double b;
-   private double c;
-   private int d;
 
-   public class_sh(EntityInsentient var1) {
-      this.a = var1;
-      this.a(3);
-   }
+public class class_sh extends class_sr {
+	private class_vr a;
+	private class_yu b;
+	private class_ago c;
+	private float d;
+	private int e;
 
-   public boolean a() {
-      return this.a.getRandom().nextFloat() < 0.02F;
-   }
+	public class_sh(class_vr var1, float var2) {
+		a = var1;
+		c = var1.o;
+		d = var2;
+		this.a(2);
+	}
 
-   public boolean b() {
-      return this.d >= 0;
-   }
+	@Override
+	public boolean a() {
+		b = c.a(a, d);
+		return b == null ? false : this.a(b);
+	}
 
-   public void c() {
-      double var1 = 6.283185307179586D * this.a.getRandom().nextDouble();
-      this.b = Math.cos(var1);
-      this.c = Math.sin(var1);
-      this.d = 20 + this.a.getRandom().nextInt(20);
-   }
+	@Override
+	public boolean b() {
+		return !b.al() ? false : (a.h(b) > d * d ? false : (e > 0) && this.a(b));
+	}
 
-   public void e() {
-      --this.d;
-      this.a.q().a(this.a.locX + this.b, this.a.locY + (double)this.a.getHeadHeight(), this.a.locZ + this.c, (float)this.a.ce(), (float)this.a.cd());
-   }
+	@Override
+	public void c() {
+		a.q(true);
+		e = 40 + a.bj().nextInt(40);
+	}
+
+	@Override
+	public void d() {
+		a.q(false);
+		b = null;
+	}
+
+	@Override
+	public void e() {
+		a.q().a(b.s, b.t + b.aY(), b.u, 10.0F, a.ch());
+		--e;
+	}
+
+	private boolean a(class_yu var1) {
+		class_pu[] var2 = class_pu.values();
+		int var3 = var2.length;
+
+		for (int var4 = 0; var4 < var3; ++var4) {
+			class_pu var5 = var2[var4];
+			class_aco var6 = var1.b(var5);
+			if (var6 != null) {
+				if (a.cE() && (var6.b() == class_acq.aZ)) {
+					return true;
+				}
+
+				if (a.d(var6)) {
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
 }

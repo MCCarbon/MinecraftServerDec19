@@ -1,78 +1,264 @@
 package net.minecraft.server;
 
-import java.util.List;
+import com.google.common.base.Predicate;
 
-public class class_vi extends class_vh {
-   private int b;
-   public long a;
-   private int c;
+public class class_vi extends class_ro {
+	private static final class_jz bx;
+	private class_sg by;
+	private class_tw bz;
 
-   public class_vi(World var1, double var2, double var4, double var6) {
-      super(var1);
-      this.setPositionRotation(var2, var4, var6, 0.0F, 0.0F);
-      this.b = 2;
-      this.a = this.random.nextLong();
-      this.c = this.random.nextInt(3) + 1;
-      BlockPosition var8 = new BlockPosition(this);
-      if(!var1.isClientSide && var1.R().getBooleanValue("doFireTick") && (var1.ab() == class_om.c || var1.ab() == class_om.d) && var1.a((BlockPosition)var8, (int)10)) {
-         if(var1.getType(var8).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var8)) {
-            var1.setTypeUpdate(var8, Blocks.FIRE.getBlockData());
-         }
+	public class_vi(class_ago var1) {
+		super(var1);
+		this.a(0.6F, 0.7F);
+		((class_ul) u()).a(true);
+		i.a(1, new class_so(this));
+		i.a(2, bv);
+		i.a(3, bz = new class_tw(this, 0.6D, class_acq.aW, true));
+		i.a(5, new class_sp(this, 1.0D, 10.0F, 5.0F));
+		i.a(6, new class_tg(this, 0.8D));
+		i.a(7, new class_sv(this, 0.3F));
+		i.a(8, new class_tf(this));
+		i.a(9, new class_sj(this, 0.8D));
+		i.a(10, new class_tn(this, 0.8D));
+		i.a(11, new class_sw(this, class_yu.class, 10.0F));
+		bo.a(1, new class_ug(this, class_vd.class, false, (Predicate) null));
+	}
 
-         for(int var9 = 0; var9 < 4; ++var9) {
-            BlockPosition var10 = var8.add(this.random.nextInt(3) - 1, this.random.nextInt(3) - 1, this.random.nextInt(3) - 1);
-            if(var1.getType(var10).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var10)) {
-               var1.setTypeUpdate(var10, Blocks.FIRE.getBlockData());
-            }
-         }
-      }
+	@Override
+	protected void h() {
+		super.h();
+		ac.a(bx, Integer.valueOf(0));
+	}
 
-   }
+	@Override
+	public void cg() {
+		if (this.r().a()) {
+			double var1 = this.r().b();
+			if (var1 == 0.6D) {
+				this.c(true);
+				this.d(false);
+			} else if (var1 == 1.33D) {
+				this.c(false);
+				this.d(true);
+			} else {
+				this.c(false);
+				this.d(false);
+			}
+		} else {
+			this.c(false);
+			this.d(false);
+		}
 
-   public void t_() {
-      super.t_();
-      if(this.b == 2) {
-         this.world.makeSound(this.locX, this.locY, this.locZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.random.nextFloat() * 0.2F);
-         this.world.makeSound(this.locX, this.locY, this.locZ, "random.explode", 2.0F, 0.5F + this.random.nextFloat() * 0.2F);
-      }
+	}
 
-      --this.b;
-      if(this.b < 0) {
-         if(this.c == 0) {
-            this.die();
-         } else if(this.b < -this.random.nextInt(10)) {
-            --this.c;
-            this.b = 1;
-            this.a = this.random.nextLong();
-            BlockPosition var1 = new BlockPosition(this);
-            if(!this.world.isClientSide && this.world.R().getBooleanValue("doFireTick") && this.world.a((BlockPosition)var1, (int)10) && this.world.getType(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.world, var1)) {
-               this.world.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
-            }
-         }
-      }
+	@Override
+	protected boolean E() {
+		return !cE() && (W > 2400);
+	}
 
-      if(this.b >= 0) {
-         if(this.world.isClientSide) {
-            this.world.d(2);
-         } else {
-            double var6 = 3.0D;
-            List var3 = this.world.getEntities((Entity)this, (AxisAlignedBB)(new AxisAlignedBB(this.locX - var6, this.locY - var6, this.locZ - var6, this.locX + var6, this.locY + 6.0D + var6, this.locZ + var6)));
+	@Override
+	protected void be() {
+		super.be();
+		this.a(class_yf.a).a(10.0D);
+		this.a(class_yf.d).a(0.30000001192092896D);
+	}
 
-            for(int var4 = 0; var4 < var3.size(); ++var4) {
-               Entity var5 = (Entity)var3.get(var4);
-               var5.a(this);
-            }
-         }
-      }
+	@Override
+	public void e(float var1, float var2) {
+	}
 
-   }
+	@Override
+	public void b(class_dn var1) {
+		super.b(var1);
+		var1.a("CatType", cM());
+	}
 
-   protected void initDatawatcher() {
-   }
+	@Override
+	public void a(class_dn var1) {
+		super.a(var1);
+		this.k(var1.h("CatType"));
+	}
 
-   protected void read(NBTTagCompound var1) {
-   }
+	@Override
+	protected String B() {
+		return cE() ? (cK() ? "mob.cat.purr" : (V.nextInt(4) == 0 ? "mob.cat.purreow" : "mob.cat.meow")) : "";
+	}
 
-   protected void write(NBTTagCompound var1) {
-   }
+	@Override
+	protected String bv() {
+		return "mob.cat.hitt";
+	}
+
+	@Override
+	protected String bw() {
+		return "mob.cat.hitt";
+	}
+
+	@Override
+	protected float bI() {
+		return 0.4F;
+	}
+
+	@Override
+	protected class_acm D() {
+		return class_acq.aH;
+	}
+
+	@Override
+	public boolean r(class_qx var1) {
+		return var1.a(class_qi.a(this), 3.0F);
+	}
+
+	@Override
+	public boolean a(class_qi var1, float var2) {
+		if (this.b(var1)) {
+			return false;
+		} else {
+			bv.a(false);
+			return super.a(var1, var2);
+		}
+	}
+
+	@Override
+	protected void b(boolean var1, int var2) {
+	}
+
+	@Override
+	public boolean a(class_yu var1, class_pu var2, class_aco var3) {
+		if (cE()) {
+			if (this.d((class_rg) var1) && !o.D && !this.d(var3)) {
+				bv.a(!cG());
+			}
+		} else if (bz.f() && (var3 != null) && (var3.b() == class_acq.aW) && (var1.h(this) < 9.0D)) {
+			if (!var1.bI.d) {
+				--var3.b;
+			}
+
+			if (!o.D) {
+				if (V.nextInt(3) == 0) {
+					this.n(true);
+					this.k(1 + o.s.nextInt(3));
+					this.b(var1.aQ());
+					this.m(true);
+					bv.a(true);
+					o.a(this, (byte) 7);
+				} else {
+					this.m(false);
+					o.a(this, (byte) 6);
+				}
+			}
+
+			return true;
+		}
+
+		return super.a(var1, var2, var3);
+	}
+
+	public class_vi b(class_qu var1) {
+		class_vi var2 = new class_vi(o);
+		if (cE()) {
+			var2.b(this.b());
+			var2.n(true);
+			var2.k(cM());
+		}
+
+		return var2;
+	}
+
+	@Override
+	public boolean d(class_aco var1) {
+		return (var1 != null) && (var1.b() == class_acq.aW);
+	}
+
+	@Override
+	public boolean a(class_vc var1) {
+		if (var1 == this) {
+			return false;
+		} else if (!cE()) {
+			return false;
+		} else if (!(var1 instanceof class_vi)) {
+			return false;
+		} else {
+			class_vi var2 = (class_vi) var1;
+			return !var2.cE() ? false : cK() && var2.cK();
+		}
+	}
+
+	public int cM() {
+		return ((Integer) ac.a(bx)).intValue();
+	}
+
+	public void k(int var1) {
+		ac.b(bx, Integer.valueOf(var1));
+	}
+
+	@Override
+	public boolean cj() {
+		return o.s.nextInt(3) != 0;
+	}
+
+	@Override
+	public boolean ck() {
+		if (o.a(aX(), this) && o.a(this, aX()).isEmpty() && !o.d(aX())) {
+			class_cj var1 = new class_cj(s, aX().b, u);
+			if (var1.o() < o.H()) {
+				return false;
+			}
+
+			class_ail var2 = o.p(var1.b()).c();
+			if ((var2 == class_aim.c) || (var2.v() == class_avq.j)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	@Override
+	public String e_() {
+		return k_() ? aS() : (cE() ? class_di.a("entity.Cat.name") : super.e_());
+	}
+
+	@Override
+	public void n(boolean var1) {
+		super.n(var1);
+	}
+
+	@Override
+	protected void cF() {
+		if (by == null) {
+			by = new class_sg(this, class_yu.class, 16.0F, 0.8D, 1.33D);
+		}
+
+		i.a(by);
+		if (!cE()) {
+			i.a(4, by);
+		}
+
+	}
+
+	@Override
+	public class_rj a(class_pt var1, class_rj var2) {
+		var2 = super.a(var1, var2);
+		if (o.s.nextInt(7) == 0) {
+			for (int var3 = 0; var3 < 2; ++var3) {
+				class_vi var4 = new class_vi(o);
+				var4.b(s, t, u, y, 0.0F);
+				var4.b(-24000);
+				o.a(var4);
+			}
+		}
+
+		return var2;
+	}
+
+	// $FF: synthetic method
+	@Override
+	public class_qu a(class_qu var1) {
+		return this.b(var1);
+	}
+
+	static {
+		bx = class_kc.a(class_vi.class, class_kb.b);
+	}
 }

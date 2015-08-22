@@ -1,120 +1,174 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockLeaves;
-import net.minecraft.server.BlockLeaves1;
-import net.minecraft.server.BlockLog1;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
 
-public class class_ark extends class_apw {
-   private static final IBlockData a;
-   private static final IBlockData b;
+public class class_ark extends class_arr {
+	private float[] d = new float[1024];
 
-   public class_ark(boolean var1) {
-      super(var1);
-   }
+	protected void a(long var1, int var3, int var4, class_arl var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {
+		Random var19 = new Random(var1);
+		double var20 = (var3 * 16) + 8;
+		double var22 = (var4 * 16) + 8;
+		float var24 = 0.0F;
+		float var25 = 0.0F;
+		if (var16 <= 0) {
+			int var26 = (a * 16) - 16;
+			var16 = var26 - var19.nextInt(var26 / 4);
+		}
 
-   public boolean generate(World var1, Random var2, BlockPosition var3) {
-      int var4 = var2.nextInt(4) + 6;
-      int var5 = 1 + var2.nextInt(2);
-      int var6 = var4 - var5;
-      int var7 = 2 + var2.nextInt(2);
-      boolean var8 = true;
-      if(var3.getY() >= 1 && var3.getY() + var4 + 1 <= 256) {
-         int var13;
-         int var21;
-         for(int var9 = var3.getY(); var9 <= var3.getY() + 1 + var4 && var8; ++var9) {
-            boolean var10 = true;
-            if(var9 - var3.getY() < var5) {
-               var21 = 0;
-            } else {
-               var21 = var7;
-            }
+		boolean var53 = false;
+		if (var15 == -1) {
+			var15 = var16 / 2;
+			var53 = true;
+		}
 
-            BlockPosition.MutableBlockPosition var11 = new BlockPosition.MutableBlockPosition();
+		float var27 = 1.0F;
 
-            for(int var12 = var3.getX() - var21; var12 <= var3.getX() + var21 && var8; ++var12) {
-               for(var13 = var3.getZ() - var21; var13 <= var3.getZ() + var21 && var8; ++var13) {
-                  if(var9 >= 0 && var9 < 256) {
-                     Block var14 = var1.getType(var11.setPosition(var12, var9, var13)).getBlock();
-                     if(var14.getMaterial() != Material.AIR && var14.getMaterial() != Material.LEAVES) {
-                        var8 = false;
-                     }
-                  } else {
-                     var8 = false;
-                  }
-               }
-            }
-         }
+		for (int var28 = 0; var28 < 256; ++var28) {
+			if ((var28 == 0) || (var19.nextInt(3) == 0)) {
+				var27 = 1.0F + (var19.nextFloat() * var19.nextFloat() * 1.0F);
+			}
 
-         if(!var8) {
-            return false;
-         } else {
-            Block var20 = var1.getType(var3.down()).getBlock();
-            if((var20 == Blocks.GRASS || var20 == Blocks.DIRT || var20 == Blocks.FARMLAND) && var3.getY() < 256 - var4 - 1) {
-               this.a(var1, var3.down());
-               var21 = var2.nextInt(2);
-               int var22 = 1;
-               byte var23 = 0;
+			d[var28] = var27 * var27;
+		}
 
-               int var24;
-               for(var13 = 0; var13 <= var6; ++var13) {
-                  var24 = var3.getY() + var4 - var13;
+		for (; var15 < var16; ++var15) {
+			double var54 = 1.5D + class_oa.a((var15 * 3.1415927F) / var16) * var12 * 1.0F;
+			double var30 = var54 * var17;
+			var54 *= (var19.nextFloat() * 0.25D) + 0.75D;
+			var30 *= (var19.nextFloat() * 0.25D) + 0.75D;
+			float var32 = class_oa.b(var14);
+			float var33 = class_oa.a(var14);
+			var6 += class_oa.b(var13) * var32;
+			var8 += var33;
+			var10 += class_oa.a(var13) * var32;
+			var14 *= 0.7F;
+			var14 += var25 * 0.05F;
+			var13 += var24 * 0.05F;
+			var25 *= 0.8F;
+			var24 *= 0.5F;
+			var25 += (var19.nextFloat() - var19.nextFloat()) * var19.nextFloat() * 2.0F;
+			var24 += (var19.nextFloat() - var19.nextFloat()) * var19.nextFloat() * 4.0F;
+			if (var53 || (var19.nextInt(4) != 0)) {
+				double var34 = var6 - var20;
+				double var36 = var10 - var22;
+				double var38 = var16 - var15;
+				double var40 = var12 + 2.0F + 16.0F;
+				if ((((var34 * var34) + (var36 * var36)) - (var38 * var38)) > (var40 * var40)) {
+					return;
+				}
 
-                  for(int var15 = var3.getX() - var21; var15 <= var3.getX() + var21; ++var15) {
-                     int var16 = var15 - var3.getX();
+				if ((var6 >= (var20 - 16.0D - (var54 * 2.0D))) && (var10 >= (var22 - 16.0D - (var54 * 2.0D))) && (var6 <= (var20 + 16.0D + (var54 * 2.0D))) && (var10 <= (var22 + 16.0D + (var54 * 2.0D)))) {
+					int var55 = class_oa.c(var6 - var54) - (var3 * 16) - 1;
+					int var35 = (class_oa.c(var6 + var54) - (var3 * 16)) + 1;
+					int var56 = class_oa.c(var8 - var30) - 1;
+					int var37 = class_oa.c(var8 + var30) + 1;
+					int var57 = class_oa.c(var10 - var54) - (var4 * 16) - 1;
+					int var39 = (class_oa.c(var10 + var54) - (var4 * 16)) + 1;
+					if (var55 < 0) {
+						var55 = 0;
+					}
 
-                     for(int var17 = var3.getZ() - var21; var17 <= var3.getZ() + var21; ++var17) {
-                        int var18 = var17 - var3.getZ();
-                        if(Math.abs(var16) != var21 || Math.abs(var18) != var21 || var21 <= 0) {
-                           BlockPosition var19 = new BlockPosition(var15, var24, var17);
-                           if(!var1.getType(var19).getBlock().isFullBlock()) {
-                              this.setTypeAndData(var1, var19, b);
-                           }
-                        }
-                     }
-                  }
+					if (var35 > 16) {
+						var35 = 16;
+					}
 
-                  if(var21 >= var22) {
-                     var21 = var23;
-                     var23 = 1;
-                     ++var22;
-                     if(var22 > var7) {
-                        var22 = var7;
-                     }
-                  } else {
-                     ++var21;
-                  }
-               }
+					if (var56 < 1) {
+						var56 = 1;
+					}
 
-               var13 = var2.nextInt(3);
+					if (var37 > 248) {
+						var37 = 248;
+					}
 
-               for(var24 = 0; var24 < var4 - var13; ++var24) {
-                  Block var25 = var1.getType(var3.up(var24)).getBlock();
-                  if(var25.getMaterial() == Material.AIR || var25.getMaterial() == Material.LEAVES) {
-                     this.setTypeAndData(var1, var3.up(var24), a);
-                  }
-               }
+					if (var57 < 0) {
+						var57 = 0;
+					}
 
-               return true;
-            } else {
-               return false;
-            }
-         }
-      } else {
-         return false;
-      }
-   }
+					if (var39 > 16) {
+						var39 = 16;
+					}
 
-   static {
-      a = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.SPRUCE);
-      b = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.SPRUCE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
-   }
+					boolean var58 = false;
+
+					int var42;
+					for (int var41 = var55; !var58 && (var41 < var35); ++var41) {
+						for (var42 = var57; !var58 && (var42 < var39); ++var42) {
+							for (int var43 = var37 + 1; !var58 && (var43 >= (var56 - 1)); --var43) {
+								if ((var43 >= 0) && (var43 < 256)) {
+									class_apn var44 = var5.a(var41, var43, var42);
+									if ((var44.c() == class_aim.i) || (var44.c() == class_aim.j)) {
+										var58 = true;
+									}
+
+									if ((var43 != (var56 - 1)) && (var41 != var55) && (var41 != (var35 - 1)) && (var42 != var57) && (var42 != (var39 - 1))) {
+										var43 = var56;
+									}
+								}
+							}
+						}
+					}
+
+					if (!var58) {
+						class_cj.class_a_in_class_cj var59 = new class_cj.class_a_in_class_cj();
+
+						for (var42 = var55; var42 < var35; ++var42) {
+							double var60 = ((var42 + (var3 * 16) + 0.5D) - var6) / var54;
+
+							for (int var45 = var57; var45 < var39; ++var45) {
+								double var46 = ((var45 + (var4 * 16) + 0.5D) - var10) / var54;
+								boolean var48 = false;
+								if (((var60 * var60) + (var46 * var46)) < 1.0D) {
+									for (int var49 = var37; var49 > var56; --var49) {
+										double var50 = ((var49 - 1 + 0.5D) - var8) / var30;
+										if (((((var60 * var60) + (var46 * var46)) * d[var49 - 1]) + ((var50 * var50) / 6.0D)) < 1.0D) {
+											class_apn var52 = var5.a(var42, var49, var45);
+											if (var52.c() == class_aim.c) {
+												var48 = true;
+											}
+
+											if ((var52.c() == class_aim.b) || (var52.c() == class_aim.d) || (var52.c() == class_aim.c)) {
+												if ((var49 - 1) < 10) {
+													var5.a(var42, var49, var45, class_aim.k.S());
+												} else {
+													var5.a(var42, var49, var45, class_aim.a.S());
+													if (var48 && (var5.a(var42, var49 - 1, var45).c() == class_aim.d)) {
+														var59.c(var42 + (var3 * 16), 0, var45 + (var4 * 16));
+														var5.a(var42, var49 - 1, var45, c.b(var59).ak);
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+
+						if (var53) {
+							break;
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	@Override
+	protected void a(class_ago var1, int var2, int var3, int var4, int var5, class_arl var6) {
+		if (b.nextInt(50) == 0) {
+			double var7 = (var2 * 16) + b.nextInt(16);
+			double var9 = b.nextInt(b.nextInt(40) + 8) + 20;
+			double var11 = (var3 * 16) + b.nextInt(16);
+			byte var13 = 1;
+
+			for (int var14 = 0; var14 < var13; ++var14) {
+				float var15 = b.nextFloat() * 3.1415927F * 2.0F;
+				float var16 = ((b.nextFloat() - 0.5F) * 2.0F) / 8.0F;
+				float var17 = ((b.nextFloat() * 2.0F) + b.nextFloat()) * 2.0F;
+				this.a(b.nextLong(), var4, var5, var6, var7, var9, var11, var17, var15, var16, 0, 0, 3.0D);
+			}
+
+		}
+	}
 }

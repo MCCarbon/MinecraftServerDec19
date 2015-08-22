@@ -1,109 +1,128 @@
 package net.minecraft.server;
 
-import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockLeaves;
-import net.minecraft.server.BlockLeaves1;
-import net.minecraft.server.BlockLog1;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
 
-public class class_arc extends class_apw {
-   private static final IBlockData a;
-   private static final IBlockData b;
+public abstract class class_arc {
+	public static final float[] a = new float[] { 1.0F, 0.75F, 0.5F, 0.25F, 0.0F, 0.25F, 0.5F, 0.75F };
+	protected class_ago b;
+	private class_agt g;
+	private String h;
+	protected class_ahf c;
+	protected boolean d;
+	protected boolean e;
+	protected final float[] f = new float[16];
+	private final float[] i = new float[4];
 
-   public class_arc() {
-      super(false);
-   }
+	public final void a(class_ago var1) {
+		b = var1;
+		g = var1.R().t();
+		h = var1.R().A();
+		this.b();
+		this.a();
+	}
 
-   public boolean generate(World var1, Random var2, BlockPosition var3) {
-      int var4 = var2.nextInt(5) + 7;
-      int var5 = var4 - var2.nextInt(2) - 3;
-      int var6 = var4 - var5;
-      int var7 = 1 + var2.nextInt(var6 + 1);
-      boolean var8 = true;
-      if(var3.getY() >= 1 && var3.getY() + var4 + 1 <= 256) {
-         int var12;
-         int var13;
-         int var18;
-         for(int var9 = var3.getY(); var9 <= var3.getY() + 1 + var4 && var8; ++var9) {
-            boolean var10 = true;
-            if(var9 - var3.getY() < var5) {
-               var18 = 0;
-            } else {
-               var18 = var7;
-            }
+	protected void a() {
+		float var1 = 0.0F;
 
-            BlockPosition.MutableBlockPosition var11 = new BlockPosition.MutableBlockPosition();
+		for (int var2 = 0; var2 <= 15; ++var2) {
+			float var3 = 1.0F - (var2 / 15.0F);
+			f[var2] = (((1.0F - var3) / ((var3 * 3.0F) + 1.0F)) * (1.0F - var1)) + var1;
+		}
 
-            for(var12 = var3.getX() - var18; var12 <= var3.getX() + var18 && var8; ++var12) {
-               for(var13 = var3.getZ() - var18; var13 <= var3.getZ() + var18 && var8; ++var13) {
-                  if(var9 >= 0 && var9 < 256) {
-                     if(!this.a(var1.getType(var11.setPosition(var12, var9, var13)).getBlock())) {
-                        var8 = false;
-                     }
-                  } else {
-                     var8 = false;
-                  }
-               }
-            }
-         }
+	}
 
-         if(!var8) {
-            return false;
-         } else {
-            Block var17 = var1.getType(var3.down()).getBlock();
-            if((var17 == Blocks.GRASS || var17 == Blocks.DIRT) && var3.getY() < 256 - var4 - 1) {
-               this.a(var1, var3.down());
-               var18 = 0;
+	protected void b() {
+		class_agt var1 = b.R().t();
+		if (var1 == class_agt.c) {
+			class_atv var2 = class_atv.a(b.R().A());
+			c = new class_ahi(class_ahb.a(var2.a(), class_ahb.ad), 0.5F);
+		} else if (var1 == class_agt.g) {
+			c = new class_ahi(class_ahb.q, 0.0F);
+		} else {
+			c = new class_ahf(b);
+		}
 
-               int var19;
-               for(var19 = var3.getY() + var4; var19 >= var3.getY() + var5; --var19) {
-                  for(var12 = var3.getX() - var18; var12 <= var3.getX() + var18; ++var12) {
-                     var13 = var12 - var3.getX();
+	}
 
-                     for(int var14 = var3.getZ() - var18; var14 <= var3.getZ() + var18; ++var14) {
-                        int var15 = var14 - var3.getZ();
-                        if(Math.abs(var13) != var18 || Math.abs(var15) != var18 || var18 <= 0) {
-                           BlockPosition var16 = new BlockPosition(var12, var19, var14);
-                           if(!var1.getType(var16).getBlock().isFullBlock()) {
-                              this.setTypeAndData(var1, var16, b);
-                           }
-                        }
-                     }
-                  }
+	public class_aqk c() {
+		return g == class_agt.c ? new class_aro(b, b.L(), b.R().r(), h) : (g == class_agt.g ? new class_arn(b) : (g == class_agt.f ? new class_art(b, b.L(), b.R().r(), h) : new class_art(b, b.L(), b.R().r(), h)));
+	}
 
-                  if(var18 >= 1 && var19 == var3.getY() + var5 + 1) {
-                     --var18;
-                  } else if(var18 < var7) {
-                     ++var18;
-                  }
-               }
+	public boolean a(int var1, int var2) {
+		return b.c(new class_cj(var1, 0, var2)) == class_aim.c;
+	}
 
-               for(var19 = 0; var19 < var4 - 1; ++var19) {
-                  Block var20 = var1.getType(var3.up(var19)).getBlock();
-                  if(var20.getMaterial() == Material.AIR || var20.getMaterial() == Material.LEAVES) {
-                     this.setTypeAndData(var1, var3.up(var19), a);
-                  }
-               }
+	public float a(long var1, float var3) {
+		int var4 = (int) (var1 % 24000L);
+		float var5 = ((var4 + var3) / 24000.0F) - 0.25F;
+		if (var5 < 0.0F) {
+			++var5;
+		}
 
-               return true;
-            } else {
-               return false;
-            }
-         }
-      } else {
-         return false;
-      }
-   }
+		if (var5 > 1.0F) {
+			--var5;
+		}
 
-   static {
-      a = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.SPRUCE);
-      b = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.SPRUCE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
-   }
+		float var6 = var5;
+		var5 = 1.0F - (float) ((Math.cos(var5 * 3.141592653589793D) + 1.0D) / 2.0D);
+		var5 = var6 + ((var5 - var6) / 3.0F);
+		return var5;
+	}
+
+	public int a(long var1) {
+		return (int) (((var1 / 24000L) % 8L) + 8L) % 8;
+	}
+
+	public boolean d() {
+		return true;
+	}
+
+	public boolean e() {
+		return true;
+	}
+
+	public class_cj h() {
+		return null;
+	}
+
+	public int i() {
+		return g == class_agt.c ? 4 : b.H() + 1;
+	}
+
+	public class_ahf k() {
+		return c;
+	}
+
+	public boolean l() {
+		return d;
+	}
+
+	public boolean m() {
+		return e;
+	}
+
+	public float[] n() {
+		return f;
+	}
+
+	public class_aqg o() {
+		return new class_aqg();
+	}
+
+	public void a(class_lm var1) {
+	}
+
+	public void b(class_lm var1) {
+	}
+
+	public abstract class_ard p();
+
+	public void q() {
+	}
+
+	public void r() {
+	}
+
+	public boolean c(int var1, int var2) {
+		return true;
+	}
 }

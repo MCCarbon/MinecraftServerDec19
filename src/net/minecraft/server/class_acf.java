@@ -1,94 +1,129 @@
 package net.minecraft.server;
 
-import net.minecraft.server.RegistryPotions;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.Bootstrap;
+import java.util.Map;
 
-public class class_acf {
-   public static RegistryPotions a;
-   public static RegistryPotions b;
-   public static RegistryPotions c;
-   public static RegistryPotions d;
-   public static RegistryPotions e;
-   public static RegistryPotions f;
-   public static RegistryPotions g;
-   public static RegistryPotions h;
-   public static RegistryPotions i;
-   public static RegistryPotions j;
-   public static RegistryPotions k;
-   public static RegistryPotions l;
-   public static RegistryPotions m;
-   public static RegistryPotions n;
-   public static RegistryPotions o;
-   public static RegistryPotions p;
-   public static RegistryPotions q;
-   public static RegistryPotions r;
-   public static RegistryPotions s;
-   public static RegistryPotions t;
-   public static RegistryPotions u;
-   public static RegistryPotions v;
-   public static RegistryPotions w;
-   public static RegistryPotions x;
-   public static RegistryPotions y;
-   public static RegistryPotions z;
-   public static RegistryPotions A;
-   public static RegistryPotions B;
-   public static RegistryPotions C;
-   public static RegistryPotions D;
-   public static RegistryPotions E;
-   public static RegistryPotions F;
-   public static RegistryPotions G;
-   public static RegistryPotions H;
-   public static RegistryPotions I;
+import com.google.common.collect.Maps;
 
-   private static RegistryPotions a(String var0) {
-      RegistryPotions var1 = (RegistryPotions)RegistryPotions.REGISTRY.get(new MinecraftKey(var0));
-      if(var1 == null) {
-         throw new IllegalStateException("Invalid Potion requested: " + var0);
-      } else {
-         return var1;
-      }
-   }
+public class class_acf extends class_aci {
+	private final boolean b;
 
-   static {
-      if(!Bootstrap.isInitDone()) {
-         throw new RuntimeException("Accessed Potions before Bootstrap!");
-      } else {
-         a = a("water");
-         b = a("mundane");
-         c = a("thick");
-         d = a("awkward");
-         e = a("night_vision");
-         f = a("long_night_vision");
-         g = a("invisibility");
-         h = a("long_invisibility");
-         i = a("leaping");
-         j = a("long_leaping");
-         k = a("strong_leaping");
-         l = a("fire_resistance");
-         m = a("long_fire_resistance");
-         n = a("swiftness");
-         o = a("long_swiftness");
-         p = a("strong_swiftness");
-         q = a("slowness");
-         r = a("long_slowness");
-         s = a("breathing_water");
-         t = a("long_water_breathing");
-         u = a("healing");
-         v = a("strong_healing");
-         w = a("harming");
-         x = a("strong_harming");
-         y = a("poison");
-         z = a("long_poison");
-         A = a("strong_poison");
-         B = a("regeneration");
-         C = a("long_regeneration");
-         D = a("strong_regeneration");
-         E = a("strength");
-         F = a("long_strength");
-         G = a("strong_strength");
-         H = a("weakness");
-         I = a("long_weakness");
-      }
-   }
+	public class_acf(boolean var1) {
+		super(0, 0.0F, false);
+		b = var1;
+	}
+
+	@Override
+	public int h(class_aco var1) {
+		class_acf.class_a_in_class_acf var2 = class_acf.class_a_in_class_acf.a(var1);
+		return b && var2.g() ? var2.e() : var2.c();
+	}
+
+	@Override
+	public float i(class_aco var1) {
+		class_acf.class_a_in_class_acf var2 = class_acf.class_a_in_class_acf.a(var1);
+		return b && var2.g() ? var2.f() : var2.d();
+	}
+
+	@Override
+	protected void a(class_aco var1, class_ago var2, class_yu var3) {
+		class_acf.class_a_in_class_acf var4 = class_acf.class_a_in_class_acf.a(var1);
+		if (var4 == class_acf.class_a_in_class_acf.d) {
+			var3.c(new class_qr(class_qs.s, 1200, 3));
+			var3.c(new class_qr(class_qs.q, 300, 2));
+			var3.c(new class_qr(class_qs.i, 300, 1));
+		}
+
+		super.a(var1, var2, var3);
+	}
+
+	@Override
+	public String e_(class_aco var1) {
+		class_acf.class_a_in_class_acf var2 = class_acf.class_a_in_class_acf.a(var1);
+		return this.a() + "." + var2.b() + "." + (b && var2.g() ? "cooked" : "raw");
+	}
+
+	public static enum class_a_in_class_acf {
+		a(0, "cod", 2, 0.1F, 5, 0.6F),
+		b(1, "salmon", 2, 0.1F, 6, 0.8F),
+		c(2, "clownfish", 1, 0.1F),
+		d(3, "pufferfish", 1, 0.1F);
+
+		private static final Map e;
+		private final int f;
+		private final String g;
+		private final int h;
+		private final float i;
+		private final int j;
+		private final float k;
+		private boolean l = false;
+
+		private class_a_in_class_acf(int var3, String var4, int var5, float var6, int var7, float var8) {
+			f = var3;
+			g = var4;
+			h = var5;
+			i = var6;
+			j = var7;
+			k = var8;
+			l = true;
+		}
+
+		private class_a_in_class_acf(int var3, String var4, int var5, float var6) {
+			f = var3;
+			g = var4;
+			h = var5;
+			i = var6;
+			j = 0;
+			k = 0.0F;
+			l = false;
+		}
+
+		public int a() {
+			return f;
+		}
+
+		public String b() {
+			return g;
+		}
+
+		public int c() {
+			return h;
+		}
+
+		public float d() {
+			return i;
+		}
+
+		public int e() {
+			return j;
+		}
+
+		public float f() {
+			return k;
+		}
+
+		public boolean g() {
+			return l;
+		}
+
+		public static class_acf.class_a_in_class_acf a(int var0) {
+			class_acf.class_a_in_class_acf var1 = (class_acf.class_a_in_class_acf) e.get(Integer.valueOf(var0));
+			return var1 == null ? a : var1;
+		}
+
+		public static class_acf.class_a_in_class_acf a(class_aco var0) {
+			return var0.b() instanceof class_acf ? a(var0.i()) : a;
+		}
+
+		static {
+			e = Maps.newHashMap();
+			class_acf.class_a_in_class_acf[] var0 = values();
+			int var1 = var0.length;
+
+			for (int var2 = 0; var2 < var1; ++var2) {
+				class_acf.class_a_in_class_acf var3 = var0[var2];
+				e.put(Integer.valueOf(var3.a()), var3);
+			}
+
+		}
+	}
 }

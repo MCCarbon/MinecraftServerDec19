@@ -1,38 +1,71 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_qn;
 
-public class class_qs extends class_qn {
-   private final double a;
-   private final double b;
-   private String c;
+public class class_qs {
+	public static final class_qq a;
+	public static final class_qq b;
+	public static final class_qq c;
+	public static final class_qq d;
+	public static final class_qq e;
+	public static final class_qq f;
+	public static final class_qq g;
+	public static final class_qq h;
+	public static final class_qq i;
+	public static final class_qq j;
+	public static final class_qq k;
+	public static final class_qq l;
+	public static final class_qq m;
+	public static final class_qq n;
+	public static final class_qq o;
+	public static final class_qq p;
+	public static final class_qq q;
+	public static final class_qq r;
+	public static final class_qq s;
+	public static final class_qq t;
+	public static final class_qq u;
+	public static final class_qq v;
+	public static final class_qq w;
+	public static final class_qq x;
+	public static final class_qq y;
 
-   public class_qs(class_qk var1, String var2, double var3, double var5, double var7) {
-      super(var1, var2, var3);
-      this.a = var5;
-      this.b = var7;
-      if(var5 > var7) {
-         throw new IllegalArgumentException("Minimum value cannot be bigger than maximum value!");
-      } else if(var3 < var5) {
-         throw new IllegalArgumentException("Default value cannot be lower than minimum value!");
-      } else if(var3 > var7) {
-         throw new IllegalArgumentException("Default value cannot be bigger than maximum value!");
-      }
-   }
+	private static class_qq a(String var0) {
+		class_qq var1 = (class_qq) class_qq.b.c(new class_ke(var0));
+		if (var1 == null) {
+			throw new IllegalStateException("Invalid MobEffect requested: " + var0);
+		} else {
+			return var1;
+		}
+	}
 
-   public class_qs a(String var1) {
-      this.c = var1;
-      return this;
-   }
-
-   public String g() {
-      return this.c;
-   }
-
-   public double a(double var1) {
-      var1 = MathHelper.clamp(var1, this.a, this.b);
-      return var1;
-   }
+	static {
+		if (!class_kh.a()) {
+			throw new RuntimeException("Accessed MobEffects before Bootstrap!");
+		} else {
+			a = a("speed");
+			b = a("slowness");
+			c = a("haste");
+			d = a("mining_fatigue");
+			e = a("strength");
+			f = a("instant_health");
+			g = a("instant_damage");
+			h = a("jump_boost");
+			i = a("nausea");
+			j = a("regeneration");
+			k = a("resistance");
+			l = a("fire_resistance");
+			m = a("water_breathing");
+			n = a("invisibility");
+			o = a("blindness");
+			p = a("night_vision");
+			q = a("hunger");
+			r = a("weakness");
+			s = a("poison");
+			t = a("wither");
+			u = a("health_boost");
+			v = a("absorption");
+			w = a("saturation");
+			x = a("glowing");
+			y = a("levitation");
+		}
+	}
 }

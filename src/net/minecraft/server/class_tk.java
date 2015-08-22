@@ -1,38 +1,88 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
+import java.util.Iterator;
 import java.util.List;
 
-public class class_tk {
-   EntityInsentient a;
-   List b = Lists.newArrayList();
-   List c = Lists.newArrayList();
+public class class_tk extends class_sr {
+	private class_yp a;
+	private class_rg b;
+	private double c;
+	private int d;
 
-   public class_tk(EntityInsentient var1) {
-      this.a = var1;
-   }
+	public class_tk(class_yp var1, double var2) {
+		a = var1;
+		c = var2;
+		this.a(1);
+	}
 
-   public void a() {
-      this.b.clear();
-      this.c.clear();
-   }
+	@Override
+	public boolean a() {
+		if (a.k() >= 0) {
+			return false;
+		} else if (a.bj().nextInt(400) != 0) {
+			return false;
+		} else {
+			List var1 = a.o.a(class_yp.class, a.aX().b(6.0D, 3.0D, 6.0D));
+			double var2 = Double.MAX_VALUE;
+			Iterator var4 = var1.iterator();
 
-   public boolean a(Entity var1) {
-      if(this.b.contains(var1)) {
-         return true;
-      } else if(this.c.contains(var1)) {
-         return false;
-      } else {
-         this.a.world.B.a("canSee");
-         boolean var2 = this.a.t(var1);
-         this.a.world.B.b();
-         if(var2) {
-            this.b.add(var1);
-         } else {
-            this.c.add(var1);
-         }
+			while (var4.hasNext()) {
+				class_yp var5 = (class_yp) var4.next();
+				if ((var5 != a) && !var5.cG() && (var5.k() < 0)) {
+					double var6 = var5.h(a);
+					if (var6 <= var2) {
+						var2 = var6;
+						b = var5;
+					}
+				}
+			}
 
-         return var2;
-      }
-   }
+			if (b == null) {
+				class_aym var8 = class_us.a(a, 16, 3);
+				if (var8 == null) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+	}
+
+	@Override
+	public boolean b() {
+		return d > 0;
+	}
+
+	@Override
+	public void c() {
+		if (b != null) {
+			a.n(true);
+		}
+
+		d = 1000;
+	}
+
+	@Override
+	public void d() {
+		a.n(false);
+		b = null;
+	}
+
+	@Override
+	public void e() {
+		--d;
+		if (b != null) {
+			if (a.h(b) > 4.0D) {
+				a.u().a(b, c);
+			}
+		} else if (a.u().m()) {
+			class_aym var1 = class_us.a(a, 16, 3);
+			if (var1 == null) {
+				return;
+			}
+
+			a.u().a(var1.a, var1.b, var1.c, c);
+		}
+
+	}
 }

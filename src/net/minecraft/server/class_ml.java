@@ -1,67 +1,60 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.World;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.ICommandListener;
-import net.minecraft.server.CommandObjectiveExecutor;
-import net.minecraft.server.Entity;
+import java.io.File;
+import java.util.Iterator;
 
-public class class_ml implements ICommandListener {
-   private static final class_ml a = new class_ml();
-   private StringBuffer b = new StringBuffer();
+import com.google.gson.JsonObject;
+import com.mojang.authlib.GameProfile;
 
-   public static class_ml h() {
-      return a;
-   }
+public class class_ml extends class_mi {
+	public class_ml(File var1) {
+		super(var1);
+	}
 
-   public void i() {
-      this.b.setLength(0);
-   }
+	@Override
+	protected class_mh a(JsonObject var1) {
+		return new class_mm(var1);
+	}
 
-   public String j() {
-      return this.b.toString();
-   }
+	public boolean a(GameProfile var1) {
+		return this.d(var1);
+	}
 
-   public String getName() {
-      return "Rcon";
-   }
+	@Override
+	public String[] a() {
+		String[] var1 = new String[e().size()];
+		int var2 = 0;
 
-   public IChatBaseComponent getScoreboardDisplayName() {
-      return new ChatComponentText(this.getName());
-   }
+		class_mm var4;
+		for (Iterator var3 = e().values().iterator(); var3.hasNext(); var1[var2++] = ((GameProfile) var4.f()).getName()) {
+			var4 = (class_mm) var3.next();
+		}
 
-   public void sendMessage(IChatBaseComponent var1) {
-      this.b.append(var1.c());
-   }
+		return var1;
+	}
 
-   public boolean a(int var1, String var2) {
-      return true;
-   }
+	protected String b(GameProfile var1) {
+		return var1.getId().toString();
+	}
 
-   public BlockPosition c() {
-      return new BlockPosition(0, 0, 0);
-   }
+	public GameProfile a(String var1) {
+		Iterator var2 = e().values().iterator();
 
-   public Vec3D d() {
-      return new Vec3D(0.0D, 0.0D, 0.0D);
-   }
+		class_mm var3;
+		do {
+			if (!var2.hasNext()) {
+				return null;
+			}
 
-   public World e() {
-      return MinecraftServer.getServer().e();
-   }
+			var3 = (class_mm) var2.next();
+		} while (!var1.equalsIgnoreCase(((GameProfile) var3.f()).getName()));
 
-   public Entity f() {
-      return null;
-   }
+		return (GameProfile) var3.f();
+	}
 
-   public boolean u_() {
-      return true;
-   }
-
-   public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
-   }
+	// $FF: synthetic method
+	@Override
+	protected String a(Object var1) {
+		return this.b((GameProfile) var1);
+	}
 }

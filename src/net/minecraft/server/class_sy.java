@@ -1,102 +1,95 @@
 package net.minecraft.server;
 
-import com.google.common.base.Predicate;
-import java.util.Collections;
-import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+public class class_sy extends class_sr {
+	private class_yp b;
+	private class_yp c;
+	private class_ago d;
+	private int e;
+	class_uv a;
 
-public class class_sy extends class_rm {
-   private static final Logger a = LogManager.getLogger();
-   private EntityInsentient b;
-   private final Predicate c;
-   private final class_sz.class_a_in_class_sz d;
-   private EntityLiving e;
+	public class_sy(class_yp var1) {
+		b = var1;
+		d = var1.o;
+		this.a(3);
+	}
 
-   public class_sy(EntityInsentient var1) {
-      this.b = var1;
-      if(var1 instanceof EntityCreature) {
-         a.warn("Use NearestAttackableTargetGoal.class for PathfinerMob mobs!");
-      }
+	@Override
+	public boolean a() {
+		if (b.k() != 0) {
+			return false;
+		} else if (b.bj().nextInt(500) != 0) {
+			return false;
+		} else {
+			a = d.ag().a(new class_cj(b), 0);
+			if (a == null) {
+				return false;
+			} else if (f() && b.o(true)) {
+				class_qx var1 = d.a(class_yp.class, b.aX().b(8.0D, 3.0D, 8.0D), b);
+				if (var1 == null) {
+					return false;
+				} else {
+					c = (class_yp) var1;
+					return (c.k() == 0) && c.o(true);
+				}
+			} else {
+				return false;
+			}
+		}
+	}
 
-      this.c = new Predicate() {
-         public boolean a(Entity var1) {
-            if(!(var1 instanceof EntityHuman)) {
-               return false;
-            } else if(((EntityHuman)var1).abilities.invulnerable) {
-               return false;
-            } else {
-               double var2 = class_sy.this.f();
-               if(var1.ax()) {
-                  var2 *= 0.800000011920929D;
-               }
+	@Override
+	public void c() {
+		e = 300;
+		b.m(true);
+	}
 
-               if(var1.aA()) {
-                  float var4 = ((EntityHuman)var1).cc();
-                  if(var4 < 0.1F) {
-                     var4 = 0.1F;
-                  }
+	@Override
+	public void d() {
+		a = null;
+		c = null;
+		b.m(false);
+	}
 
-                  var2 *= (double)(0.7F * var4);
-               }
+	@Override
+	public boolean b() {
+		return (e >= 0) && f() && (b.k() == 0) && b.o(false);
+	}
 
-               return (double)var1.g(class_sy.this.b) > var2?false:class_td.a(class_sy.this.b, (EntityLiving)var1, false, true);
-            }
-         }
+	@Override
+	public void e() {
+		--e;
+		b.q().a(c, 10.0F, 30.0F);
+		if (b.h(c) > 2.25D) {
+			b.u().a(c, 0.25D);
+		} else if ((e == 0) && c.cF()) {
+			g();
+		}
 
-         // $FF: synthetic method
-         public boolean apply(Object var1) {
-            return this.a((Entity)var1);
-         }
-      };
-      this.d = new class_sz.class_a_in_class_sz(var1);
-   }
+		if (b.bj().nextInt(35) == 0) {
+			d.a(b, (byte) 12);
+		}
 
-   public boolean a() {
-      double var1 = this.f();
-      List var3 = this.b.world.getEntities(EntityHuman.class, this.b.getBoundingBox().grow(var1, 4.0D, var1), this.c);
-      Collections.sort(var3, this.d);
-      if(var3.isEmpty()) {
-         return false;
-      } else {
-         this.e = (EntityLiving)var3.get(0);
-         return true;
-      }
-   }
+	}
 
-   public boolean b() {
-      EntityLiving var1 = this.b.w();
-      if(var1 == null) {
-         return false;
-      } else if(!var1.isAlive()) {
-         return false;
-      } else if(var1 instanceof EntityHuman && ((EntityHuman)var1).abilities.invulnerable) {
-         return false;
-      } else {
-         class_awp var2 = this.b.bP();
-         class_awp var3 = var1.bP();
-         if(var2 != null && var3 == var2) {
-            return false;
-         } else {
-            double var4 = this.f();
-            return this.b.h(var1) > var4 * var4?false:!(var1 instanceof EntityPlayer) || !((EntityPlayer)var1).playerInteractManager.d();
-         }
-      }
-   }
+	private boolean f() {
+		if (!a.i()) {
+			return false;
+		} else {
+			int var1 = (int) ((a.c()) * 0.35D);
+			return a.e() < var1;
+		}
+	}
 
-   public void c() {
-      this.b.d(this.e);
-      super.c();
-   }
-
-   public void d() {
-      this.b.d((EntityLiving)null);
-      super.c();
-   }
-
-   protected double f() {
-      class_ql var1 = this.b.a((class_qk)class_wl.b);
-      return var1 == null?16.0D:var1.e();
-   }
+	private void g() {
+		class_yp var1 = b.b(c);
+		c.b(6000);
+		b.b(6000);
+		c.p(false);
+		b.p(false);
+		var1.b(-24000);
+		var1.b(b.s, b.t, b.u, 0.0F, 0.0F);
+		d.a(var1);
+		d.a(var1, (byte) 12);
+	}
 }

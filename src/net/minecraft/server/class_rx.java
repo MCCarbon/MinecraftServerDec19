@@ -1,90 +1,36 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EntityCreature;
-import net.minecraft.server.class_rm;
 
-public abstract class class_rx extends class_rm {
-   private final EntityCreature c;
-   private final double d;
-   protected int a;
-   private int e;
-   private int f;
-   protected BlockPosition b;
-   private boolean g;
-   private int h;
+public class class_rx extends class_rs {
+	private final double a;
+	private final double b;
+	private String c;
 
-   public class_rx(EntityCreature var1, double var2, int var4) {
-      this.b = BlockPosition.ZERO;
-      this.c = var1;
-      this.d = var2;
-      this.h = var4;
-      this.a(5);
-   }
+	public class_rx(class_rp var1, String var2, double var3, double var5, double var7) {
+		super(var1, var2, var3);
+		a = var5;
+		b = var7;
+		if (var5 > var7) {
+			throw new IllegalArgumentException("Minimum value cannot be bigger than maximum value!");
+		} else if (var3 < var5) {
+			throw new IllegalArgumentException("Default value cannot be lower than minimum value!");
+		} else if (var3 > var7) {
+			throw new IllegalArgumentException("Default value cannot be bigger than maximum value!");
+		}
+	}
 
-   public boolean a() {
-      if(this.a > 0) {
-         --this.a;
-         return false;
-      } else {
-         this.a = 200 + this.c.getRandom().nextInt(200);
-         return this.g();
-      }
-   }
+	public class_rx a(String var1) {
+		c = var1;
+		return this;
+	}
 
-   public boolean b() {
-      return this.e >= -this.f && this.e <= 1200 && this.a(this.c.world, this.b);
-   }
+	public String g() {
+		return c;
+	}
 
-   public void c() {
-      this.c.u().a((double)((float)this.b.getX()) + 0.5D, (double)(this.b.getY() + 1), (double)((float)this.b.getZ()) + 0.5D, this.d);
-      this.e = 0;
-      this.f = this.c.getRandom().nextInt(this.c.getRandom().nextInt(1200) + 1200) + 1200;
-   }
-
-   public void d() {
-   }
-
-   public void e() {
-      if(this.c.c(this.b.up()) > 1.0D) {
-         this.g = false;
-         ++this.e;
-         if(this.e % 40 == 0) {
-            this.c.u().a((double)((float)this.b.getX()) + 0.5D, (double)(this.b.getY() + 1), (double)((float)this.b.getZ()) + 0.5D, this.d);
-         }
-      } else {
-         this.g = true;
-         --this.e;
-      }
-
-   }
-
-   protected boolean f() {
-      return this.g;
-   }
-
-   private boolean g() {
-      int var1 = this.h;
-      boolean var2 = true;
-      BlockPosition var3 = new BlockPosition(this.c);
-
-      for(int var4 = 0; var4 <= 1; var4 = var4 > 0?-var4:1 - var4) {
-         for(int var5 = 0; var5 < var1; ++var5) {
-            for(int var6 = 0; var6 <= var5; var6 = var6 > 0?-var6:1 - var6) {
-               for(int var7 = var6 < var5 && var6 > -var5?var5:0; var7 <= var5; var7 = var7 > 0?-var7:1 - var7) {
-                  BlockPosition var8 = var3.add(var6, var4 - 1, var7);
-                  if(this.c.e(var8) && this.a(this.c.world, var8)) {
-                     this.b = var8;
-                     return true;
-                  }
-               }
-            }
-         }
-      }
-
-      return false;
-   }
-
-   protected abstract boolean a(World var1, BlockPosition var2);
+	@Override
+	public double a(double var1) {
+		var1 = class_oa.a(var1, a, b);
+		return var1;
+	}
 }

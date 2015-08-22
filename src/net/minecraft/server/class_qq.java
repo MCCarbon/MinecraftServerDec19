@@ -1,158 +1,201 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
+import java.util.Map.Entry;
 import java.util.UUID;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_qo;
 
-public class class_qq implements class_ql {
-   private final class_qo a;
-   private final class_qk b;
-   private final Map c = Maps.newHashMap();
-   private final Map d = Maps.newHashMap();
-   private final Map e = Maps.newHashMap();
-   private double f;
-   private boolean g = true;
-   private double h;
+import com.google.common.collect.Maps;
 
-   public class_qq(class_qo var1, class_qk var2) {
-      this.a = var1;
-      this.b = var2;
-      this.f = var2.b();
+public class class_qq {
+	public static final class_cx b = new class_cx();
+	private final Map a = Maps.newHashMap();
+	private final boolean c;
+	private final int d;
+	private String e = "";
+	private int f = -1;
+	private double g;
+	private boolean h;
 
-      for(int var3 = 0; var3 < 3; ++var3) {
-         this.c.put(Integer.valueOf(var3), Sets.newHashSet());
-      }
+	public static class_qq a(int var0) {
+		return (class_qq) b.a(var0);
+	}
 
-   }
+	public static int a(class_qq var0) {
+		return b.a(var0);
+	}
 
-   public class_qk a() {
-      return this.b;
-   }
+	public static class_qq b(String var0) {
+		return (class_qq) b.c(new class_ke(var0));
+	}
 
-   public double b() {
-      return this.f;
-   }
+	protected class_qq(boolean var1, int var2) {
+		c = var1;
+		if (var1) {
+			g = 0.5D;
+		} else {
+			g = 1.0D;
+		}
 
-   public void a(double var1) {
-      if(var1 != this.b()) {
-         this.f = var1;
-         this.f();
-      }
-   }
+		d = var2;
+	}
 
-   public Collection a(int var1) {
-      return (Collection)this.c.get(Integer.valueOf(var1));
-   }
+	protected class_qq b(int var1, int var2) {
+		f = var1 + (var2 * 8);
+		return this;
+	}
 
-   public Collection c() {
-      HashSet var1 = Sets.newHashSet();
+	public void a(class_rg var1, int var2) {
+		if (this == class_qs.j) {
+			if (var1.bu() < var1.bB()) {
+				var1.b(1.0F);
+			}
+		} else if (this == class_qs.s) {
+			if (var1.bu() > 1.0F) {
+				var1.a(class_qi.l, 1.0F);
+			}
+		} else if (this == class_qs.t) {
+			var1.a(class_qi.m, 1.0F);
+		} else if ((this == class_qs.q) && (var1 instanceof class_yu)) {
+			((class_yu) var1).a(0.025F * (var2 + 1));
+		} else if ((this == class_qs.w) && (var1 instanceof class_yu)) {
+			if (!var1.o.D) {
+				((class_yu) var1).ct().a(var2 + 1, 1.0F);
+			}
+		} else if (((this != class_qs.f) || var1.bt()) && ((this != class_qs.g) || !var1.bt())) {
+			if (((this == class_qs.g) && !var1.bt()) || ((this == class_qs.f) && var1.bt())) {
+				var1.a(class_qi.l, 6 << var2);
+			}
+		} else {
+			var1.b(Math.max(4 << var2, 0));
+		}
 
-      for(int var2 = 0; var2 < 3; ++var2) {
-         var1.addAll(this.a(var2));
-      }
+	}
 
-      return var1;
-   }
+	public void a(class_qx var1, class_qx var2, class_rg var3, int var4, double var5) {
+		int var7;
+		if (((this != class_qs.f) || var3.bt()) && ((this != class_qs.g) || !var3.bt())) {
+			if (((this == class_qs.g) && !var3.bt()) || ((this == class_qs.f) && var3.bt())) {
+				var7 = (int) ((var5 * (6 << var4)) + 0.5D);
+				if (var1 == null) {
+					var3.a(class_qi.l, var7);
+				} else {
+					var3.a(class_qi.b(var1, var2), var7);
+				}
+			}
+		} else {
+			var7 = (int) ((var5 * (4 << var4)) + 0.5D);
+			var3.b(var7);
+		}
 
-   public class_qm a(UUID var1) {
-      return (class_qm)this.e.get(var1);
-   }
+	}
 
-   public boolean a(class_qm var1) {
-      return this.e.get(var1.a()) != null;
-   }
+	public boolean a(int var1, int var2) {
+		int var3;
+		if (this == class_qs.j) {
+			var3 = 50 >> var2;
+			return var3 > 0 ? (var1 % var3) == 0 : true;
+		} else if (this == class_qs.s) {
+			var3 = 25 >> var2;
+				return var3 > 0 ? (var1 % var3) == 0 : true;
+		} else if (this == class_qs.t) {
+			var3 = 40 >> var2;
+				return var3 > 0 ? (var1 % var3) == 0 : true;
+		} else {
+			return this == class_qs.q;
+		}
+	}
 
-   public void b(class_qm var1) {
-      if(this.a(var1.a()) != null) {
-         throw new IllegalArgumentException("Modifier is already applied on this attribute!");
-      } else {
-         Object var2 = (Set)this.d.get(var1.b());
-         if(var2 == null) {
-            var2 = Sets.newHashSet();
-            this.d.put(var1.b(), var2);
-         }
+	public boolean b() {
+		return false;
+	}
 
-         ((Set)this.c.get(Integer.valueOf(var1.c()))).add(var1);
-         ((Set)var2).add(var1);
-         this.e.put(var1.a(), var1);
-         this.f();
-      }
-   }
+	public class_qq c(String var1) {
+		e = var1;
+		return this;
+	}
 
-   protected void f() {
-      this.g = true;
-      this.a.a((class_ql)this);
-   }
+	public String a() {
+		return e;
+	}
 
-   public void c(class_qm var1) {
-      for(int var2 = 0; var2 < 3; ++var2) {
-         Set var3 = (Set)this.c.get(Integer.valueOf(var2));
-         var3.remove(var1);
-      }
+	protected class_qq a(double var1) {
+		g = var1;
+		return this;
+	}
 
-      Set var4 = (Set)this.d.get(var1.b());
-      if(var4 != null) {
-         var4.remove(var1);
-         if(var4.isEmpty()) {
-            this.d.remove(var1.b());
-         }
-      }
+	public int g() {
+		return d;
+	}
 
-      this.e.remove(var1.a());
-      this.f();
-   }
+	public class_qq a(class_rp var1, String var2, double var3, int var5) {
+		class_rr var6 = new class_rr(UUID.fromString(var2), this.a(), var3, var5);
+		a.put(var1, var6);
+		return this;
+	}
 
-   public double e() {
-      if(this.g) {
-         this.h = this.g();
-         this.g = false;
-      }
+	public void a(class_rg var1, class_rt var2, int var3) {
+		Iterator var4 = a.entrySet().iterator();
 
-      return this.h;
-   }
+		while (var4.hasNext()) {
+			Entry var5 = (Entry) var4.next();
+			class_rq var6 = var2.a((class_rp) var5.getKey());
+			if (var6 != null) {
+				var6.c((class_rr) var5.getValue());
+			}
+		}
 
-   private double g() {
-      double var1 = this.b();
+	}
 
-      class_qm var4;
-      for(Iterator var3 = this.b(0).iterator(); var3.hasNext(); var1 += var4.d()) {
-         var4 = (class_qm)var3.next();
-      }
+	public void b(class_rg var1, class_rt var2, int var3) {
+		Iterator var4 = a.entrySet().iterator();
 
-      double var7 = var1;
+		while (var4.hasNext()) {
+			Entry var5 = (Entry) var4.next();
+			class_rq var6 = var2.a((class_rp) var5.getKey());
+			if (var6 != null) {
+				class_rr var7 = (class_rr) var5.getValue();
+				var6.c(var7);
+				var6.b(new class_rr(var7.a(), this.a() + " " + var3, this.a(var3, var7), var7.c()));
+			}
+		}
 
-      Iterator var5;
-      class_qm var6;
-      for(var5 = this.b(1).iterator(); var5.hasNext(); var7 += var1 * var6.d()) {
-         var6 = (class_qm)var5.next();
-      }
+	}
 
-      for(var5 = this.b(2).iterator(); var5.hasNext(); var7 *= 1.0D + var6.d()) {
-         var6 = (class_qm)var5.next();
-      }
+	public double a(int var1, class_rr var2) {
+		return var2.d() * (var1 + 1);
+	}
 
-      return this.b.a(var7);
-   }
+	public class_qq j() {
+		h = true;
+		return this;
+	}
 
-   private Collection b(int var1) {
-      HashSet var2 = Sets.newHashSet((Iterable)this.a(var1));
-
-      for(class_qk var3 = this.b.d(); var3 != null; var3 = var3.d()) {
-         class_ql var4 = this.a.a(var3);
-         if(var4 != null) {
-            var2.addAll(var4.a(var1));
-         }
-      }
-
-      return var2;
-   }
+	public static void k() {
+		b.a(1, new class_ke("speed"), (new class_qq(false, 8171462)).c("effect.moveSpeed").b(0, 0).a(class_yf.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2).j());
+		b.a(2, new class_ke("slowness"), (new class_qq(true, 5926017)).c("effect.moveSlowdown").b(1, 0).a(class_yf.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2));
+		b.a(3, new class_ke("haste"), (new class_qq(false, 14270531)).c("effect.digSpeed").b(2, 0).a(1.5D).j().a(class_yf.f, "AF8B6E3F-3328-4C0A-AA36-5BA2BB9DBEF3", 0.10000000149011612D, 2));
+		b.a(4, new class_ke("mining_fatigue"), (new class_qq(true, 4866583)).c("effect.digSlowDown").b(3, 0).a(class_yf.f, "55FCED67-E92A-486E-9800-B47F202C4386", -0.10000000149011612D, 2));
+		b.a(5, new class_ke("strength"), (new class_qn(false, 9643043, 3.0D)).c("effect.damageBoost").b(4, 0).a(class_yf.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 0.0D, 0).j());
+		b.a(6, new class_ke("instant_health"), (new class_qp(false, 16262179)).c("effect.heal").j());
+		b.a(7, new class_ke("instant_damage"), (new class_qp(true, 4393481)).c("effect.harm").j());
+		b.a(8, new class_ke("jump_boost"), (new class_qq(false, 2293580)).c("effect.jump").b(2, 1).j());
+		b.a(9, new class_ke("nausea"), (new class_qq(true, 5578058)).c("effect.confusion").b(3, 1).a(0.25D));
+		b.a(10, new class_ke("regeneration"), (new class_qq(false, 13458603)).c("effect.regeneration").b(7, 0).a(0.25D).j());
+		b.a(11, new class_ke("resistance"), (new class_qq(false, 10044730)).c("effect.resistance").b(6, 1).j());
+		b.a(12, new class_ke("fire_resistance"), (new class_qq(false, 14981690)).c("effect.fireResistance").b(7, 1).j());
+		b.a(13, new class_ke("water_breathing"), (new class_qq(false, 3035801)).c("effect.waterBreathing").b(0, 2).j());
+		b.a(14, new class_ke("invisibility"), (new class_qq(false, 8356754)).c("effect.invisibility").b(0, 1).j());
+		b.a(15, new class_ke("blindness"), (new class_qq(true, 2039587)).c("effect.blindness").b(5, 1).a(0.25D));
+		b.a(16, new class_ke("night_vision"), (new class_qq(false, 2039713)).c("effect.nightVision").b(4, 1).j());
+		b.a(17, new class_ke("hunger"), (new class_qq(true, 5797459)).c("effect.hunger").b(1, 1));
+		b.a(18, new class_ke("weakness"), (new class_qn(true, 4738376, -4.0D)).c("effect.weakness").b(5, 0).a(class_yf.e, "22653B89-116E-49DC-9B6B-9971489B5BE5", 0.0D, 0));
+		b.a(19, new class_ke("poison"), (new class_qq(true, 5149489)).c("effect.poison").b(6, 0).a(0.25D));
+		b.a(20, new class_ke("wither"), (new class_qq(true, 3484199)).c("effect.wither").b(1, 2).a(0.25D));
+		b.a(21, new class_ke("health_boost"), (new class_qo(false, 16284963)).c("effect.healthBoost").b(2, 2).a(class_yf.a, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0).j());
+		b.a(22, new class_ke("absorption"), (new class_qm(false, 2445989)).c("effect.absorption").b(2, 2).j());
+		b.a(23, new class_ke("saturation"), (new class_qp(false, 16262179)).c("effect.saturation").j());
+		b.a(24, new class_ke("glowing"), (new class_qq(false, 9740385)).c("effect.glowing").b(4, 2));
+		b.a(25, new class_ke("levitation"), (new class_qq(true, 13565951)).c("effect.levitation").b(3, 2));
+	}
 }

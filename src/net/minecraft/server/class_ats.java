@@ -1,44 +1,28 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aua;
-import net.minecraft.server.class_auc;
+import java.util.Random;
 
-public class class_ats extends class_auc {
-   public class_ats(long var1, class_auc var3) {
-      super(var1);
-      this.a = var3;
-   }
+public class class_ats extends class_asp {
+	@Override
+	public boolean b(class_ago var1, Random var2, class_cj var3) {
+		for (; var3.o() < 128; var3 = var3.a()) {
+			if (var1.d(var3)) {
+				class_cq[] var4 = class_cq.class_c_in_class_cq.a.a();
+				int var5 = var4.length;
 
-   public int[] a(int var1, int var2, int var3, int var4) {
-      int var5 = var1 - 1;
-      int var6 = var2 - 1;
-      int var7 = var3 + 2;
-      int var8 = var4 + 2;
-      int[] var9 = this.a.a(var5, var6, var7, var8);
-      int[] var10 = class_aua.a(var3 * var4);
+				for (int var6 = 0; var6 < var5; ++var6) {
+					class_cq var7 = var4[var6];
+					if (class_aim.bn.b(var1, var3, var7)) {
+						class_apn var8 = class_aim.bn.S().a(class_anw.b, Boolean.valueOf(var7 == class_cq.c)).a(class_anw.N, Boolean.valueOf(var7 == class_cq.f)).a(class_anw.O, Boolean.valueOf(var7 == class_cq.d)).a(class_anw.P, Boolean.valueOf(var7 == class_cq.e));
+						var1.a(var3, var8, 2);
+						break;
+					}
+				}
+			} else {
+				var3 = var3.a(var2.nextInt(4) - var2.nextInt(4), 0, var2.nextInt(4) - var2.nextInt(4));
+			}
+		}
 
-      for(int var11 = 0; var11 < var4; ++var11) {
-         for(int var12 = 0; var12 < var3; ++var12) {
-            int var13 = var9[var12 + 1 + (var11 + 1) * var7];
-            this.a((long)(var12 + var1), (long)(var11 + var2));
-            if(var13 == 0) {
-               var10[var12 + var11 * var3] = 0;
-            } else {
-               int var14 = this.a(6);
-               byte var15;
-               if(var14 == 0) {
-                  var15 = 4;
-               } else if(var14 <= 1) {
-                  var15 = 3;
-               } else {
-                  var15 = 1;
-               }
-
-               var10[var12 + var11 * var3] = var15;
-            }
-         }
-      }
-
-      return var10;
-   }
+		return true;
+	}
 }

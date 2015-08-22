@@ -1,180 +1,240 @@
 package net.minecraft.server;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.Callable;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.World;
-import net.minecraft.server.class_b;
-import net.minecraft.server.class_c;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_e;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.class_l;
-import net.minecraft.server.ICommandListener;
-import net.minecraft.server.CommandObjectiveExecutor;
-import net.minecraft.server.EntityHuman;
+import java.util.Iterator;
+import java.util.List;
 
-public abstract class class_aed implements ICommandListener {
-   private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
-   private int b;
-   private boolean c = true;
-   private IChatBaseComponent d = null;
-   private String e = "";
-   private String f = "@";
-   private final CommandObjectiveExecutor g = new CommandObjectiveExecutor();
+import com.google.common.base.Predicate;
+import com.google.common.collect.Lists;
 
-   public int j() {
-      return this.b;
-   }
+public class class_aed {
+	private static final List a = Lists.newArrayList();
+	private static final List b = Lists.newArrayList();
+	private static final List c = Lists.newArrayList();
+	private static final Predicate d = new Predicate() {
+		public boolean a(class_aco var1) {
+			Iterator var2 = class_aed.c.iterator();
 
-   public IChatBaseComponent k() {
-      return this.d;
-   }
+			class_aed.class_a_in_class_aed var3;
+			do {
+				if (!var2.hasNext()) {
+					return false;
+				}
 
-   public void a(NBTTagCompound var1) {
-      var1.put("Command", this.e);
-      var1.put("SuccessCount", this.b);
-      var1.put("CustomName", this.f);
-      var1.put("TrackOutput", this.c);
-      if(this.d != null && this.c) {
-         var1.put("LastOutput", IChatBaseComponent.ChatSerializer.toJson(this.d));
-      }
+				var3 = (class_aed.class_a_in_class_aed) var2.next();
+			} while (!var3.a(var1));
 
-      this.g.b(var1);
-   }
+			return true;
+		}
 
-   public void b(NBTTagCompound var1) {
-      this.e = var1.getString("Command");
-      this.b = var1.getInt("SuccessCount");
-      if(var1.hasOfType("CustomName", 8)) {
-         this.f = var1.getString("CustomName");
-      }
+		// $FF: synthetic method
+		@Override
+		public boolean apply(Object var1) {
+			return this.a((class_aco) var1);
+		}
+	};
 
-      if(var1.hasOfType("TrackOutput", 1)) {
-         this.c = var1.getBoolean("TrackOutput");
-      }
+	public static boolean a(class_aco var0) {
+		return b(var0) || c(var0);
+	}
 
-      if(var1.hasOfType("LastOutput", 8) && this.c) {
-         this.d = IChatBaseComponent.ChatSerializer.fromJson(var1.getString("LastOutput"));
-      }
+	protected static boolean b(class_aco var0) {
+		int var1 = 0;
 
-      this.g.a(var1);
-   }
+		for (int var2 = b.size(); var1 < var2; ++var1) {
+			if (((class_aed.class_b_in_class_aed) b.get(var1)).b.apply(var0)) {
+				return true;
+			}
+		}
 
-   public boolean a(int var1, String var2) {
-      return var1 <= 2;
-   }
+		return false;
+	}
 
-   public void a(String var1) {
-      this.e = var1;
-      this.b = 0;
-   }
+	protected static boolean c(class_aco var0) {
+		int var1 = 0;
 
-   public String l() {
-      return this.e;
-   }
+		for (int var2 = a.size(); var1 < var2; ++var1) {
+			if (((class_aed.class_b_in_class_aed) a.get(var1)).b.apply(var0)) {
+				return true;
+			}
+		}
 
-   public void a(World var1) {
-      if(var1.isClientSide) {
-         this.b = 0;
-      }
+		return false;
+	}
 
-      MinecraftServer var2 = MinecraftServer.getServer();
-      if(var2 != null && var2.O() && var2.al()) {
-         class_l var3 = var2.P();
+	public static boolean a(class_aco var0, class_aco var1) {
+		return !d.apply(var0) ? false : b(var0, var1) || c(var0, var1);
+	}
 
-         try {
-            this.d = null;
-            this.b = var3.a(this, this.e);
-         } catch (Throwable var7) {
-            class_b var5 = class_b.a(var7, "Executing command block");
-            class_c var6 = var5.a("Command to be executed");
-            var6.a("Command", new Callable() {
-               public String a() throws Exception {
-                  return class_aed.this.l();
-               }
+	protected static boolean b(class_aco var0, class_aco var1) {
+		class_acm var2 = var0.b();
+		int var3 = 0;
 
-               // $FF: synthetic method
-               public Object call() throws Exception {
-                  return this.a();
-               }
-            });
-            var6.a("Name", new Callable() {
-               public String a() throws Exception {
-                  return class_aed.this.getName();
-               }
+		for (int var4 = b.size(); var3 < var4; ++var3) {
+			class_aed.class_b_in_class_aed var5 = (class_aed.class_b_in_class_aed) b.get(var3);
+			if ((var5.a == var2) && var5.b.apply(var1)) {
+				return true;
+			}
+		}
 
-               // $FF: synthetic method
-               public Object call() throws Exception {
-                  return this.a();
-               }
-            });
-            throw new class_e(var5);
-         }
-      } else {
-         this.b = 0;
-      }
+		return false;
+	}
 
-   }
+	protected static boolean c(class_aco var0, class_aco var1) {
+		class_aec var2 = class_adb.i(var0);
+		int var3 = 0;
 
-   public String getName() {
-      return this.f;
-   }
+		for (int var4 = a.size(); var3 < var4; ++var3) {
+			class_aed.class_b_in_class_aed var5 = (class_aed.class_b_in_class_aed) a.get(var3);
+			if ((var5.a == var2) && var5.b.apply(var1)) {
+				return true;
+			}
+		}
 
-   public IChatBaseComponent getScoreboardDisplayName() {
-      return new ChatComponentText(this.getName());
-   }
+		return false;
+	}
 
-   public void b(String var1) {
-      this.f = var1;
-   }
+	public static class_aco d(class_aco var0, class_aco var1) {
+		if (var1 != null) {
+			class_aec var2 = class_adb.i(var1);
+			class_acm var3 = var1.b();
+			int var4 = 0;
 
-   public void sendMessage(IChatBaseComponent var1) {
-      if(this.c && this.e() != null && !this.e().isClientSide) {
-         this.d = (new ChatComponentText("[" + a.format(new Date()) + "] ")).addSibling(var1);
-         this.h();
-      }
+			int var5;
+			class_aed.class_b_in_class_aed var6;
+			for (var5 = b.size(); var4 < var5; ++var4) {
+				var6 = (class_aed.class_b_in_class_aed) b.get(var4);
+				if ((var6.a == var3) && var6.b.apply(var0)) {
+					return class_adb.a(new class_aco((class_acm) var6.c), var2);
+				}
+			}
 
-   }
+			var4 = 0;
 
-   public boolean u_() {
-      MinecraftServer var1 = MinecraftServer.getServer();
-      return var1 == null || !var1.O() || var1.d[0].R().getBooleanValue("commandBlockOutput");
-   }
+			for (var5 = a.size(); var4 < var5; ++var4) {
+				var6 = (class_aed.class_b_in_class_aed) a.get(var4);
+				if ((var6.a == var2) && var6.b.apply(var0)) {
+					return class_adb.a(new class_aco(var3), (class_aec) var6.c);
+				}
+			}
+		}
 
-   public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
-      this.g.a(this, var1, var2);
-   }
+		return var1;
+	}
 
-   public abstract void h();
+	public static void a() {
+		class_aed.class_a_in_class_aed var0 = new class_aed.class_a_in_class_aed(class_acq.bA);
+		class_aed.class_a_in_class_aed var1 = new class_aed.class_a_in_class_aed(class_acq.cb);
+		class_aed.class_a_in_class_aed var2 = new class_aed.class_a_in_class_aed(class_acq.aE);
+		class_aed.class_a_in_class_aed var3 = new class_aed.class_a_in_class_aed(class_acq.bH);
+		class_aed.class_a_in_class_aed var4 = new class_aed.class_a_in_class_aed(class_acq.bt);
+		class_aed.class_a_in_class_aed var5 = new class_aed.class_a_in_class_aed(class_acq.aV);
+		class_aed.class_a_in_class_aed var6 = new class_aed.class_a_in_class_aed(class_acq.bJ);
+		class_aed.class_a_in_class_aed var7 = new class_aed.class_a_in_class_aed(class_acq.ba);
+		class_aed.class_a_in_class_aed var8 = new class_aed.class_a_in_class_aed(class_acq.aW, class_acf.class_a_in_class_acf.d.a());
+		class_aed.class_a_in_class_aed var9 = new class_aed.class_a_in_class_aed(class_acq.bN);
+		class_aed.class_a_in_class_aed var10 = new class_aed.class_a_in_class_aed(class_acq.bG);
+		class_aed.class_a_in_class_aed var11 = new class_aed.class_a_in_class_aed(class_acq.by);
+		class_aed.class_a_in_class_aed var12 = new class_aed.class_a_in_class_aed(class_acq.bI);
+		a(new class_aed.class_a_in_class_aed(class_acq.bB));
+		a(new class_aed.class_a_in_class_aed(class_acq.bC));
+		a(class_acq.bB, new class_aed.class_a_in_class_aed(class_acq.J), class_acq.bC);
+		a(class_acq.bC, new class_aed.class_a_in_class_aed(class_acq.bF), class_acq.bD);
+		a(class_aee.a, var9, class_aee.b);
+		a(class_aee.a, var11, class_aee.b);
+		a(class_aee.a, var4, class_aee.b);
+		a(class_aee.a, var12, class_aee.b);
+		a(class_aee.a, var10, class_aee.b);
+		a(class_aee.a, var7, class_aee.b);
+		a(class_aee.a, var6, class_aee.b);
+		a(class_aee.a, var5, class_aee.c);
+		a(class_aee.a, var2, class_aee.b);
+		a(class_aee.a, var0, class_aee.d);
+		a(class_aee.d, var1, class_aee.e);
+		a(class_aee.e, var2, class_aee.f);
+		a(class_aee.e, var3, class_aee.g);
+		a(class_aee.f, var3, class_aee.h);
+		a(class_aee.g, var2, class_aee.h);
+		a(class_aee.d, var6, class_aee.l);
+		a(class_aee.l, var2, class_aee.m);
+		a(class_aee.d, var4, class_aee.i);
+		a(class_aee.i, var2, class_aee.j);
+		a(class_aee.i, var5, class_aee.k);
+		a(class_aee.i, var3, class_aee.q);
+		a(class_aee.j, var3, class_aee.r);
+		a(class_aee.q, var2, class_aee.r);
+		a(class_aee.n, var3, class_aee.q);
+		a(class_aee.o, var3, class_aee.r);
+		a(class_aee.d, var7, class_aee.n);
+		a(class_aee.n, var2, class_aee.o);
+		a(class_aee.n, var5, class_aee.p);
+		a(class_aee.d, var8, class_aee.s);
+		a(class_aee.s, var2, class_aee.t);
+		a(class_aee.d, var9, class_aee.u);
+		a(class_aee.u, var5, class_aee.v);
+		a(class_aee.u, var3, class_aee.w);
+		a(class_aee.v, var3, class_aee.x);
+		a(class_aee.w, var5, class_aee.x);
+		a(class_aee.y, var3, class_aee.w);
+		a(class_aee.z, var3, class_aee.w);
+		a(class_aee.A, var3, class_aee.x);
+		a(class_aee.d, var10, class_aee.y);
+		a(class_aee.y, var2, class_aee.z);
+		a(class_aee.y, var5, class_aee.A);
+		a(class_aee.d, var11, class_aee.B);
+		a(class_aee.B, var2, class_aee.C);
+		a(class_aee.B, var5, class_aee.D);
+		a(class_aee.d, var12, class_aee.E);
+		a(class_aee.E, var2, class_aee.F);
+		a(class_aee.E, var5, class_aee.G);
+		a(class_aee.a, var3, class_aee.H);
+		a(class_aee.H, var2, class_aee.I);
+	}
 
-   public void b(IChatBaseComponent var1) {
-      this.d = var1;
-   }
+	private static void a(class_adb var0, class_aed.class_a_in_class_aed var1, class_adb var2) {
+		b.add(new class_aed.class_b_in_class_aed(var0, var1, var2));
+	}
 
-   public void a(boolean var1) {
-      this.c = var1;
-   }
+	private static void a(class_aed.class_a_in_class_aed var0) {
+		c.add(var0);
+	}
 
-   public boolean m() {
-      return this.c;
-   }
+	private static void a(class_aec var0, Predicate var1, class_aec var2) {
+		a.add(new class_aed.class_b_in_class_aed(var0, var1, var2));
+	}
 
-   public boolean a(EntityHuman var1) {
-      if(!var1.abilities.instabuild) {
-         return false;
-      } else {
-         if(var1.e().isClientSide) {
-            var1.a(this);
-         }
+	static class class_a_in_class_aed implements Predicate {
+		private final class_acm a;
+		private final int b;
 
-         return true;
-      }
-   }
+		public class_a_in_class_aed(class_acm var1) {
+			this(var1, -1);
+		}
 
-   public CommandObjectiveExecutor n() {
-      return this.g;
-   }
+		public class_a_in_class_aed(class_acm var1, int var2) {
+			a = var1;
+			b = var2;
+		}
+
+		public boolean a(class_aco var1) {
+			return (var1 != null) && (var1.b() == a) && ((b == -1) || (b == var1.i()));
+		}
+
+		// $FF: synthetic method
+		@Override
+		public boolean apply(Object var1) {
+			return this.a((class_aco) var1);
+		}
+	}
+
+	static class class_b_in_class_aed {
+		final Object a;
+		final Predicate b;
+		final Object c;
+
+		public class_b_in_class_aed(Object var1, Predicate var2, Object var3) {
+			a = var1;
+			b = var2;
+			c = var3;
+		}
+	}
 }

@@ -1,24 +1,19 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_nb;
 
-public class class_na {
-   private int a;
-   private class_nb b;
+public class class_na extends class_nd {
+	public class_na(String var1, class_eu var2, class_ne var3) {
+		super(var1, var2, var3);
+	}
 
-   public int a() {
-      return this.a;
-   }
+	public class_na(String var1, class_eu var2) {
+		super(var1, var2);
+	}
 
-   public void a(int var1) {
-      this.a = var1;
-   }
-
-   public class_nb b() {
-      return this.b;
-   }
-
-   public void a(class_nb var1) {
-      this.b = var1;
-   }
+	@Override
+	public class_nd h() {
+		super.h();
+		class_nh.c.add(this);
+		return this;
+	}
 }

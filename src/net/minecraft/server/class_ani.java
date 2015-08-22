@@ -1,174 +1,156 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import java.util.ArrayList;
-import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockPiston;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
+import java.util.Iterator;
+import java.util.Random;
 
-public class class_ani {
-   private final World a;
-   private final BlockPosition b;
-   private final BlockPosition c;
-   private final EnumDirection d;
-   private final List e = Lists.newArrayList();
-   private final List f = Lists.newArrayList();
+public class class_ani extends class_aiq implements class_ain {
+	public static final class_aqb a = class_aqb.a("age", 0, 7);
+	public static final class_apz b;
+	private final class_ail N;
 
-   public class_ani(World var1, BlockPosition var2, EnumDirection var3, boolean var4) {
-      this.a = var1;
-      this.b = var2;
-      if(var4) {
-         this.d = var3;
-         this.c = var2.shift(var3);
-      } else {
-         this.d = var3.opposite();
-         this.c = var2.shift(var3, 2);
-      }
+	protected class_ani(class_ail var1) {
+		this.j(M.b().a(a, Integer.valueOf(0)).a(b, class_cq.b));
+		N = var1;
+		this.a(true);
+		float var2 = 0.125F;
+		this.a(0.5F - var2, 0.0F, 0.5F - var2, 0.5F + var2, 0.25F, 0.5F + var2);
+		this.a((class_abp) null);
+	}
 
-   }
+	@Override
+	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
+		var1 = var1.a(b, class_cq.b);
+		Iterator var4 = class_cq.class_c_in_class_cq.a.iterator();
 
-   public boolean a() {
-      this.e.clear();
-      this.f.clear();
-      Block var1 = this.a.getType(this.c).getBlock();
-      if(!BlockPiston.a(var1, this.a, this.c, this.d, false)) {
-         if(var1.getPushReaction() != 1) {
-            return false;
-         } else {
-            this.f.add(this.c);
-            return true;
-         }
-      } else if(!this.a(this.c)) {
-         return false;
-      } else {
-         for(int var2 = 0; var2 < this.e.size(); ++var2) {
-            BlockPosition var3 = (BlockPosition)this.e.get(var2);
-            if(this.a.getType(var3).getBlock() == Blocks.SLIME && !this.b(var3)) {
-               return false;
-            }
-         }
+		while (var4.hasNext()) {
+			class_cq var5 = (class_cq) var4.next();
+			if (var2.p(var3.a(var5)).c() == N) {
+				var1 = var1.a(b, var5);
+				break;
+			}
+		}
 
-         return true;
-      }
-   }
+		return var1;
+	}
 
-   private boolean a(BlockPosition var1) {
-      Block var2 = this.a.getType(var1).getBlock();
-      if(var2.getMaterial() == Material.AIR) {
-         return true;
-      } else if(!BlockPiston.a(var2, this.a, var1, this.d, false)) {
-         return true;
-      } else if(var1.equals(this.b)) {
-         return true;
-      } else if(this.e.contains(var1)) {
-         return true;
-      } else {
-         int var3 = 1;
-         if(var3 + this.e.size() > 12) {
-            return false;
-         } else {
-            while(var2 == Blocks.SLIME) {
-               BlockPosition var4 = var1.shift(this.d.opposite(), var3);
-               var2 = this.a.getType(var4).getBlock();
-               if(var2.getMaterial() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
-                  break;
-               }
+	@Override
+	protected boolean c(class_ail var1) {
+		return var1 == class_aim.ak;
+	}
 
-               ++var3;
-               if(var3 + this.e.size() > 12) {
-                  return false;
-               }
-            }
+	@Override
+	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
+		super.b(var1, var2, var3, var4);
+		if (var1.l(var2.a()) >= 9) {
+			float var5 = class_ajf.a(this, var1, var2);
+			if (var4.nextInt((int) (25.0F / var5) + 1) == 0) {
+				int var6 = ((Integer) var3.b(a)).intValue();
+				if (var6 < 7) {
+					var3 = var3.a(a, Integer.valueOf(var6 + 1));
+					var1.a(var2, var3, 2);
+				} else {
+					Iterator var7 = class_cq.class_c_in_class_cq.a.iterator();
 
-            int var10 = 0;
+					while (var7.hasNext()) {
+						class_cq var8 = (class_cq) var7.next();
+						if (var1.p(var2.a(var8)).c() == N) {
+							return;
+						}
+					}
 
-            int var5;
-            for(var5 = var3 - 1; var5 >= 0; --var5) {
-               this.e.add(var1.shift(this.d.opposite(), var5));
-               ++var10;
-            }
+					var2 = var2.a(class_cq.class_c_in_class_cq.a.a(var4));
+					class_ail var9 = var1.p(var2.b()).c();
+					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == class_aim.ak) || (var9 == class_aim.d) || (var9 == class_aim.c))) {
+						var1.a(var2, N.S());
+					}
+				}
+			}
 
-            var5 = 1;
+		}
+	}
 
-            while(true) {
-               BlockPosition var6 = var1.shift(this.d, var5);
-               int var7 = this.e.indexOf(var6);
-               if(var7 > -1) {
-                  this.a(var10, var7);
+	public void h(class_ago var1, class_cj var2, class_apn var3) {
+		int var4 = ((Integer) var3.b(a)).intValue() + class_oa.a(var1.s, 2, 5);
+		var1.a(var2, var3.a(a, Integer.valueOf(Math.min(7, var4))), 2);
+	}
 
-                  for(int var8 = 0; var8 <= var7 + var10; ++var8) {
-                     BlockPosition var9 = (BlockPosition)this.e.get(var8);
-                     if(this.a.getType(var9).getBlock() == Blocks.SLIME && !this.b(var9)) {
-                        return false;
-                     }
-                  }
+	@Override
+	public void j() {
+		float var1 = 0.125F;
+		this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.25F, 0.5F + var1);
+	}
 
-                  return true;
-               }
+	@Override
+	public void a(class_ags var1, class_cj var2) {
+		F = ((((Integer) var1.p(var2).b(a)).intValue() * 2) + 2) / 16.0F;
+		float var3 = 0.125F;
+		this.a(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, (float) F, 0.5F + var3);
+	}
 
-               var2 = this.a.getType(var6).getBlock();
-               if(var2.getMaterial() == Material.AIR) {
-                  return true;
-               }
+	@Override
+	public void a(class_ago var1, class_cj var2, class_apn var3, float var4, int var5) {
+		super.a(var1, var2, var3, var4, var5);
+		if (!var1.D) {
+			class_acm var6 = l();
+			if (var6 != null) {
+				int var7 = ((Integer) var3.b(a)).intValue();
 
-               if(!BlockPiston.a(var2, this.a, var6, this.d, true) || var6.equals(this.b)) {
-                  return false;
-               }
+				for (int var8 = 0; var8 < 3; ++var8) {
+					if (var1.s.nextInt(15) <= var7) {
+						a(var1, var2, new class_aco(var6));
+					}
+				}
 
-               if(var2.getPushReaction() == 1) {
-                  this.f.add(var6);
-                  return true;
-               }
+			}
+		}
+	}
 
-               if(this.e.size() >= 12) {
-                  return false;
-               }
+	protected class_acm l() {
+		return N == class_aim.aU ? class_acq.bi : (N == class_aim.bk ? class_acq.bj : null);
+	}
 
-               this.e.add(var6);
-               ++var10;
-               ++var5;
-            }
-         }
-      }
-   }
+	@Override
+	public class_acm a(class_apn var1, Random var2, int var3) {
+		return null;
+	}
 
-   private void a(int var1, int var2) {
-      ArrayList var3 = Lists.newArrayList();
-      ArrayList var4 = Lists.newArrayList();
-      ArrayList var5 = Lists.newArrayList();
-      var3.addAll(this.e.subList(0, var2));
-      var4.addAll(this.e.subList(this.e.size() - var1, this.e.size()));
-      var5.addAll(this.e.subList(var2, this.e.size() - var1));
-      this.e.clear();
-      this.e.addAll(var3);
-      this.e.addAll(var4);
-      this.e.addAll(var5);
-   }
+	@Override
+	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
+		class_acm var4 = l();
+		return var4 == null ? null : new class_aco(var4);
+	}
 
-   private boolean b(BlockPosition var1) {
-      EnumDirection[] var2 = EnumDirection.values();
-      int var3 = var2.length;
+	@Override
+	public boolean a(class_ago var1, class_cj var2, class_apn var3, boolean var4) {
+		return ((Integer) var3.b(a)).intValue() != 7;
+	}
 
-      for(int var4 = 0; var4 < var3; ++var4) {
-         EnumDirection var5 = var2[var4];
-         if(var5.getAxis() != this.d.getAxis() && !this.a(var1.shift(var5))) {
-            return false;
-         }
-      }
+	@Override
+	public boolean a(class_ago var1, Random var2, class_cj var3, class_apn var4) {
+		return true;
+	}
 
-      return true;
-   }
+	@Override
+	public void b(class_ago var1, Random var2, class_cj var3, class_apn var4) {
+		h(var1, var3, var4);
+	}
 
-   public List c() {
-      return this.e;
-   }
+	@Override
+	public class_apn a(int var1) {
+		return S().a(a, Integer.valueOf(var1));
+	}
 
-   public List d() {
-      return this.f;
-   }
+	@Override
+	public int c(class_apn var1) {
+		return ((Integer) var1.b(a)).intValue();
+	}
+
+	@Override
+	protected class_apo e() {
+		return new class_apo(this, new class_aqc[] { a, b });
+	}
+
+	static {
+		b = class_anr.a;
+	}
 }

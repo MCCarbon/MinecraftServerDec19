@@ -1,15 +1,22 @@
 package net.minecraft.server;
 
-public class class_pi extends MobEffectType {
-   public class_pi(boolean var1, int var2) {
-      super(var1, var2);
-   }
 
-   public void a(EntityLiving var1, class_qo var2, int var3) {
-      super.a(var1, var2, var3);
-      if(var1.getHealth() > var1.getMaxHealth()) {
-         var1.i(var1.getMaxHealth());
-      }
+public class class_pi extends class_pj {
+	private final String[] a;
 
-   }
+	public class_pi(String var1, String... var2) {
+		super("id", var1);
+		a = var2;
+	}
+
+	@Override
+	class_dn b(class_on var1, class_dn var2, int var3) {
+		int var4 = 0;
+
+		for (int var5 = a.length; var4 < var5; ++var4) {
+			var2 = class_op.b(var1, var2, var3, a[var4]);
+		}
+
+		return var2;
+	}
 }

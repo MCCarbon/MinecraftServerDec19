@@ -1,61 +1,84 @@
 package net.minecraft.server;
 
-public class class_rr extends class_rm {
-   protected EntityInsentient a;
-   protected Entity b;
-   protected float c;
-   private int e;
-   private float f;
-   protected Class d;
+import io.netty.util.internal.ThreadLocalRandom;
 
-   public class_rr(EntityInsentient var1, Class var2, float var3) {
-      this.a = var1;
-      this.d = var2;
-      this.c = var3;
-      this.f = 0.02F;
-      this.a(2);
-   }
+import java.util.UUID;
 
-   public class_rr(EntityInsentient var1, Class var2, float var3, float var4) {
-      this.a = var1;
-      this.d = var2;
-      this.c = var3;
-      this.f = var4;
-      this.a(2);
-   }
+import org.apache.commons.lang3.Validate;
 
-   public boolean a() {
-      if(this.a.getRandom().nextFloat() >= this.f) {
-         return false;
-      } else {
-         if(this.a.w() != null) {
-            this.b = this.a.w();
-         }
+public class class_rr {
+	private final double a;
+	private final int b;
+	private final String c;
+	private final UUID d;
+	private boolean e;
 
-         if(this.d == EntityHuman.class) {
-            this.b = this.a.world.a(this.a, (double)this.c);
-         } else {
-            this.b = this.a.world.a((Class)this.d, (AxisAlignedBB)this.a.getBoundingBox().grow((double)this.c, 3.0D, (double)this.c), (Entity)this.a);
-         }
+	public class_rr(String var1, double var2, int var4) {
+		this(class_oa.a(ThreadLocalRandom.current()), var1, var2, var4);
+	}
 
-         return this.b != null;
-      }
-   }
+	public class_rr(UUID var1, String var2, double var3, int var5) {
+		e = true;
+		d = var1;
+		c = var2;
+		a = var3;
+		b = var5;
+		Validate.notEmpty((CharSequence) var2, "Modifier name cannot be empty", new Object[0]);
+		Validate.inclusiveBetween(0L, 2L, var5, "Invalid operation");
+	}
 
-   public boolean b() {
-      return !this.b.isAlive()?false:(this.a.h(this.b) > (double)(this.c * this.c)?false:this.e > 0);
-   }
+	public UUID a() {
+		return d;
+	}
 
-   public void c() {
-      this.e = 40 + this.a.getRandom().nextInt(40);
-   }
+	public String b() {
+		return c;
+	}
 
-   public void d() {
-      this.b = null;
-   }
+	public int c() {
+		return b;
+	}
 
-   public void e() {
-      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.getHeadHeight(), this.b.locZ, (float)this.a.ce(), (float)this.a.cd());
-      --this.e;
-   }
+	public double d() {
+		return a;
+	}
+
+	public boolean e() {
+		return e;
+	}
+
+	public class_rr a(boolean var1) {
+		e = var1;
+		return this;
+	}
+
+	@Override
+	public boolean equals(Object var1) {
+		if (this == var1) {
+			return true;
+		} else if ((var1 != null) && (this.getClass() == var1.getClass())) {
+			class_rr var2 = (class_rr) var1;
+			if (d != null) {
+				if (!d.equals(var2.d)) {
+					return false;
+				}
+			} else if (var2.d != null) {
+				return false;
+			}
+
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public int hashCode() {
+		return d != null ? d.hashCode() : 0;
+	}
+
+	@Override
+	public String toString() {
+		return "AttributeModifier{amount=" + a + ", operation=" + b + ", name=\'" + c + '\'' + ", id=" + d + ", serialize=" + e + '}';
+	}
 }

@@ -1,132 +1,341 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Maps;
-import java.lang.management.ManagementFactory;
-import java.lang.management.RuntimeMXBean;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.UUID;
-import net.minecraft.server.class_nl;
-import net.minecraft.server.class_oy;
 
-public class class_ox {
-   private final Map a = Maps.newHashMap();
-   private final Map b = Maps.newHashMap();
-   private final String c = UUID.randomUUID().toString();
-   private final URL d;
-   private final class_oy e;
-   private final Timer f = new Timer("Snooper Timer", true);
-   private final Object g = new Object();
-   private final long h;
-   private boolean i;
-   private int j;
+public class class_ox implements class_ok {
+	private static final String[] a = new String[2268];
 
-   public class_ox(String var1, class_oy var2, long var3) {
-      try {
-         this.d = new URL("http://snoop.minecraft.net/" + var1 + "?version=" + 2);
-      } catch (MalformedURLException var6) {
-         throw new IllegalArgumentException();
-      }
+	@Override
+	public int a() {
+		return 102;
+	}
 
-      this.e = var2;
-      this.h = var3;
-   }
+	@Override
+	public class_dn a(class_dn var1) {
+		if (var1.b("id", 99)) {
+			short var2 = var1.g("id");
+			if ((var2 > 0) && (var2 < a.length) && (a[var2] != null)) {
+				var1.a("id", a[var2]);
+			}
+		}
 
-   public void a() {
-      if(!this.i) {
-         this.i = true;
-         this.h();
-         this.f.schedule(new TimerTask() {
-            public void run() {
-               if(class_ox.this.e.ad()) {
-                  HashMap var1;
-                  synchronized(class_ox.this.g) {
-                     var1 = Maps.newHashMap(class_ox.this.b);
-                     if(class_ox.this.j == 0) {
-                        var1.putAll(class_ox.this.a);
-                     }
+		return var1;
+	}
 
-                     var1.put("snooper_count", Integer.valueOf(class_ox.f(class_ox.this)));
-                     var1.put("snooper_token", class_ox.this.c);
-                  }
-
-                  class_nl.a(class_ox.this.d, (Map)var1, true);
-               }
-            }
-         }, 0L, 900000L);
-      }
-   }
-
-   private void h() {
-      this.i();
-      this.a("snooper_token", this.c);
-      this.b("snooper_token", this.c);
-      this.b("os_name", System.getProperty("os.name"));
-      this.b("os_version", System.getProperty("os.version"));
-      this.b("os_architecture", System.getProperty("os.arch"));
-      this.b("java_version", System.getProperty("java.version"));
-      this.a("version", "15w31c");
-      this.e.b(this);
-   }
-
-   private void i() {
-      RuntimeMXBean var1 = ManagementFactory.getRuntimeMXBean();
-      List var2 = var1.getInputArguments();
-      int var3 = 0;
-      Iterator var4 = var2.iterator();
-
-      while(var4.hasNext()) {
-         String var5 = (String)var4.next();
-         if(var5.startsWith("-X")) {
-            this.a("jvm_arg[" + var3++ + "]", var5);
-         }
-      }
-
-      this.a("jvm_args", Integer.valueOf(var3));
-   }
-
-   public void b() {
-      this.b("memory_total", Long.valueOf(Runtime.getRuntime().totalMemory()));
-      this.b("memory_max", Long.valueOf(Runtime.getRuntime().maxMemory()));
-      this.b("memory_free", Long.valueOf(Runtime.getRuntime().freeMemory()));
-      this.b("cpu_cores", Integer.valueOf(Runtime.getRuntime().availableProcessors()));
-      this.e.a(this);
-   }
-
-   public void a(String var1, Object var2) {
-      Object var3 = this.g;
-      synchronized(this.g) {
-         this.b.put(var1, var2);
-      }
-   }
-
-   public void b(String var1, Object var2) {
-      Object var3 = this.g;
-      synchronized(this.g) {
-         this.a.put(var1, var2);
-      }
-   }
-
-   public boolean d() {
-      return this.i;
-   }
-
-   public void e() {
-      this.f.cancel();
-   }
-
-   public long g() {
-      return this.h;
-   }
-
-   // $FF: synthetic method
-   static int f(class_ox var0) {
-      return var0.j++;
-   }
+	static {
+		a[1] = "minecraft:stone";
+		a[2] = "minecraft:grass";
+		a[3] = "minecraft:dirt";
+		a[4] = "minecraft:cobblestone";
+		a[5] = "minecraft:planks";
+		a[6] = "minecraft:sapling";
+		a[7] = "minecraft:bedrock";
+		a[8] = "minecraft:flowing_water";
+		a[9] = "minecraft:water";
+		a[10] = "minecraft:flowing_lava";
+		a[11] = "minecraft:lava";
+		a[12] = "minecraft:sand";
+		a[13] = "minecraft:gravel";
+		a[14] = "minecraft:gold_ore";
+		a[15] = "minecraft:iron_ore";
+		a[16] = "minecraft:coal_ore";
+		a[17] = "minecraft:log";
+		a[18] = "minecraft:leaves";
+		a[19] = "minecraft:sponge";
+		a[20] = "minecraft:glass";
+		a[21] = "minecraft:lapis_ore";
+		a[22] = "minecraft:lapis_block";
+		a[23] = "minecraft:dispenser";
+		a[24] = "minecraft:sandstone";
+		a[25] = "minecraft:noteblock";
+		a[27] = "minecraft:golden_rail";
+		a[28] = "minecraft:detector_rail";
+		a[29] = "minecraft:sticky_piston";
+		a[30] = "minecraft:web";
+		a[31] = "minecraft:tallgrass";
+		a[32] = "minecraft:deadbush";
+		a[33] = "minecraft:piston";
+		a[35] = "minecraft:wool";
+		a[37] = "minecraft:yellow_flower";
+		a[38] = "minecraft:red_flower";
+		a[39] = "minecraft:brown_mushroom";
+		a[40] = "minecraft:red_mushroom";
+		a[41] = "minecraft:gold_block";
+		a[42] = "minecraft:iron_block";
+		a[43] = "minecraft:double_stone_slab";
+		a[44] = "minecraft:stone_slab";
+		a[45] = "minecraft:brick_block";
+		a[46] = "minecraft:tnt";
+		a[47] = "minecraft:bookshelf";
+		a[48] = "minecraft:mossy_cobblestone";
+		a[49] = "minecraft:obsidian";
+		a[50] = "minecraft:torch";
+		a[51] = "minecraft:fire";
+		a[52] = "minecraft:mob_spawner";
+		a[53] = "minecraft:oak_stairs";
+		a[54] = "minecraft:chest";
+		a[56] = "minecraft:diamond_ore";
+		a[57] = "minecraft:diamond_block";
+		a[58] = "minecraft:crafting_table";
+		a[60] = "minecraft:farmland";
+		a[61] = "minecraft:furnace";
+		a[62] = "minecraft:lit_furnace";
+		a[65] = "minecraft:ladder";
+		a[66] = "minecraft:rail";
+		a[67] = "minecraft:stone_stairs";
+		a[69] = "minecraft:lever";
+		a[70] = "minecraft:stone_pressure_plate";
+		a[72] = "minecraft:wooden_pressure_plate";
+		a[73] = "minecraft:redstone_ore";
+		a[76] = "minecraft:redstone_torch";
+		a[77] = "minecraft:stone_button";
+		a[78] = "minecraft:snow_layer";
+		a[79] = "minecraft:ice";
+		a[80] = "minecraft:snow";
+		a[81] = "minecraft:cactus";
+		a[82] = "minecraft:clay";
+		a[84] = "minecraft:jukebox";
+		a[85] = "minecraft:fence";
+		a[86] = "minecraft:pumpkin";
+		a[87] = "minecraft:netherrack";
+		a[88] = "minecraft:soul_sand";
+		a[89] = "minecraft:glowstone";
+		a[90] = "minecraft:portal";
+		a[91] = "minecraft:lit_pumpkin";
+		a[95] = "minecraft:stained_glass";
+		a[96] = "minecraft:trapdoor";
+		a[97] = "minecraft:monster_egg";
+		a[98] = "minecraft:stonebrick";
+		a[99] = "minecraft:brown_mushroom_block";
+		a[100] = "minecraft:red_mushroom_block";
+		a[101] = "minecraft:iron_bars";
+		a[102] = "minecraft:glass_pane";
+		a[103] = "minecraft:melon_block";
+		a[106] = "minecraft:vine";
+		a[107] = "minecraft:fence_gate";
+		a[108] = "minecraft:brick_stairs";
+		a[109] = "minecraft:stone_brick_stairs";
+		a[110] = "minecraft:mycelium";
+		a[111] = "minecraft:waterlily";
+		a[112] = "minecraft:nether_brick";
+		a[113] = "minecraft:nether_brick_fence";
+		a[114] = "minecraft:nether_brick_stairs";
+		a[116] = "minecraft:enchanting_table";
+		a[119] = "minecraft:end_portal";
+		a[120] = "minecraft:end_portal_frame";
+		a[121] = "minecraft:end_stone";
+		a[122] = "minecraft:dragon_egg";
+		a[123] = "minecraft:redstone_lamp";
+		a[125] = "minecraft:double_wooden_slab";
+		a[126] = "minecraft:wooden_slab";
+		a[127] = "minecraft:cocoa";
+		a[128] = "minecraft:sandstone_stairs";
+		a[129] = "minecraft:emerald_ore";
+		a[130] = "minecraft:ender_chest";
+		a[131] = "minecraft:tripwire_hook";
+		a[133] = "minecraft:emerald_block";
+		a[134] = "minecraft:spruce_stairs";
+		a[135] = "minecraft:birch_stairs";
+		a[136] = "minecraft:jungle_stairs";
+		a[137] = "minecraft:command_block";
+		a[138] = "minecraft:beacon";
+		a[139] = "minecraft:cobblestone_wall";
+		a[141] = "minecraft:carrots";
+		a[142] = "minecraft:potatoes";
+		a[143] = "minecraft:wooden_button";
+		a[145] = "minecraft:anvil";
+		a[146] = "minecraft:trapped_chest";
+		a[147] = "minecraft:light_weighted_pressure_plate";
+		a[148] = "minecraft:heavy_weighted_pressure_plate";
+		a[151] = "minecraft:daylight_detector";
+		a[152] = "minecraft:redstone_block";
+		a[153] = "minecraft:quartz_ore";
+		a[154] = "minecraft:hopper";
+		a[155] = "minecraft:quartz_block";
+		a[156] = "minecraft:quartz_stairs";
+		a[157] = "minecraft:activator_rail";
+		a[158] = "minecraft:dropper";
+		a[159] = "minecraft:stained_hardened_clay";
+		a[160] = "minecraft:stained_glass_pane";
+		a[161] = "minecraft:leaves2";
+		a[162] = "minecraft:log2";
+		a[163] = "minecraft:acacia_stairs";
+		a[164] = "minecraft:dark_oak_stairs";
+		a[170] = "minecraft:hay_block";
+		a[171] = "minecraft:carpet";
+		a[172] = "minecraft:hardened_clay";
+		a[173] = "minecraft:coal_block";
+		a[174] = "minecraft:packed_ice";
+		a[175] = "minecraft:double_plant";
+		a[256] = "minecraft:iron_shovel";
+		a[257] = "minecraft:iron_pickaxe";
+		a[258] = "minecraft:iron_axe";
+		a[259] = "minecraft:flint_and_steel";
+		a[260] = "minecraft:apple";
+		a[261] = "minecraft:bow";
+		a[262] = "minecraft:arrow";
+		a[263] = "minecraft:coal";
+		a[264] = "minecraft:diamond";
+		a[265] = "minecraft:iron_ingot";
+		a[266] = "minecraft:gold_ingot";
+		a[267] = "minecraft:iron_sword";
+		a[268] = "minecraft:wooden_sword";
+		a[269] = "minecraft:wooden_shovel";
+		a[270] = "minecraft:wooden_pickaxe";
+		a[271] = "minecraft:wooden_axe";
+		a[272] = "minecraft:stone_sword";
+		a[273] = "minecraft:stone_shovel";
+		a[274] = "minecraft:stone_pickaxe";
+		a[275] = "minecraft:stone_axe";
+		a[276] = "minecraft:diamond_sword";
+		a[277] = "minecraft:diamond_shovel";
+		a[278] = "minecraft:diamond_pickaxe";
+		a[279] = "minecraft:diamond_axe";
+		a[280] = "minecraft:stick";
+		a[281] = "minecraft:bowl";
+		a[282] = "minecraft:mushroom_stew";
+		a[283] = "minecraft:golden_sword";
+		a[284] = "minecraft:golden_shovel";
+		a[285] = "minecraft:golden_pickaxe";
+		a[286] = "minecraft:golden_axe";
+		a[287] = "minecraft:string";
+		a[288] = "minecraft:feather";
+		a[289] = "minecraft:gunpowder";
+		a[290] = "minecraft:wooden_hoe";
+		a[291] = "minecraft:stone_hoe";
+		a[292] = "minecraft:iron_hoe";
+		a[293] = "minecraft:diamond_hoe";
+		a[294] = "minecraft:golden_hoe";
+		a[295] = "minecraft:wheat_seeds";
+		a[296] = "minecraft:wheat";
+		a[297] = "minecraft:bread";
+		a[298] = "minecraft:leather_helmet";
+		a[299] = "minecraft:leather_chestplate";
+		a[300] = "minecraft:leather_leggings";
+		a[301] = "minecraft:leather_boots";
+		a[302] = "minecraft:chainmail_helmet";
+		a[303] = "minecraft:chainmail_chestplate";
+		a[304] = "minecraft:chainmail_leggings";
+		a[305] = "minecraft:chainmail_boots";
+		a[306] = "minecraft:iron_helmet";
+		a[307] = "minecraft:iron_chestplate";
+		a[308] = "minecraft:iron_leggings";
+		a[309] = "minecraft:iron_boots";
+		a[310] = "minecraft:diamond_helmet";
+		a[311] = "minecraft:diamond_chestplate";
+		a[312] = "minecraft:diamond_leggings";
+		a[313] = "minecraft:diamond_boots";
+		a[314] = "minecraft:golden_helmet";
+		a[315] = "minecraft:golden_chestplate";
+		a[316] = "minecraft:golden_leggings";
+		a[317] = "minecraft:golden_boots";
+		a[318] = "minecraft:flint";
+		a[319] = "minecraft:porkchop";
+		a[320] = "minecraft:cooked_porkchop";
+		a[321] = "minecraft:painting";
+		a[322] = "minecraft:golden_apple";
+		a[323] = "minecraft:sign";
+		a[324] = "minecraft:wooden_door";
+		a[325] = "minecraft:bucket";
+		a[326] = "minecraft:water_bucket";
+		a[327] = "minecraft:lava_bucket";
+		a[328] = "minecraft:minecart";
+		a[329] = "minecraft:saddle";
+		a[330] = "minecraft:iron_door";
+		a[331] = "minecraft:redstone";
+		a[332] = "minecraft:snowball";
+		a[333] = "minecraft:boat";
+		a[334] = "minecraft:leather";
+		a[335] = "minecraft:milk_bucket";
+		a[336] = "minecraft:brick";
+		a[337] = "minecraft:clay_ball";
+		a[338] = "minecraft:reeds";
+		a[339] = "minecraft:paper";
+		a[340] = "minecraft:book";
+		a[341] = "minecraft:slime_ball";
+		a[342] = "minecraft:chest_minecart";
+		a[343] = "minecraft:furnace_minecart";
+		a[344] = "minecraft:egg";
+		a[345] = "minecraft:compass";
+		a[346] = "minecraft:fishing_rod";
+		a[347] = "minecraft:clock";
+		a[348] = "minecraft:glowstone_dust";
+		a[349] = "minecraft:fish";
+		a[350] = "minecraft:cooked_fished";
+		a[351] = "minecraft:dye";
+		a[352] = "minecraft:bone";
+		a[353] = "minecraft:sugar";
+		a[354] = "minecraft:cake";
+		a[355] = "minecraft:bed";
+		a[356] = "minecraft:repeater";
+		a[357] = "minecraft:cookie";
+		a[358] = "minecraft:filled_map";
+		a[359] = "minecraft:shears";
+		a[360] = "minecraft:melon";
+		a[361] = "minecraft:pumpkin_seeds";
+		a[362] = "minecraft:melon_seeds";
+		a[363] = "minecraft:beef";
+		a[364] = "minecraft:cooked_beef";
+		a[365] = "minecraft:chicken";
+		a[366] = "minecraft:cooked_chicken";
+		a[367] = "minecraft:rotten_flesh";
+		a[368] = "minecraft:ender_pearl";
+		a[369] = "minecraft:blaze_rod";
+		a[370] = "minecraft:ghast_tear";
+		a[371] = "minecraft:gold_nugget";
+		a[372] = "minecraft:nether_wart";
+		a[373] = "minecraft:potion";
+		a[374] = "minecraft:glass_bottle";
+		a[375] = "minecraft:spider_eye";
+		a[376] = "minecraft:fermented_spider_eye";
+		a[377] = "minecraft:blaze_powder";
+		a[378] = "minecraft:magma_cream";
+		a[379] = "minecraft:brewing_stand";
+		a[380] = "minecraft:cauldron";
+		a[381] = "minecraft:ender_eye";
+		a[382] = "minecraft:speckled_melon";
+		a[383] = "minecraft:spawn_egg";
+		a[384] = "minecraft:experience_bottle";
+		a[385] = "minecraft:fire_charge";
+		a[386] = "minecraft:writable_book";
+		a[387] = "minecraft:written_book";
+		a[388] = "minecraft:emerald";
+		a[389] = "minecraft:item_frame";
+		a[390] = "minecraft:flower_pot";
+		a[391] = "minecraft:carrot";
+		a[392] = "minecraft:potato";
+		a[393] = "minecraft:baked_potato";
+		a[394] = "minecraft:poisonous_potato";
+		a[395] = "minecraft:map";
+		a[396] = "minecraft:golden_carrot";
+		a[397] = "minecraft:skull";
+		a[398] = "minecraft:carrot_on_a_stick";
+		a[399] = "minecraft:nether_star";
+		a[400] = "minecraft:pumpkin_pie";
+		a[401] = "minecraft:fireworks";
+		a[402] = "minecraft:firework_charge";
+		a[403] = "minecraft:enchanted_book";
+		a[404] = "minecraft:comparator";
+		a[405] = "minecraft:netherbrick";
+		a[406] = "minecraft:quartz";
+		a[407] = "minecraft:tnt_minecart";
+		a[408] = "minecraft:hopper_minecart";
+		a[417] = "minecraft:iron_horse_armor";
+		a[418] = "minecraft:golden_horse_armor";
+		a[419] = "minecraft:diamond_horse_armor";
+		a[420] = "minecraft:lead";
+		a[421] = "minecraft:name_tag";
+		a[422] = "minecraft:command_block_minecart";
+		a[2256] = "minecraft:record_13";
+		a[2257] = "minecraft:record_cat";
+		a[2258] = "minecraft:record_blocks";
+		a[2259] = "minecraft:record_chirp";
+		a[2260] = "minecraft:record_far";
+		a[2261] = "minecraft:record_mall";
+		a[2262] = "minecraft:record_mellohi";
+		a[2263] = "minecraft:record_stal";
+		a[2264] = "minecraft:record_strad";
+		a[2265] = "minecraft:record_ward";
+		a[2266] = "minecraft:record_11";
+		a[2267] = "minecraft:record_wait";
+	}
 }

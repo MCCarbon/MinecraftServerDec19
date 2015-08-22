@@ -1,102 +1,74 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutGameStateChange;
-import net.minecraft.server.PlayerInteractManager;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.EntityHuman;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
-public class class_kz extends PlayerInteractManager {
-   private boolean c;
-   private boolean d;
-   private int e;
-   private int f;
+import javax.swing.JComponent;
+import javax.swing.Timer;
 
-   public class_kz(World var1) {
-      super(var1);
-   }
+public class class_kz extends JComponent {
+	private static final DecimalFormat a = new DecimalFormat("########0.000");
+	private int[] b = new int[256];
+	private int c;
+	private String[] d = new String[11];
+	private final MinecraftServer e;
 
-   public void a() {
-      super.a();
-      ++this.f;
-      long var1 = this.world.L();
-      long var3 = var1 / 24000L + 1L;
-      if(!this.c && this.f > 20) {
-         this.c = true;
-         this.player.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 0.0F)));
-      }
+	public class_kz(MinecraftServer var1) {
+		e = var1;
+		setPreferredSize(new Dimension(456, 246));
+		setMinimumSize(new Dimension(456, 246));
+		setMaximumSize(new Dimension(456, 246));
+		(new Timer(500, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent var1) {
+				class_kz.this.a();
+			}
+		})).start();
+		setBackground(Color.BLACK);
+	}
 
-      this.d = var1 > 120500L;
-      if(this.d) {
-         ++this.e;
-      }
+	private void a() {
+		long var1 = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+		System.gc();
+		d[0] = "Memory use: " + (var1 / 1024L / 1024L) + " mb (" + ((Runtime.getRuntime().freeMemory() * 100L) / Runtime.getRuntime().maxMemory()) + "% free)";
+		d[1] = "Avg tick: " + a.format(this.a(e.h) * 1.0E-6D) + " ms";
+		this.repaint();
+	}
 
-      if(var1 % 24000L == 500L) {
-         if(var3 <= 6L) {
-            this.player.sendMessage((IChatBaseComponent)(new ChatMessage("demo.day." + var3, new Object[0])));
-         }
-      } else if(var3 == 1L) {
-         if(var1 == 100L) {
-            this.player.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 101.0F)));
-         } else if(var1 == 175L) {
-            this.player.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 102.0F)));
-         } else if(var1 == 250L) {
-            this.player.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 103.0F)));
-         }
-      } else if(var3 == 5L && var1 % 24000L == 22000L) {
-         this.player.sendMessage((IChatBaseComponent)(new ChatMessage("demo.day.warning", new Object[0])));
-      }
+	private double a(long[] var1) {
+		long var2 = 0L;
 
-   }
+		for (int var4 = 0; var4 < var1.length; ++var4) {
+			var2 += var1[var4];
+		}
 
-   private void f() {
-      if(this.e > 100) {
-         this.player.sendMessage((IChatBaseComponent)(new ChatMessage("demo.reminder", new Object[0])));
-         this.e = 0;
-      }
+		return (double) var2 / (double) var1.length;
+	}
 
-   }
+	@Override
+	public void paint(Graphics var1) {
+		var1.setColor(new Color(16777215));
+		var1.fillRect(0, 0, 456, 246);
 
-   public void a(BlockPosition var1, EnumDirection var2) {
-      if(this.d) {
-         this.f();
-      } else {
-         super.a(var1, var2);
-      }
-   }
+		int var2;
+		for (var2 = 0; var2 < 256; ++var2) {
+			int var3 = b[(var2 + c) & 255];
+			var1.setColor(new Color((var3 + 28) << 16));
+			var1.fillRect(var2, 100 - var3, 1, var3);
+		}
 
-   public void a(BlockPosition var1) {
-      if(!this.d) {
-         super.a(var1);
-      }
-   }
+		var1.setColor(Color.BLACK);
 
-   public boolean breakBlock(BlockPosition var1) {
-      return this.d?false:super.breakBlock(var1);
-   }
+		for (var2 = 0; var2 < d.length; ++var2) {
+			String var4 = d[var2];
+			if (var4 != null) {
+				var1.drawString(var4, 32, 116 + (var2 * 16));
+			}
+		}
 
-   public UseResult useItem(EntityHuman var1, World var2, ItemStack var3, EnumUsedHand var4) {
-      if(this.d) {
-         this.f();
-         return UseResult.CANT_USE;
-      } else {
-         return super.useItem(var1, var2, var3, var4);
-      }
-   }
-
-   public UseResult interact(EntityHuman var1, World var2, ItemStack var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
-      if(this.d) {
-         this.f();
-         return UseResult.CANT_USE;
-      } else {
-         return super.interact(var1, var2, var3, var4, var5, var6, var7, var8, var9);
-      }
-   }
+	}
 }

@@ -1,138 +1,121 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import java.util.Iterator;
-import java.util.List;
-import net.minecraft.server.MethodProfiler;
-import net.minecraft.server.class_rm;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.UUID;
 
-public class class_rn {
-   private static final Logger a = LogManager.getLogger();
-   private List b = Lists.newArrayList();
-   private List c = Lists.newArrayList();
-   private final MethodProfiler d;
-   private int e;
-   private int f = 3;
+public abstract class class_rn extends class_rh {
+	public static final UUID br = UUID.fromString("E199AD21-BA8A-4C53-8D13-6182D5C69D3A");
+	public static final class_rr bs;
+	private class_cj a;
+	private float b;
+	private class_sr c;
+	private boolean bt;
 
-   public class_rn(MethodProfiler var1) {
-      this.d = var1;
-   }
+	public class_rn(class_ago var1) {
+		super(var1);
+		a = class_cj.a;
+		b = -1.0F;
+		c = new class_td(this, 1.0D);
+	}
 
-   public void a(int var1, class_rm var2) {
-      this.b.add(new class_rn.class_a_in_class_rn(var1, var2));
-   }
+	public float a(class_cj var1) {
+		return 0.0F;
+	}
 
-   public void a(class_rm var1) {
-      Iterator var2 = this.b.iterator();
+	@Override
+	public boolean cj() {
+		return super.cj() && (this.a(new class_cj(s, aX().b, u)) >= 0.0F);
+	}
 
-      while(var2.hasNext()) {
-         class_rn.class_a_in_class_rn var3 = (class_rn.class_a_in_class_rn)var2.next();
-         class_rm var4 = var3.a;
-         if(var4 == var1) {
-            if(this.c.contains(var3)) {
-               var4.d();
-               this.c.remove(var3);
-            }
+	public boolean cy() {
+		return !h.m();
+	}
 
-            var2.remove();
-         }
-      }
+	public boolean cz() {
+		return this.e(new class_cj(this));
+	}
 
-   }
+	public boolean e(class_cj var1) {
+		return b == -1.0F ? true : a.i(var1) < b * b;
+	}
 
-   public void a() {
-      this.d.a("goalSetup");
-      Iterator var1;
-      class_rn.class_a_in_class_rn var2;
-      if(this.e++ % this.f == 0) {
-         var1 = this.b.iterator();
+	public void a(class_cj var1, int var2) {
+		a = var1;
+		b = var2;
+	}
 
-         label50:
-         while(true) {
-            while(true) {
-               if(!var1.hasNext()) {
-                  break label50;
-               }
+	public class_cj cA() {
+		return a;
+	}
 
-               var2 = (class_rn.class_a_in_class_rn)var1.next();
-               boolean var3 = this.c.contains(var2);
-               if(!var3) {
-                  break;
-               }
+	public float cB() {
+		return b;
+	}
 
-               if(!this.b(var2) || !this.a(var2)) {
-                  var2.a.d();
-                  this.c.remove(var2);
-                  break;
-               }
-            }
+	public void cC() {
+		b = -1.0F;
+	}
 
-            if(this.b(var2) && var2.a.a()) {
-               var2.a.c();
-               this.c.add(var2);
-            }
-         }
-      } else {
-         var1 = this.c.iterator();
+	public boolean cD() {
+		return b != -1.0F;
+	}
 
-         while(var1.hasNext()) {
-            var2 = (class_rn.class_a_in_class_rn)var1.next();
-            if(!this.a(var2)) {
-               var2.a.d();
-               var1.remove();
-            }
-         }
-      }
+	@Override
+	protected void cs() {
+		super.cs();
+		if (cu() && (cv() != null) && (cv().o == o)) {
+			class_qx var1 = cv();
+			this.a(new class_cj((int) var1.s, (int) var1.t, (int) var1.u), 5);
+			float var2 = this.g(var1);
+			if ((this instanceof class_ro) && ((class_ro) this).cG()) {
+				if (var2 > 10.0F) {
+					this.a(true, true);
+				}
 
-      this.d.b();
-      this.d.a("goalTick");
-      var1 = this.c.iterator();
+				return;
+			}
 
-      while(var1.hasNext()) {
-         var2 = (class_rn.class_a_in_class_rn)var1.next();
-         var2.a.e();
-      }
+			if (!bt) {
+				i.a(2, c);
+				if (u() instanceof class_ul) {
+					((class_ul) u()).a(false);
+				}
 
-      this.d.b();
-   }
+				bt = true;
+			}
 
-   private boolean a(class_rn.class_a_in_class_rn var1) {
-      boolean var2 = var1.a.b();
-      return var2;
-   }
+			this.p(var2);
+			if (var2 > 4.0F) {
+				u().a(var1, 1.0D);
+			}
 
-   private boolean b(class_rn.class_a_in_class_rn var1) {
-      Iterator var2 = this.b.iterator();
+			if (var2 > 6.0F) {
+				double var3 = (var1.s - s) / var2;
+				double var5 = (var1.t - t) / var2;
+				double var7 = (var1.u - u) / var2;
+				v += var3 * Math.abs(var3) * 0.4D;
+				w += var5 * Math.abs(var5) * 0.4D;
+				x += var7 * Math.abs(var7) * 0.4D;
+			}
 
-      while(var2.hasNext()) {
-         class_rn.class_a_in_class_rn var3 = (class_rn.class_a_in_class_rn)var2.next();
-         if(var3 != var1) {
-            if(var1.b >= var3.b) {
-               if(!this.a(var1, var3) && this.c.contains(var3)) {
-                  return false;
-               }
-            } else if(!var3.a.i() && this.c.contains(var3)) {
-               return false;
-            }
-         }
-      }
+			if (var2 > 10.0F) {
+				this.a(true, true);
+			}
+		} else if (!cu() && bt) {
+			bt = false;
+			i.a(c);
+			if (u() instanceof class_ul) {
+				((class_ul) u()).a(true);
+			}
 
-      return true;
-   }
+			cC();
+		}
 
-   private boolean a(class_rn.class_a_in_class_rn var1, class_rn.class_a_in_class_rn var2) {
-      return (var1.a.j() & var2.a.j()) == 0;
-   }
+	}
 
-   class class_a_in_class_rn {
-      public class_rm a;
-      public int b;
+	protected void p(float var1) {
+	}
 
-      public class_a_in_class_rn(int var2, class_rm var3) {
-         this.b = var2;
-         this.a = var3;
-      }
-   }
+	static {
+		bs = (new class_rr(br, "Fleeing speed bonus", 2.0D, 2)).a(false);
+	}
 }

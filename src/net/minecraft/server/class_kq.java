@@ -1,90 +1,223 @@
 package net.minecraft.server;
 
-import java.io.File;
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadInfo;
-import java.lang.management.ThreadMXBean;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_b;
-import net.minecraft.server.class_c;
-import net.minecraft.server.DedicatedServer;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
-public class class_kq implements Runnable {
-   private static final Logger a = LogManager.getLogger();
-   private final DedicatedServer b;
-   private final long c;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 
-   public class_kq(DedicatedServer var1) {
-      this.b = var1;
-      this.c = var1.aS();
-   }
+public class class_kq extends class_ays {
+	private final MinecraftServer a;
+	private final Set b = Sets.newHashSet();
+	private class_ayt c;
 
-   public void run() {
-      while(this.b.v()) {
-         long var1 = this.b.aL();
-         long var3 = MinecraftServer.az();
-         long var5 = var3 - var1;
-         if(var5 > this.c) {
-            a.fatal("A single server tick took " + String.format("%.2f", new Object[]{Float.valueOf((float)var5 / 1000.0F)}) + " seconds (should be max " + String.format("%.2f", new Object[]{Float.valueOf(0.05F)}) + ")");
-            a.fatal("Considering it to be crashed, server will forcibly shutdown.");
-            ThreadMXBean var7 = ManagementFactory.getThreadMXBean();
-            ThreadInfo[] var8 = var7.dumpAllThreads(true, true);
-            StringBuilder var9 = new StringBuilder();
-            Error var10 = new Error();
-            ThreadInfo[] var11 = var8;
-            int var12 = var8.length;
+	public class_kq(MinecraftServer var1) {
+		a = var1;
+	}
 
-            for(int var13 = 0; var13 < var12; ++var13) {
-               ThreadInfo var14 = var11[var13];
-               if(var14.getThreadId() == this.b.aM().getId()) {
-                  var10.setStackTrace(var14.getStackTrace());
-               }
+	@Override
+	public void a(class_ayq var1) {
+		super.a(var1);
+		if (b.contains(var1.d())) {
+			a.ar().a((new class_ht(var1)));
+		}
 
-               var9.append(var14);
-               var9.append("\n");
-            }
+		this.b();
+	}
 
-            class_b var16 = new class_b("Watching Server", var10);
-            this.b.b(var16);
-            class_c var17 = var16.a("Thread Dump");
-            var17.a((String)"Threads", (Object)var9);
-            File var18 = new File(new File(this.b.y(), "crash-reports"), "crash-" + (new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss")).format(new Date()) + "-server.txt");
-            if(var16.a(var18)) {
-               a.error("This crash report has been saved to: " + var18.getAbsolutePath());
-            } else {
-               a.error("We were unable to save this crash report to disk.");
-            }
+	@Override
+	public void a(String var1) {
+		super.a(var1);
+		a.ar().a((new class_ht(var1)));
+		this.b();
+	}
 
-            this.a();
-         }
+	@Override
+	public void a(String var1, class_ayo var2) {
+		super.a(var1, var2);
+		a.ar().a((new class_ht(var1, var2)));
+		this.b();
+	}
 
-         try {
-            Thread.sleep(var1 + this.c - var3);
-         } catch (InterruptedException var15) {
-            ;
-         }
-      }
+	@Override
+	public void a(int var1, class_ayo var2) {
+		class_ayo var3 = this.a(var1);
+		super.a(var1, var2);
+		if ((var3 != var2) && (var3 != null)) {
+			if (this.h(var3) > 0) {
+				a.ar().a((new class_hk(var1, var2)));
+			} else {
+				this.g(var3);
+			}
+		}
 
-   }
+		if (var2 != null) {
+			if (b.contains(var2)) {
+				a.ar().a((new class_hk(var1, var2)));
+			} else {
+				this.e(var2);
+			}
+		}
 
-   private void a() {
-      try {
-         Timer var1 = new Timer();
-         var1.schedule(new TimerTask() {
-            public void run() {
-               Runtime.getRuntime().halt(1);
-            }
-         }, 10000L);
-         System.exit(1);
-      } catch (Throwable var2) {
-         Runtime.getRuntime().halt(1);
-      }
+		this.b();
+	}
 
-   }
+	@Override
+	public boolean a(String var1, String var2) {
+		if (super.a(var1, var2)) {
+			class_ayp var3 = this.d(var2);
+			a.ar().a((new class_hs(var3, Arrays.asList(new String[] { var1 }), 3)));
+			this.b();
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@Override
+	public void a(String var1, class_ayp var2) {
+		super.a(var1, var2);
+		a.ar().a((new class_hs(var2, Arrays.asList(new String[] { var1 }), 4)));
+		this.b();
+	}
+
+	@Override
+	public void a(class_ayo var1) {
+		super.a(var1);
+		this.b();
+	}
+
+	@Override
+	public void b(class_ayo var1) {
+		super.b(var1);
+		if (b.contains(var1)) {
+			a.ar().a((new class_hr(var1, 2)));
+		}
+
+		this.b();
+	}
+
+	@Override
+	public void c(class_ayo var1) {
+		super.c(var1);
+		if (b.contains(var1)) {
+			this.g(var1);
+		}
+
+		this.b();
+	}
+
+	@Override
+	public void a(class_ayp var1) {
+		super.a(var1);
+		a.ar().a((new class_hs(var1, 0)));
+		this.b();
+	}
+
+	@Override
+	public void b(class_ayp var1) {
+		super.b(var1);
+		a.ar().a((new class_hs(var1, 2)));
+		this.b();
+	}
+
+	@Override
+	public void c(class_ayp var1) {
+		super.c(var1);
+		a.ar().a((new class_hs(var1, 1)));
+		this.b();
+	}
+
+	public void a(class_ayt var1) {
+		c = var1;
+	}
+
+	protected void b() {
+		if (c != null) {
+			c.c();
+		}
+
+	}
+
+	public List d(class_ayo var1) {
+		ArrayList var2 = Lists.newArrayList();
+		var2.add(new class_hr(var1, 0));
+
+		for (int var3 = 0; var3 < 19; ++var3) {
+			if (this.a(var3) == var1) {
+				var2.add(new class_hk(var3, var1));
+			}
+		}
+
+		Iterator var5 = this.i(var1).iterator();
+
+		while (var5.hasNext()) {
+			class_ayq var4 = (class_ayq) var5.next();
+			var2.add(new class_ht(var4));
+		}
+
+		return var2;
+	}
+
+	public void e(class_ayo var1) {
+		List var2 = this.d(var1);
+		Iterator var3 = a.ar().v().iterator();
+
+		while (var3.hasNext()) {
+			class_lm var4 = (class_lm) var3.next();
+			Iterator var5 = var2.iterator();
+
+			while (var5.hasNext()) {
+				class_ff var6 = (class_ff) var5.next();
+				var4.a.a(var6);
+			}
+		}
+
+		b.add(var1);
+	}
+
+	public List f(class_ayo var1) {
+		ArrayList var2 = Lists.newArrayList();
+		var2.add(new class_hr(var1, 1));
+
+		for (int var3 = 0; var3 < 19; ++var3) {
+			if (this.a(var3) == var1) {
+				var2.add(new class_hk(var3, var1));
+			}
+		}
+
+		return var2;
+	}
+
+	public void g(class_ayo var1) {
+		List var2 = this.f(var1);
+		Iterator var3 = a.ar().v().iterator();
+
+		while (var3.hasNext()) {
+			class_lm var4 = (class_lm) var3.next();
+			Iterator var5 = var2.iterator();
+
+			while (var5.hasNext()) {
+				class_ff var6 = (class_ff) var5.next();
+				var4.a.a(var6);
+			}
+		}
+
+		b.remove(var1);
+	}
+
+	public int h(class_ayo var1) {
+		int var2 = 0;
+
+		for (int var3 = 0; var3 < 19; ++var3) {
+			if (this.a(var3) == var1) {
+				++var2;
+			}
+		}
+
+		return var2;
+	}
 }

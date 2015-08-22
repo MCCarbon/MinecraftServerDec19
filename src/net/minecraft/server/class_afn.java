@@ -1,66 +1,45 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.ChunkSnapshot;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.BlockPosition;
 
-public class class_afn extends BiomeBase {
-   protected BiomeBase aE;
+public class class_afn {
+	public static final class_afj a = a("protection");
+	public static final class_afj b = a("fire_protection");
+	public static final class_afj c = a("feather_falling");
+	public static final class_afj d = a("blast_protection");
+	public static final class_afj e = a("projectile_protection");
+	public static final class_afj f = a("respiration");
+	public static final class_afj g = a("aqua_affinity");
+	public static final class_afj h = a("thorns");
+	public static final class_afj i = a("depth_strider");
+	public static final class_afj j = a("sharpness");
+	public static final class_afj k = a("smite");
+	public static final class_afj l = a("bane_of_arthropods");
+	public static final class_afj m = a("knockback");
+	public static final class_afj n = a("fire_aspect");
+	public static final class_afj o = a("looting");
+	public static final class_afj p = a("efficiency");
+	public static final class_afj q = a("silk_touch");
+	public static final class_afj r = a("unbreaking");
+	public static final class_afj s = a("fortune");
+	public static final class_afj t = a("power");
+	public static final class_afj u = a("punch");
+	public static final class_afj v = a("flame");
+	public static final class_afj w = a("infinity");
+	public static final class_afj x = a("luck_of_the_sea");
+	public static final class_afj y = a("lure");
 
-   public class_afn(int var1, BiomeBase var2) {
-      super(var1);
-      this.aE = var2;
-      this.a(var2.ai, true);
-      this.ah = var2.ah + " M";
-      this.ak = var2.ak;
-      this.al = var2.al;
-      this.am = var2.am;
-      this.an = var2.an;
-      this.ao = var2.ao;
-      this.temperature = var2.temperature;
-      this.humidity = var2.humidity;
-      this.ar = var2.ar;
-      this.ax = var2.ax;
-      this.ay = var2.ay;
-      this.au = Lists.newArrayList((Iterable)var2.au);
-      this.at = Lists.newArrayList((Iterable)var2.at);
-      this.aw = Lists.newArrayList((Iterable)var2.aw);
-      this.av = Lists.newArrayList((Iterable)var2.av);
-      this.temperature = var2.temperature;
-      this.humidity = var2.humidity;
-      this.an = var2.an + 0.1F;
-      this.ao = var2.ao + 0.2F;
-   }
+	private static class_afj a(String var0) {
+		class_afj var1 = (class_afj) class_afj.b.c(new class_ke(var0));
+		if (var1 == null) {
+			throw new IllegalStateException("Invalid Enchantment requested: " + var0);
+		} else {
+			return var1;
+		}
+	}
 
-   public void a(World var1, Random var2, BlockPosition var3) {
-      this.aE.as.a(var1, var2, this, var3);
-   }
-
-   public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
-      this.aE.a(var1, var2, var3, var4, var5, var6);
-   }
-
-   public float g() {
-      return this.aE.g();
-   }
-
-   public class_apw a(Random var1) {
-      return this.aE.a(var1);
-   }
-
-   public Class l() {
-      return this.aE.l();
-   }
-
-   public boolean a(BiomeBase var1) {
-      return this.aE.a(var1);
-   }
-
-   public BiomeBase.EnumTemperature m() {
-      return this.aE.m();
-   }
+	static {
+		if (!class_kh.a()) {
+			throw new RuntimeException("Accessed MobEffects before Bootstrap!");
+		}
+	}
 }

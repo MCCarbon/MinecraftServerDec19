@@ -1,139 +1,128 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Sets;
-import java.util.Collection;
-import java.util.Set;
-import net.minecraft.server.EnumChatFormat;
-import net.minecraft.server.Scoreboard;
-import net.minecraft.server.class_awp;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-public class class_awk extends class_awp {
-   private final Scoreboard a;
-   private final String b;
-   private final Set c = Sets.newHashSet();
-   private String d;
-   private String e = "";
-   private String f = "";
-   private boolean g = true;
-   private boolean h = true;
-   private class_awp.class_a_in_class_awp i;
-   private class_awp.class_a_in_class_awp j;
-   private EnumChatFormat k;
+public class class_awk extends class_awi {
+	private static final Logger c = LogManager.getLogger();
+	private class_awi d;
 
-   public class_awk(Scoreboard var1, String var2) {
-      this.i = class_awp.class_a_in_class_awp.a;
-      this.j = class_awp.class_a_in_class_awp.a;
-      this.k = EnumChatFormat.RESET;
-      this.a = var1;
-      this.b = var2;
-      this.d = var2;
-   }
+	public class_awk(long var1, class_awi var3, class_awi var4) {
+		super(var1);
+		a = var3;
+		d = var4;
+	}
 
-   public String b() {
-      return this.b;
-   }
+	@Override
+	public int[] a(int var1, int var2, int var3, int var4) {
+		int[] var5 = a.a(var1 - 1, var2 - 1, var3 + 2, var4 + 2);
+		int[] var6 = d.a(var1 - 1, var2 - 1, var3 + 2, var4 + 2);
+		int[] var7 = class_awg.a(var3 * var4);
 
-   public String c() {
-      return this.d;
-   }
+		for (int var8 = 0; var8 < var4; ++var8) {
+			for (int var9 = 0; var9 < var3; ++var9) {
+				this.a((long) (var9 + var1), (long) (var8 + var2));
+				int var10 = var5[var9 + 1 + ((var8 + 1) * (var3 + 2))];
+				int var11 = var6[var9 + 1 + ((var8 + 1) * (var3 + 2))];
+				boolean var12 = ((var11 - 2) % 29) == 0;
+				if (var10 > 255) {
+					c.debug("old! " + var10);
+				}
 
-   public void a(String var1) {
-      if(var1 == null) {
-         throw new IllegalArgumentException("Name cannot be null");
-      } else {
-         this.d = var1;
-         this.a.b(this);
-      }
-   }
+				if ((var10 != 0) && (var11 >= 2) && (((var11 - 2) % 29) == 1) && (var10 < 128)) {
+					if (class_ahb.e(var10 + 128) != null) {
+						var7[var9 + (var8 * var3)] = var10 + 128;
+					} else {
+						var7[var9 + (var8 * var3)] = var10;
+					}
+				} else if ((this.a(3) != 0) && !var12) {
+					var7[var9 + (var8 * var3)] = var10;
+				} else {
+					int var13 = var10;
+					int var14;
+					if (var10 == class_ahb.r.az) {
+						var13 = class_ahb.G.az;
+					} else if (var10 == class_ahb.t.az) {
+						var13 = class_ahb.H.az;
+					} else if (var10 == class_ahb.Q.az) {
+						var13 = class_ahb.R.az;
+					} else if (var10 == class_ahb.S.az) {
+						var13 = class_ahb.q.az;
+					} else if (var10 == class_ahb.u.az) {
+						var13 = class_ahb.I.az;
+					} else if (var10 == class_ahb.V.az) {
+						var13 = class_ahb.W.az;
+					} else if (var10 == class_ahb.T.az) {
+						var13 = class_ahb.U.az;
+					} else if (var10 == class_ahb.q.az) {
+						if (this.a(3) == 0) {
+							var13 = class_ahb.H.az;
+						} else {
+							var13 = class_ahb.t.az;
+						}
+					} else if (var10 == class_ahb.B.az) {
+						var13 = class_ahb.C.az;
+					} else if (var10 == class_ahb.K.az) {
+						var13 = class_ahb.L.az;
+					} else if (var10 == class_ahb.p.az) {
+						var13 = class_ahb.N.az;
+					} else if (var10 == class_ahb.s.az) {
+						var13 = class_ahb.X.az;
+					} else if (var10 == class_ahb.Y.az) {
+						var13 = class_ahb.Z.az;
+					} else if (a(var10, class_ahb.ab.az)) {
+						var13 = class_ahb.aa.az;
+					} else if ((var10 == class_ahb.N.az) && (this.a(3) == 0)) {
+						var14 = this.a(2);
+						if (var14 == 0) {
+							var13 = class_ahb.q.az;
+						} else {
+							var13 = class_ahb.t.az;
+						}
+					}
 
-   public Collection d() {
-      return this.c;
-   }
+					if (var12 && (var13 != var10)) {
+						if (class_ahb.e(var13 + 128) != null) {
+							var13 += 128;
+						} else {
+							var13 = var10;
+						}
+					}
 
-   public String e() {
-      return this.e;
-   }
+					if (var13 == var10) {
+						var7[var9 + (var8 * var3)] = var10;
+					} else {
+						var14 = var5[var9 + 1 + (((var8 + 1) - 1) * (var3 + 2))];
+						int var15 = var5[var9 + 1 + 1 + ((var8 + 1) * (var3 + 2))];
+						int var16 = var5[((var9 + 1) - 1) + ((var8 + 1) * (var3 + 2))];
+						int var17 = var5[var9 + 1 + ((var8 + 1 + 1) * (var3 + 2))];
+						int var18 = 0;
+						if (a(var14, var10)) {
+							++var18;
+						}
 
-   public void b(String var1) {
-      if(var1 == null) {
-         throw new IllegalArgumentException("Prefix cannot be null");
-      } else {
-         this.e = var1;
-         this.a.b(this);
-      }
-   }
+						if (a(var15, var10)) {
+							++var18;
+						}
 
-   public String f() {
-      return this.f;
-   }
+						if (a(var16, var10)) {
+							++var18;
+						}
 
-   public void c(String var1) {
-      this.f = var1;
-      this.a.b(this);
-   }
+						if (a(var17, var10)) {
+							++var18;
+						}
 
-   public String d(String var1) {
-      return this.e() + var1 + this.f();
-   }
+						if (var18 >= 3) {
+							var7[var9 + (var8 * var3)] = var13;
+						} else {
+							var7[var9 + (var8 * var3)] = var10;
+						}
+					}
+				}
+			}
+		}
 
-   public static String a(class_awp var0, String var1) {
-      return var0 == null?var1:var0.d(var1);
-   }
-
-   public boolean g() {
-      return this.g;
-   }
-
-   public void a(boolean var1) {
-      this.g = var1;
-      this.a.b(this);
-   }
-
-   public boolean h() {
-      return this.h;
-   }
-
-   public void b(boolean var1) {
-      this.h = var1;
-      this.a.b(this);
-   }
-
-   public class_awp.class_a_in_class_awp i() {
-      return this.i;
-   }
-
-   public class_awp.class_a_in_class_awp j() {
-      return this.j;
-   }
-
-   public void a(class_awp.class_a_in_class_awp var1) {
-      this.i = var1;
-      this.a.b(this);
-   }
-
-   public void b(class_awp.class_a_in_class_awp var1) {
-      this.j = var1;
-      this.a.b(this);
-   }
-
-   public int k() {
-      int var1 = 0;
-      if(this.g()) {
-         var1 |= 1;
-      }
-
-      if(this.h()) {
-         var1 |= 2;
-      }
-
-      return var1;
-   }
-
-   public void a(EnumChatFormat var1) {
-      this.k = var1;
-   }
-
-   public EnumChatFormat l() {
-      return this.k;
-   }
+		return var7;
+	}
 }

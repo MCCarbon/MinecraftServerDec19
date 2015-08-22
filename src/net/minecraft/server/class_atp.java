@@ -1,139 +1,151 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aua;
-import net.minecraft.server.class_auc;
+import java.util.Random;
 
-public class class_atp extends class_auc {
-   private final class_atp.class_a_in_class_atp c;
+public class class_atp extends class_asa {
+	private static final class_apn a;
+	private static final class_apn b;
 
-   public class_atp(long var1, class_auc var3, class_atp.class_a_in_class_atp var4) {
-      super(var1);
-      this.a = var3;
-      this.c = var4;
-   }
+	public class_atp() {
+		super(false);
+	}
 
-   public int[] a(int var1, int var2, int var3, int var4) {
-      switch(class_atp.SyntheticClass_1.a[this.c.ordinal()]) {
-      case 1:
-      default:
-         return this.c(var1, var2, var3, var4);
-      case 2:
-         return this.d(var1, var2, var3, var4);
-      case 3:
-         return this.e(var1, var2, var3, var4);
-      }
-   }
+	@Override
+	public boolean b(class_ago var1, Random var2, class_cj var3) {
+		int var4;
+		for (var4 = var2.nextInt(4) + 5; var1.p(var3.b()).c().v() == class_avq.h; var3 = var3.b()) {
+			;
+		}
 
-   private int[] c(int var1, int var2, int var3, int var4) {
-      int var5 = var1 - 1;
-      int var6 = var2 - 1;
-      int var7 = 1 + var3 + 1;
-      int var8 = 1 + var4 + 1;
-      int[] var9 = this.a.a(var5, var6, var7, var8);
-      int[] var10 = class_aua.a(var3 * var4);
+		boolean var5 = true;
+		if ((var3.o() >= 1) && ((var3.o() + var4 + 1) <= 256)) {
+			int var9;
+			int var10;
+			for (int var6 = var3.o(); var6 <= (var3.o() + 1 + var4); ++var6) {
+				byte var7 = 1;
+				if (var6 == var3.o()) {
+					var7 = 0;
+				}
 
-      for(int var11 = 0; var11 < var4; ++var11) {
-         for(int var12 = 0; var12 < var3; ++var12) {
-            this.a((long)(var12 + var1), (long)(var11 + var2));
-            int var13 = var9[var12 + 1 + (var11 + 1) * var7];
-            if(var13 == 1) {
-               int var14 = var9[var12 + 1 + (var11 + 1 - 1) * var7];
-               int var15 = var9[var12 + 1 + 1 + (var11 + 1) * var7];
-               int var16 = var9[var12 + 1 - 1 + (var11 + 1) * var7];
-               int var17 = var9[var12 + 1 + (var11 + 1 + 1) * var7];
-               boolean var18 = var14 == 3 || var15 == 3 || var16 == 3 || var17 == 3;
-               boolean var19 = var14 == 4 || var15 == 4 || var16 == 4 || var17 == 4;
-               if(var18 || var19) {
-                  var13 = 2;
-               }
-            }
+				if (var6 >= ((var3.o() + 1 + var4) - 2)) {
+					var7 = 3;
+				}
 
-            var10[var12 + var11 * var3] = var13;
-         }
-      }
+				class_cj.class_a_in_class_cj var8 = new class_cj.class_a_in_class_cj();
 
-      return var10;
-   }
+				for (var9 = var3.n() - var7; (var9 <= (var3.n() + var7)) && var5; ++var9) {
+					for (var10 = var3.p() - var7; (var10 <= (var3.p() + var7)) && var5; ++var10) {
+						if ((var6 >= 0) && (var6 < 256)) {
+							class_ail var11 = var1.p(var8.c(var9, var6, var10)).c();
+							if ((var11.v() != class_avq.a) && (var11.v() != class_avq.j)) {
+								if ((var11 != class_aim.j) && (var11 != class_aim.i)) {
+									var5 = false;
+								} else if (var6 > var3.o()) {
+									var5 = false;
+								}
+							}
+						} else {
+							var5 = false;
+						}
+					}
+				}
+			}
 
-   private int[] d(int var1, int var2, int var3, int var4) {
-      int var5 = var1 - 1;
-      int var6 = var2 - 1;
-      int var7 = 1 + var3 + 1;
-      int var8 = 1 + var4 + 1;
-      int[] var9 = this.a.a(var5, var6, var7, var8);
-      int[] var10 = class_aua.a(var3 * var4);
+			if (!var5) {
+				return false;
+			} else {
+				class_ail var17 = var1.p(var3.b()).c();
+				if (((var17 == class_aim.c) || (var17 == class_aim.d)) && (var3.o() < (256 - var4 - 1))) {
+					this.a(var1, var3.b());
 
-      for(int var11 = 0; var11 < var4; ++var11) {
-         for(int var12 = 0; var12 < var3; ++var12) {
-            int var13 = var9[var12 + 1 + (var11 + 1) * var7];
-            if(var13 == 4) {
-               int var14 = var9[var12 + 1 + (var11 + 1 - 1) * var7];
-               int var15 = var9[var12 + 1 + 1 + (var11 + 1) * var7];
-               int var16 = var9[var12 + 1 - 1 + (var11 + 1) * var7];
-               int var17 = var9[var12 + 1 + (var11 + 1 + 1) * var7];
-               boolean var18 = var14 == 2 || var15 == 2 || var16 == 2 || var17 == 2;
-               boolean var19 = var14 == 1 || var15 == 1 || var16 == 1 || var17 == 1;
-               if(var19 || var18) {
-                  var13 = 3;
-               }
-            }
+					int var12;
+					class_cj var14;
+					int var18;
+					int var19;
+					int var21;
+					for (var18 = (var3.o() - 3) + var4; var18 <= (var3.o() + var4); ++var18) {
+						var19 = var18 - (var3.o() + var4);
+						var9 = 2 - (var19 / 2);
 
-            var10[var12 + var11 * var3] = var13;
-         }
-      }
+						for (var10 = var3.n() - var9; var10 <= (var3.n() + var9); ++var10) {
+							var21 = var10 - var3.n();
 
-      return var10;
-   }
+							for (var12 = var3.p() - var9; var12 <= (var3.p() + var9); ++var12) {
+								int var13 = var12 - var3.p();
+								if ((Math.abs(var21) != var9) || (Math.abs(var13) != var9) || ((var2.nextInt(2) != 0) && (var19 != 0))) {
+									var14 = new class_cj(var10, var18, var12);
+									if (!var1.p(var14).c().q()) {
+										this.a(var1, var14, b);
+									}
+								}
+							}
+						}
+					}
 
-   private int[] e(int var1, int var2, int var3, int var4) {
-      int[] var5 = this.a.a(var1, var2, var3, var4);
-      int[] var6 = class_aua.a(var3 * var4);
+					for (var18 = 0; var18 < var4; ++var18) {
+						class_ail var20 = var1.p(var3.b(var18)).c();
+						if ((var20.v() == class_avq.a) || (var20.v() == class_avq.j) || (var20 == class_aim.i) || (var20 == class_aim.j)) {
+							this.a(var1, var3.b(var18), a);
+						}
+					}
 
-      for(int var7 = 0; var7 < var4; ++var7) {
-         for(int var8 = 0; var8 < var3; ++var8) {
-            this.a((long)(var8 + var1), (long)(var7 + var2));
-            int var9 = var5[var8 + var7 * var3];
-            if(var9 != 0 && this.a(13) == 0) {
-               var9 |= 1 + this.a(15) << 8 & 3840;
-            }
+					for (var18 = (var3.o() - 3) + var4; var18 <= (var3.o() + var4); ++var18) {
+						var19 = var18 - (var3.o() + var4);
+						var9 = 2 - (var19 / 2);
+						class_cj.class_a_in_class_cj var22 = new class_cj.class_a_in_class_cj();
 
-            var6[var8 + var7 * var3] = var9;
-         }
-      }
+						for (var21 = var3.n() - var9; var21 <= (var3.n() + var9); ++var21) {
+							for (var12 = var3.p() - var9; var12 <= (var3.p() + var9); ++var12) {
+								var22.c(var21, var18, var12);
+								if (var1.p(var22).c().v() == class_avq.j) {
+									class_cj var23 = var22.e();
+									var14 = var22.f();
+									class_cj var15 = var22.c();
+									class_cj var16 = var22.d();
+									if ((var2.nextInt(4) == 0) && (var1.p(var23).c().v() == class_avq.a)) {
+										this.a(var1, var23, class_anw.N);
+									}
 
-      return var6;
-   }
+									if ((var2.nextInt(4) == 0) && (var1.p(var14).c().v() == class_avq.a)) {
+										this.a(var1, var14, class_anw.P);
+									}
 
-   // $FF: synthetic class
-   static class SyntheticClass_1 {
-      // $FF: synthetic field
-      static final int[] a = new int[class_atp.class_a_in_class_atp.values().length];
+									if ((var2.nextInt(4) == 0) && (var1.p(var15).c().v() == class_avq.a)) {
+										this.a(var1, var15, class_anw.O);
+									}
 
-      static {
-         try {
-            a[class_atp.class_a_in_class_atp.a.ordinal()] = 1;
-         } catch (NoSuchFieldError var3) {
-            ;
-         }
+									if ((var2.nextInt(4) == 0) && (var1.p(var16).c().v() == class_avq.a)) {
+										this.a(var1, var16, class_anw.b);
+									}
+								}
+							}
+						}
+					}
 
-         try {
-            a[class_atp.class_a_in_class_atp.b.ordinal()] = 2;
-         } catch (NoSuchFieldError var2) {
-            ;
-         }
+					return true;
+				} else {
+					return false;
+				}
+			}
+		} else {
+			return false;
+		}
+	}
 
-         try {
-            a[class_atp.class_a_in_class_atp.c.ordinal()] = 3;
-         } catch (NoSuchFieldError var1) {
-            ;
-         }
+	private void a(class_ago var1, class_cj var2, class_apy var3) {
+		class_apn var4 = class_aim.bn.S().a(var3, Boolean.valueOf(true));
+		this.a(var1, var2, var4);
+		int var5 = 4;
 
-      }
-   }
+		for (var2 = var2.b(); (var1.p(var2).c().v() == class_avq.a) && (var5 > 0); --var5) {
+			this.a(var1, var2, var4);
+			var2 = var2.b();
+		}
 
-   public static enum class_a_in_class_atp {
-      a,
-      b,
-      c;
-   }
+	}
+
+	static {
+		a = class_aim.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
+		b = class_aim.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+	}
 }

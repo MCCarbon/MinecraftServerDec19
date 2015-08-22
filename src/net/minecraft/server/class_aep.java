@@ -1,31 +1,52 @@
 package net.minecraft.server;
 
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
 
-public interface class_aep {
-   void a(BlockPosition var1);
+public class class_aep extends class_aev {
+	public class_aep() {
+		super(3, 3, new class_aco[] { new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.bf, 0, 32767), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM), new class_aco(class_acq.aM) }, new class_aco(class_acq.ca, 0, 0));
+	}
 
-   void b(BlockPosition var1);
+	@Override
+	public boolean a(class_aab var1, class_ago var2) {
+		if (!super.a(var1, var2)) {
+			return false;
+		} else {
+			class_aco var3 = null;
 
-   void a(int var1, int var2, int var3, int var4, int var5, int var6);
+			for (int var4 = 0; (var4 < var1.n_()) && (var3 == null); ++var4) {
+				class_aco var5 = var1.a(var4);
+				if ((var5 != null) && (var5.b() == class_acq.bf)) {
+					var3 = var5;
+				}
+			}
 
-   void a(String var1, double var2, double var4, double var6, float var8, float var9);
+			if (var3 == null) {
+				return false;
+			} else {
+				class_axl var6 = class_acq.bf.a(var3, var2);
+				return var6 == null ? false : var6.f < 4;
+			}
+		}
+	}
 
-   void a(EntityHuman var1, String var2, double var3, double var5, double var7, float var9, float var10);
+	@Override
+	public class_aco a(class_aab var1) {
+		class_aco var2 = null;
 
-   void a(int var1, boolean var2, double var3, double var5, double var7, double var9, double var11, double var13, int... var15);
+		for (int var3 = 0; (var3 < var1.n_()) && (var2 == null); ++var3) {
+			class_aco var4 = var1.a(var3);
+			if ((var4 != null) && (var4.b() == class_acq.bf)) {
+				var2 = var4;
+			}
+		}
 
-   void a(Entity var1);
+		var2 = var2.k();
+		var2.b = 1;
+		if (var2.o() == null) {
+			var2.d(new class_dn());
+		}
 
-   void b(Entity var1);
-
-   void a(String var1, BlockPosition var2);
-
-   void a(int var1, BlockPosition var2, int var3);
-
-   void a(EntityHuman var1, int var2, BlockPosition var3, int var4);
-
-   void b(int var1, BlockPosition var2, int var3);
+		var2.o().a("map_scale_direction", 1);
+		return var2;
+	}
 }

@@ -1,180 +1,409 @@
 package net.minecraft.server;
 
-import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.ChunkSnapshot;
-import net.minecraft.server.WorldGenBase;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
+import java.util.List;
 
-public class class_apg extends WorldGenBase {
-   private float[] d = new float[1024];
+public class class_apg extends class_ajk {
+	public static final class_apy a = class_apy.a("extended");
+	private final boolean N;
 
-   protected void a(long var1, int var3, int var4, ChunkSnapshot var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {
-      Random var19 = new Random(var1);
-      double var20 = (double)(var3 * 16 + 8);
-      double var22 = (double)(var4 * 16 + 8);
-      float var24 = 0.0F;
-      float var25 = 0.0F;
-      if(var16 <= 0) {
-         int var26 = this.a * 16 - 16;
-         var16 = var26 - var19.nextInt(var26 / 4);
-      }
+	public class_apg(boolean var1) {
+		super(class_avq.H);
+		this.j(M.b().a(b, class_cq.c).a(a, Boolean.valueOf(false)));
+		N = var1;
+		this.a(i);
+		this.c(0.5F);
+		this.a(class_abp.d);
+	}
 
-      boolean var53 = false;
-      if(var15 == -1) {
-         var15 = var16 / 2;
-         var53 = true;
-      }
+	@Override
+	public boolean c() {
+		return false;
+	}
 
-      float var27 = 1.0F;
+	@Override
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+		var1.a(var2, var3.a(b, a(var1, var2, var4)), 2);
+		if (!var1.D) {
+			this.f(var1, var2, var3);
+		}
 
-      for(int var28 = 0; var28 < 256; ++var28) {
-         if(var28 == 0 || var19.nextInt(3) == 0) {
-            var27 = 1.0F + var19.nextFloat() * var19.nextFloat() * 1.0F;
-         }
+	}
 
-         this.d[var28] = var27 * var27;
-      }
+	@Override
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ail var4) {
+		if (!var1.D) {
+			this.f(var1, var2, var3);
+		}
 
-      for(; var15 < var16; ++var15) {
-         double var54 = 1.5D + (double)(MathHelper.sin((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
-         double var30 = var54 * var17;
-         var54 *= (double)var19.nextFloat() * 0.25D + 0.75D;
-         var30 *= (double)var19.nextFloat() * 0.25D + 0.75D;
-         float var32 = MathHelper.cos(var14);
-         float var33 = MathHelper.sin(var14);
-         var6 += (double)(MathHelper.cos(var13) * var32);
-         var8 += (double)var33;
-         var10 += (double)(MathHelper.sin(var13) * var32);
-         var14 *= 0.7F;
-         var14 += var25 * 0.05F;
-         var13 += var24 * 0.05F;
-         var25 *= 0.8F;
-         var24 *= 0.5F;
-         var25 += (var19.nextFloat() - var19.nextFloat()) * var19.nextFloat() * 2.0F;
-         var24 += (var19.nextFloat() - var19.nextFloat()) * var19.nextFloat() * 4.0F;
-         if(var53 || var19.nextInt(4) != 0) {
-            double var34 = var6 - var20;
-            double var36 = var10 - var22;
-            double var38 = (double)(var16 - var15);
-            double var40 = (double)(var12 + 2.0F + 16.0F);
-            if(var34 * var34 + var36 * var36 - var38 * var38 > var40 * var40) {
-               return;
-            }
+	}
 
-            if(var6 >= var20 - 16.0D - var54 * 2.0D && var10 >= var22 - 16.0D - var54 * 2.0D && var6 <= var20 + 16.0D + var54 * 2.0D && var10 <= var22 + 16.0D + var54 * 2.0D) {
-               int var55 = MathHelper.floor(var6 - var54) - var3 * 16 - 1;
-               int var35 = MathHelper.floor(var6 + var54) - var3 * 16 + 1;
-               int var56 = MathHelper.floor(var8 - var30) - 1;
-               int var37 = MathHelper.floor(var8 + var30) + 1;
-               int var57 = MathHelper.floor(var10 - var54) - var4 * 16 - 1;
-               int var39 = MathHelper.floor(var10 + var54) - var4 * 16 + 1;
-               if(var55 < 0) {
-                  var55 = 0;
-               }
+	@Override
+	public void d(class_ago var1, class_cj var2, class_apn var3) {
+		if (!var1.D && (var1.s(var2) == null)) {
+			this.f(var1, var2, var3);
+		}
 
-               if(var35 > 16) {
-                  var35 = 16;
-               }
+	}
 
-               if(var56 < 1) {
-                  var56 = 1;
-               }
+	@Override
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+		return S().a(b, a(var1, var2, var8)).a(a, Boolean.valueOf(false));
+	}
 
-               if(var37 > 248) {
-                  var37 = 248;
-               }
+	private void f(class_ago var1, class_cj var2, class_apn var3) {
+		class_cq var4 = (class_cq) var3.b(b);
+		boolean var5 = this.a(var1, var2, var4);
+		if (var5 && !((Boolean) var3.b(a)).booleanValue()) {
+			if ((new class_apk(var1, var2, var4, true)).a()) {
+				var1.c(var2, this, 0, var4.a());
+			}
+		} else if (!var5 && ((Boolean) var3.b(a)).booleanValue()) {
+			var1.a(var2, var3.a(a, Boolean.valueOf(false)), 2);
+			var1.c(var2, this, 1, var4.a());
+		}
 
-               if(var57 < 0) {
-                  var57 = 0;
-               }
+	}
 
-               if(var39 > 16) {
-                  var39 = 16;
-               }
+	private boolean a(class_ago var1, class_cj var2, class_cq var3) {
+		class_cq[] var4 = class_cq.values();
+		int var5 = var4.length;
 
-               boolean var58 = false;
+		int var6;
+		for (var6 = 0; var6 < var5; ++var6) {
+			class_cq var7 = var4[var6];
+			if ((var7 != var3) && var1.b(var2.a(var7), var7)) {
+				return true;
+			}
+		}
 
-               int var42;
-               for(int var41 = var55; !var58 && var41 < var35; ++var41) {
-                  for(var42 = var57; !var58 && var42 < var39; ++var42) {
-                     for(int var43 = var37 + 1; !var58 && var43 >= var56 - 1; --var43) {
-                        if(var43 >= 0 && var43 < 256) {
-                           IBlockData var44 = var5.a(var41, var43, var42);
-                           if(var44.getBlock() == Blocks.FLOWING_WATER || var44.getBlock() == Blocks.WATER) {
-                              var58 = true;
-                           }
+		if (var1.b(var2, class_cq.a)) {
+			return true;
+		} else {
+			class_cj var9 = var2.a();
+			class_cq[] var10 = class_cq.values();
+			var6 = var10.length;
 
-                           if(var43 != var56 - 1 && var41 != var55 && var41 != var35 - 1 && var42 != var57 && var42 != var39 - 1) {
-                              var43 = var56;
-                           }
-                        }
-                     }
-                  }
-               }
+			for (int var11 = 0; var11 < var6; ++var11) {
+				class_cq var8 = var10[var11];
+				if ((var8 != class_cq.a) && var1.b(var9.a(var8), var8)) {
+					return true;
+				}
+			}
 
-               if(!var58) {
-                  BlockPosition.MutableBlockPosition var59 = new BlockPosition.MutableBlockPosition();
+			return false;
+		}
+	}
 
-                  for(var42 = var55; var42 < var35; ++var42) {
-                     double var60 = ((double)(var42 + var3 * 16) + 0.5D - var6) / var54;
+	@Override
+	public boolean a(class_ago var1, class_cj var2, class_apn var3, int var4, int var5) {
+		class_cq var6 = (class_cq) var3.b(b);
+		if (!var1.D) {
+			boolean var7 = this.a(var1, var2, var6);
+			if (var7 && (var4 == 1)) {
+				var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
+				return false;
+			}
 
-                     for(int var45 = var57; var45 < var39; ++var45) {
-                        double var46 = ((double)(var45 + var4 * 16) + 0.5D - var10) / var54;
-                        boolean var48 = false;
-                        if(var60 * var60 + var46 * var46 < 1.0D) {
-                           for(int var49 = var37; var49 > var56; --var49) {
-                              double var50 = ((double)(var49 - 1) + 0.5D - var8) / var30;
-                              if((var60 * var60 + var46 * var46) * (double)this.d[var49 - 1] + var50 * var50 / 6.0D < 1.0D) {
-                                 IBlockData var52 = var5.a(var42, var49, var45);
-                                 if(var52.getBlock() == Blocks.GRASS) {
-                                    var48 = true;
-                                 }
+			if (!var7 && (var4 == 0)) {
+				return false;
+			}
+		}
 
-                                 if(var52.getBlock() == Blocks.STONE || var52.getBlock() == Blocks.DIRT || var52.getBlock() == Blocks.GRASS) {
-                                    if(var49 - 1 < 10) {
-                                       var5.a(var42, var49, var45, Blocks.FLOWING_LAVA.getBlockData());
-                                    } else {
-                                       var5.a(var42, var49, var45, Blocks.AIR.getBlockData());
-                                       if(var48 && var5.a(var42, var49 - 1, var45).getBlock() == Blocks.DIRT) {
-                                          var59.setPosition(var42 + var3 * 16, 0, var45 + var4 * 16);
-                                          var5.a(var42, var49 - 1, var45, this.c.getBiome((BlockPosition)var59).ak);
-                                       }
-                                    }
-                                 }
-                              }
-                           }
-                        }
-                     }
-                  }
+		if (var4 == 0) {
+			if (!this.a(var1, var2, var6, true)) {
+				return false;
+			}
 
-                  if(var53) {
-                     break;
-                  }
-               }
-            }
-         }
-      }
+			var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
+			var1.a(var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D, "tile.piston.out", 0.5F, (var1.s.nextFloat() * 0.25F) + 0.6F);
+		} else if (var4 == 1) {
+			class_aoi var13 = var1.s(var2.a(var6));
+			if (var13 instanceof class_api) {
+				((class_api) var13).h();
+			}
 
-   }
+			var1.a(var2, class_aim.M.S().a(class_apj.a, var6).a(class_apj.b, N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a), 3);
+			var1.a(var2, class_apj.a(this.a(var5), var6, false, true));
+			if (N) {
+				class_cj var8 = var2.a(var6.g() * 2, var6.h() * 2, var6.i() * 2);
+				class_ail var9 = var1.p(var8).c();
+				boolean var10 = false;
+				if (var9 == class_aim.M) {
+					class_aoi var11 = var1.s(var8);
+					if (var11 instanceof class_api) {
+						class_api var12 = (class_api) var11;
+						if ((var12.e() == var6) && var12.d()) {
+							var12.h();
+							var10 = true;
+						}
+					}
+				}
 
-   protected void a(World var1, int var2, int var3, int var4, int var5, ChunkSnapshot var6) {
-      if(this.b.nextInt(50) == 0) {
-         double var7 = (double)(var2 * 16 + this.b.nextInt(16));
-         double var9 = (double)(this.b.nextInt(this.b.nextInt(40) + 8) + 20);
-         double var11 = (double)(var3 * 16 + this.b.nextInt(16));
-         byte var13 = 1;
+				if (!var10 && (var9.v() != class_avq.a) && a(var9, var1, var8, var6.d(), false) && ((var9.k() == 0) || (var9 == class_aim.J) || (var9 == class_aim.F))) {
+					this.a(var1, var2, var6, false);
+				}
+			} else {
+				var1.g(var2.a(var6));
+			}
 
-         for(int var14 = 0; var14 < var13; ++var14) {
-            float var15 = this.b.nextFloat() * 3.1415927F * 2.0F;
-            float var16 = (this.b.nextFloat() - 0.5F) * 2.0F / 8.0F;
-            float var17 = (this.b.nextFloat() * 2.0F + this.b.nextFloat()) * 2.0F;
-            this.a(this.b.nextLong(), var4, var5, var6, var7, var9, var11, var17, var15, var16, 0, 0, 3.0D);
-         }
+			var1.a(var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D, "tile.piston.in", 0.5F, (var1.s.nextFloat() * 0.15F) + 0.6F);
+		}
 
-      }
-   }
+		return true;
+	}
+
+	@Override
+	public void a(class_ags var1, class_cj var2) {
+		this.d(var1.p(var2));
+	}
+
+	private void d(class_apn var1) {
+		if (((Boolean) var1.b(a)).booleanValue()) {
+			float var2 = 0.25F;
+			class_cq var3 = (class_cq) var1.b(b);
+			if (var3 != null) {
+				switch (class_apg.SyntheticClass_1.a[var3.ordinal()]) {
+					case 1:
+						this.a(0.0F, 0.25F, 0.0F, 1.0F, 1.0F, 1.0F);
+						break;
+					case 2:
+						this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
+						break;
+					case 3:
+						this.a(0.0F, 0.0F, 0.25F, 1.0F, 1.0F, 1.0F);
+						break;
+					case 4:
+						this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.75F);
+						break;
+					case 5:
+						this.a(0.25F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+						break;
+					case 6:
+						this.a(0.0F, 0.0F, 0.0F, 0.75F, 1.0F, 1.0F);
+				}
+			}
+		} else {
+			this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		}
+
+	}
+
+	@Override
+	public void j() {
+		this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+	}
+
+	@Override
+	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, class_qx var6) {
+		this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+		super.a(var1, var2, var3, var4, var5, var6);
+	}
+
+	@Override
+	public class_ayk a(class_ago var1, class_cj var2, class_apn var3) {
+		this.d(var3);
+		return super.a(var1, var2, var3);
+	}
+
+	@Override
+	public boolean d() {
+		return false;
+	}
+
+	public static class_cq b(int var0) {
+		int var1 = var0 & 7;
+		return var1 > 5 ? null : class_cq.a(var1);
+	}
+
+	public static class_cq a(class_ago var0, class_cj var1, class_rg var2) {
+		if ((class_oa.e((float) var2.s - var1.n()) < 2.0F) && (class_oa.e((float) var2.u - var1.p()) < 2.0F)) {
+			double var3 = var2.t + var2.aY();
+			if ((var3 - var1.o()) > 2.0D) {
+				return class_cq.b;
+			}
+
+			if ((var1.o() - var3) > 0.0D) {
+				return class_cq.a;
+			}
+		}
+
+		return var2.aV().d();
+	}
+
+	public static boolean a(class_ail var0, class_ago var1, class_cj var2, class_cq var3, boolean var4) {
+		if (var0 == class_aim.Z) {
+			return false;
+		} else if (!var1.ah().a(var2)) {
+			return false;
+		} else if ((var2.o() < 0) || ((var3 == class_cq.a) && (var2.o() == 0))) {
+			return false;
+		} else if ((var2.o() <= (var1.W() - 1)) && ((var3 != class_cq.b) || (var2.o() != (var1.W() - 1)))) {
+			if ((var0 != class_aim.J) && (var0 != class_aim.F)) {
+				if (var0.f(var1, var2) == -1.0F) {
+					return false;
+				}
+
+				if (var0.k() == 2) {
+					return false;
+				}
+
+				if (var0.k() == 1) {
+					if (!var4) {
+						return false;
+					}
+
+					return true;
+				}
+			} else if (((Boolean) var1.p(var2).b(a)).booleanValue()) {
+				return false;
+			}
+
+			return !(var0 instanceof class_ajy);
+		} else {
+			return false;
+		}
+	}
+
+	private boolean a(class_ago var1, class_cj var2, class_cq var3, boolean var4) {
+		if (!var4) {
+			var1.g(var2.a(var3));
+		}
+
+		class_apk var5 = new class_apk(var1, var2, var3, var4);
+		List var6 = var5.c();
+		List var7 = var5.d();
+		if (!var5.a()) {
+			return false;
+		} else {
+			int var8 = var6.size() + var7.size();
+			class_ail[] var9 = new class_ail[var8];
+			class_cq var10 = var4 ? var3 : var3.d();
+
+			int var11;
+			class_cj var12;
+			for (var11 = var7.size() - 1; var11 >= 0; --var11) {
+				var12 = (class_cj) var7.get(var11);
+				class_ail var13 = var1.p(var12).c();
+				var13.b(var1, var12, var1.p(var12), 0);
+				var1.g(var12);
+				--var8;
+				var9[var8] = var13;
+			}
+
+			class_apn var18;
+			for (var11 = var6.size() - 1; var11 >= 0; --var11) {
+				var12 = (class_cj) var6.get(var11);
+				var18 = var1.p(var12);
+				class_ail var14 = var18.c();
+				var14.c(var18);
+				var1.g(var12);
+				var12 = var12.a(var10);
+				var1.a(var12, class_aim.M.S().a(b, var3), 4);
+				var1.a(var12, class_apj.a(var18, var3, var4, false));
+				--var8;
+				var9[var8] = var14;
+			}
+
+			class_cj var16 = var2.a(var3);
+			if (var4) {
+				class_aph.class_a_in_class_aph var17 = N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a;
+				var18 = class_aim.K.S().a(class_ajk.b, var3).a(class_aph.a, var17);
+				class_apn var20 = class_aim.M.S().a(class_apj.a, var3).a(class_apj.b, N ? class_aph.class_a_in_class_aph.b : class_aph.class_a_in_class_aph.a);
+				var1.a(var16, var20, 4);
+				var1.a(var16, class_apj.a(var18, var3, true, false));
+			}
+
+			int var19;
+			for (var19 = var7.size() - 1; var19 >= 0; --var19) {
+				var1.d((class_cj) var7.get(var19), var9[var8++]);
+			}
+
+			for (var19 = var6.size() - 1; var19 >= 0; --var19) {
+				var1.d((class_cj) var6.get(var19), var9[var8++]);
+			}
+
+			if (var4) {
+				var1.d(var16, class_aim.K);
+				var1.d(var2, this);
+			}
+
+			return true;
+		}
+	}
+
+	@Override
+	public class_apn a(int var1) {
+		return S().a(b, b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0));
+	}
+
+	@Override
+	public int c(class_apn var1) {
+		byte var2 = 0;
+		int var3 = var2 | ((class_cq) var1.b(b)).a();
+		if (((Boolean) var1.b(a)).booleanValue()) {
+			var3 |= 8;
+		}
+
+		return var3;
+	}
+
+	@Override
+	public class_apn a(class_apn var1, class_ail.class_c_in_class_ail var2) {
+		return var1.c() != this ? var1 : var1.a(b, var2.a((class_cq) var1.b(b)));
+	}
+
+	@Override
+	public class_apn a(class_apn var1, class_ail.class_a_in_class_ail var2) {
+		return var1.c() != this ? var1 : this.a(var1, var2.a((class_cq) var1.b(b)));
+	}
+
+	@Override
+	protected class_apo e() {
+		return new class_apo(this, new class_aqc[] { b, a });
+	}
+
+	// $FF: synthetic class
+	static class SyntheticClass_1 {
+		// $FF: synthetic field
+		static final int[] a = new int[class_cq.values().length];
+
+		static {
+			try {
+				a[class_cq.a.ordinal()] = 1;
+			} catch (NoSuchFieldError var6) {
+				;
+			}
+
+			try {
+				a[class_cq.b.ordinal()] = 2;
+			} catch (NoSuchFieldError var5) {
+				;
+			}
+
+			try {
+				a[class_cq.c.ordinal()] = 3;
+			} catch (NoSuchFieldError var4) {
+				;
+			}
+
+			try {
+				a[class_cq.d.ordinal()] = 4;
+			} catch (NoSuchFieldError var3) {
+				;
+			}
+
+			try {
+				a[class_cq.e.ordinal()] = 5;
+			} catch (NoSuchFieldError var2) {
+				;
+			}
+
+			try {
+				a[class_cq.f.ordinal()] = 6;
+			} catch (NoSuchFieldError var1) {
+				;
+			}
+
+		}
+	}
 }

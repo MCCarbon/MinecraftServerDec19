@@ -8,6 +8,7 @@ import io.netty.buffer.ByteBufProcessor;
 import io.netty.handler.codec.DecoderException;
 import io.netty.handler.codec.EncoderException;
 
+import java.io.DataOutput;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -21,915 +22,953 @@ import java.util.UUID;
 import com.google.common.base.Charsets;
 
 public class PacketDataSerializer extends ByteBuf {
+	private final ByteBuf a;
 
-	private final ByteBuf byteBuf;
-
-	public PacketDataSerializer(ByteBuf buf) {
-		byteBuf = buf;
+	public PacketDataSerializer(ByteBuf var1) {
+		a = var1;
 	}
 
-	public static int getVarIntLength(int i) {
+	public static int a(int var0) {
 		for (int var1 = 1; var1 < 5; ++var1) {
-			if ((i & (-1 << (var1 * 7))) == 0) {
+			if ((var0 & (-1 << (var1 * 7))) == 0) {
 				return var1;
 			}
 		}
+
 		return 5;
 	}
 
-	public void writeArray(byte[] array) {
-		writeVarInt(array.length);
-		this.writeBytes(array);
+	public void a(byte[] var1) {
+		this.b(var1.length);
+		this.writeBytes(var1);
 	}
 
-	public byte[] readArray() {
-		byte[] array = new byte[readVarInt()];
-		this.readBytes(array);
-		return array;
+	public byte[] a() {
+		byte[] var1 = new byte[g()];
+		this.readBytes(var1);
+		return var1;
 	}
 
-	public BlockPosition readBlockPosition() {
-		return BlockPosition.fromLong(readLong());
+	public void a(int[] var1) {
+		this.b(var1.length);
+
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			writeInt(var1[var2]);
+		}
+
 	}
 
-	public void writeBlockPosition(BlockPosition pos) {
-		writeLong(pos.asLong());
+	public int[] b() {
+		int[] var1 = new int[g()];
+
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			var1[var2] = readInt();
+		}
+
+		return var1;
 	}
 
-	public IChatBaseComponent readChat() throws IOException {
-		return IChatBaseComponent.ChatSerializer.fromJson(readString(32767));
+	public void a(long[] var1) {
+		this.b(var1.length);
+
+		for (int var2 = 0; var2 < var1.length; ++var2) {
+			writeLong(var1[var2]);
+		}
+
 	}
 
-	public void writeChat(IChatBaseComponent chat) throws IOException {
-		writeString(IChatBaseComponent.ChatSerializer.toJson(chat));
+	public class_cj e() {
+		return class_cj.a(readLong());
 	}
 
-	public <T extends Enum<T>> T readEnum(Class<T> enumClass) {
-		return enumClass.getEnumConstants()[readVarInt()];
+	public void a(class_cj var1) {
+		writeLong(var1.g());
 	}
 
-	public void writeEnum(Enum<?> e) {
-		writeVarInt(e.ordinal());
+	public class_eu f() {
+		return class_eu.class_a_in_class_eu.a(c(32767));
 	}
 
-	public int readVarInt() {
-		int i = 0;
-		int length = 0;
+	public void a(class_eu var1) {
+		this.a(class_eu.class_a_in_class_eu.a(var1));
+	}
 
-		byte b;
+	public Enum a(Class var1) {
+		return ((Enum[]) var1.getEnumConstants())[g()];
+	}
+
+	public void a(Enum var1) {
+		this.b(var1.ordinal());
+	}
+
+	public int g() {
+		int var1 = 0;
+		int var2 = 0;
+
+		byte var3;
 		do {
-			b = readByte();
-			i |= (b & 127) << (length++ * 7);
-			if (length > 5) {
+			var3 = readByte();
+			var1 |= (var3 & 127) << (var2++ * 7);
+			if (var2 > 5) {
 				throw new RuntimeException("VarInt too big");
 			}
-		} while ((b & 128) == 128);
+		} while ((var3 & 128) == 128);
 
-		return i;
+		return var1;
 	}
 
-	public long readVarLong() {
-		long l = 0L;
-		int length = 0;
+	public long h() {
+		long var1 = 0L;
+		int var3 = 0;
 
-		byte b;
+		byte var4;
 		do {
-			b = readByte();
-			l |= (long) (b & 127) << (length++ * 7);
-			if (length > 10) {
+			var4 = readByte();
+			var1 |= (long) (var4 & 127) << (var3++ * 7);
+			if (var3 > 10) {
 				throw new RuntimeException("VarLong too big");
 			}
-		} while ((b & 128) == 128);
+		} while ((var4 & 128) == 128);
 
-		return l;
+		return var1;
 	}
 
-	public void writeUUID(UUID uuid) {
-		writeLong(uuid.getMostSignificantBits());
-		writeLong(uuid.getLeastSignificantBits());
+	public void a(UUID var1) {
+		writeLong(var1.getMostSignificantBits());
+		writeLong(var1.getLeastSignificantBits());
 	}
 
-	public UUID readUUID() {
+	public UUID i() {
 		return new UUID(readLong(), readLong());
 	}
 
-	public void writeVarInt(int i) {
-		while ((i & -128) != 0) {
-			writeByte((i & 127) | 128);
-			i >>>= 7;
+	public void b(int var1) {
+		while ((var1 & -128) != 0) {
+			writeByte((var1 & 127) | 128);
+			var1 >>>= 7;
 		}
-		writeByte(i);
+
+		writeByte(var1);
 	}
 
-	public void writeVarLong(long l) {
-		while ((l & -128L) != 0L) {
-			writeByte((int) (l & 127L) | 128);
-			l >>>= 7;
+	public void b(long var1) {
+		while ((var1 & -128L) != 0L) {
+			writeByte((int) (var1 & 127L) | 128);
+			var1 >>>= 7;
 		}
-		writeByte((int) l);
+
+		writeByte((int) var1);
 	}
 
-	public void writeNBTTagCompound(NBTTagCompound compound) {
-		if (compound == null) {
+	public void a(class_dn var1) {
+		if (var1 == null) {
 			writeByte(0);
 		} else {
 			try {
-				NBTCompressedStreamTools.writeToData(compound, (new ByteBufOutputStream(this)));
+				class_dx.a(var1, (DataOutput) (new ByteBufOutputStream(this)));
 			} catch (IOException var3) {
 				throw new EncoderException(var3);
 			}
 		}
+
 	}
 
-	public NBTTagCompound readNBTTagCompund() throws IOException {
-		int readerIndex = this.readerIndex();
-		byte length = readByte();
-		if (length == 0) {
+	public class_dn j() {
+		int var1 = this.readerIndex();
+		byte var2 = readByte();
+		if (var2 == 0) {
 			return null;
 		} else {
-			this.readerIndex(readerIndex);
-			return NBTCompressedStreamTools.frowDataOutput((new ByteBufInputStream(this)), (new NBTReadLimiter(2097152L)));
+			this.readerIndex(var1);
+
+			try {
+				return class_dx.a((new ByteBufInputStream(this)), (new class_dw(2097152L)));
+			} catch (IOException var4) {
+				throw new EncoderException(var4);
+			}
 		}
 	}
 
-	public void writeItemStack(ItemStack var1) {
+	public void a(class_aco var1) {
 		if (var1 == null) {
 			writeShort(-1);
 		} else {
-			writeShort(Item.getId(var1.getItem()));
-			writeByte(var1.count);
+			writeShort(class_acm.b(var1.b()));
+			writeByte(var1.b);
 			writeShort(var1.i());
-			NBTTagCompound var2 = null;
-			if (var1.getItem().usesDurability() || var1.getItem().shouldSendNBT()) {
-				var2 = var1.getTag();
+			class_dn var2 = null;
+			if (var1.b().m() || var1.b().p()) {
+				var2 = var1.o();
 			}
 
-			writeNBTTagCompound(var2);
+			this.a(var2);
 		}
+
 	}
 
-	public ItemStack readItemStack() throws IOException {
-		ItemStack stack = null;
-		short id = readShort();
-		if (id >= 0) {
-			byte count = readByte();
-			short data = readShort();
-			stack = new ItemStack(Item.getById(id), count, data);
-			stack.setTag(readNBTTagCompund());
+	public class_aco k() {
+		class_aco var1 = null;
+		short var2 = readShort();
+		if (var2 >= 0) {
+			byte var3 = readByte();
+			short var4 = readShort();
+			var1 = new class_aco(class_acm.c(var2), var3, var4);
+			var1.d(j());
 		}
-		return stack;
+
+		return var1;
 	}
 
-	public String readString(int limit) {
-		int length = readVarInt();
-		if (length > (limit * 4)) {
-			throw new DecoderException("The received encoded string buffer length is longer than maximum allowed (" + length + " > " + (limit * 4) + ")");
-		} else if (length < 0) {
+	public String c(int var1) {
+		int var2 = g();
+		if (var2 > (var1 * 4)) {
+			throw new DecoderException("The received encoded string buffer length is longer than maximum allowed (" + var2 + " > " + (var1 * 4) + ")");
+		} else if (var2 < 0) {
 			throw new DecoderException("The received encoded string buffer length is less than zero! Weird string!");
 		} else {
-			String string = new String(this.readBytes(length).array(), Charsets.UTF_8);
-			if (string.length() > limit) {
-				throw new DecoderException("The received string length is longer than maximum allowed (" + length + " > " + limit + ")");
+			String var3 = new String(this.readBytes(var2).array(), Charsets.UTF_8);
+			if (var3.length() > var1) {
+				throw new DecoderException("The received string length is longer than maximum allowed (" + var2 + " > " + var1 + ")");
 			} else {
-				return string;
+				return var3;
 			}
 		}
 	}
 
-	public PacketDataSerializer writeString(String string) {
-		byte[] bytes = string.getBytes(Charsets.UTF_8);
-		if (bytes.length > 32767) {
-			throw new EncoderException("String too big (was " + string.length() + " bytes encoded, max " + 32767 + ")");
+	public PacketDataSerializer a(String var1) {
+		byte[] var2 = var1.getBytes(Charsets.UTF_8);
+		if (var2.length > 32767) {
+			throw new EncoderException("String too big (was " + var1.length() + " bytes encoded, max " + 32767 + ")");
 		} else {
-			writeVarInt(bytes.length);
-			this.writeBytes(bytes);
+			this.b(var2.length);
+			this.writeBytes(var2);
 			return this;
 		}
 	}
 
 	@Override
 	public int capacity() {
-		return byteBuf.capacity();
+		return a.capacity();
 	}
 
 	@Override
 	public ByteBuf capacity(int var1) {
-		return byteBuf.capacity(var1);
+		return a.capacity(var1);
 	}
 
 	@Override
 	public int maxCapacity() {
-		return byteBuf.maxCapacity();
+		return a.maxCapacity();
 	}
 
 	@Override
 	public ByteBufAllocator alloc() {
-		return byteBuf.alloc();
+		return a.alloc();
 	}
 
 	@Override
 	public ByteOrder order() {
-		return byteBuf.order();
+		return a.order();
 	}
 
 	@Override
 	public ByteBuf order(ByteOrder var1) {
-		return byteBuf.order(var1);
+		return a.order(var1);
 	}
 
 	@Override
 	public ByteBuf unwrap() {
-		return byteBuf.unwrap();
+		return a.unwrap();
 	}
 
 	@Override
 	public boolean isDirect() {
-		return byteBuf.isDirect();
+		return a.isDirect();
 	}
 
 	@Override
 	public int readerIndex() {
-		return byteBuf.readerIndex();
+		return a.readerIndex();
 	}
 
 	@Override
 	public ByteBuf readerIndex(int var1) {
-		return byteBuf.readerIndex(var1);
+		return a.readerIndex(var1);
 	}
 
 	@Override
 	public int writerIndex() {
-		return byteBuf.writerIndex();
+		return a.writerIndex();
 	}
 
 	@Override
 	public ByteBuf writerIndex(int var1) {
-		return byteBuf.writerIndex(var1);
+		return a.writerIndex(var1);
 	}
 
 	@Override
 	public ByteBuf setIndex(int var1, int var2) {
-		return byteBuf.setIndex(var1, var2);
+		return a.setIndex(var1, var2);
 	}
 
 	@Override
 	public int readableBytes() {
-		return byteBuf.readableBytes();
+		return a.readableBytes();
 	}
 
 	@Override
 	public int writableBytes() {
-		return byteBuf.writableBytes();
+		return a.writableBytes();
 	}
 
 	@Override
 	public int maxWritableBytes() {
-		return byteBuf.maxWritableBytes();
+		return a.maxWritableBytes();
 	}
 
 	@Override
 	public boolean isReadable() {
-		return byteBuf.isReadable();
+		return a.isReadable();
 	}
 
 	@Override
 	public boolean isReadable(int var1) {
-		return byteBuf.isReadable(var1);
+		return a.isReadable(var1);
 	}
 
 	@Override
 	public boolean isWritable() {
-		return byteBuf.isWritable();
+		return a.isWritable();
 	}
 
 	@Override
 	public boolean isWritable(int var1) {
-		return byteBuf.isWritable(var1);
+		return a.isWritable(var1);
 	}
 
 	@Override
 	public ByteBuf clear() {
-		return byteBuf.clear();
+		return a.clear();
 	}
 
 	@Override
 	public ByteBuf markReaderIndex() {
-		return byteBuf.markReaderIndex();
+		return a.markReaderIndex();
 	}
 
 	@Override
 	public ByteBuf resetReaderIndex() {
-		return byteBuf.resetReaderIndex();
+		return a.resetReaderIndex();
 	}
 
 	@Override
 	public ByteBuf markWriterIndex() {
-		return byteBuf.markWriterIndex();
+		return a.markWriterIndex();
 	}
 
 	@Override
 	public ByteBuf resetWriterIndex() {
-		return byteBuf.resetWriterIndex();
+		return a.resetWriterIndex();
 	}
 
 	@Override
 	public ByteBuf discardReadBytes() {
-		return byteBuf.discardReadBytes();
+		return a.discardReadBytes();
 	}
 
 	@Override
 	public ByteBuf discardSomeReadBytes() {
-		return byteBuf.discardSomeReadBytes();
+		return a.discardSomeReadBytes();
 	}
 
 	@Override
 	public ByteBuf ensureWritable(int var1) {
-		return byteBuf.ensureWritable(var1);
+		return a.ensureWritable(var1);
 	}
 
 	@Override
 	public int ensureWritable(int var1, boolean var2) {
-		return byteBuf.ensureWritable(var1, var2);
+		return a.ensureWritable(var1, var2);
 	}
 
 	@Override
 	public boolean getBoolean(int var1) {
-		return byteBuf.getBoolean(var1);
+		return a.getBoolean(var1);
 	}
 
 	@Override
 	public byte getByte(int var1) {
-		return byteBuf.getByte(var1);
+		return a.getByte(var1);
 	}
 
 	@Override
 	public short getUnsignedByte(int var1) {
-		return byteBuf.getUnsignedByte(var1);
+		return a.getUnsignedByte(var1);
 	}
 
 	@Override
 	public short getShort(int var1) {
-		return byteBuf.getShort(var1);
+		return a.getShort(var1);
 	}
 
 	@Override
 	public int getUnsignedShort(int var1) {
-		return byteBuf.getUnsignedShort(var1);
+		return a.getUnsignedShort(var1);
 	}
 
 	@Override
 	public int getMedium(int var1) {
-		return byteBuf.getMedium(var1);
+		return a.getMedium(var1);
 	}
 
 	@Override
 	public int getUnsignedMedium(int var1) {
-		return byteBuf.getUnsignedMedium(var1);
+		return a.getUnsignedMedium(var1);
 	}
 
 	@Override
 	public int getInt(int var1) {
-		return byteBuf.getInt(var1);
+		return a.getInt(var1);
 	}
 
 	@Override
 	public long getUnsignedInt(int var1) {
-		return byteBuf.getUnsignedInt(var1);
+		return a.getUnsignedInt(var1);
 	}
 
 	@Override
 	public long getLong(int var1) {
-		return byteBuf.getLong(var1);
+		return a.getLong(var1);
 	}
 
 	@Override
 	public char getChar(int var1) {
-		return byteBuf.getChar(var1);
+		return a.getChar(var1);
 	}
 
 	@Override
 	public float getFloat(int var1) {
-		return byteBuf.getFloat(var1);
+		return a.getFloat(var1);
 	}
 
 	@Override
 	public double getDouble(int var1) {
-		return byteBuf.getDouble(var1);
+		return a.getDouble(var1);
 	}
 
 	@Override
 	public ByteBuf getBytes(int var1, ByteBuf var2) {
-		return byteBuf.getBytes(var1, var2);
+		return a.getBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf getBytes(int var1, ByteBuf var2, int var3) {
-		return byteBuf.getBytes(var1, var2, var3);
+		return a.getBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf getBytes(int var1, ByteBuf var2, int var3, int var4) {
-		return byteBuf.getBytes(var1, var2, var3, var4);
+		return a.getBytes(var1, var2, var3, var4);
 	}
 
 	@Override
 	public ByteBuf getBytes(int var1, byte[] var2) {
-		return byteBuf.getBytes(var1, var2);
+		return a.getBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf getBytes(int var1, byte[] var2, int var3, int var4) {
-		return byteBuf.getBytes(var1, var2, var3, var4);
+		return a.getBytes(var1, var2, var3, var4);
 	}
 
 	@Override
 	public ByteBuf getBytes(int var1, ByteBuffer var2) {
-		return byteBuf.getBytes(var1, var2);
+		return a.getBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf getBytes(int var1, OutputStream var2, int var3) throws IOException {
-		return byteBuf.getBytes(var1, var2, var3);
+		return a.getBytes(var1, var2, var3);
 	}
 
 	@Override
 	public int getBytes(int var1, GatheringByteChannel var2, int var3) throws IOException {
-		return byteBuf.getBytes(var1, var2, var3);
+		return a.getBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf setBoolean(int var1, boolean var2) {
-		return byteBuf.setBoolean(var1, var2);
+		return a.setBoolean(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setByte(int var1, int var2) {
-		return byteBuf.setByte(var1, var2);
+		return a.setByte(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setShort(int var1, int var2) {
-		return byteBuf.setShort(var1, var2);
+		return a.setShort(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setMedium(int var1, int var2) {
-		return byteBuf.setMedium(var1, var2);
+		return a.setMedium(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setInt(int var1, int var2) {
-		return byteBuf.setInt(var1, var2);
+		return a.setInt(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setLong(int var1, long var2) {
-		return byteBuf.setLong(var1, var2);
+		return a.setLong(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setChar(int var1, int var2) {
-		return byteBuf.setChar(var1, var2);
+		return a.setChar(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setFloat(int var1, float var2) {
-		return byteBuf.setFloat(var1, var2);
+		return a.setFloat(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setDouble(int var1, double var2) {
-		return byteBuf.setDouble(var1, var2);
+		return a.setDouble(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setBytes(int var1, ByteBuf var2) {
-		return byteBuf.setBytes(var1, var2);
+		return a.setBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setBytes(int var1, ByteBuf var2, int var3) {
-		return byteBuf.setBytes(var1, var2, var3);
+		return a.setBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf setBytes(int var1, ByteBuf var2, int var3, int var4) {
-		return byteBuf.setBytes(var1, var2, var3, var4);
+		return a.setBytes(var1, var2, var3, var4);
 	}
 
 	@Override
 	public ByteBuf setBytes(int var1, byte[] var2) {
-		return byteBuf.setBytes(var1, var2);
+		return a.setBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf setBytes(int var1, byte[] var2, int var3, int var4) {
-		return byteBuf.setBytes(var1, var2, var3, var4);
+		return a.setBytes(var1, var2, var3, var4);
 	}
 
 	@Override
 	public ByteBuf setBytes(int var1, ByteBuffer var2) {
-		return byteBuf.setBytes(var1, var2);
+		return a.setBytes(var1, var2);
 	}
 
 	@Override
 	public int setBytes(int var1, InputStream var2, int var3) throws IOException {
-		return byteBuf.setBytes(var1, var2, var3);
+		return a.setBytes(var1, var2, var3);
 	}
 
 	@Override
 	public int setBytes(int var1, ScatteringByteChannel var2, int var3) throws IOException {
-		return byteBuf.setBytes(var1, var2, var3);
+		return a.setBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf setZero(int var1, int var2) {
-		return byteBuf.setZero(var1, var2);
+		return a.setZero(var1, var2);
 	}
 
 	@Override
 	public boolean readBoolean() {
-		return byteBuf.readBoolean();
+		return a.readBoolean();
 	}
 
 	@Override
 	public byte readByte() {
-		return byteBuf.readByte();
+		return a.readByte();
 	}
 
 	@Override
 	public short readUnsignedByte() {
-		return byteBuf.readUnsignedByte();
+		return a.readUnsignedByte();
 	}
 
 	@Override
 	public short readShort() {
-		return byteBuf.readShort();
+		return a.readShort();
 	}
 
 	@Override
 	public int readUnsignedShort() {
-		return byteBuf.readUnsignedShort();
+		return a.readUnsignedShort();
 	}
 
 	@Override
 	public int readMedium() {
-		return byteBuf.readMedium();
+		return a.readMedium();
 	}
 
 	@Override
 	public int readUnsignedMedium() {
-		return byteBuf.readUnsignedMedium();
+		return a.readUnsignedMedium();
 	}
 
 	@Override
 	public int readInt() {
-		return byteBuf.readInt();
+		return a.readInt();
 	}
 
 	@Override
 	public long readUnsignedInt() {
-		return byteBuf.readUnsignedInt();
+		return a.readUnsignedInt();
 	}
 
 	@Override
 	public long readLong() {
-		return byteBuf.readLong();
+		return a.readLong();
 	}
 
 	@Override
 	public char readChar() {
-		return byteBuf.readChar();
+		return a.readChar();
 	}
 
 	@Override
 	public float readFloat() {
-		return byteBuf.readFloat();
+		return a.readFloat();
 	}
 
 	@Override
 	public double readDouble() {
-		return byteBuf.readDouble();
+		return a.readDouble();
 	}
 
 	@Override
 	public ByteBuf readBytes(int var1) {
-		return byteBuf.readBytes(var1);
+		return a.readBytes(var1);
 	}
 
 	@Override
 	public ByteBuf readSlice(int var1) {
-		return byteBuf.readSlice(var1);
+		return a.readSlice(var1);
 	}
 
 	@Override
 	public ByteBuf readBytes(ByteBuf var1) {
-		return byteBuf.readBytes(var1);
+		return a.readBytes(var1);
 	}
 
 	@Override
 	public ByteBuf readBytes(ByteBuf var1, int var2) {
-		return byteBuf.readBytes(var1, var2);
+		return a.readBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf readBytes(ByteBuf var1, int var2, int var3) {
-		return byteBuf.readBytes(var1, var2, var3);
+		return a.readBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf readBytes(byte[] var1) {
-		return byteBuf.readBytes(var1);
+		return a.readBytes(var1);
 	}
 
 	@Override
 	public ByteBuf readBytes(byte[] var1, int var2, int var3) {
-		return byteBuf.readBytes(var1, var2, var3);
+		return a.readBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf readBytes(ByteBuffer var1) {
-		return byteBuf.readBytes(var1);
+		return a.readBytes(var1);
 	}
 
 	@Override
 	public ByteBuf readBytes(OutputStream var1, int var2) throws IOException {
-		return byteBuf.readBytes(var1, var2);
+		return a.readBytes(var1, var2);
 	}
 
 	@Override
 	public int readBytes(GatheringByteChannel var1, int var2) throws IOException {
-		return byteBuf.readBytes(var1, var2);
+		return a.readBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf skipBytes(int var1) {
-		return byteBuf.skipBytes(var1);
+		return a.skipBytes(var1);
 	}
 
 	@Override
 	public ByteBuf writeBoolean(boolean var1) {
-		return byteBuf.writeBoolean(var1);
+		return a.writeBoolean(var1);
 	}
 
 	@Override
 	public ByteBuf writeByte(int var1) {
-		return byteBuf.writeByte(var1);
+		return a.writeByte(var1);
 	}
 
 	@Override
 	public ByteBuf writeShort(int var1) {
-		return byteBuf.writeShort(var1);
+		return a.writeShort(var1);
 	}
 
 	@Override
 	public ByteBuf writeMedium(int var1) {
-		return byteBuf.writeMedium(var1);
+		return a.writeMedium(var1);
 	}
 
 	@Override
 	public ByteBuf writeInt(int var1) {
-		return byteBuf.writeInt(var1);
+		return a.writeInt(var1);
 	}
 
 	@Override
 	public ByteBuf writeLong(long var1) {
-		return byteBuf.writeLong(var1);
+		return a.writeLong(var1);
 	}
 
 	@Override
 	public ByteBuf writeChar(int var1) {
-		return byteBuf.writeChar(var1);
+		return a.writeChar(var1);
 	}
 
 	@Override
 	public ByteBuf writeFloat(float var1) {
-		return byteBuf.writeFloat(var1);
+		return a.writeFloat(var1);
 	}
 
 	@Override
 	public ByteBuf writeDouble(double var1) {
-		return byteBuf.writeDouble(var1);
+		return a.writeDouble(var1);
 	}
 
 	@Override
 	public ByteBuf writeBytes(ByteBuf var1) {
-		return byteBuf.writeBytes(var1);
+		return a.writeBytes(var1);
 	}
 
 	@Override
 	public ByteBuf writeBytes(ByteBuf var1, int var2) {
-		return byteBuf.writeBytes(var1, var2);
+		return a.writeBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf writeBytes(ByteBuf var1, int var2, int var3) {
-		return byteBuf.writeBytes(var1, var2, var3);
+		return a.writeBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf writeBytes(byte[] var1) {
-		return byteBuf.writeBytes(var1);
+		return a.writeBytes(var1);
 	}
 
 	@Override
 	public ByteBuf writeBytes(byte[] var1, int var2, int var3) {
-		return byteBuf.writeBytes(var1, var2, var3);
+		return a.writeBytes(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf writeBytes(ByteBuffer var1) {
-		return byteBuf.writeBytes(var1);
+		return a.writeBytes(var1);
 	}
 
 	@Override
 	public int writeBytes(InputStream var1, int var2) throws IOException {
-		return byteBuf.writeBytes(var1, var2);
+		return a.writeBytes(var1, var2);
 	}
 
 	@Override
 	public int writeBytes(ScatteringByteChannel var1, int var2) throws IOException {
-		return byteBuf.writeBytes(var1, var2);
+		return a.writeBytes(var1, var2);
 	}
 
 	@Override
 	public ByteBuf writeZero(int var1) {
-		return byteBuf.writeZero(var1);
+		return a.writeZero(var1);
 	}
 
 	@Override
 	public int indexOf(int var1, int var2, byte var3) {
-		return byteBuf.indexOf(var1, var2, var3);
+		return a.indexOf(var1, var2, var3);
 	}
 
 	@Override
 	public int bytesBefore(byte var1) {
-		return byteBuf.bytesBefore(var1);
+		return a.bytesBefore(var1);
 	}
 
 	@Override
 	public int bytesBefore(int var1, byte var2) {
-		return byteBuf.bytesBefore(var1, var2);
+		return a.bytesBefore(var1, var2);
 	}
 
 	@Override
 	public int bytesBefore(int var1, int var2, byte var3) {
-		return byteBuf.bytesBefore(var1, var2, var3);
+		return a.bytesBefore(var1, var2, var3);
 	}
 
 	@Override
 	public int forEachByte(ByteBufProcessor var1) {
-		return byteBuf.forEachByte(var1);
+		return a.forEachByte(var1);
 	}
 
 	@Override
 	public int forEachByte(int var1, int var2, ByteBufProcessor var3) {
-		return byteBuf.forEachByte(var1, var2, var3);
+		return a.forEachByte(var1, var2, var3);
 	}
 
 	@Override
 	public int forEachByteDesc(ByteBufProcessor var1) {
-		return byteBuf.forEachByteDesc(var1);
+		return a.forEachByteDesc(var1);
 	}
 
 	@Override
 	public int forEachByteDesc(int var1, int var2, ByteBufProcessor var3) {
-		return byteBuf.forEachByteDesc(var1, var2, var3);
+		return a.forEachByteDesc(var1, var2, var3);
 	}
 
 	@Override
 	public ByteBuf copy() {
-		return byteBuf.copy();
+		return a.copy();
 	}
 
 	@Override
 	public ByteBuf copy(int var1, int var2) {
-		return byteBuf.copy(var1, var2);
+		return a.copy(var1, var2);
 	}
 
 	@Override
 	public ByteBuf slice() {
-		return byteBuf.slice();
+		return a.slice();
 	}
 
 	@Override
 	public ByteBuf slice(int var1, int var2) {
-		return byteBuf.slice(var1, var2);
+		return a.slice(var1, var2);
 	}
 
 	@Override
 	public ByteBuf duplicate() {
-		return byteBuf.duplicate();
+		return a.duplicate();
 	}
 
 	@Override
 	public int nioBufferCount() {
-		return byteBuf.nioBufferCount();
+		return a.nioBufferCount();
 	}
 
 	@Override
 	public ByteBuffer nioBuffer() {
-		return byteBuf.nioBuffer();
+		return a.nioBuffer();
 	}
 
 	@Override
 	public ByteBuffer nioBuffer(int var1, int var2) {
-		return byteBuf.nioBuffer(var1, var2);
+		return a.nioBuffer(var1, var2);
 	}
 
 	@Override
 	public ByteBuffer internalNioBuffer(int var1, int var2) {
-		return byteBuf.internalNioBuffer(var1, var2);
+		return a.internalNioBuffer(var1, var2);
 	}
 
 	@Override
 	public ByteBuffer[] nioBuffers() {
-		return byteBuf.nioBuffers();
+		return a.nioBuffers();
 	}
 
 	@Override
 	public ByteBuffer[] nioBuffers(int var1, int var2) {
-		return byteBuf.nioBuffers(var1, var2);
+		return a.nioBuffers(var1, var2);
 	}
 
 	@Override
 	public boolean hasArray() {
-		return byteBuf.hasArray();
+		return a.hasArray();
 	}
 
 	@Override
 	public byte[] array() {
-		return byteBuf.array();
+		return a.array();
 	}
 
 	@Override
 	public int arrayOffset() {
-		return byteBuf.arrayOffset();
+		return a.arrayOffset();
 	}
 
 	@Override
 	public boolean hasMemoryAddress() {
-		return byteBuf.hasMemoryAddress();
+		return a.hasMemoryAddress();
 	}
 
 	@Override
 	public long memoryAddress() {
-		return byteBuf.memoryAddress();
+		return a.memoryAddress();
 	}
 
 	@Override
 	public String toString(Charset var1) {
-		return byteBuf.toString(var1);
+		return a.toString(var1);
 	}
 
 	@Override
 	public String toString(int var1, int var2, Charset var3) {
-		return byteBuf.toString(var1, var2, var3);
+		return a.toString(var1, var2, var3);
 	}
 
 	@Override
 	public int hashCode() {
-		return byteBuf.hashCode();
+		return a.hashCode();
 	}
 
 	@Override
 	public boolean equals(Object var1) {
-		return byteBuf.equals(var1);
+		return a.equals(var1);
 	}
 
 	@Override
 	public int compareTo(ByteBuf var1) {
-		return byteBuf.compareTo(var1);
+		return a.compareTo(var1);
 	}
 
 	@Override
 	public String toString() {
-		return byteBuf.toString();
+		return a.toString();
 	}
 
 	@Override
 	public ByteBuf retain(int var1) {
-		return byteBuf.retain(var1);
+		return a.retain(var1);
 	}
 
 	@Override
 	public ByteBuf retain() {
-		return byteBuf.retain();
+		return a.retain();
 	}
 
 	@Override
 	public int refCnt() {
-		return byteBuf.refCnt();
+		return a.refCnt();
 	}
 
 	@Override
 	public boolean release() {
-		return byteBuf.release();
+		return a.release();
 	}
 
 	@Override
 	public boolean release(int var1) {
-		return byteBuf.release(var1);
+		return a.release(var1);
 	}
 
 }

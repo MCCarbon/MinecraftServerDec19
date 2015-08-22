@@ -1,116 +1,97 @@
 package net.minecraft.server;
 
-import com.google.common.base.Predicate;
-import com.google.common.base.Predicates;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Entity;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityCreature;
-import net.minecraft.server.class_td;
-import net.minecraft.server.EntityHuman;
 
-public class class_sz extends class_td {
-   protected final Class a;
-   private final int g;
-   protected final class_sz.class_a_in_class_sz b;
-   protected Predicate c;
-   protected EntityLiving d;
+public class class_sz extends class_sr {
+	class_ago a;
+	protected class_rn b;
+	int c;
+	double d;
+	boolean e;
+	class_axc f;
+	Class g;
+	private int h;
+	private double i;
+	private double j;
+	private double k;
 
-   public class_sz(EntityCreature var1, Class var2, boolean var3) {
-      this(var1, var2, var3, false);
-   }
+	public class_sz(class_rn var1, Class var2, double var3, boolean var5) {
+		this(var1, var3, var5);
+		g = var2;
+	}
 
-   public class_sz(EntityCreature var1, Class var2, boolean var3, boolean var4) {
-      this(var1, var2, 10, var3, var4, (Predicate)null);
-   }
+	public class_sz(class_rn var1, double var2, boolean var4) {
+		b = var1;
+		a = var1.o;
+		d = var2;
+		e = var4;
+		this.a(3);
+	}
 
-   public class_sz(EntityCreature var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
-      super(var1, var4, var5);
-      this.a = var2;
-      this.g = var3;
-      this.b = new class_sz.class_a_in_class_sz(var1);
-      this.a(1);
-      this.c = new Predicate() {
-         public boolean a(EntityLiving var1) {
-            if(var6 != null && !var6.apply(var1)) {
-               return false;
-            } else {
-               if(var1 instanceof EntityHuman) {
-                  double var2 = class_sz.this.f();
-                  if(var1.ax()) {
-                     var2 *= 0.800000011920929D;
-                  }
+	@Override
+	public boolean a() {
+		class_rg var1 = b.w();
+		if (var1 == null) {
+			return false;
+		} else if (!var1.al()) {
+			return false;
+		} else if ((g != null) && !g.isAssignableFrom(var1.getClass())) {
+			return false;
+		} else {
+			f = b.u().a(var1);
+			return f != null;
+		}
+	}
 
-                  if(var1.aA()) {
-                     float var4 = ((EntityHuman)var1).cc();
-                     if(var4 < 0.1F) {
-                        var4 = 0.1F;
-                     }
+	@Override
+	public boolean b() {
+		class_rg var1 = b.w();
+		return var1 == null ? false : (!var1.al() ? false : (!e ? !b.u().m() : b.e(new class_cj(var1))));
+	}
 
-                     var2 *= (double)(0.7F * var4);
-                  }
+	@Override
+	public void c() {
+		b.u().a(f, d);
+		h = 0;
+	}
 
-                  if((double)var1.g(class_sz.this.e) > var2) {
-                     return false;
-                  }
-               }
+	@Override
+	public void d() {
+		b.u().n();
+	}
 
-               return class_sz.this.a(var1, false);
-            }
-         }
+	@Override
+	public void e() {
+		class_rg var1 = b.w();
+		b.q().a(var1, 30.0F, 30.0F);
+		double var2 = b.e(var1.s, var1.aX().b, var1.u);
+		double var4 = this.a(var1);
+		--h;
+		if ((e || b.v().a(var1)) && (h <= 0) && (((i == 0.0D) && (j == 0.0D) && (k == 0.0D)) || (var1.e(i, j, k) >= 1.0D) || (b.bj().nextFloat() < 0.05F))) {
+			i = var1.s;
+			j = var1.aX().b;
+			k = var1.u;
+			h = 4 + b.bj().nextInt(7);
+			if (var2 > 1024.0D) {
+				h += 10;
+			} else if (var2 > 256.0D) {
+				h += 5;
+			}
 
-         // $FF: synthetic method
-         public boolean apply(Object var1) {
-            return this.a((EntityLiving)var1);
-         }
-      };
-   }
+			if (!b.u().a(var1, d)) {
+				h += 15;
+			}
+		}
 
-   public boolean a() {
-      if(this.g > 0 && this.e.getRandom().nextInt(this.g) != 0) {
-         return false;
-      } else {
-         double var1 = this.f();
-         List var3 = this.e.world.getEntities(this.a, this.a(var1), Predicates.and(this.c, IEntitySelector.NOT_PLAYER_SPECTATOR));
-         Collections.sort(var3, this.b);
-         if(var3.isEmpty()) {
-            return false;
-         } else {
-            this.d = (EntityLiving)var3.get(0);
-            return true;
-         }
-      }
-   }
+		c = Math.max(c - 1, 0);
+		if ((var2 <= var4) && (c <= 0)) {
+			c = 20;
+			b.a(class_pu.a);
+			b.r(var1);
+		}
 
-   protected AxisAlignedBB a(double var1) {
-      return this.e.getBoundingBox().grow(var1, 4.0D, var1);
-   }
+	}
 
-   public void c() {
-      this.e.d(this.d);
-      super.c();
-   }
-
-   public static class class_a_in_class_sz implements Comparator {
-      private final Entity a;
-
-      public class_a_in_class_sz(Entity var1) {
-         this.a = var1;
-      }
-
-      public int a(Entity var1, Entity var2) {
-         double var3 = this.a.h(var1);
-         double var5 = this.a.h(var2);
-         return var3 < var5?-1:(var3 > var5?1:0);
-      }
-
-      // $FF: synthetic method
-      public int compare(Object var1, Object var2) {
-         return this.a((Entity)var1, (Entity)var2);
-      }
-   }
+	protected double a(class_rg var1) {
+		return (b.J * 2.0F * b.J * 2.0F) + var1.J;
+	}
 }

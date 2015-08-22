@@ -1,69 +1,165 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EntityCreature;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tm;
-import net.minecraft.server.class_to;
-import net.minecraft.server.class_tp;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
 
-public class class_rv extends class_rm {
-   private EntityCreature a;
-   private class_to b;
-   private int c = -1;
-   private int d = -1;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
-   public class_rv(EntityCreature var1) {
-      this.a = var1;
-      this.a(1);
-   }
+public class class_rv implements class_rq {
+	private final class_rt a;
+	private final class_rp b;
+	private final Map c = Maps.newHashMap();
+	private final Map d = Maps.newHashMap();
+	private final Map e = Maps.newHashMap();
+	private double f;
+	private boolean g = true;
+	private double h;
 
-   public boolean a() {
-      BlockPosition var1 = new BlockPosition(this.a);
-      if((!this.a.world.x() || this.a.world.T() && !this.a.world.getBiome(var1).e()) && !this.a.world.worldProvider.m()) {
-         if(this.a.getRandom().nextInt(50) != 0) {
-            return false;
-         } else if(this.c != -1 && this.a.e((double)this.c, this.a.locY, (double)this.d) < 4.0D) {
-            return false;
-         } else {
-            class_tp var2 = this.a.world.af().a(var1, 14);
-            if(var2 == null) {
-               return false;
-            } else {
-               this.b = var2.c(var1);
-               return this.b != null;
-            }
-         }
-      } else {
-         return false;
-      }
-   }
+	public class_rv(class_rt var1, class_rp var2) {
+		a = var1;
+		b = var2;
+		f = var2.b();
 
-   public boolean b() {
-      return !this.a.u().m();
-   }
+		for (int var3 = 0; var3 < 3; ++var3) {
+			c.put(Integer.valueOf(var3), Sets.newHashSet());
+		}
 
-   public void c() {
-      this.c = -1;
-      BlockPosition var1 = this.b.e();
-      int var2 = var1.getX();
-      int var3 = var1.getY();
-      int var4 = var1.getZ();
-      if(this.a.b(var1) > 256.0D) {
-         Vec3D var5 = class_tm.a(this.a, 14, 3, new Vec3D((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D));
-         if(var5 != null) {
-            this.a.u().a(var5.x, var5.y, var5.z, 1.0D);
-         }
-      } else {
-         this.a.u().a((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D, 1.0D);
-      }
+	}
 
-   }
+	@Override
+	public class_rp a() {
+		return b;
+	}
 
-   public void d() {
-      this.c = this.b.e().getX();
-      this.d = this.b.e().getZ();
-      this.b = null;
-   }
+	@Override
+	public double b() {
+		return f;
+	}
+
+	@Override
+	public void a(double var1) {
+		if (var1 != this.b()) {
+			f = var1;
+			f();
+		}
+	}
+
+	@Override
+	public Collection a(int var1) {
+		return (Collection) c.get(Integer.valueOf(var1));
+	}
+
+	@Override
+	public Collection c() {
+		HashSet var1 = Sets.newHashSet();
+
+		for (int var2 = 0; var2 < 3; ++var2) {
+			var1.addAll(this.a(var2));
+		}
+
+		return var1;
+	}
+
+	@Override
+	public class_rr a(UUID var1) {
+		return (class_rr) e.get(var1);
+	}
+
+	@Override
+	public boolean a(class_rr var1) {
+		return e.get(var1.a()) != null;
+	}
+
+	@Override
+	public void b(class_rr var1) {
+		if (this.a(var1.a()) != null) {
+			throw new IllegalArgumentException("Modifier is already applied on this attribute!");
+		} else {
+			Object var2 = d.get(var1.b());
+			if (var2 == null) {
+				var2 = Sets.newHashSet();
+				d.put(var1.b(), var2);
+			}
+
+			((Set) c.get(Integer.valueOf(var1.c()))).add(var1);
+			((Set) var2).add(var1);
+			e.put(var1.a(), var1);
+			f();
+		}
+	}
+
+	protected void f() {
+		g = true;
+		a.a(this);
+	}
+
+	@Override
+	public void c(class_rr var1) {
+		for (int var2 = 0; var2 < 3; ++var2) {
+			Set var3 = (Set) c.get(Integer.valueOf(var2));
+			var3.remove(var1);
+		}
+
+		Set var4 = (Set) d.get(var1.b());
+		if (var4 != null) {
+			var4.remove(var1);
+			if (var4.isEmpty()) {
+				d.remove(var1.b());
+			}
+		}
+
+		e.remove(var1.a());
+		f();
+	}
+
+	@Override
+	public double e() {
+		if (g) {
+			h = g();
+			g = false;
+		}
+
+		return h;
+	}
+
+	private double g() {
+		double var1 = this.b();
+
+		class_rr var4;
+		for (Iterator var3 = this.b(0).iterator(); var3.hasNext(); var1 += var4.d()) {
+			var4 = (class_rr) var3.next();
+		}
+
+		double var7 = var1;
+
+		Iterator var5;
+		class_rr var6;
+		for (var5 = this.b(1).iterator(); var5.hasNext(); var7 += var1 * var6.d()) {
+			var6 = (class_rr) var5.next();
+		}
+
+		for (var5 = this.b(2).iterator(); var5.hasNext(); var7 *= 1.0D + var6.d()) {
+			var6 = (class_rr) var5.next();
+		}
+
+		return b.a(var7);
+	}
+
+	private Collection b(int var1) {
+		HashSet var2 = Sets.newHashSet((Iterable) this.a(var1));
+
+		for (class_rp var3 = b.d(); var3 != null; var3 = var3.d()) {
+			class_rq var4 = a.a(var3);
+			if (var4 != null) {
+				var2.addAll(var4.a(var1));
+			}
+		}
+
+		return var2;
+	}
 }

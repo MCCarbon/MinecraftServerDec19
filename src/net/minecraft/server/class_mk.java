@@ -1,34 +1,47 @@
 package net.minecraft.server;
 
-import com.google.common.base.Charsets;
+import java.util.Date;
+import java.util.UUID;
 
-public class class_mk {
-   public static final char[] a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+import com.google.gson.JsonObject;
+import com.mojang.authlib.GameProfile;
 
-   public static String a(byte[] var0, int var1, int var2) {
-      int var3 = var2 - 1;
+public class class_mk extends class_lz {
+	public class_mk(GameProfile var1) {
+		this(var1, (Date) null, (String) null, (Date) null, (String) null);
+	}
 
-      int var4;
-      for(var4 = var1 > var3?var3:var1; 0 != var0[var4] && var4 < var3; ++var4) {
-         ;
-      }
+	public class_mk(GameProfile var1, Date var2, String var3, Date var4, String var5) {
+		super(var1, var4, var3, var4, var5);
+	}
 
-      return new String(var0, var1, var4 - var1, Charsets.UTF_8);
-   }
+	public class_mk(JsonObject var1) {
+		super(b(var1), var1);
+	}
 
-   public static int b(byte[] var0, int var1) {
-      return b(var0, var1, var0.length);
-   }
+	@Override
+	protected void a(JsonObject var1) {
+		if (f() != null) {
+			var1.addProperty("uuid", ((GameProfile) f()).getId() == null ? "" : ((GameProfile) f()).getId().toString());
+			var1.addProperty("name", ((GameProfile) f()).getName());
+			super.a(var1);
+		}
+	}
 
-   public static int b(byte[] var0, int var1, int var2) {
-      return 0 > var2 - var1 - 4?0:var0[var1 + 3] << 24 | (var0[var1 + 2] & 255) << 16 | (var0[var1 + 1] & 255) << 8 | var0[var1] & 255;
-   }
+	private static GameProfile b(JsonObject var0) {
+		if (var0.has("uuid") && var0.has("name")) {
+			String var1 = var0.get("uuid").getAsString();
 
-   public static int c(byte[] var0, int var1, int var2) {
-      return 0 > var2 - var1 - 4?0:var0[var1] << 24 | (var0[var1 + 1] & 255) << 16 | (var0[var1 + 2] & 255) << 8 | var0[var1 + 3] & 255;
-   }
+			UUID var2;
+			try {
+				var2 = UUID.fromString(var1);
+			} catch (Throwable var4) {
+				return null;
+			}
 
-   public static String a(byte var0) {
-      return "" + a[(var0 & 240) >>> 4] + a[var0 & 15];
-   }
+			return new GameProfile(var2, var0.get("name").getAsString());
+		} else {
+			return null;
+		}
+	}
 }

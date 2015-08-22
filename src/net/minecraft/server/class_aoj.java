@@ -1,111 +1,289 @@
 package net.minecraft.server;
 
-import com.google.common.base.Predicate;
-import java.util.List;
-import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aet;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Entity;
+import java.util.Arrays;
 
-public class class_aoj extends Chunk {
-   public class_aoj(World var1, int var2, int var3) {
-      super(var1, var2, var3);
-   }
+public class class_aoj extends class_aow implements class_ks, class_qf {
+	private static final int[] a = new int[] { 3 };
+	private static final int[] f = new int[] { 0, 1, 2 };
+	private class_aco[] g = new class_aco[4];
+	private int h;
+	private boolean[] i;
+	private class_acm j;
+	private String k;
 
-   public boolean a(int var1, int var2) {
-      return var1 == this.locX && var2 == this.locZ;
-   }
+	@Override
+	public String e_() {
+		return k_() ? k : "container.brewing";
+	}
 
-   public int b(int var1, int var2) {
-      return 0;
-   }
+	@Override
+	public boolean k_() {
+		return (k != null) && !k.isEmpty();
+	}
 
-   public void initLighting() {
-   }
+	public void a(String var1) {
+		k = var1;
+	}
 
-   public Block getType(BlockPosition var1) {
-      return Blocks.AIR;
-   }
+	@Override
+	public int n_() {
+		return g.length;
+	}
 
-   public int b(BlockPosition var1) {
-      return 255;
-   }
+	@Override
+	public void c() {
+		boolean var1 = n();
+		boolean var2 = h > 0;
+		if (var2) {
+			--h;
+			boolean var3 = h == 0;
+			if (var3 && var1) {
+				o();
+				o_();
+			} else if (!var1) {
+				h = 0;
+				o_();
+			} else if (j != g[3].b()) {
+				h = 0;
+				o_();
+			}
+		} else if (var1) {
+			h = 400;
+			j = g[3].b();
+		}
 
-   public int c(BlockPosition var1) {
-      return 0;
-   }
+		if (!b.D) {
+			boolean[] var6 = m();
+			if (!Arrays.equals(var6, i)) {
+				i = var6;
+				class_apn var4 = b.p(v());
+				if (!(var4.c() instanceof class_aip)) {
+					return;
+				}
 
-   public int a(class_aet var1, BlockPosition var2) {
-      return var1.c;
-   }
+				for (int var5 = 0; var5 < class_aip.a.length; ++var5) {
+					var4 = var4.a(class_aip.a[var5], Boolean.valueOf(var6[var5]));
+				}
 
-   public void a(class_aet var1, BlockPosition var2, int var3) {
-   }
+				b.a(c, var4, 2);
+			}
+		}
 
-   public int a(BlockPosition var1, int var2) {
-      return 0;
-   }
+	}
 
-   public void a(Entity var1) {
-   }
+	public boolean[] m() {
+		boolean[] var1 = new boolean[3];
 
-   public void b(Entity var1) {
-   }
+		for (int var2 = 0; var2 < 3; ++var2) {
+			if (g[var2] != null) {
+				var1[var2] = true;
+			}
+		}
 
-   public void a(Entity var1, int var2) {
-   }
+		return var1;
+	}
 
-   public boolean d(BlockPosition var1) {
-      return false;
-   }
+	private boolean n() {
+		if ((g[3] != null) && (g[3].b > 0)) {
+			class_aco var1 = g[3];
+			if (!class_aed.a(var1)) {
+				return false;
+			} else {
+				for (int var2 = 0; var2 < 3; ++var2) {
+					class_aco var3 = g[var2];
+					if ((var3 != null) && class_aed.a(var3, var1)) {
+						return true;
+					}
+				}
 
-   public TileEntity a(BlockPosition var1, Chunk.class_a_in_class_aok var2) {
-      return null;
-   }
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 
-   public void a(TileEntity var1) {
-   }
+	private void o() {
+		class_aco var1 = g[3];
 
-   public void a(BlockPosition var1, TileEntity var2) {
-   }
+		for (int var2 = 0; var2 < 3; ++var2) {
+			g[var2] = class_aed.d(var1, g[var2]);
+		}
 
-   public void e(BlockPosition var1) {
-   }
+		--var1.b;
+		if (var1.b().r()) {
+			class_aco var3 = new class_aco(var1.b().q());
+			if (var1.b <= 0) {
+				var1 = var3;
+			} else {
+				class_pr.a(b, v().n(), v().o(), v().p(), var3);
+			}
+		}
 
-   public void c() {
-   }
+		if (var1.b <= 0) {
+			var1 = null;
+		}
 
-   public void d() {
-   }
+		g[3] = var1;
+	}
 
-   public void e() {
-   }
+	@Override
+	public void a(class_dn var1) {
+		super.a(var1);
+		class_du var2 = var1.c("Items", 10);
+		g = new class_aco[n_()];
 
-   public void a(Entity var1, AxisAlignedBB var2, List var3, Predicate var4) {
-   }
+		for (int var3 = 0; var3 < var2.c(); ++var3) {
+			class_dn var4 = var2.b(var3);
+			byte var5 = var4.f("Slot");
+			if ((var5 >= 0) && (var5 < g.length)) {
+				g[var5] = class_aco.a(var4);
+			}
+		}
 
-   public void a(Class var1, AxisAlignedBB var2, List var3, Predicate var4) {
-   }
+		h = var1.g("BrewTime");
+		if (var1.b("CustomName", 8)) {
+			k = var1.l("CustomName");
+		}
 
-   public boolean a(boolean var1) {
-      return false;
-   }
+	}
 
-   public Random a(long var1) {
-      return new Random(this.p().K() + (long)(this.locX * this.locX * 4987142) + (long)(this.locX * 5947611) + (long)(this.locZ * this.locZ) * 4392871L + (long)(this.locZ * 389711) ^ var1);
-   }
+	@Override
+	public void b(class_dn var1) {
+		super.b(var1);
+		var1.a("BrewTime", (short) h);
+		class_du var2 = new class_du();
 
-   public boolean f() {
-      return true;
-   }
+		for (int var3 = 0; var3 < g.length; ++var3) {
+			if (g[var3] != null) {
+				class_dn var4 = new class_dn();
+				var4.a("Slot", (byte) var3);
+				g[var3].b(var4);
+				var2.a(var4);
+			}
+		}
 
-   public boolean c(int var1, int var2) {
-      return true;
-   }
+		var1.a("Items", var2);
+		if (k_()) {
+			var1.a("CustomName", k);
+		}
+
+	}
+
+	@Override
+	public class_aco a(int var1) {
+		return (var1 >= 0) && (var1 < g.length) ? g[var1] : null;
+	}
+
+	@Override
+	public class_aco a(int var1, int var2) {
+		if ((var1 >= 0) && (var1 < g.length)) {
+			class_aco var3 = g[var1];
+			g[var1] = null;
+			return var3;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public class_aco b(int var1) {
+		if ((var1 >= 0) && (var1 < g.length)) {
+			class_aco var2 = g[var1];
+			g[var1] = null;
+			return var2;
+		} else {
+			return null;
+		}
+	}
+
+	@Override
+	public void a(int var1, class_aco var2) {
+		if ((var1 >= 0) && (var1 < g.length)) {
+			g[var1] = var2;
+		}
+
+	}
+
+	@Override
+	public int p_() {
+		return 64;
+	}
+
+	@Override
+	public boolean a(class_yu var1) {
+		return b.s(c) != this ? false : var1.e(c.n() + 0.5D, c.o() + 0.5D, c.p() + 0.5D) <= 64.0D;
+	}
+
+	@Override
+	public void b(class_yu var1) {
+	}
+
+	@Override
+	public void c(class_yu var1) {
+	}
+
+	@Override
+	public boolean b(int var1, class_aco var2) {
+		if (var1 == 3) {
+			return class_aed.a(var2);
+		} else {
+			class_acm var3 = var2.b();
+			return (var3 == class_acq.bB) || (var3 == class_acq.bE);
+		}
+	}
+
+	@Override
+	public int[] a(class_cq var1) {
+		return var1 == class_cq.b ? a : f;
+	}
+
+	@Override
+	public boolean a(int var1, class_aco var2, class_cq var3) {
+		return this.b(var1, var2);
+	}
+
+	@Override
+	public boolean b(int var1, class_aco var2, class_cq var3) {
+		return true;
+	}
+
+	@Override
+	public String k() {
+		return "minecraft:brewing_stand";
+	}
+
+	@Override
+	public class_zu a(class_yt var1, class_yu var2) {
+		return new class_zy(var1, this);
+	}
+
+	@Override
+	public int c(int var1) {
+		switch (var1) {
+			case 0:
+				return h;
+			default:
+				return 0;
+		}
+	}
+
+	@Override
+	public void b(int var1, int var2) {
+		switch (var1) {
+			case 0:
+				h = var2;
+			default:
+		}
+	}
+
+	@Override
+	public int g() {
+		return 1;
+	}
+
+	@Override
+	public void l() {
+		Arrays.fill(g, (Object) null);
+	}
 }

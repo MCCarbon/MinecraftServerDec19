@@ -1,93 +1,48 @@
 package net.minecraft.server;
 
-public class class_rk extends class_rm {
-   private EntityTameable d;
-   private EntityLiving e;
-   World a;
-   private double f;
-   private class_tg g;
-   private int h;
-   float b;
-   float c;
-   private boolean i;
+import java.util.Map;
 
-   public class_rk(EntityTameable var1, double var2, float var4, float var5) {
-      this.d = var1;
-      this.a = var1.world;
-      this.f = var2;
-      this.g = var1.u();
-      this.c = var4;
-      this.b = var5;
-      this.a(3);
-      if(!(var1.u() instanceof class_tf)) {
-         throw new IllegalArgumentException("Unsupported mob type for FollowOwnerGoal");
-      }
-   }
+import com.google.common.collect.Maps;
 
-   public boolean a() {
-      EntityLiving var1 = this.d.cD();
-      if(var1 == null) {
-         return false;
-      } else if(var1 instanceof EntityHuman && ((EntityHuman)var1).isSpectator()) {
-         return false;
-      } else if(this.d.cC()) {
-         return false;
-      } else if(this.d.h(var1) < (double)(this.c * this.c)) {
-         return false;
-      } else {
-         this.e = var1;
-         return true;
-      }
-   }
+public class class_rk {
+	private static final Map a = Maps.newHashMap();
 
-   public boolean b() {
-      return !this.g.m() && this.d.h(this.e) > (double)(this.b * this.b) && !this.d.cC();
-   }
+	public static class_rh.class_a_in_class_rh a(Class var0) {
+		return (class_rh.class_a_in_class_rh) a.get(var0);
+	}
 
-   public void c() {
-      this.h = 0;
-      this.i = ((class_tf)this.d.u()).e();
-      ((class_tf)this.d.u()).a(false);
-   }
-
-   public void d() {
-      this.e = null;
-      this.g.n();
-      ((class_tf)this.d.u()).a(true);
-   }
-
-   private boolean a(BlockPosition var1) {
-      IBlockData var2 = this.a.getType(var1);
-      Block var3 = var2.getBlock();
-      return var3 == Blocks.AIR?true:!var3.isFullCube();
-   }
-
-   public void e() {
-      this.d.q().a(this.e, 10.0F, (float)this.d.cd());
-      if(!this.d.cC()) {
-         if(--this.h <= 0) {
-            this.h = 10;
-            if(!this.g.a((Entity)this.e, this.f)) {
-               if(!this.d.cq()) {
-                  if(this.d.h(this.e) >= 144.0D) {
-                     int var1 = MathHelper.floor(this.e.locX) - 2;
-                     int var2 = MathHelper.floor(this.e.locZ) - 2;
-                     int var3 = MathHelper.floor(this.e.getBoundingBox().yMin);
-
-                     for(int var4 = 0; var4 <= 4; ++var4) {
-                        for(int var5 = 0; var5 <= 4; ++var5) {
-                           if((var4 < 1 || var5 < 1 || var4 > 3 || var5 > 3) && World.a((IBlockAccess)this.a, (BlockPosition)(new BlockPosition(var1 + var4, var3 - 1, var2 + var5))) && this.a(new BlockPosition(var1 + var4, var3, var2 + var5)) && this.a(new BlockPosition(var1 + var4, var3 + 1, var2 + var5))) {
-                              this.d.setPositionRotation((double) ((float) (var1 + var4) + 0.5F), (double) var3, (double) ((float) (var2 + var5) + 0.5F), this.d.yaw, this.d.pitch);
-                              this.g.n();
-                              return;
-                           }
-                        }
-                     }
-
-                  }
-               }
-            }
-         }
-      }
-   }
+	static {
+		a.put(class_va.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vd.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_ve.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vf.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vh.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vi.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vj.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vk.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vl.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vn.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vo.class, class_rh.class_a_in_class_rh.c);
+		a.put(class_vp.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vr.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yp.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_vx.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_wq.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_xs.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_xt.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_xu.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_xv.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_xw.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_xy.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_xz.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_ya.class, class_rh.class_a_in_class_rh.c);
+		a.put(class_yb.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yd.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yg.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yh.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yi.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yj.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yk.class, class_rh.class_a_in_class_rh.a);
+		a.put(class_yl.class, class_rh.class_a_in_class_rh.a);
+	}
 }

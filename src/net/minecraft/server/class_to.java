@@ -1,90 +1,92 @@
 package net.minecraft.server;
 
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
 
-public class class_to {
-   private final BlockPosition a;
-   private final BlockPosition b;
-   private final EnumDirection c;
-   private int d;
-   private boolean e;
-   private int f;
+public class class_to extends class_sr {
+	private final class_rh a;
+	private final class_ye b;
+	private class_rg c;
+	private int d;
+	private double e;
+	private int f;
+	private int g;
+	private int h;
+	private float i;
+	private float j;
 
-   public class_to(BlockPosition var1, int var2, int var3, int var4) {
-      this(var1, a(var2, var3), var4);
-   }
+	public class_to(class_ye var1, double var2, int var4, float var5) {
+		this(var1, var2, var4, var4, var5);
+	}
 
-   private static EnumDirection a(int var0, int var1) {
-      return var0 < 0?EnumDirection.WEST:(var0 > 0?EnumDirection.EAST:(var1 < 0?EnumDirection.NORTH:EnumDirection.SOUTH));
-   }
+	public class_to(class_ye var1, double var2, int var4, int var5, float var6) {
+		d = -1;
+		if (!(var1 instanceof class_rg)) {
+			throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
+		} else {
+			b = var1;
+			a = (class_rh) var1;
+			e = var2;
+			g = var4;
+			h = var5;
+			i = var6;
+			j = var6 * var6;
+			this.a(3);
+		}
+	}
 
-   public class_to(BlockPosition var1, EnumDirection var2, int var3) {
-      this.a = var1;
-      this.c = var2;
-      this.b = var1.shift(var2, 2);
-      this.d = var3;
-   }
+	@Override
+	public boolean a() {
+		class_rg var1 = a.w();
+		if (var1 == null) {
+			return false;
+		} else {
+			c = var1;
+			return true;
+		}
+	}
 
-   public int b(int var1, int var2, int var3) {
-      return (int)this.a.distanceSquared((double)var1, (double)var2, (double)var3);
-   }
+	@Override
+	public boolean b() {
+		return this.a() || !a.u().m();
+	}
 
-   public int a(BlockPosition var1) {
-      return (int)var1.distanceSquared(this.d());
-   }
+	@Override
+	public void d() {
+		c = null;
+		f = 0;
+		d = -1;
+	}
 
-   public int b(BlockPosition var1) {
-      return (int)this.b.distanceSquared(var1);
-   }
+	@Override
+	public void e() {
+		double var1 = a.e(c.s, c.aX().b, c.u);
+		boolean var3 = a.v().a(c);
+		if (var3) {
+			++f;
+		} else {
+			f = 0;
+		}
 
-   public boolean c(BlockPosition var1) {
-      int var2 = var1.getX() - this.a.getX();
-      int var3 = var1.getZ() - this.a.getY();
-      return var2 * this.c.getAdjacentX() + var3 * this.c.getAdjacentZ() >= 0;
-   }
+		if ((var1 <= j) && (f >= 20)) {
+			a.u().n();
+		} else {
+			a.u().a(c, e);
+		}
 
-   public void a() {
-      this.f = 0;
-   }
+		a.q().a(c, 30.0F, 30.0F);
+		float var4;
+		if (--d == 0) {
+			if ((var1 > j) || !var3) {
+				return;
+			}
 
-   public void b() {
-      ++this.f;
-   }
+			var4 = class_oa.a(var1) / i;
+			float var5 = class_oa.a(var4, 0.1F, 1.0F);
+			b.a(c, var5);
+			d = class_oa.d((var4 * (h - g)) + g);
+		} else if (d < 0) {
+			var4 = class_oa.a(var1) / i;
+			d = class_oa.d((var4 * (h - g)) + g);
+		}
 
-   public int c() {
-      return this.f;
-   }
-
-   public BlockPosition d() {
-      return this.a;
-   }
-
-   public BlockPosition e() {
-      return this.b;
-   }
-
-   public int f() {
-      return this.c.getAdjacentX() * 2;
-   }
-
-   public int g() {
-      return this.c.getAdjacentZ() * 2;
-   }
-
-   public int h() {
-      return this.d;
-   }
-
-   public void a(int var1) {
-      this.d = var1;
-   }
-
-   public boolean i() {
-      return this.e;
-   }
-
-   public void a(boolean var1) {
-      this.e = var1;
-   }
+	}
 }

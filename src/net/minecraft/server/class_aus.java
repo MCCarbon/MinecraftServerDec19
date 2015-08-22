@@ -1,121 +1,152 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aut;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
-public class class_aus {
-   private class_aut[] a = new class_aut[1024];
-   private int b;
+import com.google.common.collect.Lists;
 
-   public class_aut a(class_aut var1) {
-      if(var1.d >= 0) {
-         throw new IllegalStateException("OW KNOWS!");
-      } else {
-         if(this.b == this.a.length) {
-            class_aut[] var2 = new class_aut[this.b << 1];
-            System.arraycopy(this.a, 0, var2, 0, this.b);
-            this.a = var2;
-         }
+public abstract class class_aus {
+	protected List a = Lists.newLinkedList();
+	protected class_aua b;
+	private int c;
+	private int d;
 
-         this.a[this.b] = var1;
-         var1.d = this.b;
-         this.a(this.b++);
-         return var1;
-      }
-   }
+	public class_aus() {
+	}
 
-   public void a() {
-      this.b = 0;
-   }
+	public class_aus(int var1, int var2) {
+		c = var1;
+		d = var2;
+	}
 
-   public class_aut c() {
-      class_aut var1 = this.a[0];
-      this.a[0] = this.a[--this.b];
-      this.a[this.b] = null;
-      if(this.b > 0) {
-         this.b(0);
-      }
+	public class_aua b() {
+		return b;
+	}
 
-      var1.d = -1;
-      return var1;
-   }
+	public List c() {
+		return a;
+	}
 
-   public void a(class_aut var1, float var2) {
-      float var3 = var1.g;
-      var1.g = var2;
-      if(var2 < var3) {
-         this.a(var1.d);
-      } else {
-         this.b(var1.d);
-      }
+	public void a(class_ago var1, Random var2, class_aua var3) {
+		Iterator var4 = a.iterator();
 
-   }
+		while (var4.hasNext()) {
+			class_aur var5 = (class_aur) var4.next();
+			if (var5.c().a(var3) && !var5.a(var1, var2, var3)) {
+				var4.remove();
+			}
+		}
 
-   private void a(int var1) {
-      class_aut var2 = this.a[var1];
+	}
 
-      int var4;
-      for(float var3 = var2.g; var1 > 0; var1 = var4) {
-         var4 = var1 - 1 >> 1;
-         class_aut var5 = this.a[var4];
-         if(var3 >= var5.g) {
-            break;
-         }
+	protected void d() {
+		b = class_aua.a();
+		Iterator var1 = a.iterator();
 
-         this.a[var1] = var5;
-         var5.d = var1;
-      }
+		while (var1.hasNext()) {
+			class_aur var2 = (class_aur) var1.next();
+			b.b(var2.c());
+		}
 
-      this.a[var1] = var2;
-      var2.d = var1;
-   }
+	}
 
-   private void b(int var1) {
-      class_aut var2 = this.a[var1];
-      float var3 = var2.g;
+	public class_dn a(int var1, int var2) {
+		class_dn var3 = new class_dn();
+		var3.a("id", class_aup.a(this));
+		var3.a("ChunkX", var1);
+		var3.a("ChunkZ", var2);
+		var3.a("BB", b.g());
+		class_du var4 = new class_du();
+		Iterator var5 = a.iterator();
 
-      while(true) {
-         int var4 = 1 + (var1 << 1);
-         int var5 = var4 + 1;
-         if(var4 >= this.b) {
-            break;
-         }
+		while (var5.hasNext()) {
+			class_aur var6 = (class_aur) var5.next();
+			var4.a(var6.b());
+		}
 
-         class_aut var6 = this.a[var4];
-         float var7 = var6.g;
-         class_aut var8;
-         float var9;
-         if(var5 >= this.b) {
-            var8 = null;
-            var9 = Float.POSITIVE_INFINITY;
-         } else {
-            var8 = this.a[var5];
-            var9 = var8.g;
-         }
+		var3.a("Children", var4);
+		this.a(var3);
+		return var3;
+	}
 
-         if(var7 < var9) {
-            if(var7 >= var3) {
-               break;
-            }
+	public void a(class_dn var1) {
+	}
 
-            this.a[var1] = var6;
-            var6.d = var1;
-            var1 = var4;
-         } else {
-            if(var9 >= var3) {
-               break;
-            }
+	public void a(class_ago var1, class_dn var2) {
+		c = var2.h("ChunkX");
+		d = var2.h("ChunkZ");
+		if (var2.e("BB")) {
+			b = new class_aua(var2.n("BB"));
+		}
 
-            this.a[var1] = var8;
-            var8.d = var1;
-            var1 = var5;
-         }
-      }
+		class_du var3 = var2.c("Children", 10);
 
-      this.a[var1] = var2;
-      var2.d = var1;
-   }
+		for (int var4 = 0; var4 < var3.c(); ++var4) {
+			a.add(class_aup.b(var3.b(var4), var1));
+		}
 
-   public boolean e() {
-      return this.b == 0;
-   }
+		this.b(var2);
+	}
+
+	public void b(class_dn var1) {
+	}
+
+	protected void a(class_ago var1, Random var2, int var3) {
+		int var4 = var1.H() - var3;
+		int var5 = b.d() + 1;
+		if (var5 < var4) {
+			var5 += var2.nextInt(var4 - var5);
+		}
+
+		int var6 = var5 - b.e;
+		b.a(0, var6, 0);
+		Iterator var7 = a.iterator();
+
+		while (var7.hasNext()) {
+			class_aur var8 = (class_aur) var7.next();
+			var8.a(0, var6, 0);
+		}
+
+	}
+
+	protected void a(class_ago var1, Random var2, int var3, int var4) {
+		int var5 = ((var4 - var3) + 1) - b.d();
+		boolean var6 = true;
+		int var10;
+		if (var5 > 1) {
+			var10 = var3 + var2.nextInt(var5);
+		} else {
+			var10 = var3;
+		}
+
+		int var7 = var10 - b.b;
+		b.a(0, var7, 0);
+		Iterator var8 = a.iterator();
+
+		while (var8.hasNext()) {
+			class_aur var9 = (class_aur) var8.next();
+			var9.a(0, var7, 0);
+		}
+
+	}
+
+	public boolean a() {
+		return true;
+	}
+
+	public boolean a(class_agi var1) {
+		return true;
+	}
+
+	public void b(class_agi var1) {
+	}
+
+	public int e() {
+		return c;
+	}
+
+	public int f() {
+		return d;
+	}
 }

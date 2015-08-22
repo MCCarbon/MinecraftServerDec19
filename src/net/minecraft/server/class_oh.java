@@ -1,74 +1,19 @@
 package net.minecraft.server;
 
-import java.util.UUID;
-import net.minecraft.server.IChatBaseComponent;
+public class class_oh {
+	private Object a;
+	private Object b;
 
-public abstract class class_oh {
-   private final UUID g;
-   protected IChatBaseComponent a;
-   protected float b;
-   protected class_oh.class_a_in_class_oh c;
-   protected class_oh.class_b_in_class_oh d;
-   protected boolean e;
-   protected boolean f;
+	public class_oh(Object var1, Object var2) {
+		a = var1;
+		b = var2;
+	}
 
-   public class_oh(UUID var1, IChatBaseComponent var2, class_oh.class_a_in_class_oh var3, class_oh.class_b_in_class_oh var4, boolean var5, boolean var6) {
-      this.g = var1;
-      this.a = var2;
-      this.c = var3;
-      this.d = var4;
-      this.e = var5;
-      this.f = var6;
-      this.b = 1.0F;
-   }
+	public Object a() {
+		return a;
+	}
 
-   public UUID d() {
-      return this.g;
-   }
-
-   public IChatBaseComponent e() {
-      return this.a;
-   }
-
-   public float f() {
-      return this.b;
-   }
-
-   public void a(float var1) {
-      this.b = var1;
-   }
-
-   public class_oh.class_a_in_class_oh g() {
-      return this.c;
-   }
-
-   public class_oh.class_b_in_class_oh h() {
-      return this.d;
-   }
-
-   public boolean i() {
-      return this.e;
-   }
-
-   public boolean j() {
-      return this.f;
-   }
-
-   public static enum class_b_in_class_oh {
-      a,
-      b,
-      c,
-      d,
-      e;
-   }
-
-   public static enum class_a_in_class_oh {
-      a,
-      b,
-      c,
-      d,
-      e,
-      f,
-      g;
-   }
+	public Object b() {
+		return b;
+	}
 }
