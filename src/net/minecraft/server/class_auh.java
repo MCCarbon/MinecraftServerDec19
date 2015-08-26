@@ -127,15 +127,15 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 0, 0, 8, 1, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 8, 5, 8, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 8, 5, 8, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 6, 0, 8, 6, 5, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 2, 0, 2, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 6, 2, 0, 8, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 1, 3, 0, 1, 4, 0, Blocks.bz.S(), Blocks.bz.S(), false);
 			this.a(var1, var3, 7, 3, 0, 7, 4, 0, Blocks.bz.S(), Blocks.bz.S(), false);
 			this.a(var1, var3, 0, 2, 4, 8, 2, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 1, 4, 2, 2, 4, Blocks.a.S(), Blocks.a.S(), false);
-			this.a(var1, var3, 6, 1, 4, 7, 2, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 1, 1, 4, 2, 2, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
+			this.a(var1, var3, 6, 1, 4, 7, 2, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 3, 8, 8, 3, 8, Blocks.bz.S(), Blocks.bz.S(), false);
 			this.a(var1, var3, 0, 3, 6, 0, 3, 7, Blocks.bz.S(), Blocks.bz.S(), false);
 			this.a(var1, var3, 8, 3, 6, 8, 3, 7, Blocks.bz.S(), Blocks.bz.S(), false);
@@ -185,7 +185,7 @@ public class class_auh {
 				int var7 = Math.min(Math.max(var6 + 5, 14 - var5), 13);
 				int var8 = var5;
 				this.a(var1, var3, 0, 0, var5, 4, var6, var5, Blocks.by.S(), Blocks.by.S(), false);
-				this.a(var1, var3, 1, var6 + 1, var5, 3, var7 - 1, var5, Blocks.a.S(), Blocks.a.S(), false);
+				this.a(var1, var3, 1, var6 + 1, var5, 3, var7 - 1, var5, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				if (var5 <= 6) {
 					this.a(var1, var4, 1, var6 + 1, var5, var3);
 					this.a(var1, var4, 2, var6 + 1, var5, var3);
@@ -247,7 +247,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
 			this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.bz.S(), Blocks.bz.S(), false);
@@ -310,7 +310,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
 			this.a(var1, var3, 0, 3, 3, 0, 4, 3, Blocks.bz.S(), Blocks.bz.S(), false);
@@ -360,7 +360,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 4, 2, 0, 4, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 2, 4, 0, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
@@ -400,7 +400,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
@@ -443,7 +443,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
@@ -498,7 +498,7 @@ public class class_auh {
 				}
 
 				if (var5 >= 1) {
-					this.a(var1, var3, 5, 6 + var5, var6, 7, 9 + var5, var6, Blocks.a.S(), Blocks.a.S(), false);
+					this.a(var1, var3, 5, 6 + var5, var6, 7, 9 + var5, var6, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				}
 			}
 
@@ -508,7 +508,7 @@ public class class_auh {
 
 			this.a(var1, var3, 5, 6, 7, 5, 7, 7, Blocks.bz.S(), Blocks.bz.S(), false);
 			this.a(var1, var3, 7, 6, 7, 7, 7, 7, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 5, 13, 12, 7, 13, 12, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 5, 13, 12, 7, 13, 12, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 2, 5, 2, 3, 5, 3, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 2, 5, 9, 3, 5, 10, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 2, 5, 4, 2, 5, 8, Blocks.by.S(), Blocks.by.S(), false);
@@ -578,7 +578,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
@@ -639,12 +639,12 @@ public class class_auh {
 			}
 
 			this.a(var1, var3, 5, 5, 5, 7, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 1, 6, 6, 4, 6, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 6, 1, 6, 6, 4, 6, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, Blocks.by.S(), 6, 0, 6, var3);
-			this.a(var1, Blocks.k.S(), 6, 5, 6, var3);
+			this.a(var1, Blocks.FLOWING_LAVA.S(), 6, 5, 6, var3);
 			class_cj var6 = new class_cj(this.a(6, 6), this.d(5), this.b(6, 6));
 			if (var3.b(var6)) {
-				var1.a(Blocks.k, var6, var2);
+				var1.a(Blocks.FLOWING_LAVA, var6, var2);
 			}
 
 			return true;
@@ -682,7 +682,7 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 2, 0, 6, 7, 7, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 6, 7, 7, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 1, 0, 0, 5, 1, 7, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 1, 2, 1, 5, 2, 7, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 1, 3, 2, 5, 3, 7, Blocks.by.S(), Blocks.by.S(), false);
@@ -745,7 +745,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 6, 10, 6, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 6, 10, 6, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 2, 0, 1, 8, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 5, 2, 0, 6, 8, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 2, 1, 0, 8, 6, Blocks.by.S(), Blocks.by.S(), false);
@@ -760,7 +760,7 @@ public class class_auh {
 			this.a(var1, var3, 2, 2, 5, 2, 5, 5, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 1, 2, 5, 1, 6, 5, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 1, 7, 1, 5, 7, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 8, 2, 6, 8, 4, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 6, 8, 2, 6, 8, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 2, 6, 0, 4, 8, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.bz.S(), Blocks.bz.S(), false);
 
@@ -799,7 +799,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 6, 7, 6, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 0, 2, 0, 6, 7, 6, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 2, 0, 1, 6, 0, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 2, 6, 1, 6, 6, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 5, 2, 0, 6, 6, 0, Blocks.by.S(), Blocks.by.S(), false);
@@ -864,8 +864,8 @@ public class class_auh {
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 7, 3, 0, 11, 4, 18, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 3, 7, 18, 4, 11, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 8, 5, 0, 10, 7, 18, Blocks.a.S(), Blocks.a.S(), false);
-			this.a(var1, var3, 0, 5, 8, 18, 7, 10, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 8, 5, 0, 10, 7, 18, Blocks.AIR.S(), Blocks.AIR.S(), false);
+			this.a(var1, var3, 0, 5, 8, 18, 7, 10, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 7, 5, 0, 7, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 7, 5, 11, 7, 5, 18, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 11, 5, 0, 11, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
@@ -992,7 +992,7 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 3, 0, 4, 4, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 5, 0, 3, 7, 18, Blocks.a.S(), Blocks.a.S(), false);
+			this.a(var1, var3, 1, 5, 0, 3, 7, 18, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 5, 0, 0, 5, 18, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 4, 5, 0, 4, 5, 18, Blocks.by.S(), Blocks.by.S(), false);
 			this.a(var1, var3, 0, 2, 0, 4, 2, 5, Blocks.by.S(), Blocks.by.S(), false);

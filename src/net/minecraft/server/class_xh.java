@@ -310,7 +310,7 @@ public abstract class class_xh extends Entity implements class_qb {
 		boolean var4 = false;
 		boolean var5 = false;
 		class_aih var6 = (class_aih) var2.c();
-		if (var6 == Blocks.D) {
+		if (var6 == Blocks.GOLDEN_RAIL) {
 			var4 = ((Boolean) var2.b(class_amc.N)).booleanValue();
 			var5 = !var4;
 		}
@@ -553,7 +553,7 @@ public abstract class class_xh extends Entity implements class_qb {
 			}
 
 			int var3 = var1.h("DisplayData");
-			this.a(var2 == null ? Blocks.a.S() : var2.a(var3));
+			this.a(var2 == null ? Blocks.AIR.S() : var2.a(var3));
 			this.k(var1.h("DisplayOffset"));
 		}
 
@@ -685,7 +685,7 @@ public abstract class class_xh extends Entity implements class_qb {
 	}
 
 	public class_apn u() {
-		return Blocks.a.S();
+		return Blocks.AIR.S();
 	}
 
 	public int v() {

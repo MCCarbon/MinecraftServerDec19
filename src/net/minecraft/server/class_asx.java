@@ -32,13 +32,13 @@ public class class_asx extends class_asp {
 						float var12 = class_oa.a(var11) - 0.25F;
 						if ((((var9 == 0) && (var11 == 0)) || (((var10 * var10) + (var12 * var12)) <= (var7 * var7))) && (((var9 != -var8) && (var9 != var8) && (var11 != -var8) && (var11 != var8)) || (var2.nextFloat() <= 0.75F))) {
 							Block var13 = var1.p(var3.a(var9, var6, var11)).c();
-							if ((var13.v() == class_avq.a) || (var13 == Blocks.d) || (var13 == Blocks.aJ) || (var13 == Blocks.aI)) {
+							if ((var13.v() == class_avq.a) || (var13 == Blocks.DIRT) || (var13 == Blocks.aJ) || (var13 == Blocks.aI)) {
 								a(var1, var3.a(var9, var6, var11), Blocks.cB.S());
 							}
 
 							if ((var6 != 0) && (var8 > 1)) {
 								var13 = var1.p(var3.a(var9, -var6, var11)).c();
-								if ((var13.v() == class_avq.a) || (var13 == Blocks.d) || (var13 == Blocks.aJ) || (var13 == Blocks.aI)) {
+								if ((var13.v() == class_avq.a) || (var13 == Blocks.DIRT) || (var13 == Blocks.aJ) || (var13 == Blocks.aI)) {
 									a(var1, var3.a(var9, -var6, var11), Blocks.cB.S());
 								}
 							}
@@ -64,7 +64,7 @@ public class class_asx extends class_asp {
 
 					while (var15.o() > 50) {
 						Block var17 = var1.p(var15).c();
-						if ((var17.v() != class_avq.a) && (var17 != Blocks.d) && (var17 != Blocks.aJ) && (var17 != Blocks.aI) && (var17 != Blocks.cB)) {
+						if ((var17.v() != class_avq.a) && (var17 != Blocks.DIRT) && (var17 != Blocks.aJ) && (var17 != Blocks.aI) && (var17 != Blocks.cB)) {
 							break;
 						}
 

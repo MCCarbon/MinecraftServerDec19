@@ -48,7 +48,7 @@ public abstract class class_arc {
 	}
 
 	public boolean a(int var1, int var2) {
-		return b.c(new class_cj(var1, 0, var2)) == Blocks.c;
+		return b.c(new class_cj(var1, 0, var2)) == Blocks.GRASS;
 	}
 
 	public float a(long var1, float var3) {

@@ -150,7 +150,7 @@ public class class_atv {
 				}
 			}
 
-			if (var6 == Blocks.a) {
+			if (var6 == Blocks.AIR) {
 				var5 = 0;
 			}
 
@@ -250,9 +250,9 @@ public class class_atv {
 	public static class_atv e() {
 		class_atv var0 = new class_atv();
 		var0.a(class_ahb.q.az);
-		var0.c().add(new class_atw(1, Blocks.h));
-		var0.c().add(new class_atw(2, Blocks.d));
-		var0.c().add(new class_atw(1, Blocks.c));
+		var0.c().add(new class_atw(1, Blocks.BEDROCK));
+		var0.c().add(new class_atw(2, Blocks.DIRT));
+		var0.c().add(new class_atw(1, Blocks.GRASS));
 		var0.d();
 		var0.b().put("village", Maps.newHashMap());
 		return var0;

@@ -199,7 +199,7 @@ public class class_aok extends class_aow implements class_ks, class_pp {
 			return false;
 		} else {
 			Block var2 = b.p(var1).c();
-			return (var2 instanceof class_aiw) && (((class_aiw) var2).b == n());
+			return (var2 instanceof BlockChest) && (((BlockChest) var2).b == n());
 		}
 	}
 
@@ -314,7 +314,7 @@ public class class_aok extends class_aow implements class_ks, class_pp {
 
 	@Override
 	public void c(class_yu var1) {
-		if (!var1.w() && (w() instanceof class_aiw)) {
+		if (!var1.w() && (w() instanceof BlockChest)) {
 			--l;
 			b.c(c, w(), 1, l);
 			b.d(c, w());
@@ -337,11 +337,11 @@ public class class_aok extends class_aow implements class_ks, class_pp {
 
 	public int n() {
 		if (o == -1) {
-			if ((b == null) || !(w() instanceof class_aiw)) {
+			if ((b == null) || !(w() instanceof BlockChest)) {
 				return 0;
 			}
 
-			o = ((class_aiw) w()).b;
+			o = ((BlockChest) w()).b;
 		}
 
 		return o;

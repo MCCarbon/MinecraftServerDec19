@@ -371,7 +371,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 					if ((var14.v() != class_avq.a) && (var14.v() != class_avq.o)) {
 						if (!o.S().b("mobGriefing")) {
 							var8 = true;
-						} else if ((var14 != Blocks.cv) && (var14 != Blocks.Z) && (var14 != Blocks.bH) && (var14 != Blocks.h) && (var14 != Blocks.bF) && (var14 != Blocks.bG)) {
+						} else if ((var14 != Blocks.cv) && (var14 != Blocks.Z) && (var14 != Blocks.bH) && (var14 != Blocks.BEDROCK) && (var14 != Blocks.bF) && (var14 != Blocks.bG)) {
 							if ((var14 != Blocks.bX) && (var14 != Blocks.dc) && (var14 != Blocks.dd) && (var14 != Blocks.bi) && (var14 != Blocks.db)) {
 								var9 = o.g(var13) || var9;
 							} else {
@@ -540,8 +540,8 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 			bL[1] = 8197;
 			bL[2] = 8202;
 			bL[3] = 16404;
-			bL[4] = '耨';
-			bL[5] = '聐';
+			bL[4] = 'è€¨';
+			bL[5] = 'è��';
 			bL[6] = 65696;
 			bL[7] = 131392;
 			bL[8] = 131712;

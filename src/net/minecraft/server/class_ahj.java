@@ -58,11 +58,11 @@ public class class_ahj extends class_ahb {
 	}
 
 	@Override
-	public class_ake.class_a_in_class_ake a(Random var1, class_cj var2) {
+	public BlockFlowers.class_a_in_class_ake a(Random var1, class_cj var2) {
 		if (aG == 1) {
 			double var3 = class_oa.a((1.0D + af.a(var2.n() / 48.0D, var2.p() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
-			class_ake.class_a_in_class_ake var5 = class_ake.class_a_in_class_ake.values()[(int) (var3 * class_ake.class_a_in_class_ake.values().length)];
-			return var5 == class_ake.class_a_in_class_ake.c ? class_ake.class_a_in_class_ake.b : var5;
+			BlockFlowers.class_a_in_class_ake var5 = BlockFlowers.class_a_in_class_ake.values()[(int) (var3 * BlockFlowers.class_a_in_class_ake.values().length)];
+			return var5 == BlockFlowers.class_a_in_class_ake.c ? BlockFlowers.class_a_in_class_ake.b : var5;
 		} else {
 			return super.a(var1, var2);
 		}
@@ -102,11 +102,11 @@ public class class_ahj extends class_ahb {
 		for (var5 = 0; var5 < var4; ++var5) {
 			var6 = var2.nextInt(3);
 			if (var6 == 0) {
-				ag.a(class_ajo.class_b_in_class_ajo.b);
+				ag.a(BlockTallPlant.class_b_in_class_ajo.b);
 			} else if (var6 == 1) {
-				ag.a(class_ajo.class_b_in_class_ajo.e);
+				ag.a(BlockTallPlant.class_b_in_class_ajo.e);
 			} else if (var6 == 2) {
-				ag.a(class_ajo.class_b_in_class_ajo.f);
+				ag.a(BlockTallPlant.class_b_in_class_ajo.f);
 			}
 
 			for (var7 = 0; var7 < 5; ++var7) {

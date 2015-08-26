@@ -111,7 +111,7 @@ public class class_wu extends class_wt {
 		J().b(c, Optional.fromNullable(var1));
 		J().b(c);
 		if (var2 && (a != null)) {
-			o.f(a, Blocks.a);
+			o.f(a, Blocks.AIR);
 		}
 
 	}
@@ -127,7 +127,7 @@ public class class_wu extends class_wt {
 	private void a(int var1, boolean var2) {
 		J().b(d, Integer.valueOf(var1 % 8));
 		if (var2 && (a != null)) {
-			o.f(a, Blocks.a);
+			o.f(a, Blocks.AIR);
 		}
 
 	}

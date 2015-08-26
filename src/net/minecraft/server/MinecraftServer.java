@@ -570,7 +570,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	public static void main(String[] var0) {
-		class_kh.c();
+		Bootstrap.c();
 
 		try {
 			boolean var1 = true;

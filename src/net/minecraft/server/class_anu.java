@@ -110,7 +110,7 @@ public class class_anu extends Block {
 				class_cj var9 = var2.a(var7, var8);
 				class_apn var10 = var1.p(var9);
 				if (var10.c() == Blocks.bR) {
-					if (var10.b(class_anv.a) == var7.d()) {
+					if (var10.b(BlockTripwireHook.a) == var7.d()) {
 						Blocks.bR.a(var1, var9, var10, false, true, var8, var3);
 					}
 					break;
@@ -181,7 +181,7 @@ public class class_anu extends Block {
 		Block var6 = var5.c();
 		if (var6 == Blocks.bR) {
 			class_cq var9 = var3.d();
-			return var5.b(class_anv.a) == var9;
+			return var5.b(BlockTripwireHook.a) == var9;
 		} else if (var6 == Blocks.bS) {
 			boolean var7 = ((Boolean) var2.b(b)).booleanValue();
 			boolean var8 = ((Boolean) var5.b(b)).booleanValue();

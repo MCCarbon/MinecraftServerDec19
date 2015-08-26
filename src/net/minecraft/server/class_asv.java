@@ -51,7 +51,7 @@ public class class_asv extends class_asp {
 				return false;
 			} else {
 				Block var19 = var1.p(var3.b()).c();
-				if ((var19 != Blocks.d) && (var19 != Blocks.c) && (var19 != Blocks.bw)) {
+				if ((var19 != Blocks.DIRT) && (var19 != Blocks.GRASS) && (var19 != Blocks.bw)) {
 					return false;
 				} else {
 					int var20 = var3.o() + var4;

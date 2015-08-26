@@ -175,7 +175,7 @@ public class class_ajc extends class_aif {
 
 	@Override
 	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, class_apg.a(var1, var2, var8));
+		return S().a(a, BlockPiston.a(var1, var2, var8));
 	}
 
 	private void e(class_ago var1, class_cj var2) {

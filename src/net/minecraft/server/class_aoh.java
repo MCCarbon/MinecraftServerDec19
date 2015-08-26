@@ -84,10 +84,10 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 			class_apn var9 = b.p(var7.c(var2, var8, var4));
 			float[] var10;
 			if (var9.c() == Blocks.cG) {
-				var10 = class_vl.a((class_abt) var9.b(class_and.a));
+				var10 = class_vl.a((class_abt) var9.b(BlockStainedGlass.a));
 			} else {
 				if (var9.c() != Blocks.cH) {
-					if ((var9.c().r() >= 15) && (var9.c() != Blocks.h)) {
+					if ((var9.c().r() >= 15) && (var9.c() != Blocks.BEDROCK)) {
 						j = false;
 						g.clear();
 						break;
@@ -97,7 +97,7 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 					continue;
 				}
 
-				var10 = class_vl.a((class_abt) var9.b(class_ane.a));
+				var10 = class_vl.a((class_abt) var9.b(BlockStainedGlassPane.a));
 			}
 
 			if (!var6) {

@@ -143,7 +143,7 @@ public class class_aog extends TileEntity {
 		I("gradient_up", "gru", " # ", " # ", "# #"),
 		J("bricks", "bri", new class_aco(Blocks.V)),
 		K("skull", "sku", new class_aco(Items.cc, 1, 1)),
-		L("flower", "flo", new class_aco(Blocks.O, 1, class_ake.class_a_in_class_ake.j.b())),
+		L("flower", "flo", new class_aco(Blocks.O, 1, BlockFlowers.class_a_in_class_ake.j.b())),
 		M("mojang", "moj", new class_aco(Items.aq, 1, 1));
 
 		private String N;

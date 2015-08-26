@@ -103,10 +103,10 @@ public class class_aru implements class_aqk {
 					class_apn var9 = var1.a(var2, var8, var3);
 					if (var9.c().v() == class_avq.a) {
 						var5 = -1;
-					} else if (var9.c() == Blocks.b) {
+					} else if (var9.c() == Blocks.STONE) {
 						if (var5 == -1) {
 							if (var4 <= 0) {
-								var6 = Blocks.a.S();
+								var6 = Blocks.AIR.S();
 								var7 = Blocks.bH.S();
 							}
 

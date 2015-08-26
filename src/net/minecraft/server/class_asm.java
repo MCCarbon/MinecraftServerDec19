@@ -18,13 +18,13 @@ public class class_asm extends class_asp {
 				if (var6 && var7 && var8) {
 					a(var1, new class_cj(var5), Blocks.db.S());
 				} else if (var7) {
-					a(var1, var5, Blocks.a.S());
+					a(var1, var5, Blocks.AIR.S());
 				} else if (var9 && var6 && var8) {
-					a(var1, var5, Blocks.h.S());
+					a(var1, var5, Blocks.BEDROCK.S());
 				} else if ((var6 || var8) && !var9) {
-					a(var1, var5, Blocks.h.S());
+					a(var1, var5, Blocks.BEDROCK.S());
 				} else {
-					a(var1, var5, Blocks.a.S());
+					a(var1, var5, Blocks.AIR.S());
 				}
 			}
 

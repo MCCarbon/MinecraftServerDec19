@@ -51,7 +51,7 @@ public class class_be extends class_i {
 				if (var2.length >= 6) {
 					if (var2[5].equals("destroy")) {
 						var6.b(var3, true);
-						if (var4 == Blocks.a) {
+						if (var4 == Blocks.AIR) {
 							a(var1, this, "commands.setblock.success", new Object[0]);
 							return;
 						}
@@ -66,7 +66,7 @@ public class class_be extends class_i {
 						((class_pp) var13).l();
 					}
 
-					var6.a(var3, Blocks.a.S(), var4 == Blocks.a ? 2 : 4);
+					var6.a(var3, Blocks.AIR.S(), var4 == Blocks.AIR ? 2 : 4);
 				}
 
 				class_apn var10 = var4.a(var5);

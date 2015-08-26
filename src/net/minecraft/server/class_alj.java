@@ -19,14 +19,14 @@ public class class_alj extends Block {
 
 	public static boolean d(class_apn var0) {
 		Block var1 = var0.c();
-		return (var0 == Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)) || (var1 == Blocks.e) || (var1 == Blocks.bf);
+		return (var0 == Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)) || (var1 == Blocks.COBBLESTONE) || (var1 == Blocks.bf);
 	}
 
 	@Override
 	protected class_aco i(class_apn var1) {
 		switch (class_alj.SyntheticClass_1.a[((class_alj.class_a_in_class_alj) var1.b(a)).ordinal()]) {
 			case 1:
-				return new class_aco(Blocks.e);
+				return new class_aco(Blocks.COBBLESTONE);
 			case 2:
 				return new class_aco(Blocks.bf);
 			case 3:
@@ -36,7 +36,7 @@ public class class_alj extends Block {
 			case 5:
 				return new class_aco(Blocks.bf, 1, class_ank.class_a_in_class_ank.d.a());
 			default:
-				return new class_aco(Blocks.b);
+				return new class_aco(Blocks.STONE);
 		}
 	}
 
@@ -114,13 +114,13 @@ public class class_alj extends Block {
 		a(0, "stone") {
 			@Override
 			public class_apn d() {
-				return Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a);
+				return Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.a);
 			}
 		},
 		b(1, "cobblestone", "cobble") {
 			@Override
 			public class_apn d() {
-				return Blocks.e.S();
+				return Blocks.COBBLESTONE.S();
 			}
 		},
 		c(2, "stone_brick", "brick") {

@@ -38,7 +38,7 @@ public class class_atp extends class_asa {
 						if ((var6 >= 0) && (var6 < 256)) {
 							Block var11 = var1.p(var8.c(var9, var6, var10)).c();
 							if ((var11.v() != class_avq.a) && (var11.v() != class_avq.j)) {
-								if ((var11 != Blocks.j) && (var11 != Blocks.i)) {
+								if ((var11 != Blocks.WATER) && (var11 != Blocks.FLOWING_WATER)) {
 									var5 = false;
 								} else if (var6 > var3.o()) {
 									var5 = false;
@@ -55,7 +55,7 @@ public class class_atp extends class_asa {
 				return false;
 			} else {
 				Block var17 = var1.p(var3.b()).c();
-				if (((var17 == Blocks.c) || (var17 == Blocks.d)) && (var3.o() < (256 - var4 - 1))) {
+				if (((var17 == Blocks.GRASS) || (var17 == Blocks.DIRT)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 
 					int var12;
@@ -84,7 +84,7 @@ public class class_atp extends class_asa {
 
 					for (var18 = 0; var18 < var4; ++var18) {
 						Block var20 = var1.p(var3.b(var18)).c();
-						if ((var20.v() == class_avq.a) || (var20.v() == class_avq.j) || (var20 == Blocks.i) || (var20 == Blocks.j)) {
+						if ((var20.v() == class_avq.a) || (var20.v() == class_avq.j) || (var20 == Blocks.FLOWING_WATER) || (var20 == Blocks.WATER)) {
 							this.a(var1, var3.b(var18), a);
 						}
 					}
@@ -145,7 +145,7 @@ public class class_atp extends class_asa {
 	}
 
 	static {
-		a = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
-		b = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
+		b = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

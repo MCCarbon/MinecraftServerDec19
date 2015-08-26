@@ -219,8 +219,8 @@ public class class_nh {
 	}
 
 	private static void a(class_nd[] var0) {
-		a(var0, Blocks.j, Blocks.i);
-		a(var0, Blocks.l, Blocks.k);
+		a(var0, Blocks.WATER, Blocks.FLOWING_WATER);
+		a(var0, Blocks.LAVA, Blocks.FLOWING_LAVA);
 		a(var0, Blocks.aZ, Blocks.aU);
 		a(var0, Blocks.am, Blocks.al);
 		a(var0, Blocks.aD, Blocks.aC);
@@ -231,8 +231,8 @@ public class class_nh {
 		a(var0, Blocks.T, Blocks.U);
 		a(var0, Blocks.bL, Blocks.bM);
 		a(var0, Blocks.cO, Blocks.cP);
-		a(var0, Blocks.c, Blocks.d);
-		a(var0, Blocks.ak, Blocks.d);
+		a(var0, Blocks.GRASS, Blocks.DIRT);
+		a(var0, Blocks.ak, Blocks.DIRT);
 	}
 
 	private static void a(class_nd[] var0, Block var1, Block var2) {

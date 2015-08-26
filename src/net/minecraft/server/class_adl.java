@@ -23,7 +23,7 @@ public class class_adl extends class_abq {
 		} else {
 			class_apn var10 = var3.p(var4);
 			Block var11 = var10.c();
-			if ((var6 != class_cq.a) && (var3.p(var4.a()).c().v() == class_avq.a) && (var11 == Blocks.c)) {
+			if ((var6 != class_cq.a) && (var3.p(var4.a()).c().v() == class_avq.a) && (var11 == Blocks.GRASS)) {
 				class_apn var12 = Blocks.da.S();
 				Block var13 = var12.c();
 				var3.a(var4.n() + 0.5F, var4.o() + 0.5F, var4.p() + 0.5F, var13.H.c(), (var13.H.d() + 1.0F) / 2.0F, var13.H.e() * 0.8F);
@@ -40,6 +40,6 @@ public class class_adl extends class_abq {
 	}
 
 	static {
-		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.aL, Blocks.d, Blocks.ak, Blocks.c, Blocks.n, Blocks.bw, Blocks.m, Blocks.aJ, Blocks.aH, Blocks.aW, Blocks.da }));
+		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.aL, Blocks.DIRT, Blocks.ak, Blocks.GRASS, Blocks.GRAVEL, Blocks.bw, Blocks.SAND, Blocks.aJ, Blocks.aH, Blocks.aW, Blocks.da }));
 	}
 }

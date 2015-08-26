@@ -456,7 +456,7 @@ public class class_vk extends class_vc {
 				class_apn var3 = var1.p(var2);
 				Block var4 = var3.c();
 				if (e && (var4 instanceof class_aiu) && ((class_aiu) var4).e(var3)) {
-					var1.a(var2, Blocks.a.S(), 2);
+					var1.a(var2, Blocks.AIR.S(), 2);
 					var1.b(var2, true);
 					c.cI();
 				}

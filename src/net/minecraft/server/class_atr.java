@@ -60,7 +60,7 @@ public class class_atr extends class_asa {
 				return false;
 			} else {
 				Block var19 = var1.p(var3.b()).c();
-				if (((var19 == Blocks.c) || (var19 == Blocks.d) || (var19 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
+				if (((var19 == Blocks.GRASS) || (var19 == Blocks.DIRT) || (var19 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 					var7 = 3;
 					byte var20 = 0;
@@ -192,7 +192,7 @@ public class class_atr extends class_asa {
 	}
 
 	static {
-		a = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
-		b = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
+		b = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

@@ -76,7 +76,7 @@ public class class_auc {
 	}
 
 	static {
-		c = (new class_auz()).a(true).a(Blocks.a);
+		c = (new class_auz()).a(true).a(Blocks.AIR);
 		d = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.k, 0, 2, 7, 5), new class_oj(Items.l, 0, 4, 8, 10), new class_oj(Items.m, 0, 2, 7, 15), new class_oj(Items.bT, 0, 2, 6, 2), new class_oj(Items.cN, 0, 1, 10, 5), new class_oj(Items.aC, 0, 1, 1, 3), new class_oj(Items.cp, 0, 1, 1, 1), new class_oj(Items.cq, 0, 1, 1, 1), new class_oj(Items.cr, 0, 1, 1, 1) }));
 		e = Lists.newArrayList((Object[]) (new Item[] { Items.w, Items.ah, Items.af, Items.ag, Items.ae, Items.y, Items.x, Items.n, Items.ad, Items.ab, Items.ac, Items.aa, Items.b, Items.a }));
 		f = new class_auc.class_b_in_class_auc() {

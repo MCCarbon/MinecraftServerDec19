@@ -115,7 +115,7 @@ public class class_asb extends class_asa {
 
 	void a(class_cj var1) {
 		for (int var2 = 0; var2 < i; ++var2) {
-			this.a(var1.b(var2), this.b(var2), Blocks.t.S().a(class_alc.b, Boolean.valueOf(false)));
+			this.a(var1.b(var2), this.b(var2), Blocks.LEAVES.S().a(class_alc.b, Boolean.valueOf(false)));
 		}
 
 	}
@@ -175,7 +175,7 @@ public class class_asb extends class_asa {
 	void c() {
 		class_cj var1 = m;
 		class_cj var2 = m.b(b);
-		Block var3 = Blocks.r;
+		Block var3 = Blocks.LOG;
 		this.a(var1, var2, var3);
 		if (g == 2) {
 			this.a(var1.f(), var2.f(), var3);
@@ -193,7 +193,7 @@ public class class_asb extends class_asa {
 			int var3 = var2.q();
 			class_cj var4 = new class_cj(m.n(), var3, m.p());
 			if (!var4.equals(var2) && this.c(var3 - m.o())) {
-				this.a(var4, var2, Blocks.r);
+				this.a(var4, var2, Blocks.LOG);
 			}
 		}
 
@@ -246,7 +246,7 @@ public class class_asb extends class_asa {
 
 	private boolean f() {
 		Block var1 = l.p(m.b()).c();
-		if ((var1 != Blocks.d) && (var1 != Blocks.c) && (var1 != Blocks.ak)) {
+		if ((var1 != Blocks.DIRT) && (var1 != Blocks.GRASS) && (var1 != Blocks.ak)) {
 			return false;
 		} else {
 			int var2 = this.a(m, m.b(a - 1));

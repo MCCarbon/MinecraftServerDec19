@@ -27,14 +27,14 @@ public class class_aqo {
 		class_apn var5 = this.a(var1, var2, var3);
 		Block var6 = var5.c();
 		Block var7 = var4.c();
-		if (var6 != Blocks.a) {
+		if (var6 != Blocks.AIR) {
 			--b;
 			if (var6.A()) {
 				--c;
 			}
 		}
 
-		if (var7 != Blocks.a) {
+		if (var7 != Blocks.AIR) {
 			++b;
 			if (var7.A()) {
 				++c;
@@ -89,7 +89,7 @@ public class class_aqo {
 			for (int var2 = 0; var2 < 16; ++var2) {
 				for (int var3 = 0; var3 < 16; ++var3) {
 					Block var4 = this.b(var1, var2, var3);
-					if (var4 != Blocks.a) {
+					if (var4 != Blocks.AIR) {
 						++b;
 						if (var4.A()) {
 							++c;

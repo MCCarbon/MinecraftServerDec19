@@ -50,7 +50,7 @@ public class class_my {
 
 	static {
 		f = (new class_mx("achievement.openInventory", "openInventory", 0, 0, Items.aN, (class_mx) null)).a().c();
-		g = (new class_mx("achievement.mineWood", "mineWood", 2, 1, Blocks.r, f)).c();
+		g = (new class_mx("achievement.mineWood", "mineWood", 2, 1, Blocks.LOG, f)).c();
 		h = (new class_mx("achievement.buildWorkBench", "buildWorkBench", 4, -1, Blocks.ai, g)).c();
 		i = (new class_mx("achievement.buildPickaxe", "buildPickaxe", 4, 2, Items.q, h)).c();
 		j = (new class_mx("achievement.buildFurnace", "buildFurnace", 3, 4, Blocks.al, i)).c();

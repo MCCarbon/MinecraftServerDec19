@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 
-public class class_anz extends class_aiq {
+public class class_anz extends BlockPlant {
 	protected class_anz() {
 		float var1 = 0.5F;
 		float var2 = 0.015625F;
@@ -25,7 +25,7 @@ public class class_anz extends class_aiq {
 
 	@Override
 	protected boolean c(Block var1) {
-		return var1 == Blocks.j;
+		return var1 == Blocks.WATER;
 	}
 
 	@Override

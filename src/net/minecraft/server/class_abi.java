@@ -12,7 +12,7 @@ public class class_abi extends Item {
 
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
-		boolean var5 = a == Blocks.a;
+		boolean var5 = a == Blocks.AIR;
 		class_ayl var6 = this.a(var2, var3, var5);
 		if (var6 == null) {
 			return new class_px(class_pw.b, var1);
@@ -69,7 +69,7 @@ public class class_abi extends Item {
 	}
 
 	public boolean a(class_ago var1, class_cj var2) {
-		if (a == Blocks.a) {
+		if (a == Blocks.AIR) {
 			return false;
 		} else {
 			class_avq var3 = var1.p(var2).c().v();
@@ -77,7 +77,7 @@ public class class_abi extends Item {
 			if (!var1.d(var2) && !var4) {
 				return false;
 			} else {
-				if (var1.t.l() && (a == Blocks.i)) {
+				if (var1.t.l() && (a == Blocks.FLOWING_WATER)) {
 					int var5 = var2.n();
 					int var6 = var2.o();
 					int var7 = var2.p();

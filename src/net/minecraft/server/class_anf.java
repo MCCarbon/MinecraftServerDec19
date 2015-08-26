@@ -423,7 +423,7 @@ public class class_anf extends Block {
 
 	@Override
 	public void d(class_ago var1, class_cj var2, class_apn var3) {
-		this.a(var1, var2, Q, Blocks.a);
+		this.a(var1, var2, Q, Blocks.AIR);
 		P.d(var1, var2, Q);
 	}
 

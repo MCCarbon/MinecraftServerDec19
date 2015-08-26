@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 
-public class class_aof extends class_ake {
+public class class_aof extends BlockFlowers {
 	@Override
-	public class_ake.class_b_in_class_ake l() {
-		return class_ake.class_b_in_class_ake.a;
+	public BlockFlowers.class_b_in_class_ake l() {
+		return BlockFlowers.class_b_in_class_ake.a;
 	}
 }

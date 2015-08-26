@@ -118,12 +118,12 @@ public class class_ajm extends class_aif {
 
 	@Override
 	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, class_apg.a(var1, var2, var8)).a(b, Boolean.valueOf(false));
+		return S().a(a, BlockPiston.a(var1, var2, var8)).a(b, Boolean.valueOf(false));
 	}
 
 	@Override
 	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
-		var1.a(var2, var3.a(a, class_apg.a(var1, var2, var4)), 2);
+		var1.a(var2, var3.a(a, BlockPiston.a(var1, var2, var4)), 2);
 		if (var5.s()) {
 			TileEntity var6 = var1.s(var2);
 			if (var6 instanceof class_aoo) {

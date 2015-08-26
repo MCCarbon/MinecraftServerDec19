@@ -36,7 +36,7 @@ public class class_aka extends Block {
 			if (var5 > 0) {
 				var1.a(var2, var3.a(a, Integer.valueOf(var5 - 1)), 2);
 			} else if (!this.d(var1, var2)) {
-				var1.a(var2, Blocks.d.S());
+				var1.a(var2, Blocks.DIRT.S());
 			}
 		} else if (var5 < 7) {
 			var1.a(var2, var3.a(a, Integer.valueOf(7)), 2);
@@ -52,7 +52,7 @@ public class class_aka extends Block {
 					return;
 				}
 
-				var1.a(var2, Blocks.d.S());
+				var1.a(var2, Blocks.DIRT.S());
 			}
 
 			super.a(var1, var2, var3, var4);
@@ -83,19 +83,19 @@ public class class_aka extends Block {
 	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		super.a(var1, var2, var3, var4);
 		if (var1.p(var2.a()).c().v().a()) {
-			var1.a(var2, Blocks.d.S());
+			var1.a(var2, Blocks.DIRT.S());
 		}
 
 	}
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Blocks.d.a(Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
+		return Blocks.DIRT.a(Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(Blocks.d);
+		return new class_aco(Blocks.DIRT);
 	}
 
 	@Override

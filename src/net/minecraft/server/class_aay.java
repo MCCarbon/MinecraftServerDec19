@@ -17,6 +17,6 @@ public class class_aay extends class_abq {
 	}
 
 	static {
-		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.f, Blocks.X, Blocks.r, Blocks.s, Blocks.ae, Blocks.aU, Blocks.aZ, Blocks.bk, Blocks.au }));
+		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.PLANKS, Blocks.X, Blocks.LOG, Blocks.LOG2, Blocks.ae, Blocks.aU, Blocks.aZ, Blocks.bk, Blocks.au }));
 	}
 }

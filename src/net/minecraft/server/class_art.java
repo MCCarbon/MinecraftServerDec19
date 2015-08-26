@@ -34,7 +34,7 @@ public class class_art implements class_aqk {
 	double[] g;
 
 	public class_art(class_ago var1, long var2, boolean var4, String var5) {
-		s = Blocks.j;
+		s = Blocks.WATER;
 		t = new double[256];
 		u = new class_arq();
 		v = new class_aum();
@@ -66,7 +66,7 @@ public class class_art implements class_aqk {
 
 		if (var5 != null) {
 			r = class_arm.class_a_in_class_arm.a(var5).b();
-			s = r.E ? Blocks.l : Blocks.j;
+			s = r.E ? Blocks.LAVA : Blocks.WATER;
 			var1.b(r.q);
 		}
 
@@ -111,7 +111,7 @@ public class class_art implements class_aqk {
 
 							for (int var49 = 0; var49 < 4; ++var49) {
 								if ((var45 += var47) > 0.0D) {
-									var3.a((var4 * 4) + var42, (var12 * 8) + var31, (var7 * 4) + var49, Blocks.b.S());
+									var3.a((var4 * 4) + var42, (var12 * 8) + var31, (var7 * 4) + var49, Blocks.STONE.S());
 								} else if (((var12 * 8) + var31) < r.q) {
 									var3.a((var4 * 4) + var42, (var12 * 8) + var31, (var7 * 4) + var49, s.S());
 								}
@@ -333,7 +333,7 @@ public class class_art implements class_aqk {
 			var14 = h.nextInt(16) + 8;
 			var15 = h.nextInt(256);
 			var16 = h.nextInt(16) + 8;
-			(new class_asy(Blocks.j)).b(m, h, var6.a(var14, var15, var16));
+			(new class_asy(Blocks.WATER)).b(m, h, var6.a(var14, var15, var16));
 		}
 
 		if (!var12 && (h.nextInt(r.D / 10) == 0) && r.C) {
@@ -341,7 +341,7 @@ public class class_art implements class_aqk {
 			var15 = h.nextInt(h.nextInt(248) + 8);
 			var16 = h.nextInt(16) + 8;
 			if ((var15 < m.H()) || (h.nextInt(r.D / 8) == 0)) {
-				(new class_asy(Blocks.l)).b(m, h, var6.a(var14, var15, var16));
+				(new class_asy(Blocks.LAVA)).b(m, h, var6.a(var14, var15, var16));
 			}
 		}
 

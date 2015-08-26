@@ -161,11 +161,11 @@ public class class_aue {
 			if (this.a(var1, var3)) {
 				return false;
 			} else {
-				this.a(var1, var3, 0, 5, 0, 2, 7, 1, Blocks.a.S(), Blocks.a.S(), false);
-				this.a(var1, var3, 0, 0, 7, 2, 2, 8, Blocks.a.S(), Blocks.a.S(), false);
+				this.a(var1, var3, 0, 5, 0, 2, 7, 1, Blocks.AIR.S(), Blocks.AIR.S(), false);
+				this.a(var1, var3, 0, 0, 7, 2, 2, 8, Blocks.AIR.S(), Blocks.AIR.S(), false);
 
 				for (int var4 = 0; var4 < 5; ++var4) {
-					this.a(var1, var3, 0, 5 - var4 - (var4 < 4 ? 1 : 0), 2 + var4, 2, 7 - var4, 2 + var4, Blocks.a.S(), Blocks.a.S(), false);
+					this.a(var1, var3, 0, 5 - var4 - (var4 < 4 ? 1 : 0), 2 + var4, 2, 7 - var4, 2 + var4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				}
 
 				return true;
@@ -281,25 +281,25 @@ public class class_aue {
 				return false;
 			} else {
 				if (b) {
-					this.a(var1, var3, l.a + 1, l.b, l.c, l.d - 1, (l.b + 3) - 1, l.f, Blocks.a.S(), Blocks.a.S(), false);
-					this.a(var1, var3, l.a, l.b, l.c + 1, l.d, (l.b + 3) - 1, l.f - 1, Blocks.a.S(), Blocks.a.S(), false);
-					this.a(var1, var3, l.a + 1, l.e - 2, l.c, l.d - 1, l.e, l.f, Blocks.a.S(), Blocks.a.S(), false);
-					this.a(var1, var3, l.a, l.e - 2, l.c + 1, l.d, l.e, l.f - 1, Blocks.a.S(), Blocks.a.S(), false);
-					this.a(var1, var3, l.a + 1, l.b + 3, l.c + 1, l.d - 1, l.b + 3, l.f - 1, Blocks.a.S(), Blocks.a.S(), false);
+					this.a(var1, var3, l.a + 1, l.b, l.c, l.d - 1, (l.b + 3) - 1, l.f, Blocks.AIR.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, l.a, l.b, l.c + 1, l.d, (l.b + 3) - 1, l.f - 1, Blocks.AIR.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, l.a + 1, l.e - 2, l.c, l.d - 1, l.e, l.f, Blocks.AIR.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, l.a, l.e - 2, l.c + 1, l.d, l.e, l.f - 1, Blocks.AIR.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, l.a + 1, l.b + 3, l.c + 1, l.d - 1, l.b + 3, l.f - 1, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				} else {
-					this.a(var1, var3, l.a + 1, l.b, l.c, l.d - 1, l.e, l.f, Blocks.a.S(), Blocks.a.S(), false);
-					this.a(var1, var3, l.a, l.b, l.c + 1, l.d, l.e, l.f - 1, Blocks.a.S(), Blocks.a.S(), false);
+					this.a(var1, var3, l.a + 1, l.b, l.c, l.d - 1, l.e, l.f, Blocks.AIR.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, l.a, l.b, l.c + 1, l.d, l.e, l.f - 1, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				}
 
-				this.a(var1, var3, l.a + 1, l.b, l.c + 1, l.a + 1, l.e, l.c + 1, Blocks.f.S(), Blocks.a.S(), false);
-				this.a(var1, var3, l.a + 1, l.b, l.f - 1, l.a + 1, l.e, l.f - 1, Blocks.f.S(), Blocks.a.S(), false);
-				this.a(var1, var3, l.d - 1, l.b, l.c + 1, l.d - 1, l.e, l.c + 1, Blocks.f.S(), Blocks.a.S(), false);
-				this.a(var1, var3, l.d - 1, l.b, l.f - 1, l.d - 1, l.e, l.f - 1, Blocks.f.S(), Blocks.a.S(), false);
+				this.a(var1, var3, l.a + 1, l.b, l.c + 1, l.a + 1, l.e, l.c + 1, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
+				this.a(var1, var3, l.a + 1, l.b, l.f - 1, l.a + 1, l.e, l.f - 1, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
+				this.a(var1, var3, l.d - 1, l.b, l.c + 1, l.d - 1, l.e, l.c + 1, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
+				this.a(var1, var3, l.d - 1, l.b, l.f - 1, l.d - 1, l.e, l.f - 1, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
 
 				for (int var4 = l.a; var4 <= l.d; ++var4) {
 					for (int var5 = l.c; var5 <= l.f; ++var5) {
 						if (this.a(var1, var4, l.b - 1, var5, var3).c().v() == class_avq.a) {
-							this.a(var1, Blocks.f.S(), var4, l.b - 1, var5, var3);
+							this.a(var1, Blocks.PLANKS.S(), var4, l.b - 1, var5, var3);
 						}
 					}
 				}
@@ -476,23 +476,23 @@ public class class_aue {
 				boolean var6 = false;
 				boolean var7 = true;
 				int var8 = (d * 5) - 1;
-				this.a(var1, var3, 0, 0, 0, 2, 1, var8, Blocks.a.S(), Blocks.a.S(), false);
-				this.a(var1, var3, var2, 0.8F, 0, 2, 0, 2, 2, var8, Blocks.a.S(), Blocks.a.S(), false);
+				this.a(var1, var3, 0, 0, 0, 2, 1, var8, Blocks.AIR.S(), Blocks.AIR.S(), false);
+				this.a(var1, var3, var2, 0.8F, 0, 2, 0, 2, 2, var8, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				if (b) {
-					this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, Blocks.G.S(), Blocks.a.S(), false);
+					this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, Blocks.G.S(), Blocks.AIR.S(), false);
 				}
 
 				int var9;
 				int var10;
 				for (var9 = 0; var9 < d; ++var9) {
 					var10 = 2 + (var9 * 5);
-					this.a(var1, var3, 0, 0, var10, 0, 1, var10, Blocks.aO.S(), Blocks.a.S(), false);
-					this.a(var1, var3, 2, 0, var10, 2, 1, var10, Blocks.aO.S(), Blocks.a.S(), false);
+					this.a(var1, var3, 0, 0, var10, 0, 1, var10, Blocks.aO.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, 2, 0, var10, 2, 1, var10, Blocks.aO.S(), Blocks.AIR.S(), false);
 					if (var2.nextInt(4) == 0) {
-						this.a(var1, var3, 0, 2, var10, 0, 2, var10, Blocks.f.S(), Blocks.a.S(), false);
-						this.a(var1, var3, 2, 2, var10, 2, 2, var10, Blocks.f.S(), Blocks.a.S(), false);
+						this.a(var1, var3, 0, 2, var10, 0, 2, var10, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
+						this.a(var1, var3, 2, 2, var10, 2, 2, var10, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
 					} else {
-						this.a(var1, var3, 0, 2, var10, 2, 2, var10, Blocks.f.S(), Blocks.a.S(), false);
+						this.a(var1, var3, 0, 2, var10, 2, 2, var10, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
 					}
 
 					this.a(var1, var3, var2, 0.1F, 0, 2, var10 - 1, Blocks.G.S());
@@ -536,7 +536,7 @@ public class class_aue {
 						class_apn var19 = this.a(var1, var9, var17, var10, var3);
 						if (var19.c().v() == class_avq.a) {
 							byte var20 = -1;
-							this.a(var1, Blocks.f.S(), var9, var20, var10, var3);
+							this.a(var1, Blocks.PLANKS.S(), var9, var20, var10, var3);
 						}
 					}
 				}
@@ -638,16 +638,16 @@ public class class_aue {
 			if (this.a(var1, var3)) {
 				return false;
 			} else {
-				this.a(var1, var3, l.a, l.b, l.c, l.d, l.b, l.f, Blocks.d.S(), Blocks.a.S(), true);
-				this.a(var1, var3, l.a, l.b + 1, l.c, l.d, Math.min(l.b + 3, l.e), l.f, Blocks.a.S(), Blocks.a.S(), false);
+				this.a(var1, var3, l.a, l.b, l.c, l.d, l.b, l.f, Blocks.DIRT.S(), Blocks.AIR.S(), true);
+				this.a(var1, var3, l.a, l.b + 1, l.c, l.d, Math.min(l.b + 3, l.e), l.f, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				Iterator var4 = a.iterator();
 
 				while (var4.hasNext()) {
 					class_aua var5 = (class_aua) var4.next();
-					this.a(var1, var3, var5.a, var5.e - 2, var5.c, var5.d, var5.e, var5.f, Blocks.a.S(), Blocks.a.S(), false);
+					this.a(var1, var3, var5.a, var5.e - 2, var5.c, var5.d, var5.e, var5.f, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				}
 
-				this.a(var1, var3, l.a, l.b + 4, l.c, l.d, l.e, l.f, Blocks.a.S(), false);
+				this.a(var1, var3, l.a, l.b + 4, l.c, l.d, l.e, l.f, Blocks.AIR.S(), false);
 				return true;
 			}
 		}

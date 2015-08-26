@@ -153,7 +153,7 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 
 	public boolean m() {
 		if ((b != null) && !b.D) {
-			if (!n() && class_akw.f(u())) {
+			if (!n() && BlockHopper.f(u())) {
 				boolean var1 = false;
 				if (!p()) {
 					var1 = r();
@@ -209,7 +209,7 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 		if (var1 == null) {
 			return false;
 		} else {
-			class_cq var2 = class_akw.b(u()).d();
+			class_cq var2 = BlockHopper.b(u()).d();
 			if (this.a(var1, var2)) {
 				return false;
 			} else {
@@ -418,7 +418,7 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 	}
 
 	private class_pp H() {
-		class_cq var1 = class_akw.b(u());
+		class_cq var1 = BlockHopper.b(u());
 		return b(z(), c.n() + var1.g(), c.o() + var1.h(), c.p() + var1.i());
 	}
 
@@ -441,8 +441,8 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 			TileEntity var13 = var0.s(var11);
 			if (var13 instanceof class_pp) {
 				var7 = var13;
-				if ((var7 instanceof class_aok) && (var12 instanceof class_aiw)) {
-					var7 = ((class_aiw) var12).e(var0, var11);
+				if ((var7 instanceof class_aok) && (var12 instanceof BlockChest)) {
+					var7 = ((BlockChest) var12).e(var0, var11);
 				}
 			}
 		}

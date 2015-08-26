@@ -67,7 +67,7 @@ public class class_ate extends class_asp {
 							if ((var15 == -1) && (var2.nextInt(4) != 0)) {
 								var1.a(var17, Blocks.Y.S(), 2);
 							} else {
-								var1.a(var17, Blocks.e.S(), 2);
+								var1.a(var17, Blocks.COBBLESTONE.S(), 2);
 							}
 						}
 					}

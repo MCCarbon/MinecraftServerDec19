@@ -44,7 +44,7 @@ public class class_xg extends Entity {
 		f = 5;
 		a = (float) (Math.random() * 3.141592653589793D * 2.0D);
 		this.a(0.25F, 0.25F);
-		this.a(new class_aco(Blocks.a, 0));
+		this.a(new class_aco(Blocks.AIR, 0));
 	}
 
 	@Override
@@ -247,11 +247,11 @@ public class class_xg extends Entity {
 			class_aco var2 = this.j();
 			int var3 = var2.b;
 			if ((e == 0) && ((h == null) || ((6000 - d) <= 200) || h.equals(var1.e_())) && var1.bq.a(var2)) {
-				if (var2.b() == Item.a(Blocks.r)) {
+				if (var2.b() == Item.a(Blocks.LOG)) {
 					var1.b(class_my.g);
 				}
 
-				if (var2.b() == Item.a(Blocks.s)) {
+				if (var2.b() == Item.a(Blocks.LOG2)) {
 					var1.b(class_my.g);
 				}
 
@@ -316,7 +316,7 @@ public class class_xg extends Entity {
 				b.error("Item entity " + G() + " has no item?!");
 			}
 
-			return new class_aco(Blocks.b);
+			return new class_aco(Blocks.STONE);
 		} else {
 			return var1;
 		}

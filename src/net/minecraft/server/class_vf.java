@@ -717,7 +717,7 @@ public class class_vf extends class_vc implements class_pq {
 				this.b(1.0F);
 			}
 
-			if (!cR() && (l == null) && (V.nextInt(300) == 0) && (o.p(new class_cj(class_oa.c(s), class_oa.c(t) - 1, class_oa.c(u))).c() == Blocks.c)) {
+			if (!cR() && (l == null) && (V.nextInt(300) == 0) && (o.p(new class_cj(class_oa.c(s), class_oa.c(t) - 1, class_oa.c(u))).c() == Blocks.GRASS)) {
 				this.s(true);
 			}
 

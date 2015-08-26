@@ -33,7 +33,7 @@ public class class_abu extends Item {
 			} else if (var10 == class_abt.m) {
 				class_apn var11 = var3.p(var4);
 				Block var12 = var11.c();
-				if ((var12 == Blocks.r) && (var11.b(class_alv.b) == class_aly.class_a_in_class_aly.d)) {
+				if ((var12 == Blocks.LOG) && (var11.b(class_alv.b) == class_aly.class_a_in_class_aly.d)) {
 					if ((var6 != class_cq.a) && (var6 != class_cq.b)) {
 						var4 = var4.a(var6);
 						if (var3.d(var4)) {

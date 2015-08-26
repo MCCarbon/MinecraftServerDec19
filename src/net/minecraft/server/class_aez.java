@@ -6,7 +6,7 @@ public class class_aez {
 	private Object[][] b;
 
 	public class_aez() {
-		b = new Object[][] { { Blocks.f, Blocks.e, Items.l, Items.k, Items.m }, { Items.q, Items.u, Items.b, Items.y, Items.F }, { Items.p, Items.t, Items.a, Items.x, Items.E }, { Items.r, Items.v, Items.c, Items.z, Items.G }, { Items.K, Items.L, Items.M, Items.N, Items.O } };
+		b = new Object[][] { { Blocks.PLANKS, Blocks.COBBLESTONE, Items.l, Items.k, Items.m }, { Items.q, Items.u, Items.b, Items.y, Items.F }, { Items.p, Items.t, Items.a, Items.x, Items.E }, { Items.r, Items.v, Items.c, Items.z, Items.G }, { Items.K, Items.L, Items.M, Items.N, Items.O } };
 	}
 
 	public void a(class_aet var1) {

@@ -31,7 +31,7 @@ public class class_xi extends class_xk {
 
 	@Override
 	public class_apn u() {
-		return Blocks.ae.S().a(class_aiw.a, class_cq.c);
+		return Blocks.ae.S().a(BlockChest.a, class_cq.c);
 	}
 
 	@Override

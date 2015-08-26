@@ -61,7 +61,7 @@ public class class_ax extends class_i {
 			try {
 				var6 = f(var1, var2[var16]);
 			} catch (class_cb var15) {
-				if (Block.b(var2[var16]) != Blocks.a) {
+				if (Block.b(var2[var16]) != Blocks.AIR) {
 					throw var15;
 				}
 

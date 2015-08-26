@@ -1015,7 +1015,7 @@ public class class_auj {
 				for (int var5 = 1; var5 <= 6; ++var5) {
 					if (var2.nextInt(3) != 0) {
 						int var6 = 2 + (var2.nextInt(4) == 0 ? 0 : 1);
-						this.a(var1, var3, var4, var6, var5, var4, 3, var5, Blocks.v.a(1), Blocks.v.a(1), false);
+						this.a(var1, var3, var4, var6, var5, var4, 3, var5, Blocks.SPONGE.a(1), Blocks.SPONGE.a(1), false);
 					}
 				}
 			}
@@ -1928,7 +1928,7 @@ public class class_auj {
 					for (int var12 = var5; var12 <= var8; ++var12) {
 						if (!var9 || (this.a(var1, var11, var10, var12, var2).c().v() != class_avq.a)) {
 							if (this.d(var10) >= var1.H()) {
-								this.a(var1, Blocks.a.S(), var11, var10, var12, var2);
+								this.a(var1, Blocks.AIR.S(), var11, var10, var12, var2);
 							} else {
 								this.a(var1, f, var11, var10, var12, var2);
 							}
@@ -1999,7 +1999,7 @@ public class class_auj {
 			c = Blocks.cI.a(class_ame.O);
 			d = b;
 			e = Blocks.cJ.S();
-			f = Blocks.j.S();
+			f = Blocks.WATER.S();
 			g = b(2, 0, 0);
 			h = b(2, 2, 0);
 			i = b(0, 1, 0);

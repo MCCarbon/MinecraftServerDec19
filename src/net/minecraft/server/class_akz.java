@@ -29,7 +29,7 @@ public class class_akz extends class_aks {
 			this.b(var1, var3, var4, var7);
 			class_avq var8 = var1.p(var3.b()).c().v();
 			if (var8.c() || var8.d()) {
-				var1.a(var3, Blocks.i.S());
+				var1.a(var3, Blocks.FLOWING_WATER.S());
 			}
 		}
 
@@ -47,7 +47,7 @@ public class class_akz extends class_aks {
 				var1.g(var2);
 			} else {
 				this.b(var1, var2, var1.p(var2), 0);
-				var1.a(var2, Blocks.j.S());
+				var1.a(var2, Blocks.WATER.S());
 			}
 		}
 	}

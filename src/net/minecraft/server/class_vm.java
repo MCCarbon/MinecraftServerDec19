@@ -92,7 +92,7 @@ public class class_vm extends class_vg implements class_xx {
 		if (!az()) {
 			if (!o.D) {
 				class_apn var2 = o.p(var1);
-				if (var2.c() != Blocks.a) {
+				if (var2.c() != Blocks.AIR) {
 					class_cq var3;
 					if (var2.c() == Blocks.M) {
 						var3 = (class_cq) var2.b(class_ajk.b);

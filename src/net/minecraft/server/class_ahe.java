@@ -43,9 +43,9 @@ public class class_ahe {
 	public boolean L;
 
 	public class_ahe() {
-		f = new class_atk(Blocks.m, 7);
-		g = new class_atk(Blocks.n, 6);
-		s = new class_asq(Blocks.N, class_ake.class_a_in_class_ake.a);
+		f = new class_atk(Blocks.SAND, 7);
+		g = new class_atk(Blocks.GRAVEL, 6);
+		s = new class_asq(Blocks.N, BlockFlowers.class_a_in_class_ake.a);
 		t = new class_asf(Blocks.P);
 		u = new class_asf(Blocks.Q);
 		v = new class_asv();
@@ -74,17 +74,17 @@ public class class_ahe {
 
 			b = var2;
 			c = var4;
-			h = new class_atf(Blocks.d.S(), d.I);
-			i = new class_atf(Blocks.n.S(), d.M);
-			j = new class_atf(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.b), d.Q);
-			k = new class_atf(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.d), d.U);
-			l = new class_atf(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.f), d.Y);
-			m = new class_atf(Blocks.q.S(), d.ac);
-			n = new class_atf(Blocks.p.S(), d.ag);
-			o = new class_atf(Blocks.o.S(), d.ak);
+			h = new class_atf(Blocks.DIRT.S(), d.I);
+			i = new class_atf(Blocks.GRAVEL.S(), d.M);
+			j = new class_atf(Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.b), d.Q);
+			k = new class_atf(Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.d), d.U);
+			l = new class_atf(Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.f), d.Y);
+			m = new class_atf(Blocks.COAL_ORE.S(), d.ac);
+			n = new class_atf(Blocks.IRON_ORE.S(), d.ag);
+			o = new class_atf(Blocks.GOLD_ORE.S(), d.ak);
 			p = new class_atf(Blocks.aC.S(), d.ao);
 			q = new class_atf(Blocks.ag.S(), d.as);
-			r = new class_atf(Blocks.x.S(), d.aw);
+			r = new class_atf(Blocks.LAPIS_ORE.S(), d.aw);
 			this.a(var3);
 			a = null;
 			b = null;
@@ -149,8 +149,8 @@ public class class_ahe {
 			if (var11 > 0) {
 				var12 = b.nextInt(var11);
 				var8 = c.a(var4, var12, var5);
-				class_ake.class_a_in_class_ake var9 = var1.a(b, var8);
-				class_ake var10 = var9.a().a();
+				BlockFlowers.class_a_in_class_ake var9 = var1.a(b, var8);
+				BlockFlowers var10 = var9.a().a();
 				if (var10.v() != class_avq.a) {
 					s.a(var10, var9);
 					s.b(a, b, var8);
@@ -285,7 +285,7 @@ public class class_ahe {
 				if (var11 > 0) {
 					var12 = b.nextInt(var11);
 					var8 = c.a(var4, var12, var5);
-					(new class_atn(Blocks.i)).b(a, b, var8);
+					(new class_atn(Blocks.FLOWING_WATER)).b(a, b, var8);
 				}
 			}
 
@@ -294,7 +294,7 @@ public class class_ahe {
 				var5 = b.nextInt(16) + 8;
 				var11 = b.nextInt(b.nextInt(b.nextInt(240) + 8) + 8);
 				var7 = c.a(var4, var11, var5);
-				(new class_atn(Blocks.k)).b(a, b, var7);
+				(new class_atn(Blocks.FLOWING_LAVA)).b(a, b, var7);
 			}
 		}
 

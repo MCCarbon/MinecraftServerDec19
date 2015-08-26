@@ -23,7 +23,7 @@ public class class_anj extends Block {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return var1.b(a) == class_anj.class_a_in_class_anj.a ? Item.a(Blocks.e) : Item.a(Blocks.b);
+		return var1.b(a) == class_anj.class_a_in_class_anj.a ? Item.a(Blocks.COBBLESTONE) : Item.a(Blocks.STONE);
 	}
 
 	@Override

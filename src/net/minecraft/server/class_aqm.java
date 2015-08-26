@@ -26,7 +26,7 @@ public class class_aqm extends class_aqn {
 
 	@Override
 	public Block a(class_cj var1) {
-		return Blocks.a;
+		return Blocks.AIR;
 	}
 
 	@Override

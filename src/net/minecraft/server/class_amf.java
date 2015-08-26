@@ -43,7 +43,7 @@ public class class_amf extends class_akx {
 		if ((var3 = n().a(var1, var2)) != null) {
 			for (var4 = 0; var4 < n().b(); ++var4) {
 				class_apq var5 = var3.a(0, var4, 0);
-				var1.a(var5.d(), Blocks.a.S(), 2);
+				var1.a(var5.d(), Blocks.AIR.S(), 2);
 			}
 
 			class_vn var9 = new class_vn(var1);
@@ -57,12 +57,12 @@ public class class_amf extends class_akx {
 
 			for (var6 = 0; var6 < n().b(); ++var6) {
 				class_apq var7 = var3.a(0, var6, 0);
-				var1.c(var7.d(), Blocks.a);
+				var1.c(var7.d(), Blocks.AIR);
 			}
 		} else if ((var3 = p().a(var1, var2)) != null) {
 			for (var4 = 0; var4 < p().c(); ++var4) {
 				for (int var12 = 0; var12 < p().b(); ++var12) {
-					var1.a(var3.a(var4, var12, 0).d(), Blocks.a.S(), 2);
+					var1.a(var3.a(var4, var12, 0).d(), Blocks.AIR.S(), 2);
 				}
 			}
 
@@ -79,7 +79,7 @@ public class class_amf extends class_akx {
 			for (var6 = 0; var6 < p().c(); ++var6) {
 				for (int var14 = 0; var14 < p().b(); ++var14) {
 					class_apq var8 = var3.a(var6, var14, 0);
-					var1.c(var8.d(), Blocks.a);
+					var1.c(var8.d(), Blocks.AIR);
 				}
 			}
 		}
@@ -139,7 +139,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr o() {
 		if (N == null) {
-			N = class_aps.a().a(new String[] { "~ ~", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.a))).b();
+			N = class_aps.a().a(new String[] { "~ ~", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
 		}
 
 		return N;
@@ -147,7 +147,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr p() {
 		if (P == null) {
-			P = class_aps.a().a(new String[] { "~^~", "###", "~#~" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.a))).b();
+			P = class_aps.a().a(new String[] { "~^~", "###", "~#~" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
 		}
 
 		return P;

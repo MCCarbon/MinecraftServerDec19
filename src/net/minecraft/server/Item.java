@@ -259,7 +259,7 @@ public class Item {
 	}
 
 	public static void t() {
-		a(Blocks.b, (new class_acx(Blocks.b, Blocks.b, new Function() {
+		a(Blocks.STONE, (new class_acx(Blocks.STONE, Blocks.STONE, new Function() {
 			public String a(class_aco var1) {
 				return class_anj.class_a_in_class_anj.a(var1.i()).d();
 			}
@@ -270,8 +270,8 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("stone"));
-		a(Blocks.c, (new class_adw(Blocks.c, false)));
-		a(Blocks.d, (new class_acx(Blocks.d, Blocks.d, new Function() {
+		a(Blocks.GRASS, (new class_adw(Blocks.GRASS, false)));
+		a(Blocks.DIRT, (new class_acx(Blocks.DIRT, Blocks.DIRT, new Function() {
 			public String a(class_aco var1) {
 				return class_ajl.class_a_in_class_ajl.a(var1.i()).c();
 			}
@@ -282,8 +282,8 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("dirt"));
-		c(Blocks.e);
-		a(Blocks.f, (new class_acx(Blocks.f, Blocks.f, new Function() {
+		c(Blocks.COBBLESTONE);
+		a(Blocks.PLANKS, (new class_acx(Blocks.PLANKS, Blocks.PLANKS, new Function() {
 			public String a(class_aco var1) {
 				return class_aly.class_a_in_class_aly.a(var1.i()).d();
 			}
@@ -294,7 +294,7 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("wood"));
-		a(Blocks.g, (new class_acx(Blocks.g, Blocks.g, new Function() {
+		a(Blocks.SAPLING, (new class_acx(Blocks.SAPLING, Blocks.SAPLING, new Function() {
 			public String a(class_aco var1) {
 				return class_aly.class_a_in_class_aly.a(var1.i()).d();
 			}
@@ -305,10 +305,10 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("sapling"));
-		c(Blocks.h);
-		a(Blocks.m, (new class_acx(Blocks.m, Blocks.m, new Function() {
+		c(Blocks.BEDROCK);
+		a(Blocks.SAND, (new class_acx(Blocks.SAND, Blocks.SAND, new Function() {
 			public String a(class_aco var1) {
-				return class_ams.class_a_in_class_ams.a(var1.i()).d();
+				return BlockSand.class_a_in_class_ams.a(var1.i()).d();
 			}
 
 			// $FF: synthetic method
@@ -317,11 +317,11 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("sand"));
-		c(Blocks.n);
-		c(Blocks.o);
-		c(Blocks.p);
-		c(Blocks.q);
-		a(Blocks.r, (new class_acx(Blocks.r, Blocks.r, new Function() {
+		c(Blocks.GRAVEL);
+		c(Blocks.GOLD_ORE);
+		c(Blocks.IRON_ORE);
+		c(Blocks.COAL_ORE);
+		a(Blocks.LOG, (new class_acx(Blocks.LOG, Blocks.LOG, new Function() {
 			public String a(class_aco var1) {
 				return class_aly.class_a_in_class_aly.a(var1.i()).d();
 			}
@@ -332,7 +332,7 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("log"));
-		a(Blocks.s, (new class_acx(Blocks.s, Blocks.s, new Function() {
+		a(Blocks.LOG2, (new class_acx(Blocks.LOG2, Blocks.LOG2, new Function() {
 			public String a(class_aco var1) {
 				return class_aly.class_a_in_class_aly.a(var1.i() + 4).d();
 			}
@@ -343,9 +343,9 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("log"));
-		a(Blocks.t, (new class_acs(Blocks.t)).b("leaves"));
-		a(Blocks.u, (new class_acs(Blocks.u)).b("leaves"));
-		a(Blocks.v, (new class_acx(Blocks.v, Blocks.v, new Function() {
+		a(Blocks.LEAVES, (new class_acs(Blocks.LEAVES)).b("leaves"));
+		a(Blocks.LEAVES2, (new class_acs(Blocks.LEAVES2)).b("leaves"));
+		a(Blocks.SPONGE, (new class_acx(Blocks.SPONGE, Blocks.SPONGE, new Function() {
 			public String a(class_aco var1) {
 				return (var1.i() & 1) == 1 ? "wet" : "dry";
 			}
@@ -356,11 +356,11 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("sponge"));
-		c(Blocks.w);
-		c(Blocks.x);
-		c(Blocks.y);
-		c(Blocks.z);
-		a(Blocks.A, (new class_acx(Blocks.A, Blocks.A, new Function() {
+		c(Blocks.GLASS);
+		c(Blocks.LAPIS_ORE);
+		c(Blocks.LAPIS_BLOCK);
+		c(Blocks.DISPENSER);
+		a(Blocks.SANDSTONE, (new class_acx(Blocks.SANDSTONE, Blocks.SANDSTONE, new Function() {
 			public String a(class_aco var1) {
 				return class_amt.class_a_in_class_amt.a(var1.i()).c();
 			}
@@ -371,9 +371,9 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("sandStone"));
-		c(Blocks.B);
-		c(Blocks.D);
-		c(Blocks.E);
+		c(Blocks.NOTEBLOCK);
+		c(Blocks.GOLDEN_RAIL);
+		c(Blocks.DETECTOR_RAIL);
 		a(Blocks.F, (new class_ada(Blocks.F)));
 		c(Blocks.G);
 		a(Blocks.H, (new class_adw(Blocks.H, true)).a(new String[] { "shrub", "grass", "fern" }));
@@ -382,7 +382,7 @@ public class Item {
 		a(Blocks.L, (new class_abv(Blocks.L)).b("cloth"));
 		a(Blocks.N, (new class_acx(Blocks.N, Blocks.N, new Function() {
 			public String a(class_aco var1) {
-				return class_ake.class_a_in_class_ake.a(class_ake.class_b_in_class_ake.a, var1.i()).d();
+				return BlockFlowers.class_a_in_class_ake.a(BlockFlowers.class_b_in_class_ake.a, var1.i()).d();
 			}
 
 			// $FF: synthetic method
@@ -393,7 +393,7 @@ public class Item {
 		})).b("flower"));
 		a(Blocks.O, (new class_acx(Blocks.O, Blocks.O, new Function() {
 			public String a(class_aco var1) {
-				return class_ake.class_a_in_class_ake.a(class_ake.class_b_in_class_ake.b, var1.i()).d();
+				return BlockFlowers.class_a_in_class_ake.a(BlockFlowers.class_b_in_class_ake.b, var1.i()).d();
 			}
 
 			// $FF: synthetic method
@@ -552,7 +552,7 @@ public class Item {
 		c(Blocks.da);
 		a(Blocks.cF, (new class_abs(Blocks.cF, Blocks.cF, new Function() {
 			public String a(class_aco var1) {
-				return class_ajo.class_b_in_class_ajo.a(var1.i()).c();
+				return BlockTallPlant.class_b_in_class_ajo.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
@@ -659,10 +659,10 @@ public class Item {
 		a(322, "golden_apple", (new class_acj(4, 1.2F, false)).h().a(new class_qr(class_qs.j, 100, 1), 1.0F).c("appleGold"));
 		a(323, "sign", (new class_adm()).c("sign"));
 		a(324, "wooden_door", (new class_abr(Blocks.ao)).c("doorOak"));
-		Item var0 = (new class_abi(Blocks.a)).c("bucket").d(16);
+		Item var0 = (new class_abi(Blocks.AIR)).c("bucket").d(16);
 		a(325, "bucket", var0);
-		a(326, "water_bucket", (new class_abi(Blocks.i)).c("bucketWater").c(var0));
-		a(327, "lava_bucket", (new class_abi(Blocks.k)).c("bucketLava").c(var0));
+		a(326, "water_bucket", (new class_abi(Blocks.FLOWING_WATER)).c("bucketWater").c(var0));
+		a(327, "lava_bucket", (new class_abi(Blocks.FLOWING_LAVA)).c("bucketLava").c(var0));
 		a(328, "minecart", (new class_acw(class_xh.class_a_in_class_xh.a)).c("minecart"));
 		a(329, "saddle", (new class_adf()).c("saddle"));
 		a(330, "iron_door", (new class_abr(Blocks.aA)).c("doorIron"));
@@ -851,7 +851,7 @@ public class Item {
 		}
 
 		public Item f() {
-			return this == a ? Item.a(Blocks.f) : (this == b ? Item.a(Blocks.e) : (this == e ? Items.m : (this == c ? Items.l : (this == d ? Items.k : null))));
+			return this == a ? Item.a(Blocks.PLANKS) : (this == b ? Item.a(Blocks.COBBLESTONE) : (this == e ? Items.m : (this == c ? Items.l : (this == d ? Items.k : null))));
 		}
 	}
 }

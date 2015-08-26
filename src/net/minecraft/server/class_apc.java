@@ -155,7 +155,7 @@ public class class_apc extends TileEntity implements class_ks {
 					for (int var7 = 255; var7 > (var4 == null ? 0 : var4.o()); --var7) {
 						class_cj var8 = new class_cj(var1.n() + var5, var7, var1.p() + var6);
 						class_apn var9 = var0.p(var8);
-						if (var9.c().w() && (var3 || (var9.c() != Blocks.h))) {
+						if (var9.c().w() && (var3 || (var9.c() != Blocks.BEDROCK))) {
 							var4 = var8;
 							break;
 						}

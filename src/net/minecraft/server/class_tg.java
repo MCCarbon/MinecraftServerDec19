@@ -60,7 +60,7 @@ public class class_tg extends class_tc {
 					return true;
 				}
 
-				if ((var4 == Blocks.C) && (var3.b(class_aij.a) != class_aij.class_a_in_class_aij.a)) {
+				if ((var4 == Blocks.BED) && (var3.b(class_aij.a) != class_aij.class_a_in_class_aij.a)) {
 					return true;
 				}
 			}

@@ -269,7 +269,7 @@ public class class_wy extends Entity {
 								var41 = class_oa.c(aX().b) + 1.0F;
 								var23 = u + var18 * ay * 0.1F;
 								var25 = var37.p(new class_cj((int) var19, (int) var41 - 1, (int) var23)).c();
-								if ((var25 == Blocks.j) || (var25 == Blocks.i)) {
+								if ((var25 == Blocks.WATER) || (var25 == Blocks.FLOWING_WATER)) {
 									if (V.nextFloat() < 0.15F) {
 										var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, var40, 0.1D, var18, 0.0D, new int[0]);
 									}
@@ -298,7 +298,7 @@ public class class_wy extends Entity {
 								var41 = class_oa.c(aX().b) + 1.0F;
 								var23 = u + class_oa.b(var40) * var18 * 0.1F;
 								var25 = var37.p(new class_cj((int) var19, (int) var41 - 1, (int) var23)).c();
-								if ((var25 == Blocks.j) || (var25 == Blocks.i)) {
+								if ((var25 == Blocks.WATER) || (var25 == Blocks.FLOWING_WATER)) {
 									var37.a(class_cy.f, var19, var41, var23, 2 + V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
 								}
 							}

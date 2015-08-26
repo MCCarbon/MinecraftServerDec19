@@ -163,7 +163,7 @@ public abstract class class_alf extends Block {
 				}
 
 				if (var9.intValue() <= 4) {
-					var1.a(var2, Blocks.e.S());
+					var1.a(var2, Blocks.COBBLESTONE.S());
 					this.d(var1, var2);
 					return true;
 				}
@@ -200,21 +200,21 @@ public abstract class class_alf extends Block {
 		return new class_apo(this, new class_aqc[] { b });
 	}
 
-	public static class_ajr a(class_avq var0) {
+	public static BlockFlowing a(class_avq var0) {
 		if (var0 == class_avq.h) {
-			return Blocks.i;
+			return Blocks.FLOWING_WATER;
 		} else if (var0 == class_avq.i) {
-			return Blocks.k;
+			return Blocks.FLOWING_LAVA;
 		} else {
 			throw new IllegalArgumentException("Invalid material");
 		}
 	}
 
-	public static class_anh b(class_avq var0) {
+	public static BlockStationary b(class_avq var0) {
 		if (var0 == class_avq.h) {
-			return Blocks.j;
+			return Blocks.WATER;
 		} else if (var0 == class_avq.i) {
-			return Blocks.l;
+			return Blocks.LAVA;
 		} else {
 			throw new IllegalArgumentException("Invalid material");
 		}

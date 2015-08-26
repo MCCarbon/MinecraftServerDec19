@@ -21,7 +21,7 @@ public class class_sm extends class_sr {
 			return false;
 		} else {
 			class_cj var1 = new class_cj(c.s, c.t, c.u);
-			return b.apply(d.p(var1)) ? true : d.p(var1.b()).c() == Blocks.c;
+			return b.apply(d.p(var1)) ? true : d.p(var1.b()).c() == Blocks.GRASS;
 		}
 	}
 
@@ -59,10 +59,10 @@ public class class_sm extends class_sr {
 				c.x();
 			} else {
 				class_cj var2 = var1.b();
-				if (d.p(var2).c() == Blocks.c) {
+				if (d.p(var2).c() == Blocks.GRASS) {
 					if (d.S().b("mobGriefing")) {
-						d.b(2001, var2, Block.a(Blocks.c));
-						d.a(var2, Blocks.d.S(), 2);
+						d.b(2001, var2, Block.a(Blocks.GRASS));
+						d.a(var2, Blocks.DIRT.S(), 2);
 					}
 
 					c.x();
@@ -73,6 +73,6 @@ public class class_sm extends class_sr {
 	}
 
 	static {
-		b = class_apv.a(Blocks.H).a(class_ano.a, Predicates.equalTo(class_ano.class_a_in_class_ano.b));
+		b = class_apv.a(Blocks.H).a(BlockLongGrass.a, Predicates.equalTo(BlockLongGrass.class_a_in_class_ano.b));
 	}
 }

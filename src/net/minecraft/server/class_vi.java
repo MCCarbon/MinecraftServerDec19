@@ -206,7 +206,7 @@ public class class_vi extends class_ro {
 			}
 
 			Block var2 = o.p(var1.b()).c();
-			if ((var2 == Blocks.c) || (var2.v() == class_avq.j)) {
+			if ((var2 == Blocks.GRASS) || (var2.v() == class_avq.j)) {
 				return true;
 			}
 		}

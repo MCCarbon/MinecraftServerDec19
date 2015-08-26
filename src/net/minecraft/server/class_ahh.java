@@ -43,7 +43,7 @@ public class class_ahh extends class_ahb {
 			var7 = var2.nextInt(28) + 4;
 			int var8 = var2.nextInt(16);
 			class_cj var9 = var3.a(var6, var7, var8);
-			if (var1.p(var9).c() == Blocks.b) {
+			if (var1.p(var9).c() == Blocks.STONE) {
 				var1.a(var9, Blocks.bP.S(), 2);
 			}
 		}
@@ -59,14 +59,14 @@ public class class_ahh extends class_ahb {
 
 	@Override
 	public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
-		ak = Blocks.c.S();
-		al = Blocks.d.S();
+		ak = Blocks.GRASS.S();
+		al = Blocks.DIRT.S();
 		if (((var6 < -1.0D) || (var6 > 2.0D)) && (aI == aH)) {
-			ak = Blocks.n.S();
-			al = Blocks.n.S();
+			ak = Blocks.GRAVEL.S();
+			al = Blocks.GRAVEL.S();
 		} else if ((var6 > 1.0D) && (aI != aG)) {
-			ak = Blocks.b.S();
-			al = Blocks.b.S();
+			ak = Blocks.STONE.S();
+			al = Blocks.STONE.S();
 		}
 
 		this.b(var1, var2, var3, var4, var5, var6);

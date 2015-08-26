@@ -958,7 +958,7 @@ public class class_ll extends class_ago implements class_pl {
 	}
 
 	static {
-		T = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.A, 0, 1, 3, 10), new class_oj(Item.a(Blocks.f), 0, 1, 3, 10), new class_oj(Item.a(Blocks.r), 0, 1, 3, 10), new class_oj(Items.v, 0, 1, 1, 3), new class_oj(Items.r, 0, 1, 1, 5), new class_oj(Items.u, 0, 1, 1, 3), new class_oj(Items.q, 0, 1, 1, 5), new class_oj(Items.e, 0, 2, 3, 5), new class_oj(Items.R, 0, 2, 3, 3), new class_oj(Item.a(Blocks.s), 0, 1, 3, 10) }));
+		T = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.A, 0, 1, 3, 10), new class_oj(Item.a(Blocks.PLANKS), 0, 1, 3, 10), new class_oj(Item.a(Blocks.LOG), 0, 1, 3, 10), new class_oj(Items.v, 0, 1, 1, 3), new class_oj(Items.r, 0, 1, 1, 5), new class_oj(Items.u, 0, 1, 1, 3), new class_oj(Items.q, 0, 1, 1, 5), new class_oj(Items.e, 0, 2, 3, 5), new class_oj(Items.R, 0, 2, 3, 3), new class_oj(Item.a(Blocks.LOG2), 0, 1, 3, 10) }));
 	}
 
 	static class class_a_in_class_ll extends ArrayList {

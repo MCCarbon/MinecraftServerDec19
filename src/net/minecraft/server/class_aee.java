@@ -52,7 +52,7 @@ public class class_aee {
 	}
 
 	static {
-		if (!class_kh.a()) {
+		if (!Bootstrap.isInitDone()) {
 			throw new RuntimeException("Accessed Potions before Bootstrap!");
 		} else {
 			J = Sets.newHashSet();

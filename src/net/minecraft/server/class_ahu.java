@@ -29,7 +29,7 @@ public class class_ahu extends class_ahb {
 
 	@Override
 	public void a(class_ago var1, Random var2, class_cj var3) {
-		ag.a(class_ajo.class_b_in_class_ajo.c);
+		ag.a(BlockTallPlant.class_b_in_class_ajo.c);
 
 		for (int var4 = 0; var4 < 7; ++var4) {
 			int var5 = var2.nextInt(16) + 8;
@@ -51,13 +51,13 @@ public class class_ahu extends class_ahb {
 
 		@Override
 		public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
-			ak = Blocks.c.S();
-			al = Blocks.d.S();
+			ak = Blocks.GRASS.S();
+			al = Blocks.DIRT.S();
 			if (var6 > 1.75D) {
-				ak = Blocks.b.S();
-				al = Blocks.b.S();
+				ak = Blocks.STONE.S();
+				al = Blocks.STONE.S();
 			} else if (var6 > -0.5D) {
-				ak = Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
+				ak = Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
 			}
 
 			this.b(var1, var2, var3, var4, var5, var6);

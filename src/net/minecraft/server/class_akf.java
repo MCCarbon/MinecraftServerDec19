@@ -69,7 +69,7 @@ public class class_akf extends class_aif {
 	}
 
 	private boolean a(Block var1, int var2) {
-		return (var1 != Blocks.N) && (var1 != Blocks.O) && (var1 != Blocks.aK) && (var1 != Blocks.P) && (var1 != Blocks.Q) && (var1 != Blocks.g) && (var1 != Blocks.I) ? (var1 == Blocks.H) && (var2 == class_ano.class_a_in_class_ano.c.a()) : true;
+		return (var1 != Blocks.N) && (var1 != Blocks.O) && (var1 != Blocks.aK) && (var1 != Blocks.P) && (var1 != Blocks.Q) && (var1 != Blocks.SAPLING) && (var1 != Blocks.I) ? (var1 == Blocks.H) && (var2 == BlockLongGrass.class_a_in_class_ano.c.a()) : true;
 	}
 
 	@Override
@@ -138,25 +138,25 @@ public class class_akf extends class_aif {
 		switch (var2) {
 			case 1:
 				var3 = Blocks.O;
-				var4 = class_ake.class_a_in_class_ake.b.b();
+				var4 = BlockFlowers.class_a_in_class_ake.b.b();
 				break;
 			case 2:
 				var3 = Blocks.N;
 				break;
 			case 3:
-				var3 = Blocks.g;
+				var3 = Blocks.SAPLING;
 				var4 = class_aly.class_a_in_class_aly.a.a();
 				break;
 			case 4:
-				var3 = Blocks.g;
+				var3 = Blocks.SAPLING;
 				var4 = class_aly.class_a_in_class_aly.b.a();
 				break;
 			case 5:
-				var3 = Blocks.g;
+				var3 = Blocks.SAPLING;
 				var4 = class_aly.class_a_in_class_aly.c.a();
 				break;
 			case 6:
-				var3 = Blocks.g;
+				var3 = Blocks.SAPLING;
 				var4 = class_aly.class_a_in_class_aly.d.a();
 				break;
 			case 7:
@@ -173,14 +173,14 @@ public class class_akf extends class_aif {
 				break;
 			case 11:
 				var3 = Blocks.H;
-				var4 = class_ano.class_a_in_class_ano.c.a();
+				var4 = BlockLongGrass.class_a_in_class_ano.c.a();
 				break;
 			case 12:
-				var3 = Blocks.g;
+				var3 = Blocks.SAPLING;
 				var4 = class_aly.class_a_in_class_aly.e.a();
 				break;
 			case 13:
-				var3 = Blocks.g;
+				var3 = Blocks.SAPLING;
 				var4 = class_aly.class_a_in_class_aly.f.a();
 		}
 
@@ -207,7 +207,7 @@ public class class_akf extends class_aif {
 			if (var7 instanceof class_abb) {
 				int var8 = var6.d();
 				Block var9 = Block.a(var7);
-				if (var9 == Blocks.g) {
+				if (var9 == Blocks.SAPLING) {
 					switch (class_akf.SyntheticClass_1.a[class_aly.class_a_in_class_aly.a(var8).ordinal()]) {
 						case 1:
 							var4 = class_akf.class_a_in_class_akf.l;
@@ -244,7 +244,7 @@ public class class_akf extends class_aif {
 				} else if (var9 == Blocks.N) {
 					var4 = class_akf.class_a_in_class_akf.k;
 				} else if (var9 == Blocks.O) {
-					switch (class_akf.SyntheticClass_1.b[class_ake.class_a_in_class_ake.a(class_ake.class_b_in_class_ake.b, var8).ordinal()]) {
+					switch (class_akf.SyntheticClass_1.b[BlockFlowers.class_a_in_class_ake.a(BlockFlowers.class_b_in_class_ake.b, var8).ordinal()]) {
 						case 1:
 							var4 = class_akf.class_a_in_class_akf.b;
 							break;
@@ -295,59 +295,59 @@ public class class_akf extends class_aif {
 		// $FF: synthetic field
 		static final int[] a;
 		// $FF: synthetic field
-		static final int[] b = new int[class_ake.class_a_in_class_ake.values().length];
+		static final int[] b = new int[BlockFlowers.class_a_in_class_ake.values().length];
 
 		static {
 			try {
-				b[class_ake.class_a_in_class_ake.b.ordinal()] = 1;
+				b[BlockFlowers.class_a_in_class_ake.b.ordinal()] = 1;
 			} catch (NoSuchFieldError var15) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.c.ordinal()] = 2;
+				b[BlockFlowers.class_a_in_class_ake.c.ordinal()] = 2;
 			} catch (NoSuchFieldError var14) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.d.ordinal()] = 3;
+				b[BlockFlowers.class_a_in_class_ake.d.ordinal()] = 3;
 			} catch (NoSuchFieldError var13) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.e.ordinal()] = 4;
+				b[BlockFlowers.class_a_in_class_ake.e.ordinal()] = 4;
 			} catch (NoSuchFieldError var12) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.f.ordinal()] = 5;
+				b[BlockFlowers.class_a_in_class_ake.f.ordinal()] = 5;
 			} catch (NoSuchFieldError var11) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.g.ordinal()] = 6;
+				b[BlockFlowers.class_a_in_class_ake.g.ordinal()] = 6;
 			} catch (NoSuchFieldError var10) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.h.ordinal()] = 7;
+				b[BlockFlowers.class_a_in_class_ake.h.ordinal()] = 7;
 			} catch (NoSuchFieldError var9) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.i.ordinal()] = 8;
+				b[BlockFlowers.class_a_in_class_ake.i.ordinal()] = 8;
 			} catch (NoSuchFieldError var8) {
 				;
 			}
 
 			try {
-				b[class_ake.class_a_in_class_ake.j.ordinal()] = 9;
+				b[BlockFlowers.class_a_in_class_ake.j.ordinal()] = 9;
 			} catch (NoSuchFieldError var7) {
 				;
 			}

@@ -253,7 +253,7 @@ public class class_xe extends Entity {
 					L();
 					if (o.S().b("doEntityDrops")) {
 						for (var22 = 0; var22 < 3; ++var22) {
-							this.a(Item.a(Blocks.f), 1, 0.0F);
+							this.a(Item.a(Blocks.PLANKS), 1, 0.0F);
 						}
 
 						for (var22 = 0; var22 < 2; ++var22) {
@@ -345,7 +345,7 @@ public class class_xe extends Entity {
 					if (o.S().b("doEntityDrops")) {
 						int var6;
 						for (var6 = 0; var6 < 3; ++var6) {
-							this.a(Item.a(Blocks.f), 1, 0.0F);
+							this.a(Item.a(Blocks.PLANKS), 1, 0.0F);
 						}
 
 						for (var6 = 0; var6 < 2; ++var6) {

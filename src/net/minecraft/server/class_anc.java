@@ -39,7 +39,7 @@ public class class_anc extends Block {
 	protected void f(class_ago var1, class_cj var2, class_apn var3) {
 		if (!((Boolean) var3.b(a)).booleanValue() && this.d(var1, var2)) {
 			var1.a(var2, var3.a(a, Boolean.valueOf(true)), 2);
-			var1.b(2001, var2, Block.a(Blocks.j));
+			var1.b(2001, var2, Block.a(Blocks.WATER));
 		}
 
 	}
@@ -62,7 +62,7 @@ public class class_anc extends Block {
 				class_cq var12 = var9[var11];
 				class_cj var13 = var7.a(var12);
 				if (var1.p(var13).c().v() == class_avq.h) {
-					var1.a(var13, Blocks.a.S(), 2);
+					var1.a(var13, Blocks.AIR.S(), 2);
 					var4.add(var13);
 					++var5;
 					if (var8 < 6) {
@@ -80,7 +80,7 @@ public class class_anc extends Block {
 
 		while (var14.hasNext()) {
 			var7 = (class_cj) var14.next();
-			var1.d(var7, Blocks.a);
+			var1.d(var7, Blocks.AIR);
 		}
 
 		return var5 > 0;

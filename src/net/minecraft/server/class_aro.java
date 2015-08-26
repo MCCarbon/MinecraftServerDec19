@@ -51,11 +51,11 @@ public class class_aro implements class_aqk {
 		}
 
 		if (d.b().containsKey("lake")) {
-			h = new class_asy(Blocks.j);
+			h = new class_asy(Blocks.WATER);
 		}
 
 		if (d.b().containsKey("lava_lake")) {
-			i = new class_asy(Blocks.l);
+			i = new class_asy(Blocks.LAVA);
 		}
 
 		g = d.b().containsKey("dungeon");
@@ -69,13 +69,13 @@ public class class_aro implements class_aqk {
 
 			for (int var11 = var10.d(); var11 < (var10.d() + var10.b()); ++var11) {
 				class_apn var12 = var10.c();
-				if (var12.c() != Blocks.a) {
+				if (var12.c() != Blocks.AIR) {
 					var8 = false;
 					c[var11] = var12;
 				}
 			}
 
-			if (var10.c().c() == Blocks.a) {
+			if (var10.c().c() == Blocks.AIR) {
 				var14 += var10.b();
 			} else {
 				var13 += var10.b() + var14;

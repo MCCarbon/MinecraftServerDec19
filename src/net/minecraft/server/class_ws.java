@@ -350,7 +350,7 @@ public class class_ws extends class_rg {
 		if ((var5 == null) || ((bx & (1 << (var2.c() + 8))) == 0)) {
 			if ((var5 != null) || ((bx & (1 << (var2.c() + 16))) == 0)) {
 				class_aco var6;
-				if (var1.bI.d && ((var5 == null) || (var5.b() == Item.a(Blocks.a))) && (var3 != null)) {
+				if (var1.bI.d && ((var5 == null) || (var5.b() == Item.a(Blocks.AIR))) && (var3 != null)) {
 					var6 = var3.k();
 					var6.b = 1;
 					this.a(var2, var6);
@@ -429,7 +429,7 @@ public class class_ws extends class_rg {
 
 	private void B() {
 		if (o instanceof class_ll) {
-			((class_ll) o).a(class_cy.M, s, t + (K / 1.5D), u, 10, J / 4.0F, K / 4.0F, J / 4.0F, 0.05D, new int[] { Block.f(Blocks.f.S()) });
+			((class_ll) o).a(class_cy.M, s, t + (K / 1.5D), u, 10, J / 4.0F, K / 4.0F, J / 4.0F, 0.05D, new int[] { Block.f(Blocks.PLANKS.S()) });
 		}
 
 	}

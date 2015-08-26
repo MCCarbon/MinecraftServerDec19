@@ -5,7 +5,7 @@ public class class_amk extends Block {
 	public static final class_aqa a = class_aqa.a("type", class_amk.class_a_in_class_amk.class);
 
 	public class_amk() {
-		super(class_avq.e, class_ams.class_a_in_class_ams.b.c());
+		super(class_avq.e, BlockSand.class_a_in_class_ams.b.c());
 		this.j(M.b().a(a, class_amk.class_a_in_class_amk.a));
 		this.a(class_abp.b);
 	}

@@ -147,7 +147,7 @@ public class class_sk extends class_sr {
 	}
 
 	private boolean a(Block var1) {
-		return (var1 instanceof class_anf) || (var1 instanceof class_akq);
+		return (var1 instanceof class_anf) || (var1 instanceof BlockStepAbstract);
 	}
 
 	public boolean f() {
