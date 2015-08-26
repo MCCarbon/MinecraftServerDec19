@@ -5,8 +5,8 @@ import java.util.Random;
 public class class_atq extends class_asp {
 	private final class_apn a;
 
-	public class_atq(class_ano.class_a_in_class_ano var1) {
-		a = Blocks.H.S().a(class_ano.a, var1);
+	public class_atq(BlockLongGrass.class_a_in_class_ano var1) {
+		a = Blocks.H.S().a(BlockLongGrass.a, var1);
 	}
 
 	@Override

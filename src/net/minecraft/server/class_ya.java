@@ -336,7 +336,7 @@ public class class_ya extends class_yc {
 		}
 
 		if (var1 && cG()) {
-			this.a(new class_aco(Blocks.v, 1, 1), 1.0F);
+			this.a(new class_aco(Blocks.SPONGE, 1, 1), 1.0F);
 		}
 
 	}

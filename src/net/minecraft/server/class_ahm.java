@@ -33,7 +33,7 @@ public class class_ahm extends class_ahb {
 
 	@Override
 	public class_asp b(Random var1) {
-		return var1.nextInt(4) == 0 ? new class_atq(class_ano.class_a_in_class_ano.c) : new class_atq(class_ano.class_a_in_class_ano.b);
+		return var1.nextInt(4) == 0 ? new class_atq(BlockLongGrass.class_a_in_class_ano.c) : new class_atq(BlockLongGrass.class_a_in_class_ano.b);
 	}
 
 	@Override
@@ -55,8 +55,8 @@ public class class_ahm extends class_ahb {
 	}
 
 	static {
-		aE = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.d);
-		aF = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
-		aG = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		aE = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.d);
+		aF = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
+		aG = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

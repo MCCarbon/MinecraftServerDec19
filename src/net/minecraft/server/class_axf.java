@@ -27,7 +27,7 @@ public class class_axf extends class_axb {
 			var1 = (int) b.aX().b;
 			class_cj.class_a_in_class_cj var2 = new class_cj.class_a_in_class_cj(class_oa.c(b.s), var1, class_oa.c(b.u));
 
-			for (Block var3 = a.p(var2).c(); (var3 == Blocks.i) || (var3 == Blocks.j); var3 = a.p(var2).c()) {
+			for (Block var3 = a.p(var2).c(); (var3 == Blocks.FLOWING_WATER) || (var3 == Blocks.WATER); var3 = a.p(var2).c()) {
 				++var1;
 				var2.c(class_oa.c(b.s), var1, class_oa.c(b.u));
 			}
@@ -141,7 +141,7 @@ public class class_axf extends class_axb {
 					Block var18 = var17.c();
 					if (var18.v() != class_avq.a) {
 						if ((var18 != Blocks.bd) && (var18 != Blocks.cw)) {
-							if ((var18 != Blocks.i) && (var18 != Blocks.j)) {
+							if ((var18 != Blocks.FLOWING_WATER) && (var18 != Blocks.WATER)) {
 								if (!var10 && (var18 instanceof class_ajn) && (var18.v() == class_avq.d)) {
 									return class_awz.e;
 								}

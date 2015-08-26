@@ -95,7 +95,7 @@ public class class_atb extends class_atc {
 		for (int var3 = 2; var3 >= -3; --var3) {
 			class_cj var4 = var2.b(var3);
 			Block var5 = var1.p(var4).c();
-			if ((var5 == Blocks.c) || (var5 == Blocks.d)) {
+			if ((var5 == Blocks.GRASS) || (var5 == Blocks.DIRT)) {
 				this.a(var1, var4, g);
 				break;
 			}
@@ -108,8 +108,8 @@ public class class_atb extends class_atc {
 	}
 
 	static {
-		e = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
-		f = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
-		g = Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
+		e = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
+		f = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
+		g = Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
 	}
 }

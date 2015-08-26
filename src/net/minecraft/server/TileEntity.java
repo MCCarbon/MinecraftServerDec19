@@ -95,7 +95,7 @@ public abstract class TileEntity {
 			class_apn var1 = b.p(c);
 			h = var1.c().c(var1);
 			b.b(c, this);
-			if (w() != Blocks.a) {
+			if (w() != Blocks.AIR) {
 				b.f(c, w());
 			}
 		}

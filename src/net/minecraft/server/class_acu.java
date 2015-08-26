@@ -65,9 +65,9 @@ public class class_acu extends class_abo {
 									int var28 = var19 + (var20 * 231871);
 									var28 = (var28 * var28 * 31287121) + (var28 * 11);
 									if (((var28 >> 20) & 1) == 0) {
-										var21.add(Blocks.d.g(Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a)), 10);
+										var21.add(Blocks.DIRT.g(Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a)), 10);
 									} else {
-										var21.add(Blocks.b.g(Blocks.b.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)), 100);
+										var21.add(Blocks.STONE.g(Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)), 100);
 									}
 
 									var26 = 100.0D;
@@ -77,7 +77,7 @@ public class class_acu extends class_abo {
 									for (int var29 = 0; var29 < var4; ++var29) {
 										for (int var30 = 0; var30 < var4; ++var30) {
 											int var31 = var22.b(var29 + var23, var30 + var24) + 1;
-											class_apn var32 = Blocks.a.S();
+											class_apn var32 = Blocks.AIR.S();
 											if (var31 > 1) {
 												do {
 													--var31;

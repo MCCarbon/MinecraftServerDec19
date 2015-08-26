@@ -52,7 +52,7 @@ public class class_asc extends class_asa {
 				return false;
 			} else {
 				Block var16 = var1.p(var3.b()).c();
-				if (((var16 == Blocks.c) || (var16 == Blocks.d) || (var16 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
+				if (((var16 == Blocks.GRASS) || (var16 == Blocks.DIRT) || (var16 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 
 					int var17;
@@ -94,7 +94,7 @@ public class class_asc extends class_asa {
 	}
 
 	static {
-		a = Blocks.r.S().a(class_alv.b, class_aly.class_a_in_class_aly.c);
-		b = Blocks.t.S().a(class_alu.P, class_aly.class_a_in_class_aly.c).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.c);
+		b = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.c).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

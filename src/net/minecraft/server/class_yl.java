@@ -493,7 +493,7 @@ public class class_yl extends class_yc {
 				for (int var5 = (int) t - 4; (var5 < ((int) t + 4)) && (var2 < 14); ++var5) {
 					for (int var6 = (int) u - 4; (var6 < ((int) u + 4)) && (var2 < 14); ++var6) {
 						Block var7 = o.p(var3.c(var4, var5, var6)).c();
-						if ((var7 == Blocks.bi) || (var7 == Blocks.C)) {
+						if ((var7 == Blocks.bi) || (var7 == Blocks.BED)) {
 							if (V.nextFloat() < 0.3F) {
 								++var1;
 							}

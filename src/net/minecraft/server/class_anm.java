@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public abstract class class_anm extends class_akq {
+public abstract class class_anm extends BlockStepAbstract {
 	public static final class_apy b = class_apy.a("seamless");
 	public static final class_aqa N = class_aqa.a("variant", class_anm.class_a_in_class_anm.class);
 
@@ -12,7 +12,7 @@ public abstract class class_anm extends class_akq {
 		if (l()) {
 			var1 = var1.a(b, Boolean.valueOf(false));
 		} else {
-			var1 = var1.a(a, class_akq.class_a_in_class_akq.b);
+			var1 = var1.a(a, BlockStepAbstract.class_a_in_class_akq.b);
 		}
 
 		this.j(var1.a(N, class_anm.class_a_in_class_anm.a));
@@ -50,7 +50,7 @@ public abstract class class_anm extends class_akq {
 		if (l()) {
 			var2 = var2.a(b, Boolean.valueOf((var1 & 8) != 0));
 		} else {
-			var2 = var2.a(a, (var1 & 8) == 0 ? class_akq.class_a_in_class_akq.b : class_akq.class_a_in_class_akq.a);
+			var2 = var2.a(a, (var1 & 8) == 0 ? BlockStepAbstract.class_a_in_class_akq.b : BlockStepAbstract.class_a_in_class_akq.a);
 		}
 
 		return var2;
@@ -64,7 +64,7 @@ public abstract class class_anm extends class_akq {
 			if (((Boolean) var1.b(b)).booleanValue()) {
 				var3 |= 8;
 			}
-		} else if (var1.b(a) == class_akq.class_a_in_class_akq.a) {
+		} else if (var1.b(a) == BlockStepAbstract.class_a_in_class_akq.a) {
 			var3 |= 8;
 		}
 

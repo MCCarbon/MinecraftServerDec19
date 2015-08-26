@@ -8,7 +8,7 @@ public abstract class class_vc extends class_qu implements class_qw {
 
 	public class_vc(class_ago var1) {
 		super(var1);
-		bw = Blocks.c;
+		bw = Blocks.GRASS;
 	}
 
 	@Override
@@ -51,7 +51,7 @@ public abstract class class_vc extends class_qu implements class_qw {
 
 	@Override
 	public float a(class_cj var1) {
-		return o.p(var1.b()).c() == Blocks.c ? 10.0F : o.o(var1) - 0.5F;
+		return o.p(var1.b()).c() == Blocks.GRASS ? 10.0F : o.o(var1) - 0.5F;
 	}
 
 	@Override

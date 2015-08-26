@@ -110,7 +110,7 @@ public abstract class class_ajj extends class_akx {
 			return var6;
 		} else {
 			class_apn var7 = var1.p(var5);
-			return Math.max(var6, var7.c() == Blocks.af ? ((Integer) var7.b(class_amm.P)).intValue() : 0);
+			return Math.max(var6, var7.c() == Blocks.af ? ((Integer) var7.b(BlockRedstoneWire.P)).intValue() : 0);
 		}
 	}
 
@@ -124,7 +124,7 @@ public abstract class class_ajj extends class_akx {
 	protected int c(class_ags var1, class_cj var2, class_cq var3) {
 		class_apn var4 = var1.p(var2);
 		Block var5 = var4.c();
-		return this.c(var5) ? (var5 == Blocks.af ? ((Integer) var4.b(class_amm.P)).intValue() : var1.a(var2, var3)) : 0;
+		return this.c(var5) ? (var5 == Blocks.af ? ((Integer) var4.b(BlockRedstoneWire.P)).intValue() : var1.a(var2, var3)) : 0;
 	}
 
 	@Override

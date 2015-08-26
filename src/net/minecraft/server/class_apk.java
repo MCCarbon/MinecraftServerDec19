@@ -30,7 +30,7 @@ public class class_apk {
 		e.clear();
 		f.clear();
 		Block var1 = a.p(c).c();
-		if (!class_apg.a(var1, a, c, d, false)) {
+		if (!BlockPiston.a(var1, a, c, d, false)) {
 			if (var1.k() != 1) {
 				return false;
 			} else {
@@ -55,7 +55,7 @@ public class class_apk {
 		Block var2 = a.p(var1).c();
 		if (var2.v() == class_avq.a) {
 			return true;
-		} else if (!class_apg.a(var2, a, var1, d, false)) {
+		} else if (!BlockPiston.a(var2, a, var1, d, false)) {
 			return true;
 		} else if (var1.equals(b)) {
 			return true;
@@ -69,7 +69,7 @@ public class class_apk {
 				while (var2 == Blocks.cE) {
 					class_cj var4 = var1.a(d.d(), var3);
 					var2 = a.p(var4).c();
-					if ((var2.v() == class_avq.a) || !class_apg.a(var2, a, var4, d, false) || var4.equals(b)) {
+					if ((var2.v() == class_avq.a) || !BlockPiston.a(var2, a, var4, d, false) || var4.equals(b)) {
 						break;
 					}
 
@@ -110,7 +110,7 @@ public class class_apk {
 						return true;
 					}
 
-					if (!class_apg.a(var2, a, var6, d, true) || var6.equals(b)) {
+					if (!BlockPiston.a(var2, a, var6, d, true) || var6.equals(b)) {
 						return false;
 					}
 

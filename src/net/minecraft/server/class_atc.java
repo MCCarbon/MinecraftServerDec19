@@ -54,7 +54,7 @@ public abstract class class_atc extends class_asa {
 	private boolean a(class_cj var1, class_ago var2) {
 		class_cj var3 = var1.b();
 		Block var4 = var2.p(var3).c();
-		if (((var4 == Blocks.c) || (var4 == Blocks.d)) && (var1.o() >= 2)) {
+		if (((var4 == Blocks.GRASS) || (var4 == Blocks.DIRT)) && (var1.o() >= 2)) {
 			this.a(var2, var3);
 			this.a(var2, var3.f());
 			this.a(var2, var3.d());

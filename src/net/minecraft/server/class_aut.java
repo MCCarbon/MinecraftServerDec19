@@ -11,12 +11,12 @@ public abstract class class_aut extends class_aur {
 	protected class_cj c;
 
 	public class_aut() {
-		b = d.a(true).a(Blocks.a);
+		b = d.a(true).a(Blocks.AIR);
 	}
 
 	public class_aut(int var1) {
 		super(var1);
-		b = d.a(true).a(Blocks.a);
+		b = d.a(true).a(Blocks.AIR);
 	}
 
 	protected void a(class_ava var1, class_cj var2, class_auz var3) {

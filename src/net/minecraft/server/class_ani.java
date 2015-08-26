@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_ani extends class_aiq implements class_ain {
+public class class_ani extends BlockPlant implements class_ain {
 	public static final class_aqb a = class_aqb.a("age", 0, 7);
 	public static final class_apz b;
 	private final Block N;
@@ -60,7 +60,7 @@ public class class_ani extends class_aiq implements class_ain {
 
 					var2 = var2.a(class_cq.class_c_in_class_cq.a.a(var4));
 					Block var9 = var1.p(var2.b()).c();
-					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == Blocks.ak) || (var9 == Blocks.d) || (var9 == Blocks.c))) {
+					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == Blocks.ak) || (var9 == Blocks.DIRT) || (var9 == Blocks.GRASS))) {
 						var1.a(var2, N.S());
 					}
 				}

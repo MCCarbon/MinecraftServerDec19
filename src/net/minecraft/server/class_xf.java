@@ -154,7 +154,7 @@ public class class_xf extends Entity {
 
 	@Override
 	protected void b(class_dn var1) {
-		Block var2 = d != null ? d.c() : Blocks.a;
+		Block var2 = d != null ? d.c() : Blocks.AIR;
 		class_ke var3 = (class_ke) Block.c.b(var2);
 		var1.a("Block", var3 == null ? "" : var3.toString());
 		var1.a("Data", (byte) var2.c(d));
@@ -199,7 +199,7 @@ public class class_xf extends Entity {
 		}
 
 		if ((var3 == null) || (var3.v() == class_avq.a)) {
-			d = Blocks.m.S();
+			d = Blocks.SAND.S();
 		}
 
 	}

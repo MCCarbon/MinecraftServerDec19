@@ -1058,7 +1058,7 @@ public abstract class class_yu extends class_rg {
 	public void a(boolean var1, boolean var2, boolean var3) {
 		this.a(0.6F, 1.8F);
 		class_apn var4 = o.p(bF);
-		if ((bF != null) && (var4.c() == Blocks.C)) {
+		if ((bF != null) && (var4.c() == Blocks.BED)) {
 			o.a(bF, var4.a(class_aij.b, Boolean.valueOf(false)), 4);
 			class_cj var5 = class_aij.a(o, bF, 0);
 			if (var5 == null) {
@@ -1081,12 +1081,12 @@ public abstract class class_yu extends class_rg {
 	}
 
 	private boolean n() {
-		return o.p(bF).c() == Blocks.C;
+		return o.p(bF).c() == Blocks.BED;
 	}
 
 	public static class_cj a(class_ago var0, class_cj var1, boolean var2) {
 		Block var3 = var0.p(var1).c();
-		if (var3 != Blocks.C) {
+		if (var3 != Blocks.BED) {
 			if (!var2) {
 				return null;
 			} else {

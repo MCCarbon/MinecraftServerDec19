@@ -216,7 +216,7 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 				++h[2].b;
 			}
 
-			if ((h[0].b() == Item.a(Blocks.v)) && (h[0].i() == 1) && (h[1] != null) && (h[1].b() == Items.ay)) {
+			if ((h[0].b() == Item.a(Blocks.SPONGE)) && (h[0].i() == 1) && (h[1] != null) && (h[1].b() == Items.ay)) {
 				h[1] = new class_aco(Items.az);
 			}
 
@@ -233,7 +233,7 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 			return 0;
 		} else {
 			Item var1 = var0.b();
-			if ((var1 instanceof class_abb) && (Block.a(var1) != Blocks.a)) {
+			if ((var1 instanceof class_abb) && (Block.a(var1) != Blocks.AIR)) {
 				Block var2 = Block.a(var1);
 				if (var2 == Blocks.bM) {
 					return 150;
@@ -248,7 +248,7 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 				}
 			}
 
-			return (var1 instanceof class_abq) && ((class_abq) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_adv) && ((class_adv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_acl) && ((class_acl) var1).g().equals("WOOD") ? 200 : (var1 == Items.A ? 100 : (var1 == Items.j ? 1600 : (var1 == Items.aA ? 20000 : (var1 == Item.a(Blocks.g) ? 100 : (var1 == Items.bx ? 2400 : 0)))))));
+			return (var1 instanceof class_abq) && ((class_abq) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_adv) && ((class_adv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_acl) && ((class_acl) var1).g().equals("WOOD") ? 200 : (var1 == Items.A ? 100 : (var1 == Items.j ? 1600 : (var1 == Items.aA ? 20000 : (var1 == Item.a(Blocks.SAPLING) ? 100 : (var1 == Items.bx ? 2400 : 0)))))));
 		}
 	}
 

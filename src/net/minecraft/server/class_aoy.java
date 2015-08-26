@@ -45,7 +45,7 @@ public class class_aoy extends TileEntity {
 				var4 = 4;
 			}
 
-			var1.c(var2, Blocks.B, var4, a);
+			var1.c(var2, Blocks.NOTEBLOCK, var4, a);
 		}
 	}
 }

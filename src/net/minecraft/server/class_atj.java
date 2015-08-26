@@ -19,7 +19,7 @@ public class class_atj extends class_asa {
 		if ((var6 >= 1) && ((var6 + var4 + 1) < 256)) {
 			class_cj var8 = var3.b();
 			Block var9 = var1.p(var8).c();
-			if ((var9 != Blocks.c) && (var9 != Blocks.d)) {
+			if ((var9 != Blocks.GRASS) && (var9 != Blocks.DIRT)) {
 				return false;
 			} else if (!this.a(var1, var3, var4)) {
 				return false;
@@ -167,7 +167,7 @@ public class class_atj extends class_asa {
 	}
 
 	static {
-		a = Blocks.s.S().a(class_alq.b, class_aly.class_a_in_class_aly.f);
-		b = Blocks.u.S().a(class_alp.P, class_aly.class_a_in_class_aly.f).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG2.S().a(class_alq.b, class_aly.class_a_in_class_aly.f);
+		b = Blocks.LEAVES2.S().a(class_alp.P, class_aly.class_a_in_class_aly.f).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

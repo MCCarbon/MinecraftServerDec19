@@ -3,9 +3,9 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_asf extends class_asp {
-	private class_aiq a;
+	private BlockPlant a;
 
-	public class_asf(class_aiq var1) {
+	public class_asf(BlockPlant var1) {
 		a = var1;
 	}
 

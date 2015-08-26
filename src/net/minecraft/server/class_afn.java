@@ -38,7 +38,7 @@ public class class_afn {
 	}
 
 	static {
-		if (!class_kh.a()) {
+		if (!Bootstrap.isInitDone()) {
 			throw new RuntimeException("Accessed MobEffects before Bootstrap!");
 		}
 	}

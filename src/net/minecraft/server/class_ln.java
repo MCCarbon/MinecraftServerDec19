@@ -260,8 +260,8 @@ public class class_ln {
 			if (var14 instanceof class_qa) {
 				Block var15 = var2.p(var5).c();
 				class_qa var16 = (class_qa) var14;
-				if ((var16 instanceof class_aok) && (var15 instanceof class_aiw)) {
-					var16 = ((class_aiw) var15).e(var2, var5);
+				if ((var16 instanceof class_aok) && (var15 instanceof BlockChest)) {
+					var16 = ((BlockChest) var15).e(var2, var5);
 				}
 
 				if (var16 != null) {

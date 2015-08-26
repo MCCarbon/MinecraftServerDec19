@@ -20,7 +20,7 @@ public class class_asr extends class_atr {
 		}
 
 		Block var5 = var1.p(var3).c();
-		if ((var5 == Blocks.d) || (var5 == Blocks.c)) {
+		if ((var5 == Blocks.DIRT) || (var5 == Blocks.GRASS)) {
 			var3 = var3.a();
 			this.a(var1, var3, b);
 

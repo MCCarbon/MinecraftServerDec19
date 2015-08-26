@@ -3,14 +3,14 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_asq extends class_asp {
-	private class_ake a;
+	private BlockFlowers a;
 	private class_apn b;
 
-	public class_asq(class_ake var1, class_ake.class_a_in_class_ake var2) {
+	public class_asq(BlockFlowers var1, BlockFlowers.class_a_in_class_ake var2) {
 		this.a(var1, var2);
 	}
 
-	public void a(class_ake var1, class_ake.class_a_in_class_ake var2) {
+	public void a(BlockFlowers var1, BlockFlowers.class_a_in_class_ake var2) {
 		a = var1;
 		b = var1.S().a(var1.n(), var2);
 	}

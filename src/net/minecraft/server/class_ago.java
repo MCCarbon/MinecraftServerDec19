@@ -221,7 +221,7 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean g(class_cj var1) {
-		return this.a(var1, Blocks.a.S(), 3);
+		return this.a(var1, Blocks.AIR.S(), 3);
 	}
 
 	public boolean b(class_cj var1, boolean var2) {
@@ -235,7 +235,7 @@ public abstract class class_ago implements class_ags {
 				var4.b(this, var1, var3, 0);
 			}
 
-			return this.a(var1, Blocks.a.S(), 3);
+			return this.a(var1, Blocks.AIR.S(), 3);
 		}
 	}
 
@@ -502,7 +502,7 @@ public abstract class class_ago implements class_ags {
 	@Override
 	public class_apn p(class_cj var1) {
 		if (!this.a(var1)) {
-			return Blocks.a.S();
+			return Blocks.AIR.S();
 		} else {
 			class_aqn var2 = this.f(var1);
 			return var2.g(var1);
@@ -786,7 +786,7 @@ public abstract class class_ago implements class_ags {
 		class_aqg var10 = ah();
 		boolean var11 = (var1 != null) && var1.aZ();
 		boolean var12 = (var1 != null) && this.a(var10, var1);
-		class_apn var13 = Blocks.b.S();
+		class_apn var13 = Blocks.STONE.S();
 		class_cj.class_a_in_class_cj var14 = new class_cj.class_a_in_class_cj();
 
 		for (int var15 = var4; var15 < var5; ++var15) {
@@ -875,7 +875,7 @@ public abstract class class_ago implements class_ags {
 						if ((var10 >= -30000000) && (var10 < 30000000) && (var11 >= -30000000) && (var11 < 30000000)) {
 							var13 = p(var9);
 						} else {
-							var13 = Blocks.h.S();
+							var13 = Blocks.BEDROCK.S();
 						}
 
 						var13.c().a(this, var9, var13, var1, var2, (Entity) null);
@@ -1272,7 +1272,7 @@ public abstract class class_ago implements class_ags {
 				for (int var10 = var4; var10 < var5; ++var10) {
 					for (int var11 = var6; var11 < var7; ++var11) {
 						Block var12 = p(var8.c(var9, var10, var11)).c();
-						if ((var12 == Blocks.ab) || (var12 == Blocks.k) || (var12 == Blocks.l)) {
+						if ((var12 == Blocks.ab) || (var12 == Blocks.FLOWING_LAVA) || (var12 == Blocks.LAVA)) {
 							return true;
 						}
 					}
@@ -1522,7 +1522,7 @@ public abstract class class_ago implements class_ags {
 	public static boolean a(class_ags var0, class_cj var1) {
 		class_apn var2 = var0.p(var1);
 		Block var3 = var2.c();
-		return var3.v().k() && var3.d() ? true : (var3 instanceof class_anf ? var2.b(class_anf.b) == class_anf.class_a_in_class_anf.a : (var3 instanceof class_akq ? var2.b(class_akq.a) == class_akq.class_a_in_class_akq.a : (var3 instanceof class_akw ? true : (var3 instanceof class_ana ? ((Integer) var2.b(class_ana.a)).intValue() == 7 : false))));
+		return var3.v().k() && var3.d() ? true : (var3 instanceof class_anf ? var2.b(class_anf.b) == class_anf.class_a_in_class_anf.a : (var3 instanceof BlockStepAbstract ? var2.b(BlockStepAbstract.a) == BlockStepAbstract.class_a_in_class_akq.a : (var3 instanceof BlockHopper ? true : (var3 instanceof class_ana ? ((Integer) var2.b(class_ana.a)).intValue() == 7 : false))));
 	}
 
 	public boolean d(class_cj var1, boolean var2) {
@@ -1653,7 +1653,7 @@ public abstract class class_ago implements class_ags {
 			if ((var1.o() >= 0) && (var1.o() < 256) && (this.b(class_agu.b, var1) < 10)) {
 				class_apn var5 = p(var1);
 				Block var6 = var5.c();
-				if (((var6 == Blocks.j) || (var6 == Blocks.i)) && (((Integer) var5.b(class_alf.b)).intValue() == 0)) {
+				if (((var6 == Blocks.WATER) || (var6 == Blocks.FLOWING_WATER)) && (((Integer) var5.b(class_alf.b)).intValue() == 0)) {
 					if (!var2) {
 						return true;
 					}

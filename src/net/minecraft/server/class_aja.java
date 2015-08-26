@@ -27,7 +27,7 @@ public class class_aja extends class_akx implements class_ain {
 	public boolean f(class_ago var1, class_cj var2, class_apn var3) {
 		var2 = var2.a((class_cq) var3.b(O));
 		class_apn var4 = var1.p(var2);
-		return (var4.c() == Blocks.r) && (var4.b(class_alv.b) == class_aly.class_a_in_class_aly.d);
+		return (var4.c() == Blocks.LOG) && (var4.b(class_alv.b) == class_aly.class_a_in_class_aly.d);
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class class_aja extends class_akx implements class_ain {
 	}
 
 	private void g(class_ago var1, class_cj var2, class_apn var3) {
-		var1.a(var2, Blocks.a.S(), 3);
+		var1.a(var2, Blocks.AIR.S(), 3);
 		this.b(var1, var2, var3, 0);
 	}
 

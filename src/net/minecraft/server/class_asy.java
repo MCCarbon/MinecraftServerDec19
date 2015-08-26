@@ -71,7 +71,7 @@ public class class_asy extends class_asp {
 				for (var30 = 0; var30 < 16; ++var30) {
 					for (var8 = 0; var8 < 8; ++var8) {
 						if (var4[(((var6 * 16) + var30) * 8) + var8]) {
-							var1.a(var3.a(var6, var8, var30), var8 >= 4 ? Blocks.a.S() : a.S(), 2);
+							var1.a(var3.a(var6, var8, var30), var8 >= 4 ? Blocks.AIR.S() : a.S(), 2);
 						}
 					}
 				}
@@ -82,12 +82,12 @@ public class class_asy extends class_asp {
 					for (var8 = 4; var8 < 8; ++var8) {
 						if (var4[(((var6 * 16) + var30) * 8) + var8]) {
 							class_cj var32 = var3.a(var6, var8 - 1, var30);
-							if ((var1.p(var32).c() == Blocks.d) && (var1.b(class_agu.a, var3.a(var6, var8, var30)) > 0)) {
+							if ((var1.p(var32).c() == Blocks.DIRT) && (var1.b(class_agu.a, var3.a(var6, var8, var30)) > 0)) {
 								class_ahb var33 = var1.b(var32);
 								if (var33.ak.c() == Blocks.bw) {
 									var1.a(var32, Blocks.bw.S(), 2);
 								} else {
-									var1.a(var32, Blocks.c.S(), 2);
+									var1.a(var32, Blocks.GRASS.S(), 2);
 								}
 							}
 						}
@@ -101,7 +101,7 @@ public class class_asy extends class_asp {
 						for (var8 = 0; var8 < 8; ++var8) {
 							var31 = !var4[(((var6 * 16) + var30) * 8) + var8] && (((var6 < 15) && var4[((((var6 + 1) * 16) + var30) * 8) + var8]) || ((var6 > 0) && var4[((((var6 - 1) * 16) + var30) * 8) + var8]) || ((var30 < 15) && var4[(((var6 * 16) + var30 + 1) * 8) + var8]) || ((var30 > 0) && var4[(((var6 * 16) + (var30 - 1)) * 8) + var8]) || ((var8 < 7) && var4[(((var6 * 16) + var30) * 8) + var8 + 1]) || ((var8 > 0) && var4[(((var6 * 16) + var30) * 8) + (var8 - 1)]));
 							if (var31 && ((var8 < 4) || (var2.nextInt(2) != 0)) && var1.p(var3.a(var6, var8, var30)).c().v().a()) {
-								var1.a(var3.a(var6, var8, var30), Blocks.b.S(), 2);
+								var1.a(var3.a(var6, var8, var30), Blocks.STONE.S(), 2);
 							}
 						}
 					}

@@ -131,7 +131,7 @@ public class class_zn extends class_zj {
 
 	private void a(class_cj var1) {
 		if (o.p(var1).c() == Blocks.ab) {
-			o.a(var1, Blocks.a.S(), 2);
+			o.a(var1, Blocks.AIR.S(), 2);
 		}
 
 	}

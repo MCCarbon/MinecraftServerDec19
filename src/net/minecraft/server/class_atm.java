@@ -29,7 +29,7 @@ public class class_atm extends class_asp {
 					if ((var6.c((double) var3.n(), (double) var6.o(), (double) var3.p()) <= (var4 * var4) + 1) && (var6.o() < b.d())) {
 						this.a(var1, var6, Blocks.Z.S());
 					} else if (var6.o() > 65) {
-						this.a(var1, var6, Blocks.a.S());
+						this.a(var1, var6, Blocks.AIR.S());
 					}
 				}
 
@@ -53,7 +53,7 @@ public class class_atm extends class_asp {
 					var1.a(var8);
 				}
 
-				this.a(var1, new class_cj(var3.n(), b.d(), var3.p()), Blocks.h.S());
+				this.a(var1, new class_cj(var3.n(), b.d(), var3.p()), Blocks.BEDROCK.S());
 				return true;
 			}
 		}

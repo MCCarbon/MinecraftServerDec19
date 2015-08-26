@@ -34,7 +34,7 @@ public class class_ul extends class_um {
 			int var3 = 0;
 
 			do {
-				if ((var2 != Blocks.i) && (var2 != Blocks.j)) {
+				if ((var2 != Blocks.FLOWING_WATER) && (var2 != Blocks.WATER)) {
 					return var1;
 				}
 

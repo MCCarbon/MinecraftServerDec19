@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_ajf extends class_aiq implements class_ain {
+public class class_ajf extends BlockPlant implements class_ain {
 	public static final class_aqb b = class_aqb.a("age", 0, 7);
 
 	protected class_ajf() {

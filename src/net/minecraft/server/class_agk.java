@@ -163,7 +163,7 @@ public class class_agk {
 						var4.a(d, var3, d.p(var3), 1.0F / i, 0);
 					}
 
-					d.a(var3, Blocks.a.S(), 3);
+					d.a(var3, Blocks.AIR.S(), 3);
 					var4.a(d, var3, this);
 				}
 			}

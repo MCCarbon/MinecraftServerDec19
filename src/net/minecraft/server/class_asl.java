@@ -3,9 +3,9 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_asl extends class_asp {
-	private class_ajo.class_b_in_class_ajo a;
+	private BlockTallPlant.class_b_in_class_ajo a;
 
-	public void a(class_ajo.class_b_in_class_ajo var1) {
+	public void a(BlockTallPlant.class_b_in_class_ajo var1) {
 		a = var1;
 	}
 

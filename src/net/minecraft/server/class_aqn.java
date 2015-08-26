@@ -321,7 +321,7 @@ public class class_aqn {
 	}
 
 	private Block f(int var1, int var2, int var3) {
-		Block var4 = Blocks.a;
+		Block var4 = Blocks.AIR;
 		if ((var2 >= 0) && ((var2 >> 4) < e.length)) {
 			class_aqo var5 = e[var2 >> 4];
 			if (var5 != a) {
@@ -388,7 +388,7 @@ public class class_aqn {
 				var7 = class_arn.b(var1.n(), var1.p());
 			}
 
-			return var7 == null ? Blocks.a.S() : var7;
+			return var7 == null ? Blocks.AIR.S() : var7;
 		} else {
 			try {
 				if ((var1.o() >= 0) && ((var1.o() >> 4) < e.length)) {
@@ -401,7 +401,7 @@ public class class_aqn {
 					}
 				}
 
-				return Blocks.a.S();
+				return Blocks.AIR.S();
 			} catch (Throwable var6) {
 				class_b var3 = class_b.a(var6, "Getting block state");
 				class_c var4 = var3.a("Block being got");
@@ -453,7 +453,7 @@ public class class_aqn {
 			class_aqo var11 = e[var4 >> 4];
 			boolean var12 = false;
 			if (var11 == a) {
-				if (var9 == Blocks.a) {
+				if (var9 == Blocks.AIR) {
 					return null;
 				}
 

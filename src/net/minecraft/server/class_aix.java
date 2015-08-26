@@ -55,7 +55,7 @@ public class class_aix extends Block {
 					if ((var9 < 2) || (var4.nextInt(var10) >= var9)) {
 						var6 = true;
 					}
-				} else if (var8 == Blocks.a) {
+				} else if (var8 == Blocks.AIR) {
 					var6 = true;
 				}
 
@@ -132,7 +132,7 @@ public class class_aix extends Block {
 	public boolean d(class_ago var1, class_cj var2) {
 		Block var3 = var1.p(var2.b()).c();
 		if ((var3 != Blocks.cR) && (var3 != Blocks.bH)) {
-			if (var3 == Blocks.a) {
+			if (var3 == Blocks.AIR) {
 				int var4 = 0;
 				Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
 
@@ -141,7 +141,7 @@ public class class_aix extends Block {
 					Block var7 = var1.p(var2.a(var6)).c();
 					if (var7 == Blocks.cR) {
 						++var4;
-					} else if (var7 != Blocks.a) {
+					} else if (var7 != Blocks.AIR) {
 						return false;
 					}
 				}

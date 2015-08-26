@@ -36,8 +36,8 @@ public class class_arp implements class_aqk {
 
 	public class_arp(class_ago var1, boolean var2, long var3) {
 		w = new class_atf(Blocks.co.S(), 14, class_apu.a(Blocks.aV));
-		x = new class_asu(Blocks.k, true);
-		y = new class_asu(Blocks.k, false);
+		x = new class_asu(Blocks.FLOWING_LAVA, true);
+		y = new class_asu(Blocks.FLOWING_LAVA, false);
 		z = new class_asf(Blocks.P);
 		A = new class_asf(Blocks.Q);
 		B = new class_aug();
@@ -91,7 +91,7 @@ public class class_arp implements class_aqk {
 							for (int var48 = 0; var48 < 4; ++var48) {
 								class_apn var49 = null;
 								if (((var11 * 8) + var30) < var5) {
-									var49 = Blocks.l.S();
+									var49 = Blocks.LAVA.S();
 								}
 
 								if (var44 > 0.0D) {
@@ -149,7 +149,7 @@ public class class_arp implements class_aqk {
 										var13 = Blocks.aV.S();
 										var14 = Blocks.aV.S();
 										if (var10) {
-											var13 = Blocks.n.S();
+											var13 = Blocks.GRAVEL.S();
 											var14 = Blocks.aV.S();
 										}
 
@@ -160,7 +160,7 @@ public class class_arp implements class_aqk {
 									}
 
 									if ((var15 < var4) && ((var13 == null) || (var13.c().v() == class_avq.a))) {
-										var13 = Blocks.l.S();
+										var13 = Blocks.LAVA.S();
 									}
 
 									var12 = var11;
@@ -178,7 +178,7 @@ public class class_arp implements class_aqk {
 							var12 = -1;
 						}
 					} else {
-						var3.a(var8, var15, var7, Blocks.h.S());
+						var3.a(var8, var15, var7, Blocks.BEDROCK.S());
 					}
 				}
 			}

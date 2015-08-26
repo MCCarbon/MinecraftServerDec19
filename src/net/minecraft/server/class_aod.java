@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public abstract class class_aod extends class_akq {
+public abstract class class_aod extends BlockStepAbstract {
 	public static final class_aqa b = class_aqa.a("variant", class_aly.class_a_in_class_aly.class);
 
 	public class_aod() {
 		super(class_avq.d);
 		class_apn var1 = M.b();
 		if (!l()) {
-			var1 = var1.a(a, class_akq.class_a_in_class_akq.b);
+			var1 = var1.a(a, BlockStepAbstract.class_a_in_class_akq.b);
 		}
 
 		this.j(var1.a(b, class_aly.class_a_in_class_aly.a));
@@ -50,7 +50,7 @@ public abstract class class_aod extends class_akq {
 	public class_apn a(int var1) {
 		class_apn var2 = S().a(b, class_aly.class_a_in_class_aly.a(var1 & 7));
 		if (!l()) {
-			var2 = var2.a(a, (var1 & 8) == 0 ? class_akq.class_a_in_class_akq.b : class_akq.class_a_in_class_akq.a);
+			var2 = var2.a(a, (var1 & 8) == 0 ? BlockStepAbstract.class_a_in_class_akq.b : BlockStepAbstract.class_a_in_class_akq.a);
 		}
 
 		return var2;
@@ -60,7 +60,7 @@ public abstract class class_aod extends class_akq {
 	public int c(class_apn var1) {
 		byte var2 = 0;
 		int var3 = var2 | ((class_aly.class_a_in_class_aly) var1.b(b)).a();
-		if (!l() && (var1.b(a) == class_akq.class_a_in_class_akq.a)) {
+		if (!l() && (var1.b(a) == BlockStepAbstract.class_a_in_class_akq.a)) {
 			var3 |= 8;
 		}
 

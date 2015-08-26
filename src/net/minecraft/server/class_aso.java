@@ -22,24 +22,24 @@ public class class_aso extends class_asp {
 			if (var6 <= 3.5D) {
 				if (var5.o() < var3.o()) {
 					if (var6 <= 2.5D) {
-						a(var1, var5, Blocks.h.S());
+						a(var1, var5, Blocks.BEDROCK.S());
 					} else if (var5.o() < var3.o()) {
 						a(var1, var5, Blocks.bH.S());
 					}
 				} else if (var5.o() > var3.o()) {
-					a(var1, var5, Blocks.a.S());
+					a(var1, var5, Blocks.AIR.S());
 				} else if (var6 > 2.5D) {
-					a(var1, var5, Blocks.h.S());
+					a(var1, var5, Blocks.BEDROCK.S());
 				} else if (c) {
 					a(var1, new class_cj(var5), Blocks.bF.S());
 				} else {
-					a(var1, new class_cj(var5), Blocks.a.S());
+					a(var1, new class_cj(var5), Blocks.AIR.S());
 				}
 			}
 		}
 
 		for (int var8 = 0; var8 < 4; ++var8) {
-			a(var1, var3.b(var8), Blocks.h.S());
+			a(var1, var3.b(var8), Blocks.BEDROCK.S());
 		}
 
 		class_cj var9 = var3.b(2);

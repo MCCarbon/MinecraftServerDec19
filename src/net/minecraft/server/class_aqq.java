@@ -15,13 +15,13 @@ public class class_aqq {
 	public class_aqq(class_aqq.class_a_in_class_aqq var1) {
 		d = Lists.newArrayList((Object[]) a);
 		e = var1;
-		b.a(Blocks.a.S(), 0);
+		b.a(Blocks.AIR.S(), 0);
 		++c;
 	}
 
 	public class_apn a(int var1) {
 		class_apn var2 = (class_apn) b.a(var1);
-		return var2 == null ? Blocks.a.S() : var2;
+		return var2 == null ? Blocks.AIR.S() : var2;
 	}
 
 	public int a(class_apn var1) {

@@ -5,8 +5,8 @@ public class class_aha extends class_ahb {
 	public class_aha(int var1) {
 		super(var1);
 		au.clear();
-		ak = Blocks.m.S();
-		al = Blocks.m.S();
+		ak = Blocks.SAND.S();
+		al = Blocks.SAND.S();
 		as.A = -999;
 		as.D = 0;
 		as.F = 0;

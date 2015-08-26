@@ -19,7 +19,7 @@ public class class_ahn extends class_ahb {
 		this.b();
 		this.a(2.0F, 0.0F);
 		au.clear();
-		ak = Blocks.m.S().a(class_ams.a, class_ams.class_a_in_class_ams.b);
+		ak = Blocks.SAND.S().a(BlockSand.a, BlockSand.class_a_in_class_ams.b);
 		al = Blocks.cu.S();
 		as.A = -999;
 		as.D = 20;
@@ -88,29 +88,29 @@ public class class_ahn extends class_ahb {
 
 		for (int var19 = 255; var19 >= 0; --var19) {
 			if ((var3.a(var11, var19, var10).c().v() == class_avq.a) && (var19 < (int) var22)) {
-				var3.a(var11, var19, var10, Blocks.b.S());
+				var3.a(var11, var19, var10, Blocks.STONE.S());
 			}
 
 			if (var19 <= var2.nextInt(5)) {
-				var3.a(var11, var19, var10, Blocks.h.S());
+				var3.a(var11, var19, var10, Blocks.BEDROCK.S());
 			} else {
 				class_apn var20 = var3.a(var11, var19, var10);
 				if (var20.c().v() == class_avq.a) {
 					var17 = -1;
-				} else if (var20.c() == Blocks.b) {
+				} else if (var20.c() == Blocks.STONE) {
 					class_apn var21;
 					if (var17 == -1) {
 						var26 = false;
 						if (var15 <= 0) {
 							var13 = null;
-							var24 = Blocks.b.S();
+							var24 = Blocks.STONE.S();
 						} else if ((var19 >= (var23 - 4)) && (var19 <= (var23 + 1))) {
 							var13 = Blocks.cu.S();
 							var24 = al;
 						}
 
 						if ((var19 < var23) && ((var13 == null) || (var13.c().v() == class_avq.a))) {
-							var13 = Blocks.j.S();
+							var13 = Blocks.WATER.S();
 						}
 
 						var17 = var15 + Math.max(0, var19 - var23);
@@ -121,9 +121,9 @@ public class class_ahn extends class_ahb {
 							}
 						} else if (aJ && (var19 > (86 + (var15 * 2)))) {
 							if (var25) {
-								var3.a(var11, var19, var10, Blocks.d.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b));
+								var3.a(var11, var19, var10, Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b));
 							} else {
-								var3.a(var11, var19, var10, Blocks.c.S());
+								var3.a(var11, var19, var10, Blocks.GRASS.S());
 							}
 						} else if (var19 <= (var23 + 3 + var15)) {
 							var3.a(var11, var19, var10, ak);

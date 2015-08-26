@@ -109,7 +109,7 @@ public abstract class class_alc extends class_ans {
 						for (var15 = -var5; var15 <= var5; ++var15) {
 							for (var16 = -var5; var16 <= var5; ++var16) {
 								Block var17 = var1.p(var13.c(var7 + var14, var8 + var15, var9 + var16)).c();
-								if ((var17 != Blocks.r) && (var17 != Blocks.s)) {
+								if ((var17 != Blocks.LOG) && (var17 != Blocks.LOG2)) {
 									if (var17.v() == class_avq.j) {
 										N[((var14 + var12) * var11) + ((var15 + var12) * var10) + var16 + var12] = -2;
 									} else {
@@ -148,7 +148,7 @@ public abstract class class_alc extends class_ans {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Item.a(Blocks.g);
+		return Item.a(Blocks.SAPLING);
 	}
 
 	@Override

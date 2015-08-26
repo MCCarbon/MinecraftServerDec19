@@ -11,27 +11,27 @@ public class class_atn extends class_asp {
 
 	@Override
 	public boolean b(class_ago var1, Random var2, class_cj var3) {
-		if (var1.p(var3.a()).c() != Blocks.b) {
+		if (var1.p(var3.a()).c() != Blocks.STONE) {
 			return false;
-		} else if (var1.p(var3.b()).c() != Blocks.b) {
+		} else if (var1.p(var3.b()).c() != Blocks.STONE) {
 			return false;
-		} else if ((var1.p(var3).c().v() != class_avq.a) && (var1.p(var3).c() != Blocks.b)) {
+		} else if ((var1.p(var3).c().v() != class_avq.a) && (var1.p(var3).c() != Blocks.STONE)) {
 			return false;
 		} else {
 			int var4 = 0;
-			if (var1.p(var3.e()).c() == Blocks.b) {
+			if (var1.p(var3.e()).c() == Blocks.STONE) {
 				++var4;
 			}
 
-			if (var1.p(var3.f()).c() == Blocks.b) {
+			if (var1.p(var3.f()).c() == Blocks.STONE) {
 				++var4;
 			}
 
-			if (var1.p(var3.c()).c() == Blocks.b) {
+			if (var1.p(var3.c()).c() == Blocks.STONE) {
 				++var4;
 			}
 
-			if (var1.p(var3.d()).c() == Blocks.b) {
+			if (var1.p(var3.d()).c() == Blocks.STONE) {
 				++var4;
 			}
 

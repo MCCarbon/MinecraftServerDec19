@@ -16,27 +16,27 @@ public class class_ahr extends class_ahb {
 	}
 
 	@Override
-	public class_ake.class_a_in_class_ake a(Random var1, class_cj var2) {
+	public BlockFlowers.class_a_in_class_ake a(Random var1, class_cj var2) {
 		double var3 = af.a(var2.n() / 200.0D, var2.p() / 200.0D);
 		int var5;
 		if (var3 < -0.8D) {
 			var5 = var1.nextInt(4);
 			switch (var5) {
 				case 0:
-					return class_ake.class_a_in_class_ake.g;
+					return BlockFlowers.class_a_in_class_ake.g;
 				case 1:
-					return class_ake.class_a_in_class_ake.f;
+					return BlockFlowers.class_a_in_class_ake.f;
 				case 2:
-					return class_ake.class_a_in_class_ake.i;
+					return BlockFlowers.class_a_in_class_ake.i;
 				case 3:
 				default:
-					return class_ake.class_a_in_class_ake.h;
+					return BlockFlowers.class_a_in_class_ake.h;
 			}
 		} else if (var1.nextInt(3) > 0) {
 			var5 = var1.nextInt(3);
-			return var5 == 0 ? class_ake.class_a_in_class_ake.b : (var5 == 1 ? class_ake.class_a_in_class_ake.e : class_ake.class_a_in_class_ake.j);
+			return var5 == 0 ? BlockFlowers.class_a_in_class_ake.b : (var5 == 1 ? BlockFlowers.class_a_in_class_ake.e : BlockFlowers.class_a_in_class_ake.j);
 		} else {
-			return class_ake.class_a_in_class_ake.a;
+			return BlockFlowers.class_a_in_class_ake.a;
 		}
 	}
 
@@ -53,7 +53,7 @@ public class class_ahr extends class_ahb {
 		} else {
 			as.B = 4;
 			as.C = 10;
-			ag.a(class_ajo.class_b_in_class_ajo.c);
+			ag.a(BlockTallPlant.class_b_in_class_ajo.c);
 
 			for (var6 = 0; var6 < 7; ++var6) {
 				var7 = var2.nextInt(16) + 8;
@@ -64,7 +64,7 @@ public class class_ahr extends class_ahb {
 		}
 
 		if (aD) {
-			ag.a(class_ajo.class_b_in_class_ajo.a);
+			ag.a(BlockTallPlant.class_b_in_class_ajo.a);
 
 			for (var6 = 0; var6 < 10; ++var6) {
 				var7 = var2.nextInt(16) + 8;

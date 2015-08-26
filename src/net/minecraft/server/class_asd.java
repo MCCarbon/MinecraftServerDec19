@@ -23,7 +23,7 @@ public class class_asd extends class_asp {
 				}
 
 				Block var4 = var1.p(var3.b()).c();
-				if ((var4 != Blocks.c) && (var4 != Blocks.d) && (var4 != Blocks.b)) {
+				if ((var4 != Blocks.GRASS) && (var4 != Blocks.DIRT) && (var4 != Blocks.STONE)) {
 					break label50;
 				}
 			}

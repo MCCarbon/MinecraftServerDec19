@@ -42,6 +42,6 @@ public class ItemShield extends Item {
 
 	@Override
 	public boolean a(class_aco var1, class_aco var2) {
-		return var2.b() == Item.a(Blocks.f) ? true : super.a(var1, var2);
+		return var2.b() == Item.a(Blocks.PLANKS) ? true : super.a(var1, var2);
 	}
 }

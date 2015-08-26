@@ -53,7 +53,7 @@ public class class_st extends class_tc {
 			Block var4 = var3.c();
 			if ((f == 0) && (var4 instanceof class_ajf) && ((class_ajf) var4).e(var3)) {
 				var1.b(var2, true);
-			} else if ((f == 1) && (var4 == Blocks.a)) {
+			} else if ((f == 1) && (var4 == Blocks.AIR)) {
 				class_qc var5 = c.cJ();
 
 				for (int var6 = 0; var6 < var5.n_(); ++var6) {
@@ -100,7 +100,7 @@ public class class_st extends class_tc {
 				return true;
 			}
 
-			if ((var3 == Blocks.a) && d && ((f == 1) || (f < 0))) {
+			if ((var3 == Blocks.AIR) && d && ((f == 1) || (f < 0))) {
 				f = 1;
 				return true;
 			}

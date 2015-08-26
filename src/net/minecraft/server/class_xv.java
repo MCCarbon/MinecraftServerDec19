@@ -312,11 +312,11 @@ public class class_xv extends class_yc {
 	static {
 		b = (new class_rr(a, "Attacking speed boost", 0.15000000596046448D, 0)).a(false);
 		c = Sets.newIdentityHashSet();
-		bt = Blocks.a.S();
-		c.add(Blocks.c);
-		c.add(Blocks.d);
-		c.add(Blocks.m);
-		c.add(Blocks.n);
+		bt = Blocks.AIR.S();
+		c.add(Blocks.GRASS);
+		c.add(Blocks.DIRT);
+		c.add(Blocks.SAND);
+		c.add(Blocks.GRAVEL);
 		c.add(Blocks.N);
 		c.add(Blocks.O);
 		c.add(Blocks.P);

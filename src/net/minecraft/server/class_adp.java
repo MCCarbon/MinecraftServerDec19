@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 
 public class class_adp extends class_abb {
-	private final class_akq b;
-	private final class_akq c;
+	private final BlockStepAbstract b;
+	private final BlockStepAbstract c;
 
-	public class_adp(Block var1, class_akq var2, class_akq var3) {
+	public class_adp(Block var1, BlockStepAbstract var2, BlockStepAbstract var3) {
 		super(var1);
 		b = var2;
 		c = var3;
@@ -31,8 +31,8 @@ public class class_adp extends class_abb {
 			if (var11.c() == b) {
 				class_aqc var12 = b.n();
 				Comparable var13 = var11.b(var12);
-				class_akq.class_a_in_class_akq var14 = (class_akq.class_a_in_class_akq) var11.b(class_akq.a);
-				if ((((var6 == class_cq.b) && (var14 == class_akq.class_a_in_class_akq.b)) || ((var6 == class_cq.a) && (var14 == class_akq.class_a_in_class_akq.a))) && (var13 == var10)) {
+				BlockStepAbstract.class_a_in_class_akq var14 = (BlockStepAbstract.class_a_in_class_akq) var11.b(BlockStepAbstract.a);
+				if ((((var6 == class_cq.b) && (var14 == BlockStepAbstract.class_a_in_class_akq.b)) || ((var6 == class_cq.a) && (var14 == BlockStepAbstract.class_a_in_class_akq.a))) && (var13 == var10)) {
 					class_apn var15 = c.S().a(var12, var13);
 					if (var3.b(c.a(var3, var4, var15)) && var3.a(var4, var15, 3)) {
 						var3.a(var4.n() + 0.5F, var4.o() + 0.5F, var4.p() + 0.5F, c.H.b(), (c.H.d() + 1.0F) / 2.0F, c.H.e() * 0.8F);

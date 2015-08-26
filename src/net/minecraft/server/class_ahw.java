@@ -25,8 +25,8 @@ public class class_ahw extends class_ahb {
 	}
 
 	@Override
-	public class_ake.class_a_in_class_ake a(Random var1, class_cj var2) {
-		return class_ake.class_a_in_class_ake.c;
+	public BlockFlowers.class_a_in_class_ake a(Random var1, class_cj var2) {
+		return BlockFlowers.class_a_in_class_ake.c;
 	}
 
 	@Override
@@ -38,8 +38,8 @@ public class class_ahw extends class_ahb {
 
 			for (int var12 = 255; var12 >= 0; --var12) {
 				if (var3.a(var11, var12, var10).c().v() != class_avq.a) {
-					if ((var12 == 62) && (var3.a(var11, var12, var10).c() != Blocks.j)) {
-						var3.a(var11, var12, var10, Blocks.j.S());
+					if ((var12 == 62) && (var3.a(var11, var12, var10).c() != Blocks.WATER)) {
+						var3.a(var11, var12, var10, Blocks.WATER.S());
 						if (var8 < 0.12D) {
 							var3.a(var11, var12 + 1, var10, Blocks.bx.S());
 						}

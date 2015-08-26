@@ -6,7 +6,7 @@ public class class_afa {
 	private Object[][] b;
 
 	public class_afa() {
-		b = new Object[][] { { Blocks.f, Blocks.e, Items.l, Items.k, Items.m }, { Items.o, Items.s, Items.n, Items.w, Items.D } };
+		b = new Object[][] { { Blocks.PLANKS, Blocks.COBBLESTONE, Items.l, Items.k, Items.m }, { Items.o, Items.s, Items.n, Items.w, Items.D } };
 	}
 
 	public void a(class_aet var1) {

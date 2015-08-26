@@ -110,7 +110,7 @@ public class class_anp extends Block {
 	}
 
 	public final boolean c(Block var1) {
-		return var1.q() || (var1 == this) || (var1 == Blocks.w) || (var1 == Blocks.cG) || (var1 == Blocks.cH) || (var1 instanceof class_anp);
+		return var1.q() || (var1 == this) || (var1 == Blocks.GLASS) || (var1 == Blocks.cG) || (var1 == Blocks.cH) || (var1 instanceof class_anp);
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aln extends class_aiq {
+public class class_aln extends BlockPlant {
 	public static final class_aqb a = class_aqb.a("age", 0, 3);
 
 	protected class_aln() {

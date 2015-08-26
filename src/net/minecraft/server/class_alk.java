@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_alk extends class_aiq implements class_ain {
+public class class_alk extends BlockPlant implements class_ain {
 	protected class_alk() {
 		float var1 = 0.2F;
 		this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var1 * 2.0F, 0.5F + var1);
@@ -58,7 +58,7 @@ public class class_alk extends class_aiq implements class_ain {
 	public boolean g(class_ago var1, class_cj var2, class_apn var3) {
 		if ((var2.o() >= 0) && (var2.o() < 256)) {
 			class_apn var4 = var1.p(var2.b());
-			return var4.c() == Blocks.bw ? true : ((var4.c() == Blocks.d) && (var4.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.c) ? true : (var1.k(var2) < 13) && this.c(var4.c()));
+			return var4.c() == Blocks.bw ? true : ((var4.c() == Blocks.DIRT) && (var4.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.c) ? true : (var1.k(var2) < 13) && this.c(var4.c()));
 		} else {
 			return false;
 		}

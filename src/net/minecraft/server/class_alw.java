@@ -14,12 +14,12 @@ public class class_alw extends Block {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return this == Blocks.q ? Items.j : (this == Blocks.ag ? Items.k : (this == Blocks.x ? Items.aY : (this == Blocks.bP ? Items.bT : (this == Blocks.co ? Items.cl : Item.a(this)))));
+		return this == Blocks.COAL_ORE ? Items.j : (this == Blocks.ag ? Items.k : (this == Blocks.LAPIS_ORE ? Items.aY : (this == Blocks.bP ? Items.bT : (this == Blocks.co ? Items.cl : Item.a(this)))));
 	}
 
 	@Override
 	public int a(Random var1) {
-		return this == Blocks.x ? 4 + var1.nextInt(5) : 1;
+		return this == Blocks.LAPIS_ORE ? 4 + var1.nextInt(5) : 1;
 	}
 
 	@Override
@@ -41,13 +41,13 @@ public class class_alw extends Block {
 		super.a(var1, var2, var3, var4, var5);
 		if (this.a(var3, var1.s, var5) != Item.a(this)) {
 			int var6 = 0;
-			if (this == Blocks.q) {
+			if (this == Blocks.COAL_ORE) {
 				var6 = class_oa.a(var1.s, 0, 2);
 			} else if (this == Blocks.ag) {
 				var6 = class_oa.a(var1.s, 3, 7);
 			} else if (this == Blocks.bP) {
 				var6 = class_oa.a(var1.s, 3, 7);
-			} else if (this == Blocks.x) {
+			} else if (this == Blocks.LAPIS_ORE) {
 				var6 = class_oa.a(var1.s, 2, 5);
 			} else if (this == Blocks.co) {
 				var6 = class_oa.a(var1.s, 2, 5);
@@ -65,6 +65,6 @@ public class class_alw extends Block {
 
 	@Override
 	public int a(class_apn var1) {
-		return this == Blocks.x ? class_abt.l.b() : 0;
+		return this == Blocks.LAPIS_ORE ? class_abt.l.b() : 0;
 	}
 }

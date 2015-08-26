@@ -99,8 +99,8 @@ public abstract class class_ahb {
 	protected class_atp aC;
 
 	protected class_ahb(int var1) {
-		ak = Blocks.c.S();
-		al = Blocks.d.S();
+		ak = Blocks.GRASS.S();
+		al = Blocks.DIRT.S();
 		am = 5169201;
 		an = a.a;
 		ao = a.b;
@@ -164,11 +164,11 @@ public abstract class class_ahb {
 	}
 
 	public class_asp b(Random var1) {
-		return new class_atq(class_ano.class_a_in_class_ano.b);
+		return new class_atq(BlockLongGrass.class_a_in_class_ano.b);
 	}
 
-	public class_ake.class_a_in_class_ake a(Random var1, class_cj var2) {
-		return var1.nextInt(3) > 0 ? class_ake.class_a_in_class_ake.a : class_ake.class_a_in_class_ake.b;
+	public BlockFlowers.class_a_in_class_ake a(Random var1, class_cj var2) {
+		return var1.nextInt(3) > 0 ? BlockFlowers.class_a_in_class_ake.a : BlockFlowers.class_a_in_class_ake.b;
 	}
 
 	protected class_ahb c() {
@@ -275,16 +275,16 @@ public abstract class class_ahb {
 
 		for (int var16 = 255; var16 >= 0; --var16) {
 			if (var16 <= var2.nextInt(5)) {
-				var3.a(var14, var16, var13, Blocks.h.S());
+				var3.a(var14, var16, var13, Blocks.BEDROCK.S());
 			} else {
 				class_apn var17 = var3.a(var14, var16, var13);
 				if (var17.c().v() == class_avq.a) {
 					var11 = -1;
-				} else if (var17.c() == Blocks.b) {
+				} else if (var17.c() == Blocks.STONE) {
 					if (var11 == -1) {
 						if (var12 <= 0) {
 							var9 = null;
-							var10 = Blocks.b.S();
+							var10 = Blocks.STONE.S();
 						} else if ((var16 >= (var8 - 4)) && (var16 <= (var8 + 1))) {
 							var9 = ak;
 							var10 = al;
@@ -294,7 +294,7 @@ public abstract class class_ahb {
 							if (this.a(var15.c(var4, var16, var5)) < 0.15F) {
 								var9 = Blocks.aI.S();
 							} else {
-								var9 = Blocks.j.S();
+								var9 = Blocks.WATER.S();
 							}
 						}
 
@@ -303,17 +303,17 @@ public abstract class class_ahb {
 							var3.a(var14, var16, var13, var9);
 						} else if (var16 < (var8 - 7 - var12)) {
 							var9 = null;
-							var10 = Blocks.b.S();
-							var3.a(var14, var16, var13, Blocks.n.S());
+							var10 = Blocks.STONE.S();
+							var3.a(var14, var16, var13, Blocks.GRAVEL.S());
 						} else {
 							var3.a(var14, var16, var13, var10);
 						}
 					} else if (var11 > 0) {
 						--var11;
 						var3.a(var14, var16, var13, var10);
-						if ((var11 == 0) && (var10.c() == Blocks.m)) {
+						if ((var11 == 0) && (var10.c() == Blocks.SAND)) {
 							var11 = var2.nextInt(4) + Math.max(0, var16 - 63);
-							var10 = var10.b(class_ams.a) == class_ams.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.A.S();
+							var10 = var10.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.SANDSTONE.S();
 						}
 					}
 				}

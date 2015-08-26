@@ -211,7 +211,7 @@ public class Items {
 	}
 
 	static {
-		if (!class_kh.a()) {
+		if (!Bootstrap.isInitDone()) {
 			throw new RuntimeException("Accessed Items before Bootstrap!");
 		} else {
 			a = a("iron_shovel");

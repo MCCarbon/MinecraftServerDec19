@@ -102,7 +102,7 @@ public class class_arq extends class_arr {
 							for (int var44 = var38 + 1; !var59 && (var44 >= (var57 - 1)); --var44) {
 								if ((var44 >= 0) && (var44 < 256)) {
 									class_apn var45 = var5.a(var42, var44, var43);
-									if ((var45.c() == Blocks.i) || (var45.c() == Blocks.j)) {
+									if ((var45.c() == Blocks.FLOWING_WATER) || (var45.c() == Blocks.WATER)) {
 										var59 = true;
 									}
 
@@ -128,21 +128,21 @@ public class class_arq extends class_arr {
 										double var51 = ((var50 - 1 + 0.5D) - var8) / var31;
 										if ((var51 > -0.7D) && (((var61 * var61) + (var51 * var51) + (var47 * var47)) < 1.0D)) {
 											class_apn var53 = var5.a(var43, var50, var46);
-											class_apn var54 = Objects.firstNonNull(var5.a(var43, var50 + 1, var46), Blocks.a.S());
-											if ((var53.c() == Blocks.c) || (var53.c() == Blocks.bw)) {
+											class_apn var54 = Objects.firstNonNull(var5.a(var43, var50 + 1, var46), Blocks.AIR.S());
+											if ((var53.c() == Blocks.GRASS) || (var53.c() == Blocks.bw)) {
 												var49 = true;
 											}
 
 											if (this.a(var53, var54)) {
 												if ((var50 - 1) < 10) {
-													var5.a(var43, var50, var46, Blocks.l.S());
+													var5.a(var43, var50, var46, Blocks.LAVA.S());
 												} else {
-													var5.a(var43, var50, var46, Blocks.a.S());
-													if (var54.c() == Blocks.m) {
-														var5.a(var43, var50 + 1, var46, var54.b(class_ams.a) == class_ams.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.A.S());
+													var5.a(var43, var50, var46, Blocks.AIR.S());
+													if (var54.c() == Blocks.SAND) {
+														var5.a(var43, var50 + 1, var46, var54.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.SANDSTONE.S());
 													}
 
-													if (var49 && (var5.a(var43, var50 - 1, var46).c() == Blocks.d)) {
+													if (var49 && (var5.a(var43, var50 - 1, var46).c() == Blocks.DIRT)) {
 														var60.c(var43 + (var3 * 16), 0, var46 + (var4 * 16));
 														var5.a(var43, var50 - 1, var46, c.b(var60).ak.c().S());
 													}
@@ -165,7 +165,7 @@ public class class_arq extends class_arr {
 	}
 
 	protected boolean a(class_apn var1, class_apn var2) {
-		return var1.c() == Blocks.b ? true : (var1.c() == Blocks.d ? true : (var1.c() == Blocks.c ? true : (var1.c() == Blocks.cz ? true : (var1.c() == Blocks.cu ? true : (var1.c() == Blocks.A ? true : (var1.c() == Blocks.cM ? true : (var1.c() == Blocks.bw ? true : (var1.c() == Blocks.aH ? true : ((var1.c() == Blocks.m) || (var1.c() == Blocks.n)) && (var2.c().v() != class_avq.h)))))))));
+		return var1.c() == Blocks.STONE ? true : (var1.c() == Blocks.DIRT ? true : (var1.c() == Blocks.GRASS ? true : (var1.c() == Blocks.cz ? true : (var1.c() == Blocks.cu ? true : (var1.c() == Blocks.SANDSTONE ? true : (var1.c() == Blocks.cM ? true : (var1.c() == Blocks.bw ? true : (var1.c() == Blocks.aH ? true : ((var1.c() == Blocks.SAND) || (var1.c() == Blocks.GRAVEL)) && (var2.c().v() != class_avq.h)))))))));
 	}
 
 	@Override

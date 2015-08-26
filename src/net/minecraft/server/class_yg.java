@@ -85,7 +85,7 @@ public class class_yg extends class_yc {
 
 	@Override
 	public float a(class_cj var1) {
-		return o.p(var1.b()).c() == Blocks.b ? 10.0F : super.a(var1);
+		return o.p(var1.b()).c() == Blocks.STONE ? 10.0F : super.a(var1);
 	}
 
 	@Override
