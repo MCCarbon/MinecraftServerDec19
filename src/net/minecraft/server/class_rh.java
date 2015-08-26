@@ -516,15 +516,15 @@ public abstract class class_rh extends class_rg {
 			var6 = ((var1.aX().b + var1.aX().e) / 2.0D) - (t + aY());
 		}
 
-		double var14 = class_oa.a((var4 * var4) + (var8 * var8));
-		float var12 = (float) ((class_oa.b(var8, var4) * 180.0D) / 3.1415927410125732D) - 90.0F;
-		float var13 = (float) (-((class_oa.b(var6, var14) * 180.0D) / 3.1415927410125732D));
+		double var14 = MathHelper.a((var4 * var4) + (var8 * var8));
+		float var12 = (float) ((MathHelper.b(var8, var4) * 180.0D) / 3.1415927410125732D) - 90.0F;
+		float var13 = (float) (-((MathHelper.b(var6, var14) * 180.0D) / 3.1415927410125732D));
 		z = this.b(z, var13, var3);
 		y = this.b(y, var12, var2);
 	}
 
 	private float b(float var1, float var2, float var3) {
-		float var4 = class_oa.g(var2 - var1);
+		float var4 = MathHelper.g(var2 - var1);
 		if (var4 > var3) {
 			var4 = var3;
 		}

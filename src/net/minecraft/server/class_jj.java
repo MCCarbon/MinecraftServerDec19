@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.security.PublicKey;
 
-public class class_jj implements class_ff {
+public class class_jj implements Packet {
 	private String a;
 	private PublicKey b;
 	private byte[] c;
@@ -18,14 +18,14 @@ public class class_jj implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.c(20);
 		b = class_no.a(var1.a());
 		c = var1.a();
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		var1.a(b.getEncoded());
 		var1.a(c);
@@ -38,7 +38,7 @@ public class class_jj implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
+	public void handle(PacketListener var1) {
 		this.a((class_jh) var1);
 	}
 }

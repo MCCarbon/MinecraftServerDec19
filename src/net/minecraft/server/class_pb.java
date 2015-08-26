@@ -12,18 +12,18 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 public class class_pb implements class_ok {
-	public static final Gson a = (new GsonBuilder()).registerTypeAdapter(class_eu.class, new JsonDeserializer() {
-		public class_eu a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
+	public static final Gson a = (new GsonBuilder()).registerTypeAdapter(IChatBaseComponent.class, new JsonDeserializer() {
+		public IChatBaseComponent a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
 			if (var1.isJsonPrimitive()) {
 				return new class_fa(var1.getAsString());
 			} else if (var1.isJsonArray()) {
 				JsonArray var4 = var1.getAsJsonArray();
-				class_eu var5 = null;
+				IChatBaseComponent var5 = null;
 				Iterator var6 = var4.iterator();
 
 				while (var6.hasNext()) {
 					JsonElement var7 = (JsonElement) var6.next();
-					class_eu var8 = this.a(var7, var7.getClass(), var3);
+					IChatBaseComponent var8 = this.a(var7, var7.getClass(), var3);
 					if (var5 == null) {
 						var5 = var8;
 					} else {
@@ -66,7 +66,7 @@ public class class_pb implements class_ok {
 		Object var4 = null;
 
 		try {
-			var4 = a.fromJson(var3, class_eu.class);
+			var4 = a.fromJson(var3, IChatBaseComponent.class);
 			if (var4 == null) {
 				var4 = new class_fa("");
 			}
@@ -76,7 +76,7 @@ public class class_pb implements class_ok {
 
 		if (var4 == null) {
 			try {
-				var4 = class_eu.class_a_in_class_eu.a(var3);
+				var4 = IChatBaseComponent.class_a_in_class_eu.a(var3);
 			} catch (JsonParseException var7) {
 				;
 			}
@@ -84,7 +84,7 @@ public class class_pb implements class_ok {
 
 		if (var4 == null) {
 			try {
-				var4 = class_eu.class_a_in_class_eu.b(var3);
+				var4 = IChatBaseComponent.class_a_in_class_eu.b(var3);
 			} catch (JsonParseException var6) {
 				;
 			}
@@ -94,6 +94,6 @@ public class class_pb implements class_ok {
 			var4 = new class_fa(var3);
 		}
 
-		var1.a(var2, class_eu.class_a_in_class_eu.a((class_eu) var4));
+		var1.a(var2, IChatBaseComponent.class_a_in_class_eu.a((IChatBaseComponent) var4));
 	}
 }

@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import com.mojang.authlib.GameProfile;
 
-public class class_jn implements class_ff {
+public class class_jn implements Packet {
 	private GameProfile a;
 
 	public class_jn() {
@@ -16,12 +16,12 @@ public class class_jn implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = new GameProfile((UUID) null, var1.c(16));
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a.getName());
 	}
 
@@ -36,7 +36,7 @@ public class class_jn implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
+	public void handle(PacketListener var1) {
 		this.a((class_jm) var1);
 	}
 }

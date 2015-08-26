@@ -34,7 +34,7 @@ public class class_o {
 		return var3.size() == 1 ? (Entity) var3.get(0) : null;
 	}
 
-	public static class_eu b(ICommandListener var0, String var1) {
+	public static IChatBaseComponent b(ICommandListener var0, String var1) {
 		List var2 = b(var0, var1, Entity.class);
 		if (var2.isEmpty()) {
 			return null;
@@ -559,7 +559,7 @@ public class class_o {
 	}
 
 	private static int a(Map var0, String var1, int var2) {
-		return var0.containsKey(var1) ? class_oa.a((String) var0.get(var1), var2) : var2;
+		return var0.containsKey(var1) ? MathHelper.a((String) var0.get(var1), var2) : var2;
 	}
 
 	private static String b(Map var0, String var1) {
@@ -573,7 +573,7 @@ public class class_o {
 		while (var2.hasNext()) {
 			String var3 = (String) var2.next();
 			if (var3.startsWith("score_") && (var3.length() > "score_".length())) {
-				var1.put(var3.substring("score_".length()), Integer.valueOf(class_oa.a((String) var0.get(var3), 1)));
+				var1.put(var3.substring("score_".length()), Integer.valueOf(MathHelper.a((String) var0.get(var3), 1)));
 			}
 		}
 

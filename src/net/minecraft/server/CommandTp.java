@@ -68,28 +68,28 @@ public class CommandTp extends CommandAbstract {
 
 						var12 = (float) var9.b();
 						if (!var9.c()) {
-							var12 = class_oa.g(var12);
+							var12 = MathHelper.g(var12);
 						}
 
 						float var13 = (float) var10.b();
 						if (!var10.c()) {
-							var13 = class_oa.g(var13);
+							var13 = MathHelper.g(var13);
 						}
 
 						if ((var13 > 90.0F) || (var13 < -90.0F)) {
-							var13 = class_oa.g(180.0F - var13);
-							var12 = class_oa.g(var12 + 180.0F);
+							var13 = MathHelper.g(180.0F - var13);
+							var12 = MathHelper.g(var12 + 180.0F);
 						}
 
 						((Entity) var4).a((Entity) null);
 						((class_lm) var4).a.a(var6.b(), var7.b(), var8.b(), var12, var13, var11);
 						((Entity) var4).i(var12);
 					} else {
-						float var15 = (float) class_oa.g(var9.a());
-						var12 = (float) class_oa.g(var10.a());
+						float var15 = (float) MathHelper.g(var9.a());
+						var12 = (float) MathHelper.g(var10.a());
 						if ((var12 > 90.0F) || (var12 < -90.0F)) {
-							var12 = class_oa.g(180.0F - var12);
-							var15 = class_oa.g(var15 + 180.0F);
+							var12 = MathHelper.g(180.0F - var12);
+							var15 = MathHelper.g(var15 + 180.0F);
 						}
 
 						((Entity) var4).b(var6.a(), var7.a(), var8.a(), var15, var12);

@@ -28,7 +28,7 @@ public class class_axa {
 		float var2 = var1.a - a;
 		float var3 = var1.b - b;
 		float var4 = var1.c - c;
-		return class_oa.c((var2 * var2) + (var3 * var3) + (var4 * var4));
+		return MathHelper.c((var2 * var2) + (var3 * var3) + (var4 * var4));
 	}
 
 	public float b(class_axa var1) {

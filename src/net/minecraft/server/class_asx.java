@@ -23,13 +23,13 @@ public class class_asx extends class_asp {
 			int var8;
 			for (var6 = 0; var6 < var4; ++var6) {
 				float var7 = (1.0F - ((float) var6 / (float) var4)) * var5;
-				var8 = class_oa.f(var7);
+				var8 = MathHelper.f(var7);
 
 				for (int var9 = -var8; var9 <= var8; ++var9) {
-					float var10 = class_oa.a(var9) - 0.25F;
+					float var10 = MathHelper.a(var9) - 0.25F;
 
 					for (int var11 = -var8; var11 <= var8; ++var11) {
-						float var12 = class_oa.a(var11) - 0.25F;
+						float var12 = MathHelper.a(var11) - 0.25F;
 						if ((((var9 == 0) && (var11 == 0)) || (((var10 * var10) + (var12 * var12)) <= (var7 * var7))) && (((var9 != -var8) && (var9 != var8) && (var11 != -var8) && (var11 != var8)) || (var2.nextFloat() <= 0.75F))) {
 							Block var13 = var1.p(var3.a(var9, var6, var11)).c();
 							if ((var13.v() == class_avq.a) || (var13 == Blocks.DIRT) || (var13 == Blocks.SNOW) || (var13 == Blocks.ICE)) {

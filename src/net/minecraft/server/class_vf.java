@@ -257,7 +257,7 @@ public class class_vf extends class_vc implements class_pq {
 	}
 
 	public int n(int var1) {
-		int var2 = class_oa.a(cV() + var1, 0, db());
+		int var2 = MathHelper.a(cV() + var1, 0, db());
 		this.m(var2);
 		return var2;
 	}
@@ -279,8 +279,8 @@ public class class_vf extends class_vc implements class_pq {
 	}
 
 	public boolean cW() {
-		int var1 = class_oa.c(s);
-		int var2 = class_oa.c(u);
+		int var1 = MathHelper.c(s);
+		int var2 = MathHelper.c(u);
 		o.b(new class_cj(var1, 0, var2));
 		return true;
 	}
@@ -306,7 +306,7 @@ public class class_vf extends class_vc implements class_pq {
 			this.a("mob.horse.land", 0.4F, 1.0F);
 		}
 
-		int var3 = class_oa.f(((var1 * 0.5F) - 3.0F) * var2);
+		int var3 = MathHelper.f(((var1 * 0.5F) - 3.0F) * var2);
 		if (var3 > 0) {
 			this.a(class_qi.i, var3);
 			if (l != null) {
@@ -717,7 +717,7 @@ public class class_vf extends class_vc implements class_pq {
 				this.b(1.0F);
 			}
 
-			if (!cR() && (l == null) && (V.nextInt(300) == 0) && (o.p(new class_cj(class_oa.c(s), class_oa.c(t) - 1, class_oa.c(u))).c() == Blocks.GRASS)) {
+			if (!cR() && (l == null) && (V.nextInt(300) == 0) && (o.p(new class_cj(MathHelper.c(s), MathHelper.c(t) - 1, MathHelper.c(u))).c() == Blocks.GRASS)) {
 				this.s(true);
 			}
 
@@ -900,8 +900,8 @@ public class class_vf extends class_vc implements class_pq {
 				this.n(true);
 				ai = true;
 				if (var2 > 0.0F) {
-					float var3 = class_oa.a((y * 3.1415927F) / 180.0F);
-					float var4 = class_oa.b((y * 3.1415927F) / 180.0F);
+					float var3 = MathHelper.a((y * 3.1415927F) / 180.0F);
+					float var4 = MathHelper.b((y * 3.1415927F) / 180.0F);
 					v += -0.4F * var3 * by;
 					x += 0.4F * var4 * by;
 					this.a("mob.horse.jump", 0.4F, 1.0F);
@@ -925,7 +925,7 @@ public class class_vf extends class_vc implements class_pq {
 			aE = aF;
 			double var8 = s - p;
 			double var5 = u - r;
-			float var7 = class_oa.a((var8 * var8) + (var5 * var5)) * 4.0F;
+			float var7 = MathHelper.a((var8 * var8) + (var5 * var5)) * 4.0F;
 			if (var7 > 1.0F) {
 				var7 = 1.0F;
 			}
@@ -1175,8 +1175,8 @@ public class class_vf extends class_vc implements class_pq {
 	public void ao() {
 		super.ao();
 		if (bW > 0.0F) {
-			float var1 = class_oa.a((aM * 3.1415927F) / 180.0F);
-			float var2 = class_oa.b((aM * 3.1415927F) / 180.0F);
+			float var1 = MathHelper.a((aM * 3.1415927F) / 180.0F);
+			float var2 = MathHelper.b((aM * 3.1415927F) / 180.0F);
 			float var3 = 0.7F * bW;
 			float var4 = 0.15F * bW;
 			l.b(s + var3 * var1, t + aq() + l.ap() + var4, u - var3 * var2);

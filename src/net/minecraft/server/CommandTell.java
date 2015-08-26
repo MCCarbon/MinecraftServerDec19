@@ -33,7 +33,7 @@ public class CommandTell extends CommandAbstract {
 			if (var3 == var1) {
 				throw new class_cd("commands.message.sameTarget", new Object[0]);
 			} else {
-				class_eu var4 = b(var1, var2, 1, !(var1 instanceof class_yu));
+				IChatBaseComponent var4 = b(var1, var2, 1, !(var1 instanceof class_yu));
 				class_fb var5 = new class_fb("commands.message.display.incoming", new Object[] { var1.f_(), var4.f() });
 				class_fb var6 = new class_fb("commands.message.display.outgoing", new Object[] { var3.f_(), var4.f() });
 				var5.b().a(EnumChatFormat.GRAY).b(Boolean.valueOf(true));

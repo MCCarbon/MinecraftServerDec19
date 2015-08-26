@@ -28,7 +28,7 @@ public abstract class class_za extends Entity {
 		this.a(1.0F, 1.0F);
 		this.b(var2, var4, var6, y, z);
 		this.b(var2, var4, var6);
-		double var14 = class_oa.a((var8 * var8) + (var10 * var10) + (var12 * var12));
+		double var14 = MathHelper.a((var8 * var8) + (var10 * var10) + (var12 * var12));
 		c = (var8 / var14) * 0.1D;
 		d = (var10 / var14) * 0.1D;
 		e = (var12 / var14) * 0.1D;
@@ -44,7 +44,7 @@ public abstract class class_za extends Entity {
 		var3 += V.nextGaussian() * 0.4D;
 		var5 += V.nextGaussian() * 0.4D;
 		var7 += V.nextGaussian() * 0.4D;
-		double var9 = class_oa.a((var3 * var3) + (var5 * var5) + (var7 * var7));
+		double var9 = MathHelper.a((var3 * var3) + (var5 * var5) + (var7 * var7));
 		c = (var3 / var9) * 0.1D;
 		d = (var5 / var9) * 0.1D;
 		e = (var7 / var9) * 0.1D;

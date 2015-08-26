@@ -33,7 +33,7 @@ public class class_aym {
 	}
 
 	public class_aym a() {
-		double var1 = class_oa.a((a * a) + (b * b) + (c * c));
+		double var1 = MathHelper.a((a * a) + (b * b) + (c * c));
 		return var1 < 1.0E-4D ? new class_aym(0.0D, 0.0D, 0.0D) : new class_aym(a / var1, b / var1, c / var1);
 	}
 
@@ -76,7 +76,7 @@ public class class_aym {
 	}
 
 	public double b() {
-		return class_oa.a((a * a) + (b * b) + (c * c));
+		return MathHelper.a((a * a) + (b * b) + (c * c));
 	}
 
 	public class_aym a(class_aym var1, double var2) {
@@ -121,8 +121,8 @@ public class class_aym {
 	}
 
 	public class_aym a(float var1) {
-		float var2 = class_oa.b(var1);
-		float var3 = class_oa.a(var1);
+		float var2 = MathHelper.b(var1);
+		float var3 = MathHelper.a(var1);
 		double var4 = a;
 		double var6 = (b * var2) + (c * var3);
 		double var8 = (c * var2) - (b * var3);
@@ -130,8 +130,8 @@ public class class_aym {
 	}
 
 	public class_aym b(float var1) {
-		float var2 = class_oa.b(var1);
-		float var3 = class_oa.a(var1);
+		float var2 = MathHelper.b(var1);
+		float var3 = MathHelper.a(var1);
 		double var4 = (a * var2) + (c * var3);
 		double var6 = b;
 		double var8 = (c * var2) - (a * var3);

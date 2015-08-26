@@ -275,7 +275,7 @@ public class class_afl {
 		} else {
 			var2 += 1 + var0.nextInt((var5 / 4) + 1) + var0.nextInt((var5 / 4) + 1);
 			float var6 = ((var0.nextFloat() + var0.nextFloat()) - 1.0F) * 0.15F;
-			var2 = class_oa.a(Math.round(var2 + (var2 * var6)), 1, Integer.MAX_VALUE);
+			var2 = MathHelper.a(Math.round(var2 + (var2 * var6)), 1, Integer.MAX_VALUE);
 			List var7 = a(var2, var1);
 			if (!var7.isEmpty()) {
 				var3.add(class_oi.a(var0, var7));

@@ -177,8 +177,8 @@ public abstract class class_yu extends class_rg {
 		}
 
 		int var9 = 29999999;
-		double var10 = class_oa.a(s, -2.9999999E7D, 2.9999999E7D);
-		double var12 = class_oa.a(u, -2.9999999E7D, 2.9999999E7D);
+		double var10 = MathHelper.a(s, -2.9999999E7D, 2.9999999E7D);
+		double var12 = MathHelper.a(u, -2.9999999E7D, 2.9999999E7D);
 		if ((var10 != s) || (var12 != u)) {
 			this.b(var10, t, var12);
 		}
@@ -288,7 +288,7 @@ public abstract class class_yu extends class_rg {
 		}
 
 		this.l((float) var1.e());
-		float var2 = class_oa.a((v * v) + (x * x));
+		float var2 = MathHelper.a((v * v) + (x * x));
 		float var3 = (float) (Math.atan(-w * 0.20000000298023224D) * 15.0D);
 		if (var2 > 0.1F) {
 			var2 = 0.1F;
@@ -356,8 +356,8 @@ public abstract class class_yu extends class_rg {
 		}
 
 		if (var1 != null) {
-			v = -class_oa.b(((az + y) * 3.1415927F) / 180.0F) * 0.1F;
-			x = -class_oa.a(((az + y) * 3.1415927F) / 180.0F) * 0.1F;
+			v = -MathHelper.b(((az + y) * 3.1415927F) / 180.0F) * 0.1F;
+			x = -MathHelper.a(((az + y) * 3.1415927F) / 180.0F) * 0.1F;
 		} else {
 			v = x = 0.0D;
 		}
@@ -450,14 +450,14 @@ public abstract class class_yu extends class_rg {
 			if (var2) {
 				var7 = V.nextFloat() * 0.5F;
 				var8 = V.nextFloat() * 3.1415927F * 2.0F;
-				var6.v = -class_oa.a(var8) * var7;
-				var6.x = class_oa.b(var8) * var7;
+				var6.v = -MathHelper.a(var8) * var7;
+				var6.x = MathHelper.b(var8) * var7;
 				var6.w = 0.20000000298023224D;
 			} else {
 				var7 = 0.3F;
-				var6.v = -class_oa.a((y / 180.0F) * 3.1415927F) * class_oa.b((z / 180.0F) * 3.1415927F) * var7;
-				var6.x = class_oa.b((y / 180.0F) * 3.1415927F) * class_oa.b((z / 180.0F) * 3.1415927F) * var7;
-				var6.w = (-class_oa.a((z / 180.0F) * 3.1415927F) * var7) + 0.1F;
+				var6.v = -MathHelper.a((y / 180.0F) * 3.1415927F) * MathHelper.b((z / 180.0F) * 3.1415927F) * var7;
+				var6.x = MathHelper.b((y / 180.0F) * 3.1415927F) * MathHelper.b((z / 180.0F) * 3.1415927F) * var7;
+				var6.w = (-MathHelper.a((z / 180.0F) * 3.1415927F) * var7) + 0.1F;
 				var8 = V.nextFloat() * 3.1415927F * 2.0F;
 				var7 = 0.02F * V.nextFloat();
 				var6.v += Math.cos(var8) * var7;
@@ -648,7 +648,7 @@ public abstract class class_yu extends class_rg {
 	@Override
 	protected void k(float var1) {
 		if ((var1 > 0.0F) && (bm != null) && (bm.b() == Items.cK)) {
-			int var2 = 1 + class_oa.d(var1);
+			int var2 = 1 + MathHelper.d(var1);
 			bm.a(var2, this);
 			if (bm.b == 0) {
 				class_pu var3 = bY();
@@ -829,9 +829,9 @@ public abstract class class_yu extends class_rg {
 					if (var21) {
 						if (var26 > 0) {
 							if (var1 instanceof class_rg) {
-								((class_rg) var1).a(this, var26 * 0.5F, class_oa.a((y * 3.1415927F) / 180.0F), (-class_oa.b((y * 3.1415927F) / 180.0F)));
+								((class_rg) var1).a(this, var26 * 0.5F, MathHelper.a((y * 3.1415927F) / 180.0F), (-MathHelper.b((y * 3.1415927F) / 180.0F)));
 							} else {
-								var1.g(-class_oa.a((y * 3.1415927F) / 180.0F) * var26 * 0.5F, 0.1D, class_oa.b((y * 3.1415927F) / 180.0F) * var26 * 0.5F);
+								var1.g(-MathHelper.a((y * 3.1415927F) / 180.0F) * var26 * 0.5F, 0.1D, MathHelper.b((y * 3.1415927F) / 180.0F) * var26 * 0.5F);
 							}
 
 							v *= 0.6D;
@@ -846,7 +846,7 @@ public abstract class class_yu extends class_rg {
 							while (var23.hasNext()) {
 								class_rg var24 = (class_rg) var23.next();
 								if ((var24 != this) && (var24 != var1) && !this.k(var24) && (this.h(var24) < 9.0D)) {
-									var24.a(this, 0.4F, class_oa.a((y * 3.1415927F) / 180.0F), (-class_oa.b((y * 3.1415927F) / 180.0F)));
+									var24.a(this, 0.4F, MathHelper.a((y * 3.1415927F) / 180.0F), (-MathHelper.b((y * 3.1415927F) / 180.0F)));
 								}
 							}
 
@@ -942,8 +942,8 @@ public abstract class class_yu extends class_rg {
 	}
 
 	public void ci() {
-		double var1 = (-class_oa.a((y * 3.1415927F) / 180.0F));
-		double var3 = class_oa.b((y * 3.1415927F) / 180.0F);
+		double var1 = (-MathHelper.a((y * 3.1415927F) / 180.0F));
+		double var3 = MathHelper.b((y * 3.1415927F) / 180.0F);
 		System.out.println("lasdjfhlsdhjflsdij");
 		if (o instanceof class_ll) {
 			((class_ll) o).a(class_cy.T, s + (var1 * 1.0D), t + (K * 0.5D), u + (var3 * 1.0D), 0, var1, 0.0D, var3, 0.0D, new int[0]);
@@ -1108,7 +1108,7 @@ public abstract class class_yu extends class_rg {
 		return bE && (d >= 100);
 	}
 
-	public void b(class_eu var1) {
+	public void b(IChatBaseComponent var1) {
 	}
 
 	public class_cj cp() {
@@ -1180,13 +1180,13 @@ public abstract class class_yu extends class_rg {
 		if (m == null) {
 			int var7;
 			if (this.a(class_avq.h)) {
-				var7 = Math.round(class_oa.a((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
+				var7 = Math.round(MathHelper.a((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
 					this.a(class_nh.q, var7);
 					this.a(0.015F * var7 * 0.01F);
 				}
 			} else if (Y()) {
-				var7 = Math.round(class_oa.a((var1 * var1) + (var5 * var5)) * 100.0F);
+				var7 = Math.round(MathHelper.a((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
 					this.a(class_nh.m, var7);
 					this.a(0.015F * var7 * 0.01F);
@@ -1196,7 +1196,7 @@ public abstract class class_yu extends class_rg {
 					this.a(class_nh.o, (int) Math.round(var3 * 100.0D));
 				}
 			} else if (C) {
-				var7 = Math.round(class_oa.a((var1 * var1) + (var5 * var5)) * 100.0F);
+				var7 = Math.round(MathHelper.a((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
 					this.a(class_nh.j, var7);
 					if (aB()) {
@@ -1211,7 +1211,7 @@ public abstract class class_yu extends class_rg {
 					}
 				}
 			} else {
-				var7 = Math.round(class_oa.a((var1 * var1) + (var5 * var5)) * 100.0F);
+				var7 = Math.round(MathHelper.a((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 25) {
 					this.a(class_nh.p, var7);
 				}
@@ -1222,13 +1222,13 @@ public abstract class class_yu extends class_rg {
 
 	private void l(double var1, double var3, double var5) {
 		if (m != null) {
-			int var7 = Math.round(class_oa.a((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
+			int var7 = Math.round(MathHelper.a((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
 			if (var7 > 0) {
 				if (m instanceof class_xh) {
 					this.a(class_nh.r, var7);
 					if (g == null) {
 						g = new class_cj(this);
-					} else if (g.c(class_oa.c(s), class_oa.c(t), class_oa.c(u)) >= 1000000.0D) {
+					} else if (g.c(MathHelper.c(s), MathHelper.c(t), MathHelper.c(u)) >= 1000000.0D) {
 						this.b(class_my.q);
 					}
 				} else if (m instanceof class_xe) {
@@ -1480,7 +1480,7 @@ public abstract class class_yu extends class_rg {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		class_fa var1 = new class_fa(class_ayp.a(aE(), e_()));
 		var1.b().a(new class_et(class_et.class_a_in_class_et.d, "/msg " + e_() + " "));
 		var1.b().a(aW());
@@ -1606,7 +1606,7 @@ public abstract class class_yu extends class_rg {
 	}
 
 	public float o(float var1) {
-		return class_oa.a((aD + var1) / cz(), 0.0F, 1.0F);
+		return MathHelper.a((aD + var1) / cz(), 0.0F, 1.0F);
 	}
 
 	public void cA() {

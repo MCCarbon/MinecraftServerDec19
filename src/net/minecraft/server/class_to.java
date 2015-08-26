@@ -79,13 +79,13 @@ public class class_to extends class_sr {
 				return;
 			}
 
-			var4 = class_oa.a(var1) / i;
-			float var5 = class_oa.a(var4, 0.1F, 1.0F);
+			var4 = MathHelper.a(var1) / i;
+			float var5 = MathHelper.a(var4, 0.1F, 1.0F);
 			b.a(c, var5);
-			d = class_oa.d((var4 * (h - g)) + g);
+			d = MathHelper.d((var4 * (h - g)) + g);
 		} else if (d < 0) {
-			var4 = class_oa.a(var1) / i;
-			d = class_oa.d((var4 * (h - g)) + g);
+			var4 = MathHelper.a(var1) / i;
+			d = MathHelper.d((var4 * (h - g)) + g);
 		}
 
 	}

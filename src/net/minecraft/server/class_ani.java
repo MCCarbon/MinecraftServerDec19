@@ -70,7 +70,7 @@ public class class_ani extends BlockPlant implements class_ain {
 	}
 
 	public void h(class_ago var1, class_cj var2, class_apn var3) {
-		int var4 = ((Integer) var3.b(a)).intValue() + class_oa.a(var1.s, 2, 5);
+		int var4 = ((Integer) var3.b(a)).intValue() + MathHelper.a(var1.s, 2, 5);
 		var1.a(var2, var3.a(a, Integer.valueOf(Math.min(7, var4))), 2);
 	}
 

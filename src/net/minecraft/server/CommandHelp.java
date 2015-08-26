@@ -44,7 +44,7 @@ public class CommandHelp extends CommandAbstract {
 				throw new class_cf(var9.c(var1), new Object[0]);
 			}
 
-			if (class_oa.a(var2[0], -1) != -1) {
+			if (MathHelper.a(var2[0], -1) != -1) {
 				throw var12;
 			}
 

@@ -42,12 +42,12 @@ public class class_lo {
 		b = var2;
 		c = var3;
 		u = var4;
-		d = class_oa.c(var1.s * 32.0D);
-		e = class_oa.c(var1.t * 32.0D);
-		f = class_oa.c(var1.u * 32.0D);
-		g = class_oa.d((var1.y * 256.0F) / 360.0F);
-		h = class_oa.d((var1.z * 256.0F) / 360.0F);
-		i = class_oa.d((var1.aI() * 256.0F) / 360.0F);
+		d = MathHelper.c(var1.s * 32.0D);
+		e = MathHelper.c(var1.t * 32.0D);
+		f = MathHelper.c(var1.u * 32.0D);
+		g = MathHelper.d((var1.y * 256.0F) / 360.0F);
+		h = MathHelper.d((var1.z * 256.0F) / 360.0F);
+		i = MathHelper.d((var1.aI() * 256.0F) / 360.0F);
 		y = var1.C;
 	}
 
@@ -88,7 +88,7 @@ public class class_lo {
 					class_yu var6 = (class_yu) var5.next();
 					class_lm var7 = (class_lm) var6;
 					var4.a(var7, var3);
-					class_ff var8 = Items.bf.a(var3, a.o, var7);
+					Packet var8 = Items.bf.a(var3, a.o, var7);
 					if (var8 != null) {
 						var7.a.a(var8);
 					}
@@ -103,11 +103,11 @@ public class class_lo {
 			int var24;
 			if (a.m == null) {
 				++v;
-				var23 = class_oa.c(a.s * 32.0D);
-				var24 = class_oa.c(a.t * 32.0D);
-				int var26 = class_oa.c(a.u * 32.0D);
-				int var27 = class_oa.d((a.y * 256.0F) / 360.0F);
-				int var28 = class_oa.d((a.z * 256.0F) / 360.0F);
+				var23 = MathHelper.c(a.s * 32.0D);
+				var24 = MathHelper.c(a.t * 32.0D);
+				int var26 = MathHelper.c(a.u * 32.0D);
+				int var27 = MathHelper.d((a.y * 256.0F) / 360.0F);
+				int var28 = MathHelper.d((a.z * 256.0F) / 360.0F);
 				int var29 = var23 - d;
 				int var30 = var24 - e;
 				int var9 = var26 - f;
@@ -147,7 +147,7 @@ public class class_lo {
 				}
 
 				if (var10 != null) {
-					this.a((class_ff) var10);
+					this.a((Packet) var10);
 				}
 
 				this.b();
@@ -164,8 +164,8 @@ public class class_lo {
 
 				x = false;
 			} else {
-				var23 = class_oa.d((a.y * 256.0F) / 360.0F);
-				var24 = class_oa.d((a.z * 256.0F) / 360.0F);
+				var23 = MathHelper.d((a.y * 256.0F) / 360.0F);
+				var24 = MathHelper.d((a.z * 256.0F) / 360.0F);
 				boolean var25 = (Math.abs(var23 - g) >= 4) || (Math.abs(var24 - h) >= 4);
 				if (var25) {
 					this.a((new class_gw.class_c_in_class_gw(a.G(), (byte) var23, (byte) var24, a.C)));
@@ -173,14 +173,14 @@ public class class_lo {
 					h = var24;
 				}
 
-				d = class_oa.c(a.s * 32.0D);
-				e = class_oa.c(a.t * 32.0D);
-				f = class_oa.c(a.u * 32.0D);
+				d = MathHelper.c(a.s * 32.0D);
+				e = MathHelper.c(a.t * 32.0D);
+				f = MathHelper.c(a.u * 32.0D);
 				this.b();
 				x = true;
 			}
 
-			var23 = class_oa.d((a.aI() * 256.0F) / 360.0F);
+			var23 = MathHelper.d((a.aI() * 256.0F) / 360.0F);
 			if (Math.abs(var23 - i) >= 4) {
 				this.a((new class_hg(a, (byte) var23)));
 				i = var23;
@@ -215,7 +215,7 @@ public class class_lo {
 
 	}
 
-	public void a(class_ff var1) {
+	public void a(Packet var1) {
 		Iterator var2 = o.iterator();
 
 		while (var2.hasNext()) {
@@ -225,7 +225,7 @@ public class class_lo {
 
 	}
 
-	public void b(class_ff var1) {
+	public void b(Packet var1) {
 		this.a(var1);
 		if (a instanceof class_lm) {
 			((class_lm) a).a.a(var1);
@@ -258,7 +258,7 @@ public class class_lo {
 			if (this.c(var1)) {
 				if (!o.contains(var1) && (e(var1) || a.n)) {
 					o.add(var1);
-					class_ff var2 = this.c();
+					Packet var2 = this.c();
 					var1.a.a(var2);
 					if (!a.J().d()) {
 						var1.a.a((new class_hl(a.G(), a.J(), true)));
@@ -345,51 +345,51 @@ public class class_lo {
 
 	}
 
-	private class_ff c() {
+	private Packet c() {
 		if (a.I) {
 			p.warn("Fetching addPacket for removed entity");
 		}
 
 		if (a instanceof class_xg) {
-			return new class_fk(a, 2, 1);
+			return new PacketPlayOutSpawnEntity(a, 2, 1);
 		} else if (a instanceof class_lm) {
 			return new class_fp((class_yu) a);
 		} else if (a instanceof class_xh) {
 			class_xh var11 = (class_xh) a;
-			return new class_fk(a, 10, var11.s().a());
+			return new PacketPlayOutSpawnEntity(a, 10, var11.s().a());
 		} else if (a instanceof class_xe) {
-			return new class_fk(a, 1);
+			return new PacketPlayOutSpawnEntity(a, 1);
 		} else if (a instanceof class_qw) {
-			i = class_oa.d((a.aI() * 256.0F) / 360.0F);
+			i = MathHelper.d((a.aI() * 256.0F) / 360.0F);
 			return new class_fn((class_rg) a);
 		} else if (a instanceof class_wy) {
 			class_yu var9 = ((class_wy) a).b;
-			return new class_fk(a, 90, var9 != null ? var9.G() : a.G());
+			return new PacketPlayOutSpawnEntity(a, 90, var9 != null ? var9.G() : a.G());
 		} else {
 			Entity var8;
 			if (a instanceof class_zi) {
 				var8 = ((class_zi) a).e;
-				return new class_fk(a, 91, var8 != null ? var8.G() : a.G());
+				return new PacketPlayOutSpawnEntity(a, 91, var8 != null ? var8.G() : a.G());
 			} else if (a instanceof class_zo) {
 				var8 = ((class_zo) a).e;
-				return new class_fk(a, 92, var8 != null ? var8.G() : a.G());
+				return new PacketPlayOutSpawnEntity(a, 92, var8 != null ? var8.G() : a.G());
 			} else if (a instanceof class_yx) {
 				var8 = ((class_yx) a).e;
-				return new class_fk(a, 60, var8 != null ? var8.G() : a.G());
+				return new PacketPlayOutSpawnEntity(a, 60, var8 != null ? var8.G() : a.G());
 			} else if (a instanceof class_zh) {
-				return new class_fk(a, 61);
+				return new PacketPlayOutSpawnEntity(a, 61);
 			} else if (a instanceof class_zn) {
-				return new class_fk(a, 73, class_aec.a(class_adb.i(((class_zn) a).k())));
+				return new PacketPlayOutSpawnEntity(a, 73, PotionRegistry.a(class_adb.i(((class_zn) a).k())));
 			} else if (a instanceof class_zm) {
-				return new class_fk(a, 75);
+				return new PacketPlayOutSpawnEntity(a, 75);
 			} else if (a instanceof class_zl) {
-				return new class_fk(a, 65);
+				return new PacketPlayOutSpawnEntity(a, 65);
 			} else if (a instanceof class_yz) {
-				return new class_fk(a, 72);
+				return new PacketPlayOutSpawnEntity(a, 72);
 			} else if (a instanceof class_zb) {
-				return new class_fk(a, 76);
+				return new PacketPlayOutSpawnEntity(a, 76);
 			} else {
-				class_fk var2;
+				PacketPlayOutSpawnEntity var2;
 				if (a instanceof class_za) {
 					class_za var7 = (class_za) a;
 					var2 = null;
@@ -403,9 +403,9 @@ public class class_lo {
 					}
 
 					if (var7.b != null) {
-						var2 = new class_fk(a, var10, ((class_za) a).b.G());
+						var2 = new PacketPlayOutSpawnEntity(a, var10, ((class_za) a).b.G());
 					} else {
-						var2 = new class_fk(a, var10, 0);
+						var2 = new PacketPlayOutSpawnEntity(a, var10, 0);
 					}
 
 					var2.d((int) (var7.c * 8000.0D));
@@ -413,46 +413,46 @@ public class class_lo {
 					var2.f((int) (var7.e * 8000.0D));
 					return var2;
 				} else if (a instanceof class_zf) {
-					class_fk var6 = new class_fk(a, 67, 0);
+					PacketPlayOutSpawnEntity var6 = new PacketPlayOutSpawnEntity(a, 67, 0);
 					var6.d((int) (a.v * 8000.0D));
 					var6.e((int) (a.w * 8000.0D));
 					var6.f((int) (a.x * 8000.0D));
 					return var6;
 				} else if (a instanceof class_zk) {
-					return new class_fk(a, 62);
+					return new PacketPlayOutSpawnEntity(a, 62);
 				} else if (a instanceof class_xq) {
-					return new class_fk(a, 50);
+					return new PacketPlayOutSpawnEntity(a, 50);
 				} else if (a instanceof class_vw) {
-					return new class_fk(a, 51);
+					return new PacketPlayOutSpawnEntity(a, 51);
 				} else if (a instanceof class_xf) {
 					class_xf var5 = (class_xf) a;
-					return new class_fk(a, 70, Block.f(var5.j()));
+					return new PacketPlayOutSpawnEntity(a, 70, Block.f(var5.j()));
 				} else if (a instanceof class_ws) {
-					return new class_fk(a, 78);
+					return new PacketPlayOutSpawnEntity(a, 78);
 				} else if (a instanceof class_ww) {
 					return new class_fo((class_ww) a);
 				} else {
 					class_cj var3;
 					if (a instanceof class_wu) {
 						class_wu var4 = (class_wu) a;
-						var2 = new class_fk(a, 71, var4.b.b());
+						var2 = new PacketPlayOutSpawnEntity(a, 71, var4.b.b());
 						var3 = var4.m();
-						var2.a(class_oa.d((float) (var3.n() * 32)));
-						var2.b(class_oa.d((float) (var3.o() * 32)));
-						var2.c(class_oa.d((float) (var3.p() * 32)));
+						var2.a(MathHelper.d((float) (var3.n() * 32)));
+						var2.b(MathHelper.d((float) (var3.o() * 32)));
+						var2.c(MathHelper.d((float) (var3.p() * 32)));
 						return var2;
 					} else if (a instanceof class_wv) {
 						class_wv var1 = (class_wv) a;
-						var2 = new class_fk(a, 77);
+						var2 = new PacketPlayOutSpawnEntity(a, 77);
 						var3 = var1.m();
-						var2.a(class_oa.d((float) (var3.n() * 32)));
-						var2.b(class_oa.d((float) (var3.o() * 32)));
-						var2.c(class_oa.d((float) (var3.p() * 32)));
+						var2.a(MathHelper.d((float) (var3.n() * 32)));
+						var2.b(MathHelper.d((float) (var3.o() * 32)));
+						var2.c(MathHelper.d((float) (var3.p() * 32)));
 						return var2;
 					} else if (a instanceof class_rd) {
 						return new class_fl((class_rd) a);
 					} else if (a instanceof class_qv) {
-						return new class_fk(a, 3);
+						return new PacketPlayOutSpawnEntity(a, 3);
 					} else {
 						throw new IllegalArgumentException("Don\'t know how to add " + a.getClass() + "!");
 					}

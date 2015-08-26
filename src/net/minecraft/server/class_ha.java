@@ -9,7 +9,7 @@ import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 
-public class class_ha implements class_ff {
+public class class_ha implements Packet {
 	private class_ha.class_a_in_class_ha a;
 	private final List b = Lists.newArrayList();
 
@@ -40,7 +40,7 @@ public class class_ha implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = (class_ha.class_a_in_class_ha) var1.a(class_ha.class_a_in_class_ha.class);
 		int var2 = var1.g();
 
@@ -48,7 +48,7 @@ public class class_ha implements class_ff {
 			GameProfile var4 = null;
 			int var5 = 0;
 			class_agr.class_a_in_class_agr var6 = null;
-			class_eu var7 = null;
+			IChatBaseComponent var7 = null;
 			switch (class_ha.SyntheticClass_1.a[a.ordinal()]) {
 				case 1:
 					var4 = new GameProfile(var1.i(), var1.c(16));
@@ -95,7 +95,7 @@ public class class_ha implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		var1.b(b.size());
 		Iterator var2 = b.iterator();
@@ -157,7 +157,7 @@ public class class_ha implements class_ff {
 		}
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
@@ -169,8 +169,8 @@ public class class_ha implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 
 	// $FF: synthetic class
@@ -216,9 +216,9 @@ public class class_ha implements class_ff {
 		private final int b;
 		private final class_agr.class_a_in_class_agr c;
 		private final GameProfile d;
-		private final class_eu e;
+		private final IChatBaseComponent e;
 
-		public class_b_in_class_ha(GameProfile var2, int var3, class_agr.class_a_in_class_agr var4, class_eu var5) {
+		public class_b_in_class_ha(GameProfile var2, int var3, class_agr.class_a_in_class_agr var4, IChatBaseComponent var5) {
 			d = var2;
 			b = var3;
 			c = var4;
@@ -237,13 +237,13 @@ public class class_ha implements class_ff {
 			return c;
 		}
 
-		public class_eu d() {
+		public IChatBaseComponent d() {
 			return e;
 		}
 
 		@Override
 		public String toString() {
-			return Objects.toStringHelper(this).add("latency", b).add("gameMode", c).add("profile", d).add("displayName", e == null ? null : class_eu.class_a_in_class_eu.a(e)).toString();
+			return Objects.toStringHelper(this).add("latency", b).add("gameMode", c).add("profile", d).add("displayName", e == null ? null : IChatBaseComponent.class_a_in_class_eu.a(e)).toString();
 		}
 	}
 

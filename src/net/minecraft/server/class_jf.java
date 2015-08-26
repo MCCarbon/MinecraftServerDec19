@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
 
-public interface class_jf extends class_ep {
+public interface class_jf extends PacketListener {
 	void a(class_je var1);
 }

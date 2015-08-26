@@ -45,14 +45,14 @@ public class class_wy extends Entity {
 		b.bO = this;
 		this.a(0.25F, 0.25F);
 		this.b(var2.s, var2.t + var2.aY(), var2.u, var2.y, var2.z);
-		s -= class_oa.b((y / 180.0F) * 3.1415927F) * 0.16F;
+		s -= MathHelper.b((y / 180.0F) * 3.1415927F) * 0.16F;
 		t -= 0.10000000149011612D;
-		u -= class_oa.a((y / 180.0F) * 3.1415927F) * 0.16F;
+		u -= MathHelper.a((y / 180.0F) * 3.1415927F) * 0.16F;
 		this.b(s, t, u);
 		float var3 = 0.4F;
-		v = -class_oa.a((y / 180.0F) * 3.1415927F) * class_oa.b((z / 180.0F) * 3.1415927F) * var3;
-		x = class_oa.b((y / 180.0F) * 3.1415927F) * class_oa.b((z / 180.0F) * 3.1415927F) * var3;
-		w = -class_oa.a((z / 180.0F) * 3.1415927F) * var3;
+		v = -MathHelper.a((y / 180.0F) * 3.1415927F) * MathHelper.b((z / 180.0F) * 3.1415927F) * var3;
+		x = MathHelper.b((y / 180.0F) * 3.1415927F) * MathHelper.b((z / 180.0F) * 3.1415927F) * var3;
+		w = -MathHelper.a((z / 180.0F) * 3.1415927F) * var3;
 		this.c(v, w, x, 1.5F, 1.0F);
 	}
 
@@ -61,7 +61,7 @@ public class class_wy extends Entity {
 	}
 
 	public void c(double var1, double var3, double var5, float var7, float var8) {
-		float var9 = class_oa.a((var1 * var1) + (var3 * var3) + (var5 * var5));
+		float var9 = MathHelper.a((var1 * var1) + (var3 * var3) + (var5 * var5));
 		var1 /= var9;
 		var3 /= var9;
 		var5 /= var9;
@@ -74,9 +74,9 @@ public class class_wy extends Entity {
 		v = var1;
 		w = var3;
 		x = var5;
-		float var10 = class_oa.a((var1 * var1) + (var5 * var5));
-		A = y = (float) ((class_oa.b(var1, var5) * 180.0D) / 3.1415927410125732D);
-		B = z = (float) ((class_oa.b(var3, var10) * 180.0D) / 3.1415927410125732D);
+		float var10 = MathHelper.a((var1 * var1) + (var5 * var5));
+		A = y = (float) ((MathHelper.b(var1, var5) * 180.0D) / 3.1415927410125732D);
+		B = z = (float) ((MathHelper.b(var3, var10) * 180.0D) / 3.1415927410125732D);
 		au = 0;
 	}
 
@@ -87,7 +87,7 @@ public class class_wy extends Entity {
 			double var29 = s + ((aB - s) / aA);
 			double var30 = t + ((aC - t) / aA);
 			double var31 = u + ((aD - u) / aA);
-			double var7 = class_oa.g(aE - y);
+			double var7 = MathHelper.g(aE - y);
 			y = (float) (y + (var7 / aA));
 			z = (float) (z + ((aF - z) / aA));
 			--aA;
@@ -185,10 +185,10 @@ public class class_wy extends Entity {
 
 			if (!at) {
 				this.d(v, w, x);
-				float var32 = class_oa.a((v * v) + (x * x));
-				y = (float) ((class_oa.b(v, x) * 180.0D) / 3.1415927410125732D);
+				float var32 = MathHelper.a((v * v) + (x * x));
+				y = (float) ((MathHelper.b(v, x) * 180.0D) / 3.1415927410125732D);
 
-				for (z = (float) ((class_oa.b(w, var32) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
+				for (z = (float) ((MathHelper.b(w, var32) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
 					;
 				}
 
@@ -256,17 +256,17 @@ public class class_wy extends Entity {
 							if (ay <= 0) {
 								w -= 0.20000000298023224D;
 								this.a("random.splash", 0.25F, 1.0F + ((V.nextFloat() - V.nextFloat()) * 0.4F));
-								var16 = class_oa.c(aX().b);
+								var16 = MathHelper.c(aX().b);
 								var37.a(class_cy.e, s, var16 + 1.0F, u, (int) (1.0F + (J * 20.0F)), J, 0.0D, J, 0.20000000298023224D, new int[0]);
 								var37.a(class_cy.g, s, var16 + 1.0F, u, (int) (1.0F + (J * 20.0F)), J, 0.0D, J, 0.20000000298023224D, new int[0]);
-								aw = class_oa.a(V, 10, 30);
+								aw = MathHelper.a(V, 10, 30);
 							} else {
 								az = (float) (az + (V.nextGaussian() * 4.0D));
 								var16 = az * 0.017453292F;
-								var40 = class_oa.a(var16);
-								var18 = class_oa.b(var16);
+								var40 = MathHelper.a(var16);
+								var18 = MathHelper.b(var16);
 								var19 = s + var40 * ay * 0.1F;
-								var41 = class_oa.c(aX().b) + 1.0F;
+								var41 = MathHelper.c(aX().b) + 1.0F;
 								var23 = u + var18 * ay * 0.1F;
 								var25 = var37.p(new class_cj((int) var19, (int) var41 - 1, (int) var23)).c();
 								if ((var25 == Blocks.WATER) || (var25 == Blocks.FLOWING_WATER)) {
@@ -292,11 +292,11 @@ public class class_wy extends Entity {
 							}
 
 							if (V.nextFloat() < var16) {
-								var40 = class_oa.a(V, 0.0F, 360.0F) * 0.017453292F;
-								var18 = class_oa.a(V, 25.0F, 60.0F);
-								var19 = s + class_oa.a(var40) * var18 * 0.1F;
-								var41 = class_oa.c(aX().b) + 1.0F;
-								var23 = u + class_oa.b(var40) * var18 * 0.1F;
+								var40 = MathHelper.a(V, 0.0F, 360.0F) * 0.017453292F;
+								var18 = MathHelper.a(V, 25.0F, 60.0F);
+								var19 = s + MathHelper.a(var40) * var18 * 0.1F;
+								var41 = MathHelper.c(aX().b) + 1.0F;
+								var23 = u + MathHelper.b(var40) * var18 * 0.1F;
 								var25 = var37.p(new class_cj((int) var19, (int) var41 - 1, (int) var23)).c();
 								if ((var25 == Blocks.WATER) || (var25 == Blocks.FLOWING_WATER)) {
 									var37.a(class_cy.f, var19, var41, var23, 2 + V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
@@ -304,11 +304,11 @@ public class class_wy extends Entity {
 							}
 
 							if (ax <= 0) {
-								az = class_oa.a(V, 0.0F, 360.0F);
-								ay = class_oa.a(V, 20, 80);
+								az = MathHelper.a(V, 0.0F, 360.0F);
+								ay = MathHelper.a(V, 20, 80);
 							}
 						} else {
-							ax = class_oa.a(V, 100, 900);
+							ax = MathHelper.a(V, 100, 900);
 							ax -= class_afl.g(b) * 20 * 5;
 						}
 					}
@@ -368,10 +368,10 @@ public class class_wy extends Entity {
 				double var2 = b.s - s;
 				double var4 = b.t - t;
 				double var6 = b.u - u;
-				double var8 = class_oa.a((var2 * var2) + (var4 * var4) + (var6 * var6));
+				double var8 = MathHelper.a((var2 * var2) + (var4 * var4) + (var6 * var6));
 				double var10 = 0.1D;
 				c.v += var2 * var10;
-				c.w += (var4 * var10) + (class_oa.a(var8) * 0.08D);
+				c.w += (var4 * var10) + (MathHelper.a(var8) * 0.08D);
 				c.x += var6 * var10;
 				var1 = 3;
 			} else if (aw > 0) {
@@ -379,10 +379,10 @@ public class class_wy extends Entity {
 				double var3 = b.s - s;
 				double var5 = b.t - t;
 				double var7 = b.u - u;
-				double var9 = class_oa.a((var3 * var3) + (var5 * var5) + (var7 * var7));
+				double var9 = MathHelper.a((var3 * var3) + (var5 * var5) + (var7 * var7));
 				double var11 = 0.1D;
 				var13.v = var3 * var11;
-				var13.w = (var5 * var11) + (class_oa.a(var9) * 0.08D);
+				var13.w = (var5 * var11) + (MathHelper.a(var9) * 0.08D);
 				var13.x = var7 * var11;
 				o.a(var13);
 				b.o.a((new class_rd(b.o, b.s, b.t + 0.5D, b.u + 0.5D, V.nextInt(6) + 1)));
@@ -405,8 +405,8 @@ public class class_wy extends Entity {
 		int var3 = class_afl.g(b);
 		float var4 = 0.1F - (var2 * 0.025F) - (var3 * 0.01F);
 		float var5 = (0.05F + (var2 * 0.01F)) - (var3 * 0.01F);
-		var4 = class_oa.a(var4, 0.0F, 1.0F);
-		var5 = class_oa.a(var5, 0.0F, 1.0F);
+		var4 = MathHelper.a(var4, 0.0F, 1.0F);
+		var5 = MathHelper.a(var5, 0.0F, 1.0F);
 		if (var1 < var4) {
 			b.b(class_nh.E);
 			return ((class_wz) class_oi.a(V, d)).a(V);

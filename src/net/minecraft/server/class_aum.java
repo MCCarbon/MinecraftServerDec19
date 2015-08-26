@@ -40,11 +40,11 @@ public class class_aum extends class_auo {
 		while (var2.hasNext()) {
 			Entry var3 = (Entry) var2.next();
 			if (((String) var3.getKey()).equals("distance")) {
-				h = class_oa.a((String) var3.getValue(), h, 1.0D);
+				h = MathHelper.a((String) var3.getValue(), h, 1.0D);
 			} else if (((String) var3.getKey()).equals("count")) {
-				g = new class_agi[class_oa.a(((String) var3.getValue()), g.length, 1)];
+				g = new class_agi[MathHelper.a(((String) var3.getValue()), g.length, 1)];
 			} else if (((String) var3.getKey()).equals("spread")) {
-				i = class_oa.a(((String) var3.getValue()), i, 1);
+				i = MathHelper.a(((String) var3.getValue()), i, 1);
 			}
 		}
 

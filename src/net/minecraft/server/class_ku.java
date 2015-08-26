@@ -176,7 +176,7 @@ public class class_ku extends MinecraftServer implements class_kp {
 				aM();
 				this.c(o.a("max-build-height", 256));
 				this.c(((ap() + 8) / 16) * 16);
-				this.c(class_oa.a(ap(), 64, 256));
+				this.c(MathHelper.a(ap(), 64, 256));
 				o.a("max-build-height", Integer.valueOf(ap()));
 				k.info("Preparing level \"" + W() + "\"");
 				this.a(W(), W(), var9, var18, var8);
@@ -392,8 +392,8 @@ public class class_ku extends MinecraftServer implements class_kp {
 			return false;
 		} else {
 			class_cj var4 = var1.O();
-			int var5 = class_oa.a(var2.n() - var4.n());
-			int var6 = class_oa.a(var2.p() - var4.p());
+			int var5 = MathHelper.a(var2.n() - var4.n());
+			int var6 = MathHelper.a(var2.p() - var4.p());
 			int var7 = Math.max(var5, var6);
 			return var7 <= ay();
 		}

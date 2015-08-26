@@ -31,8 +31,8 @@ public class class_acu extends class_abo {
 			int var4 = 1 << var3.f;
 			int var5 = var3.b;
 			int var6 = var3.c;
-			int var7 = (class_oa.c(var2.s - var5) / var4) + 64;
-			int var8 = (class_oa.c(var2.u - var6) / var4) + 64;
+			int var7 = (MathHelper.c(var2.s - var5) / var4) + 64;
+			int var8 = (MathHelper.c(var2.u - var6) / var4) + 64;
 			int var9 = 128 / var4;
 			if (var1.t.m()) {
 				var9 /= 2;
@@ -161,7 +161,7 @@ public class class_acu extends class_abo {
 	}
 
 	@Override
-	public class_ff a(class_aco var1, class_ago var2, class_yu var3) {
+	public Packet a(class_aco var1, class_ago var2, class_yu var3) {
 		return this.a(var1, var2).a(var1, var2, var3);
 	}
 
@@ -184,7 +184,7 @@ public class class_acu extends class_abo {
 		class_axl var3 = Items.bf.a(var0, var1);
 		var0.b(var1.b("map"));
 		class_axl var4 = new class_axl("map_" + var0.i());
-		var4.f = (byte) class_oa.a(var3.f + var2, 0, 4);
+		var4.f = (byte) MathHelper.a(var3.f + var2, 0, 4);
 		var4.e = var3.e;
 		var4.a(var3.b, var3.c, var4.f);
 		var4.d = var3.d;

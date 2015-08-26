@@ -14,16 +14,16 @@ import com.google.gson.JsonSerializer;
 import com.mojang.authlib.GameProfile;
 
 public class class_ju {
-	private class_eu a;
+	private IChatBaseComponent a;
 	private class_ju.class_a_in_class_ju b;
 	private class_ju.class_c_in_class_ju c;
 	private String d;
 
-	public class_eu a() {
+	public IChatBaseComponent a() {
 		return a;
 	}
 
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		a = var1;
 	}
 
@@ -56,7 +56,7 @@ public class class_ju {
 			JsonObject var4 = class_nq.l(var1, "status");
 			class_ju var5 = new class_ju();
 			if (var4.has("description")) {
-				var5.a((class_eu) var3.deserialize(var4.get("description"), class_eu.class));
+				var5.a((IChatBaseComponent) var3.deserialize(var4.get("description"), IChatBaseComponent.class));
 			}
 
 			if (var4.has("players")) {

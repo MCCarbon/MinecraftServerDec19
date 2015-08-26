@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class class_nd {
 	public final String e;
-	private final class_eu a;
+	private final IChatBaseComponent a;
 	public boolean f;
 	private final class_ne b;
 	private final class_ayy c;
@@ -18,7 +18,7 @@ public class class_nd {
 	public static class_ne i;
 	public static class_ne j;
 
-	public class_nd(String var1, class_eu var2, class_ne var3) {
+	public class_nd(String var1, IChatBaseComponent var2, class_ne var3) {
 		e = var1;
 		a = var2;
 		b = var3;
@@ -26,7 +26,7 @@ public class class_nd {
 		class_ayy.a.put(c.a(), c);
 	}
 
-	public class_nd(String var1, class_eu var2) {
+	public class_nd(String var1, IChatBaseComponent var2) {
 		this(var1, var2, g);
 	}
 
@@ -49,16 +49,16 @@ public class class_nd {
 		return false;
 	}
 
-	public class_eu e() {
-		class_eu var1 = a.f();
+	public IChatBaseComponent e() {
+		IChatBaseComponent var1 = a.f();
 		var1.b().a(EnumChatFormat.GRAY);
 		var1.b().a(new class_ew(class_ew.class_a_in_class_ew.b, new class_fa(e)));
 		return var1;
 	}
 
-	public class_eu j() {
-		class_eu var1 = e();
-		class_eu var2 = (new class_fa("[")).a(var1).a("]");
+	public IChatBaseComponent j() {
+		IChatBaseComponent var1 = e();
+		IChatBaseComponent var2 = (new class_fa("[")).a(var1).a("]");
 		var2.a(var1.b());
 		return var2;
 	}

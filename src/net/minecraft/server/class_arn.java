@@ -51,7 +51,7 @@ public class class_arn implements class_aqk {
 			var0 /= 2;
 			var1 /= 2;
 			if ((var0 <= b) && (var1 <= c)) {
-				int var3 = class_oa.a((var0 * b) + var1);
+				int var3 = MathHelper.a((var0 * b) + var1);
 				if (var3 < a.size()) {
 					var2 = (class_apn) a.get(var3);
 				}
@@ -132,7 +132,7 @@ public class class_arn implements class_aqk {
 			a.addAll(var1.R().a());
 		}
 
-		b = class_oa.f(class_oa.c((float) a.size()));
-		c = class_oa.f((float) a.size() / (float) b);
+		b = MathHelper.f(MathHelper.c((float) a.size()));
+		c = MathHelper.f((float) a.size() / (float) b);
 	}
 }

@@ -486,7 +486,7 @@ public class class_lt implements class_id, class_ks {
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		c.info(b.e_() + " lost connection: " + var1);
 		d.aJ();
 		class_fb var2 = new class_fb("multiplayer.player.left", new Object[] { b.f_() });
@@ -501,7 +501,7 @@ public class class_lt implements class_id, class_ks {
 
 	}
 
-	public void a(final class_ff var1) {
+	public void a(final Packet var1) {
 		if (var1 instanceof class_fz) {
 			class_fz var2 = (class_fz) var1;
 			class_yu.class_b_in_class_yu var3 = b.z();
@@ -827,7 +827,7 @@ public class class_lt implements class_id, class_ks {
 				return;
 			}
 
-			class_eu[] var6 = var1.b();
+			IChatBaseComponent[] var6 = var1.b();
 
 			for (int var7 = 0; var7 < var6.length; ++var7) {
 				var5.a[var7] = new class_fa(EnumChatFormat.stripFormat(var6[var7].c()));
@@ -983,7 +983,7 @@ public class class_lt implements class_id, class_ks {
 					var98.a(var103);
 					var98.a(var106);
 					if (!var106) {
-						var98.b((class_eu) null);
+						var98.b((IChatBaseComponent) null);
 					}
 
 					var98.h();
@@ -1045,7 +1045,7 @@ public class class_lt implements class_id, class_ks {
 						var3.a(var7);
 						var3.a(var8);
 						if (!var8) {
-							var3.b((class_eu) null);
+							var3.b((IChatBaseComponent) null);
 						}
 
 						var4.b(var10);

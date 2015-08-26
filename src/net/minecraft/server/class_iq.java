@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_iq implements class_ff {
+public class class_iq implements Packet {
 	protected double a;
 	protected double b;
 	protected double c;
@@ -17,12 +17,12 @@ public class class_iq implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		f = var1.readUnsignedByte() != 0;
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.writeByte(f ? 1 : 0);
 	}
 
@@ -65,7 +65,7 @@ public class class_iq implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
+	public void handle(PacketListener var1) {
 		this.a((class_id) var1);
 	}
 
@@ -75,23 +75,23 @@ public class class_iq implements class_ff {
 		}
 
 		@Override
-		public void a(PacketDataSerializer var1) throws IOException {
+		public void decode(PacketDataSerializer var1) throws IOException {
 			d = var1.readFloat();
 			e = var1.readFloat();
-			super.a(var1);
+			super.decode(var1);
 		}
 
 		@Override
-		public void b(PacketDataSerializer var1) throws IOException {
+		public void encode(PacketDataSerializer var1) throws IOException {
 			var1.writeFloat(d);
 			var1.writeFloat(e);
-			super.b(var1);
+			super.encode(var1);
 		}
 
 		// $FF: synthetic method
 		// $FF: bridge method
 		@Override
-		public void a(class_ep var1) {
+		public void handle(PacketListener var1) {
 			super.a((class_id) var1);
 		}
 	}
@@ -102,25 +102,25 @@ public class class_iq implements class_ff {
 		}
 
 		@Override
-		public void a(PacketDataSerializer var1) throws IOException {
+		public void decode(PacketDataSerializer var1) throws IOException {
 			a = var1.readDouble();
 			b = var1.readDouble();
 			c = var1.readDouble();
-			super.a(var1);
+			super.decode(var1);
 		}
 
 		@Override
-		public void b(PacketDataSerializer var1) throws IOException {
+		public void encode(PacketDataSerializer var1) throws IOException {
 			var1.writeDouble(a);
 			var1.writeDouble(b);
 			var1.writeDouble(c);
-			super.b(var1);
+			super.encode(var1);
 		}
 
 		// $FF: synthetic method
 		// $FF: bridge method
 		@Override
-		public void a(class_ep var1) {
+		public void handle(PacketListener var1) {
 			super.a((class_id) var1);
 		}
 	}
@@ -132,29 +132,29 @@ public class class_iq implements class_ff {
 		}
 
 		@Override
-		public void a(PacketDataSerializer var1) throws IOException {
+		public void decode(PacketDataSerializer var1) throws IOException {
 			a = var1.readDouble();
 			b = var1.readDouble();
 			c = var1.readDouble();
 			d = var1.readFloat();
 			e = var1.readFloat();
-			super.a(var1);
+			super.decode(var1);
 		}
 
 		@Override
-		public void b(PacketDataSerializer var1) throws IOException {
+		public void encode(PacketDataSerializer var1) throws IOException {
 			var1.writeDouble(a);
 			var1.writeDouble(b);
 			var1.writeDouble(c);
 			var1.writeFloat(d);
 			var1.writeFloat(e);
-			super.b(var1);
+			super.encode(var1);
 		}
 
 		// $FF: synthetic method
 		// $FF: bridge method
 		@Override
-		public void a(class_ep var1) {
+		public void handle(PacketListener var1) {
 			super.a((class_id) var1);
 		}
 	}

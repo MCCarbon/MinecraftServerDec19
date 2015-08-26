@@ -129,7 +129,7 @@ public class CommandWorldBorder extends CommandAbstract {
 				}
 
 				var4 = var3.h();
-				var1.a(class_n.class_a_in_class_n.e, class_oa.c(var4 + 0.5D));
+				var1.a(class_n.class_a_in_class_n.e, MathHelper.c(var4 + 0.5D));
 				var1.a(new class_fb("commands.worldborder.get.success", new Object[] { String.format("%.0f", new Object[] { Double.valueOf(var4) }) }));
 			}
 

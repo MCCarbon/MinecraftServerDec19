@@ -25,7 +25,7 @@ public class class_qj extends class_qi {
 	}
 
 	@Override
-	public class_eu c(class_rg var1) {
+	public IChatBaseComponent c(class_rg var1) {
 		class_aco var2 = r instanceof class_rg ? ((class_rg) r).bG() : null;
 		String var3 = "death.attack." + q;
 		String var4 = var3 + ".item";

@@ -59,7 +59,7 @@ public class class_art implements class_aqk {
 
 		for (int var6 = -2; var6 <= 2; ++var6) {
 			for (int var7 = -2; var7 <= 2; ++var7) {
-				float var8 = 10.0F / class_oa.c((var6 * var6) + (var7 * var7) + 0.2F);
+				float var8 = 10.0F / MathHelper.c((var6 * var6) + (var7 * var7) + 0.2F);
 				q[var6 + 2 + ((var7 + 2) * 5)] = var8;
 			}
 		}
@@ -274,7 +274,7 @@ public class class_art implements class_aqk {
 					double var26 = e[var6] / r.d;
 					double var28 = f[var6] / r.c;
 					double var30 = ((d[var6] / 10.0D) + 1.0D) / 2.0D;
-					double var32 = class_oa.b(var26, var28, var30) - var24;
+					double var32 = MathHelper.b(var26, var28, var30) - var24;
 					if (var23 > 29) {
 						double var34 = (var23 - 29) / 3.0F;
 						var32 = (var32 * (1.0D - var34)) + (-10.0D * var34);

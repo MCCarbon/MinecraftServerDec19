@@ -68,9 +68,9 @@ public abstract class class_vc extends class_qu implements class_qw {
 
 	@Override
 	public boolean cj() {
-		int var1 = class_oa.c(s);
-		int var2 = class_oa.c(aX().b);
-		int var3 = class_oa.c(u);
+		int var1 = MathHelper.c(s);
+		int var2 = MathHelper.c(aX().b);
+		int var3 = MathHelper.c(u);
 		class_cj var4 = new class_cj(var1, var2, var3);
 		return (o.p(var4.b()).c() == bw) && (o.k(var4) > 8) && super.cj();
 	}

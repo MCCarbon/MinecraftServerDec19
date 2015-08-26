@@ -149,7 +149,7 @@ public class class_aru implements class_aqk {
 	private float a(int var1, int var2, int var3, int var4) {
 		float var5 = (var1 * 2) + var3;
 		float var6 = (var2 * 2) + var4;
-		float var7 = 100.0F - (class_oa.c((var5 * var5) + (var6 * var6)) * 8.0F);
+		float var7 = 100.0F - (MathHelper.c((var5 * var5) + (var6 * var6)) * 8.0F);
 		if (var7 > 80.0F) {
 			var7 = 80.0F;
 		}
@@ -163,10 +163,10 @@ public class class_aru implements class_aqk {
 				int var10 = var1 + var8;
 				int var11 = var2 + var9;
 				if ((((var10 * var10) + (var11 * var11)) > 4096) && (l.a(var10, var11) < -0.8999999761581421D)) {
-					float var12 = (((class_oa.a(var10) * 3439) + (class_oa.a(var11) * 147)) % 13) + 9;
+					float var12 = (((MathHelper.a(var10) * 3439) + (MathHelper.a(var11) * 147)) % 13) + 9;
 					var5 = var3 - (var8 * 2);
 					var6 = var4 - (var9 * 2);
-					float var13 = 100.0F - (class_oa.c((var5 * var5) + (var6 * var6)) * var12);
+					float var13 = 100.0F - (MathHelper.c((var5 * var5) + (var6 * var6)) * var12);
 					if (var13 > 80.0F) {
 						var13 = 80.0F;
 					}
@@ -227,7 +227,7 @@ public class class_aru implements class_aqk {
 					double var28;
 					if (var18 > ((var6 / 2) - var27)) {
 						var28 = (var18 - ((var6 / 2) - var27)) / 64.0F;
-						var28 = class_oa.a(var28, 0.0D, 1.0D);
+						var28 = MathHelper.a(var28, 0.0D, 1.0D);
 						var19 = (var19 * (1.0D - var28)) + (-3000.0D * var28);
 					}
 

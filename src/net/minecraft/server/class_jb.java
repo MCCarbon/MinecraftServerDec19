@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_jb implements class_ff {
+public class class_jb implements Packet {
 	private class_cj a;
 	private class_cq b;
 	private class_pu c;
@@ -11,7 +11,7 @@ public class class_jb implements class_ff {
 	private float f;
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.e();
 		b = (class_cq) var1.a(class_cq.class);
 		c = (class_pu) var1.a(class_pu.class);
@@ -21,7 +21,7 @@ public class class_jb implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		var1.a(b);
 		var1.a(c);
@@ -61,7 +61,7 @@ public class class_jb implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
+	public void handle(PacketListener var1) {
 		this.a((class_id) var1);
 	}
 }

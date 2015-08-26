@@ -238,7 +238,7 @@ public class class_yh extends class_yc implements class_ye {
 		double var4 = var1.s - s;
 		double var6 = (var1.aX().b + var1.K / 3.0F) - var3.t;
 		double var8 = var1.u - u;
-		double var10 = class_oa.a((var4 * var4) + (var8 * var8));
+		double var10 = MathHelper.a((var4 * var4) + (var8 * var8));
 		var3.c(var4, var6 + (var10 * 0.20000000298023224D), var8, 1.6F, 14 - (o.ac().a() * 4));
 		int var12 = class_afl.a(class_afn.t, this);
 		int var13 = class_afl.a(class_afn.u, this);

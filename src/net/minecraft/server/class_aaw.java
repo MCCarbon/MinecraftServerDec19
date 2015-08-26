@@ -35,7 +35,7 @@ public class class_aaw extends Item {
 							var3.g(var11);
 							var3.g(var12);
 							class_ws var21 = new class_ws(var3, var14 + 0.5D, var16, var18 + 0.5D);
-							float var22 = class_oa.d((class_oa.g(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
+							float var22 = MathHelper.d((MathHelper.g(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
 							var21.b(var14 + 0.5D, var16, var18 + 0.5D, var22, 0.0F);
 							this.a(var21, var3.s);
 							class_ads.a(var3, var2, var1, var21);

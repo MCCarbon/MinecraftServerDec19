@@ -126,7 +126,7 @@ public class class_xf extends Entity {
 	public void e(float var1, float var2) {
 		Block var3 = d.c();
 		if (f) {
-			int var4 = class_oa.f(var1 - 1.0F);
+			int var4 = MathHelper.f(var1 - 1.0F);
 			if (var4 > 0) {
 				ArrayList var5 = Lists.newArrayList((Iterable) o.b(this, aX()));
 				boolean var6 = var3 == Blocks.ANVIL;
@@ -135,7 +135,7 @@ public class class_xf extends Entity {
 
 				while (var8.hasNext()) {
 					Entity var9 = (Entity) var8.next();
-					var9.a(var7, Math.min(class_oa.d(var4 * h), g));
+					var9.a(var7, Math.min(MathHelper.d(var4 * h), g));
 				}
 
 				if (var6 && (V.nextFloat() < (0.05000000074505806D + (var4 * 0.05D)))) {

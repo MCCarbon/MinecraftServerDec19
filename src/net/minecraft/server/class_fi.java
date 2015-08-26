@@ -5,7 +5,7 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class class_fi implements class_ff {
+public class class_fi implements Packet {
 	private double a;
 	private double b;
 	private double c;
@@ -26,7 +26,7 @@ public class class_fi implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.readDouble();
 		b = var1.readDouble();
 		c = var1.readDouble();
@@ -36,7 +36,7 @@ public class class_fi implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.writeDouble(a);
 		var1.writeDouble(b);
 		var1.writeDouble(c);
@@ -45,15 +45,15 @@ public class class_fi implements class_ff {
 		var1.writeByte(class_fi.class_a_in_class_fi.a(f));
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 
 	public static enum class_a_in_class_fi {

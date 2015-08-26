@@ -6,5 +6,5 @@ public interface class_qb {
 
 	boolean k_();
 
-	class_eu f_();
+	IChatBaseComponent f_();
 }

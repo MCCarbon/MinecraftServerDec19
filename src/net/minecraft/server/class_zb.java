@@ -46,10 +46,10 @@ public class class_zb extends Entity {
 		x *= 1.15D;
 		w += 0.04D;
 		this.d(v, w, x);
-		float var1 = class_oa.a((v * v) + (x * x));
-		y = (float) ((class_oa.b(v, x) * 180.0D) / 3.1415927410125732D);
+		float var1 = MathHelper.a((v * v) + (x * x));
+		y = (float) ((MathHelper.b(v, x) * 180.0D) / 3.1415927410125732D);
 
-		for (z = (float) ((class_oa.b(w, var1) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
+		for (z = (float) ((MathHelper.b(w, var1) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
 			;
 		}
 

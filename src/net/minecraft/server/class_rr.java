@@ -14,7 +14,7 @@ public class class_rr {
 	private boolean e;
 
 	public class_rr(String var1, double var2, int var4) {
-		this(class_oa.a(ThreadLocalRandom.current()), var1, var2, var4);
+		this(MathHelper.a(ThreadLocalRandom.current()), var1, var2, var4);
 	}
 
 	public class_rr(UUID var1, String var2, double var3, int var5) {

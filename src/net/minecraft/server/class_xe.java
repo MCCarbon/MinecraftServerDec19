@@ -161,7 +161,7 @@ public class class_xe extends Entity {
 				var6 = s + ((g - s) / f);
 				var8 = t + ((h - t) / f);
 				var24 = u + ((i - u) / f);
-				var26 = class_oa.g(as - y);
+				var26 = MathHelper.g(as - y);
 				y = (float) (y + (var26 / f));
 				z = (float) (z + ((at - z) / f));
 				--f;
@@ -224,11 +224,11 @@ public class class_xe extends Entity {
 
 			int var22;
 			for (var22 = 0; var22 < 4; ++var22) {
-				int var23 = class_oa.c(s + ((var22 % 2 - 0.5D) * 0.8D));
-				var10 = class_oa.c(u + ((var22 / 2 - 0.5D) * 0.8D));
+				int var23 = MathHelper.c(s + ((var22 % 2 - 0.5D) * 0.8D));
+				var10 = MathHelper.c(u + ((var22 / 2 - 0.5D) * 0.8D));
 
 				for (int var25 = 0; var25 < 2; ++var25) {
-					int var12 = class_oa.c(t) + var25;
+					int var12 = MathHelper.c(t) + var25;
 					class_cj var27 = new class_cj(var23, var12, var10);
 					Block var14 = o.p(var27).c();
 					if (var14 == Blocks.SNOW_LAYER) {
@@ -272,10 +272,10 @@ public class class_xe extends Entity {
 			var24 = p - s;
 			var26 = r - u;
 			if (((var24 * var24) + (var26 * var26)) > 0.001D) {
-				var8 = ((float) ((class_oa.b(var26, var24) * 180.0D) / 3.141592653589793D));
+				var8 = ((float) ((MathHelper.b(var26, var24) * 180.0D) / 3.141592653589793D));
 			}
 
-			double var28 = class_oa.g(var8 - y);
+			double var28 = MathHelper.g(var8 - y);
 			if (var28 > 20.0D) {
 				var28 = 20.0D;
 			}

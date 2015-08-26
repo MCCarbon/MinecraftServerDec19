@@ -96,7 +96,7 @@ public class class_wq extends class_yc implements class_ye {
 				var4 = var1.u - u;
 				var6 = (var2 * var2) + (var4 * var4);
 				if (var6 > 9.0D) {
-					var8 = class_oa.a(var6);
+					var8 = MathHelper.a(var6);
 					v += (((var2 / var8) * 0.5D) - v) * 0.6000000238418579D;
 					x += (((var4 / var8) * 0.5D) - x) * 0.6000000238418579D;
 				}
@@ -104,7 +104,7 @@ public class class_wq extends class_yc implements class_ye {
 		}
 
 		if (((v * v) + (x * x)) > 0.05000000074505806D) {
-			y = ((float) class_oa.b(x, v) * 57.295776F) - 90.0F;
+			y = ((float) MathHelper.b(x, v) * 57.295776F) - 90.0F;
 		}
 
 		super.m();
@@ -130,9 +130,9 @@ public class class_wq extends class_yc implements class_ye {
 				double var10 = var3.s - var4;
 				double var12 = (var3.t + var3.aY()) - var6;
 				double var14 = var3.u - var8;
-				double var16 = class_oa.a((var10 * var10) + (var14 * var14));
-				float var18 = (float) ((class_oa.b(var14, var10) * 180.0D) / 3.1415927410125732D) - 90.0F;
-				float var19 = (float) (-((class_oa.b(var12, var16) * 180.0D) / 3.1415927410125732D));
+				double var16 = MathHelper.a((var10 * var10) + (var14 * var14));
+				float var18 = (float) ((MathHelper.b(var14, var10) * 180.0D) / 3.1415927410125732D) - 90.0F;
+				float var19 = (float) (-((MathHelper.b(var12, var16) * 180.0D) / 3.1415927410125732D));
 				bv[var20] = this.b(bv[var20], var19, 40.0F);
 				bw[var20] = this.b(bw[var20], var18, 10.0F);
 			} else {
@@ -189,9 +189,9 @@ public class class_wq extends class_yc implements class_ye {
 						if (var10003 > 15) {
 							float var2 = 10.0F;
 							float var3 = 5.0F;
-							double var4 = class_oa.a(V, s - var2, s + var2);
-							double var6 = class_oa.a(V, t - var3, t + var3);
-							double var8 = class_oa.a(V, u - var2, u + var2);
+							double var4 = MathHelper.a(V, s - var2, s + var2);
+							double var6 = MathHelper.a(V, t - var3, t + var3);
+							double var8 = MathHelper.a(V, u - var2, u + var2);
 							this.a(var1 + 1, var4, var6, var8, true);
 							bA[var1 - 1] = 0;
 						}
@@ -242,9 +242,9 @@ public class class_wq extends class_yc implements class_ye {
 			if (bB > 0) {
 				--bB;
 				if ((bB == 0) && o.S().b("mobGriefing")) {
-					var1 = class_oa.c(t);
-					var13 = class_oa.c(s);
-					int var16 = class_oa.c(u);
+					var1 = MathHelper.c(t);
+					var13 = MathHelper.c(s);
+					int var16 = MathHelper.c(u);
 					boolean var18 = false;
 
 					for (int var19 = -1; var19 <= 1; ++var19) {
@@ -311,7 +311,7 @@ public class class_wq extends class_yc implements class_ye {
 			return s;
 		} else {
 			float var2 = ((aM + 180 * (var1 - 1)) / 180.0F) * 3.1415927F;
-			float var3 = class_oa.b(var2);
+			float var3 = MathHelper.b(var2);
 			return s + (var3 * 1.3D);
 		}
 	}
@@ -325,13 +325,13 @@ public class class_wq extends class_yc implements class_ye {
 			return u;
 		} else {
 			float var2 = ((aM + 180 * (var1 - 1)) / 180.0F) * 3.1415927F;
-			float var3 = class_oa.a(var2);
+			float var3 = MathHelper.a(var2);
 			return u + (var3 * 1.3D);
 		}
 	}
 
 	private float b(float var1, float var2, float var3) {
-		float var4 = class_oa.g(var2 - var1);
+		float var4 = MathHelper.g(var2 - var1);
 		if (var4 > var3) {
 			var4 = var3;
 		}

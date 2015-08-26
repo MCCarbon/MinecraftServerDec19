@@ -103,7 +103,7 @@ public abstract class Entity implements ICommandListener {
 		V = new Random();
 		X = 1;
 		aa = true;
-		aq = class_oa.a(V);
+		aq = MathHelper.a(V);
 		aA = new class_n();
 		aB = Lists.newArrayList();
 		aC = Sets.newHashSet();
@@ -515,9 +515,9 @@ public abstract class Entity implements ICommandListener {
 			E = var15 != var3;
 			C = E && (var15 < 0.0D);
 			F = D || E;
-			int var57 = class_oa.c(s);
-			int var58 = class_oa.c(t - 0.20000000298023224D);
-			int var59 = class_oa.c(u);
+			int var57 = MathHelper.c(s);
+			int var58 = MathHelper.c(t - 0.20000000298023224D);
+			int var59 = MathHelper.c(u);
 			class_cj var26 = new class_cj(var57, var58, var59);
 			Block var60 = o.p(var26).c();
 			if (var60.v() == class_avq.a) {
@@ -553,12 +553,12 @@ public abstract class Entity implements ICommandListener {
 					var60.a(o, var26, this);
 				}
 
-				M = (float) (M + (class_oa.a((var61 * var61) + (var66 * var66)) * 0.6D));
-				N = (float) (N + (class_oa.a((var61 * var61) + (var64 * var64) + (var66 * var66)) * 0.6D));
+				M = (float) (M + (MathHelper.a((var61 * var61) + (var66 * var66)) * 0.6D));
+				N = (float) (N + (MathHelper.a((var61 * var61) + (var64 * var64) + (var66 * var66)) * 0.6D));
 				if ((N > h) && (var60.v() != class_avq.a)) {
 					h = (int) N + 1;
 					if (Y()) {
-						float var34 = class_oa.a((v * v * 0.20000000298023224D) + (w * w) + (x * x * 0.20000000298023224D)) * 0.35F;
+						float var34 = MathHelper.a((v * v * 0.20000000298023224D) + (w * w) + (x * x * 0.20000000298023224D)) * 0.35F;
 						if (var34 > 1.0F) {
 							var34 = 1.0F;
 						}
@@ -730,13 +730,13 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	protected void aa() {
-		float var1 = class_oa.a((v * v * 0.20000000298023224D) + (w * w) + (x * x * 0.20000000298023224D)) * 0.2F;
+		float var1 = MathHelper.a((v * v * 0.20000000298023224D) + (w * w) + (x * x * 0.20000000298023224D)) * 0.2F;
 		if (var1 > 1.0F) {
 			var1 = 1.0F;
 		}
 
 		this.a(ad(), var1, 1.0F + ((V.nextFloat() - V.nextFloat()) * 0.4F));
-		float var2 = class_oa.c(aX().b);
+		float var2 = MathHelper.c(aX().b);
 
 		int var3;
 		float var4;
@@ -763,9 +763,9 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	protected void ac() {
-		int var1 = class_oa.c(s);
-		int var2 = class_oa.c(t - 0.20000000298023224D);
-		int var3 = class_oa.c(u);
+		int var1 = MathHelper.c(s);
+		int var2 = MathHelper.c(t - 0.20000000298023224D);
+		int var3 = MathHelper.c(u);
 		class_cj var4 = new class_cj(var1, var2, var3);
 		class_apn var5 = o.p(var4);
 		Block var6 = var5.c();
@@ -801,7 +801,7 @@ public abstract class Entity implements ICommandListener {
 	public void a(float var1, float var2, float var3) {
 		float var4 = (var1 * var1) + (var2 * var2);
 		if (var4 >= 1.0E-4F) {
-			var4 = class_oa.c(var4);
+			var4 = MathHelper.c(var4);
 			if (var4 < 1.0F) {
 				var4 = 1.0F;
 			}
@@ -809,8 +809,8 @@ public abstract class Entity implements ICommandListener {
 			var4 = var3 / var4;
 			var1 *= var4;
 			var2 *= var4;
-			float var5 = class_oa.a((y * 3.1415927F) / 180.0F);
-			float var6 = class_oa.b((y * 3.1415927F) / 180.0F);
+			float var5 = MathHelper.a((y * 3.1415927F) / 180.0F);
+			float var6 = MathHelper.b((y * 3.1415927F) / 180.0F);
 			v += (var1 * var6) - (var2 * var5);
 			x += (var2 * var6) + (var1 * var5);
 		}
@@ -861,7 +861,7 @@ public abstract class Entity implements ICommandListener {
 		float var2 = (float) (s - var1.s);
 		float var3 = (float) (t - var1.t);
 		float var4 = (float) (u - var1.u);
-		return class_oa.c((var2 * var2) + (var3 * var3) + (var4 * var4));
+		return MathHelper.c((var2 * var2) + (var3 * var3) + (var4 * var4));
 	}
 
 	public double e(double var1, double var3, double var5) {
@@ -883,7 +883,7 @@ public abstract class Entity implements ICommandListener {
 		double var7 = s - var1;
 		double var9 = t - var3;
 		double var11 = u - var5;
-		return class_oa.a((var7 * var7) + (var9 * var9) + (var11 * var11));
+		return MathHelper.a((var7 * var7) + (var9 * var9) + (var11 * var11));
 	}
 
 	public double h(Entity var1) {
@@ -901,9 +901,9 @@ public abstract class Entity implements ICommandListener {
 			if (!var1.T && !T) {
 				double var2 = var1.s - s;
 				double var4 = var1.u - u;
-				double var6 = class_oa.a(var2, var4);
+				double var6 = MathHelper.a(var2, var4);
 				if (var6 >= 0.009999999776482582D) {
-					var6 = class_oa.a(var6);
+					var6 = MathHelper.a(var6);
 					var2 /= var6;
 					var4 /= var6;
 					double var8 = 1.0D / var6;
@@ -961,10 +961,10 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	protected final class_aym f(float var1, float var2) {
-		float var3 = class_oa.b((-var2 * 0.017453292F) - 3.1415927F);
-		float var4 = class_oa.a((-var2 * 0.017453292F) - 3.1415927F);
-		float var5 = -class_oa.b(-var1 * 0.017453292F);
-		float var6 = class_oa.a(-var1 * 0.017453292F);
+		float var3 = MathHelper.b((-var2 * 0.017453292F) - 3.1415927F);
+		float var4 = MathHelper.a((-var2 * 0.017453292F) - 3.1415927F);
+		float var5 = -MathHelper.b(-var1 * 0.017453292F);
+		float var6 = MathHelper.a(-var1 * 0.017453292F);
 		return new class_aym(var4 * var5, var6, var3 * var5);
 	}
 
@@ -1204,9 +1204,9 @@ public abstract class Entity implements ICommandListener {
 			class_cj.class_a_in_class_cj var1 = new class_cj.class_a_in_class_cj(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
 
 			for (int var2 = 0; var2 < 8; ++var2) {
-				int var3 = class_oa.c(t + ((var2 >> 0) % 2 - 0.5F) * 0.1F + aY());
-				int var4 = class_oa.c(s + ((var2 >> 1) % 2 - 0.5F) * J * 0.8F);
-				int var5 = class_oa.c(u + ((var2 >> 2) % 2 - 0.5F) * J * 0.8F);
+				int var3 = MathHelper.c(t + ((var2 >> 0) % 2 - 0.5F) * 0.1F + aY());
+				int var4 = MathHelper.c(s + ((var2 >> 1) % 2 - 0.5F) * J * 0.8F);
+				int var5 = MathHelper.c(u + ((var2 >> 2) % 2 - 0.5F) * J * 0.8F);
 				if ((var1.n() != var4) || (var1.o() != var3) || (var1.p() != var5)) {
 					var1.c(var4, var3, var5);
 					if (o.p(var1).c().y()) {
@@ -1339,8 +1339,8 @@ public abstract class Entity implements ICommandListener {
 				class_apr.class_b_in_class_apr var2 = Blocks.PORTAL.e(o, var1);
 				double var3 = var2.b().k() == class_cq.class_a_in_class_cq.a ? (double) var2.a().p() : (double) var2.a().n();
 				double var5 = var2.b().k() == class_cq.class_a_in_class_cq.a ? u : s;
-				var5 = Math.abs(class_oa.c(var5 - (var2.b().e().c() == class_cq.class_b_in_class_cq.b ? 1 : 0), var3, var3 - var2.d()));
-				double var7 = class_oa.c(t - 1.0D, var2.a().o(), var2.a().o() - var2.e());
+				var5 = Math.abs(MathHelper.c(var5 - (var2.b().e().c() == class_cq.class_b_in_class_cq.b ? 1 : 0), var3, var3 - var2.d()));
+				double var7 = MathHelper.c(t - 1.0D, var2.a().o(), var2.a().o() - var2.e());
 				ao = new class_aym(var5, var7, 0.0D);
 				ap = var2.b();
 			}
@@ -1605,15 +1605,15 @@ public abstract class Entity implements ICommandListener {
 					double var9 = u;
 					double var11 = 8.0D;
 					if (var1 == -1) {
-						var7 = class_oa.a(var7 / var11, var6.ah().b() + 16.0D, var6.ah().d() - 16.0D);
-						var9 = class_oa.a(var9 / var11, var6.ah().c() + 16.0D, var6.ah().e() - 16.0D);
+						var7 = MathHelper.a(var7 / var11, var6.ah().b() + 16.0D, var6.ah().d() - 16.0D);
+						var9 = MathHelper.a(var9 / var11, var6.ah().c() + 16.0D, var6.ah().e() - 16.0D);
 					} else if (var1 == 0) {
-						var7 = class_oa.a(var7 * var11, var6.ah().b() + 16.0D, var6.ah().d() - 16.0D);
-						var9 = class_oa.a(var9 * var11, var6.ah().c() + 16.0D, var6.ah().e() - 16.0D);
+						var7 = MathHelper.a(var7 * var11, var6.ah().b() + 16.0D, var6.ah().d() - 16.0D);
+						var9 = MathHelper.a(var9 * var11, var6.ah().c() + 16.0D, var6.ah().e() - 16.0D);
 					}
 
-					var7 = class_oa.a((int) var7, -29999872, 29999872);
-					var9 = class_oa.a((int) var9, -29999872, 29999872);
+					var7 = MathHelper.a((int) var7, -29999872, 29999872);
+					var9 = MathHelper.a((int) var9, -29999872, 29999872);
 					float var13 = y;
 					this.b(var7, t, var9, 90.0F, 0.0F);
 					class_agw var14 = var6.w();
@@ -1701,7 +1701,7 @@ public abstract class Entity implements ICommandListener {
 			}
 		});
 		var1.a("Entity\'s Exact location", String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(s), Double.valueOf(t), Double.valueOf(u) }));
-		var1.a("Entity\'s Block location", class_c.a(class_oa.c(s), class_oa.c(t), class_oa.c(u)));
+		var1.a("Entity\'s Block location", class_c.a(MathHelper.c(s), MathHelper.c(t), MathHelper.c(u)));
 		var1.a("Entity\'s Momentum", String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(v), Double.valueOf(w), Double.valueOf(x) }));
 		var1.a("Entity\'s Rider", new Callable() {
 			public String a() throws Exception {
@@ -1740,7 +1740,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		class_fa var1 = new class_fa(class_ayp.a(aE(), e_()));
 		var1.b().a(aW());
 		var1.b().a(aQ().toString());
@@ -1777,7 +1777,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public class_cq aV() {
-		return class_cq.b(class_oa.c((y * 4.0F) / 360.0F + 0.5D) & 3);
+		return class_cq.b(MathHelper.c((y * 4.0F) / 360.0F + 0.5D) & 3);
 	}
 
 	protected class_ew aW() {
@@ -1821,7 +1821,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 	}
 
 	@Override
@@ -1890,7 +1890,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public float a(Block.class_c_in_class_ail var1) {
-		float var2 = class_oa.g(y);
+		float var2 = MathHelper.g(y);
 		switch (Entity.SyntheticClass_1.a[var1.ordinal()]) {
 			case 1:
 				return var2 + 180.0F;
@@ -1904,7 +1904,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public float a(Block.class_a_in_class_ail var1) {
-		float var2 = class_oa.g(y);
+		float var2 = MathHelper.g(y);
 		switch (Entity.SyntheticClass_1.b[var1.ordinal()]) {
 			case 1:
 				return -var2;

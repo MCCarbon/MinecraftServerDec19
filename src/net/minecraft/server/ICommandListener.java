@@ -4,9 +4,9 @@ package net.minecraft.server;
 public interface ICommandListener {
 	String e_();
 
-	class_eu f_();
+	IChatBaseComponent f_();
 
-	void a(class_eu var1);
+	void a(IChatBaseComponent var1);
 
 	boolean a(int var1, String var2);
 

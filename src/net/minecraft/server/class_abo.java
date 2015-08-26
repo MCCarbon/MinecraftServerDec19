@@ -7,7 +7,7 @@ public class class_abo extends Item {
 		return true;
 	}
 
-	public class_ff a(class_aco var1, class_ago var2, class_yu var3) {
+	public Packet a(class_aco var1, class_ago var2, class_yu var3) {
 		return null;
 	}
 }

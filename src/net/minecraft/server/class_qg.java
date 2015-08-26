@@ -34,7 +34,7 @@ public class class_qg {
 		return e;
 	}
 
-	public class_eu h() {
+	public IChatBaseComponent h() {
 		return a().j() == null ? null : a().j().f_();
 	}
 

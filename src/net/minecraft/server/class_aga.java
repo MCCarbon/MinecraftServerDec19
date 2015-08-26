@@ -12,5 +12,5 @@ public interface class_aga {
 
 	void a_(class_aco var1);
 
-	class_eu f_();
+	IChatBaseComponent f_();
 }

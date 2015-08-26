@@ -152,7 +152,7 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 		if (!b.D) {
 			if (!m() && ((h[1] == null) || (h[0] == null))) {
 				if (!m() && (k > 0)) {
-					k = class_oa.a(k - 2, 0, l);
+					k = MathHelper.a(k - 2, 0, l);
 				}
 			} else {
 				if (!m() && o()) {

@@ -15,7 +15,7 @@ public class class_amv extends Block {
 
 	@Override
 	public int a(int var1, Random var2) {
-		return class_oa.a(this.a(var2) + var2.nextInt(var1 + 1), 1, 5);
+		return MathHelper.a(this.a(var2) + var2.nextInt(var1 + 1), 1, 5);
 	}
 
 	@Override

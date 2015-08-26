@@ -175,15 +175,15 @@ public class class_yl extends class_yc {
 			}
 
 			if ((var3 != null) && (o.ac() == class_ps.d) && (V.nextFloat() < this.a(a).e())) {
-				int var4 = class_oa.c(s);
-				int var5 = class_oa.c(t);
-				int var6 = class_oa.c(u);
+				int var4 = MathHelper.c(s);
+				int var5 = MathHelper.c(t);
+				int var6 = MathHelper.c(u);
 				class_yl var7 = new class_yl(o);
 
 				for (int var8 = 0; var8 < 50; ++var8) {
-					int var9 = var4 + (class_oa.a(V, 7, 40) * class_oa.a(V, -1, 1));
-					int var10 = var5 + (class_oa.a(V, 7, 40) * class_oa.a(V, -1, 1));
-					int var11 = var6 + (class_oa.a(V, 7, 40) * class_oa.a(V, -1, 1));
+					int var9 = var4 + (MathHelper.a(V, 7, 40) * MathHelper.a(V, -1, 1));
+					int var10 = var5 + (MathHelper.a(V, 7, 40) * MathHelper.a(V, -1, 1));
+					int var11 = var6 + (MathHelper.a(V, 7, 40) * MathHelper.a(V, -1, 1));
 					if (class_ago.a(o, (new class_cj(var9, var10 - 1, var11))) && (o.l(new class_cj(var9, var10, var11)) < 10)) {
 						var7.b(var9, var10, var11);
 						if (!o.b(var9, var10, var11, 7.0D) && o.a(var7.aX(), var7) && o.a(var7, var7.aX()).isEmpty() && !o.d(var7.aX())) {

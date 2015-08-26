@@ -24,9 +24,9 @@ public class class_agw {
 				b(var1, var2);
 			}
 		} else {
-			int var3 = class_oa.c(var1.s);
-			int var4 = class_oa.c(var1.t) - 1;
-			int var5 = class_oa.c(var1.u);
+			int var3 = MathHelper.c(var1.s);
+			int var4 = MathHelper.c(var1.t) - 1;
+			int var5 = MathHelper.c(var1.u);
 			byte var6 = 1;
 			byte var7 = 0;
 
@@ -50,8 +50,8 @@ public class class_agw {
 	public boolean b(Entity var1, float var2) {
 		boolean var3 = true;
 		double var4 = -1.0D;
-		int var6 = class_oa.c(var1.s);
-		int var7 = class_oa.c(var1.u);
+		int var6 = MathHelper.c(var1.s);
+		int var7 = MathHelper.c(var1.u);
 		boolean var8 = true;
 		Object var9 = class_cj.a;
 		long var10 = class_agi.a(var6, var7);
@@ -141,9 +141,9 @@ public class class_agw {
 	public boolean a(Entity var1) {
 		byte var2 = 16;
 		double var3 = -1.0D;
-		int var5 = class_oa.c(var1.s);
-		int var6 = class_oa.c(var1.t);
-		int var7 = class_oa.c(var1.u);
+		int var5 = MathHelper.c(var1.s);
+		int var6 = MathHelper.c(var1.t);
+		int var7 = MathHelper.c(var1.u);
 		int var8 = var5;
 		int var9 = var6;
 		int var10 = var7;
@@ -271,7 +271,7 @@ public class class_agw {
 		}
 
 		if (var3 < 0.0D) {
-			var9 = class_oa.a(var9, 70, a.X() - 10);
+			var9 = MathHelper.a(var9, 70, a.X() - 10);
 			var16 = var9;
 
 			for (var20 = -1; var20 <= 1; ++var20) {

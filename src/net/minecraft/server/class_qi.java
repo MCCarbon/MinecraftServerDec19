@@ -137,7 +137,7 @@ public class class_qi {
 		return this;
 	}
 
-	public class_eu c(class_rg var1) {
+	public IChatBaseComponent c(class_rg var1) {
 		class_rg var2 = var1.bA();
 		String var3 = "death.attack." + q;
 		String var4 = var3 + ".player";

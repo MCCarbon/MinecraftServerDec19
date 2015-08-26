@@ -192,7 +192,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
 				var11 = var3[var7++];
 			}
 
-			var10.a(class_oa.c(var11.a) + 0.5F, var11.a(var2), class_oa.c(var11.b) + 0.5D);
+			var10.a(MathHelper.c(var11.a) + 0.5F, var11.a(var2), MathHelper.c(var11.b) + 0.5D);
 			double var17 = Double.MAX_VALUE;
 
 			for (int var14 = 0; var14 < var3.length; ++var14) {
@@ -251,7 +251,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
 		}
 
 		float b() {
-			return class_oa.a((a * a) + (b * b));
+			return MathHelper.a((a * a) + (b * b));
 		}
 
 		public void b(CommandSpreadPlayers.class_a_in_class_bj var1) {
@@ -311,8 +311,8 @@ public class CommandSpreadPlayers extends CommandAbstract {
 		}
 
 		public void a(Random var1, double var2, double var4, double var6, double var8) {
-			a = class_oa.a(var1, var2, var6);
-			b = class_oa.a(var1, var4, var8);
+			a = MathHelper.a(var1, var2, var6);
+			b = MathHelper.a(var1, var4, var8);
 		}
 	}
 }

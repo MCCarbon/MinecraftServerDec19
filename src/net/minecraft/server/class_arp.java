@@ -265,7 +265,7 @@ public class class_arp implements class_aqk {
 
 					if (var18 < var16) {
 						var29 = (var16 - var18) / 4.0D;
-						var29 = class_oa.a(var29, 0.0D, 1.0D);
+						var29 = MathHelper.a(var29, 0.0D, 1.0D);
 						var19 = (var19 * (1.0D - var29)) + (-10.0D * var29);
 					}
 

@@ -29,7 +29,7 @@ public class class_auk extends class_auo {
 		while (var2.hasNext()) {
 			Entry var3 = (Entry) var2.next();
 			if (((String) var3.getKey()).equals("distance")) {
-				g = class_oa.a((String) var3.getValue(), g, h + 1);
+				g = MathHelper.a((String) var3.getValue(), g, h + 1);
 			}
 		}
 

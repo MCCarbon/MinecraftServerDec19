@@ -142,7 +142,7 @@ public abstract class class_me {
 				Iterator var7 = var6.iterator();
 
 				while (var7.hasNext()) {
-					class_ff var8 = (class_ff) var7.next();
+					Packet var8 = (Packet) var7.next();
 					var2.a.a(var8);
 				}
 
@@ -428,15 +428,15 @@ public abstract class class_me {
 		float var11 = var1.y;
 		var3.B.a("moving");
 		if (var1.am == -1) {
-			var5 = class_oa.a(var5 / var9, var4.ah().b() + 16.0D, var4.ah().d() - 16.0D);
-			var7 = class_oa.a(var7 / var9, var4.ah().c() + 16.0D, var4.ah().e() - 16.0D);
+			var5 = MathHelper.a(var5 / var9, var4.ah().b() + 16.0D, var4.ah().d() - 16.0D);
+			var7 = MathHelper.a(var7 / var9, var4.ah().c() + 16.0D, var4.ah().e() - 16.0D);
 			var1.b(var5, var1.t, var7, var1.y, var1.z);
 			if (var1.al()) {
 				var3.a(var1, false);
 			}
 		} else if (var1.am == 0) {
-			var5 = class_oa.a(var5 * var9, var4.ah().b() + 16.0D, var4.ah().d() - 16.0D);
-			var7 = class_oa.a(var7 * var9, var4.ah().c() + 16.0D, var4.ah().e() - 16.0D);
+			var5 = MathHelper.a(var5 * var9, var4.ah().b() + 16.0D, var4.ah().d() - 16.0D);
+			var7 = MathHelper.a(var7 * var9, var4.ah().c() + 16.0D, var4.ah().e() - 16.0D);
 			var1.b(var5, var1.t, var7, var1.y, var1.z);
 			if (var1.al()) {
 				var3.a(var1, false);
@@ -461,8 +461,8 @@ public abstract class class_me {
 		var3.B.b();
 		if (var2 != 1) {
 			var3.B.a("placing");
-			var5 = class_oa.a((int) var5, -29999872, 29999872);
-			var7 = class_oa.a((int) var7, -29999872, 29999872);
+			var5 = MathHelper.a((int) var5, -29999872, 29999872);
+			var7 = MathHelper.a((int) var7, -29999872, 29999872);
 			if (var1.al()) {
 				var1.b(var5, var1.t, var7, var1.y, var1.z);
 				var4.w().a(var1, var11);
@@ -484,14 +484,14 @@ public abstract class class_me {
 
 	}
 
-	public void a(class_ff var1) {
+	public void a(Packet var1) {
 		for (int var2 = 0; var2 < i.size(); ++var2) {
 			((class_lm) i.get(var2)).a.a(var1);
 		}
 
 	}
 
-	public void a(class_ff var1, int var2) {
+	public void a(Packet var1, int var2) {
 		for (int var3 = 0; var3 < i.size(); ++var3) {
 			class_lm var4 = (class_lm) i.get(var3);
 			if (var4.am == var2) {
@@ -501,7 +501,7 @@ public abstract class class_me {
 
 	}
 
-	public void a(class_yu var1, class_eu var2) {
+	public void a(class_yu var1, IChatBaseComponent var2) {
 		class_ayu var3 = var1.aE();
 		if (var3 != null) {
 			Collection var4 = var3.d();
@@ -518,7 +518,7 @@ public abstract class class_me {
 		}
 	}
 
-	public void b(class_yu var1, class_eu var2) {
+	public void b(class_yu var1, IChatBaseComponent var2) {
 		class_ayu var3 = var1.aE();
 		if (var3 == null) {
 			this.a(var2);
@@ -621,11 +621,11 @@ public abstract class class_me {
 		return var3;
 	}
 
-	public void a(double var1, double var3, double var5, double var7, int var9, class_ff var10) {
+	public void a(double var1, double var3, double var5, double var7, int var9, Packet var10) {
 		this.a((class_yu) null, var1, var3, var5, var7, var9, var10);
 	}
 
-	public void a(class_yu var1, double var2, double var4, double var6, double var8, int var10, class_ff var11) {
+	public void a(class_yu var1, double var2, double var4, double var6, double var8, int var10, Packet var11) {
 		for (int var12 = 0; var12 < i.size(); ++var12) {
 			class_lm var13 = (class_lm) i.get(var12);
 			if ((var13 != var1) && (var13.am == var10)) {
@@ -755,13 +755,13 @@ public abstract class class_me {
 
 	}
 
-	public void a(class_eu var1, boolean var2) {
+	public void a(IChatBaseComponent var1, boolean var2) {
 		h.a(var1);
 		int var3 = var2 ? 1 : 0;
 		this.a((new class_fz(var1, (byte) var3)));
 	}
 
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		this.a(var1, true);
 	}
 

@@ -24,8 +24,8 @@ public class class_axl extends class_axj {
 
 	public void a(double var1, double var3, int var5) {
 		int var6 = 128 * (1 << var5);
-		int var7 = class_oa.c((var1 + 64.0D) / var6);
-		int var8 = class_oa.c((var3 + 64.0D) / var6);
+		int var7 = MathHelper.c((var1 + 64.0D) / var6);
+		int var8 = MathHelper.c((var3 + 64.0D) / var6);
 		b = ((var7 * var6) + (var6 / 2)) - 64;
 		c = ((var8 * var6) + (var6 / 2)) - 64;
 	}
@@ -36,7 +36,7 @@ public class class_axl extends class_axj {
 		b = var1.h("xCenter");
 		c = var1.h("zCenter");
 		f = var1.f("scale");
-		f = (byte) class_oa.a(f, 0, 4);
+		f = (byte) MathHelper.a(f, 0, 4);
 		if (var1.b("trackingPosition", 1)) {
 			e = var1.p("trackingPosition");
 		} else {
@@ -163,7 +163,7 @@ public class class_axl extends class_axj {
 		i.put(var3, new class_axk((byte) var1, var13, var14, var15));
 	}
 
-	public class_ff a(class_aco var1, class_ago var2, class_yu var3) {
+	public Packet a(class_aco var1, class_ago var2, class_yu var3) {
 		class_axl.class_a_in_class_axl var4 = (class_axl.class_a_in_class_axl) j.get(var3);
 		return var4 == null ? null : var4.a(var1);
 	}
@@ -204,7 +204,7 @@ public class class_axl extends class_axj {
 			a = var2;
 		}
 
-		public class_ff a(class_aco var1) {
+		public Packet a(class_aco var1) {
 			if (d) {
 				d = false;
 				return new class_gv(var1.i(), class_axl.this.f, class_axl.this.e, class_axl.this.i.values(), class_axl.this.g, e, f, (g + 1) - e, (h + 1) - f);

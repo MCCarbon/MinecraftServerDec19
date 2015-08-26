@@ -15,7 +15,7 @@ public class class_df implements Comparable {
 	}
 
 	public class_df(double var1, double var3, double var5) {
-		this(class_oa.c(var1), class_oa.c(var3), class_oa.c(var5));
+		this(MathHelper.c(var1), MathHelper.c(var3), MathHelper.c(var5));
 	}
 
 	@Override

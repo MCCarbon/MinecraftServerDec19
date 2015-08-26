@@ -120,12 +120,12 @@ public class class_adb extends Item {
 		return class_di.a(i(var1).a());
 	}
 
-	public static class_aec i(class_aco var0) {
-		return !var0.n() ? class_aee.a : class_aec.a(var0.o().l("Potion"));
+	public static PotionRegistry i(class_aco var0) {
+		return !var0.n() ? class_aee.a : PotionRegistry.a(var0.o().l("Potion"));
 	}
 
-	public static class_aco a(class_aco var0, class_aec var1) {
-		class_ke var2 = (class_ke) class_aec.a.b(var1);
+	public static class_aco a(class_aco var0, PotionRegistry var1) {
+		class_ke var2 = (class_ke) PotionRegistry.a.b(var1);
 		if (var2 != null) {
 			class_dn var3 = var0.n() ? var0.o() : new class_dn();
 			var3.a("Potion", var2.toString());

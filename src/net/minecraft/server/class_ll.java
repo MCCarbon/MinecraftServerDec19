@@ -214,9 +214,9 @@ public class class_ll extends class_ago implements class_pl {
 		if (!j.isEmpty()) {
 			int var1 = s.nextInt(j.size());
 			class_yu var2 = (class_yu) j.get(var1);
-			int var3 = (class_oa.c(var2.s) + s.nextInt(11)) - 5;
-			int var4 = (class_oa.c(var2.t) + s.nextInt(11)) - 5;
-			int var5 = (class_oa.c(var2.u) + s.nextInt(11)) - 5;
+			int var3 = (MathHelper.c(var2.s) + s.nextInt(11)) - 5;
+			int var4 = (MathHelper.c(var2.t) + s.nextInt(11)) - 5;
+			int var5 = (MathHelper.c(var2.u) + s.nextInt(11)) - 5;
 			this.x(new class_cj(var3, var4, var5));
 		}
 
@@ -934,7 +934,7 @@ public class class_ll extends class_ago implements class_pl {
 		this.a(var1, var3, var4, var6, var8, var20);
 	}
 
-	private void a(class_lm var1, boolean var2, double var3, double var5, double var7, class_ff var9) {
+	private void a(class_lm var1, boolean var2, double var3, double var5, double var7, Packet var9) {
 		class_cj var10 = var1.c();
 		double var11 = var10.c(var3, var5, var7);
 		if ((var11 <= 1024.0D) || (var2 && (var11 <= 262144.0D))) {

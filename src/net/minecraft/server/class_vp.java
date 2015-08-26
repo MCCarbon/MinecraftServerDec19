@@ -81,9 +81,9 @@ public class class_vp extends class_vg {
 		}
 
 		if ((((v * v) + (x * x)) > 2.500000277905201E-7D) && (V.nextInt(5) == 0)) {
-			int var1 = class_oa.c(s);
-			int var2 = class_oa.c(t - 0.20000000298023224D);
-			int var3 = class_oa.c(u);
+			int var1 = MathHelper.c(s);
+			int var2 = MathHelper.c(t - 0.20000000298023224D);
+			int var3 = MathHelper.c(u);
 			class_apn var4 = o.p(new class_cj(var1, var2, var3));
 			Block var5 = var4.c();
 			if (var5.v() != class_avq.a) {

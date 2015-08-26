@@ -8,7 +8,7 @@ public class class_aqj implements class_aqq.class_a_in_class_aqq {
 	@Override
 	public class_aqj a(int var1) {
 		class_nl var2 = a;
-		int var3 = class_oa.c(var1);
+		int var3 = MathHelper.c(var1);
 		a = new class_nl(var3, 4096);
 
 		for (int var4 = 0; var4 < 4096; ++var4) {

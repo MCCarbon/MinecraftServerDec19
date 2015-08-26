@@ -16,7 +16,7 @@ public class class_aoy extends TileEntity {
 	public void a(class_dn var1) {
 		super.a(var1);
 		a = var1.f("note");
-		a = (byte) class_oa.a(a, 0, 24);
+		a = (byte) MathHelper.a(a, 0, 24);
 		f = var1.p("powered");
 	}
 

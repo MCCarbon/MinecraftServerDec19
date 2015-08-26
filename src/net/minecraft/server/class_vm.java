@@ -138,9 +138,9 @@ public class class_vm extends class_vg implements class_xx {
 		float var16 = cG() * 0.01F;
 		bt = bu;
 		if (bu > var16) {
-			bu = class_oa.a(bu - 0.05F, var16, 1.0F);
+			bu = MathHelper.a(bu - 0.05F, var16, 1.0F);
 		} else if (bu < var16) {
-			bu = class_oa.a(bu + 0.05F, 0.0F, var16);
+			bu = MathHelper.a(bu + 0.05F, 0.0F, var16);
 		}
 
 		if (var1 != null) {

@@ -524,12 +524,12 @@ public abstract class class_ago implements class_ags {
 	public class_ayl a(class_aym var1, class_aym var2, boolean var3, boolean var4, boolean var5) {
 		if (!Double.isNaN(var1.a) && !Double.isNaN(var1.b) && !Double.isNaN(var1.c)) {
 			if (!Double.isNaN(var2.a) && !Double.isNaN(var2.b) && !Double.isNaN(var2.c)) {
-				int var6 = class_oa.c(var2.a);
-				int var7 = class_oa.c(var2.b);
-				int var8 = class_oa.c(var2.c);
-				int var9 = class_oa.c(var1.a);
-				int var10 = class_oa.c(var1.b);
-				int var11 = class_oa.c(var1.c);
+				int var6 = MathHelper.c(var2.a);
+				int var7 = MathHelper.c(var2.b);
+				int var8 = MathHelper.c(var2.c);
+				int var9 = MathHelper.c(var1.a);
+				int var10 = MathHelper.c(var1.b);
+				int var11 = MathHelper.c(var1.c);
 				class_cj var12 = new class_cj(var9, var10, var11);
 				class_apn var13 = p(var12);
 				Block var14 = var13.c();
@@ -624,9 +624,9 @@ public abstract class class_ago implements class_ags {
 						var1 = new class_aym(var1.a + (var30 * var28), var1.b + (var32 * var28), var22);
 					}
 
-					var9 = class_oa.c(var1.a) - (var36 == class_cq.f ? 1 : 0);
-					var10 = class_oa.c(var1.b) - (var36 == class_cq.b ? 1 : 0);
-					var11 = class_oa.c(var1.c) - (var36 == class_cq.d ? 1 : 0);
+					var9 = MathHelper.c(var1.a) - (var36 == class_cq.f ? 1 : 0);
+					var10 = MathHelper.c(var1.b) - (var36 == class_cq.b ? 1 : 0);
+					var11 = MathHelper.c(var1.c) - (var36 == class_cq.d ? 1 : 0);
 					var12 = new class_cj(var9, var10, var11);
 					class_apn var37 = p(var12);
 					Block var38 = var37.c();
@@ -699,8 +699,8 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean a(Entity var1) {
-		int var2 = class_oa.c(var1.s / 16.0D);
-		int var3 = class_oa.c(var1.u / 16.0D);
+		int var2 = MathHelper.c(var1.s / 16.0D);
+		int var3 = MathHelper.c(var1.u / 16.0D);
 		boolean var4 = var1.n;
 		if (var1 instanceof class_yu) {
 			var4 = true;
@@ -777,12 +777,12 @@ public abstract class class_ago implements class_ags {
 
 	public List a(Entity var1, class_ayk var2) {
 		ArrayList var3 = Lists.newArrayList();
-		int var4 = class_oa.c(var2.a);
-		int var5 = class_oa.c(var2.d + 1.0D);
-		int var6 = class_oa.c(var2.b);
-		int var7 = class_oa.c(var2.e + 1.0D);
-		int var8 = class_oa.c(var2.c);
-		int var9 = class_oa.c(var2.f + 1.0D);
+		int var4 = MathHelper.c(var2.a);
+		int var5 = MathHelper.c(var2.d + 1.0D);
+		int var6 = MathHelper.c(var2.b);
+		int var7 = MathHelper.c(var2.e + 1.0D);
+		int var8 = MathHelper.c(var2.c);
+		int var9 = MathHelper.c(var2.f + 1.0D);
 		class_aqg var10 = ah();
 		boolean var11 = (var1 != null) && var1.aZ();
 		boolean var12 = (var1 != null) && this.a(var10, var1);
@@ -858,12 +858,12 @@ public abstract class class_ago implements class_ags {
 
 	public List a(class_ayk var1) {
 		ArrayList var2 = Lists.newArrayList();
-		int var3 = class_oa.c(var1.a);
-		int var4 = class_oa.c(var1.d + 1.0D);
-		int var5 = class_oa.c(var1.b);
-		int var6 = class_oa.c(var1.e + 1.0D);
-		int var7 = class_oa.c(var1.c);
-		int var8 = class_oa.c(var1.f + 1.0D);
+		int var3 = MathHelper.c(var1.a);
+		int var4 = MathHelper.c(var1.d + 1.0D);
+		int var5 = MathHelper.c(var1.b);
+		int var6 = MathHelper.c(var1.e + 1.0D);
+		int var7 = MathHelper.c(var1.c);
+		int var8 = MathHelper.c(var1.f + 1.0D);
 		class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj();
 
 		for (int var10 = var3; var10 < var4; ++var10) {
@@ -889,8 +889,8 @@ public abstract class class_ago implements class_ags {
 
 	public int a(float var1) {
 		float var2 = this.c(var1);
-		float var3 = 1.0F - ((class_oa.b(var2 * 3.1415927F * 2.0F) * 2.0F) + 0.5F);
-		var3 = class_oa.a(var3, 0.0F, 1.0F);
+		float var3 = 1.0F - ((MathHelper.b(var2 * 3.1415927F * 2.0F) * 2.0F) + 0.5F);
+		var3 = MathHelper.a(var3, 0.0F, 1.0F);
 		var3 = 1.0F - var3;
 		var3 = (float) (var3 * (1.0D - (this.j(var1) * 5.0F / 16.0D)));
 		var3 = (float) (var3 * (1.0D - (this.h(var1) * 5.0F / 16.0D)));
@@ -1128,8 +1128,8 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public void a(Entity var1, boolean var2) {
-		int var3 = class_oa.c(var1.s);
-		int var4 = class_oa.c(var1.u);
+		int var3 = MathHelper.c(var1.s);
+		int var4 = MathHelper.c(var1.u);
 		byte var5 = 32;
 		if (!var2 || this.a(var3 - var5, 0, var4 - var5, var3 + var5, 0, var4 + var5, true)) {
 			var1.P = var1.s;
@@ -1167,9 +1167,9 @@ public abstract class class_ago implements class_ags {
 				var1.y = var1.A;
 			}
 
-			int var6 = class_oa.c(var1.s / 16.0D);
-			int var7 = class_oa.c(var1.t / 16.0D);
-			int var8 = class_oa.c(var1.u / 16.0D);
+			int var6 = MathHelper.c(var1.s / 16.0D);
+			int var7 = MathHelper.c(var1.t / 16.0D);
+			int var8 = MathHelper.c(var1.u / 16.0D);
 			if (!var1.ad || (var1.ae != var6) || (var1.af != var7) || (var1.ag != var8)) {
 				if (var1.ad && this.a(var1.ae, var1.ag, true)) {
 					this.a(var1.ae, var1.ag).a(var1, var1.af);
@@ -1213,12 +1213,12 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean c(class_ayk var1) {
-		int var2 = class_oa.c(var1.a);
-		int var3 = class_oa.c(var1.d);
-		int var4 = class_oa.c(var1.b);
-		int var5 = class_oa.c(var1.e);
-		int var6 = class_oa.c(var1.c);
-		int var7 = class_oa.c(var1.f);
+		int var2 = MathHelper.c(var1.a);
+		int var3 = MathHelper.c(var1.d);
+		int var4 = MathHelper.c(var1.b);
+		int var5 = MathHelper.c(var1.e);
+		int var6 = MathHelper.c(var1.c);
+		int var7 = MathHelper.c(var1.f);
 		class_cj.class_a_in_class_cj var8 = new class_cj.class_a_in_class_cj();
 
 		for (int var9 = var2; var9 <= var3; ++var9) {
@@ -1236,12 +1236,12 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean d(class_ayk var1) {
-		int var2 = class_oa.c(var1.a);
-		int var3 = class_oa.c(var1.d);
-		int var4 = class_oa.c(var1.b);
-		int var5 = class_oa.c(var1.e);
-		int var6 = class_oa.c(var1.c);
-		int var7 = class_oa.c(var1.f);
+		int var2 = MathHelper.c(var1.a);
+		int var3 = MathHelper.c(var1.d);
+		int var4 = MathHelper.c(var1.b);
+		int var5 = MathHelper.c(var1.e);
+		int var6 = MathHelper.c(var1.c);
+		int var7 = MathHelper.c(var1.f);
 		class_cj.class_a_in_class_cj var8 = new class_cj.class_a_in_class_cj();
 
 		for (int var9 = var2; var9 <= var3; ++var9) {
@@ -1259,12 +1259,12 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean e(class_ayk var1) {
-		int var2 = class_oa.c(var1.a);
-		int var3 = class_oa.c(var1.d + 1.0D);
-		int var4 = class_oa.c(var1.b);
-		int var5 = class_oa.c(var1.e + 1.0D);
-		int var6 = class_oa.c(var1.c);
-		int var7 = class_oa.c(var1.f + 1.0D);
+		int var2 = MathHelper.c(var1.a);
+		int var3 = MathHelper.c(var1.d + 1.0D);
+		int var4 = MathHelper.c(var1.b);
+		int var5 = MathHelper.c(var1.e + 1.0D);
+		int var6 = MathHelper.c(var1.c);
+		int var7 = MathHelper.c(var1.f + 1.0D);
 		if (this.a(var2, var4, var6, var3, var5, var7, true)) {
 			class_cj.class_a_in_class_cj var8 = new class_cj.class_a_in_class_cj();
 
@@ -1284,12 +1284,12 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean a(class_ayk var1, class_avq var2, Entity var3) {
-		int var4 = class_oa.c(var1.a);
-		int var5 = class_oa.c(var1.d + 1.0D);
-		int var6 = class_oa.c(var1.b);
-		int var7 = class_oa.c(var1.e + 1.0D);
-		int var8 = class_oa.c(var1.c);
-		int var9 = class_oa.c(var1.f + 1.0D);
+		int var4 = MathHelper.c(var1.a);
+		int var5 = MathHelper.c(var1.d + 1.0D);
+		int var6 = MathHelper.c(var1.b);
+		int var7 = MathHelper.c(var1.e + 1.0D);
+		int var8 = MathHelper.c(var1.c);
+		int var9 = MathHelper.c(var1.f + 1.0D);
 		if (!this.a(var4, var6, var8, var5, var7, var9, true)) {
 			return false;
 		} else {
@@ -1327,12 +1327,12 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean a(class_ayk var1, class_avq var2) {
-		int var3 = class_oa.c(var1.a);
-		int var4 = class_oa.c(var1.d + 1.0D);
-		int var5 = class_oa.c(var1.b);
-		int var6 = class_oa.c(var1.e + 1.0D);
-		int var7 = class_oa.c(var1.c);
-		int var8 = class_oa.c(var1.f + 1.0D);
+		int var3 = MathHelper.c(var1.a);
+		int var4 = MathHelper.c(var1.d + 1.0D);
+		int var5 = MathHelper.c(var1.b);
+		int var6 = MathHelper.c(var1.e + 1.0D);
+		int var7 = MathHelper.c(var1.c);
+		int var8 = MathHelper.c(var1.f + 1.0D);
 		class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj();
 
 		for (int var10 = var3; var10 < var4; ++var10) {
@@ -1349,12 +1349,12 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean b(class_ayk var1, class_avq var2) {
-		int var3 = class_oa.c(var1.a);
-		int var4 = class_oa.c(var1.d + 1.0D);
-		int var5 = class_oa.c(var1.b);
-		int var6 = class_oa.c(var1.e + 1.0D);
-		int var7 = class_oa.c(var1.c);
-		int var8 = class_oa.c(var1.f + 1.0D);
+		int var3 = MathHelper.c(var1.a);
+		int var4 = MathHelper.c(var1.d + 1.0D);
+		int var5 = MathHelper.c(var1.b);
+		int var6 = MathHelper.c(var1.e + 1.0D);
+		int var7 = MathHelper.c(var1.c);
+		int var8 = MathHelper.c(var1.f + 1.0D);
 		class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj();
 
 		for (int var10 = var3; var10 < var4; ++var10) {
@@ -1599,7 +1599,7 @@ public abstract class class_ago implements class_ags {
 					r = (float) (r - 0.01D);
 				}
 
-				r = class_oa.a(r, 0.0F, 1.0F);
+				r = MathHelper.a(r, 0.0F, 1.0F);
 				int var3 = x.p();
 				if (var3 <= 0) {
 					if (x.o()) {
@@ -1622,7 +1622,7 @@ public abstract class class_ago implements class_ags {
 					p = (float) (p - 0.01D);
 				}
 
-				p = class_oa.a(p, 0.0F, 1.0F);
+				p = MathHelper.a(p, 0.0F, 1.0F);
 			}
 		}
 	}
@@ -1791,9 +1791,9 @@ public abstract class class_ago implements class_ags {
 							this.a(var1, var15, 0);
 						} while (var14 <= 0);
 
-						var17 = class_oa.a(var11 - var7);
-						var18 = class_oa.a(var12 - var8);
-						var19 = class_oa.a(var13 - var9);
+						var17 = MathHelper.a(var11 - var7);
+						var18 = MathHelper.a(var12 - var8);
+						var19 = MathHelper.a(var13 - var9);
 					} while ((var17 + var18 + var19) >= 17);
 
 					class_cj.class_a_in_class_cj var20 = new class_cj.class_a_in_class_cj();
@@ -1885,10 +1885,10 @@ public abstract class class_ago implements class_ags {
 
 	public List a(Entity var1, class_ayk var2, Predicate var3) {
 		ArrayList var4 = Lists.newArrayList();
-		int var5 = class_oa.c((var2.a - 2.0D) / 16.0D);
-		int var6 = class_oa.c((var2.d + 2.0D) / 16.0D);
-		int var7 = class_oa.c((var2.c - 2.0D) / 16.0D);
-		int var8 = class_oa.c((var2.f + 2.0D) / 16.0D);
+		int var5 = MathHelper.c((var2.a - 2.0D) / 16.0D);
+		int var6 = MathHelper.c((var2.d + 2.0D) / 16.0D);
+		int var7 = MathHelper.c((var2.c - 2.0D) / 16.0D);
+		int var8 = MathHelper.c((var2.f + 2.0D) / 16.0D);
 
 		for (int var9 = var5; var9 <= var6; ++var9) {
 			for (int var10 = var7; var10 <= var8; ++var10) {
@@ -1934,10 +1934,10 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public List a(Class var1, class_ayk var2, Predicate var3) {
-		int var4 = class_oa.c((var2.a - 2.0D) / 16.0D);
-		int var5 = class_oa.c((var2.d + 2.0D) / 16.0D);
-		int var6 = class_oa.c((var2.c - 2.0D) / 16.0D);
-		int var7 = class_oa.c((var2.f + 2.0D) / 16.0D);
+		int var4 = MathHelper.c((var2.a - 2.0D) / 16.0D);
+		int var5 = MathHelper.c((var2.d + 2.0D) / 16.0D);
+		int var6 = MathHelper.c((var2.c - 2.0D) / 16.0D);
+		int var7 = MathHelper.c((var2.f + 2.0D) / 16.0D);
 		ArrayList var8 = Lists.newArrayList();
 
 		for (int var9 = var4; var9 <= var5; ++var9) {

@@ -20,7 +20,7 @@ public class class_aba extends Item {
 				var4 = var4.a();
 			}
 
-			int var13 = class_oa.c((var2.y * 4.0F) / 360.0F + 0.5D) & 3;
+			int var13 = MathHelper.c((var2.y * 4.0F) / 360.0F + 0.5D) & 3;
 			class_cq var14 = class_cq.b(var13);
 			class_cj var15 = var4.a(var14);
 			if (var2.a(var4, var6, var1) && var2.a(var15, var6, var1)) {

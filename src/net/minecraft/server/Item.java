@@ -226,10 +226,10 @@ public class Item {
 		double var8 = var2.t + var2.aY();
 		double var10 = var2.u;
 		class_aym var12 = new class_aym(var6, var8, var10);
-		float var13 = class_oa.b((-var5 * 0.017453292F) - 3.1415927F);
-		float var14 = class_oa.a((-var5 * 0.017453292F) - 3.1415927F);
-		float var15 = -class_oa.b(-var4 * 0.017453292F);
-		float var16 = class_oa.a(-var4 * 0.017453292F);
+		float var13 = MathHelper.b((-var5 * 0.017453292F) - 3.1415927F);
+		float var14 = MathHelper.a((-var5 * 0.017453292F) - 3.1415927F);
+		float var15 = -MathHelper.b(-var4 * 0.017453292F);
+		float var16 = MathHelper.a(-var4 * 0.017453292F);
 		float var17 = var14 * var15;
 		float var19 = var13 * var15;
 		double var20 = 5.0D;

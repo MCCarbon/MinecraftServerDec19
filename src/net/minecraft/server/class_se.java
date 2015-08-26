@@ -36,13 +36,13 @@ public class class_se {
 		a.o(0.0F);
 		if (f) {
 			f = false;
-			int var1 = class_oa.c(a.aX().b + 0.5D);
+			int var1 = MathHelper.c(a.aX().b + 0.5D);
 			double var2 = b - a.s;
 			double var4 = d - a.u;
 			double var6 = c - var1;
 			double var8 = (var2 * var2) + (var6 * var6) + (var4 * var4);
 			if (var8 >= 2.500000277905201E-7D) {
-				float var10 = (float) ((class_oa.b(var4, var2) * 180.0D) / 3.1415927410125732D) - 90.0F;
+				float var10 = (float) ((MathHelper.b(var4, var2) * 180.0D) / 3.1415927410125732D) - 90.0F;
 				a.y = this.a(a.y, var10, 30.0F);
 				a.l((float) (e * a.a(class_yf.d).e()));
 				if ((var6 > 0.0D) && (((var2 * var2) + (var4 * var4)) < 1.0D)) {
@@ -54,7 +54,7 @@ public class class_se {
 	}
 
 	protected float a(float var1, float var2, float var3) {
-		float var4 = class_oa.g(var2 - var1);
+		float var4 = MathHelper.g(var2 - var1);
 		if (var4 > var3) {
 			var4 = var3;
 		}

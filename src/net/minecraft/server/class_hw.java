@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_hw implements class_ff {
+public class class_hw implements Packet {
 	private class_hw.class_a_in_class_hw a;
-	private class_eu b;
+	private IChatBaseComponent b;
 	private int c;
 	private int d;
 	private int e;
@@ -12,15 +12,15 @@ public class class_hw implements class_ff {
 	public class_hw() {
 	}
 
-	public class_hw(class_hw.class_a_in_class_hw var1, class_eu var2) {
+	public class_hw(class_hw.class_a_in_class_hw var1, IChatBaseComponent var2) {
 		this(var1, var2, -1, -1, -1);
 	}
 
 	public class_hw(int var1, int var2, int var3) {
-		this(class_hw.class_a_in_class_hw.c, (class_eu) null, var1, var2, var3);
+		this(class_hw.class_a_in_class_hw.c, (IChatBaseComponent) null, var1, var2, var3);
 	}
 
-	public class_hw(class_hw.class_a_in_class_hw var1, class_eu var2, int var3, int var4, int var5) {
+	public class_hw(class_hw.class_a_in_class_hw var1, IChatBaseComponent var2, int var3, int var4, int var5) {
 		a = var1;
 		b = var2;
 		c = var3;
@@ -29,7 +29,7 @@ public class class_hw implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = (class_hw.class_a_in_class_hw) var1.a(class_hw.class_a_in_class_hw.class);
 		if ((a == class_hw.class_a_in_class_hw.a) || (a == class_hw.class_a_in_class_hw.b)) {
 			b = var1.f();
@@ -44,7 +44,7 @@ public class class_hw implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		if ((a == class_hw.class_a_in_class_hw.a) || (a == class_hw.class_a_in_class_hw.b)) {
 			var1.a(b);
@@ -58,15 +58,15 @@ public class class_hw implements class_ff {
 
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 
 	public static enum class_a_in_class_hw {

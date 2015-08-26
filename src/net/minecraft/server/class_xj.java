@@ -96,7 +96,7 @@ public class class_xj extends class_xh {
 		super.a(var1);
 		if (var1 == b) {
 			try {
-				c.b((class_eu) J().a(b));
+				c.b((IChatBaseComponent) J().a(b));
 			} catch (Throwable var3) {
 				;
 			}

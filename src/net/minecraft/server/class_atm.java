@@ -36,7 +36,7 @@ public class class_atm extends class_asp {
 				if (b.e()) {
 					for (int var7 = -2; var7 <= 2; ++var7) {
 						for (int var9 = -2; var9 <= 2; ++var9) {
-							if ((class_oa.a(var7) == 2) || (class_oa.a(var9) == 2)) {
+							if ((MathHelper.a(var7) == 2) || (MathHelper.a(var9) == 2)) {
 								this.a(var1, new class_cj(var3.n() + var7, b.d(), var3.p() + var9), Blocks.IRON_BARS.S());
 								this.a(var1, new class_cj(var3.n() + var7, b.d() + 1, var3.p() + var9), Blocks.IRON_BARS.S());
 								this.a(var1, new class_cj(var3.n() + var7, b.d() + 2, var3.p() + var9), Blocks.IRON_BARS.S());

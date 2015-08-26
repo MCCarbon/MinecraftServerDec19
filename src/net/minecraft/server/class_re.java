@@ -31,14 +31,14 @@ public abstract class class_re extends class_rh {
 		} else {
 			float var3 = 0.91F;
 			if (C) {
-				var3 = o.p(new class_cj(class_oa.c(s), class_oa.c(aX().b) - 1, class_oa.c(u))).c().L * 0.91F;
+				var3 = o.p(new class_cj(MathHelper.c(s), MathHelper.c(aX().b) - 1, MathHelper.c(u))).c().L * 0.91F;
 			}
 
 			float var4 = 0.16277136F / (var3 * var3 * var3);
 			this.a(var1, var2, C ? 0.1F * var4 : 0.02F);
 			var3 = 0.91F;
 			if (C) {
-				var3 = o.p(new class_cj(class_oa.c(s), class_oa.c(aX().b) - 1, class_oa.c(u))).c().L * 0.91F;
+				var3 = o.p(new class_cj(MathHelper.c(s), MathHelper.c(aX().b) - 1, MathHelper.c(u))).c().L * 0.91F;
 			}
 
 			this.d(v, w, x);
@@ -50,7 +50,7 @@ public abstract class class_re extends class_rh {
 		aE = aF;
 		double var8 = s - p;
 		double var5 = u - r;
-		float var7 = class_oa.a((var8 * var8) + (var5 * var5)) * 4.0F;
+		float var7 = MathHelper.a((var8 * var8) + (var5 * var5)) * 4.0F;
 		if (var7 > 1.0F) {
 			var7 = 1.0F;
 		}

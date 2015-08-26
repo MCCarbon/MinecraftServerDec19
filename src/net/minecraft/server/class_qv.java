@@ -121,9 +121,9 @@ public class class_qv extends Entity {
 				if (V.nextBoolean()) {
 					for (int var4 = 0; var4 < 2; ++var4) {
 						float var5 = V.nextFloat() * 6.2831855F;
-						var6 = class_oa.c(V.nextFloat()) * 0.2F;
-						var7 = class_oa.b(var5) * var6;
-						var8 = class_oa.a(var5) * var6;
+						var6 = MathHelper.c(V.nextFloat()) * 0.2F;
+						var7 = MathHelper.b(var5) * var6;
+						var8 = MathHelper.a(var5) * var6;
 						if (var3 == class_cy.p) {
 							int var9 = V.nextBoolean() ? 16777215 : this.j();
 							var10 = (var9 >> 16) & 255;
@@ -140,9 +140,9 @@ public class class_qv extends Entity {
 
 				for (int var18 = 0; var18 < var16; ++var18) {
 					var6 = V.nextFloat() * 6.2831855F;
-					var7 = class_oa.c(V.nextFloat()) * var2;
-					var8 = class_oa.b(var6) * var7;
-					float var24 = class_oa.a(var6) * var7;
+					var7 = MathHelper.c(V.nextFloat()) * var2;
+					var8 = MathHelper.b(var6) * var7;
+					float var24 = MathHelper.a(var6) * var7;
 					if (var3 == class_cy.p) {
 						var10 = this.j();
 						var11 = (var10 >> 16) & 255;

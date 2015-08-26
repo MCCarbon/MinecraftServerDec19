@@ -422,9 +422,9 @@ public class class_ya extends class_yc {
 				double var3 = c - g.t;
 				double var5 = d - g.u;
 				double var7 = (var1 * var1) + (var3 * var3) + (var5 * var5);
-				var7 = class_oa.a(var7);
+				var7 = MathHelper.a(var7);
 				var3 /= var7;
-				float var9 = (float) ((class_oa.b(var5, var1) * 180.0D) / 3.1415927410125732D) - 90.0F;
+				float var9 = (float) ((MathHelper.b(var5, var1) * 180.0D) / 3.1415927410125732D) - 90.0F;
 				g.y = this.a(g.y, var9, 30.0F);
 				g.aM = g.y;
 				float var10 = (float) (e * g.a(class_yf.d).e());

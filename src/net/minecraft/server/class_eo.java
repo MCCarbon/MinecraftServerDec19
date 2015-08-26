@@ -20,7 +20,7 @@ public class class_eo extends MessageToByteEncoder {
 		c = var1;
 	}
 
-	protected void a(ChannelHandlerContext var1, class_ff var2, ByteBuf var3) throws Exception {
+	protected void a(ChannelHandlerContext var1, Packet var2, ByteBuf var3) throws Exception {
 		Integer var4 = ((class_el) var1.channel().attr(class_ek.c).get()).a(c, var2);
 		if (a.isDebugEnabled()) {
 			a.debug(b, "OUT: [{}:{}] {}", new Object[] { var1.channel().attr(class_ek.c).get(), var4, var2.getClass().getName() });
@@ -37,7 +37,7 @@ public class class_eo extends MessageToByteEncoder {
 					var2 = var2;
 				}
 
-				var2.b(var5);
+				var2.encode(var5);
 			} catch (Throwable var7) {
 				a.error(var7);
 			}
@@ -48,7 +48,7 @@ public class class_eo extends MessageToByteEncoder {
 	// $FF: synthetic method
 	@Override
 	protected void encode(ChannelHandlerContext var1, Object var2, ByteBuf var3) throws Exception {
-		a(var1, (class_ff) var2, var3);
+		a(var1, (Packet) var2, var3);
 	}
 
 	static {

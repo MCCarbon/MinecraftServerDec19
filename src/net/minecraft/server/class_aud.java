@@ -21,7 +21,7 @@ public class class_aud extends class_auo {
 		while (var2.hasNext()) {
 			Entry var3 = (Entry) var2.next();
 			if (((String) var3.getKey()).equals("chance")) {
-				d = class_oa.a((String) var3.getValue(), d);
+				d = MathHelper.a((String) var3.getValue(), d);
 			}
 		}
 

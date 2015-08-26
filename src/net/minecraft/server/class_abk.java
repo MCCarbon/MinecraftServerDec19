@@ -12,7 +12,7 @@ public class class_abk extends class_aci {
 
 		for (int var5 = 0; var5 < 16; ++var5) {
 			double var6 = var3.s + ((var3.bj().nextDouble() - 0.5D) * 64.0D);
-			double var8 = class_oa.a(var3.t + (var3.bj().nextInt(64) - 32), 0.0D, var2.X() - 1);
+			double var8 = MathHelper.a(var3.t + (var3.bj().nextInt(64) - 32), 0.0D, var2.X() - 1);
 			double var10 = var3.u + ((var3.bj().nextDouble() - 0.5D) * 64.0D);
 			if (class_xv.a(var3, var6, var8, var10)) {
 				break;

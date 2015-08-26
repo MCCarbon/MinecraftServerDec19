@@ -63,7 +63,7 @@ public class class_apa extends TileEntity implements class_ks {
 	}
 
 	@Override
-	public class_ff x_() {
+	public Packet x_() {
 		class_dn var1 = new class_dn();
 		this.b(var1);
 		return new class_ft(c, 4, var1);

@@ -196,7 +196,7 @@ public class class_atv {
 			return e();
 		} else {
 			String[] var1 = var0.split(";", -1);
-			int var2 = var1.length == 1 ? 0 : class_oa.a(var1[0], 0);
+			int var2 = var1.length == 1 ? 0 : MathHelper.a(var1[0], 0);
 			if ((var2 >= 0) && (var2 <= 3)) {
 				class_atv var3 = new class_atv();
 				int var4 = var1.length == 1 ? 0 : 1;
@@ -206,7 +206,7 @@ public class class_atv {
 					var3.d();
 					int var6 = class_ahb.q.az;
 					if ((var2 > 0) && (var1.length > var4)) {
-						var6 = class_oa.a(var1[var4++], var6);
+						var6 = MathHelper.a(var1[var4++], var6);
 					}
 
 					var3.a(var6);

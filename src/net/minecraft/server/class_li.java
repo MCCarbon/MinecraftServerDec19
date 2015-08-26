@@ -246,7 +246,7 @@ public class class_li {
 	}
 
 	public void a(int var1) {
-		var1 = class_oa.a(var1, 3, 32);
+		var1 = MathHelper.a(var1, 3, 32);
 		if (var1 != g) {
 			int var2 = var1 - g;
 			ArrayList var3 = Lists.newArrayList((Iterable) c);
@@ -368,7 +368,7 @@ public class class_li {
 
 		}
 
-		public void a(class_ff var1) {
+		public void a(Packet var1) {
 			for (int var2 = 0; var2 < b.size(); ++var2) {
 				class_lm var3 = (class_lm) b.get(var2);
 				if (!var3.f.contains(c)) {
@@ -431,7 +431,7 @@ public class class_li {
 
 		private void a(TileEntity var1) {
 			if (var1 != null) {
-				class_ff var2 = var1.x_();
+				Packet var2 = var1.x_();
 				if (var2 != null) {
 					this.a(var2);
 				}

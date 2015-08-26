@@ -42,15 +42,15 @@ public class class_alw extends Block {
 		if (this.a(var3, var1.s, var5) != Item.a(this)) {
 			int var6 = 0;
 			if (this == Blocks.COAL_ORE) {
-				var6 = class_oa.a(var1.s, 0, 2);
+				var6 = MathHelper.a(var1.s, 0, 2);
 			} else if (this == Blocks.DIAMOND_ORE) {
-				var6 = class_oa.a(var1.s, 3, 7);
+				var6 = MathHelper.a(var1.s, 3, 7);
 			} else if (this == Blocks.EMERALD_ORE) {
-				var6 = class_oa.a(var1.s, 3, 7);
+				var6 = MathHelper.a(var1.s, 3, 7);
 			} else if (this == Blocks.LAPIS_ORE) {
-				var6 = class_oa.a(var1.s, 2, 5);
+				var6 = MathHelper.a(var1.s, 2, 5);
 			} else if (this == Blocks.QUARTZ_ORE) {
-				var6 = class_oa.a(var1.s, 2, 5);
+				var6 = MathHelper.a(var1.s, 2, 5);
 			}
 
 			this.b(var1, var2, var6);

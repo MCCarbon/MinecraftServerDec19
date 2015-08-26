@@ -199,7 +199,7 @@ public class class_xs extends class_yc {
 					}
 
 					if (b > 1) {
-						float var10 = class_oa.c(class_oa.a(var2)) * 0.5F;
+						float var10 = MathHelper.c(MathHelper.a(var2)) * 0.5F;
 						a.o.a((class_yu) null, 1009, new class_cj((int) a.s, (int) a.t, (int) a.u), 0);
 
 						for (int var11 = 0; var11 < 1; ++var11) {

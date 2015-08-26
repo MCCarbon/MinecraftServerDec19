@@ -35,7 +35,7 @@ public class class_sk extends class_sr {
 	public void e() {
 		class_yu var1 = (class_yu) a.l;
 		class_rn var2 = (class_rn) a;
-		float var3 = class_oa.g(var1.y - a.y) * 0.5F;
+		float var3 = MathHelper.g(var1.y - a.y) * 0.5F;
 		if (var3 > 5.0F) {
 			var3 = 5.0F;
 		}
@@ -44,7 +44,7 @@ public class class_sk extends class_sr {
 			var3 = -5.0F;
 		}
 
-		a.y = class_oa.g(a.y + var3);
+		a.y = MathHelper.g(a.y + var3);
 		if (c < b) {
 			c += (b - c) * 0.01F;
 		}
@@ -53,33 +53,33 @@ public class class_sk extends class_sr {
 			c = b;
 		}
 
-		int var4 = class_oa.c(a.s);
-		int var5 = class_oa.c(a.t);
-		int var6 = class_oa.c(a.u);
+		int var4 = MathHelper.c(a.s);
+		int var5 = MathHelper.c(a.t);
+		int var6 = MathHelper.c(a.u);
 		float var7 = c;
 		if (d) {
 			if (e++ > f) {
 				d = false;
 			}
 
-			var7 += var7 * 1.15F * class_oa.a(((float) e / (float) f) * 3.1415927F);
+			var7 += var7 * 1.15F * MathHelper.a(((float) e / (float) f) * 3.1415927F);
 		}
 
 		float var8 = 0.91F;
 		if (a.C) {
-			var8 = a.o.p(new class_cj(class_oa.d((float) var4), class_oa.d((float) var5) - 1, class_oa.d((float) var6))).c().L * 0.91F;
+			var8 = a.o.p(new class_cj(MathHelper.d((float) var4), MathHelper.d((float) var5) - 1, MathHelper.d((float) var6))).c().L * 0.91F;
 		}
 
 		float var9 = 0.16277136F / (var8 * var8 * var8);
-		float var10 = class_oa.a((var2.y * 3.1415927F) / 180.0F);
-		float var11 = class_oa.b((var2.y * 3.1415927F) / 180.0F);
+		float var10 = MathHelper.a((var2.y * 3.1415927F) / 180.0F);
+		float var11 = MathHelper.b((var2.y * 3.1415927F) / 180.0F);
 		float var12 = var2.bP() * var9;
 		float var13 = Math.max(var7, 1.0F);
 		var13 = var12 / var13;
 		float var14 = var7 * var13;
 		float var15 = -(var14 * var10);
 		float var16 = var14 * var11;
-		if (class_oa.e(var15) > class_oa.e(var16)) {
+		if (MathHelper.e(var15) > MathHelper.e(var16)) {
 			if (var15 < 0.0F) {
 				var15 -= a.J / 2.0F;
 			}
@@ -100,11 +100,11 @@ public class class_sk extends class_sr {
 			}
 		}
 
-		int var17 = class_oa.c(a.s + var15);
-		int var18 = class_oa.c(a.u + var16);
-		int var19 = class_oa.d(a.J + 1.0F);
-		int var20 = class_oa.d(a.K + var1.K + 1.0F);
-		int var21 = class_oa.d(a.J + 1.0F);
+		int var17 = MathHelper.c(a.s + var15);
+		int var18 = MathHelper.c(a.u + var16);
+		int var19 = MathHelper.d(a.J + 1.0F);
+		int var20 = MathHelper.d(a.K + var1.K + 1.0F);
+		int var21 = MathHelper.d(a.J + 1.0F);
 		if ((var4 != var17) || (var6 != var18)) {
 			Block var22 = a.o.p(new class_cj(var4, var5, var6)).c();
 			boolean var23 = !this.a(var22) && ((var22.v() != class_avq.a) || !this.a(a.o.p(new class_cj(var4, var5 - 1, var6)).c()));

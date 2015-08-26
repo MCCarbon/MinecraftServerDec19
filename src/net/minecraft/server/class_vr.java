@@ -178,7 +178,7 @@ public class class_vr extends class_ro {
 
 			if (bE > 0.4F) {
 				float var1 = (float) aX().b;
-				int var2 = (int) (class_oa.a((bE - 0.4F) * 3.1415927F) * 7.0F);
+				int var2 = (int) (MathHelper.a((bE - 0.4F) * 3.1415927F) * 7.0F);
 
 				for (int var3 = 0; var3 < var2; ++var3) {
 					float var4 = ((V.nextFloat() * 2.0F) - 1.0F) * J * 0.5F;

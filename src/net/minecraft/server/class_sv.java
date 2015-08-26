@@ -32,7 +32,7 @@ public class class_sv extends class_sr {
 	public void c() {
 		double var1 = b.s - a.s;
 		double var3 = b.u - a.u;
-		float var5 = class_oa.a((var1 * var1) + (var3 * var3));
+		float var5 = MathHelper.a((var1 * var1) + (var3 * var3));
 		a.v += ((var1 / var5) * 0.5D * 0.800000011920929D) + (a.v * 0.20000000298023224D);
 		a.x += ((var3 / var5) * 0.5D * 0.800000011920929D) + (a.x * 0.20000000298023224D);
 		a.w = c;

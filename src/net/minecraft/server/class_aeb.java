@@ -58,13 +58,13 @@ public class class_aeb extends Item {
 
 						Object var7;
 						try {
-							class_eu var11 = class_eu.class_a_in_class_eu.b(var6);
+							IChatBaseComponent var11 = IChatBaseComponent.class_a_in_class_eu.b(var6);
 							var7 = class_ev.a(var2, var11, var2);
 						} catch (Exception var9) {
 							var7 = new class_fa(var6);
 						}
 
-						var4.a(var5, new class_ea(class_eu.class_a_in_class_eu.a((class_eu) var7)));
+						var4.a(var5, new class_ea(IChatBaseComponent.class_a_in_class_eu.a((IChatBaseComponent) var7)));
 					}
 
 					var3.a("pages", var4);

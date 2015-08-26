@@ -26,8 +26,8 @@ public class class_fb extends class_es {
 
 		for (int var5 = 0; var5 < var4; ++var5) {
 			Object var6 = var3[var5];
-			if (var6 instanceof class_eu) {
-				((class_eu) var6).b().a(this.b());
+			if (var6 instanceof IChatBaseComponent) {
+				((IChatBaseComponent) var6).b().a(this.b());
 			}
 		}
 
@@ -106,33 +106,33 @@ public class class_fb extends class_es {
 		}
 	}
 
-	private class_eu a(int var1) {
+	private IChatBaseComponent a(int var1) {
 		if (var1 >= e.length) {
 			throw new class_fc(this, var1);
 		} else {
 			Object var2 = e[var1];
 			Object var3;
-			if (var2 instanceof class_eu) {
+			if (var2 instanceof IChatBaseComponent) {
 				var3 = var2;
 			} else {
 				var3 = new class_fa(var2 == null ? "null" : var2.toString());
-				((class_eu) var3).b().a(this.b());
+				((IChatBaseComponent) var3).b().a(this.b());
 			}
 
-			return (class_eu) var3;
+			return (IChatBaseComponent) var3;
 		}
 	}
 
 	@Override
-	public class_eu a(class_ez var1) {
+	public IChatBaseComponent a(class_ez var1) {
 		super.a(var1);
 		Object[] var2 = e;
 		int var3 = var2.length;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			Object var5 = var2[var4];
-			if (var5 instanceof class_eu) {
-				((class_eu) var5).b().a(this.b());
+			if (var5 instanceof IChatBaseComponent) {
+				((IChatBaseComponent) var5).b().a(this.b());
 			}
 		}
 
@@ -140,7 +140,7 @@ public class class_fb extends class_es {
 			Iterator var6 = b.iterator();
 
 			while (var6.hasNext()) {
-				class_eu var7 = (class_eu) var6.next();
+				IChatBaseComponent var7 = (IChatBaseComponent) var6.next();
 				var7.b().a(var1);
 			}
 		}
@@ -161,7 +161,7 @@ public class class_fb extends class_es {
 		Iterator var2 = b.iterator();
 
 		while (var2.hasNext()) {
-			class_eu var3 = (class_eu) var2.next();
+			IChatBaseComponent var3 = (IChatBaseComponent) var2.next();
 			var1.append(var3.e());
 		}
 
@@ -172,8 +172,8 @@ public class class_fb extends class_es {
 		Object[] var1 = new Object[e.length];
 
 		for (int var2 = 0; var2 < e.length; ++var2) {
-			if (e[var2] instanceof class_eu) {
-				var1[var2] = ((class_eu) e[var2]).f();
+			if (e[var2] instanceof IChatBaseComponent) {
+				var1[var2] = ((IChatBaseComponent) e[var2]).f();
 			} else {
 				var1[var2] = e[var2];
 			}
@@ -184,7 +184,7 @@ public class class_fb extends class_es {
 		Iterator var3 = this.a().iterator();
 
 		while (var3.hasNext()) {
-			class_eu var4 = (class_eu) var3.next();
+			IChatBaseComponent var4 = (IChatBaseComponent) var3.next();
 			var5.a(var4.f());
 		}
 
@@ -226,7 +226,7 @@ public class class_fb extends class_es {
 
 	// $FF: synthetic method
 	@Override
-	public class_eu f() {
+	public IChatBaseComponent f() {
 		return h();
 	}
 }

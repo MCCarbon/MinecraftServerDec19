@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
-public class class_fn implements class_ff {
+public class class_fn implements Packet {
 	private int a;
 	private UUID b;
 	private int c;
@@ -27,9 +27,9 @@ public class class_fn implements class_ff {
 		a = var1.G();
 		b = var1.aQ();
 		c = (byte) EntityTypes.a(var1);
-		d = class_oa.c(var1.s * 32.0D);
-		e = class_oa.c(var1.t * 32.0D);
-		f = class_oa.c(var1.u * 32.0D);
+		d = MathHelper.c(var1.s * 32.0D);
+		e = MathHelper.c(var1.t * 32.0D);
+		f = MathHelper.c(var1.u * 32.0D);
 		j = (byte) ((int) ((var1.y * 256.0F) / 360.0F));
 		k = (byte) ((int) ((var1.z * 256.0F) / 360.0F));
 		l = (byte) ((int) ((var1.aO * 256.0F) / 360.0F));
@@ -68,7 +68,7 @@ public class class_fn implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.g();
 		b = var1.i();
 		c = var1.readByte() & 255;
@@ -85,7 +85,7 @@ public class class_fn implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.b(a);
 		var1.a(b);
 		var1.writeByte(c & 255);
@@ -101,14 +101,14 @@ public class class_fn implements class_ff {
 		m.a(var1);
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 }

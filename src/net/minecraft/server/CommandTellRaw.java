@@ -29,7 +29,7 @@ public class CommandTellRaw extends CommandAbstract {
 			String var4 = a(var2, 1);
 
 			try {
-				class_eu var5 = class_eu.class_a_in_class_eu.a(var4);
+				IChatBaseComponent var5 = IChatBaseComponent.class_a_in_class_eu.a(var4);
 				var3.a(class_ev.a(var1, var5, var3));
 			} catch (JsonParseException var6) {
 				throw a(var6);

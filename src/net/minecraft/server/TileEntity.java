@@ -114,7 +114,7 @@ public abstract class TileEntity {
 		return e;
 	}
 
-	public class_ff x_() {
+	public Packet x_() {
 		return null;
 	}
 

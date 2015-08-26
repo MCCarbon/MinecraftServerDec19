@@ -16,7 +16,7 @@ public class class_adm extends Item {
 					return class_pw.a;
 				} else {
 					if (var6 == class_cq.b) {
-						int var10 = class_oa.c(((var2.y + 180.0F) * 16.0F) / 360.0F + 0.5D) & 15;
+						int var10 = MathHelper.c(((var2.y + 180.0F) * 16.0F) / 360.0F + 0.5D) & 15;
 						var3.a(var4, Blocks.STANDING_SIGN.S().a(class_ang.a, Integer.valueOf(var10)), 3);
 					} else {
 						var3.a(var4, Blocks.WALL_SIGN.S().a(class_any.a, var6), 3);

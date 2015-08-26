@@ -216,7 +216,7 @@ public class BlockPiston extends class_ajk {
 	}
 
 	public static class_cq a(class_ago var0, class_cj var1, class_rg var2) {
-		if ((class_oa.e((float) var2.s - var1.n()) < 2.0F) && (class_oa.e((float) var2.u - var1.p()) < 2.0F)) {
+		if ((MathHelper.e((float) var2.s - var1.n()) < 2.0F) && (MathHelper.e((float) var2.u - var1.p()) < 2.0F)) {
 			double var3 = var2.t + var2.aY();
 			if ((var3 - var1.o()) > 2.0D) {
 				return class_cq.b;

@@ -203,7 +203,7 @@ public class class_lg {
 
 	}
 
-	public void a(Entity var1, class_ff var2) {
+	public void a(Entity var1, Packet var2) {
 		class_lo var3 = (class_lo) d.a(var1.G());
 		if (var3 != null) {
 			var3.a(var2);
@@ -211,7 +211,7 @@ public class class_lg {
 
 	}
 
-	public void b(Entity var1, class_ff var2) {
+	public void b(Entity var1, Packet var2) {
 		class_lo var3 = (class_lo) d.a(var1.G());
 		if (var3 != null) {
 			var3.b(var2);

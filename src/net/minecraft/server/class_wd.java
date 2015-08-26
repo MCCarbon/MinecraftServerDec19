@@ -51,7 +51,7 @@ public class class_wd extends class_vz {
 				var3 = var5.c(var1) / 512.0D;
 			}
 
-			if ((var5 != null) && ((a.bj().nextInt(class_oa.a((int) var3) + 2) == 0) || (a.bj().nextInt(var2 + 2) == 0))) {
+			if ((var5 != null) && ((a.bj().nextInt(MathHelper.a((int) var3) + 2) == 0) || (a.bj().nextInt(var2 + 2) == 0))) {
 				this.a(var5);
 				return;
 			}

@@ -28,7 +28,7 @@ public class class_us {
 		float var9 = -99999.0F;
 		boolean var10;
 		if (var0.cD()) {
-			double var11 = var0.cA().c(class_oa.c(var0.s), class_oa.c(var0.t), class_oa.c(var0.u)) + 4.0D;
+			double var11 = var0.cA().c(MathHelper.c(var0.s), MathHelper.c(var0.t), MathHelper.c(var0.u)) + 4.0D;
 			double var13 = var0.cB() + var1;
 			var10 = var11 < (var13 * var13);
 		} else {
@@ -56,9 +56,9 @@ public class class_us {
 					}
 				}
 
-				var12 += class_oa.c(var0.s);
-				var18 += class_oa.c(var0.t);
-				var14 += class_oa.c(var0.u);
+				var12 += MathHelper.c(var0.s);
+				var18 += MathHelper.c(var0.t);
+				var14 += MathHelper.c(var0.u);
 				var15 = new class_cj(var12, var18, var14);
 				if (!var10 || var0.e(var15)) {
 					float var16 = var0.a(var15);

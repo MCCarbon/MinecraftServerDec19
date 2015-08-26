@@ -432,7 +432,7 @@ public class Bootstrap {
 			class_qq.k();
 			class_afj.e();
 			Item.t();
-			class_aec.c();
+			PotionRegistry.c();
 			class_aed.a();
 			class_nh.a();
 			b();

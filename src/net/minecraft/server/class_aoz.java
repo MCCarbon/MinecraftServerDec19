@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.gson.JsonParseException;
 
 public class class_aoz extends TileEntity {
-	public final class_eu[] a = new class_eu[] { new class_fa(""), new class_fa(""), new class_fa(""), new class_fa("") };
+	public final IChatBaseComponent[] a = new IChatBaseComponent[] { new class_fa(""), new class_fa(""), new class_fa(""), new class_fa("") };
 	public int f = -1;
 	private boolean g = true;
 	private class_yu h;
@@ -14,7 +14,7 @@ public class class_aoz extends TileEntity {
 		super.b(var1);
 
 		for (int var2 = 0; var2 < 4; ++var2) {
-			String var3 = class_eu.class_a_in_class_eu.a(a[var2]);
+			String var3 = IChatBaseComponent.class_a_in_class_eu.a(a[var2]);
 			var1.a("Text" + (var2 + 1), var3);
 		}
 
@@ -32,12 +32,12 @@ public class class_aoz extends TileEntity {
 			}
 
 			@Override
-			public class_eu f_() {
+			public IChatBaseComponent f_() {
 				return new class_fa(e_());
 			}
 
 			@Override
-			public void a(class_eu var1) {
+			public void a(IChatBaseComponent var1) {
 			}
 
 			@Override
@@ -79,7 +79,7 @@ public class class_aoz extends TileEntity {
 			String var4 = var1.l("Text" + (var3 + 1));
 
 			try {
-				class_eu var5 = class_eu.class_a_in_class_eu.a(var4);
+				IChatBaseComponent var5 = IChatBaseComponent.class_a_in_class_eu.a(var4);
 
 				try {
 					a[var3] = class_ev.a(var2, var5, (Entity) null);
@@ -95,8 +95,8 @@ public class class_aoz extends TileEntity {
 	}
 
 	@Override
-	public class_ff x_() {
-		class_eu[] var1 = new class_eu[4];
+	public Packet x_() {
+		IChatBaseComponent[] var1 = new IChatBaseComponent[4];
 		System.arraycopy(a, 0, var1, 0, 4);
 		return new class_hx(b, c, var1);
 	}
@@ -126,12 +126,12 @@ public class class_aoz extends TileEntity {
 			}
 
 			@Override
-			public class_eu f_() {
+			public IChatBaseComponent f_() {
 				return var1.f_();
 			}
 
 			@Override
-			public void a(class_eu var1x) {
+			public void a(IChatBaseComponent var1x) {
 			}
 
 			@Override

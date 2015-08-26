@@ -50,14 +50,14 @@ public class class_wi extends class_wa {
 			double var3 = a.bs.s + ((var1.a * var2) / 2.0D);
 			double var5 = a.bs.u + ((var1.c * var2) / 2.0D);
 			double var7 = a.bs.t + a.bs.K / 2.0F;
-			class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj(class_oa.c(var3), class_oa.c(var7), class_oa.c(var5));
+			class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj(MathHelper.c(var3), MathHelper.c(var7), MathHelper.c(var5));
 
 			while (a.o.d(var9)) {
 				--var7;
-				var9.c(class_oa.c(var3), class_oa.c(var7), class_oa.c(var5));
+				var9.c(MathHelper.c(var3), MathHelper.c(var7), MathHelper.c(var5));
 			}
 
-			var7 = class_oa.c(var7) + 1;
+			var7 = MathHelper.c(var7) + 1;
 			d = new class_qv(a.o, var3, var7, var5);
 			d.a(a);
 			d.a(var2);

@@ -82,7 +82,7 @@ public class class_yk extends class_yc implements class_ye {
 					this.a(class_yf.d).c(b);
 				}
 			} else {
-				class_aec var1 = null;
+				PotionRegistry var1 = null;
 				if ((V.nextFloat() < 0.15F) && this.a(class_avq.h) && !this.a(class_qs.m)) {
 					var1 = class_aee.s;
 				} else if ((V.nextFloat() < 0.15F) && ay() && !this.a(class_qs.l)) {
@@ -150,8 +150,8 @@ public class class_yk extends class_yc implements class_ye {
 			double var5 = (var1.s + var1.v) - s;
 			double var7 = var3 - t;
 			double var9 = (var1.u + var1.x) - u;
-			float var11 = class_oa.a((var5 * var5) + (var9 * var9));
-			class_aec var12 = class_aee.w;
+			float var11 = MathHelper.a((var5 * var5) + (var9 * var9));
+			PotionRegistry var12 = class_aee.w;
 			if ((var11 >= 8.0F) && !var1.a(class_qs.b)) {
 				var12 = class_aee.q;
 			} else if ((var1.bu() >= 8.0F) && !var1.a(class_qs.s)) {

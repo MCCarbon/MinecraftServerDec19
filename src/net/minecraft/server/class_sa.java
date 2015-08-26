@@ -36,7 +36,7 @@ public class class_sa {
 	}
 
 	private float a(float var1, float var2, float var3) {
-		float var4 = class_oa.g(var1 - var2);
+		float var4 = MathHelper.g(var1 - var2);
 		if (var4 < -var3) {
 			var4 = -var3;
 		}

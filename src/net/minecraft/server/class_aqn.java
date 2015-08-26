@@ -571,14 +571,14 @@ public class class_aqn {
 
 	public void a(Entity var1) {
 		s = true;
-		int var2 = class_oa.c(var1.s / 16.0D);
-		int var3 = class_oa.c(var1.u / 16.0D);
+		int var2 = MathHelper.c(var1.s / 16.0D);
+		int var3 = MathHelper.c(var1.u / 16.0D);
 		if ((var2 != b) || (var3 != c)) {
 			d.warn("Wrong location! (" + var2 + ", " + var3 + ") should be (" + b + ", " + c + "), " + var1, new Object[] { var1 });
 			var1.L();
 		}
 
-		int var4 = class_oa.c(var1.t / 16.0D);
+		int var4 = MathHelper.c(var1.t / 16.0D);
 		if (var4 < 0) {
 			var4 = 0;
 		}
@@ -707,10 +707,10 @@ public class class_aqn {
 	}
 
 	public void a(Entity var1, class_ayk var2, List var3, Predicate var4) {
-		int var5 = class_oa.c((var2.b - 2.0D) / 16.0D);
-		int var6 = class_oa.c((var2.e + 2.0D) / 16.0D);
-		var5 = class_oa.a(var5, 0, n.length - 1);
-		var6 = class_oa.a(var6, 0, n.length - 1);
+		int var5 = MathHelper.c((var2.b - 2.0D) / 16.0D);
+		int var6 = MathHelper.c((var2.e + 2.0D) / 16.0D);
+		var5 = MathHelper.a(var5, 0, n.length - 1);
+		var6 = MathHelper.a(var6, 0, n.length - 1);
 
 		label68: for (int var7 = var5; var7 <= var6; ++var7) {
 			if (!n[var7].isEmpty()) {
@@ -750,10 +750,10 @@ public class class_aqn {
 	}
 
 	public void a(Class var1, class_ayk var2, List var3, Predicate var4) {
-		int var5 = class_oa.c((var2.b - 2.0D) / 16.0D);
-		int var6 = class_oa.c((var2.e + 2.0D) / 16.0D);
-		var5 = class_oa.a(var5, 0, n.length - 1);
-		var6 = class_oa.a(var6, 0, n.length - 1);
+		int var5 = MathHelper.c((var2.b - 2.0D) / 16.0D);
+		int var6 = MathHelper.c((var2.e + 2.0D) / 16.0D);
+		var5 = MathHelper.a(var5, 0, n.length - 1);
+		var6 = MathHelper.a(var6, 0, n.length - 1);
 
 		label33: for (int var7 = var5; var7 <= var6; ++var7) {
 			Iterator var8 = n[var7].c(var1).iterator();

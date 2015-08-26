@@ -115,11 +115,11 @@ public class class_kb {
 		}
 	};
 	public static final class_ka e = new class_ka() {
-		public void a(PacketDataSerializer var1, class_eu var2) {
+		public void a(PacketDataSerializer var1, IChatBaseComponent var2) {
 			var1.a(var2);
 		}
 
-		public class_eu b(PacketDataSerializer var1) {
+		public IChatBaseComponent b(PacketDataSerializer var1) {
 			return var1.f();
 		}
 
@@ -138,7 +138,7 @@ public class class_kb {
 		// $FF: bridge method
 		@Override
 		public void a(PacketDataSerializer var1, Object var2) {
-			this.a(var1, (class_eu) var2);
+			this.a(var1, (IChatBaseComponent) var2);
 		}
 	};
 	public static final class_ka f = new class_ka() {

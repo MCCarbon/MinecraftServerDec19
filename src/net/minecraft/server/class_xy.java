@@ -210,14 +210,14 @@ public class class_xy extends class_re implements class_xx {
 		@Override
 		public void e() {
 			if (a.w() == null) {
-				a.aM = a.y = (-((float) class_oa.b(a.v, a.x)) * 180.0F) / 3.1415927F;
+				a.aM = a.y = (-((float) MathHelper.b(a.v, a.x)) * 180.0F) / 3.1415927F;
 			} else {
 				class_rg var1 = a.w();
 				double var2 = 64.0D;
 				if (var1.h(a) < (var2 * var2)) {
 					double var4 = var1.s - a.s;
 					double var6 = var1.u - a.u;
-					a.aM = a.y = (-((float) class_oa.b(var4, var6)) * 180.0F) / 3.1415927F;
+					a.aM = a.y = (-((float) MathHelper.b(var4, var6)) * 180.0F) / 3.1415927F;
 				}
 			}
 
@@ -279,7 +279,7 @@ public class class_xy extends class_re implements class_xx {
 				double var7 = (var1 * var1) + (var3 * var3) + (var5 * var5);
 				if (h-- <= 0) {
 					h += g.bj().nextInt(5) + 2;
-					var7 = class_oa.a(var7);
+					var7 = MathHelper.a(var7);
 					if (this.b(b, c, d, var7)) {
 						g.v += (var1 / var7) * 0.1D;
 						g.w += (var3 / var7) * 0.1D;

@@ -3,10 +3,10 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.UUID;
 
-public class class_fw implements class_ff {
+public class class_fw implements Packet {
 	private UUID a;
 	private class_fw.class_a_in_class_fw b;
-	private class_eu c;
+	private IChatBaseComponent c;
 	private float d;
 	private class_pn.class_a_in_class_pn e;
 	private class_pn.class_b_in_class_pn f;
@@ -28,7 +28,7 @@ public class class_fw implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.i();
 		b = (class_fw.class_a_in_class_fw) var1.a(class_fw.class_a_in_class_fw.class);
 		switch (class_fw.SyntheticClass_1.a[b.ordinal()]) {
@@ -63,7 +63,7 @@ public class class_fw implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		var1.a(b);
 		switch (class_fw.SyntheticClass_1.a[b.ordinal()]) {
@@ -105,15 +105,15 @@ public class class_fw implements class_ff {
 		return var1;
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 
 	// $FF: synthetic class

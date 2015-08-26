@@ -64,8 +64,8 @@ public class class_mx extends class_nd {
 	}
 
 	@Override
-	public class_eu e() {
-		class_eu var1 = super.e();
+	public IChatBaseComponent e() {
+		IChatBaseComponent var1 = super.e();
 		var1.b().a(g() ? EnumChatFormat.DARK_PURPLE : EnumChatFormat.GREEN);
 		return var1;
 	}

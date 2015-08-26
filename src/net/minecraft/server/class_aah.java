@@ -46,8 +46,8 @@ public class class_aah extends class_aas {
 			if (var3 == 0.0F) {
 				var2 = 0;
 			} else if (var3 < 1.0F) {
-				var4 = class_oa.d(var2 * var3);
-				if ((var4 < class_oa.f(var2 * var3)) && (Math.random() < (var2 * var3) - var4)) {
+				var4 = MathHelper.d(var2 * var3);
+				if ((var4 < MathHelper.f(var2 * var3)) && (Math.random() < (var2 * var3) - var4)) {
 					++var4;
 				}
 

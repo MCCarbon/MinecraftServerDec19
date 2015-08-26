@@ -46,7 +46,7 @@ public class class_wf extends class_vz {
 
 	@Override
 	public float h() {
-		float var1 = (class_oa.a((a.v * a.v) + (a.x * a.x)) * 1.0F) + 1.0F;
+		float var1 = (MathHelper.a((a.v * a.v) + (a.x * a.x)) * 1.0F) + 1.0F;
 		float var2 = Math.min(var1, 40.0F);
 		return var2 / var1;
 	}

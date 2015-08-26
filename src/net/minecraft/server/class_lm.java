@@ -53,7 +53,7 @@ public class class_lm extends class_yu implements class_zz {
 		class_cj var5 = var2.O();
 		if (!var2.t.m() && (var2.R().q() != class_agr.class_a_in_class_agr.d)) {
 			int var6 = Math.max(5, var1.ay() - 6);
-			int var7 = class_oa.c(var2.ah().b(var5.n(), var5.p()));
+			int var7 = MathHelper.c(var2.ah().b(var5.n(), var5.p()));
 			if (var7 < var6) {
 				var6 = var7;
 			}
@@ -228,7 +228,7 @@ public class class_lm extends class_yu implements class_zz {
 			for (int var1 = 0; var1 < bq.n_(); ++var1) {
 				class_aco var5 = bq.a(var1);
 				if ((var5 != null) && var5.b().f()) {
-					class_ff var6 = ((class_abo) var5.b()).a(var5, o, this);
+					Packet var6 = ((class_abo) var5.b()).a(var5, o, this);
 					if (var6 != null) {
 						a.a(var6);
 					}
@@ -244,32 +244,32 @@ public class class_lm extends class_yu implements class_zz {
 
 			if ((bu() + bU()) != bT) {
 				bT = bu() + bU();
-				this.a(class_ayy.g, class_oa.f(bT));
+				this.a(class_ayy.g, MathHelper.f(bT));
 			}
 
 			if (bt.a() != bU) {
 				bU = bt.a();
-				this.a(class_ayy.h, class_oa.f(bU));
+				this.a(class_ayy.h, MathHelper.f(bU));
 			}
 
 			if (aF() != bV) {
 				bV = aF();
-				this.a(class_ayy.i, class_oa.f(bV));
+				this.a(class_ayy.i, MathHelper.f(bV));
 			}
 
 			if (by() != bW) {
 				bW = by();
-				this.a(class_ayy.j, class_oa.f(bW));
+				this.a(class_ayy.j, MathHelper.f(bW));
 			}
 
 			if (bK != bY) {
 				bY = bK;
-				this.a(class_ayy.k, class_oa.f(bY));
+				this.a(class_ayy.k, MathHelper.f(bY));
 			}
 
 			if (bJ != bX) {
 				bX = bJ;
-				this.a(class_ayy.l, class_oa.f(bX));
+				this.a(class_ayy.l, MathHelper.f(bX));
 			}
 
 			if (bK != cc) {
@@ -302,7 +302,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	protected void n() {
-		class_ahb var1 = o.b(new class_cj(class_oa.c(s), 0, class_oa.c(u)));
+		class_ahb var1 = o.b(new class_cj(MathHelper.c(s), 0, MathHelper.c(u)));
 		String var2 = var1.ah;
 		class_nj var3 = (class_nj) B().b((class_nd) class_my.L);
 		if (var3 == null) {
@@ -454,7 +454,7 @@ public class class_lm extends class_yu implements class_zz {
 
 	private void a(TileEntity var1) {
 		if (var1 != null) {
-			class_ff var2 = var1.x_();
+			Packet var2 = var1.x_();
 			if (var2 != null) {
 				a.a(var2);
 			}
@@ -510,9 +510,9 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	public void a(double var1, boolean var3) {
-		int var4 = class_oa.c(s);
-		int var5 = class_oa.c(t - 0.20000000298023224D);
-		int var6 = class_oa.c(u);
+		int var4 = MathHelper.c(s);
+		int var5 = MathHelper.c(t - 0.20000000298023224D);
+		int var6 = MathHelper.c(u);
 		class_cj var7 = new class_cj(var4, var5, var6);
 		Block var8 = o.p(var7).c();
 		if (var8.v() == class_avq.a) {
@@ -580,7 +580,7 @@ public class class_lm extends class_yu implements class_zz {
 		bs.d = ci;
 		bs.a((class_zz) this);
 		class_aam var2 = ((class_aan) bs).e();
-		class_eu var3 = var1.f_();
+		IChatBaseComponent var3 = var1.f_();
 		a.a((new class_gd(ci, "minecraft:villager", var3, var2.n_())));
 		class_agc var4 = var1.a_(this);
 		if (var4 != null) {
@@ -731,7 +731,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public void b(class_eu var1) {
+	public void b(IChatBaseComponent var1) {
 		a.a((new class_fz(var1)));
 	}
 
@@ -818,7 +818,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		a.a((new class_fz(var1)));
 	}
 
@@ -923,7 +923,7 @@ public class class_lm extends class_yu implements class_zz {
 		return cg;
 	}
 
-	public class_eu F() {
+	public IChatBaseComponent F() {
 		return null;
 	}
 

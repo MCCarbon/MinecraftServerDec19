@@ -33,7 +33,7 @@ public abstract class class_um {
 	}
 
 	public final class_axc a(double var1, double var3, double var5) {
-		return this.a(new class_cj(class_oa.c(var1), (int) var3, class_oa.c(var5)));
+		return this.a(new class_cj(MathHelper.c(var1), (int) var3, MathHelper.c(var5)));
 	}
 
 	public class_axc a(class_cj var1) {
@@ -52,7 +52,7 @@ public abstract class class_um {
 	}
 
 	public boolean a(double var1, double var3, double var5, double var7) {
-		class_axc var9 = this.a(class_oa.c(var1), ((int) var3), class_oa.c(var5));
+		class_axc var9 = this.a(MathHelper.c(var1), ((int) var3), MathHelper.c(var5));
 		return this.a(var9, var7);
 	}
 
@@ -115,7 +115,7 @@ public abstract class class_um {
 			} else if ((d != null) && (d.e() < d.d())) {
 				var1 = c();
 				class_aym var2 = d.a(b, d.e());
-				if ((var1.b > var2.b) && !b.C && (class_oa.c(var1.a) == class_oa.c(var2.a)) && (class_oa.c(var1.c) == class_oa.c(var2.c))) {
+				if ((var1.b > var2.b) && !b.C && (MathHelper.c(var1.a) == MathHelper.c(var2.a)) && (MathHelper.c(var1.c) == MathHelper.c(var2.c))) {
 					d.c(d.e() + 1);
 				}
 			}
@@ -160,7 +160,7 @@ public abstract class class_um {
 			}
 		}
 
-		var4 = class_oa.f(b.J);
+		var4 = MathHelper.f(b.J);
 		int var9 = (int) b.K + 1;
 		int var6 = var4;
 

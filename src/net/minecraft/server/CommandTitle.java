@@ -59,9 +59,9 @@ public class CommandTitle extends CommandAbstract {
 				} else {
 					String var10 = a(var2, 2);
 
-					class_eu var6;
+					IChatBaseComponent var6;
 					try {
-						var6 = class_eu.class_a_in_class_eu.a(var10);
+						var6 = IChatBaseComponent.class_a_in_class_eu.a(var10);
 					} catch (JsonParseException var9) {
 						throw a(var9);
 					}
@@ -73,7 +73,7 @@ public class CommandTitle extends CommandAbstract {
 			} else if (var2.length != 2) {
 				throw new class_cf("commands.title.usage", new Object[0]);
 			} else {
-				class_hw var5 = new class_hw(var4, (class_eu) null);
+				class_hw var5 = new class_hw(var4, (IChatBaseComponent) null);
 				var3.a.a(var5);
 				a(var1, this, "commands.title.success", new Object[0]);
 			}

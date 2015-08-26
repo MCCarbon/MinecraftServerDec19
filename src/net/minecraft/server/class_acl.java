@@ -11,7 +11,7 @@ public class class_acl extends Item {
 		i = 1;
 		this.e(var1.a());
 		this.a(class_abp.i);
-		b = class_oa.a(var1.c() / 3.0F, 0.0F, 1.0F) * 1.0F;
+		b = MathHelper.a(var1.c() / 3.0F, 0.0F, 1.0F) * 1.0F;
 	}
 
 	@Override

@@ -30,7 +30,7 @@ public class class_yz extends Entity {
 		double var5 = var1.p();
 		double var7 = var2 - s;
 		double var9 = var5 - u;
-		float var11 = class_oa.a((var7 * var7) + (var9 * var9));
+		float var11 = MathHelper.a((var7 * var7) + (var9 * var9));
 		if (var11 > 12.0F) {
 			a = s + ((var7 / var11) * 12.0D);
 			c = u + ((var9 / var11) * 12.0D);
@@ -54,10 +54,10 @@ public class class_yz extends Entity {
 		s += v;
 		t += w;
 		u += x;
-		float var1 = class_oa.a((v * v) + (x * x));
-		y = (float) ((class_oa.b(v, x) * 180.0D) / 3.1415927410125732D);
+		float var1 = MathHelper.a((v * v) + (x * x));
+		y = (float) ((MathHelper.b(v, x) * 180.0D) / 3.1415927410125732D);
 
-		for (z = (float) ((class_oa.b(w, var1) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
+		for (z = (float) ((MathHelper.b(w, var1) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
 			;
 		}
 
@@ -79,7 +79,7 @@ public class class_yz extends Entity {
 			double var2 = a - s;
 			double var4 = c - u;
 			float var6 = (float) Math.sqrt((var2 * var2) + (var4 * var4));
-			float var7 = (float) class_oa.b(var4, var2);
+			float var7 = (float) MathHelper.b(var4, var2);
 			double var8 = var1 + ((var6 - var1) * 0.0025D);
 			if (var6 < 1.0F) {
 				var8 *= 0.8D;

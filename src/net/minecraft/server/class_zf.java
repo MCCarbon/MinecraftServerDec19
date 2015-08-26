@@ -163,7 +163,7 @@ public class class_zf extends Entity {
 		double var20 = var5 - s;
 		double var21 = var7 - t;
 		double var16 = var9 - u;
-		double var18 = class_oa.a((var20 * var20) + (var21 * var21) + (var16 * var16));
+		double var18 = MathHelper.a((var20 * var20) + (var21 * var21) + (var16 * var16));
 		if (var18 == 0.0D) {
 			e = 0.0D;
 			f = 0.0D;
@@ -218,9 +218,9 @@ public class class_zf extends Entity {
 			if ((b == null) || !b.al() || ((b instanceof class_yu) && ((class_yu) b).w())) {
 				w -= 0.04D;
 			} else {
-				e = class_oa.a(e * 1.025D, -1.0D, 1.0D);
-				f = class_oa.a(f * 1.025D, -1.0D, 1.0D);
-				g = class_oa.a(g * 1.025D, -1.0D, 1.0D);
+				e = MathHelper.a(e * 1.025D, -1.0D, 1.0D);
+				f = MathHelper.a(f * 1.025D, -1.0D, 1.0D);
+				g = MathHelper.a(g * 1.025D, -1.0D, 1.0D);
 				v += (e - v) * 0.2D;
 				w += (f - w) * 0.2D;
 				x += (g - x) * 0.2D;

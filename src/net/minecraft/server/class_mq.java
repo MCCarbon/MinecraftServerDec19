@@ -23,12 +23,12 @@ public class class_mq implements ICommandListener {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		return new class_fa(e_());
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		b.append(var1.c());
 	}
 

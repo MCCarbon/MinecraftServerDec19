@@ -108,15 +108,15 @@ public enum class_cq implements class_oe {
 	}
 
 	public static class_cq a(int var0) {
-		return n[class_oa.a(var0 % n.length)];
+		return n[MathHelper.a(var0 % n.length)];
 	}
 
 	public static class_cq b(int var0) {
-		return o[class_oa.a(var0 % o.length)];
+		return o[MathHelper.a(var0 % o.length)];
 	}
 
 	public static class_cq a(double var0) {
-		return b(class_oa.c((var0 / 90.0D) + 0.5D) & 3);
+		return b(MathHelper.c((var0 / 90.0D) + 0.5D) & 3);
 	}
 
 	public static class_cq a(Random var0) {

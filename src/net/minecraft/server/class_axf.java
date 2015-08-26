@@ -25,24 +25,24 @@ public class class_axf extends class_axb {
 		int var1;
 		if (j && b.Y()) {
 			var1 = (int) b.aX().b;
-			class_cj.class_a_in_class_cj var2 = new class_cj.class_a_in_class_cj(class_oa.c(b.s), var1, class_oa.c(b.u));
+			class_cj.class_a_in_class_cj var2 = new class_cj.class_a_in_class_cj(MathHelper.c(b.s), var1, MathHelper.c(b.u));
 
 			for (Block var3 = a.p(var2).c(); (var3 == Blocks.FLOWING_WATER) || (var3 == Blocks.WATER); var3 = a.p(var2).c()) {
 				++var1;
-				var2.c(class_oa.c(b.s), var1, class_oa.c(b.u));
+				var2.c(MathHelper.c(b.s), var1, MathHelper.c(b.u));
 			}
 
 			i = false;
 		} else {
-			var1 = class_oa.c(b.aX().b + 0.5D);
+			var1 = MathHelper.c(b.aX().b + 0.5D);
 		}
 
-		return this.a(class_oa.c(b.aX().a), var1, class_oa.c(b.aX().c));
+		return this.a(MathHelper.c(b.aX().a), var1, MathHelper.c(b.aX().c));
 	}
 
 	@Override
 	public class_axa a(double var1, double var3, double var5) {
-		return this.a(class_oa.c(var1 - b.J / 2.0F), class_oa.c(var3), class_oa.c(var5 - b.J / 2.0F));
+		return this.a(MathHelper.c(var1 - b.J / 2.0F), MathHelper.c(var3), MathHelper.c(var5 - b.J / 2.0F));
 	}
 
 	@Override

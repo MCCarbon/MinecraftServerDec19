@@ -348,9 +348,9 @@ public class class_xv extends class_yc {
 		public void e() {
 			Random var1 = a.bj();
 			class_ago var2 = a.o;
-			int var3 = class_oa.c((a.s - 2.0D) + (var1.nextDouble() * 4.0D));
-			int var4 = class_oa.c(a.t + (var1.nextDouble() * 3.0D));
-			int var5 = class_oa.c((a.u - 2.0D) + (var1.nextDouble() * 4.0D));
+			int var3 = MathHelper.c((a.s - 2.0D) + (var1.nextDouble() * 4.0D));
+			int var4 = MathHelper.c(a.t + (var1.nextDouble() * 3.0D));
+			int var5 = MathHelper.c((a.u - 2.0D) + (var1.nextDouble() * 4.0D));
 			class_cj var6 = new class_cj(var3, var4, var5);
 			class_apn var7 = var2.p(var6);
 			Block var8 = var7.c();
@@ -378,9 +378,9 @@ public class class_xv extends class_yc {
 		public void e() {
 			Random var1 = a.bj();
 			class_ago var2 = a.o;
-			int var3 = class_oa.c((a.s - 1.0D) + (var1.nextDouble() * 2.0D));
-			int var4 = class_oa.c(a.t + (var1.nextDouble() * 2.0D));
-			int var5 = class_oa.c((a.u - 1.0D) + (var1.nextDouble() * 2.0D));
+			int var3 = MathHelper.c((a.s - 1.0D) + (var1.nextDouble() * 2.0D));
+			int var4 = MathHelper.c(a.t + (var1.nextDouble() * 2.0D));
+			int var5 = MathHelper.c((a.u - 1.0D) + (var1.nextDouble() * 2.0D));
 			class_cj var6 = new class_cj(var3, var4, var5);
 			Block var7 = var2.p(var6).c();
 			Block var8 = var2.p(var6.b()).c();

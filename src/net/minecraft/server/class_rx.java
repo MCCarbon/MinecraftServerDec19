@@ -30,7 +30,7 @@ public class class_rx extends class_rs {
 
 	@Override
 	public double a(double var1) {
-		var1 = class_oa.a(var1, a, b);
+		var1 = MathHelper.a(var1, a, b);
 		return var1;
 	}
 }

@@ -22,10 +22,10 @@ public class class_atf extends class_asp {
 	@Override
 	public boolean b(class_ago var1, Random var2, class_cj var3) {
 		float var4 = var2.nextFloat() * 3.1415927F;
-		double var5 = var3.n() + 8 + ((class_oa.a(var4) * b) / 8.0F);
-		double var7 = var3.n() + 8 - ((class_oa.a(var4) * b) / 8.0F);
-		double var9 = var3.p() + 8 + ((class_oa.b(var4) * b) / 8.0F);
-		double var11 = var3.p() + 8 - ((class_oa.b(var4) * b) / 8.0F);
+		double var5 = var3.n() + 8 + ((MathHelper.a(var4) * b) / 8.0F);
+		double var7 = var3.n() + 8 - ((MathHelper.a(var4) * b) / 8.0F);
+		double var9 = var3.p() + 8 + ((MathHelper.b(var4) * b) / 8.0F);
+		double var11 = var3.p() + 8 - ((MathHelper.b(var4) * b) / 8.0F);
 		double var13 = (var3.o() + var2.nextInt(3)) - 2;
 		double var15 = (var3.o() + var2.nextInt(3)) - 2;
 
@@ -35,14 +35,14 @@ public class class_atf extends class_asp {
 			double var21 = var13 + ((var15 - var13) * var18);
 			double var23 = var9 + ((var11 - var9) * var18);
 			double var25 = (var2.nextDouble() * b) / 16.0D;
-			double var27 = ((class_oa.a(3.1415927F * var18) + 1.0F) * var25) + 1.0D;
-			double var29 = ((class_oa.a(3.1415927F * var18) + 1.0F) * var25) + 1.0D;
-			int var31 = class_oa.c(var19 - (var27 / 2.0D));
-			int var32 = class_oa.c(var21 - (var29 / 2.0D));
-			int var33 = class_oa.c(var23 - (var27 / 2.0D));
-			int var34 = class_oa.c(var19 + (var27 / 2.0D));
-			int var35 = class_oa.c(var21 + (var29 / 2.0D));
-			int var36 = class_oa.c(var23 + (var27 / 2.0D));
+			double var27 = ((MathHelper.a(3.1415927F * var18) + 1.0F) * var25) + 1.0D;
+			double var29 = ((MathHelper.a(3.1415927F * var18) + 1.0F) * var25) + 1.0D;
+			int var31 = MathHelper.c(var19 - (var27 / 2.0D));
+			int var32 = MathHelper.c(var21 - (var29 / 2.0D));
+			int var33 = MathHelper.c(var23 - (var27 / 2.0D));
+			int var34 = MathHelper.c(var19 + (var27 / 2.0D));
+			int var35 = MathHelper.c(var21 + (var29 / 2.0D));
+			int var36 = MathHelper.c(var23 + (var27 / 2.0D));
 
 			for (int var37 = var31; var37 <= var34; ++var37) {
 				double var38 = ((var37 + 0.5D) - var19) / (var27 / 2.0D);

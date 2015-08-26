@@ -42,7 +42,7 @@ public class class_aoq extends TileEntity implements class_ks, class_pv {
 		if (var1 != null) {
 			double var2 = var1.s - (c.n() + 0.5F);
 			double var4 = var1.u - (c.p() + 0.5F);
-			n = (float) class_oa.b(var4, var2);
+			n = (float) MathHelper.b(var4, var2);
 			j += 0.1F;
 			if ((j < 0.5F) || (o.nextInt(40) == 0)) {
 				float var6 = h;
@@ -82,12 +82,12 @@ public class class_aoq extends TileEntity implements class_ks, class_pv {
 		}
 
 		l += var7 * 0.4F;
-		j = class_oa.a(j, 0.0F, 1.0F);
+		j = MathHelper.a(j, 0.0F, 1.0F);
 		++a;
 		g = f;
 		float var3 = (h - f) * 0.4F;
 		float var8 = 0.2F;
-		var3 = class_oa.a(var3, -var8, var8);
+		var3 = MathHelper.a(var3, -var8, var8);
 		i += (var3 - i) * 0.9F;
 		f += i;
 	}
@@ -107,7 +107,7 @@ public class class_aoq extends TileEntity implements class_ks, class_pv {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		return k_() ? new class_fa(e_()) : new class_fb(e_(), new Object[0]);
 	}
 

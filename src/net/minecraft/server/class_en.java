@@ -26,11 +26,11 @@ public class class_en extends ByteToMessageDecoder {
 		if (var2.readableBytes() != 0) {
 			PacketDataSerializer var4 = new PacketDataSerializer(var2);
 			int var5 = var4.g();
-			class_ff var6 = ((class_el) var1.channel().attr(class_ek.c).get()).a(c, var5);
+			Packet var6 = ((class_el) var1.channel().attr(class_ek.c).get()).a(c, var5);
 			if (var6 == null) {
 				throw new IOException("Bad packet id " + var5);
 			} else {
-				var6.a(var4);
+				var6.decode(var4);
 				if (var4.readableBytes() > 0) {
 					throw new IOException("Packet " + ((class_el) var1.channel().attr(class_ek.c).get()).a() + "/" + var5 + " (" + var6.getClass().getSimpleName() + ") was larger than I expected, found " + var4.readableBytes() + " bytes extra whilst reading packet " + var5);
 				} else {

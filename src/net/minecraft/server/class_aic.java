@@ -111,7 +111,7 @@ public class class_aic extends class_ajz {
 		}
 
 		@Override
-		public class_eu f_() {
+		public IChatBaseComponent f_() {
 			return new class_fb(Blocks.ANVIL.a() + ".name", new Object[0]);
 		}
 

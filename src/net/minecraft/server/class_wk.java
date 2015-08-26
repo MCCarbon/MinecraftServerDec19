@@ -29,7 +29,7 @@ public class class_wk extends class_vz {
 				var3 = f.u;
 				double var5 = var1 - a.s;
 				double var7 = var3 - a.u;
-				var9 = class_oa.a((var5 * var5) + (var7 * var7));
+				var9 = MathHelper.a((var5 * var5) + (var7 * var7));
 				double var11 = Math.min((0.4000000059604645D + (var9 / 80.0D)) - 1.0D, 10.0D);
 				e = new class_aym(var1, f.t + var11, var3);
 			}
@@ -44,7 +44,7 @@ public class class_wk extends class_vz {
 				if (a.t(f)) {
 					++c;
 					class_aym var25 = (new class_aym(f.s - a.s, 0.0D, f.u - a.u)).a();
-					class_aym var6 = (new class_aym(class_oa.a((a.y * 3.1415927F) / 180.0F), 0.0D, (-class_oa.b((a.y * 3.1415927F) / 180.0F)))).a();
+					class_aym var6 = (new class_aym(MathHelper.a((a.y * 3.1415927F) / 180.0F), 0.0D, (-MathHelper.b((a.y * 3.1415927F) / 180.0F)))).a();
 					float var26 = (float) var6.b(var25);
 					float var8 = (float) ((Math.acos(var26) * 180.0D) / 3.1415927410125732D);
 					var8 += 0.5F;
@@ -146,13 +146,13 @@ public class class_wk extends class_vz {
 		f = var1;
 		int var2 = a.n();
 		int var3 = a.k(f.s, f.t, f.u);
-		int var4 = class_oa.c(f.s);
-		int var5 = class_oa.c(f.u);
+		int var4 = MathHelper.c(f.s);
+		int var5 = MathHelper.c(f.u);
 		double var6 = var4 - a.s;
 		double var8 = var5 - a.u;
-		double var10 = class_oa.a((var6 * var6) + (var8 * var8));
+		double var10 = MathHelper.a((var6 * var6) + (var8 * var8));
 		double var12 = Math.min((0.4000000059604645D + (var10 / 80.0D)) - 1.0D, 10.0D);
-		int var14 = class_oa.c(f.t + var12);
+		int var14 = MathHelper.c(f.t + var12);
 		class_axa var15 = new class_axa(var4, var14, var5);
 		d = a.a(var2, var3, var15);
 		if (d != null) {

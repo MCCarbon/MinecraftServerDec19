@@ -38,7 +38,7 @@ public class class_aje extends Block {
 		}
 
 		@Override
-		public class_eu f_() {
+		public IChatBaseComponent f_() {
 			return new class_fb(Blocks.CRAFTING_TABLE.a() + ".name", new Object[0]);
 		}
 

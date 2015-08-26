@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 
 import com.google.common.collect.Maps;
 
-public class class_fr implements class_ff {
+public class class_fr implements Packet {
 	private Map a;
 
 	public class_fr() {
@@ -17,12 +17,12 @@ public class class_fr implements class_ff {
 		a = var1;
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		int var2 = var1.g();
 		a = Maps.newHashMap();
 
@@ -37,7 +37,7 @@ public class class_fr implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.b(a.size());
 		Iterator var2 = a.entrySet().iterator();
 
@@ -52,7 +52,7 @@ public class class_fr implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 }

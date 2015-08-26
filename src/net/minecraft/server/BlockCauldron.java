@@ -135,7 +135,7 @@ public class BlockCauldron extends Block {
 	}
 
 	public void a(class_ago var1, class_cj var2, class_apn var3, int var4) {
-		var1.a(var2, var3.a(a, Integer.valueOf(class_oa.a(var4, 0, 3))), 2);
+		var1.a(var2, var3.a(a, Integer.valueOf(MathHelper.a(var4, 0, 3))), 2);
 		var1.f(var2, this);
 	}
 

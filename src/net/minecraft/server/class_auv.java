@@ -26,15 +26,15 @@ public class class_auv {
 
 	public static List a(Random var0, int var1) {
 		ArrayList var2 = Lists.newArrayList();
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_g_in_class_auv.class, 4, class_oa.a(var0, 2 + var1, 4 + (var1 * 2))));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_i_in_class_auv.class, 20, class_oa.a(var0, 0 + var1, 1 + var1)));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_a_in_class_auv.class, 20, class_oa.a(var0, 0 + var1, 2 + var1)));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_h_in_class_auv.class, 3, class_oa.a(var0, 2 + var1, 5 + (var1 * 3))));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_f_in_class_auv.class, 15, class_oa.a(var0, 0 + var1, 2 + var1)));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_b_in_class_auv.class, 3, class_oa.a(var0, 1 + var1, 4 + var1)));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_c_in_class_auv.class, 3, class_oa.a(var0, 2 + var1, 4 + (var1 * 2))));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_j_in_class_auv.class, 15, class_oa.a(var0, 0, 1 + var1)));
-		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_m_in_class_auv.class, 8, class_oa.a(var0, 0 + var1, 3 + (var1 * 2))));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_g_in_class_auv.class, 4, MathHelper.a(var0, 2 + var1, 4 + (var1 * 2))));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_i_in_class_auv.class, 20, MathHelper.a(var0, 0 + var1, 1 + var1)));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_a_in_class_auv.class, 20, MathHelper.a(var0, 0 + var1, 2 + var1)));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_h_in_class_auv.class, 3, MathHelper.a(var0, 2 + var1, 5 + (var1 * 3))));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_f_in_class_auv.class, 15, MathHelper.a(var0, 0 + var1, 2 + var1)));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_b_in_class_auv.class, 3, MathHelper.a(var0, 1 + var1, 4 + var1)));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_c_in_class_auv.class, 3, MathHelper.a(var0, 2 + var1, 4 + (var1 * 2))));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_j_in_class_auv.class, 15, MathHelper.a(var0, 0, 1 + var1)));
+		var2.add(new class_auv.class_e_in_class_auv(class_auv.class_m_in_class_auv.class, 8, MathHelper.a(var0, 0 + var1, 3 + (var1 * 2))));
 		Iterator var3 = var2.iterator();
 
 		while (var3.hasNext()) {
@@ -337,20 +337,20 @@ public class class_auv {
 			for (var4 = 1; var4 <= 7; ++var4) {
 				var5 = ((class_ajf) a).n();
 				int var6 = var5 / 3;
-				this.a(var1, a.a(class_oa.a(var2, var6, var5)), 1, 1, var4, var3);
-				this.a(var1, a.a(class_oa.a(var2, var6, var5)), 2, 1, var4, var3);
+				this.a(var1, a.a(MathHelper.a(var2, var6, var5)), 1, 1, var4, var3);
+				this.a(var1, a.a(MathHelper.a(var2, var6, var5)), 2, 1, var4, var3);
 				int var7 = ((class_ajf) b).n();
 				int var8 = var7 / 3;
-				this.a(var1, b.a(class_oa.a(var2, var8, var7)), 4, 1, var4, var3);
-				this.a(var1, b.a(class_oa.a(var2, var8, var7)), 5, 1, var4, var3);
+				this.a(var1, b.a(MathHelper.a(var2, var8, var7)), 4, 1, var4, var3);
+				this.a(var1, b.a(MathHelper.a(var2, var8, var7)), 5, 1, var4, var3);
 				int var9 = ((class_ajf) c).n();
 				int var10 = var9 / 3;
-				this.a(var1, c.a(class_oa.a(var2, var10, var9)), 7, 1, var4, var3);
-				this.a(var1, c.a(class_oa.a(var2, var10, var9)), 8, 1, var4, var3);
+				this.a(var1, c.a(MathHelper.a(var2, var10, var9)), 7, 1, var4, var3);
+				this.a(var1, c.a(MathHelper.a(var2, var10, var9)), 8, 1, var4, var3);
 				int var11 = ((class_ajf) d).n();
 				int var12 = var11 / 3;
-				this.a(var1, d.a(class_oa.a(var2, var12, var11)), 10, 1, var4, var3);
-				this.a(var1, d.a(class_oa.a(var2, var12, var11)), 11, 1, var4, var3);
+				this.a(var1, d.a(MathHelper.a(var2, var12, var11)), 10, 1, var4, var3);
+				this.a(var1, d.a(MathHelper.a(var2, var12, var11)), 11, 1, var4, var3);
 			}
 
 			for (var4 = 0; var4 < 9; ++var4) {
@@ -438,12 +438,12 @@ public class class_auv {
 			for (var4 = 1; var4 <= 7; ++var4) {
 				var5 = ((class_ajf) a).n();
 				int var6 = var5 / 3;
-				this.a(var1, a.a(class_oa.a(var2, var6, var5)), 1, 1, var4, var3);
-				this.a(var1, a.a(class_oa.a(var2, var6, var5)), 2, 1, var4, var3);
+				this.a(var1, a.a(MathHelper.a(var2, var6, var5)), 1, 1, var4, var3);
+				this.a(var1, a.a(MathHelper.a(var2, var6, var5)), 2, 1, var4, var3);
 				int var7 = ((class_ajf) b).n();
 				int var8 = var7 / 3;
-				this.a(var1, b.a(class_oa.a(var2, var8, var7)), 4, 1, var4, var3);
-				this.a(var1, b.a(class_oa.a(var2, var8, var7)), 5, 1, var4, var3);
+				this.a(var1, b.a(MathHelper.a(var2, var8, var7)), 4, 1, var4, var3);
+				this.a(var1, b.a(MathHelper.a(var2, var8, var7)), 5, 1, var4, var3);
 			}
 
 			for (var4 = 0; var4 < 9; ++var4) {
@@ -1326,7 +1326,7 @@ public class class_auv {
 		}
 
 		public static class_aua a(class_auv.class_k_in_class_auv var0, List var1, Random var2, int var3, int var4, int var5, class_cq var6) {
-			for (int var7 = 7 * class_oa.a(var2, 3, 5); var7 >= 7; var7 -= 7) {
+			for (int var7 = 7 * MathHelper.a(var2, 3, 5); var7 >= 7; var7 -= 7) {
 				class_aua var8 = class_aua.a(var3, var4, var5, 0, 0, 0, 3, 3, var7, var6);
 				if (class_aur.a(var1, var8) == null) {
 					return var8;

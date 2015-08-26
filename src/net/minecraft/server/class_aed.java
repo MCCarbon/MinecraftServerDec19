@@ -80,7 +80,7 @@ public class class_aed {
 	}
 
 	protected static boolean c(class_aco var0, class_aco var1) {
-		class_aec var2 = class_adb.i(var0);
+		PotionRegistry var2 = class_adb.i(var0);
 		int var3 = 0;
 
 		for (int var4 = a.size(); var3 < var4; ++var3) {
@@ -95,7 +95,7 @@ public class class_aed {
 
 	public static class_aco d(class_aco var0, class_aco var1) {
 		if (var1 != null) {
-			class_aec var2 = class_adb.i(var1);
+			PotionRegistry var2 = class_adb.i(var1);
 			Item var3 = var1.b();
 			int var4 = 0;
 
@@ -113,7 +113,7 @@ public class class_aed {
 			for (var5 = a.size(); var4 < var5; ++var4) {
 				var6 = (class_aed.class_b_in_class_aed) a.get(var4);
 				if ((var6.a == var2) && var6.b.apply(var0)) {
-					return class_adb.a(new class_aco(var3), (class_aec) var6.c);
+					return class_adb.a(new class_aco(var3), (PotionRegistry) var6.c);
 				}
 			}
 		}
@@ -198,7 +198,7 @@ public class class_aed {
 		c.add(var0);
 	}
 
-	private static void a(class_aec var0, Predicate var1, class_aec var2) {
+	private static void a(PotionRegistry var0, Predicate var1, PotionRegistry var2) {
 		a.add(new class_aed.class_b_in_class_aed(var0, var1, var2));
 	}
 

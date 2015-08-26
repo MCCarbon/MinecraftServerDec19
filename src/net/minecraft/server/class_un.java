@@ -39,7 +39,7 @@ public class class_un extends class_ul {
 		} else {
 			if (f != null) {
 				double var1 = b.J * b.J;
-				if ((b.c(f) >= var1) && ((b.t <= f.o()) || (b.c((new class_cj(f.n(), class_oa.c(b.t), f.p()))) >= var1))) {
+				if ((b.c(f) >= var1) && ((b.t <= f.o()) || (b.c((new class_cj(f.n(), MathHelper.c(b.t), f.p()))) >= var1))) {
 					b.r().a(f.n(), f.o(), f.p(), e);
 				} else {
 					f = null;

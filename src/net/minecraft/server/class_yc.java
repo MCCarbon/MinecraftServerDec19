@@ -76,7 +76,7 @@ public abstract class class_yc extends class_rn implements class_xx {
 		boolean var4 = var1.a(class_qi.a(this), var2);
 		if (var4) {
 			if (var3 > 0) {
-				var1.g(-class_oa.a((y * 3.1415927F) / 180.0F) * var3 * 0.5F, 0.1D, class_oa.b((y * 3.1415927F) / 180.0F) * var3 * 0.5F);
+				var1.g(-MathHelper.a((y * 3.1415927F) / 180.0F) * var3 * 0.5F, 0.1D, MathHelper.b((y * 3.1415927F) / 180.0F) * var3 * 0.5F);
 				v *= 0.6D;
 				x *= 0.6D;
 			}

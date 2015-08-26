@@ -30,7 +30,7 @@ public class class_ul extends class_um {
 	private int p() {
 		if (b.Y() && h()) {
 			int var1 = (int) b.aX().b;
-			Block var2 = c.p(new class_cj(class_oa.c(b.s), var1, class_oa.c(b.u))).c();
+			Block var2 = c.p(new class_cj(MathHelper.c(b.s), var1, MathHelper.c(b.u))).c();
 			int var3 = 0;
 
 			do {
@@ -39,7 +39,7 @@ public class class_ul extends class_um {
 				}
 
 				++var1;
-				var2 = c.p(new class_cj(class_oa.c(b.s), var1, class_oa.c(b.u))).c();
+				var2 = c.p(new class_cj(MathHelper.c(b.s), var1, MathHelper.c(b.u))).c();
 				++var3;
 			} while (var3 <= 16);
 
@@ -53,7 +53,7 @@ public class class_ul extends class_um {
 	protected void d() {
 		super.d();
 		if (f) {
-			if (c.i(new class_cj(class_oa.c(b.s), (int) (b.aX().b + 0.5D), class_oa.c(b.u)))) {
+			if (c.i(new class_cj(MathHelper.c(b.s), (int) (b.aX().b + 0.5D), MathHelper.c(b.u)))) {
 				return;
 			}
 
@@ -70,8 +70,8 @@ public class class_ul extends class_um {
 
 	@Override
 	protected boolean a(class_aym var1, class_aym var2, int var3, int var4, int var5) {
-		int var6 = class_oa.c(var1.a);
-		int var7 = class_oa.c(var1.c);
+		int var6 = MathHelper.c(var1.a);
+		int var7 = MathHelper.c(var1.c);
 		double var8 = var2.a - var1.a;
 		double var10 = var2.c - var1.c;
 		double var12 = (var8 * var8) + (var10 * var10);
@@ -104,8 +104,8 @@ public class class_ul extends class_um {
 				var22 /= var10;
 				int var24 = var8 < 0.0D ? -1 : 1;
 				int var25 = var10 < 0.0D ? -1 : 1;
-				int var26 = class_oa.c(var2.a);
-				int var27 = class_oa.c(var2.c);
+				int var26 = MathHelper.c(var2.a);
+				int var27 = MathHelper.c(var2.c);
 				int var28 = var26 - var6;
 				int var29 = var27 - var7;
 

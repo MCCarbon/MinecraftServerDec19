@@ -76,9 +76,9 @@ public class class_sp extends class_sr {
 				if (!g.a(e, f)) {
 					if (!d.cu()) {
 						if (d.h(e) >= 144.0D) {
-							int var1 = class_oa.c(e.s) - 2;
-							int var2 = class_oa.c(e.u) - 2;
-							int var3 = class_oa.c(e.aX().b);
+							int var1 = MathHelper.c(e.s) - 2;
+							int var2 = MathHelper.c(e.u) - 2;
+							int var3 = MathHelper.c(e.aX().b);
 
 							for (int var4 = 0; var4 <= 4; ++var4) {
 								for (int var5 = 0; var5 <= 4; ++var5) {

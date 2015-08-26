@@ -36,7 +36,7 @@ public class class_ado extends Item {
 					var3.a(var4, Blocks.SKULL.S().a(BlockSkull.a, var6), 3);
 					int var13 = 0;
 					if (var6 == class_cq.b) {
-						var13 = class_oa.c((var2.y * 16.0F) / 360.0F + 0.5D) & 15;
+						var13 = MathHelper.c((var2.y * 16.0F) / 360.0F + 0.5D) & 15;
 					}
 
 					TileEntity var14 = var3.s(var4);

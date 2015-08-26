@@ -43,8 +43,8 @@ public class class_ek extends SimpleChannelInboundHandler {
 	private final ReentrantReadWriteLock j = new ReentrantReadWriteLock();
 	private Channel k;
 	private SocketAddress l;
-	private class_ep m;
-	private class_eu n;
+	private PacketListener m;
+	private IChatBaseComponent n;
 	private boolean o;
 	private boolean p;
 
@@ -89,10 +89,10 @@ public class class_ek extends SimpleChannelInboundHandler {
 		this.a(var3);
 	}
 
-	protected void a(ChannelHandlerContext var1, class_ff var2) throws Exception {
+	protected void a(ChannelHandlerContext var1, Packet var2) throws Exception {
 		if (k.isOpen()) {
 			try {
-				var2.a(m);
+				var2.handle(m);
 			} catch (class_ko var4) {
 				;
 			}
@@ -100,13 +100,13 @@ public class class_ek extends SimpleChannelInboundHandler {
 
 	}
 
-	public void a(class_ep var1) {
+	public void a(PacketListener var1) {
 		Validate.notNull(var1, "packetListener", new Object[0]);
 		g.debug("Set listener of {} to {}", new Object[] { this, var1 });
 		m = var1;
 	}
 
-	public void a(class_ff var1) {
+	public void a(Packet var1) {
 		if (g()) {
 			m();
 			this.a(var1, (GenericFutureListener[]) null);
@@ -122,7 +122,7 @@ public class class_ek extends SimpleChannelInboundHandler {
 
 	}
 
-	public void a(class_ff var1, GenericFutureListener var2, GenericFutureListener... var3) {
+	public void a(Packet var1, GenericFutureListener var2, GenericFutureListener... var3) {
 		if (g()) {
 			m();
 			this.a(var1, ArrayUtils.add(var3, 0, var2));
@@ -138,7 +138,7 @@ public class class_ek extends SimpleChannelInboundHandler {
 
 	}
 
-	private void a(final class_ff var1, final GenericFutureListener[] var2) {
+	private void a(final Packet var1, final GenericFutureListener[] var2) {
 		final class_el var3 = class_el.a(var1);
 		final class_el var4 = (class_el) k.attr(c).get();
 		if (var4 != var3) {
@@ -206,7 +206,7 @@ public class class_ek extends SimpleChannelInboundHandler {
 		return l;
 	}
 
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		if (k.isOpen()) {
 			k.close().awaitUninterruptibly();
 			n = var1;
@@ -232,11 +232,11 @@ public class class_ek extends SimpleChannelInboundHandler {
 		return k == null;
 	}
 
-	public class_ep i() {
+	public PacketListener i() {
 		return m;
 	}
 
-	public class_eu j() {
+	public IChatBaseComponent j() {
 		return n;
 	}
 
@@ -288,7 +288,7 @@ public class class_ek extends SimpleChannelInboundHandler {
 	// $FF: synthetic method
 	@Override
 	protected void channelRead0(ChannelHandlerContext var1, Object var2) throws Exception {
-		this.a(var1, (class_ff) var2);
+		this.a(var1, (Packet) var2);
 	}
 
 	static {
@@ -330,10 +330,10 @@ public class class_ek extends SimpleChannelInboundHandler {
 	}
 
 	static class class_a_in_class_ek {
-		private final class_ff a;
+		private final Packet a;
 		private final GenericFutureListener[] b;
 
-		public class_a_in_class_ek(class_ff var1, GenericFutureListener... var2) {
+		public class_a_in_class_ek(Packet var1, GenericFutureListener... var2) {
 			a = var1;
 			b = var2;
 		}

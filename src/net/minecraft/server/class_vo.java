@@ -106,7 +106,7 @@ public class class_vo extends class_vq {
 			float var1;
 			if (bs < 3.1415927F) {
 				var1 = bs / 3.1415927F;
-				bu = class_oa.a(var1 * var1 * 3.1415927F) * 3.1415927F * 0.25F;
+				bu = MathHelper.a(var1 * var1 * 3.1415927F) * 3.1415927F * 0.25F;
 				if (var1 > 0.75D) {
 					bw = 1.0F;
 					by = 1.0F;
@@ -125,13 +125,13 @@ public class class_vo extends class_vq {
 				x = bB * bw;
 			}
 
-			var1 = class_oa.a((v * v) + (x * x));
-			aM += (((-((float) class_oa.b(v, x)) * 180.0F) / 3.1415927F) - aM) * 0.1F;
+			var1 = MathHelper.a((v * v) + (x * x));
+			aM += (((-((float) MathHelper.b(v, x)) * 180.0F) / 3.1415927F) - aM) * 0.1F;
 			y = aM;
 			c = (float) (c + (3.141592653589793D * by * 1.5D));
-			a += (((-((float) class_oa.b(var1, w)) * 180.0F) / 3.1415927F) - a) * 0.1F;
+			a += (((-((float) MathHelper.b(var1, w)) * 180.0F) / 3.1415927F) - a) * 0.1F;
 		} else {
-			bu = class_oa.e(class_oa.a(bs)) * 3.1415927F * 0.25F;
+			bu = MathHelper.e(MathHelper.a(bs)) * 3.1415927F * 0.25F;
 			if (!o.D) {
 				v = 0.0D;
 				w -= 0.08D;
@@ -183,9 +183,9 @@ public class class_vo extends class_vq {
 				a.b(0.0F, 0.0F, 0.0F);
 			} else if ((a.bj().nextInt(50) == 0) || !a.Y || !a.n()) {
 				float var2 = a.bj().nextFloat() * 3.1415927F * 2.0F;
-				float var3 = class_oa.b(var2) * 0.2F;
+				float var3 = MathHelper.b(var2) * 0.2F;
 				float var4 = -0.1F + (a.bj().nextFloat() * 0.2F);
-				float var5 = class_oa.a(var2) * 0.2F;
+				float var5 = MathHelper.a(var2) * 0.2F;
 				a.b(var3, var4, var5);
 			}
 

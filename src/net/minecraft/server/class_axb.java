@@ -13,9 +13,9 @@ public abstract class class_axb {
 		a = var1;
 		b = var2;
 		c.c();
-		d = class_oa.d(var2.J + 1.0F);
-		e = class_oa.d(var2.K + 1.0F);
-		f = class_oa.d(var2.J + 1.0F);
+		d = MathHelper.d(var2.J + 1.0F);
+		e = MathHelper.d(var2.K + 1.0F);
+		f = MathHelper.d(var2.J + 1.0F);
 	}
 
 	public void a() {

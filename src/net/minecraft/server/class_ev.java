@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class class_ev {
-	public static class_eu a(ICommandListener var0, class_eu var1, Entity var2) throws class_bz {
+	public static IChatBaseComponent a(ICommandListener var0, IChatBaseComponent var1, Entity var2) throws class_bz {
 		Object var3 = null;
 		if (var1 instanceof class_ex) {
 			class_ex var4 = (class_ex) var1;
@@ -37,8 +37,8 @@ public class class_ev {
 
 			for (int var10 = 0; var10 < var8.length; ++var10) {
 				Object var11 = var8[var10];
-				if (var11 instanceof class_eu) {
-					var8[var10] = a(var0, (class_eu) var11, var2);
+				if (var11 instanceof IChatBaseComponent) {
+					var8[var10] = a(var0, (IChatBaseComponent) var11, var2);
 				}
 			}
 
@@ -47,16 +47,16 @@ public class class_ev {
 
 		class_ez var9 = var1.b();
 		if (var9 != null) {
-			((class_eu) var3).a(var9.m());
+			((IChatBaseComponent) var3).a(var9.m());
 		}
 
 		Iterator var13 = var1.a().iterator();
 
 		while (var13.hasNext()) {
-			class_eu var12 = (class_eu) var13.next();
-			((class_eu) var3).a(a(var0, var12, var2));
+			IChatBaseComponent var12 = (IChatBaseComponent) var13.next();
+			((IChatBaseComponent) var3).a(a(var0, var12, var2));
 		}
 
-		return (class_eu) var3;
+		return (IChatBaseComponent) var3;
 	}
 }

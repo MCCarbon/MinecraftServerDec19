@@ -463,7 +463,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 			Y = var1;
 			r.a(new class_ju.class_a_in_class_ju(L(), K()));
 			GameProfile[] var3 = new GameProfile[Math.min(K(), 12)];
-			int var4 = class_oa.a(s, 0, K() - var3.length);
+			int var4 = MathHelper.a(s, 0, K() - var3.length);
 
 			for (int var5 = 0; var5 < var3.length; ++var5) {
 				var3[var5] = ((class_lm) w.v().get(var4 + var5)).cl();
@@ -811,7 +811,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		k.info(var1.c());
 	}
 
@@ -940,7 +940,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		var1.a("uses_auth", Boolean.valueOf(A));
 		var1.a("gui_state", au() ? "enabled" : "disabled");
 		var1.a("run_time", Long.valueOf(((aB() - var1.g()) / 60L) * 1000L));
-		var1.a("avg_tick_ms", Integer.valueOf((int) (class_oa.a(h) * 1.0E-6D)));
+		var1.a("avg_tick_ms", Integer.valueOf((int) (MathHelper.a(h) * 1.0E-6D)));
 		int var2 = 0;
 		if (d != null) {
 			for (int var3 = 0; var3 < d.length; ++var3) {
@@ -1128,7 +1128,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		return new class_fa(e_());
 	}
 

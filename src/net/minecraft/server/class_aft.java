@@ -34,7 +34,7 @@ public class class_aft extends class_afj {
 			return 0;
 		} else {
 			float var3 = (6 + (var1 * var1)) / 3.0F;
-			return a == class_aft.class_a_in_class_aft.a ? class_oa.d(var3 * 0.75F) : ((a == class_aft.class_a_in_class_aft.b) && var2.o() ? class_oa.d(var3 * 1.25F) : ((a == class_aft.class_a_in_class_aft.c) && (var2 == class_qi.i) ? class_oa.d(var3 * 2.5F) : ((a == class_aft.class_a_in_class_aft.d) && var2.c() ? class_oa.d(var3 * 1.5F) : ((a == class_aft.class_a_in_class_aft.e) && var2.a() ? class_oa.d(var3 * 1.5F) : 0))));
+			return a == class_aft.class_a_in_class_aft.a ? MathHelper.d(var3 * 0.75F) : ((a == class_aft.class_a_in_class_aft.b) && var2.o() ? MathHelper.d(var3 * 1.25F) : ((a == class_aft.class_a_in_class_aft.c) && (var2 == class_qi.i) ? MathHelper.d(var3 * 2.5F) : ((a == class_aft.class_a_in_class_aft.d) && var2.c() ? MathHelper.d(var3 * 1.5F) : ((a == class_aft.class_a_in_class_aft.e) && var2.a() ? MathHelper.d(var3 * 1.5F) : 0))));
 		}
 	}
 
@@ -56,7 +56,7 @@ public class class_aft extends class_afj {
 	public static int a(class_rg var0, int var1) {
 		int var2 = class_afl.a(class_afn.b, var0);
 		if (var2 > 0) {
-			var1 -= class_oa.d((float) var1 * (float) var2 * 0.15F);
+			var1 -= MathHelper.d((float) var1 * (float) var2 * 0.15F);
 		}
 
 		return var1;
@@ -65,7 +65,7 @@ public class class_aft extends class_afj {
 	public static double a(class_rg var0, double var1) {
 		int var3 = class_afl.a(class_afn.d, var0);
 		if (var3 > 0) {
-			var1 -= class_oa.c(var1 * (var3 * 0.15F));
+			var1 -= MathHelper.c(var1 * (var3 * 0.15F));
 		}
 
 		return var1;

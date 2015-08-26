@@ -34,7 +34,7 @@ public class class_aos extends TileEntity {
 	}
 
 	@Override
-	public class_ff x_() {
+	public Packet x_() {
 		class_dn var1 = new class_dn();
 		this.b(var1);
 		var1.q("Item");

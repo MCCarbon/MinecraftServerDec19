@@ -8,7 +8,7 @@ public abstract class class_age implements ICommandListener {
 	private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
 	private int b;
 	private boolean c = true;
-	private class_eu d = null;
+	private IChatBaseComponent d = null;
 	private String e = "";
 	private String f = "@";
 	private final class_n g = new class_n();
@@ -21,7 +21,7 @@ public abstract class class_age implements ICommandListener {
 		b = var1;
 	}
 
-	public class_eu k() {
+	public IChatBaseComponent k() {
 		return d;
 	}
 
@@ -31,7 +31,7 @@ public abstract class class_age implements ICommandListener {
 		var1.a("CustomName", f);
 		var1.a("TrackOutput", c);
 		if ((d != null) && c) {
-			var1.a("LastOutput", class_eu.class_a_in_class_eu.a(d));
+			var1.a("LastOutput", IChatBaseComponent.class_a_in_class_eu.a(d));
 		}
 
 		g.b(var1);
@@ -49,7 +49,7 @@ public abstract class class_age implements ICommandListener {
 		}
 
 		if (var1.b("LastOutput", 8) && c) {
-			d = class_eu.class_a_in_class_eu.a(var1.l("LastOutput"));
+			d = IChatBaseComponent.class_a_in_class_eu.a(var1.l("LastOutput"));
 		}
 
 		g.a(var1);
@@ -120,7 +120,7 @@ public abstract class class_age implements ICommandListener {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		return new class_fa(e_());
 	}
 
@@ -129,7 +129,7 @@ public abstract class class_age implements ICommandListener {
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		if (c && (e() != null) && !e().D) {
 			d = (new class_fa("[" + a.format(new Date()) + "] ")).a(var1);
 			h();
@@ -150,7 +150,7 @@ public abstract class class_age implements ICommandListener {
 
 	public abstract void h();
 
-	public void b(class_eu var1) {
+	public void b(IChatBaseComponent var1) {
 		d = var1;
 	}
 

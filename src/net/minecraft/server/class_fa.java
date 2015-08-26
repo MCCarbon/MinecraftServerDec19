@@ -24,7 +24,7 @@ public class class_fa extends class_es {
 		Iterator var2 = this.a().iterator();
 
 		while (var2.hasNext()) {
-			class_eu var3 = (class_eu) var2.next();
+			IChatBaseComponent var3 = (IChatBaseComponent) var2.next();
 			var1.a(var3.f());
 		}
 
@@ -50,7 +50,7 @@ public class class_fa extends class_es {
 
 	// $FF: synthetic method
 	@Override
-	public class_eu f() {
+	public IChatBaseComponent f() {
 		return h();
 	}
 }

@@ -106,7 +106,7 @@ public class class_lv implements class_jm, class_ks {
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		c.info(d() + " lost connection: " + var1.c());
 	}
 

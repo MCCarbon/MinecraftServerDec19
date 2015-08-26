@@ -63,17 +63,17 @@ public class class_dp extends class_eb.class_a_in_class_eb {
 
 	@Override
 	public int d() {
-		return class_oa.c(b);
+		return MathHelper.c(b);
 	}
 
 	@Override
 	public short e() {
-		return (short) (class_oa.c(b) & '\uffff');
+		return (short) (MathHelper.c(b) & '\uffff');
 	}
 
 	@Override
 	public byte f() {
-		return (byte) (class_oa.c(b) & 255);
+		return (byte) (MathHelper.c(b) & 255);
 	}
 
 	@Override

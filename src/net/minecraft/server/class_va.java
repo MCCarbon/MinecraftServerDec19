@@ -81,7 +81,7 @@ public class class_va extends class_uz {
 		super.r_();
 		if (this.n()) {
 			v = w = x = 0.0D;
-			t = (class_oa.c(t) + 1.0D) - K;
+			t = (MathHelper.c(t) + 1.0D) - K;
 		} else {
 			w *= 0.6000000238418579D;
 		}
@@ -122,8 +122,8 @@ public class class_va extends class_uz {
 			v += ((Math.signum(var3) * 0.5D) - v) * 0.10000000149011612D;
 			w += ((Math.signum(var5) * 0.699999988079071D) - w) * 0.10000000149011612D;
 			x += ((Math.signum(var7) * 0.5D) - x) * 0.10000000149011612D;
-			float var9 = (float) ((class_oa.b(x, v) * 180.0D) / 3.1415927410125732D) - 90.0F;
-			float var10 = class_oa.g(var9 - y);
+			float var9 = (float) ((MathHelper.b(x, v) * 180.0D) / 3.1415927410125732D) - 90.0F;
+			float var10 = MathHelper.g(var9 - y);
 			be = 0.5F;
 			y += var10;
 			if ((V.nextInt(100) == 0) && o.p(var2).c().x()) {

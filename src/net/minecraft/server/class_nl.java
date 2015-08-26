@@ -13,7 +13,7 @@ public class class_nl {
 		d = var2;
 		b = var1;
 		c = (1L << var1) - 1L;
-		a = new long[class_oa.c(var2 * var1, 64) / 64];
+		a = new long[MathHelper.c(var2 * var1, 64) / 64];
 	}
 
 	public void a(int var1, int var2) {

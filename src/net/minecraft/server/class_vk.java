@@ -141,7 +141,7 @@ public class class_vk extends class_vc {
 	}
 
 	private void a(double var1, double var3) {
-		y = (float) ((class_oa.b(var3 - u, var1 - s) * 180.0D) / 3.1415927410125732D) - 90.0F;
+		y = (float) ((MathHelper.b(var3 - u, var1 - s) * 180.0D) / 3.1415927410125732D) - 90.0F;
 	}
 
 	private void cM() {

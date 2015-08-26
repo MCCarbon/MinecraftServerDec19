@@ -50,17 +50,17 @@ public class class_qh {
 
 	}
 
-	public class_eu b() {
+	public IChatBaseComponent b() {
 		if (a.isEmpty()) {
 			return new class_fb("death.attack.generic", new Object[] { b.f_() });
 		} else {
 			class_qg var1 = j();
 			class_qg var2 = (class_qg) a.get(a.size() - 1);
-			class_eu var4 = var2.h();
+			IChatBaseComponent var4 = var2.h();
 			Entity var5 = var2.a().j();
 			Object var3;
 			if ((var1 != null) && (var2.a() == class_qi.i)) {
-				class_eu var6 = var1.h();
+				IChatBaseComponent var6 = var1.h();
 				if ((var1.a() != class_qi.i) && (var1.a() != class_qi.j)) {
 					if ((var6 == null) || ((var4 != null) && var6.equals(var4))) {
 						if (var4 != null) {
@@ -89,7 +89,7 @@ public class class_qh {
 				var3 = var2.a().c(b);
 			}
 
-			return (class_eu) var3;
+			return (IChatBaseComponent) var3;
 		}
 	}
 

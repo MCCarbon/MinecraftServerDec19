@@ -171,7 +171,7 @@ public class class_kq extends class_ays {
 			Iterator var5 = var2.iterator();
 
 			while (var5.hasNext()) {
-				class_ff var6 = (class_ff) var5.next();
+				Packet var6 = (Packet) var5.next();
 				var4.a.a(var6);
 			}
 		}
@@ -201,7 +201,7 @@ public class class_kq extends class_ays {
 			Iterator var5 = var2.iterator();
 
 			while (var5.hasNext()) {
-				class_ff var6 = (class_ff) var5.next();
+				Packet var6 = (Packet) var5.next();
 				var4.a.a(var6);
 			}
 		}

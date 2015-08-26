@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public class class_lw implements class_jv {
-	private static final class_eu a = new class_fa("Status request has been handled.");
+	private static final IChatBaseComponent a = new class_fa("Status request has been handled.");
 	private final MinecraftServer b;
 	private final class_ek c;
 	private boolean d;
@@ -13,7 +13,7 @@ public class class_lw implements class_jv {
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 	}
 
 	@Override

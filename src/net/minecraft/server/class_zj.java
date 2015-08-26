@@ -40,15 +40,15 @@ public abstract class class_zj extends Entity implements class_zd {
 	}
 
 	public void a(float var1, float var2, float var3, float var4, float var5) {
-		float var6 = -class_oa.a(var2 * 0.017453292F) * class_oa.b(var1 * 0.017453292F);
-		float var7 = -class_oa.a((var1 + var3) * 0.017453292F);
-		float var8 = class_oa.b(var2 * 0.017453292F) * class_oa.b(var1 * 0.017453292F);
+		float var6 = -MathHelper.a(var2 * 0.017453292F) * MathHelper.b(var1 * 0.017453292F);
+		float var7 = -MathHelper.a((var1 + var3) * 0.017453292F);
+		float var8 = MathHelper.b(var2 * 0.017453292F) * MathHelper.b(var1 * 0.017453292F);
 		this.c(var6, var7, var8, var4, var5);
 	}
 
 	@Override
 	public void c(double var1, double var3, double var5, float var7, float var8) {
-		float var9 = class_oa.a((var1 * var1) + (var3 * var3) + (var5 * var5));
+		float var9 = MathHelper.a((var1 * var1) + (var3 * var3) + (var5 * var5));
 		var1 /= var9;
 		var3 /= var9;
 		var5 /= var9;
@@ -61,9 +61,9 @@ public abstract class class_zj extends Entity implements class_zd {
 		v = var1;
 		w = var3;
 		x = var5;
-		float var10 = class_oa.a((var1 * var1) + (var5 * var5));
-		A = y = (float) ((class_oa.b(var1, var5) * 180.0D) / 3.1415927410125732D);
-		B = z = (float) ((class_oa.b(var3, var10) * 180.0D) / 3.1415927410125732D);
+		float var10 = MathHelper.a((var1 * var1) + (var5 * var5));
+		A = y = (float) ((MathHelper.b(var1, var5) * 180.0D) / 3.1415927410125732D);
+		B = z = (float) ((MathHelper.b(var3, var10) * 180.0D) / 3.1415927410125732D);
 		as = 0;
 	}
 
@@ -160,10 +160,10 @@ public abstract class class_zj extends Entity implements class_zd {
 		s += v;
 		t += w;
 		u += x;
-		float var16 = class_oa.a((v * v) + (x * x));
-		y = (float) ((class_oa.b(v, x) * 180.0D) / 3.1415927410125732D);
+		float var16 = MathHelper.a((v * v) + (x * x));
+		y = (float) ((MathHelper.b(v, x) * 180.0D) / 3.1415927410125732D);
 
-		for (z = (float) ((class_oa.b(w, var16) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
+		for (z = (float) ((MathHelper.b(w, var16) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
 			;
 		}
 

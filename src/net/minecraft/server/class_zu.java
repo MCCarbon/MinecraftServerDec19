@@ -470,7 +470,7 @@ public abstract class class_zu {
 	public static void a(Set var0, int var1, class_aco var2, int var3) {
 		switch (var1) {
 			case 0:
-				var2.b = class_oa.d((float) var2.b / (float) var0.size());
+				var2.b = MathHelper.d((float) var2.b / (float) var0.size());
 				break;
 			case 1:
 				var2.b = 1;
@@ -506,7 +506,7 @@ public abstract class class_zu {
 			}
 
 			var2 /= var0.n_();
-			return class_oa.d(var2 * 14.0F) + (var1 > 0 ? 1 : 0);
+			return MathHelper.d(var2 * 14.0F) + (var1 > 0 ? 1 : 0);
 		}
 	}
 }

@@ -24,9 +24,9 @@ public class class_vn extends class_vg implements class_ye {
 	public void m() {
 		super.m();
 		if (!o.D) {
-			int var1 = class_oa.c(s);
-			int var2 = class_oa.c(t);
-			int var3 = class_oa.c(u);
+			int var1 = MathHelper.c(s);
+			int var2 = MathHelper.c(t);
+			int var3 = MathHelper.c(u);
 			if (X()) {
 				this.a(class_qi.f, 1.0F);
 			}
@@ -36,9 +36,9 @@ public class class_vn extends class_vg implements class_ye {
 			}
 
 			for (int var4 = 0; var4 < 4; ++var4) {
-				var1 = class_oa.c(s + (((var4 % 2) * 2) - 1) * 0.25F);
-				var2 = class_oa.c(t);
-				var3 = class_oa.c(u + ((((var4 / 2) % 2) * 2) - 1) * 0.25F);
+				var1 = MathHelper.c(s + (((var4 % 2) * 2) - 1) * 0.25F);
+				var2 = MathHelper.c(t);
+				var3 = MathHelper.c(u + ((((var4 / 2) % 2) * 2) - 1) * 0.25F);
 				class_cj var5 = new class_cj(var1, var2, var3);
 				if ((o.p(var5).c().v() == class_avq.a) && (o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F) && Blocks.SNOW_LAYER.c(o, var5)) {
 					o.a(var5, Blocks.SNOW_LAYER.S());
@@ -70,7 +70,7 @@ public class class_vn extends class_vg implements class_ye {
 		double var6 = var1.s - s;
 		double var8 = var4 - var3.t;
 		double var10 = var1.u - u;
-		float var12 = class_oa.a((var6 * var6) + (var10 * var10)) * 0.2F;
+		float var12 = MathHelper.a((var6 * var6) + (var10 * var10)) * 0.2F;
 		var3.c(var6, var8 + var12, var10, 1.6F, 12.0F);
 		this.a("random.bow", 1.0F, 1.0F / ((bj().nextFloat() * 0.4F) + 0.8F));
 		o.a(var3);

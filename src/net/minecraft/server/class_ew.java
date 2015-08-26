@@ -6,9 +6,9 @@ import com.google.common.collect.Maps;
 
 public class class_ew {
 	private final class_ew.class_a_in_class_ew a;
-	private final class_eu b;
+	private final IChatBaseComponent b;
 
-	public class_ew(class_ew.class_a_in_class_ew var1, class_eu var2) {
+	public class_ew(class_ew.class_a_in_class_ew var1, IChatBaseComponent var2) {
 		a = var1;
 		b = var2;
 	}
@@ -17,7 +17,7 @@ public class class_ew {
 		return a;
 	}
 
-	public class_eu b() {
+	public IChatBaseComponent b() {
 		return b;
 	}
 

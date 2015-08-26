@@ -79,12 +79,12 @@ public class class_agk {
 
 		j.addAll(var1);
 		float var30 = i * 2.0F;
-		var4 = class_oa.c(e - var30 - 1.0D);
-		var5 = class_oa.c(e + var30 + 1.0D);
-		int var31 = class_oa.c(f - var30 - 1.0D);
-		int var7 = class_oa.c(f + var30 + 1.0D);
-		int var32 = class_oa.c(g - var30 - 1.0D);
-		int var9 = class_oa.c(g + var30 + 1.0D);
+		var4 = MathHelper.c(e - var30 - 1.0D);
+		var5 = MathHelper.c(e + var30 + 1.0D);
+		int var31 = MathHelper.c(f - var30 - 1.0D);
+		int var7 = MathHelper.c(f + var30 + 1.0D);
+		int var32 = MathHelper.c(g - var30 - 1.0D);
+		int var9 = MathHelper.c(g + var30 + 1.0D);
 		List var33 = d.b(h, new class_ayk(var4, var31, var32, var5, var7, var9));
 		class_aym var11 = new class_aym(e, f, g);
 
@@ -96,7 +96,7 @@ public class class_agk {
 					double var16 = var13.s - e;
 					double var18 = (var13.t + var13.aY()) - f;
 					double var20 = var13.u - g;
-					double var36 = class_oa.a((var16 * var16) + (var18 * var18) + (var20 * var20));
+					double var36 = MathHelper.a((var16 * var16) + (var18 * var18) + (var20 * var20));
 					if (var36 != 0.0D) {
 						var16 /= var36;
 						var18 /= var36;
@@ -145,7 +145,7 @@ public class class_agk {
 					double var11 = var5 - e;
 					double var13 = var7 - f;
 					double var15 = var9 - g;
-					double var17 = class_oa.a((var11 * var11) + (var13 * var13) + (var15 * var15));
+					double var17 = MathHelper.a((var11 * var11) + (var13 * var13) + (var15 * var15));
 					var11 /= var17;
 					var13 /= var17;
 					var15 /= var17;

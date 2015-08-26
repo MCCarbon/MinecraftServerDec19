@@ -25,9 +25,9 @@ public class class_auu extends class_auo {
 		while (var2.hasNext()) {
 			Entry var3 = (Entry) var2.next();
 			if (((String) var3.getKey()).equals("size")) {
-				f = class_oa.a(((String) var3.getValue()), f, 0);
+				f = MathHelper.a(((String) var3.getValue()), f, 0);
 			} else if (((String) var3.getKey()).equals("distance")) {
-				g = class_oa.a((String) var3.getValue(), g, h + 1);
+				g = MathHelper.a((String) var3.getValue(), g, h + 1);
 			}
 		}
 

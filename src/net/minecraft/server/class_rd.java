@@ -84,7 +84,7 @@ public class class_rd extends Entity {
 		this.d(v, w, x);
 		float var13 = 0.98F;
 		if (C) {
-			var13 = o.p(new class_cj(class_oa.c(s), class_oa.c(aX().b) - 1, class_oa.c(u))).c().L * 0.98F;
+			var13 = o.p(new class_cj(MathHelper.c(s), MathHelper.c(aX().b) - 1, MathHelper.c(u))).c().L * 0.98F;
 		}
 
 		v *= var13;

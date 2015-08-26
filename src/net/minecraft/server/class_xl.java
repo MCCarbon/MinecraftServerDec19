@@ -63,7 +63,7 @@ public class class_xl extends class_xh {
 		super.a(var1, var2);
 		double var3 = (a * a) + (b * b);
 		if ((var3 > 1.0E-4D) && (((v * v) + (x * x)) > 0.001D)) {
-			var3 = class_oa.a(var3);
+			var3 = MathHelper.a(var3);
 			a /= var3;
 			b /= var3;
 			if (((a * v) + (b * x)) < 0.0D) {
@@ -82,7 +82,7 @@ public class class_xl extends class_xh {
 	protected void o() {
 		double var1 = (a * a) + (b * b);
 		if (var1 > 1.0E-4D) {
-			var1 = class_oa.a(var1);
+			var1 = MathHelper.a(var1);
 			a /= var1;
 			b /= var1;
 			double var3 = 1.0D;

@@ -6,7 +6,7 @@ import com.google.common.collect.AbstractIterator;
 
 public class class_cj extends class_df {
 	public static final class_cj a = new class_cj(0, 0, 0);
-	private static final int c = 1 + class_oa.d(class_oa.b(30000000));
+	private static final int c = 1 + MathHelper.d(MathHelper.b(30000000));
 	private static final int d;
 	private static final int e;
 	private static final int f;

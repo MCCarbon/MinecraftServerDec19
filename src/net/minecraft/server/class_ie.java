@@ -4,13 +4,13 @@ import java.io.IOException;
 
 import org.apache.commons.lang3.StringUtils;
 
-public class class_ie implements class_ff {
+public class class_ie implements Packet {
 	private String a;
 	private boolean b;
 	private class_cj c;
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.c(32767);
 		b = var1.readBoolean();
 		boolean var2 = var1.readBoolean();
@@ -21,7 +21,7 @@ public class class_ie implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(StringUtils.substring(a, 0, 32767));
 		var1.writeBoolean(b);
 		boolean var2 = c != null;
@@ -51,7 +51,7 @@ public class class_ie implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
+	public void handle(PacketListener var1) {
 		this.a((class_id) var1);
 	}
 }

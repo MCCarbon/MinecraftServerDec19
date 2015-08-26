@@ -29,9 +29,9 @@ public class class_aui extends class_auo {
 		while (var2.hasNext()) {
 			Entry var3 = (Entry) var2.next();
 			if (((String) var3.getKey()).equals("spacing")) {
-				f = class_oa.a(((String) var3.getValue()), f, 1);
+				f = MathHelper.a(((String) var3.getValue()), f, 1);
 			} else if (((String) var3.getKey()).equals("separation")) {
-				g = class_oa.a(((String) var3.getValue()), g, 1);
+				g = MathHelper.a(((String) var3.getValue()), g, 1);
 			}
 		}
 

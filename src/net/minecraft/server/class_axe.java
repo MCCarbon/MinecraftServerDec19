@@ -14,12 +14,12 @@ public class class_axe extends class_axb {
 
 	@Override
 	public class_axa b() {
-		return this.a(class_oa.c(b.aX().a), class_oa.c(b.aX().b + 0.5D), class_oa.c(b.aX().c));
+		return this.a(MathHelper.c(b.aX().a), MathHelper.c(b.aX().b + 0.5D), MathHelper.c(b.aX().c));
 	}
 
 	@Override
 	public class_axa a(double var1, double var3, double var5) {
-		return this.a(class_oa.c(var1 - b.J / 2.0F), class_oa.c(var3 + 0.5D), class_oa.c(var5 - b.J / 2.0F));
+		return this.a(MathHelper.c(var1 - b.J / 2.0F), MathHelper.c(var3 + 0.5D), MathHelper.c(var5 - b.J / 2.0F));
 	}
 
 	@Override

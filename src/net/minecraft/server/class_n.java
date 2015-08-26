@@ -22,12 +22,12 @@ public class class_n {
 				}
 
 				@Override
-				public class_eu f_() {
+				public IChatBaseComponent f_() {
 					return var1.f_();
 				}
 
 				@Override
-				public void a(class_eu var1x) {
+				public void a(IChatBaseComponent var1x) {
 					var1.a(var1x);
 				}
 

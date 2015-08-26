@@ -73,7 +73,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 		int var4 = (c - (var1 * 1) - 1) & 63;
 		double[] var5 = new double[3];
 		double var6 = b[var3][0];
-		double var8 = class_oa.g(b[var4][0] - var6);
+		double var8 = MathHelper.g(b[var4][0] - var6);
 		var5[0] = var6 + (var8 * var2);
 		var6 = b[var3][1];
 		var8 = b[var4][1] - var6;
@@ -89,8 +89,8 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 		if (o.D) {
 			this.c(bu());
 			if (!T()) {
-				var1 = class_oa.b(bB * 3.1415927F * 2.0F);
-				var2 = class_oa.b(bA * 3.1415927F * 2.0F);
+				var1 = MathHelper.b(bB * 3.1415927F * 2.0F);
+				var2 = MathHelper.b(bA * 3.1415927F * 2.0F);
 				if ((var2 <= -0.3F) && (var1 >= -0.3F)) {
 					o.a(s, t, u, "mob.enderdragon.wings", 5.0F, 0.8F + (V.nextFloat() * 0.3F), false);
 				}
@@ -111,7 +111,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 			o.a(class_cy.b, s + var1, t + 2.0D + var2, u + var25, 0.0D, 0.0D, 0.0D, new int[0]);
 		} else {
 			cA();
-			var1 = 0.2F / ((class_oa.a((v * v) + (x * x)) * 10.0F) + 1.0F);
+			var1 = 0.2F / ((MathHelper.a((v * v) + (x * x)) * 10.0F) + 1.0F);
 			var1 *= (float) Math.pow(2.0D, w);
 			if (bH.a().a()) {
 				bB += 0.1F;
@@ -121,7 +121,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 				bB += var1;
 			}
 
-			y = class_oa.g(y);
+			y = MathHelper.g(y);
 			if (cw()) {
 				bB = 0.5F;
 			} else {
@@ -147,7 +147,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 						double var23 = s + ((bh - s) / bg);
 						var4 = t + ((bi - t) / bg);
 						var6 = u + ((bj - u) / bg);
-						var8 = class_oa.g(bk - y);
+						var8 = MathHelper.g(bk - y);
 						y = (float) (y + (var8 / bg));
 						z = (float) (z + ((bl - z) / bg));
 						--bg;
@@ -171,12 +171,12 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 						var8 = var3.c - u;
 						double var10 = (var4 * var4) + (var6 * var6) + (var8 * var8);
 						var12 = var24.f();
-						var6 = class_oa.a(var6 / class_oa.a((var4 * var4) + (var8 * var8)), (-var12), var12);
+						var6 = MathHelper.a(var6 / MathHelper.a((var4 * var4) + (var8 * var8)), (-var12), var12);
 						w += var6 * 0.10000000149011612D;
-						y = class_oa.g(y);
-						double var13 = class_oa.a(class_oa.g(180.0D - ((class_oa.b(var4, var8) * 180.0D) / 3.1415927410125732D) - y), -50.0D, 50.0D);
+						y = MathHelper.g(y);
+						double var13 = MathHelper.a(MathHelper.g(180.0D - ((MathHelper.b(var4, var8) * 180.0D) / 3.1415927410125732D) - y), -50.0D, 50.0D);
 						class_aym var15 = (new class_aym(var3.a - s, var3.b - t, var3.c - u)).a();
-						class_aym var16 = (new class_aym(class_oa.a((y * 3.1415927F) / 180.0F), w, (-class_oa.b((y * 3.1415927F) / 180.0F)))).a();
+						class_aym var16 = (new class_aym(MathHelper.a((y * 3.1415927F) / 180.0F), w, (-MathHelper.b((y * 3.1415927F) / 180.0F)))).a();
 						float var17 = Math.max(((float) var16.b(var15) + 0.5F) / 1.5F, 0.0F);
 						bf *= 0.8F;
 						bf = (float) (bf + (var13 * var24.h()));
@@ -212,11 +212,11 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 				bz.K = 3.0F;
 				bz.J = 4.0F;
 				var2 = (((float) (this.a(5, 1.0F)[1] - this.a(10, 1.0F)[1]) * 10.0F) / 180.0F) * 3.1415927F;
-				var25 = class_oa.b(var2);
-				float var26 = class_oa.a(var2);
+				var25 = MathHelper.b(var2);
+				float var26 = MathHelper.a(var2);
 				float var5 = (y * 3.1415927F) / 180.0F;
-				float var27 = class_oa.a(var5);
-				float var7 = class_oa.b(var5);
+				float var27 = MathHelper.a(var5);
+				float var7 = MathHelper.b(var5);
 				bu.r_();
 				bu.b(s + var27 * 0.5F, t, u - var7 * 0.5F, 0.0F, 0.0F);
 				by.r_();
@@ -231,8 +231,8 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 				}
 
 				double[] var28 = this.a(5, 1.0F);
-				float var9 = class_oa.a(((y * 3.1415927F) / 180.0F) - (bf * 0.01F));
-				float var30 = class_oa.b(((y * 3.1415927F) / 180.0F) - (bf * 0.01F));
+				float var9 = MathHelper.a(((y * 3.1415927F) / 180.0F) - (bf * 0.01F));
+				float var30 = MathHelper.b(((y * 3.1415927F) / 180.0F) - (bf * 0.01F));
 				bs.r_();
 				bt.r_();
 				float var11 = this.p(1.0F);
@@ -255,8 +255,8 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 
 					double[] var32 = this.a(12 + (var29 * 2), 1.0F);
 					var12 = ((y * 3.1415927F) / 180.0F) + (((this.b(var32[0] - var28[0]) * 3.1415927F) / 180.0F) * 1.0F);
-					float var33 = class_oa.a(var12);
-					float var14 = class_oa.b(var12);
+					float var33 = MathHelper.a(var12);
+					float var14 = MathHelper.b(var12);
 					float var34 = 1.5F;
 					float var35 = (var29 + 1) * 2.0F;
 					var31.r_();
@@ -350,16 +350,16 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 	}
 
 	private float b(double var1) {
-		return (float) class_oa.g(var1);
+		return (float) MathHelper.g(var1);
 	}
 
 	private boolean b(class_ayk var1) {
-		int var2 = class_oa.c(var1.a);
-		int var3 = class_oa.c(var1.b);
-		int var4 = class_oa.c(var1.c);
-		int var5 = class_oa.c(var1.d);
-		int var6 = class_oa.c(var1.e);
-		int var7 = class_oa.c(var1.f);
+		int var2 = MathHelper.c(var1.a);
+		int var3 = MathHelper.c(var1.b);
+		int var4 = MathHelper.c(var1.c);
+		int var5 = MathHelper.c(var1.d);
+		int var6 = MathHelper.c(var1.e);
+		int var7 = MathHelper.c(var1.f);
 		boolean var8 = false;
 		boolean var9 = false;
 
@@ -471,7 +471,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 
 		if (!o.D) {
 			if ((bD > 150) && ((bD % 5) == 0) && var4) {
-				this.a(class_oa.d(var5 * 0.08F));
+				this.a(MathHelper.d(var5 * 0.08F));
 			}
 
 			if (bD == 1) {
@@ -483,7 +483,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 		aM = y += 20.0F;
 		if ((bD == 200) && !o.D) {
 			if (var4) {
-				this.a(class_oa.d(var5 * 0.2F));
+				this.a(MathHelper.d(var5 * 0.2F));
 			}
 
 			if (bG != null) {
@@ -516,19 +516,19 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 				int var7;
 				int var9;
 				if (var5 < 12) {
-					var7 = (int) (60.0F * class_oa.b(2.0F * (-3.1415927F + (0.2617994F * var5))));
-					var9 = (int) (60.0F * class_oa.a(2.0F * (-3.1415927F + (0.2617994F * var5))));
+					var7 = (int) (60.0F * MathHelper.b(2.0F * (-3.1415927F + (0.2617994F * var5))));
+					var9 = (int) (60.0F * MathHelper.a(2.0F * (-3.1415927F + (0.2617994F * var5))));
 				} else {
 					int var10;
 					if (var5 < 20) {
 						var10 = var5 - 12;
-						var7 = (int) (40.0F * class_oa.b(2.0F * (-3.1415927F + (0.3926991F * var10))));
-						var9 = (int) (40.0F * class_oa.a(2.0F * (-3.1415927F + (0.3926991F * var10))));
+						var7 = (int) (40.0F * MathHelper.b(2.0F * (-3.1415927F + (0.3926991F * var10))));
+						var9 = (int) (40.0F * MathHelper.a(2.0F * (-3.1415927F + (0.3926991F * var10))));
 						var6 += 10;
 					} else {
 						var10 = var5 - 20;
-						var7 = (int) (20.0F * class_oa.b(2.0F * (-3.1415927F + (0.7853982F * var10))));
-						var9 = (int) (20.0F * class_oa.a(2.0F * (-3.1415927F + (0.7853982F * var10))));
+						var7 = (int) (20.0F * MathHelper.b(2.0F * (-3.1415927F + (0.7853982F * var10))));
+						var9 = (int) (20.0F * MathHelper.a(2.0F * (-3.1415927F + (0.7853982F * var10))));
 					}
 				}
 
@@ -568,7 +568,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 	public int k(double var1, double var3, double var5) {
 		float var7 = 10000.0F;
 		int var8 = 0;
-		class_axa var9 = new class_axa(class_oa.c(var1), class_oa.c(var3), class_oa.c(var5));
+		class_axa var9 = new class_axa(MathHelper.c(var1), MathHelper.c(var3), MathHelper.c(var5));
 		byte var10 = 0;
 		if ((bG == null) || (bG.c() == 0)) {
 			var10 = 12;
@@ -755,7 +755,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 			}
 		} else {
 			class_cj var5 = o.r(class_aso.a);
-			var6 = Math.max(class_oa.a(this.c(var5)) / 4.0F, 1.0F);
+			var6 = Math.max(MathHelper.a(this.c(var5)) / 4.0F, 1.0F);
 			float var7 = 6.0F / var6;
 			float var8 = z;
 			float var9 = 1.5F;

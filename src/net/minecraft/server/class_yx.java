@@ -53,15 +53,15 @@ public class class_yx extends Entity implements class_zd {
 	}
 
 	public void a(float var1, float var2, float var3, float var4, float var5) {
-		float var6 = -class_oa.a(var2 * 0.017453292F) * class_oa.b(var1 * 0.017453292F);
-		float var7 = -class_oa.a(var1 * 0.017453292F);
-		float var8 = class_oa.b(var2 * 0.017453292F) * class_oa.b(var1 * 0.017453292F);
+		float var6 = -MathHelper.a(var2 * 0.017453292F) * MathHelper.b(var1 * 0.017453292F);
+		float var7 = -MathHelper.a(var1 * 0.017453292F);
+		float var8 = MathHelper.b(var2 * 0.017453292F) * MathHelper.b(var1 * 0.017453292F);
 		this.c(var6, var7, var8, var4, var5);
 	}
 
 	@Override
 	public void c(double var1, double var3, double var5, float var7, float var8) {
-		float var9 = class_oa.a((var1 * var1) + (var3 * var3) + (var5 * var5));
+		float var9 = MathHelper.a((var1 * var1) + (var3 * var3) + (var5 * var5));
 		var1 /= var9;
 		var3 /= var9;
 		var5 /= var9;
@@ -74,9 +74,9 @@ public class class_yx extends Entity implements class_zd {
 		v = var1;
 		w = var3;
 		x = var5;
-		float var10 = class_oa.a((var1 * var1) + (var5 * var5));
-		A = y = (float) ((class_oa.b(var1, var5) * 180.0D) / 3.1415927410125732D);
-		B = z = (float) ((class_oa.b(var3, var10) * 180.0D) / 3.1415927410125732D);
+		float var10 = MathHelper.a((var1 * var1) + (var5 * var5));
+		A = y = (float) ((MathHelper.b(var1, var5) * 180.0D) / 3.1415927410125732D);
+		B = z = (float) ((MathHelper.b(var3, var10) * 180.0D) / 3.1415927410125732D);
 		av = 0;
 	}
 
@@ -84,9 +84,9 @@ public class class_yx extends Entity implements class_zd {
 	public void r_() {
 		super.r_();
 		if ((B == 0.0F) && (A == 0.0F)) {
-			float var1 = class_oa.a((v * v) + (x * x));
-			A = y = (float) ((class_oa.b(v, x) * 180.0D) / 3.1415927410125732D);
-			B = z = (float) ((class_oa.b(w, var1) * 180.0D) / 3.1415927410125732D);
+			float var1 = MathHelper.a((v * v) + (x * x));
+			A = y = (float) ((MathHelper.b(v, x) * 180.0D) / 3.1415927410125732D);
+			B = z = (float) ((MathHelper.b(w, var1) * 180.0D) / 3.1415927410125732D);
 		}
 
 		class_cj var13 = new class_cj(h, i, as);
@@ -158,10 +158,10 @@ public class class_yx extends Entity implements class_zd {
 			s += v;
 			t += w;
 			u += x;
-			float var17 = class_oa.a((v * v) + (x * x));
-			y = (float) ((class_oa.b(v, x) * 180.0D) / 3.1415927410125732D);
+			float var17 = MathHelper.a((v * v) + (x * x));
+			y = (float) ((MathHelper.b(v, x) * 180.0D) / 3.1415927410125732D);
 
-			for (z = (float) ((class_oa.b(w, var17) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
+			for (z = (float) ((MathHelper.b(w, var17) * 180.0D) / 3.1415927410125732D); (z - B) < -180.0F; B -= 360.0F) {
 				;
 			}
 
@@ -206,8 +206,8 @@ public class class_yx extends Entity implements class_zd {
 	protected void a(class_ayl var1) {
 		Entity var2 = var1.d;
 		if (var2 != null) {
-			float var3 = class_oa.a((v * v) + (w * w) + (x * x));
-			int var4 = class_oa.f(var3 * ax);
+			float var3 = MathHelper.a((v * v) + (w * w) + (x * x));
+			int var4 = MathHelper.f(var3 * ax);
 			if (this.k()) {
 				var4 += V.nextInt((var4 / 2) + 2);
 			}
@@ -231,7 +231,7 @@ public class class_yx extends Entity implements class_zd {
 					}
 
 					if (ay > 0) {
-						float var7 = class_oa.a((v * v) + (x * x));
+						float var7 = MathHelper.a((v * v) + (x * x));
 						if (var7 > 0.0F) {
 							var6.g((v * ay * 0.6000000238418579D) / var7, 0.1D, (x * ay * 0.6000000238418579D) / var7);
 						}
@@ -271,7 +271,7 @@ public class class_yx extends Entity implements class_zd {
 			v = ((float) (var1.c.a - s));
 			w = ((float) (var1.c.b - t));
 			x = ((float) (var1.c.c - u));
-			float var10 = class_oa.a((v * v) + (w * w) + (x * x));
+			float var10 = MathHelper.a((v * v) + (w * w) + (x * x));
 			s -= (v / var10) * 0.05000000074505806D;
 			t -= (w / var10) * 0.05000000074505806D;
 			u -= (x / var10) * 0.05000000074505806D;

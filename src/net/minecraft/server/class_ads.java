@@ -127,7 +127,7 @@ public class class_ads extends Item {
 				var8 = EntityTypes.b(var1, var0);
 				if (var8 instanceof class_rg) {
 					class_rh var10 = (class_rh) var8;
-					var8.b(var2, var4, var6, class_oa.g(var0.s.nextFloat() * 360.0F), 0.0F);
+					var8.b(var2, var4, var6, MathHelper.g(var0.s.nextFloat() * 360.0F), 0.0F);
 					var10.aO = var10.y;
 					var10.aM = var10.y;
 					var10.a(var0.E(new class_cj(var10)), (class_rj) null);

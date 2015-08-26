@@ -17,10 +17,10 @@ public class class_abd extends Item {
 		double var10 = var3.q + ((var3.t - var3.q) * var5) + var3.aY();
 		double var12 = var3.r + ((var3.u - var3.r) * var5);
 		class_aym var14 = new class_aym(var8, var10, var12);
-		float var15 = class_oa.b((-var7 * 0.017453292F) - 3.1415927F);
-		float var16 = class_oa.a((-var7 * 0.017453292F) - 3.1415927F);
-		float var17 = -class_oa.b(-var6 * 0.017453292F);
-		float var18 = class_oa.a(-var6 * 0.017453292F);
+		float var15 = MathHelper.b((-var7 * 0.017453292F) - 3.1415927F);
+		float var16 = MathHelper.a((-var7 * 0.017453292F) - 3.1415927F);
+		float var17 = -MathHelper.b(-var6 * 0.017453292F);
+		float var18 = MathHelper.a(-var6 * 0.017453292F);
 		float var19 = var16 * var17;
 		float var21 = var15 * var17;
 		double var22 = 5.0D;
@@ -54,7 +54,7 @@ public class class_abd extends Item {
 				}
 
 				class_xe var35 = new class_xe(var2, var34.n() + 0.5F, var34.o() + 1.0F, var34.p() + 0.5F);
-				var35.y = ((class_oa.c((var3.y * 4.0F) / 360.0F + 0.5D) & 3) - 1) * 90;
+				var35.y = ((MathHelper.c((var3.y * 4.0F) / 360.0F + 0.5D) & 3) - 1) * 90;
 				if (!var2.a(var35, var35.aX().b(-0.1D, -0.1D, -0.1D)).isEmpty()) {
 					return new class_px(class_pw.c, var1);
 				} else {

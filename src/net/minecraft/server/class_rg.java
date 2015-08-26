@@ -122,7 +122,7 @@ public abstract class class_rg extends Entity {
 		if (!o.D && (O > 3.0F) && var3) {
 			class_apn var6 = o.p(var5);
 			Block var7 = var6.c();
-			float var8 = class_oa.f(O - 3.0F);
+			float var8 = MathHelper.f(O - 3.0F);
 			if (var7.v() != class_avq.a) {
 				double var9 = Math.min(0.2F + (var8 / 15.0F), 10.0F);
 				if (var9 > 2.5D) {
@@ -153,7 +153,7 @@ public abstract class class_rg extends Entity {
 			} else if (var1 && !o.ah().a(aX())) {
 				double var2 = o.ah().a(this) + o.ah().m();
 				if (var2 < 0.0D) {
-					this.a(class_qi.e, Math.max(1, class_oa.c(-var2 * o.ah().n())));
+					this.a(class_qi.e, Math.max(1, MathHelper.c(-var2 * o.ah().n())));
 				}
 			}
 		}
@@ -584,7 +584,7 @@ public abstract class class_rg extends Entity {
 	}
 
 	public void c(float var1) {
-		ac.b(c, Float.valueOf(class_oa.a(var1, 0.0F, bB())));
+		ac.b(c, Float.valueOf(MathHelper.a(var1, 0.0F, bB())));
 	}
 
 	@Override
@@ -675,7 +675,7 @@ public abstract class class_rg extends Entity {
 							var10 = (Math.random() - Math.random()) * 0.01D;
 						}
 
-						az = (float) (((class_oa.b(var8, var10) * 180.0D) / 3.1415927410125732D) - y);
+						az = (float) (((MathHelper.b(var8, var10) * 180.0D) / 3.1415927410125732D) - y);
 						this.a(var5, 0.4F, var10, var8);
 					} else {
 						az = (int) (Math.random() * 2.0D) * 180;
@@ -772,7 +772,7 @@ public abstract class class_rg extends Entity {
 	public void a(Entity var1, float var2, double var3, double var5) {
 		if (V.nextDouble() >= this.a(class_yf.c).e()) {
 			ai = true;
-			float var7 = class_oa.a((var3 * var3) + (var5 * var5));
+			float var7 = MathHelper.a((var3 * var3) + (var5 * var5));
 			v /= 2.0D;
 			w /= 2.0D;
 			x /= 2.0D;
@@ -801,9 +801,9 @@ public abstract class class_rg extends Entity {
 	}
 
 	public boolean j_() {
-		int var1 = class_oa.c(s);
-		int var2 = class_oa.c(aX().b);
-		int var3 = class_oa.c(u);
+		int var1 = MathHelper.c(s);
+		int var2 = MathHelper.c(aX().b);
+		int var3 = MathHelper.c(u);
 		if ((this instanceof class_yu) && ((class_yu) this).w()) {
 			return false;
 		} else {
@@ -835,13 +835,13 @@ public abstract class class_rg extends Entity {
 		super.e(var1, var2);
 		class_qr var3 = this.b(class_qs.h);
 		float var4 = var3 != null ? (float) (var3.c() + 1) : 0.0F;
-		int var5 = class_oa.f((var1 - 3.0F - var4) * var2);
+		int var5 = MathHelper.f((var1 - 3.0F - var4) * var2);
 		if (var5 > 0) {
 			this.a(this.i(var5), 1.0F, 1.0F);
 			this.a(class_qi.i, var5);
-			int var6 = class_oa.c(s);
-			int var7 = class_oa.c(t - 0.20000000298023224D);
-			int var8 = class_oa.c(u);
+			int var6 = MathHelper.c(s);
+			int var7 = MathHelper.c(t - 0.20000000298023224D);
+			int var8 = MathHelper.c(u);
 			Block var9 = o.p(new class_cj(var6, var7, var8)).c();
 			if (var9.v() != class_avq.a) {
 				Block.class_d_in_class_ail var10 = var9.H;
@@ -866,7 +866,7 @@ public abstract class class_rg extends Entity {
 				int var5 = var3.j();
 				int var6 = var3.h();
 				if (var6 > (var5 / 2)) {
-					var4 = class_oa.f((float) (var5 - var6) / (float) (var5 / 2));
+					var4 = MathHelper.f((float) (var5 - var6) / (float) (var5 / 2));
 				}
 
 				var1 += var4;
@@ -1122,8 +1122,8 @@ public abstract class class_rg extends Entity {
 
 		if (aB()) {
 			float var1 = y * 0.017453292F;
-			v -= class_oa.a(var1) * 0.2F;
-			x += class_oa.b(var1) * 0.2F;
+			v -= MathHelper.a(var1) * 0.2F;
+			x += MathHelper.b(var1) * 0.2F;
 		}
 
 		ai = true;
@@ -1173,7 +1173,7 @@ public abstract class class_rg extends Entity {
 			} else if (!ae() || ((this instanceof class_yu) && ((class_yu) this).bI.b)) {
 				float var8 = 0.91F;
 				if (C) {
-					var8 = o.p(new class_cj(class_oa.c(s), class_oa.c(aX().b) - 1, class_oa.c(u))).c().L * 0.91F;
+					var8 = o.p(new class_cj(MathHelper.c(s), MathHelper.c(aX().b) - 1, MathHelper.c(u))).c().L * 0.91F;
 				}
 
 				float var4 = 0.16277136F / (var8 * var8 * var8);
@@ -1186,13 +1186,13 @@ public abstract class class_rg extends Entity {
 				this.a(var1, var2, var5);
 				var8 = 0.91F;
 				if (C) {
-					var8 = o.p(new class_cj(class_oa.c(s), class_oa.c(aX().b) - 1, class_oa.c(u))).c().L * 0.91F;
+					var8 = o.p(new class_cj(MathHelper.c(s), MathHelper.c(aX().b) - 1, MathHelper.c(u))).c().L * 0.91F;
 				}
 
 				if (j_()) {
 					var6 = 0.15F;
-					v = class_oa.a(v, (-var6), var6);
-					x = class_oa.a(x, (-var6), var6);
+					v = MathHelper.a(v, (-var6), var6);
+					x = MathHelper.a(x, (-var6), var6);
 					O = 0.0F;
 					if (w < -0.15D) {
 						w = -0.15D;
@@ -1239,7 +1239,7 @@ public abstract class class_rg extends Entity {
 		aE = aF;
 		var3 = s - p;
 		double var9 = u - r;
-		var10 = class_oa.a((var3 * var3) + (var9 * var9)) * 4.0F;
+		var10 = MathHelper.a((var3 * var3) + (var9 * var9)) * 4.0F;
 		if (var10 > 1.0F) {
 			var10 = 1.0F;
 		}
@@ -1343,7 +1343,7 @@ public abstract class class_rg extends Entity {
 		if (var12 > 0.0025000002F) {
 			var8 = 1.0F;
 			var14 = (float) Math.sqrt(var12) * 3.0F;
-			var13 = (((float) class_oa.b(var11, var9) * 180.0F) / 3.1415927F) - 90.0F;
+			var13 = (((float) MathHelper.b(var11, var9) * 180.0F) / 3.1415927F) - 90.0F;
 		}
 
 		if (aC > 0.0F) {
@@ -1397,9 +1397,9 @@ public abstract class class_rg extends Entity {
 	}
 
 	protected float h(float var1, float var2) {
-		float var3 = class_oa.g(var1 - aM);
+		float var3 = MathHelper.g(var1 - aM);
 		aM += var3 * 0.3F;
-		float var4 = class_oa.g(y - aM);
+		float var4 = MathHelper.g(y - aM);
 		boolean var5 = (var4 < -90.0F) || (var4 >= 90.0F);
 		if (var4 < -75.0F) {
 			var4 = -75.0F;
@@ -1430,7 +1430,7 @@ public abstract class class_rg extends Entity {
 			double var1 = s + ((bh - s) / bg);
 			double var3 = t + ((bi - t) / bg);
 			double var5 = u + ((bj - u) / bg);
-			double var7 = class_oa.g(bk - y);
+			double var7 = MathHelper.g(bk - y);
 			y = (float) (y + (var7 / bg));
 			z = (float) (z + ((bl - z) / bg));
 			--bg;

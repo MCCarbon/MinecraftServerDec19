@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import com.google.common.collect.Lists;
 
-public class class_ib implements class_ff {
+public class class_ib implements Packet {
 	private int a;
 	private final List b = Lists.newArrayList();
 
@@ -28,7 +28,7 @@ public class class_ib implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.g();
 		int var2 = var1.readInt();
 
@@ -49,7 +49,7 @@ public class class_ib implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.b(a);
 		var1.writeInt(b.size());
 		Iterator var2 = b.iterator();
@@ -71,15 +71,15 @@ public class class_ib implements class_ff {
 
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 
 	public class class_a_in_class_ib {

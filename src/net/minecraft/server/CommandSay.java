@@ -21,7 +21,7 @@ public class CommandSay extends CommandAbstract {
 	@Override
 	public void execute(ICommandListener var1, String[] var2) throws class_bz {
 		if ((var2.length > 0) && (var2[0].length() > 0)) {
-			class_eu var3 = b(var1, var2, 0, true);
+			IChatBaseComponent var3 = b(var1, var2, 0, true);
 			MinecraftServer.P().ar().a((new class_fb("chat.type.announcement", new Object[] { var1.f_(), var3 })));
 		} else {
 			throw new class_cf("commands.say.usage", new Object[0]);

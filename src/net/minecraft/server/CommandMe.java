@@ -23,7 +23,7 @@ public class CommandMe extends CommandAbstract {
 		if (var2.length <= 0) {
 			throw new class_cf("commands.me.usage", new Object[0]);
 		} else {
-			class_eu var3 = b(var1, var2, 0, !(var1 instanceof class_yu));
+			IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof class_yu));
 			MinecraftServer.P().ar().a((new class_fb("chat.type.emote", new Object[] { var1.f_(), var3 })));
 		}
 	}

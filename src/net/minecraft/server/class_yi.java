@@ -81,8 +81,8 @@ public class class_yi extends class_rh implements class_xx {
 			for (int var2 = 0; var2 < (var1 * 8); ++var2) {
 				float var3 = V.nextFloat() * 3.1415927F * 2.0F;
 				float var4 = (V.nextFloat() * 0.5F) + 0.5F;
-				float var5 = class_oa.a(var3) * var1 * 0.5F * var4;
-				float var6 = class_oa.b(var3) * var1 * 0.5F * var4;
+				float var5 = MathHelper.a(var3) * var1 * 0.5F * var4;
+				float var6 = MathHelper.b(var3) * var1 * 0.5F * var4;
 				class_ago var10000 = o;
 				class_cy var10001 = this.n();
 				double var10002 = s + var5;
@@ -213,7 +213,7 @@ public class class_yi extends class_rh implements class_xx {
 
 	@Override
 	public boolean cj() {
-		class_cj var1 = new class_cj(class_oa.c(s), 0, class_oa.c(u));
+		class_cj var1 = new class_cj(MathHelper.c(s), 0, MathHelper.c(u));
 		class_aqn var2 = o.f(var1);
 		if ((o.R().t() == class_agt.c) && (V.nextInt(4) != 1)) {
 			return false;

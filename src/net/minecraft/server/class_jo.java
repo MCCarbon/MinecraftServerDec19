@@ -5,18 +5,18 @@ import java.security.PrivateKey;
 
 import javax.crypto.SecretKey;
 
-public class class_jo implements class_ff {
+public class class_jo implements Packet {
 	private byte[] a = new byte[0];
 	private byte[] b = new byte[0];
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.a();
 		b = var1.a();
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		var1.a(b);
 	}
@@ -36,7 +36,7 @@ public class class_jo implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
+	public void handle(PacketListener var1) {
 		this.a((class_jm) var1);
 	}
 }

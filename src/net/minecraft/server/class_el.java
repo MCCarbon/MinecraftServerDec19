@@ -31,7 +31,7 @@ public enum class_el {
 			this.a(class_fg.b, class_fq.class);
 			this.a(class_fg.b, class_fp.class);
 			this.a(class_fg.b, class_hz.class);
-			this.a(class_fg.b, class_fk.class);
+			this.a(class_fg.b, PacketPlayOutSpawnEntity.class);
 			this.a(class_fg.b, class_fn.class);
 			this.a(class_fg.b, class_fo.class);
 			this.a(class_fg.b, class_fl.class);
@@ -169,13 +169,13 @@ public enum class_el {
 		}
 	}
 
-	public Integer a(class_fg var1, class_ff var2) {
+	public Integer a(class_fg var1, Packet var2) {
 		return (Integer) ((BiMap) j.get(var1)).inverse().get(var2.getClass());
 	}
 
-	public class_ff a(class_fg var1, int var2) throws IllegalAccessException, InstantiationException {
+	public Packet a(class_fg var1, int var2) throws IllegalAccessException, InstantiationException {
 		Class var3 = (Class) ((BiMap) j.get(var1)).get(Integer.valueOf(var2));
-		return var3 == null ? null : (class_ff) var3.newInstance();
+		return var3 == null ? null : (Packet) var3.newInstance();
 	}
 
 	public int a() {
@@ -186,7 +186,7 @@ public enum class_el {
 		return (var0 >= e) && (var0 <= f) ? g[var0 - e] : null;
 	}
 
-	public static class_el a(class_ff var0) {
+	public static class_el a(Packet var0) {
 		return (class_el) h.get(var0.getClass());
 	}
 

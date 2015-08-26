@@ -91,7 +91,7 @@ public class class_tb extends class_sr {
 
 		while (var5.hasNext()) {
 			class_uu var6 = (class_uu) var5.next();
-			int var7 = var6.b(class_oa.c(a.s), class_oa.c(a.t), class_oa.c(a.u));
+			int var7 = var6.b(MathHelper.c(a.s), MathHelper.c(a.t), MathHelper.c(a.u));
 			if ((var7 < var3) && !this.a(var6)) {
 				var2 = var6;
 				var3 = var7;

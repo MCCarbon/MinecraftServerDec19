@@ -20,11 +20,11 @@ public class class_pt {
 		} else {
 			boolean var7 = var1 == class_ps.d;
 			float var8 = 0.75F;
-			float var9 = class_oa.a((var2 + -72000.0F) / 1440000.0F, 0.0F, 1.0F) * 0.25F;
+			float var9 = MathHelper.a((var2 + -72000.0F) / 1440000.0F, 0.0F, 1.0F) * 0.25F;
 			var8 += var9;
 			float var10 = 0.0F;
-			var10 += class_oa.a(var4 / 3600000.0F, 0.0F, 1.0F) * (var7 ? 1.0F : 0.75F);
-			var10 += class_oa.a(var6 * 0.25F, 0.0F, var9);
+			var10 += MathHelper.a(var4 / 3600000.0F, 0.0F, 1.0F) * (var7 ? 1.0F : 0.75F);
+			var10 += MathHelper.a(var6 * 0.25F, 0.0F, var9);
 			if (var1 == class_ps.b) {
 				var10 *= 0.5F;
 			}

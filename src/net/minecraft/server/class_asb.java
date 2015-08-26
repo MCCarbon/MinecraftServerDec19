@@ -98,7 +98,7 @@ public class class_asb extends class_asa {
 		} else {
 			float var2 = a / 2.0F;
 			float var3 = var2 - var1;
-			float var4 = class_oa.c((var2 * var2) - (var3 * var3));
+			float var4 = MathHelper.c((var2 * var2) - (var3 * var3));
 			if (var3 == 0.0F) {
 				var4 = var2;
 			} else if (Math.abs(var3) >= var2) {
@@ -136,9 +136,9 @@ public class class_asb extends class_asa {
 	}
 
 	private int b(class_cj var1) {
-		int var2 = class_oa.a(var1.n());
-		int var3 = class_oa.a(var1.o());
-		int var4 = class_oa.a(var1.p());
+		int var2 = MathHelper.a(var1.n());
+		int var3 = MathHelper.a(var1.o());
+		int var4 = MathHelper.a(var1.p());
 		return (var4 > var2) && (var4 > var3) ? var4 : (var3 > var2 ? var3 : var2);
 	}
 

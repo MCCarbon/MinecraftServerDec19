@@ -44,16 +44,16 @@ public class class_sd {
 			double var1 = e - a.s;
 			double var3 = f - (a.t + a.aY());
 			double var5 = g - a.u;
-			double var7 = class_oa.a((var1 * var1) + (var5 * var5));
-			float var9 = (float) ((class_oa.b(var5, var1) * 180.0D) / 3.1415927410125732D) - 90.0F;
-			float var10 = (float) (-((class_oa.b(var3, var7) * 180.0D) / 3.1415927410125732D));
+			double var7 = MathHelper.a((var1 * var1) + (var5 * var5));
+			float var9 = (float) ((MathHelper.b(var5, var1) * 180.0D) / 3.1415927410125732D) - 90.0F;
+			float var10 = (float) (-((MathHelper.b(var3, var7) * 180.0D) / 3.1415927410125732D));
 			a.z = this.a(a.z, var10, c);
 			a.aO = this.a(a.aO, var9, b);
 		} else {
 			a.aO = this.a(a.aO, a.aM, 10.0F);
 		}
 
-		float var11 = class_oa.g(a.aO - a.aM);
+		float var11 = MathHelper.g(a.aO - a.aM);
 		if (!a.u().m()) {
 			if (var11 < -75.0F) {
 				a.aO = a.aM - 75.0F;
@@ -67,7 +67,7 @@ public class class_sd {
 	}
 
 	private float a(float var1, float var2, float var3) {
-		float var4 = class_oa.g(var2 - var1);
+		float var4 = MathHelper.g(var2 - var1);
 		if (var4 > var3) {
 			var4 = var3;
 		}

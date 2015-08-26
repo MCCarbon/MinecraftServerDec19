@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import org.apache.commons.lang3.Validate;
 
-public class class_gt implements class_ff {
+public class class_gt implements Packet {
 	private String a;
 	private int b;
 	private int c = Integer.MAX_VALUE;
@@ -23,11 +23,11 @@ public class class_gt implements class_ff {
 		d = (int) (var6 * 8.0D);
 		e = var8;
 		f = (int) (var9 * 63.0F);
-		var9 = class_oa.a(var9, 0.0F, 255.0F);
+		var9 = MathHelper.a(var9, 0.0F, 255.0F);
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.c(256);
 		b = var1.readInt();
 		c = var1.readInt();
@@ -37,7 +37,7 @@ public class class_gt implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		var1.writeInt(b);
 		var1.writeInt(c);
@@ -46,14 +46,14 @@ public class class_gt implements class_ff {
 		var1.writeByte(f);
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 }

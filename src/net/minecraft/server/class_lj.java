@@ -12,8 +12,8 @@ public class class_lj extends class_pn {
 	private final Set h;
 	private boolean i;
 
-	public class_lj(class_eu var1, class_pn.class_a_in_class_pn var2, class_pn.class_b_in_class_pn var3, boolean var4, boolean var5) {
-		super(class_oa.a(), var1, var2, var3, var4, var5);
+	public class_lj(IChatBaseComponent var1, class_pn.class_a_in_class_pn var2, class_pn.class_b_in_class_pn var3, boolean var4, boolean var5) {
+		super(MathHelper.a(), var1, var2, var3, var4, var5);
 		h = Collections.unmodifiableSet(g);
 		i = true;
 	}

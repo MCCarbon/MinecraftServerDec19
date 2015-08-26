@@ -19,7 +19,7 @@ public class class_acn {
 		if (var3 != null) {
 			float var4 = var3.b - var3.a;
 			float var5 = var3.b - (b + var2);
-			return class_oa.a(var5 / var4, 0.0F, 1.0F);
+			return MathHelper.a(var5 / var4, 0.0F, 1.0F);
 		} else {
 			return 0.0F;
 		}

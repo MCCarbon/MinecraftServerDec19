@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public interface class_id extends class_ep {
+public interface class_id extends PacketListener {
 	void a(class_iz var1);
 
 	void a(class_ig var1);

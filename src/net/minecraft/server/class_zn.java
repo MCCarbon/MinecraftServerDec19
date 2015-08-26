@@ -34,7 +34,7 @@ public class class_zn extends class_zj {
 	@Override
 	protected void a(class_ayl var1) {
 		if (!o.D) {
-			class_aec var2 = class_adb.i(d);
+			PotionRegistry var2 = class_adb.i(d);
 			List var3 = class_adb.h(d);
 			if ((var1.a == class_ayl.class_a_in_class_ayl.b) && (var2 == class_aee.a) && var3.isEmpty()) {
 				class_cj var17 = var1.a().a(var1.b);
@@ -46,7 +46,7 @@ public class class_zn extends class_zj {
 					this.a(var17.a(var20));
 				}
 
-				o.b(2002, new class_cj(this), class_aec.a(var2));
+				o.b(2002, new class_cj(this), PotionRegistry.a(var2));
 				L();
 			} else {
 				if (!var3.isEmpty()) {
@@ -123,7 +123,7 @@ public class class_zn extends class_zj {
 					}
 				}
 
-				o.b(2002, new class_cj(this), class_aec.a(var2));
+				o.b(2002, new class_cj(this), PotionRegistry.a(var2));
 				L();
 			}
 		}

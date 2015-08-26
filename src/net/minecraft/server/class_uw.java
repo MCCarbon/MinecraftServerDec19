@@ -91,9 +91,9 @@ public class class_uw {
 
 			for (int var7 = 0; var7 < 10; ++var7) {
 				float var8 = a.s.nextFloat() * 3.1415927F * 2.0F;
-				g = var4.n() + (int) (class_oa.b(var8) * var5 * 0.9D);
+				g = var4.n() + (int) (MathHelper.b(var8) * var5 * 0.9D);
 				h = var4.o();
-				i = var4.p() + (int) (class_oa.a(var8) * var5 * 0.9D);
+				i = var4.p() + (int) (MathHelper.a(var8) * var5 * 0.9D);
 				var6 = false;
 				Iterator var9 = a.ag().b().iterator();
 

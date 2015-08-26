@@ -31,8 +31,8 @@ public class class_avg extends class_avl {
 			double var17 = var2 * var27 * var8;
 			double var19 = var3 * var27 * var10;
 			double var21 = var4 * var27 * var12;
-			long var23 = class_oa.d(var17);
-			long var25 = class_oa.d(var21);
+			long var23 = MathHelper.d(var17);
+			long var25 = MathHelper.d(var21);
 			var17 -= var23;
 			var21 -= var25;
 			var23 %= 16777216L;

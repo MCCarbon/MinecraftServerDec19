@@ -46,7 +46,7 @@ public class class_vd extends class_vc {
 		bx = bt;
 		bv = bu;
 		bu = (float) (bu + ((C ? -1 : 4) * 0.3D));
-		bu = class_oa.a(bu, 0.0F, 1.0F);
+		bu = MathHelper.a(bu, 0.0F, 1.0F);
 		if (!C && (by < 1.0F)) {
 			by = 1.0F;
 		}
@@ -149,8 +149,8 @@ public class class_vd extends class_vc {
 	@Override
 	public void ao() {
 		super.ao();
-		float var1 = class_oa.a((aM * 3.1415927F) / 180.0F);
-		float var2 = class_oa.b((aM * 3.1415927F) / 180.0F);
+		float var1 = MathHelper.a((aM * 3.1415927F) / 180.0F);
+		float var2 = MathHelper.b((aM * 3.1415927F) / 180.0F);
 		float var3 = 0.1F;
 		float var4 = 0.0F;
 		l.b(s + var3 * var1, t + K * 0.5F + l.ap() + var4, u - var3 * var2);

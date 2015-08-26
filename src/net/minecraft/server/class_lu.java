@@ -39,7 +39,7 @@ public class class_lu implements class_jf {
 	}
 
 	@Override
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 	}
 
 	// $FF: synthetic class

@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_gz implements class_ff {
+public class class_gz implements Packet {
 	public class_gz.class_a_in_class_gz a;
 	public int b;
 	public int c;
 	public int d;
-	public class_eu e;
+	public IChatBaseComponent e;
 
 	public class_gz() {
 	}
@@ -29,7 +29,7 @@ public class class_gz implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = (class_gz.class_a_in_class_gz) var1.a(class_gz.class_a_in_class_gz.class);
 		if (a == class_gz.class_a_in_class_gz.b) {
 			d = var1.g();
@@ -43,7 +43,7 @@ public class class_gz implements class_ff {
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 		if (a == class_gz.class_a_in_class_gz.b) {
 			var1.b(d);
@@ -56,15 +56,15 @@ public class class_gz implements class_ff {
 
 	}
 
-	public void a(class_fj var1) {
+	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
 	}
 
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
-		this.a((class_fj) var1);
+	public void handle(PacketListener var1) {
+		this.a((PacketListenerPlayOut) var1);
 	}
 
 	// $FF: synthetic class

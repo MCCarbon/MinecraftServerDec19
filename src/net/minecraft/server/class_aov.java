@@ -432,9 +432,9 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 
 	public static class_pp b(class_ago var0, double var1, double var3, double var5) {
 		Object var7 = null;
-		int var8 = class_oa.c(var1);
-		int var9 = class_oa.c(var3);
-		int var10 = class_oa.c(var5);
+		int var8 = MathHelper.c(var1);
+		int var9 = MathHelper.c(var3);
+		int var10 = MathHelper.c(var5);
 		class_cj var11 = new class_cj(var8, var9, var10);
 		Block var12 = var0.p(var11).c();
 		if (var12.B()) {

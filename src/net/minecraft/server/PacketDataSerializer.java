@@ -85,12 +85,12 @@ public class PacketDataSerializer extends ByteBuf {
 		writeLong(var1.g());
 	}
 
-	public class_eu f() {
-		return class_eu.class_a_in_class_eu.a(c(32767));
+	public IChatBaseComponent f() {
+		return IChatBaseComponent.class_a_in_class_eu.a(c(32767));
 	}
 
-	public void a(class_eu var1) {
-		this.a(class_eu.class_a_in_class_eu.a(var1));
+	public void a(IChatBaseComponent var1) {
+		this.a(IChatBaseComponent.class_a_in_class_eu.a(var1));
 	}
 
 	public Enum a(Class var1) {

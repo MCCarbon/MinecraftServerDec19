@@ -60,7 +60,7 @@ public class class_ahj extends class_ahb {
 	@Override
 	public BlockFlowers.class_a_in_class_ake a(Random var1, class_cj var2) {
 		if (aG == 1) {
-			double var3 = class_oa.a((1.0D + af.a(var2.n() / 48.0D, var2.p() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
+			double var3 = MathHelper.a((1.0D + af.a(var2.n() / 48.0D, var2.p() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
 			BlockFlowers.class_a_in_class_ake var5 = BlockFlowers.class_a_in_class_ake.values()[(int) (var3 * BlockFlowers.class_a_in_class_ake.values().length)];
 			return var5 == BlockFlowers.class_a_in_class_ake.c ? BlockFlowers.class_a_in_class_ake.b : var5;
 		} else {

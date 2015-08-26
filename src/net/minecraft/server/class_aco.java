@@ -472,13 +472,13 @@ public final class class_aco {
 		d = var1;
 	}
 
-	public class_eu B() {
+	public IChatBaseComponent B() {
 		class_fa var1 = new class_fa(q());
 		if (s()) {
 			var1.b().b(Boolean.valueOf(true));
 		}
 
-		class_eu var2 = (new class_fa("[")).a(var1).a("]");
+		IChatBaseComponent var2 = (new class_fa("[")).a(var1).a("]");
 		if (d != null) {
 			class_dn var3 = new class_dn();
 			this.b(var3);

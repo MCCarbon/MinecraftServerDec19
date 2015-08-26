@@ -204,7 +204,7 @@ public abstract class class_xh extends Entity implements class_qb {
 				double var15 = s + ((at - s) / as);
 				double var17 = t + ((au - t) / as);
 				double var18 = u + ((av - u) / as);
-				double var7 = class_oa.g(aw - y);
+				double var7 = MathHelper.g(aw - y);
 				y = (float) (y + (var7 / as));
 				z = (float) (z + ((ax - z) / as));
 				--as;
@@ -220,9 +220,9 @@ public abstract class class_xh extends Entity implements class_qb {
 			q = t;
 			r = u;
 			w -= 0.03999999910593033D;
-			int var14 = class_oa.c(s);
-			var2 = class_oa.c(t);
-			int var16 = class_oa.c(u);
+			int var14 = MathHelper.c(s);
+			var2 = MathHelper.c(t);
+			int var16 = MathHelper.c(u);
 			if (class_aih.d(o, new class_cj(var14, var2 - 1, var16))) {
 				--var2;
 			}
@@ -243,13 +243,13 @@ public abstract class class_xh extends Entity implements class_qb {
 			double var6 = p - s;
 			double var8 = r - u;
 			if (((var6 * var6) + (var8 * var8)) > 0.001D) {
-				y = (float) ((class_oa.b(var8, var6) * 180.0D) / 3.141592653589793D);
+				y = (float) ((MathHelper.b(var8, var6) * 180.0D) / 3.141592653589793D);
 				if (g) {
 					y += 180.0F;
 				}
 			}
 
-			double var10 = class_oa.g(y - A);
+			double var10 = MathHelper.g(y - A);
 			if ((var10 < -170.0D) || (var10 >= 170.0D)) {
 				y += 180.0F;
 				g = !g;
@@ -286,8 +286,8 @@ public abstract class class_xh extends Entity implements class_qb {
 
 	protected void n() {
 		double var1 = this.m();
-		v = class_oa.a(v, -var1, var1);
-		x = class_oa.a(x, -var1, var1);
+		v = MathHelper.a(v, -var1, var1);
+		x = MathHelper.a(x, -var1, var1);
 		if (C) {
 			v *= 0.5D;
 			w *= 0.5D;
@@ -415,12 +415,12 @@ public abstract class class_xh extends Entity implements class_qb {
 		}
 
 		double var35 = this.m();
-		var31 = class_oa.a(var31, -var35, var35);
-		var33 = class_oa.a(var33, -var35, var35);
+		var31 = MathHelper.a(var31, -var35, var35);
+		var33 = MathHelper.a(var33, -var35, var35);
 		this.d(var31, 0.0D, var33);
-		if ((var10[0][1] != 0) && ((class_oa.c(s) - var1.n()) == var10[0][0]) && ((class_oa.c(u) - var1.p()) == var10[0][2])) {
+		if ((var10[0][1] != 0) && ((MathHelper.c(s) - var1.n()) == var10[0][0]) && ((MathHelper.c(u) - var1.p()) == var10[0][2])) {
 			this.b(s, t + var10[0][1], u);
-		} else if ((var10[1][1] != 0) && ((class_oa.c(s) - var1.n()) == var10[1][0]) && ((class_oa.c(u) - var1.p()) == var10[1][2])) {
+		} else if ((var10[1][1] != 0) && ((MathHelper.c(s) - var1.n()) == var10[1][0]) && ((MathHelper.c(u) - var1.p()) == var10[1][2])) {
 			this.b(s, t + var10[1][1], u);
 		}
 
@@ -437,8 +437,8 @@ public abstract class class_xh extends Entity implements class_qb {
 			this.b(s, var37.b, u);
 		}
 
-		int var44 = class_oa.c(s);
-		int var39 = class_oa.c(u);
+		int var44 = MathHelper.c(s);
+		int var39 = MathHelper.c(u);
 		if ((var44 != var1.n()) || (var39 != var1.p())) {
 			var19 = Math.sqrt((v * v) + (x * x));
 			v = var19 * (var44 - var1.n());
@@ -492,9 +492,9 @@ public abstract class class_xh extends Entity implements class_qb {
 	}
 
 	public class_aym k(double var1, double var3, double var5) {
-		int var7 = class_oa.c(var1);
-		int var8 = class_oa.c(var3);
-		int var9 = class_oa.c(var5);
+		int var7 = MathHelper.c(var1);
+		int var8 = MathHelper.c(var3);
+		int var9 = MathHelper.c(var5);
 		if (class_aih.d(o, new class_cj(var7, var8 - 1, var9))) {
 			--var8;
 		}
@@ -593,7 +593,7 @@ public abstract class class_xh extends Entity implements class_qb {
 					double var4 = var1.u - u;
 					double var6 = (var2 * var2) + (var4 * var4);
 					if (var6 >= 9.999999747378752E-5D) {
-						var6 = class_oa.a(var6);
+						var6 = MathHelper.a(var6);
 						var2 /= var6;
 						var4 /= var6;
 						double var8 = 1.0D / var6;
@@ -613,7 +613,7 @@ public abstract class class_xh extends Entity implements class_qb {
 							double var10 = var1.s - s;
 							double var12 = var1.u - u;
 							class_aym var14 = (new class_aym(var10, 0.0D, var12)).a();
-							class_aym var15 = (new class_aym(class_oa.b((y * 3.1415927F) / 180.0F), 0.0D, class_oa.a((y * 3.1415927F) / 180.0F))).a();
+							class_aym var15 = (new class_aym(MathHelper.b((y * 3.1415927F) / 180.0F), 0.0D, MathHelper.a((y * 3.1415927F) / 180.0F))).a();
 							double var16 = Math.abs(var14.b(var15));
 							if (var16 < 0.800000011920929D) {
 								return;
@@ -735,7 +735,7 @@ public abstract class class_xh extends Entity implements class_qb {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		if (k_()) {
 			class_fa var2 = new class_fa(h);
 			var2.b().a(aW());

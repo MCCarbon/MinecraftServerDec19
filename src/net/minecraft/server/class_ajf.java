@@ -67,7 +67,7 @@ public class class_ajf extends BlockPlant implements class_ain {
 	}
 
 	protected int b(class_ago var1) {
-		return class_oa.a(var1.s, 2, 5);
+		return MathHelper.a(var1.s, 2, 5);
 	}
 
 	protected static float a(Block var0, class_ago var1, class_cj var2) {

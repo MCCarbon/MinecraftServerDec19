@@ -46,7 +46,7 @@ public class CommandSummon extends CommandAbstract {
 				class_dn var13 = new class_dn();
 				boolean var14 = false;
 				if (var2.length >= 5) {
-					class_eu var15 = a(var1, var2, 4);
+					IChatBaseComponent var15 = a(var1, var2, 4);
 
 					try {
 						var13 = class_ed.a(var15.c());

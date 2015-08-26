@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.UUID;
 
-public class class_ja implements class_ff {
+public class class_ja implements Packet {
 	private UUID a;
 
 	public class_ja() {
@@ -14,12 +14,12 @@ public class class_ja implements class_ff {
 	}
 
 	@Override
-	public void a(PacketDataSerializer var1) throws IOException {
+	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.i();
 	}
 
 	@Override
-	public void b(PacketDataSerializer var1) throws IOException {
+	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.a(a);
 	}
 
@@ -34,7 +34,7 @@ public class class_ja implements class_ff {
 	// $FF: synthetic method
 	// $FF: bridge method
 	@Override
-	public void a(class_ep var1) {
+	public void handle(PacketListener var1) {
 		this.a((class_id) var1);
 	}
 }

@@ -57,9 +57,9 @@ public class class_ty extends class_su {
 						float var8 = 0.3F;
 						float var9 = f.aO;
 						float var10 = f.z;
-						var12.v = -class_oa.a((var9 / 180.0F) * 3.1415927F) * class_oa.b((var10 / 180.0F) * 3.1415927F) * var8;
-						var12.x = class_oa.b((var9 / 180.0F) * 3.1415927F) * class_oa.b((var10 / 180.0F) * 3.1415927F) * var8;
-						var12.w = (-class_oa.a((var10 / 180.0F) * 3.1415927F) * var8) + 0.1F;
+						var12.v = -MathHelper.a((var9 / 180.0F) * 3.1415927F) * MathHelper.b((var10 / 180.0F) * 3.1415927F) * var8;
+						var12.x = MathHelper.b((var9 / 180.0F) * 3.1415927F) * MathHelper.b((var10 / 180.0F) * 3.1415927F) * var8;
+						var12.w = (-MathHelper.a((var10 / 180.0F) * 3.1415927F) * var8) + 0.1F;
 						var12.o();
 						f.o.a(var12);
 						break;

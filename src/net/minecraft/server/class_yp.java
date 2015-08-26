@@ -408,7 +408,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		class_ayu var1 = aE();
 		String var2 = aS();
 		if ((var2 != null) && !var2.isEmpty()) {
@@ -675,7 +675,7 @@ public class class_yp extends class_qu implements class_aga, class_yo {
 		@Override
 		public void a(class_agc var1, Random var2) {
 			class_afj var3 = (class_afj) class_afj.b.a(var2);
-			int var4 = class_oa.a(var2, var3.d(), var3.b());
+			int var4 = MathHelper.a(var2, var3.d(), var3.b());
 			class_aco var5 = Items.ci.a(new class_afm(var3, var4));
 			int var6 = 2 + var2.nextInt(5 + (var4 * 10)) + (3 * var4);
 			if (var6 > 64) {

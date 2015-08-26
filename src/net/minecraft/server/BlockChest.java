@@ -68,7 +68,7 @@ public class BlockChest extends class_aif {
 
 	@Override
 	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
-		class_cq var6 = class_cq.b(class_oa.c((var4.y * 4.0F) / 360.0F + 0.5D) & 3).d();
+		class_cq var6 = class_cq.b(MathHelper.c((var4.y * 4.0F) / 360.0F + 0.5D) & 3).d();
 		var3 = var3.a(a, var6);
 		class_cj var7 = var2.c();
 		class_cj var8 = var2.d();
@@ -391,7 +391,7 @@ public class BlockChest extends class_aif {
 				var5 = ((class_aok) var6).l;
 			}
 
-			return class_oa.a(var5, 0, 15);
+			return MathHelper.a(var5, 0, 15);
 		}
 	}
 

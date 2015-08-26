@@ -51,10 +51,10 @@ public final class class_ze {
 		double var2 = var0.v;
 		double var4 = var0.w;
 		double var6 = var0.x;
-		float var8 = class_oa.a((var2 * var2) + (var6 * var6));
-		var0.y = (float) ((class_oa.b(var6, var2) * 180.0D) / 3.1415927410125732D) + 90.0F;
+		float var8 = MathHelper.a((var2 * var2) + (var6 * var6));
+		var0.y = (float) ((MathHelper.b(var6, var2) * 180.0D) / 3.1415927410125732D) + 90.0F;
 
-		for (var0.z = (float) ((class_oa.b(var8, var4) * 180.0D) / 3.1415927410125732D) - 90.0F; (var0.z - var0.B) < -180.0F; var0.B -= 360.0F) {
+		for (var0.z = (float) ((MathHelper.b(var8, var4) * 180.0D) / 3.1415927410125732D) - 90.0F; (var0.z - var0.B) < -180.0F; var0.B -= 360.0F) {
 			;
 		}
 

@@ -20,7 +20,7 @@ public class class_aob extends class_aig {
 		int var3 = Math.min(var1.a(Entity.class, this.a(var2)).size(), b);
 		if (var3 > 0) {
 			float var4 = (float) Math.min(b, var3) / (float) b;
-			return class_oa.f(var4 * 15.0F);
+			return MathHelper.f(var4 * 15.0F);
 		} else {
 			return 0;
 		}

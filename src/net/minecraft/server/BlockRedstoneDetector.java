@@ -34,8 +34,8 @@ public class BlockRedstoneDetector extends class_aif {
 			float var5 = var1.d(1.0F);
 			float var6 = var5 < 3.1415927F ? 0.0F : 6.2831855F;
 			var5 += (var6 - var5) * 0.2F;
-			var4 = Math.round(var4 * class_oa.b(var5));
-			var4 = class_oa.a(var4, 0, 15);
+			var4 = Math.round(var4 * MathHelper.b(var5));
+			var4 = MathHelper.a(var4, 0, 15);
 			if (b) {
 				var4 = 15 - var4;
 			}

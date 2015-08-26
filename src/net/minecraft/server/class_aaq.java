@@ -25,7 +25,7 @@ public class class_aaq implements class_pp {
 	}
 
 	@Override
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		return k_() ? new class_fa(e_()) : new class_fb(e_(), new Object[0]);
 	}
 

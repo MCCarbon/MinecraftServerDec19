@@ -4,14 +4,14 @@ import java.util.UUID;
 
 public abstract class class_pn {
 	private final UUID g;
-	protected class_eu a;
+	protected IChatBaseComponent a;
 	protected float b;
 	protected class_pn.class_a_in_class_pn c;
 	protected class_pn.class_b_in_class_pn d;
 	protected boolean e;
 	protected boolean f;
 
-	public class_pn(UUID var1, class_eu var2, class_pn.class_a_in_class_pn var3, class_pn.class_b_in_class_pn var4, boolean var5, boolean var6) {
+	public class_pn(UUID var1, IChatBaseComponent var2, class_pn.class_a_in_class_pn var3, class_pn.class_b_in_class_pn var4, boolean var5, boolean var6) {
 		g = var1;
 		a = var2;
 		c = var3;
@@ -25,7 +25,7 @@ public abstract class class_pn {
 		return g;
 	}
 
-	public class_eu e() {
+	public IChatBaseComponent e() {
 		return a;
 	}
 

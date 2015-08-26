@@ -29,13 +29,13 @@ public class class_arq extends class_arr {
 		int var27 = var25.nextInt(var16 / 2) + (var16 / 4);
 
 		for (boolean var28 = var25.nextInt(6) == 0; var15 < var16; ++var15) {
-			double var29 = 1.5D + class_oa.a((var15 * 3.1415927F) / var16) * var12 * 1.0F;
+			double var29 = 1.5D + MathHelper.a((var15 * 3.1415927F) / var16) * var12 * 1.0F;
 			double var31 = var29 * var17;
-			float var33 = class_oa.b(var14);
-			float var34 = class_oa.a(var14);
-			var6 += class_oa.b(var13) * var33;
+			float var33 = MathHelper.b(var14);
+			float var34 = MathHelper.a(var14);
+			var6 += MathHelper.b(var13) * var33;
 			var8 += var34;
-			var10 += class_oa.a(var13) * var33;
+			var10 += MathHelper.a(var13) * var33;
 			if (var28) {
 				var14 *= 0.92F;
 			} else {
@@ -64,12 +64,12 @@ public class class_arq extends class_arr {
 				}
 
 				if ((var6 >= (var19 - 16.0D - (var29 * 2.0D))) && (var10 >= (var21 - 16.0D - (var29 * 2.0D))) && (var6 <= (var19 + 16.0D + (var29 * 2.0D))) && (var10 <= (var21 + 16.0D + (var29 * 2.0D)))) {
-					int var56 = class_oa.c(var6 - var29) - (var3 * 16) - 1;
-					int var36 = (class_oa.c(var6 + var29) - (var3 * 16)) + 1;
-					int var57 = class_oa.c(var8 - var31) - 1;
-					int var38 = class_oa.c(var8 + var31) + 1;
-					int var58 = class_oa.c(var10 - var29) - (var4 * 16) - 1;
-					int var40 = (class_oa.c(var10 + var29) - (var4 * 16)) + 1;
+					int var56 = MathHelper.c(var6 - var29) - (var3 * 16) - 1;
+					int var36 = (MathHelper.c(var6 + var29) - (var3 * 16)) + 1;
+					int var57 = MathHelper.c(var8 - var31) - 1;
+					int var38 = MathHelper.c(var8 + var31) + 1;
+					int var58 = MathHelper.c(var10 - var29) - (var4 * 16) - 1;
+					int var40 = (MathHelper.c(var10 + var29) - (var4 * 16)) + 1;
 					if (var56 < 0) {
 						var56 = 0;
 					}
