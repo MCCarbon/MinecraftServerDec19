@@ -13,8 +13,8 @@ public class class_ati extends class_asp {
 					int var7 = 2 + var2.nextInt(var2.nextInt(3) + 1);
 
 					for (int var8 = 0; var8 < var7; ++var8) {
-						if (Blocks.aM.d(var1, var5)) {
-							var1.a(var5.b(var8), Blocks.aM.S(), 2);
+						if (Blocks.REEDS.d(var1, var5)) {
+							var1.a(var5.b(var8), Blocks.REEDS.S(), 2);
 						}
 					}
 				}

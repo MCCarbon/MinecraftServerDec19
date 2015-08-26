@@ -107,7 +107,7 @@ public class class_apb extends TileEntity {
 	public void a(class_apb.class_a_in_class_apb var1) {
 		l = var1;
 		class_apn var2 = b.p(v());
-		if (var2.c() == Blocks.de) {
+		if (var2.c() == Blocks.STRUCTURE_BLOCK) {
 			b.a(v(), var2.a(class_ann.a, var1), 2);
 		}
 
@@ -166,7 +166,7 @@ public class class_apb extends TileEntity {
 		while (var4.hasNext()) {
 			class_cj.class_a_in_class_cj var5 = (class_cj.class_a_in_class_cj) var4.next();
 			class_apn var6 = b.p(var5);
-			if (var6.c() == Blocks.de) {
+			if (var6.c() == Blocks.STRUCTURE_BLOCK) {
 				TileEntity var7 = b.s(var5);
 				if ((var7 != null) && (var7 instanceof class_apb)) {
 					var3.add(var7);
@@ -218,7 +218,7 @@ public class class_apb extends TileEntity {
 			class_cj var1 = v().a(h);
 			class_auy var2 = ((class_ll) b).x();
 			class_ava var3 = var2.a(new class_ke(a));
-			var3.a(b, var1, i, !m, Blocks.cv);
+			var3.a(b, var1, i, !m, Blocks.BARRIER);
 			var3.a(f);
 			var2.c(new class_ke(a));
 			return true;

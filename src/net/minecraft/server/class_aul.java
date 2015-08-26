@@ -55,20 +55,20 @@ public class class_aul {
 				this.a(var1, var3, 5, 0, 2, 5, 3, 2, Blocks.LOG.S(), Blocks.LOG.S(), false);
 				this.a(var1, var3, 1, 0, 7, 1, 3, 7, Blocks.LOG.S(), Blocks.LOG.S(), false);
 				this.a(var1, var3, 5, 0, 7, 5, 3, 7, Blocks.LOG.S(), Blocks.LOG.S(), false);
-				this.a(var1, Blocks.aO.S(), 2, 3, 2, var3);
-				this.a(var1, Blocks.aO.S(), 3, 3, 7, var3);
+				this.a(var1, Blocks.FENCE.S(), 2, 3, 2, var3);
+				this.a(var1, Blocks.FENCE.S(), 3, 3, 7, var3);
 				this.a(var1, Blocks.AIR.S(), 1, 3, 4, var3);
 				this.a(var1, Blocks.AIR.S(), 5, 3, 4, var3);
 				this.a(var1, Blocks.AIR.S(), 5, 3, 5, var3);
-				this.a(var1, Blocks.ca.S().a(class_akf.b, class_akf.class_a_in_class_akf.r), 1, 3, 5, var3);
-				this.a(var1, Blocks.ai.S(), 3, 2, 6, var3);
-				this.a(var1, Blocks.bE.S(), 4, 2, 6, var3);
-				this.a(var1, Blocks.aO.S(), 1, 2, 1, var3);
-				this.a(var1, Blocks.aO.S(), 5, 2, 1, var3);
-				class_apn var4 = Blocks.bU.S().a(class_anf.a, class_cq.c);
-				class_apn var5 = Blocks.bU.S().a(class_anf.a, class_cq.f);
-				class_apn var6 = Blocks.bU.S().a(class_anf.a, class_cq.e);
-				class_apn var7 = Blocks.bU.S().a(class_anf.a, class_cq.d);
+				this.a(var1, Blocks.FLOWER_POT.S().a(class_akf.b, class_akf.class_a_in_class_akf.r), 1, 3, 5, var3);
+				this.a(var1, Blocks.CRAFTING_TABLE.S(), 3, 2, 6, var3);
+				this.a(var1, Blocks.CAULDRON.S(), 4, 2, 6, var3);
+				this.a(var1, Blocks.FENCE.S(), 1, 2, 1, var3);
+				this.a(var1, Blocks.FENCE.S(), 5, 2, 1, var3);
+				class_apn var4 = Blocks.SPRUCE_STAIRS.S().a(class_anf.a, class_cq.c);
+				class_apn var5 = Blocks.SPRUCE_STAIRS.S().a(class_anf.a, class_cq.f);
+				class_apn var6 = Blocks.SPRUCE_STAIRS.S().a(class_anf.a, class_cq.e);
+				class_apn var7 = Blocks.SPRUCE_STAIRS.S().a(class_anf.a, class_cq.d);
 				this.a(var1, var3, 0, 4, 1, 6, 4, 1, var4, var4, false);
 				this.a(var1, var3, 0, 4, 2, 0, 4, 7, var5, var5, false);
 				this.a(var1, var3, 6, 4, 2, 6, 4, 7, var6, var6, false);
@@ -194,10 +194,10 @@ public class class_aul {
 				this.a(var1, var3, 4, 9, 10, 4, 9, 10, false, var2, k);
 				this.a(var1, var3, 7, 9, 10, 7, 9, 10, false, var2, k);
 				this.a(var1, var3, 5, 9, 7, 6, 9, 7, false, var2, k);
-				class_apn var9 = Blocks.aw.S().a(class_anf.a, class_cq.f);
-				class_apn var10 = Blocks.aw.S().a(class_anf.a, class_cq.e);
-				class_apn var6 = Blocks.aw.S().a(class_anf.a, class_cq.d);
-				class_apn var7 = Blocks.aw.S().a(class_anf.a, class_cq.c);
+				class_apn var9 = Blocks.STONE_STAIRS.S().a(class_anf.a, class_cq.f);
+				class_apn var10 = Blocks.STONE_STAIRS.S().a(class_anf.a, class_cq.e);
+				class_apn var6 = Blocks.STONE_STAIRS.S().a(class_anf.a, class_cq.d);
+				class_apn var7 = Blocks.STONE_STAIRS.S().a(class_anf.a, class_cq.c);
 				this.a(var1, var7, 5, 9, 6, var3);
 				this.a(var1, var7, 6, 9, 6, var3);
 				this.a(var1, var6, 5, 9, 8, var3);
@@ -242,72 +242,72 @@ public class class_aul {
 				this.a(var1, var3, 7, -2, 1, 9, -2, 1, false, var2, k);
 				this.a(var1, var3, 6, -3, 1, 6, -3, 1, false, var2, k);
 				this.a(var1, var3, 6, -1, 1, 6, -1, 1, false, var2, k);
-				this.a(var1, Blocks.bR.S().a(BlockTripwireHook.a, class_cq.f).a(BlockTripwireHook.N, Boolean.valueOf(true)), 1, -3, 8, var3);
-				this.a(var1, Blocks.bR.S().a(BlockTripwireHook.a, class_cq.e).a(BlockTripwireHook.N, Boolean.valueOf(true)), 4, -3, 8, var3);
-				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 2, -3, 8, var3);
-				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 3, -3, 8, var3);
-				this.a(var1, Blocks.af.S(), 5, -3, 7, var3);
-				this.a(var1, Blocks.af.S(), 5, -3, 6, var3);
-				this.a(var1, Blocks.af.S(), 5, -3, 5, var3);
-				this.a(var1, Blocks.af.S(), 5, -3, 4, var3);
-				this.a(var1, Blocks.af.S(), 5, -3, 3, var3);
-				this.a(var1, Blocks.af.S(), 5, -3, 2, var3);
-				this.a(var1, Blocks.af.S(), 5, -3, 1, var3);
-				this.a(var1, Blocks.af.S(), 4, -3, 1, var3);
-				this.a(var1, Blocks.Y.S(), 3, -3, 1, var3);
+				this.a(var1, Blocks.TRIPWIRE_HOOK.S().a(BlockTripwireHook.a, class_cq.f).a(BlockTripwireHook.N, Boolean.valueOf(true)), 1, -3, 8, var3);
+				this.a(var1, Blocks.TRIPWIRE_HOOK.S().a(BlockTripwireHook.a, class_cq.e).a(BlockTripwireHook.N, Boolean.valueOf(true)), 4, -3, 8, var3);
+				this.a(var1, Blocks.TRIPWIRE.S().a(class_anu.N, Boolean.valueOf(true)), 2, -3, 8, var3);
+				this.a(var1, Blocks.TRIPWIRE.S().a(class_anu.N, Boolean.valueOf(true)), 3, -3, 8, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 5, -3, 7, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 5, -3, 6, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 5, -3, 5, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 5, -3, 4, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 5, -3, 3, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 5, -3, 2, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 5, -3, 1, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 4, -3, 1, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 3, -3, 1, var3);
 				if (!g) {
 					g = this.a(var1, var3, var2, 3, -2, 1, class_cq.c, j, 2);
 				}
 
-				this.a(var1, Blocks.bn.S().a(class_anw.O, Boolean.valueOf(true)), 3, -2, 2, var3);
-				this.a(var1, Blocks.bR.S().a(BlockTripwireHook.a, class_cq.c).a(BlockTripwireHook.N, Boolean.valueOf(true)), 7, -3, 1, var3);
-				this.a(var1, Blocks.bR.S().a(BlockTripwireHook.a, class_cq.d).a(BlockTripwireHook.N, Boolean.valueOf(true)), 7, -3, 5, var3);
-				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 2, var3);
-				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 3, var3);
-				this.a(var1, Blocks.bS.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 4, var3);
-				this.a(var1, Blocks.af.S(), 8, -3, 6, var3);
-				this.a(var1, Blocks.af.S(), 9, -3, 6, var3);
-				this.a(var1, Blocks.af.S(), 9, -3, 5, var3);
-				this.a(var1, Blocks.Y.S(), 9, -3, 4, var3);
-				this.a(var1, Blocks.af.S(), 9, -2, 4, var3);
+				this.a(var1, Blocks.VINE.S().a(class_anw.O, Boolean.valueOf(true)), 3, -2, 2, var3);
+				this.a(var1, Blocks.TRIPWIRE_HOOK.S().a(BlockTripwireHook.a, class_cq.c).a(BlockTripwireHook.N, Boolean.valueOf(true)), 7, -3, 1, var3);
+				this.a(var1, Blocks.TRIPWIRE_HOOK.S().a(BlockTripwireHook.a, class_cq.d).a(BlockTripwireHook.N, Boolean.valueOf(true)), 7, -3, 5, var3);
+				this.a(var1, Blocks.TRIPWIRE.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 2, var3);
+				this.a(var1, Blocks.TRIPWIRE.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 3, var3);
+				this.a(var1, Blocks.TRIPWIRE.S().a(class_anu.N, Boolean.valueOf(true)), 7, -3, 4, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 8, -3, 6, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 9, -3, 6, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 9, -3, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 9, -3, 4, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 9, -2, 4, var3);
 				if (!h) {
 					h = this.a(var1, var3, var2, 9, -2, 3, class_cq.e, j, 2);
 				}
 
-				this.a(var1, Blocks.bn.S().a(class_anw.N, Boolean.valueOf(true)), 8, -1, 3, var3);
-				this.a(var1, Blocks.bn.S().a(class_anw.N, Boolean.valueOf(true)), 8, -2, 3, var3);
+				this.a(var1, Blocks.VINE.S().a(class_anw.N, Boolean.valueOf(true)), 8, -1, 3, var3);
+				this.a(var1, Blocks.VINE.S().a(class_anw.N, Boolean.valueOf(true)), 8, -2, 3, var3);
 				if (!e) {
 					e = this.a(var1, var3, var2, 8, -3, 3, class_oj.a(i, new class_oj[] { Items.ci.b(var2) }), 2 + var2.nextInt(5));
 				}
 
-				this.a(var1, Blocks.Y.S(), 9, -3, 2, var3);
-				this.a(var1, Blocks.Y.S(), 8, -3, 1, var3);
-				this.a(var1, Blocks.Y.S(), 4, -3, 5, var3);
-				this.a(var1, Blocks.Y.S(), 5, -2, 5, var3);
-				this.a(var1, Blocks.Y.S(), 5, -1, 5, var3);
-				this.a(var1, Blocks.Y.S(), 6, -3, 5, var3);
-				this.a(var1, Blocks.Y.S(), 7, -2, 5, var3);
-				this.a(var1, Blocks.Y.S(), 7, -1, 5, var3);
-				this.a(var1, Blocks.Y.S(), 8, -3, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 9, -3, 2, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 8, -3, 1, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 4, -3, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 5, -2, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 5, -1, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 6, -3, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 7, -2, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 7, -1, 5, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 8, -3, 5, var3);
 				this.a(var1, var3, 9, -1, 1, 9, -1, 5, false, var2, k);
 				this.a(var1, var3, 8, -3, 8, 10, -1, 10);
-				this.a(var1, Blocks.bf.a(class_ank.P), 8, -2, 11, var3);
-				this.a(var1, Blocks.bf.a(class_ank.P), 9, -2, 11, var3);
-				this.a(var1, Blocks.bf.a(class_ank.P), 10, -2, 11, var3);
-				class_apn var11 = Blocks.ay.S().a(class_ale.a, class_ale.class_a_in_class_ale.e);
+				this.a(var1, Blocks.STONE_BRICK.a(class_ank.P), 8, -2, 11, var3);
+				this.a(var1, Blocks.STONE_BRICK.a(class_ank.P), 9, -2, 11, var3);
+				this.a(var1, Blocks.STONE_BRICK.a(class_ank.P), 10, -2, 11, var3);
+				class_apn var11 = Blocks.LEVER.S().a(class_ale.a, class_ale.class_a_in_class_ale.e);
 				this.a(var1, var11, 8, -2, 12, var3);
 				this.a(var1, var11, 9, -2, 12, var3);
 				this.a(var1, var11, 10, -2, 12, var3);
 				this.a(var1, var3, 8, -3, 8, 8, -3, 10, false, var2, k);
 				this.a(var1, var3, 10, -3, 8, 10, -3, 10, false, var2, k);
-				this.a(var1, Blocks.Y.S(), 10, -2, 9, var3);
-				this.a(var1, Blocks.af.S(), 8, -2, 9, var3);
-				this.a(var1, Blocks.af.S(), 8, -2, 10, var3);
-				this.a(var1, Blocks.af.S(), 10, -1, 9, var3);
-				this.a(var1, Blocks.F.S().a(class_ajk.b, class_cq.b), 9, -2, 8, var3);
-				this.a(var1, Blocks.F.S().a(class_ajk.b, class_cq.e), 10, -2, 8, var3);
-				this.a(var1, Blocks.F.S().a(class_ajk.b, class_cq.e), 10, -1, 8, var3);
-				this.a(var1, Blocks.bb.S().a(class_akx.O, class_cq.c), 10, -2, 10, var3);
+				this.a(var1, Blocks.MOSSY_COBBLESTONE.S(), 10, -2, 9, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 8, -2, 9, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 8, -2, 10, var3);
+				this.a(var1, Blocks.REDSTONE_WIRE.S(), 10, -1, 9, var3);
+				this.a(var1, Blocks.STICKY_PISTON.S().a(class_ajk.b, class_cq.b), 9, -2, 8, var3);
+				this.a(var1, Blocks.STICKY_PISTON.S().a(class_ajk.b, class_cq.e), 10, -2, 8, var3);
+				this.a(var1, Blocks.STICKY_PISTON.S().a(class_ajk.b, class_cq.e), 10, -1, 8, var3);
+				this.a(var1, Blocks.UNPOWERED_REPEATER.S().a(class_akx.O, class_cq.c), 10, -2, 10, var3);
 				if (!f) {
 					f = this.a(var1, var3, var2, 9, -3, 10, class_oj.a(i, new class_oj[] { Items.ci.b(var2) }), 2 + var2.nextInt(5));
 				}
@@ -331,7 +331,7 @@ public class class_aul {
 				if (var1.nextFloat() < 0.4F) {
 					a = Blocks.COBBLESTONE.S();
 				} else {
-					a = Blocks.Y.S();
+					a = Blocks.MOSSY_COBBLESTONE.S();
 				}
 
 			}
@@ -389,10 +389,10 @@ public class class_aul {
 				}
 			}
 
-			class_apn var14 = Blocks.bO.S().a(class_anf.a, class_cq.c);
-			class_apn var15 = Blocks.bO.S().a(class_anf.a, class_cq.d);
-			class_apn var16 = Blocks.bO.S().a(class_anf.a, class_cq.f);
-			class_apn var7 = Blocks.bO.S().a(class_anf.a, class_cq.e);
+			class_apn var14 = Blocks.SANDSTONE_STAIRS.S().a(class_anf.a, class_cq.c);
+			class_apn var15 = Blocks.SANDSTONE_STAIRS.S().a(class_anf.a, class_cq.d);
+			class_apn var16 = Blocks.SANDSTONE_STAIRS.S().a(class_anf.a, class_cq.f);
+			class_apn var7 = Blocks.SANDSTONE_STAIRS.S().a(class_anf.a, class_cq.e);
 			int var8 = ~class_abt.b.b() & 15;
 			int var9 = ~class_abt.l.b() & 15;
 			this.a(var1, var3, 0, 0, 0, 4, 9, 4, Blocks.SANDSTONE.S(), Blocks.AIR.S(), false);
@@ -448,8 +448,8 @@ public class class_aul {
 			this.a(var1, var3, a - 3, 1, 3, a - 2, 2, 3, Blocks.SANDSTONE.S(), Blocks.SANDSTONE.S(), false);
 			this.a(var1, Blocks.SANDSTONE.S(), 1, 1, 2, var3);
 			this.a(var1, Blocks.SANDSTONE.S(), a - 2, 1, 2, var3);
-			this.a(var1, Blocks.U.a(class_anm.class_a_in_class_anm.b.a()), 1, 2, 2, var3);
-			this.a(var1, Blocks.U.a(class_anm.class_a_in_class_anm.b.a()), a - 2, 2, 2, var3);
+			this.a(var1, Blocks.STONE_SLAB.a(class_anm.class_a_in_class_anm.b.a()), 1, 2, 2, var3);
+			this.a(var1, Blocks.STONE_SLAB.a(class_anm.class_a_in_class_anm.b.a()), a - 2, 2, 2, var3);
 			this.a(var1, var7, 2, 1, 2, var3);
 			this.a(var1, var16, a - 3, 1, 2, var3);
 			this.a(var1, var3, 4, 3, 5, 4, 3, 18, Blocks.SANDSTONE.S(), Blocks.SANDSTONE.S(), false);
@@ -465,39 +465,39 @@ public class class_aul {
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), a - 5, 2, var10, var3);
 			}
 
-			this.a(var1, Blocks.cu.a(var8), 10, 0, 7, var3);
-			this.a(var1, Blocks.cu.a(var8), 10, 0, 8, var3);
-			this.a(var1, Blocks.cu.a(var8), 9, 0, 9, var3);
-			this.a(var1, Blocks.cu.a(var8), 11, 0, 9, var3);
-			this.a(var1, Blocks.cu.a(var8), 8, 0, 10, var3);
-			this.a(var1, Blocks.cu.a(var8), 12, 0, 10, var3);
-			this.a(var1, Blocks.cu.a(var8), 7, 0, 10, var3);
-			this.a(var1, Blocks.cu.a(var8), 13, 0, 10, var3);
-			this.a(var1, Blocks.cu.a(var8), 9, 0, 11, var3);
-			this.a(var1, Blocks.cu.a(var8), 11, 0, 11, var3);
-			this.a(var1, Blocks.cu.a(var8), 10, 0, 12, var3);
-			this.a(var1, Blocks.cu.a(var8), 10, 0, 13, var3);
-			this.a(var1, Blocks.cu.a(var9), 10, 0, 10, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 10, 0, 7, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 10, 0, 8, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 9, 0, 9, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 11, 0, 9, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 8, 0, 10, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 12, 0, 10, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 7, 0, 10, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 13, 0, 10, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 9, 0, 11, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 11, 0, 11, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 10, 0, 12, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 10, 0, 13, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var9), 10, 0, 10, var3);
 
 			for (var10 = 0; var10 <= (a - 1); var10 += a - 1) {
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 2, 1, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 2, 2, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 2, 2, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 2, 3, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 3, 1, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 3, 2, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 3, 2, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 3, 3, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 4, 1, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 4, 1, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), var10, 4, 2, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 4, 3, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 4, 3, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 5, 1, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 5, 2, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 5, 2, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 5, 3, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 6, 1, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 6, 1, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), var10, 6, 2, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 6, 3, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 7, 1, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 7, 2, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 7, 3, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 6, 3, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 7, 1, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 7, 2, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 7, 3, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 1, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 2, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 3, var3);
@@ -505,23 +505,23 @@ public class class_aul {
 
 			for (var10 = 2; var10 <= (a - 3); var10 += a - 3 - 2) {
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 2, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 2, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 2, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 2, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 3, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 3, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 3, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 3, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10 - 1, 4, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10 - 1, 4, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), var10, 4, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10 + 1, 4, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10 + 1, 4, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 5, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 5, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 5, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 5, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10 - 1, 6, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10 - 1, 6, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), var10, 6, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10 + 1, 6, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10 - 1, 7, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10, 7, 0, var3);
-				this.a(var1, Blocks.cu.a(var8), var10 + 1, 7, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10 + 1, 6, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10 - 1, 7, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10, 7, 0, var3);
+				this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), var10 + 1, 7, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 - 1, 8, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10, 8, 0, var3);
 				this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), var10 + 1, 8, 0, var3);
@@ -530,16 +530,16 @@ public class class_aul {
 			this.a(var1, var3, 8, 4, 0, 12, 6, 0, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), false);
 			this.a(var1, Blocks.AIR.S(), 8, 6, 0, var3);
 			this.a(var1, Blocks.AIR.S(), 12, 6, 0, var3);
-			this.a(var1, Blocks.cu.a(var8), 9, 5, 0, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 9, 5, 0, var3);
 			this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), 10, 5, 0, var3);
-			this.a(var1, Blocks.cu.a(var8), 11, 5, 0, var3);
+			this.a(var1, Blocks.STAINED_HARDENED_CLAY.a(var8), 11, 5, 0, var3);
 			this.a(var1, var3, 8, -14, 8, 12, -11, 12, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), false);
 			this.a(var1, var3, 8, -10, 8, 12, -10, 12, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), false);
 			this.a(var1, var3, 8, -9, 8, 12, -9, 12, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.c.a()), false);
 			this.a(var1, var3, 8, -8, 8, 12, -1, 12, Blocks.SANDSTONE.S(), Blocks.SANDSTONE.S(), false);
 			this.a(var1, var3, 9, -11, 9, 11, -1, 11, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, Blocks.az.S(), 10, -11, 10, var3);
-			this.a(var1, var3, 9, -13, 9, 11, -13, 11, Blocks.W.S(), Blocks.AIR.S(), false);
+			this.a(var1, Blocks.STONE_PRESSURE_PLATE.S(), 10, -11, 10, var3);
+			this.a(var1, var3, 9, -13, 9, 11, -13, 11, Blocks.TNT.S(), Blocks.AIR.S(), false);
 			this.a(var1, Blocks.AIR.S(), 8, -11, 10, var3);
 			this.a(var1, Blocks.AIR.S(), 8, -10, 10, var3);
 			this.a(var1, Blocks.SANDSTONE.a(class_amt.class_a_in_class_amt.b.a()), 7, -10, 10, var3);

@@ -13,7 +13,7 @@ public class class_acz extends class_abq {
 
 	@Override
 	public boolean b(Block var1) {
-		return var1 == Blocks.Z ? b.d() == 3 : ((var1 != Blocks.ah) && (var1 != Blocks.ag) ? ((var1 != Blocks.bP) && (var1 != Blocks.bT) ? ((var1 != Blocks.R) && (var1 != Blocks.GOLD_ORE) ? ((var1 != Blocks.S) && (var1 != Blocks.IRON_ORE) ? ((var1 != Blocks.LAPIS_BLOCK) && (var1 != Blocks.LAPIS_ORE) ? ((var1 != Blocks.aC) && (var1 != Blocks.aD) ? (var1.v() == class_avq.e ? true : (var1.v() == class_avq.f ? true : var1.v() == class_avq.g)) : b.d() >= 2) : b.d() >= 1) : b.d() >= 1) : b
+		return var1 == Blocks.OBSIDIAN ? b.d() == 3 : ((var1 != Blocks.DIAMOND_BLOCK) && (var1 != Blocks.DIAMOND_ORE) ? ((var1 != Blocks.EMERALD_ORE) && (var1 != Blocks.EMERALD_BLOCK) ? ((var1 != Blocks.GOLD_BLOCK) && (var1 != Blocks.GOLD_ORE) ? ((var1 != Blocks.IRON_BLOCK) && (var1 != Blocks.IRON_ORE) ? ((var1 != Blocks.LAPIS_BLOCK) && (var1 != Blocks.LAPIS_ORE) ? ((var1 != Blocks.REDSTONE_ORE) && (var1 != Blocks.LIT_REDSTONE_TORCH) ? (var1.v() == class_avq.e ? true : (var1.v() == class_avq.f ? true : var1.v() == class_avq.g)) : b.d() >= 2) : b.d() >= 1) : b.d() >= 1) : b
 				.d() >= 2) : b.d() >= 2) : b.d() >= 2);
 	}
 
@@ -23,6 +23,6 @@ public class class_acz extends class_abq {
 	}
 
 	static {
-		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.cs, Blocks.COAL_ORE, Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.ah, Blocks.ag, Blocks.T, Blocks.GOLDEN_RAIL, Blocks.R, Blocks.GOLD_ORE, Blocks.aI, Blocks.S, Blocks.IRON_ORE, Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.aD, Blocks.Y, Blocks.aV, Blocks.cB, Blocks.av, Blocks.aC, Blocks.SANDSTONE, Blocks.cM, Blocks.STONE, Blocks.U }));
+		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE, Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, Blocks.DOUBLE_SANDSTONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE, Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.LIT_REDSTONE_TORCH, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK, Blocks.PACKED_ICE, Blocks.RAIL, Blocks.REDSTONE_ORE, Blocks.SANDSTONE, Blocks.RED_SANDSTONE, Blocks.STONE, Blocks.STONE_SLAB }));
 	}
 }

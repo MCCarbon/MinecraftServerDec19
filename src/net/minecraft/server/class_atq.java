@@ -6,7 +6,7 @@ public class class_atq extends class_asp {
 	private final class_apn a;
 
 	public class_atq(BlockLongGrass.class_a_in_class_ano var1) {
-		a = Blocks.H.S().a(BlockLongGrass.a, var1);
+		a = Blocks.TALLGRASS.S().a(BlockLongGrass.a, var1);
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class class_atq extends class_asp {
 
 		for (int var5 = 0; var5 < 128; ++var5) {
 			class_cj var6 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-			if (var1.d(var6) && Blocks.H.g(var1, var6, a)) {
+			if (var1.d(var6) && Blocks.TALLGRASS.g(var1, var6, a)) {
 				var1.a(var6, a, 2);
 			}
 		}

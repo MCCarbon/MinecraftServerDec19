@@ -142,7 +142,7 @@ public abstract class BlockFlowers extends BlockPlant {
 		b;
 
 		public BlockFlowers a() {
-			return this == a ? Blocks.N : Blocks.O;
+			return this == a ? Blocks.YELLOW_FLOWER : Blocks.RED_FLOWER;
 		}
 	}
 }

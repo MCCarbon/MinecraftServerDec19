@@ -434,8 +434,8 @@ public class class_wy extends Entity {
 
 	static {
 		d = Arrays.asList(new class_wz[] { (new class_wz(new class_aco(Items.V), 10)).a(0.9F), new class_wz(new class_aco(Items.aH), 10), new class_wz(new class_aco(Items.aZ), 10), new class_wz(new class_aco(Items.bB), 10), new class_wz(new class_aco(Items.H), 5), (new class_wz(new class_aco(Items.aT), 2)).a(0.9F), new class_wz(new class_aco(Items.B), 10), new class_wz(new class_aco(Items.A), 5), new class_wz(new class_aco(Items.aY, 10, class_abt.p.b()), 1),
-				new class_wz(new class_aco(Blocks.bR), 10), new class_wz(new class_aco(Items.bv), 10) });
-		e = Arrays.asList(new class_wz[] { new class_wz(new class_aco(Blocks.bx), 1), new class_wz(new class_aco(Items.ct), 1), new class_wz(new class_aco(Items.aC), 1), (new class_wz(new class_aco(Items.f), 1)).a(0.25F).a(), (new class_wz(new class_aco(Items.aT), 1)).a(0.25F).a(), (new class_wz(new class_aco(Items.aN), 1)).a() });
+				new class_wz(new class_aco(Blocks.TRIPWIRE_HOOK), 10), new class_wz(new class_aco(Items.bv), 10) });
+		e = Arrays.asList(new class_wz[] { new class_wz(new class_aco(Blocks.WATERLILY), 1), new class_wz(new class_aco(Items.ct), 1), new class_wz(new class_aco(Items.aC), 1), (new class_wz(new class_aco(Items.f), 1)).a(0.25F).a(), (new class_wz(new class_aco(Items.aT), 1)).a(0.25F).a(), (new class_wz(new class_aco(Items.aN), 1)).a() });
 		f = Arrays.asList(new class_wz[] { new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.a.a()), 60), new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.b.a()), 25), new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.c.a()), 2), new class_wz(new class_aco(Items.aW, 1, class_acf.class_a_in_class_acf.d.a()), 13) });
 	}
 }

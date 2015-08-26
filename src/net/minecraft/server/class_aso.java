@@ -24,14 +24,14 @@ public class class_aso extends class_asp {
 					if (var6 <= 2.5D) {
 						a(var1, var5, Blocks.BEDROCK.S());
 					} else if (var5.o() < var3.o()) {
-						a(var1, var5, Blocks.bH.S());
+						a(var1, var5, Blocks.END_STONE.S());
 					}
 				} else if (var5.o() > var3.o()) {
 					a(var1, var5, Blocks.AIR.S());
 				} else if (var6 > 2.5D) {
 					a(var1, var5, Blocks.BEDROCK.S());
 				} else if (c) {
-					a(var1, new class_cj(var5), Blocks.bF.S());
+					a(var1, new class_cj(var5), Blocks.END_PORTAL.S());
 				} else {
 					a(var1, new class_cj(var5), Blocks.AIR.S());
 				}
@@ -47,7 +47,7 @@ public class class_aso extends class_asp {
 
 		while (var10.hasNext()) {
 			class_cq var11 = (class_cq) var10.next();
-			a(var1, var9.a(var11), Blocks.aa.S().a(class_anr.a, var11));
+			a(var1, var9.a(var11), Blocks.TORCH.S().a(class_anr.a, var11));
 		}
 
 		return true;

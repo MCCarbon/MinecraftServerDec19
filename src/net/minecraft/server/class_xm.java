@@ -24,7 +24,7 @@ public class class_xm extends class_xk implements class_aou {
 
 	@Override
 	public class_apn u() {
-		return Blocks.cp.S();
+		return Blocks.HOPPER.S();
 	}
 
 	@Override
@@ -122,7 +122,7 @@ public class class_xm extends class_xk implements class_aou {
 	public void a(class_qi var1) {
 		super.a(var1);
 		if (o.S().b("doEntityDrops")) {
-			this.a(Item.a(Blocks.cp), 1, 0.0F);
+			this.a(Item.a(Blocks.HOPPER), 1, 0.0F);
 		}
 
 	}

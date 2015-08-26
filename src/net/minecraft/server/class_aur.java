@@ -310,9 +310,9 @@ public abstract class class_aur {
 
 	protected boolean a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
 		class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-		if (var2.b(var9) && (var1.p(var9).c() != Blocks.ae)) {
-			class_apn var10 = Blocks.ae.S();
-			var1.a(var9, Blocks.ae.g(var1, var9, var10), 2);
+		if (var2.b(var9) && (var1.p(var9).c() != Blocks.CHEST)) {
+			class_apn var10 = Blocks.CHEST.S();
+			var1.a(var9, Blocks.CHEST.g(var1, var9, var10), 2);
 			TileEntity var11 = var1.s(var9);
 			if (var11 instanceof class_aok) {
 				class_oj.a(var3, var7, ((class_aok) var11), var8);
@@ -340,8 +340,8 @@ public abstract class class_aur {
 	}
 
 	protected void a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, class_cq var7) {
-		this.a(var1, Blocks.ao.S().a(class_ajn.a, var7), var4, var5, var6, var2);
-		this.a(var1, Blocks.ao.S().a(class_ajn.a, var7).a(class_ajn.P, class_ajn.class_a_in_class_ajn.a), var4, var5 + 1, var6, var2);
+		this.a(var1, Blocks.WOODEN_DOOR.S().a(class_ajn.a, var7), var4, var5, var6, var2);
+		this.a(var1, Blocks.WOODEN_DOOR.S().a(class_ajn.a, var7).a(class_ajn.P, class_ajn.class_a_in_class_ajn.a), var4, var5 + 1, var6, var2);
 	}
 
 	public void a(int var1, int var2, int var3) {

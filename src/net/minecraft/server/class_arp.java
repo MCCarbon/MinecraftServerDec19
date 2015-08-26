@@ -35,11 +35,11 @@ public class class_arp implements class_aqk {
 	double[] g;
 
 	public class_arp(class_ago var1, boolean var2, long var3) {
-		w = new class_atf(Blocks.co.S(), 14, class_apu.a(Blocks.aV));
+		w = new class_atf(Blocks.QUARTZ_ORE.S(), 14, class_apu.a(Blocks.NETHERRACK));
 		x = new class_asu(Blocks.FLOWING_LAVA, true);
 		y = new class_asu(Blocks.FLOWING_LAVA, false);
-		z = new class_asf(Blocks.P);
-		A = new class_asf(Blocks.Q);
+		z = new class_asf(Blocks.BROWN_MUSHROOM);
+		A = new class_asf(Blocks.RED_MUSHROOM);
 		B = new class_aug();
 		C = new class_ars();
 		h = var1;
@@ -95,7 +95,7 @@ public class class_arp implements class_aqk {
 								}
 
 								if (var44 > 0.0D) {
-									var49 = Blocks.aV.S();
+									var49 = Blocks.NETHERRACK.S();
 								}
 
 								int var50 = var41 + (var9 * 4);
@@ -133,29 +133,29 @@ public class class_arp implements class_aqk {
 				boolean var10 = (l[var7 + (var8 * 16)] + (j.nextDouble() * 0.2D)) > 0.0D;
 				int var11 = (int) ((m[var7 + (var8 * 16)] / 3.0D) + 3.0D + (j.nextDouble() * 0.25D));
 				int var12 = -1;
-				class_apn var13 = Blocks.aV.S();
-				class_apn var14 = Blocks.aV.S();
+				class_apn var13 = Blocks.NETHERRACK.S();
+				class_apn var14 = Blocks.NETHERRACK.S();
 
 				for (int var15 = 127; var15 >= 0; --var15) {
 					if ((var15 < (127 - j.nextInt(5))) && (var15 > j.nextInt(5))) {
 						class_apn var16 = var3.a(var8, var15, var7);
 						if ((var16.c() != null) && (var16.c().v() != class_avq.a)) {
-							if (var16.c() == Blocks.aV) {
+							if (var16.c() == Blocks.NETHERRACK) {
 								if (var12 == -1) {
 									if (var11 <= 0) {
 										var13 = null;
-										var14 = Blocks.aV.S();
+										var14 = Blocks.NETHERRACK.S();
 									} else if ((var15 >= (var4 - 4)) && (var15 <= (var4 + 1))) {
-										var13 = Blocks.aV.S();
-										var14 = Blocks.aV.S();
+										var13 = Blocks.NETHERRACK.S();
+										var14 = Blocks.NETHERRACK.S();
 										if (var10) {
 											var13 = Blocks.GRAVEL.S();
-											var14 = Blocks.aV.S();
+											var14 = Blocks.NETHERRACK.S();
 										}
 
 										if (var9) {
-											var13 = Blocks.aW.S();
-											var14 = Blocks.aW.S();
+											var13 = Blocks.SOUL_SAND.S();
+											var14 = Blocks.SOUL_SAND.S();
 										}
 									}
 
@@ -362,7 +362,7 @@ public class class_arp implements class_aqk {
 				return B.b();
 			}
 
-			if (B.a(h, var2) && (h.p(var2.b()).c() == Blocks.by)) {
+			if (B.a(h, var2) && (h.p(var2.b()).c() == Blocks.NETHER_BRICK)) {
 				return B.b();
 			}
 		}

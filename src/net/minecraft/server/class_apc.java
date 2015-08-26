@@ -193,7 +193,7 @@ public class class_apc extends TileEntity implements class_ks {
 
 							var8 = (class_cj) var7.next();
 							var9 = var0.g(var8);
-						} while (var9.c() != Blocks.bH);
+						} while (var9.c() != Blocks.END_STONE);
 					} while (var0.a(var8.b(1)).w());
 				} while (var0.a(var8.b(2)).w());
 

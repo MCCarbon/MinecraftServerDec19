@@ -8,7 +8,7 @@ public class class_aei {
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			class_abt var5 = var2[var4];
-			var1.a(new class_aco(Items.cJ, 1, var5.b()), new Object[] { "###", "###", " | ", Character.valueOf('#'), new class_aco(Blocks.L, 1, var5.a()), Character.valueOf('|'), Items.A });
+			var1.a(new class_aco(Items.cJ, 1, var5.b()), new Object[] { "###", "###", " | ", Character.valueOf('#'), new class_aco(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.A });
 		}
 
 		var1.a(new class_aei.class_b_in_class_aei());

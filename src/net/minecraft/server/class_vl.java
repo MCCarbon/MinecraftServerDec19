@@ -69,7 +69,7 @@ public class class_vl extends class_vc {
 	@Override
 	protected void b(boolean var1, int var2) {
 		if (!cF()) {
-			this.a(new class_aco(Item.a(Blocks.L), 1, cE().a()), 0.0F);
+			this.a(new class_aco(Item.a(Blocks.WOOL), 1, cE().a()), 0.0F);
 		}
 
 		int var3 = V.nextInt(2) + 1 + V.nextInt(1 + var2);
@@ -86,7 +86,7 @@ public class class_vl extends class_vc {
 
 	@Override
 	protected Item D() {
-		return Item.a(Blocks.L);
+		return Item.a(Blocks.WOOL);
 	}
 
 	@Override
@@ -97,7 +97,7 @@ public class class_vl extends class_vc {
 				int var4 = 1 + V.nextInt(3);
 
 				for (int var5 = 0; var5 < var4; ++var5) {
-					class_xg var6 = this.a(new class_aco(Item.a(Blocks.L), 1, cE().a()), 1.0F);
+					class_xg var6 = this.a(new class_aco(Item.a(Blocks.WOOL), 1, cE().a()), 1.0F);
 					var6.w += V.nextFloat() * 0.05F;
 					var6.v += (V.nextFloat() - V.nextFloat()) * 0.1F;
 					var6.x += (V.nextFloat() - V.nextFloat()) * 0.1F;

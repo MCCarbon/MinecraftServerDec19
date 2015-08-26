@@ -16,7 +16,7 @@ public class class_aln extends BlockPlant {
 
 	@Override
 	protected boolean c(Block var1) {
-		return var1 == Blocks.aW;
+		return var1 == Blocks.SOUL_SAND;
 	}
 
 	@Override

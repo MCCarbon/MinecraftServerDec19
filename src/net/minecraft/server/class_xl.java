@@ -53,7 +53,7 @@ public class class_xl extends class_xh {
 	public void a(class_qi var1) {
 		super.a(var1);
 		if (!var1.c() && o.S().b("doEntityDrops")) {
-			this.a(new class_aco(Blocks.al, 1), 0.0F);
+			this.a(new class_aco(Blocks.FURNACE, 1), 0.0F);
 		}
 
 	}
@@ -141,7 +141,7 @@ public class class_xl extends class_xh {
 
 	@Override
 	public class_apn u() {
-		return (this.i() ? Blocks.am : Blocks.al).S().a(class_akj.a, class_cq.c);
+		return (this.i() ? Blocks.LIT_FURNACE : Blocks.FURNACE).S().a(class_akj.a, class_cq.c);
 	}
 
 	static {

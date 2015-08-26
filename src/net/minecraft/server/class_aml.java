@@ -39,16 +39,16 @@ public class class_aml extends Block {
 
 	private void d(class_ago var1, class_cj var2) {
 		this.e(var1, var2);
-		if (this == Blocks.aC) {
-			var1.a(var2, Blocks.aD.S());
+		if (this == Blocks.REDSTONE_ORE) {
+			var1.a(var2, Blocks.LIT_REDSTONE_TORCH.S());
 		}
 
 	}
 
 	@Override
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
-		if (this == Blocks.aD) {
-			var1.a(var2, Blocks.aC.S());
+		if (this == Blocks.LIT_REDSTONE_TORCH) {
+			var1.a(var2, Blocks.REDSTONE_ORE.S());
 		}
 
 	}
@@ -119,6 +119,6 @@ public class class_aml extends Block {
 
 	@Override
 	protected class_aco i(class_apn var1) {
-		return new class_aco(Blocks.aC);
+		return new class_aco(Blocks.REDSTONE_ORE);
 	}
 }

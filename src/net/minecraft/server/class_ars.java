@@ -123,7 +123,7 @@ public class class_ars extends class_arr {
 									double var49 = ((var48 - 1 + 0.5D) - var8) / var31;
 									if ((var49 > -0.7D) && (((var57 * var57) + (var49 * var49) + (var46 * var46)) < 1.0D)) {
 										class_apn var51 = var5.a(var42, var48, var58);
-										if ((var51.c() == Blocks.aV) || (var51.c() == Blocks.DIRT) || (var51.c() == Blocks.GRASS)) {
+										if ((var51.c() == Blocks.NETHERRACK) || (var51.c() == Blocks.DIRT) || (var51.c() == Blocks.GRASS)) {
 											var5.a(var42, var48, var58, Blocks.AIR.S());
 										}
 									}

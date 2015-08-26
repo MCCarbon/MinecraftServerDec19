@@ -44,7 +44,7 @@ public class class_anr extends Block {
 			return true;
 		} else {
 			Block var3 = var1.p(var2).c();
-			return (var3 instanceof class_akb) || (var3 == Blocks.GLASS) || (var3 == Blocks.bZ) || (var3 == Blocks.cG);
+			return (var3 instanceof class_akb) || (var3 == Blocks.GLASS) || (var3 == Blocks.COBBLESTONE_WALL) || (var3 == Blocks.STAINED_GLASS);
 		}
 	}
 

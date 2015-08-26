@@ -150,7 +150,7 @@ public abstract class class_zj extends Entity implements class_zd {
 		}
 
 		if (var3 != null) {
-			if ((var3.a == class_ayl.class_a_in_class_ayl.b) && (o.p(var3.a()).c() == Blocks.aY)) {
+			if ((var3.a == class_ayl.class_a_in_class_ayl.b) && (o.p(var3.a()).c() == Blocks.PORTAL)) {
 				this.d(var3.a());
 			} else {
 				this.a(var3);

@@ -21,7 +21,7 @@ public class BlockPistonExtension extends class_ajk {
 			if (var5 != null) {
 				class_cj var6 = var2.a(var5.d());
 				Block var7 = var1.p(var6).c();
-				if ((var7 == Blocks.J) || (var7 == Blocks.F)) {
+				if ((var7 == Blocks.PISTON) || (var7 == Blocks.STICKY_PISTON)) {
 					var1.g(var6);
 				}
 			}
@@ -36,7 +36,7 @@ public class BlockPistonExtension extends class_ajk {
 		class_cq var4 = ((class_cq) var3.b(b)).d();
 		var2 = var2.a(var4);
 		class_apn var5 = var1.p(var2);
-		if (((var5.c() == Blocks.J) || (var5.c() == Blocks.F)) && ((Boolean) var5.b(BlockPiston.a)).booleanValue()) {
+		if (((var5.c() == Blocks.PISTON) || (var5.c() == Blocks.STICKY_PISTON)) && ((Boolean) var5.b(BlockPiston.a)).booleanValue()) {
 			var5.c().b(var1, var2, var5, 0);
 			var1.g(var2);
 		}
@@ -140,7 +140,7 @@ public class BlockPistonExtension extends class_ajk {
 		class_cq var5 = (class_cq) var3.b(b);
 		class_cj var6 = var2.a(var5.d());
 		class_apn var7 = var1.p(var6);
-		if ((var7.c() != Blocks.J) && (var7.c() != Blocks.F)) {
+		if ((var7.c() != Blocks.PISTON) && (var7.c() != Blocks.STICKY_PISTON)) {
 			var1.g(var2);
 		} else {
 			var7.c().a(var1, var6, var7, var4);
@@ -155,7 +155,7 @@ public class BlockPistonExtension extends class_ajk {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(var3.b(a) == BlockPistonExtension.class_a_in_class_aph.b ? Blocks.F : Blocks.J);
+		return new class_aco(var3.b(a) == BlockPistonExtension.class_a_in_class_aph.b ? Blocks.STICKY_PISTON : Blocks.PISTON);
 	}
 
 	@Override

@@ -19,7 +19,7 @@ public class class_xp extends class_xh {
 
 	@Override
 	public class_apn u() {
-		return Blocks.W.S();
+		return Blocks.TNT.S();
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class class_xp extends class_xh {
 		super.a(var1);
 		double var2 = (v * v) + (x * x);
 		if (!var1.c() && o.S().b("doEntityDrops")) {
-			this.a(new class_aco(Blocks.W, 1), 0.0F);
+			this.a(new class_aco(Blocks.TNT, 1), 0.0F);
 		}
 
 		if (var1.o() || var1.c() || (var2 >= 0.009999999776482582D)) {

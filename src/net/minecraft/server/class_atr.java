@@ -60,7 +60,7 @@ public class class_atr extends class_asa {
 				return false;
 			} else {
 				Block var19 = var1.p(var3.b()).c();
-				if (((var19 == Blocks.GRASS) || (var19 == Blocks.DIRT) || (var19 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
+				if (((var19 == Blocks.GRASS) || (var19 == Blocks.DIRT) || (var19 == Blocks.FARMLAND)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 					var7 = 3;
 					byte var20 = 0;
@@ -173,11 +173,11 @@ public class class_atr extends class_asa {
 	}
 
 	private void a(class_ago var1, int var2, class_cj var3, class_cq var4) {
-		this.a(var1, var3, Blocks.bN.S().a(class_aja.a, Integer.valueOf(var2)).a(class_akx.O, var4));
+		this.a(var1, var3, Blocks.COCOA.S().a(class_aja.a, Integer.valueOf(var2)).a(class_akx.O, var4));
 	}
 
 	private void a(class_ago var1, class_cj var2, class_apy var3) {
-		this.a(var1, var2, Blocks.bn.S().a(var3, Boolean.valueOf(true)));
+		this.a(var1, var2, Blocks.VINE.S().a(var3, Boolean.valueOf(true)));
 	}
 
 	private void b(class_ago var1, class_cj var2, class_apy var3) {

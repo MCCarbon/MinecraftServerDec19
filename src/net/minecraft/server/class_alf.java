@@ -157,7 +157,7 @@ public abstract class class_alf extends Block {
 			if (var4) {
 				Integer var9 = (Integer) var3.b(b);
 				if (var9.intValue() == 0) {
-					var1.a(var2, Blocks.Z.S());
+					var1.a(var2, Blocks.OBSIDIAN.S());
 					this.d(var1, var2);
 					return true;
 				}

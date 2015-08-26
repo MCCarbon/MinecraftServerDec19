@@ -126,29 +126,29 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 0, 0, 8, 1, 8, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 0, 0, 8, 1, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 2, 0, 8, 5, 8, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 6, 0, 8, 6, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 2, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 2, 0, 8, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 3, 0, 1, 4, 0, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 7, 3, 0, 7, 4, 0, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 2, 4, 8, 2, 8, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 6, 0, 8, 6, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 0, 2, 5, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 6, 2, 0, 8, 5, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 3, 0, 1, 4, 0, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 7, 3, 0, 7, 4, 0, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 2, 4, 8, 2, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 1, 1, 4, 2, 2, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 6, 1, 4, 7, 2, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 3, 8, 8, 3, 8, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 3, 6, 0, 3, 7, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 8, 3, 6, 8, 3, 7, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 3, 4, 0, 5, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 8, 3, 4, 8, 5, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 3, 5, 2, 5, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 3, 5, 7, 5, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 4, 5, 1, 5, 5, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 7, 4, 5, 7, 5, 5, Blocks.bz.S(), Blocks.bz.S(), false);
+			this.a(var1, var3, 0, 3, 8, 8, 3, 8, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 3, 6, 0, 3, 7, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 8, 3, 6, 8, 3, 7, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 3, 4, 0, 5, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 8, 3, 4, 8, 5, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 3, 5, 2, 5, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 6, 3, 5, 7, 5, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 4, 5, 1, 5, 5, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 7, 4, 5, 7, 5, 5, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 
 			for (int var4 = 0; var4 <= 5; ++var4) {
 				for (int var5 = 0; var5 <= 8; ++var5) {
-					this.b(var1, Blocks.by.S(), var5, -1, var4, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var5, -1, var4, var3);
 				}
 			}
 
@@ -178,13 +178,13 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			class_apn var4 = Blocks.bA.S().a(class_anf.a, class_cq.d);
+			class_apn var4 = Blocks.NETHER_BRICK_STAIRS.S().a(class_anf.a, class_cq.d);
 
 			for (int var5 = 0; var5 <= 9; ++var5) {
 				int var6 = Math.max(1, 7 - var5);
 				int var7 = Math.min(Math.max(var6 + 5, 14 - var5), 13);
 				int var8 = var5;
-				this.a(var1, var3, 0, 0, var5, 4, var6, var5, Blocks.by.S(), Blocks.by.S(), false);
+				this.a(var1, var3, 0, 0, var5, 4, var6, var5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 				this.a(var1, var3, 1, var6 + 1, var5, 3, var7 - 1, var5, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				if (var5 <= 6) {
 					this.a(var1, var4, 1, var6 + 1, var5, var3);
@@ -192,16 +192,16 @@ public class class_auh {
 					this.a(var1, var4, 3, var6 + 1, var5, var3);
 				}
 
-				this.a(var1, var3, 0, var7, var5, 4, var7, var5, Blocks.by.S(), Blocks.by.S(), false);
-				this.a(var1, var3, 0, var6 + 1, var5, 0, var7 - 1, var5, Blocks.by.S(), Blocks.by.S(), false);
-				this.a(var1, var3, 4, var6 + 1, var5, 4, var7 - 1, var5, Blocks.by.S(), Blocks.by.S(), false);
+				this.a(var1, var3, 0, var7, var5, 4, var7, var5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+				this.a(var1, var3, 0, var6 + 1, var5, 0, var7 - 1, var5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+				this.a(var1, var3, 4, var6 + 1, var5, 4, var7 - 1, var5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 				if ((var5 & 1) == 0) {
-					this.a(var1, var3, 0, var6 + 2, var5, 0, var6 + 3, var5, Blocks.bz.S(), Blocks.bz.S(), false);
-					this.a(var1, var3, 4, var6 + 2, var5, 4, var6 + 3, var5, Blocks.bz.S(), Blocks.bz.S(), false);
+					this.a(var1, var3, 0, var6 + 2, var5, 0, var6 + 3, var5, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+					this.a(var1, var3, 4, var6 + 2, var5, 4, var6 + 3, var5, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 				}
 
 				for (int var9 = 0; var9 <= 4; ++var9) {
-					this.b(var1, Blocks.by.S(), var9, -1, var8, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var9, -1, var8, var3);
 				}
 			}
 
@@ -246,25 +246,25 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 4, 3, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.bz.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.bz.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 4, 3, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK.S(), false);
 			if (b && var3.b((new class_cj(this.a(3, 3), this.d(2), this.b(3, 3))))) {
 				b = false;
 				this.a(var1, var3, var2, 3, 2, 3, a, 2 + var2.nextInt(4));
 			}
 
-			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			for (int var4 = 0; var4 <= 4; ++var4) {
 				for (int var5 = 0; var5 <= 4; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
 				}
 			}
 
@@ -309,25 +309,25 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 3, 3, 0, 4, 3, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 2, 0, 4, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 2, 4, 4, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.bz.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.bz.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 3, 3, 0, 4, 3, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 2, 0, 4, 5, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 2, 4, 4, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK.S(), false);
 			if (b && var3.b((new class_cj(this.a(1, 3), this.d(2), this.b(1, 3))))) {
 				b = false;
 				this.a(var1, var3, var2, 1, 2, 3, a, 2 + var2.nextInt(4));
 			}
 
-			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			for (int var4 = 0; var4 <= 4; ++var4) {
 				for (int var5 = 0; var5 <= 4; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
 				}
 			}
 
@@ -359,17 +359,17 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 2, 0, 4, 5, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 4, 0, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 2, 4, 4, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 2, 0, 4, 5, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 4, 0, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 2, 4, 4, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			for (int var4 = 0; var4 <= 4; ++var4) {
 				for (int var5 = 0; var5 <= 4; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
 				}
 			}
 
@@ -399,19 +399,19 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 3, 3, 0, 4, 3, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 3, 3, 0, 4, 3, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			for (int var4 = 0; var4 <= 4; ++var4) {
 				for (int var5 = 0; var5 <= 4; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
 				}
 			}
 
@@ -442,45 +442,45 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 8, 5, 11, 10, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 9, 11, 7, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 0, 4, 12, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 8, 5, 0, 10, 12, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 9, 0, 7, 12, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 11, 2, 10, 12, 10, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 8, 5, 11, 10, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 9, 11, 7, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 0, 4, 12, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 8, 5, 0, 10, 12, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 9, 0, 7, 12, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 11, 2, 10, 12, 10, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			int var4;
 			for (var4 = 1; var4 <= 11; var4 += 2) {
-				this.a(var1, var3, var4, 10, 0, var4, 11, 0, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, var4, 10, 12, var4, 11, 12, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, 0, 10, var4, 0, 11, var4, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, 12, 10, var4, 12, 11, var4, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, Blocks.by.S(), var4, 13, 0, var3);
-				this.a(var1, Blocks.by.S(), var4, 13, 12, var3);
-				this.a(var1, Blocks.by.S(), 0, 13, var4, var3);
-				this.a(var1, Blocks.by.S(), 12, 13, var4, var3);
-				this.a(var1, Blocks.bz.S(), var4 + 1, 13, 0, var3);
-				this.a(var1, Blocks.bz.S(), var4 + 1, 13, 12, var3);
-				this.a(var1, Blocks.bz.S(), 0, 13, var4 + 1, var3);
-				this.a(var1, Blocks.bz.S(), 12, 13, var4 + 1, var3);
+				this.a(var1, var3, var4, 10, 0, var4, 11, 0, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, var4, 10, 12, var4, 11, 12, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, 0, 10, var4, 0, 11, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, 12, 10, var4, 12, 11, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, Blocks.NETHER_BRICK.S(), var4, 13, 0, var3);
+				this.a(var1, Blocks.NETHER_BRICK.S(), var4, 13, 12, var3);
+				this.a(var1, Blocks.NETHER_BRICK.S(), 0, 13, var4, var3);
+				this.a(var1, Blocks.NETHER_BRICK.S(), 12, 13, var4, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), var4 + 1, 13, 0, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), var4 + 1, 13, 12, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, var4 + 1, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 12, 13, var4 + 1, var3);
 			}
 
-			this.a(var1, Blocks.bz.S(), 0, 13, 0, var3);
-			this.a(var1, Blocks.bz.S(), 0, 13, 12, var3);
-			this.a(var1, Blocks.bz.S(), 0, 13, 0, var3);
-			this.a(var1, Blocks.bz.S(), 12, 13, 0, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, 0, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, 12, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, 0, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 12, 13, 0, var3);
 
 			for (var4 = 3; var4 <= 9; var4 += 2) {
-				this.a(var1, var3, 1, 7, var4, 1, 8, var4, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, 11, 7, var4, 11, 8, var4, Blocks.bz.S(), Blocks.bz.S(), false);
+				this.a(var1, var3, 1, 7, var4, 1, 8, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, 11, 7, var4, 11, 8, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 			}
 
-			class_apn var9 = Blocks.bA.S().a(class_anf.a, class_cq.c);
+			class_apn var9 = Blocks.NETHER_BRICK_STAIRS.S().a(class_anf.a, class_cq.c);
 
 			int var5;
 			int var7;
@@ -492,9 +492,9 @@ public class class_auh {
 				}
 
 				if ((var6 >= 5) && (var6 <= 8)) {
-					this.a(var1, var3, 5, 5, var6, 7, var5 + 4, var6, Blocks.by.S(), Blocks.by.S(), false);
+					this.a(var1, var3, 5, 5, var6, 7, var5 + 4, var6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 				} else if ((var6 >= 9) && (var6 <= 10)) {
-					this.a(var1, var3, 5, 8, var6, 7, var5 + 4, var6, Blocks.by.S(), Blocks.by.S(), false);
+					this.a(var1, var3, 5, 8, var6, 7, var5 + 4, var6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 				}
 
 				if (var5 >= 1) {
@@ -506,15 +506,15 @@ public class class_auh {
 				this.a(var1, var9, var5, 12, 11, var3);
 			}
 
-			this.a(var1, var3, 5, 6, 7, 5, 7, 7, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 7, 6, 7, 7, 7, 7, Blocks.bz.S(), Blocks.bz.S(), false);
+			this.a(var1, var3, 5, 6, 7, 5, 7, 7, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 7, 6, 7, 7, 7, 7, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 			this.a(var1, var3, 5, 13, 12, 7, 13, 12, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 2, 5, 2, 3, 5, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 9, 3, 5, 10, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 4, 2, 5, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 9, 5, 2, 10, 5, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 9, 5, 9, 10, 5, 10, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 10, 5, 4, 10, 5, 8, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 2, 5, 2, 3, 5, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 9, 3, 5, 10, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 4, 2, 5, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 9, 5, 2, 10, 5, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 9, 5, 9, 10, 5, 10, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 10, 5, 4, 10, 5, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			class_apn var10 = var9.a(class_anf.a, class_cq.f);
 			class_apn var11 = var9.a(class_anf.a, class_cq.e);
 			this.a(var1, var11, 4, 5, 2, var3);
@@ -525,29 +525,29 @@ public class class_auh {
 			this.a(var1, var10, 8, 5, 3, var3);
 			this.a(var1, var10, 8, 5, 9, var3);
 			this.a(var1, var10, 8, 5, 10, var3);
-			this.a(var1, var3, 3, 4, 4, 4, 4, 8, Blocks.aW.S(), Blocks.aW.S(), false);
-			this.a(var1, var3, 8, 4, 4, 9, 4, 8, Blocks.aW.S(), Blocks.aW.S(), false);
-			this.a(var1, var3, 3, 5, 4, 4, 5, 8, Blocks.bB.S(), Blocks.bB.S(), false);
-			this.a(var1, var3, 8, 5, 4, 9, 5, 8, Blocks.bB.S(), Blocks.bB.S(), false);
-			this.a(var1, var3, 4, 2, 0, 8, 2, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 4, 12, 2, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 0, 0, 8, 1, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 0, 9, 8, 1, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 0, 4, 3, 1, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 9, 0, 4, 12, 1, 8, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 3, 4, 4, 4, 4, 8, Blocks.SOUL_SAND.S(), Blocks.SOUL_SAND.S(), false);
+			this.a(var1, var3, 8, 4, 4, 9, 4, 8, Blocks.SOUL_SAND.S(), Blocks.SOUL_SAND.S(), false);
+			this.a(var1, var3, 3, 5, 4, 4, 5, 8, Blocks.NETHER_WART.S(), Blocks.NETHER_WART.S(), false);
+			this.a(var1, var3, 8, 5, 4, 9, 5, 8, Blocks.NETHER_WART.S(), Blocks.NETHER_WART.S(), false);
+			this.a(var1, var3, 4, 2, 0, 8, 2, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 4, 12, 2, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 0, 0, 8, 1, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 0, 9, 8, 1, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 0, 4, 3, 1, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 9, 0, 4, 12, 1, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			int var8;
 			for (var7 = 4; var7 <= 8; ++var7) {
 				for (var8 = 0; var8 <= 2; ++var8) {
-					this.b(var1, Blocks.by.S(), var7, -1, var8, var3);
-					this.b(var1, Blocks.by.S(), var7, -1, 12 - var8, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var7, -1, var8, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var7, -1, 12 - var8, var3);
 				}
 			}
 
 			for (var7 = 0; var7 <= 2; ++var7) {
 				for (var8 = 4; var8 <= 8; ++var8) {
-					this.b(var1, Blocks.by.S(), var7, -1, var8, var3);
-					this.b(var1, Blocks.by.S(), 12 - var7, -1, var8, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var7, -1, var8, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), 12 - var7, -1, var8, var3);
 				}
 			}
 
@@ -577,70 +577,70 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 8, 5, 11, 10, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 9, 11, 7, 12, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 0, 4, 12, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 8, 5, 0, 10, 12, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 9, 0, 7, 12, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 11, 2, 10, 12, 10, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 8, 0, 7, 8, 0, Blocks.bz.S(), Blocks.bz.S(), false);
+			this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 8, 5, 11, 10, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 9, 11, 7, 12, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 0, 4, 12, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 8, 5, 0, 10, 12, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 9, 0, 7, 12, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 11, 2, 10, 12, 10, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 8, 0, 7, 8, 0, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 
 			int var4;
 			for (var4 = 1; var4 <= 11; var4 += 2) {
-				this.a(var1, var3, var4, 10, 0, var4, 11, 0, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, var4, 10, 12, var4, 11, 12, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, 0, 10, var4, 0, 11, var4, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, 12, 10, var4, 12, 11, var4, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, Blocks.by.S(), var4, 13, 0, var3);
-				this.a(var1, Blocks.by.S(), var4, 13, 12, var3);
-				this.a(var1, Blocks.by.S(), 0, 13, var4, var3);
-				this.a(var1, Blocks.by.S(), 12, 13, var4, var3);
-				this.a(var1, Blocks.bz.S(), var4 + 1, 13, 0, var3);
-				this.a(var1, Blocks.bz.S(), var4 + 1, 13, 12, var3);
-				this.a(var1, Blocks.bz.S(), 0, 13, var4 + 1, var3);
-				this.a(var1, Blocks.bz.S(), 12, 13, var4 + 1, var3);
+				this.a(var1, var3, var4, 10, 0, var4, 11, 0, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, var4, 10, 12, var4, 11, 12, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, 0, 10, var4, 0, 11, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, 12, 10, var4, 12, 11, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, Blocks.NETHER_BRICK.S(), var4, 13, 0, var3);
+				this.a(var1, Blocks.NETHER_BRICK.S(), var4, 13, 12, var3);
+				this.a(var1, Blocks.NETHER_BRICK.S(), 0, 13, var4, var3);
+				this.a(var1, Blocks.NETHER_BRICK.S(), 12, 13, var4, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), var4 + 1, 13, 0, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), var4 + 1, 13, 12, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, var4 + 1, var3);
+				this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 12, 13, var4 + 1, var3);
 			}
 
-			this.a(var1, Blocks.bz.S(), 0, 13, 0, var3);
-			this.a(var1, Blocks.bz.S(), 0, 13, 12, var3);
-			this.a(var1, Blocks.bz.S(), 0, 13, 0, var3);
-			this.a(var1, Blocks.bz.S(), 12, 13, 0, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, 0, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, 12, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 0, 13, 0, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 12, 13, 0, var3);
 
 			for (var4 = 3; var4 <= 9; var4 += 2) {
-				this.a(var1, var3, 1, 7, var4, 1, 8, var4, Blocks.bz.S(), Blocks.bz.S(), false);
-				this.a(var1, var3, 11, 7, var4, 11, 8, var4, Blocks.bz.S(), Blocks.bz.S(), false);
+				this.a(var1, var3, 1, 7, var4, 1, 8, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+				this.a(var1, var3, 11, 7, var4, 11, 8, var4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 			}
 
-			this.a(var1, var3, 4, 2, 0, 8, 2, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 4, 12, 2, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 0, 0, 8, 1, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 0, 9, 8, 1, 12, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 0, 4, 3, 1, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 9, 0, 4, 12, 1, 8, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 4, 2, 0, 8, 2, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 4, 12, 2, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 0, 0, 8, 1, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 0, 9, 8, 1, 12, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 0, 4, 3, 1, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 9, 0, 4, 12, 1, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			int var5;
 			for (var4 = 4; var4 <= 8; ++var4) {
 				for (var5 = 0; var5 <= 2; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
-					this.b(var1, Blocks.by.S(), var4, -1, 12 - var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, 12 - var5, var3);
 				}
 			}
 
 			for (var4 = 0; var4 <= 2; ++var4) {
 				for (var5 = 4; var5 <= 8; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
-					this.b(var1, Blocks.by.S(), 12 - var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), 12 - var4, -1, var5, var3);
 				}
 			}
 
-			this.a(var1, var3, 5, 5, 5, 7, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 5, 5, 5, 7, 5, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 6, 1, 6, 6, 4, 6, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, Blocks.by.S(), 6, 0, 6, var3);
+			this.a(var1, Blocks.NETHER_BRICK.S(), 6, 0, 6, var3);
 			this.a(var1, Blocks.FLOWING_LAVA.S(), 6, 5, 6, var3);
 			class_cj var6 = new class_cj(this.a(6, 6), this.d(5), this.b(6, 6));
 			if (var3.b(var6)) {
@@ -683,28 +683,28 @@ public class class_auh {
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
 			this.a(var1, var3, 0, 2, 0, 6, 7, 7, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 1, 0, 0, 5, 1, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 2, 1, 5, 2, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 3, 2, 5, 3, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 4, 3, 5, 4, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 2, 0, 1, 4, 2, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 2, 0, 5, 4, 2, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 5, 2, 1, 5, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 5, 2, 5, 5, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 5, 3, 0, 5, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 5, 3, 6, 5, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 5, 8, 5, 5, 8, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, Blocks.bz.S(), 1, 6, 3, var3);
-			this.a(var1, Blocks.bz.S(), 5, 6, 3, var3);
-			this.a(var1, var3, 0, 6, 3, 0, 6, 8, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 6, 6, 3, 6, 6, 8, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 1, 6, 8, 5, 7, 8, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 2, 8, 8, 4, 8, 8, Blocks.bz.S(), Blocks.bz.S(), false);
+			this.a(var1, var3, 1, 0, 0, 5, 1, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 2, 1, 5, 2, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 3, 2, 5, 3, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 4, 3, 5, 4, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 2, 0, 1, 4, 2, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 2, 0, 5, 4, 2, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 5, 2, 1, 5, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 5, 2, 5, 5, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 5, 3, 0, 5, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 6, 5, 3, 6, 5, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 5, 8, 5, 5, 8, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 1, 6, 3, var3);
+			this.a(var1, Blocks.NETHER_BRICK_FENCE.S(), 5, 6, 3, var3);
+			this.a(var1, var3, 0, 6, 3, 0, 6, 8, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 6, 6, 3, 6, 6, 8, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 1, 6, 8, 5, 7, 8, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 2, 8, 8, 4, 8, 8, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 			if (!b) {
 				class_cj var4 = new class_cj(this.a(3, 5), this.d(5), this.b(3, 5));
 				if (var3.b(var4)) {
 					b = true;
-					var1.a(var4, Blocks.ac.S(), 2);
+					var1.a(var4, Blocks.MOB_SPAWNER.S(), 2);
 					TileEntity var5 = var1.s(var4);
 					if (var5 instanceof class_aox) {
 						((class_aox) var5).b().a("Blaze");
@@ -714,7 +714,7 @@ public class class_auh {
 
 			for (int var6 = 0; var6 <= 6; ++var6) {
 				for (int var7 = 0; var7 <= 6; ++var7) {
-					this.b(var1, Blocks.by.S(), var6, -1, var7, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var6, -1, var7, var3);
 				}
 			}
 
@@ -744,29 +744,29 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 2, 0, 6, 10, 6, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 2, 0, 1, 8, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 2, 0, 6, 8, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 1, 0, 8, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 2, 1, 6, 8, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 2, 6, 5, 8, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 3, 2, 0, 5, 4, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 6, 3, 2, 6, 5, 2, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 6, 3, 4, 6, 5, 4, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, Blocks.by.S(), 5, 2, 5, var3);
-			this.a(var1, var3, 4, 2, 5, 4, 3, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 3, 2, 5, 3, 4, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 2, 5, 2, 5, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 2, 5, 1, 6, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 1, 7, 1, 5, 7, 4, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 2, 0, 1, 8, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 2, 0, 6, 8, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 1, 0, 8, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 6, 2, 1, 6, 8, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 2, 6, 5, 8, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 3, 2, 0, 5, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 6, 3, 2, 6, 5, 2, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 6, 3, 4, 6, 5, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, Blocks.NETHER_BRICK.S(), 5, 2, 5, var3);
+			this.a(var1, var3, 4, 2, 5, 4, 3, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 3, 2, 5, 3, 4, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 2, 5, 2, 5, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 2, 5, 1, 6, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 1, 7, 1, 5, 7, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 6, 8, 2, 6, 8, 4, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 2, 6, 0, 4, 8, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.bz.S(), Blocks.bz.S(), false);
+			this.a(var1, var3, 2, 6, 0, 4, 8, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 
 			for (int var4 = 0; var4 <= 6; ++var4) {
 				for (int var5 = 0; var5 <= 6; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
 				}
 			}
 
@@ -798,28 +798,28 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 0, 2, 0, 6, 7, 6, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 2, 0, 1, 6, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 6, 1, 6, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 2, 0, 6, 6, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 5, 2, 6, 6, 6, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 0, 6, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 5, 0, 6, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 2, 0, 6, 6, 1, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 2, 5, 6, 6, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 6, 0, 4, 6, 0, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 2, 6, 6, 4, 6, 6, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 2, 5, 6, 4, 5, 6, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 6, 2, 0, 6, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 5, 2, 0, 5, 4, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 6, 6, 2, 6, 6, 4, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 6, 5, 2, 6, 5, 4, Blocks.bz.S(), Blocks.bz.S(), false);
+			this.a(var1, var3, 0, 2, 0, 1, 6, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 6, 1, 6, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 2, 0, 6, 6, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 5, 2, 6, 6, 6, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 0, 0, 6, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 5, 0, 6, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 6, 2, 0, 6, 6, 1, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 6, 2, 5, 6, 6, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 6, 0, 4, 6, 0, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 2, 6, 6, 4, 6, 6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 2, 5, 6, 4, 5, 6, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 6, 2, 0, 6, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 5, 2, 0, 5, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 6, 6, 2, 6, 6, 4, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 6, 5, 2, 6, 5, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 
 			for (int var4 = 0; var4 <= 6; ++var4) {
 				for (int var5 = 0; var5 <= 6; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
 				}
 			}
 
@@ -862,41 +862,41 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 7, 3, 0, 11, 4, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 3, 7, 18, 4, 11, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 7, 3, 0, 11, 4, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 3, 7, 18, 4, 11, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 8, 5, 0, 10, 7, 18, Blocks.AIR.S(), Blocks.AIR.S(), false);
 			this.a(var1, var3, 0, 5, 8, 18, 7, 10, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 7, 5, 0, 7, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 7, 5, 11, 7, 5, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 11, 5, 0, 11, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 11, 5, 11, 11, 5, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 5, 7, 7, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 11, 5, 7, 18, 5, 7, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 5, 11, 7, 5, 11, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 11, 5, 11, 18, 5, 11, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 7, 2, 0, 11, 2, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 7, 2, 13, 11, 2, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 7, 0, 0, 11, 1, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 7, 0, 15, 11, 1, 18, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 7, 5, 0, 7, 5, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 7, 5, 11, 7, 5, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 11, 5, 0, 11, 5, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 11, 5, 11, 11, 5, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 5, 7, 7, 5, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 11, 5, 7, 18, 5, 7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 5, 11, 7, 5, 11, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 11, 5, 11, 18, 5, 11, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 7, 2, 0, 11, 2, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 7, 2, 13, 11, 2, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 7, 0, 0, 11, 1, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 7, 0, 15, 11, 1, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			int var4;
 			int var5;
 			for (var4 = 7; var4 <= 11; ++var4) {
 				for (var5 = 0; var5 <= 2; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
-					this.b(var1, Blocks.by.S(), var4, -1, 18 - var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, 18 - var5, var3);
 				}
 			}
 
-			this.a(var1, var3, 0, 2, 7, 5, 2, 11, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 13, 2, 7, 18, 2, 11, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 0, 7, 3, 1, 11, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 15, 0, 7, 18, 1, 11, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 2, 7, 5, 2, 11, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 13, 2, 7, 18, 2, 11, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 0, 7, 3, 1, 11, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 15, 0, 7, 18, 1, 11, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			for (var4 = 0; var4 <= 2; ++var4) {
 				for (var5 = 7; var5 <= 11; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
-					this.b(var1, Blocks.by.S(), 18 - var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), 18 - var4, -1, var5, var3);
 				}
 			}
 
@@ -944,24 +944,24 @@ public class class_auh {
 			for (var5 = 0; var5 <= 4; ++var5) {
 				for (var6 = 3; var6 <= 4; ++var6) {
 					var7 = var4.nextInt(8);
-					this.a(var1, var3, var5, var6, 0, var5, var6, var7, Blocks.by.S(), Blocks.by.S(), false);
+					this.a(var1, var3, var5, var6, 0, var5, var6, var7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 				}
 			}
 
 			var5 = var4.nextInt(8);
-			this.a(var1, var3, 0, 5, 0, 0, 5, var5, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 5, 0, 0, 5, var5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			var5 = var4.nextInt(8);
-			this.a(var1, var3, 4, 5, 0, 4, 5, var5, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 4, 5, 0, 4, 5, var5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			for (var5 = 0; var5 <= 4; ++var5) {
 				var6 = var4.nextInt(5);
-				this.a(var1, var3, var5, 2, 0, var5, 2, var6, Blocks.by.S(), Blocks.by.S(), false);
+				this.a(var1, var3, var5, 2, 0, var5, 2, var6, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			}
 
 			for (var5 = 0; var5 <= 4; ++var5) {
 				for (var6 = 0; var6 <= 1; ++var6) {
 					var7 = var4.nextInt(3);
-					this.a(var1, var3, var5, var6, 0, var5, var6, var7, Blocks.by.S(), Blocks.by.S(), false);
+					this.a(var1, var3, var5, var6, 0, var5, var6, var7, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 				}
 			}
 
@@ -991,30 +991,30 @@ public class class_auh {
 
 		@Override
 		public boolean a(class_ago var1, Random var2, class_aua var3) {
-			this.a(var1, var3, 0, 3, 0, 4, 4, 18, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 3, 0, 4, 4, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 			this.a(var1, var3, 1, 5, 0, 3, 7, 18, Blocks.AIR.S(), Blocks.AIR.S(), false);
-			this.a(var1, var3, 0, 5, 0, 0, 5, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 4, 5, 0, 4, 5, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 0, 4, 2, 5, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 2, 13, 4, 2, 18, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 0, 0, 4, 1, 3, Blocks.by.S(), Blocks.by.S(), false);
-			this.a(var1, var3, 0, 0, 15, 4, 1, 18, Blocks.by.S(), Blocks.by.S(), false);
+			this.a(var1, var3, 0, 5, 0, 0, 5, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 4, 5, 0, 4, 5, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 0, 4, 2, 5, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 2, 13, 4, 2, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 0, 0, 4, 1, 3, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
+			this.a(var1, var3, 0, 0, 15, 4, 1, 18, Blocks.NETHER_BRICK.S(), Blocks.NETHER_BRICK.S(), false);
 
 			for (int var4 = 0; var4 <= 4; ++var4) {
 				for (int var5 = 0; var5 <= 2; ++var5) {
-					this.b(var1, Blocks.by.S(), var4, -1, var5, var3);
-					this.b(var1, Blocks.by.S(), var4, -1, 18 - var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, var5, var3);
+					this.b(var1, Blocks.NETHER_BRICK.S(), var4, -1, 18 - var5, var3);
 				}
 			}
 
-			this.a(var1, var3, 0, 1, 1, 0, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 3, 4, 0, 4, 4, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 3, 14, 0, 4, 14, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 0, 1, 17, 0, 4, 17, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 1, 1, 4, 4, 1, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 3, 4, 4, 4, 4, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 3, 14, 4, 4, 14, Blocks.bz.S(), Blocks.bz.S(), false);
-			this.a(var1, var3, 4, 1, 17, 4, 4, 17, Blocks.bz.S(), Blocks.bz.S(), false);
+			this.a(var1, var3, 0, 1, 1, 0, 4, 1, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 3, 4, 0, 4, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 3, 14, 0, 4, 14, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 0, 1, 17, 0, 4, 17, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 1, 1, 4, 4, 1, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 3, 4, 4, 4, 4, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 3, 14, 4, 4, 14, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
+			this.a(var1, var3, 4, 1, 17, 4, 4, 17, Blocks.NETHER_BRICK_FENCE.S(), Blocks.NETHER_BRICK_FENCE.S(), false);
 			return true;
 		}
 	}
@@ -1212,7 +1212,7 @@ public class class_auh {
 
 		static {
 			a = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.k, 0, 1, 3, 5), new class_oj(Items.l, 0, 1, 5, 5), new class_oj(Items.m, 0, 1, 3, 15), new class_oj(Items.D, 0, 1, 1, 5), new class_oj(Items.aj, 0, 1, 1, 5), new class_oj(Items.d, 0, 1, 1, 5), new class_oj(Items.bA, 0, 3, 7, 5), new class_oj(Items.aC, 0, 1, 1, 10), new class_oj(Items.cq, 0, 1, 1, 8), new class_oj(Items.cp, 0, 1, 1, 5),
-					new class_oj(Items.cr, 0, 1, 1, 3), new class_oj(Item.a(Blocks.Z), 0, 2, 4, 2) }));
+					new class_oj(Items.cr, 0, 1, 1, 3), new class_oj(Item.a(Blocks.OBSIDIAN), 0, 2, 4, 2) }));
 		}
 	}
 

@@ -13,7 +13,7 @@ public class class_adl extends class_abq {
 
 	@Override
 	public boolean b(Block var1) {
-		return var1 == Blocks.aH ? true : var1 == Blocks.aJ;
+		return var1 == Blocks.SNOW_LAYER ? true : var1 == Blocks.SNOW;
 	}
 
 	@Override
@@ -24,7 +24,7 @@ public class class_adl extends class_abq {
 			class_apn var10 = var3.p(var4);
 			Block var11 = var10.c();
 			if ((var6 != class_cq.a) && (var3.p(var4.a()).c().v() == class_avq.a) && (var11 == Blocks.GRASS)) {
-				class_apn var12 = Blocks.da.S();
+				class_apn var12 = Blocks.GRASS_PATH.S();
 				Block var13 = var12.c();
 				var3.a(var4.n() + 0.5F, var4.o() + 0.5F, var4.p() + 0.5F, var13.H.c(), (var13.H.d() + 1.0F) / 2.0F, var13.H.e() * 0.8F);
 				if (!var3.D) {
@@ -40,6 +40,6 @@ public class class_adl extends class_abq {
 	}
 
 	static {
-		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.aL, Blocks.DIRT, Blocks.ak, Blocks.GRASS, Blocks.GRAVEL, Blocks.bw, Blocks.SAND, Blocks.aJ, Blocks.aH, Blocks.aW, Blocks.da }));
+		c = Sets.newHashSet((Object[]) (new Block[] { Blocks.CLAY, Blocks.DIRT, Blocks.FARMLAND, Blocks.GRASS, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND, Blocks.SNOW, Blocks.SNOW_LAYER, Blocks.SOUL_SAND, Blocks.GRASS_PATH }));
 	}
 }

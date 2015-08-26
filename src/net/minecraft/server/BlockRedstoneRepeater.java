@@ -51,7 +51,7 @@ public class BlockRedstoneRepeater extends class_ajj {
 		Integer var2 = (Integer) var1.b(b);
 		Boolean var3 = (Boolean) var1.b(a);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.bc.S().a(O, var4).a(b, var2).a(a, var3);
+		return Blocks.POWERED_REPEATER.S().a(O, var4).a(b, var2).a(a, var3);
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class BlockRedstoneRepeater extends class_ajj {
 		Integer var2 = (Integer) var1.b(b);
 		Boolean var3 = (Boolean) var1.b(a);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.bb.S().a(O, var4).a(b, var2).a(a, var3);
+		return Blocks.UNPOWERED_REPEATER.S().a(O, var4).a(b, var2).a(a, var3);
 	}
 
 	@Override

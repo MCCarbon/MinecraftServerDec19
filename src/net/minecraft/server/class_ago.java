@@ -1272,7 +1272,7 @@ public abstract class class_ago implements class_ags {
 				for (int var10 = var4; var10 < var5; ++var10) {
 					for (int var11 = var6; var11 < var7; ++var11) {
 						Block var12 = p(var8.c(var9, var10, var11)).c();
-						if ((var12 == Blocks.ab) || (var12 == Blocks.FLOWING_LAVA) || (var12 == Blocks.LAVA)) {
+						if ((var12 == Blocks.FIRE) || (var12 == Blocks.FLOWING_LAVA) || (var12 == Blocks.LAVA)) {
 							return true;
 						}
 					}
@@ -1424,7 +1424,7 @@ public abstract class class_ago implements class_ags {
 
 	public boolean a(class_yu var1, class_cj var2, class_cq var3) {
 		var2 = var2.a(var3);
-		if (p(var2).c() == Blocks.ab) {
+		if (p(var2).c() == Blocks.FIRE) {
 			this.a(var1, 1004, var2, 0);
 			this.g(var2);
 			return true;
@@ -1683,7 +1683,7 @@ public abstract class class_ago implements class_ags {
 		} else {
 			if ((var1.o() >= 0) && (var1.o() < 256) && (this.b(class_agu.b, var1) < 10)) {
 				Block var5 = p(var1).c();
-				if ((var5.v() == class_avq.a) && Blocks.aH.c(this, var1)) {
+				if ((var5.v() == class_avq.a) && Blocks.SNOW_LAYER.c(this, var1)) {
 					return true;
 				}
 			}
@@ -2019,7 +2019,7 @@ public abstract class class_ago implements class_ags {
 	public boolean a(Block var1, class_cj var2, boolean var3, class_cq var4, Entity var5, class_aco var6) {
 		Block var7 = p(var2).c();
 		class_ayk var8 = var3 ? null : var1.a(this, var2, var1.S());
-		return (var8 != null) && !this.a(var8, var5) ? false : ((var7.v() == class_avq.q) && (var1 == Blocks.cf) ? true : var7.v().j() && var1.a(this, var2, var4, var6));
+		return (var8 != null) && !this.a(var8, var5) ? false : ((var7.v() == class_avq.q) && (var1 == Blocks.ANVIL) ? true : var7.v().j() && var1.a(this, var2, var4, var6));
 	}
 
 	public int H() {
@@ -2425,12 +2425,12 @@ public abstract class class_ago implements class_ags {
 			class_cj var5 = var1.a(var4);
 			if (this.e(var5)) {
 				class_apn var6 = p(var5);
-				if (Blocks.cj.e(var6.c())) {
+				if (Blocks.UNPOWERED_COMPARATOR.e(var6.c())) {
 					var6.c().a(this, var5, var6, var2);
 				} else if (var6.c().x()) {
 					var5 = var5.a(var4);
 					var6 = p(var5);
-					if (Blocks.cj.e(var6.c())) {
+					if (Blocks.UNPOWERED_COMPARATOR.e(var6.c())) {
 						var6.c().a(this, var5, var6, var2);
 					}
 				}

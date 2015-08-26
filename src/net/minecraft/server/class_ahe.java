@@ -45,9 +45,9 @@ public class class_ahe {
 	public class_ahe() {
 		f = new class_atk(Blocks.SAND, 7);
 		g = new class_atk(Blocks.GRAVEL, 6);
-		s = new class_asq(Blocks.N, BlockFlowers.class_a_in_class_ake.a);
-		t = new class_asf(Blocks.P);
-		u = new class_asf(Blocks.Q);
+		s = new class_asq(Blocks.YELLOW_FLOWER, BlockFlowers.class_a_in_class_ake.a);
+		t = new class_asf(Blocks.BROWN_MUSHROOM);
+		u = new class_asf(Blocks.RED_MUSHROOM);
 		v = new class_asv();
 		w = new class_ati();
 		x = new class_asg();
@@ -82,8 +82,8 @@ public class class_ahe {
 			m = new class_atf(Blocks.COAL_ORE.S(), d.ac);
 			n = new class_atf(Blocks.IRON_ORE.S(), d.ag);
 			o = new class_atf(Blocks.GOLD_ORE.S(), d.ak);
-			p = new class_atf(Blocks.aC.S(), d.ao);
-			q = new class_atf(Blocks.ag.S(), d.as);
+			p = new class_atf(Blocks.REDSTONE_ORE.S(), d.ao);
+			q = new class_atf(Blocks.DIAMOND_ORE.S(), d.as);
 			r = new class_atf(Blocks.LAPIS_ORE.S(), d.aw);
 			this.a(var3);
 			a = null;

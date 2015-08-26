@@ -5,7 +5,7 @@ public class class_vh extends class_ve {
 	public class_vh(class_ago var1) {
 		super(var1);
 		this.a(0.9F, 1.3F);
-		bw = Blocks.bw;
+		bw = Blocks.MYCELIUM;
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class class_vh extends class_ve {
 				o.a(var4);
 
 				for (int var5 = 0; var5 < 5; ++var5) {
-					o.a((new class_xg(o, s, t + K, u, new class_aco(Blocks.Q))));
+					o.a((new class_xg(o, s, t + K, u, new class_aco(Blocks.RED_MUSHROOM))));
 				}
 
 				var3.a(1, var1);

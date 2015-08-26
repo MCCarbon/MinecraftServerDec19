@@ -129,7 +129,7 @@ public class class_arq extends class_arr {
 										if ((var51 > -0.7D) && (((var61 * var61) + (var51 * var51) + (var47 * var47)) < 1.0D)) {
 											class_apn var53 = var5.a(var43, var50, var46);
 											class_apn var54 = Objects.firstNonNull(var5.a(var43, var50 + 1, var46), Blocks.AIR.S());
-											if ((var53.c() == Blocks.GRASS) || (var53.c() == Blocks.bw)) {
+											if ((var53.c() == Blocks.GRASS) || (var53.c() == Blocks.MYCELIUM)) {
 												var49 = true;
 											}
 
@@ -139,7 +139,7 @@ public class class_arq extends class_arr {
 												} else {
 													var5.a(var43, var50, var46, Blocks.AIR.S());
 													if (var54.c() == Blocks.SAND) {
-														var5.a(var43, var50 + 1, var46, var54.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.SANDSTONE.S());
+														var5.a(var43, var50 + 1, var46, var54.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.RED_SANDSTONE.S() : Blocks.SANDSTONE.S());
 													}
 
 													if (var49 && (var5.a(var43, var50 - 1, var46).c() == Blocks.DIRT)) {
@@ -165,7 +165,7 @@ public class class_arq extends class_arr {
 	}
 
 	protected boolean a(class_apn var1, class_apn var2) {
-		return var1.c() == Blocks.STONE ? true : (var1.c() == Blocks.DIRT ? true : (var1.c() == Blocks.GRASS ? true : (var1.c() == Blocks.cz ? true : (var1.c() == Blocks.cu ? true : (var1.c() == Blocks.SANDSTONE ? true : (var1.c() == Blocks.cM ? true : (var1.c() == Blocks.bw ? true : (var1.c() == Blocks.aH ? true : ((var1.c() == Blocks.SAND) || (var1.c() == Blocks.GRAVEL)) && (var2.c().v() != class_avq.h)))))))));
+		return var1.c() == Blocks.STONE ? true : (var1.c() == Blocks.DIRT ? true : (var1.c() == Blocks.GRASS ? true : (var1.c() == Blocks.HARDENED_CLAY ? true : (var1.c() == Blocks.STAINED_HARDENED_CLAY ? true : (var1.c() == Blocks.SANDSTONE ? true : (var1.c() == Blocks.RED_SANDSTONE ? true : (var1.c() == Blocks.MYCELIUM ? true : (var1.c() == Blocks.SNOW_LAYER ? true : ((var1.c() == Blocks.SAND) || (var1.c() == Blocks.GRAVEL)) && (var2.c().v() != class_avq.h)))))))));
 	}
 
 	@Override

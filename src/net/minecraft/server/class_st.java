@@ -61,13 +61,13 @@ public class class_st extends class_tc {
 					boolean var8 = false;
 					if (var7 != null) {
 						if (var7.b() == Items.P) {
-							var1.a(var2, Blocks.aj.S(), 3);
+							var1.a(var2, Blocks.WHEAT.S(), 3);
 							var8 = true;
 						} else if (var7.b() == Items.bX) {
-							var1.a(var2, Blocks.cc.S(), 3);
+							var1.a(var2, Blocks.POTATOES.S(), 3);
 							var8 = true;
 						} else if (var7.b() == Items.bW) {
-							var1.a(var2, Blocks.cb.S(), 3);
+							var1.a(var2, Blocks.CARROTS.S(), 3);
 							var8 = true;
 						}
 					}
@@ -91,7 +91,7 @@ public class class_st extends class_tc {
 	@Override
 	protected boolean a(class_ago var1, class_cj var2) {
 		Block var3 = var1.p(var2).c();
-		if (var3 == Blocks.ak) {
+		if (var3 == Blocks.FARMLAND) {
 			var2 = var2.a();
 			class_apn var4 = var1.p(var2);
 			var3 = var4.c();

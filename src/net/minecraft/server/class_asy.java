@@ -84,8 +84,8 @@ public class class_asy extends class_asp {
 							class_cj var32 = var3.a(var6, var8 - 1, var30);
 							if ((var1.p(var32).c() == Blocks.DIRT) && (var1.b(class_agu.a, var3.a(var6, var8, var30)) > 0)) {
 								class_ahb var33 = var1.b(var32);
-								if (var33.ak.c() == Blocks.bw) {
-									var1.a(var32, Blocks.bw.S(), 2);
+								if (var33.ak.c() == Blocks.MYCELIUM) {
+									var1.a(var32, Blocks.MYCELIUM.S(), 2);
 								} else {
 									var1.a(var32, Blocks.GRASS.S(), 2);
 								}
@@ -113,7 +113,7 @@ public class class_asy extends class_asp {
 					for (var30 = 0; var30 < 16; ++var30) {
 						byte var34 = 4;
 						if (var1.v(var3.a(var6, var34, var30))) {
-							var1.a(var3.a(var6, var34, var30), Blocks.aI.S(), 2);
+							var1.a(var3.a(var6, var34, var30), Blocks.ICE.S(), 2);
 						}
 					}
 				}

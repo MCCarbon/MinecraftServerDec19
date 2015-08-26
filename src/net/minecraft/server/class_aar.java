@@ -39,7 +39,7 @@ public class class_aar extends class_aas {
 		}
 
 		c = 0;
-		if (var1.b() == Item.a(Blocks.ai)) {
+		if (var1.b() == Item.a(Blocks.CRAFTING_TABLE)) {
 			b.b(class_my.h);
 		}
 
@@ -47,7 +47,7 @@ public class class_aar extends class_aas {
 			b.b(class_my.i);
 		}
 
-		if (var1.b() == Item.a(Blocks.al)) {
+		if (var1.b() == Item.a(Blocks.FURNACE)) {
 			b.b(class_my.j);
 		}
 
@@ -71,11 +71,11 @@ public class class_aar extends class_aas {
 			b.b(class_my.r);
 		}
 
-		if (var1.b() == Item.a(Blocks.bC)) {
+		if (var1.b() == Item.a(Blocks.ENCHANTING_TABLE)) {
 			b.b(class_my.E);
 		}
 
-		if (var1.b() == Item.a(Blocks.X)) {
+		if (var1.b() == Item.a(Blocks.BOOKSHELF)) {
 			b.b(class_my.G);
 		}
 

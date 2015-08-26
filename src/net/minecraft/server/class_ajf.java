@@ -18,7 +18,7 @@ public class class_ajf extends BlockPlant implements class_ain {
 
 	@Override
 	protected boolean c(Block var1) {
-		return var1 == Blocks.ak;
+		return var1 == Blocks.FARMLAND;
 	}
 
 	protected class_aqb l() {
@@ -78,7 +78,7 @@ public class class_ajf extends BlockPlant implements class_ain {
 			for (int var6 = -1; var6 <= 1; ++var6) {
 				float var7 = 0.0F;
 				class_apn var8 = var1.p(var4.a(var5, 0, var6));
-				if (var8.c() == Blocks.ak) {
+				if (var8.c() == Blocks.FARMLAND) {
 					var7 = 1.0F;
 					if (((Integer) var8.b(class_aka.a)).intValue() > 0) {
 						var7 = 3.0F;

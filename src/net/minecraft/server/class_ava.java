@@ -132,7 +132,7 @@ public class class_ava {
 			} while ((var4 != null) && !var4.b(var7));
 
 			class_apn var8 = var6.b;
-			if ((var8.c() == Blocks.de) && (var6.c != null)) {
+			if ((var8.c() == Blocks.STRUCTURE_BLOCK) && (var6.c != null)) {
 				class_apb.class_a_in_class_apb var9 = class_apb.class_a_in_class_apb.valueOf(var6.c.l("mode"));
 				if (var9 == class_apb.class_a_in_class_apb.d) {
 					var3.put(var7, var6.c.l("metadata"));
@@ -203,7 +203,7 @@ public class class_ava {
 							var7 = (class_ava.class_a_in_class_ava) var6.next();
 							var8 = var7.b.c();
 						} while ((var4 != null) && (var4 == var8));
-					} while (var3.h() && (var8 == Blocks.de));
+					} while (var3.h() && (var8 == Blocks.STRUCTURE_BLOCK));
 
 					var9 = a(var3, var7.a).a(var2);
 				} while ((var5 != null) && !var5.b(var9));
@@ -218,7 +218,7 @@ public class class_ava {
 							((class_pp) var12).l();
 						}
 
-						var1.a(var9, Blocks.cv.S(), 4);
+						var1.a(var9, Blocks.BARRIER.S(), 4);
 					}
 				}
 

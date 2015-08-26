@@ -58,14 +58,14 @@ public class class_ate extends class_asp {
 					for (var16 = var11; var16 <= var12; ++var16) {
 						var17 = var3.a(var14, var15, var16);
 						if ((var14 != var6) && (var15 != -1) && (var16 != var11) && (var14 != var7) && (var15 != 4) && (var16 != var12)) {
-							if (var1.p(var17).c() != Blocks.ae) {
+							if (var1.p(var17).c() != Blocks.CHEST) {
 								var1.g(var17);
 							}
 						} else if ((var17.o() >= 0) && !var1.p(var17.b()).c().v().a()) {
 							var1.g(var17);
-						} else if (var1.p(var17).c().v().a() && (var1.p(var17).c() != Blocks.ae)) {
+						} else if (var1.p(var17).c().v().a() && (var1.p(var17).c() != Blocks.CHEST)) {
 							if ((var15 == -1) && (var2.nextInt(4) != 0)) {
-								var1.a(var17, Blocks.Y.S(), 2);
+								var1.a(var17, Blocks.MOSSY_COBBLESTONE.S(), 2);
 							} else {
 								var1.a(var17, Blocks.COBBLESTONE.S(), 2);
 							}
@@ -92,7 +92,7 @@ public class class_ate extends class_asp {
 						}
 
 						if (var20 == 1) {
-							var1.a(var26, Blocks.ae.g(var1, var26, Blocks.ae.S()), 2);
+							var1.a(var26, Blocks.CHEST.g(var1, var26, Blocks.CHEST.S()), 2);
 							List var27 = class_oj.a(c, new class_oj[] { Items.ci.b(var2) });
 							TileEntity var28 = var1.s(var26);
 							if (var28 instanceof class_aok) {
@@ -104,7 +104,7 @@ public class class_ate extends class_asp {
 				}
 			}
 
-			var1.a(var3, Blocks.ac.S(), 2);
+			var1.a(var3, Blocks.MOB_SPAWNER.S(), 2);
 			TileEntity var23 = var1.s(var3);
 			if (var23 instanceof class_aox) {
 				((class_aox) var23).b().a(this.a(var2));

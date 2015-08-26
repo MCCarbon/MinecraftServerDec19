@@ -69,7 +69,7 @@ public class class_akf extends class_aif {
 	}
 
 	private boolean a(Block var1, int var2) {
-		return (var1 != Blocks.N) && (var1 != Blocks.O) && (var1 != Blocks.aK) && (var1 != Blocks.P) && (var1 != Blocks.Q) && (var1 != Blocks.SAPLING) && (var1 != Blocks.I) ? (var1 == Blocks.H) && (var2 == BlockLongGrass.class_a_in_class_ano.c.a()) : true;
+		return (var1 != Blocks.YELLOW_FLOWER) && (var1 != Blocks.RED_FLOWER) && (var1 != Blocks.CACTUS) && (var1 != Blocks.BROWN_MUSHROOM) && (var1 != Blocks.RED_MUSHROOM) && (var1 != Blocks.SAPLING) && (var1 != Blocks.DEADBUSH) ? (var1 == Blocks.TALLGRASS) && (var2 == BlockLongGrass.class_a_in_class_ano.c.a()) : true;
 	}
 
 	@Override
@@ -137,11 +137,11 @@ public class class_akf extends class_aif {
 		int var4 = 0;
 		switch (var2) {
 			case 1:
-				var3 = Blocks.O;
+				var3 = Blocks.RED_FLOWER;
 				var4 = BlockFlowers.class_a_in_class_ake.b.b();
 				break;
 			case 2:
-				var3 = Blocks.N;
+				var3 = Blocks.YELLOW_FLOWER;
 				break;
 			case 3:
 				var3 = Blocks.SAPLING;
@@ -160,19 +160,19 @@ public class class_akf extends class_aif {
 				var4 = class_aly.class_a_in_class_aly.d.a();
 				break;
 			case 7:
-				var3 = Blocks.Q;
+				var3 = Blocks.RED_MUSHROOM;
 				break;
 			case 8:
-				var3 = Blocks.P;
+				var3 = Blocks.BROWN_MUSHROOM;
 				break;
 			case 9:
-				var3 = Blocks.aK;
+				var3 = Blocks.CACTUS;
 				break;
 			case 10:
-				var3 = Blocks.I;
+				var3 = Blocks.DEADBUSH;
 				break;
 			case 11:
-				var3 = Blocks.H;
+				var3 = Blocks.TALLGRASS;
 				var4 = BlockLongGrass.class_a_in_class_ano.c.a();
 				break;
 			case 12:
@@ -230,7 +230,7 @@ public class class_akf extends class_aif {
 						default:
 							var4 = class_akf.class_a_in_class_akf.a;
 					}
-				} else if (var9 == Blocks.H) {
+				} else if (var9 == Blocks.TALLGRASS) {
 					switch (var8) {
 						case 0:
 							var4 = class_akf.class_a_in_class_akf.t;
@@ -241,9 +241,9 @@ public class class_akf extends class_aif {
 						default:
 							var4 = class_akf.class_a_in_class_akf.a;
 					}
-				} else if (var9 == Blocks.N) {
+				} else if (var9 == Blocks.YELLOW_FLOWER) {
 					var4 = class_akf.class_a_in_class_akf.k;
-				} else if (var9 == Blocks.O) {
+				} else if (var9 == Blocks.RED_FLOWER) {
 					switch (class_akf.SyntheticClass_1.b[BlockFlowers.class_a_in_class_ake.a(BlockFlowers.class_b_in_class_ake.b, var8).ordinal()]) {
 						case 1:
 							var4 = class_akf.class_a_in_class_akf.b;
@@ -275,13 +275,13 @@ public class class_akf extends class_aif {
 						default:
 							var4 = class_akf.class_a_in_class_akf.a;
 					}
-				} else if (var9 == Blocks.Q) {
+				} else if (var9 == Blocks.RED_MUSHROOM) {
 					var4 = class_akf.class_a_in_class_akf.r;
-				} else if (var9 == Blocks.P) {
+				} else if (var9 == Blocks.BROWN_MUSHROOM) {
 					var4 = class_akf.class_a_in_class_akf.s;
-				} else if (var9 == Blocks.I) {
+				} else if (var9 == Blocks.DEADBUSH) {
 					var4 = class_akf.class_a_in_class_akf.t;
-				} else if (var9 == Blocks.aK) {
+				} else if (var9 == Blocks.CACTUS) {
 					var4 = class_akf.class_a_in_class_akf.v;
 				}
 			}

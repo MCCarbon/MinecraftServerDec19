@@ -29,7 +29,7 @@ public class class_ajx extends class_aif {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Item.a(Blocks.Z);
+		return Item.a(Blocks.OBSIDIAN);
 	}
 
 	@Override

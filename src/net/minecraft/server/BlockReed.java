@@ -16,7 +16,7 @@ public class BlockReed extends Block {
 
 	@Override
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
-		if ((var1.p(var2.b()).c() == Blocks.aM) || this.f(var1, var2, var3)) {
+		if ((var1.p(var2.b()).c() == Blocks.REEDS) || this.f(var1, var2, var3)) {
 			if (var1.d(var2.a())) {
 				int var5;
 				for (var5 = 1; var1.p(var2.c(var5)).c() == this; ++var5) {

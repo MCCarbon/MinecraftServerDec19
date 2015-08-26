@@ -175,7 +175,7 @@ public class class_agk {
 			while (var2.hasNext()) {
 				var3 = (class_cj) var2.next();
 				if ((d.p(var3).c().v() == class_avq.a) && d.p(var3.b()).c().q() && (c.nextInt(3) == 0)) {
-					d.a(var3, Blocks.ab.S());
+					d.a(var3, Blocks.FIRE.S());
 				}
 			}
 		}

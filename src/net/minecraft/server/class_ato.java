@@ -48,7 +48,7 @@ public class class_ato extends class_asa {
 				return false;
 			} else {
 				Block var20 = var1.p(var3.b()).c();
-				if (((var20 == Blocks.GRASS) || (var20 == Blocks.DIRT) || (var20 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
+				if (((var20 == Blocks.GRASS) || (var20 == Blocks.DIRT) || (var20 == Blocks.FARMLAND)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 					var21 = var2.nextInt(2);
 					int var22 = 1;

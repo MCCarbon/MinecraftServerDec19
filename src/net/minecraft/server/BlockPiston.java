@@ -122,13 +122,13 @@ public class BlockPiston extends class_ajk {
 				((class_api) var13).h();
 			}
 
-			var1.a(var2, Blocks.M.S().a(BlockPistonMoving.a, var6).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a), 3);
+			var1.a(var2, Blocks.PISTON_EXTENSION.S().a(BlockPistonMoving.a, var6).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a), 3);
 			var1.a(var2, BlockPistonMoving.a(this.a(var5), var6, false, true));
 			if (N) {
 				class_cj var8 = var2.a(var6.g() * 2, var6.h() * 2, var6.i() * 2);
 				Block var9 = var1.p(var8).c();
 				boolean var10 = false;
-				if (var9 == Blocks.M) {
+				if (var9 == Blocks.PISTON_EXTENSION) {
 					TileEntity var11 = var1.s(var8);
 					if (var11 instanceof class_api) {
 						class_api var12 = (class_api) var11;
@@ -139,7 +139,7 @@ public class BlockPiston extends class_ajk {
 					}
 				}
 
-				if (!var10 && (var9.v() != class_avq.a) && a(var9, var1, var8, var6.d(), false) && ((var9.k() == 0) || (var9 == Blocks.J) || (var9 == Blocks.F))) {
+				if (!var10 && (var9.v() != class_avq.a) && a(var9, var1, var8, var6.d(), false) && ((var9.k() == 0) || (var9 == Blocks.PISTON) || (var9 == Blocks.STICKY_PISTON))) {
 					this.a(var1, var2, var6, false);
 				}
 			} else {
@@ -231,14 +231,14 @@ public class BlockPiston extends class_ajk {
 	}
 
 	public static boolean a(Block var0, class_ago var1, class_cj var2, class_cq var3, boolean var4) {
-		if (var0 == Blocks.Z) {
+		if (var0 == Blocks.OBSIDIAN) {
 			return false;
 		} else if (!var1.ah().a(var2)) {
 			return false;
 		} else if ((var2.o() < 0) || ((var3 == class_cq.a) && (var2.o() == 0))) {
 			return false;
 		} else if ((var2.o() <= (var1.W() - 1)) && ((var3 != class_cq.b) || (var2.o() != (var1.W() - 1)))) {
-			if ((var0 != Blocks.J) && (var0 != Blocks.F)) {
+			if ((var0 != Blocks.PISTON) && (var0 != Blocks.STICKY_PISTON)) {
 				if (var0.f(var1, var2) == -1.0F) {
 					return false;
 				}
@@ -298,7 +298,7 @@ public class BlockPiston extends class_ajk {
 				var14.c(var18);
 				var1.g(var12);
 				var12 = var12.a(var10);
-				var1.a(var12, Blocks.M.S().a(b, var3), 4);
+				var1.a(var12, Blocks.PISTON_EXTENSION.S().a(b, var3), 4);
 				var1.a(var12, BlockPistonMoving.a(var18, var3, var4, false));
 				--var8;
 				var9[var8] = var14;
@@ -307,8 +307,8 @@ public class BlockPiston extends class_ajk {
 			class_cj var16 = var2.a(var3);
 			if (var4) {
 				BlockPistonExtension.class_a_in_class_aph var17 = N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a;
-				var18 = Blocks.K.S().a(class_ajk.b, var3).a(BlockPistonExtension.a, var17);
-				class_apn var20 = Blocks.M.S().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
+				var18 = Blocks.PISTON_HEAD.S().a(class_ajk.b, var3).a(BlockPistonExtension.a, var17);
+				class_apn var20 = Blocks.PISTON_EXTENSION.S().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
 				var1.a(var16, var20, 4);
 				var1.a(var16, BlockPistonMoving.a(var18, var3, true, false));
 			}
@@ -323,7 +323,7 @@ public class BlockPiston extends class_ajk {
 			}
 
 			if (var4) {
-				var1.d(var16, Blocks.K);
+				var1.d(var16, Blocks.PISTON_HEAD);
 				var1.d(var2, this);
 			}
 

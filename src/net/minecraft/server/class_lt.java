@@ -1028,15 +1028,15 @@ public class class_lt implements class_id, class_ks {
 						class_apn var12;
 						switch (class_lt.SyntheticClass_1.d[var9.ordinal()]) {
 							case 1:
-								var12 = Blocks.dd.S();
+								var12 = Blocks.CHAIN_COMMAND_BLOCK.S();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 								break;
 							case 2:
-								var12 = Blocks.dc.S();
+								var12 = Blocks.REPEATING_COMMAND_BLOCK.S();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 								break;
 							case 3:
-								var12 = Blocks.bX.S();
+								var12 = Blocks.COMMAND_BLOCK.S();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 						}
 

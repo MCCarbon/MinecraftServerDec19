@@ -235,7 +235,7 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 			Item var1 = var0.b();
 			if ((var1 instanceof class_abb) && (Block.a(var1) != Blocks.AIR)) {
 				Block var2 = Block.a(var1);
-				if (var2 == Blocks.bM) {
+				if (var2 == Blocks.WOODEN_SLAB) {
 					return 150;
 				}
 
@@ -243,7 +243,7 @@ public class class_aot extends class_aow implements class_ks, class_qf {
 					return 300;
 				}
 
-				if (var2 == Blocks.cA) {
+				if (var2 == Blocks.COAL_BLOCK) {
 					return 16000;
 				}
 			}

@@ -54,11 +54,11 @@ public class BlockRedstoneDetector extends class_aif {
 				return true;
 			} else {
 				if (b) {
-					var1.a(var2, Blocks.cl.S().a(a, var3.b(a)), 4);
-					Blocks.cl.e(var1, var2);
+					var1.a(var2, Blocks.DAYLIGHT_DETECTOR.S().a(a, var3.b(a)), 4);
+					Blocks.DAYLIGHT_DETECTOR.e(var1, var2);
 				} else {
-					var1.a(var2, Blocks.cm.S().a(a, var3.b(a)), 4);
-					Blocks.cm.e(var1, var2);
+					var1.a(var2, Blocks.DAYLIGHT_DETECTOR_INVERTED.S().a(a, var3.b(a)), 4);
+					Blocks.DAYLIGHT_DETECTOR_INVERTED.e(var1, var2);
 				}
 
 				return true;
@@ -70,12 +70,12 @@ public class BlockRedstoneDetector extends class_aif {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Item.a(Blocks.cl);
+		return Item.a(Blocks.DAYLIGHT_DETECTOR);
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(Blocks.cl);
+		return new class_aco(Blocks.DAYLIGHT_DETECTOR);
 	}
 
 	@Override

@@ -40,7 +40,7 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 		Boolean var2 = (Boolean) var1.b(a);
 		BlockRedstoneComparator.class_a_in_class_ajd var3 = (BlockRedstoneComparator.class_a_in_class_ajd) var1.b(b);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.ck.S().a(O, var4).a(a, var2).a(b, var3);
+		return Blocks.POWERED_COMPARATOR.S().a(O, var4).a(a, var2).a(b, var3);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 		Boolean var2 = (Boolean) var1.b(a);
 		BlockRedstoneComparator.class_a_in_class_ajd var3 = (BlockRedstoneComparator.class_a_in_class_ajd) var1.b(b);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.cj.S().a(O, var4).a(a, var2).a(b, var3);
+		return Blocks.UNPOWERED_COMPARATOR.S().a(O, var4).a(a, var2).a(b, var3);
 	}
 
 	@Override

@@ -12,7 +12,7 @@ public class class_ask extends class_asp {
 	private final class_apn d;
 
 	public class_ask() {
-		b = Blocks.U.S().a(class_anm.N, class_anm.class_a_in_class_anm.b).a(BlockStepAbstract.a, BlockStepAbstract.class_a_in_class_akq.b);
+		b = Blocks.STONE_SLAB.S().a(class_anm.N, class_anm.class_a_in_class_anm.b).a(BlockStepAbstract.a, BlockStepAbstract.class_a_in_class_akq.b);
 		c = Blocks.SANDSTONE.S();
 		d = Blocks.FLOWING_WATER.S();
 	}

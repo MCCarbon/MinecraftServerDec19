@@ -78,14 +78,14 @@ public class BlockBeacon extends class_aif {
 					}
 
 					class_apn var4 = var0.p(var3);
-					if (var4.c() == Blocks.bY) {
+					if (var4.c() == Blocks.BEACON) {
 						((class_ll) var0).a(new Runnable() {
 							@Override
 							public void run() {
 								TileEntity var1x = var0.s(var3);
 								if (var1x instanceof class_aoh) {
 									((class_aoh) var1x).m();
-									var0.c(var3, Blocks.bY, 1, 0);
+									var0.c(var3, Blocks.BEACON, 1, 0);
 								}
 
 							}

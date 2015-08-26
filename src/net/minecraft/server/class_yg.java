@@ -156,7 +156,7 @@ public class class_yg extends class_yc {
 				class_cj var2 = (new class_cj(a.s, a.t + 0.5D, a.u)).a(b);
 				class_apn var3 = var1.p(var2);
 				if (class_alj.d(var3)) {
-					var1.a(var2, Blocks.be.S().a(class_alj.a, class_alj.class_a_in_class_alj.a(var3)), 3);
+					var1.a(var2, Blocks.MONSTER_EGG.S().a(class_alj.a, class_alj.class_a_in_class_alj.a(var3)), 3);
 					a.A();
 					a.L();
 				}
@@ -198,7 +198,7 @@ public class class_yg extends class_yc {
 						for (int var6 = 0; (var6 <= 10) && (var6 >= -10); var6 = var6 <= 0 ? 1 - var6 : 0 - var6) {
 							class_cj var7 = var3.a(var5, var4, var6);
 							class_apn var8 = var1.p(var7);
-							if (var8.c() == Blocks.be) {
+							if (var8.c() == Blocks.MONSTER_EGG) {
 								if (var1.S().b("mobGriefing")) {
 									var1.b(var7, true);
 								} else {

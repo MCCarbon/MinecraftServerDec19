@@ -7,7 +7,7 @@ public class class_asi extends class_asp {
 	private int b;
 
 	public class_asi(int var1) {
-		a = Blocks.aL;
+		a = Blocks.CLAY;
 		b = var1;
 	}
 
@@ -27,7 +27,7 @@ public class class_asi extends class_asp {
 						for (int var10 = var3.o() - var5; var10 <= (var3.o() + var5); ++var10) {
 							class_cj var11 = new class_cj(var6, var10, var7);
 							Block var12 = var1.p(var11).c();
-							if ((var12 == Blocks.DIRT) || (var12 == Blocks.aL)) {
+							if ((var12 == Blocks.DIRT) || (var12 == Blocks.CLAY)) {
 								var1.a(var11, a.S(), 2);
 							}
 						}

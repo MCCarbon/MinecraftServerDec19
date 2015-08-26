@@ -12,8 +12,8 @@ public class class_asj extends class_asp {
 
 		for (int var5 = 0; var5 < 4; ++var5) {
 			class_cj var6 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-			if (var1.d(var6) && Blocks.I.g(var1, var6, Blocks.I.S())) {
-				var1.a(var6, Blocks.I.S(), 2);
+			if (var1.d(var6) && Blocks.DEADBUSH.g(var1, var6, Blocks.DEADBUSH.S())) {
+				var1.a(var6, Blocks.DEADBUSH.S(), 2);
 			}
 		}
 

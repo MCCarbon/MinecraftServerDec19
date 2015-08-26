@@ -39,7 +39,7 @@ public class BlockStationary extends class_alf {
 						Block var8 = var1.p(var6).c();
 						if (var8.J == class_avq.a) {
 							if (this.e(var1, var6)) {
-								var1.a(var6, Blocks.ab.S());
+								var1.a(var6, Blocks.FIRE.S());
 								return;
 							}
 						} else if (var8.J.c()) {
@@ -50,7 +50,7 @@ public class BlockStationary extends class_alf {
 					for (int var9 = 0; var9 < 3; ++var9) {
 						class_cj var10 = var2.a(var4.nextInt(3) - 1, 0, var4.nextInt(3) - 1);
 						if (var1.d(var10.a()) && this.k(var1, var10)) {
-							var1.a(var10.a(), Blocks.ab.S());
+							var1.a(var10.a(), Blocks.FIRE.S());
 						}
 					}
 				}

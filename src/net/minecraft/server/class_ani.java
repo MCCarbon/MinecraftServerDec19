@@ -35,7 +35,7 @@ public class class_ani extends BlockPlant implements class_ain {
 
 	@Override
 	protected boolean c(Block var1) {
-		return var1 == Blocks.ak;
+		return var1 == Blocks.FARMLAND;
 	}
 
 	@Override
@@ -60,7 +60,7 @@ public class class_ani extends BlockPlant implements class_ain {
 
 					var2 = var2.a(class_cq.class_c_in_class_cq.a.a(var4));
 					Block var9 = var1.p(var2.b()).c();
-					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == Blocks.ak) || (var9 == Blocks.DIRT) || (var9 == Blocks.GRASS))) {
+					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == Blocks.FARMLAND) || (var9 == Blocks.DIRT) || (var9 == Blocks.GRASS))) {
 						var1.a(var2, N.S());
 					}
 				}
@@ -106,7 +106,7 @@ public class class_ani extends BlockPlant implements class_ain {
 	}
 
 	protected Item l() {
-		return N == Blocks.aU ? Items.bi : (N == Blocks.bk ? Items.bj : null);
+		return N == Blocks.PUMPKIN ? Items.bi : (N == Blocks.MELON_BLOCK ? Items.bj : null);
 	}
 
 	@Override

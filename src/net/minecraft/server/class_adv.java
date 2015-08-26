@@ -20,7 +20,7 @@ public class class_adv extends Item {
 
 	@Override
 	public float a(class_aco var1, Block var2) {
-		if (var2 == Blocks.G) {
+		if (var2 == Blocks.WEB) {
 			return 15.0F;
 		} else {
 			class_avq var3 = var2.v();
@@ -45,7 +45,7 @@ public class class_adv extends Item {
 
 	@Override
 	public boolean b(Block var1) {
-		return var1 == Blocks.G;
+		return var1 == Blocks.WEB;
 	}
 
 	@Override

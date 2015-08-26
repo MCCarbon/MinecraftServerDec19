@@ -78,7 +78,7 @@ public class class_xf extends Entity {
 					v *= 0.699999988079071D;
 					x *= 0.699999988079071D;
 					w *= -0.5D;
-					if (o.p(var2).c() != Blocks.M) {
+					if (o.p(var2).c() != Blocks.PISTON_EXTENSION) {
 						L();
 						if (!e) {
 							if (o.a(var1, var2, true, class_cq.b, (Entity) null, (class_aco) null) && !class_ajz.d(o, var2.b()) && o.a(var2, d, 3)) {
@@ -129,7 +129,7 @@ public class class_xf extends Entity {
 			int var4 = class_oa.f(var1 - 1.0F);
 			if (var4 > 0) {
 				ArrayList var5 = Lists.newArrayList((Iterable) o.b(this, aX()));
-				boolean var6 = var3 == Blocks.cf;
+				boolean var6 = var3 == Blocks.ANVIL;
 				class_qi var7 = var6 ? class_qi.n : class_qi.o;
 				Iterator var8 = var5.iterator();
 
@@ -186,7 +186,7 @@ public class class_xf extends Entity {
 			f = var1.p("HurtEntities");
 			h = var1.j("FallHurtAmount");
 			g = var1.h("FallHurtMax");
-		} else if (var3 == Blocks.cf) {
+		} else if (var3 == Blocks.ANVIL) {
 			f = true;
 		}
 

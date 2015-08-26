@@ -42,7 +42,7 @@ public class class_apk {
 		} else {
 			for (int var2 = 0; var2 < e.size(); ++var2) {
 				class_cj var3 = (class_cj) e.get(var2);
-				if ((a.p(var3).c() == Blocks.cE) && !b(var3)) {
+				if ((a.p(var3).c() == Blocks.SLIME) && !b(var3)) {
 					return false;
 				}
 			}
@@ -66,7 +66,7 @@ public class class_apk {
 			if ((var3 + e.size()) > 12) {
 				return false;
 			} else {
-				while (var2 == Blocks.cE) {
+				while (var2 == Blocks.SLIME) {
 					class_cj var4 = var1.a(d.d(), var3);
 					var2 = a.p(var4).c();
 					if ((var2.v() == class_avq.a) || !BlockPiston.a(var2, a, var4, d, false) || var4.equals(b)) {
@@ -97,7 +97,7 @@ public class class_apk {
 
 						for (int var8 = 0; var8 <= (var7 + var10); ++var8) {
 							class_cj var9 = (class_cj) e.get(var8);
-							if ((a.p(var9).c() == Blocks.cE) && !b(var9)) {
+							if ((a.p(var9).c() == Blocks.SLIME) && !b(var9)) {
 								return false;
 							}
 						}

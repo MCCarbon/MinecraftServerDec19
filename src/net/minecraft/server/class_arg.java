@@ -332,7 +332,7 @@ public class class_arg {
 			this.a(true);
 			l();
 			if (!l) {
-				d.a(d.m(class_aso.a), Blocks.bI.S());
+				d.a(d.m(class_aso.a), Blocks.DRAGON_EGG.S());
 			}
 
 			l = true;
@@ -406,8 +406,8 @@ public class class_arg {
 					for (int var3 = 0; var3 < f.b(); ++var3) {
 						for (int var4 = 0; var4 < f.a(); ++var4) {
 							class_apq var5 = var1.a(var2, var3, var4);
-							if ((var5.a().c() == Blocks.BEDROCK) || (var5.a().c() == Blocks.bF)) {
-								d.a(var5.d(), Blocks.bH.S());
+							if ((var5.a().c() == Blocks.BEDROCK) || (var5.a().c() == Blocks.END_PORTAL)) {
+								d.a(var5.d(), Blocks.END_STONE.S());
 							}
 						}
 					}

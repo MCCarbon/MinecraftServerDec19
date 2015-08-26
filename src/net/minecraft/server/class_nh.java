@@ -221,18 +221,18 @@ public class class_nh {
 	private static void a(class_nd[] var0) {
 		a(var0, Blocks.WATER, Blocks.FLOWING_WATER);
 		a(var0, Blocks.LAVA, Blocks.FLOWING_LAVA);
-		a(var0, Blocks.aZ, Blocks.aU);
-		a(var0, Blocks.am, Blocks.al);
-		a(var0, Blocks.aD, Blocks.aC);
-		a(var0, Blocks.bc, Blocks.bb);
-		a(var0, Blocks.ck, Blocks.cj);
-		a(var0, Blocks.aF, Blocks.aE);
-		a(var0, Blocks.bK, Blocks.bJ);
-		a(var0, Blocks.T, Blocks.U);
-		a(var0, Blocks.bL, Blocks.bM);
-		a(var0, Blocks.cO, Blocks.cP);
+		a(var0, Blocks.LIT_PUMPKIN, Blocks.PUMPKIN);
+		a(var0, Blocks.LIT_FURNACE, Blocks.FURNACE);
+		a(var0, Blocks.LIT_REDSTONE_TORCH, Blocks.REDSTONE_ORE);
+		a(var0, Blocks.POWERED_REPEATER, Blocks.UNPOWERED_REPEATER);
+		a(var0, Blocks.POWERED_COMPARATOR, Blocks.UNPOWERED_COMPARATOR);
+		a(var0, Blocks.REDSTONE_TORCH, Blocks.UNLIN_REDSTONE_TORCH);
+		a(var0, Blocks.LIT_REDSTONE_LAMP, Blocks.REDSTONE_LAMP);
+		a(var0, Blocks.DOUBLE_SANDSTONE_SLAB, Blocks.STONE_SLAB);
+		a(var0, Blocks.DOUBLE_WOODEN_SLAB, Blocks.WOODEN_SLAB);
+		a(var0, Blocks.DOUBLE_STONE_SLAB2, Blocks.STONE_SLAB2);
 		a(var0, Blocks.GRASS, Blocks.DIRT);
-		a(var0, Blocks.ak, Blocks.DIRT);
+		a(var0, Blocks.FARMLAND, Blocks.DIRT);
 	}
 
 	private static void a(class_nd[] var0, Block var1, Block var2) {

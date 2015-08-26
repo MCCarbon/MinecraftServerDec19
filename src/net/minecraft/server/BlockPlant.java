@@ -25,7 +25,7 @@ public class BlockPlant extends Block {
 	}
 
 	protected boolean c(Block var1) {
-		return (var1 == Blocks.GRASS) || (var1 == Blocks.DIRT) || (var1 == Blocks.ak);
+		return (var1 == Blocks.GRASS) || (var1 == Blocks.DIRT) || (var1 == Blocks.FARMLAND);
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class class_akc extends class_akx {
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
 		class_cq.class_a_in_class_cq var4 = ((class_cq) var1.b(O)).k();
-		if (((var4 == class_cq.class_a_in_class_cq.c) && ((var2.p(var3.e()).c() == Blocks.bZ) || (var2.p(var3.f()).c() == Blocks.bZ))) || ((var4 == class_cq.class_a_in_class_cq.a) && ((var2.p(var3.c()).c() == Blocks.bZ) || (var2.p(var3.d()).c() == Blocks.bZ)))) {
+		if (((var4 == class_cq.class_a_in_class_cq.c) && ((var2.p(var3.e()).c() == Blocks.COBBLESTONE_WALL) || (var2.p(var3.f()).c() == Blocks.COBBLESTONE_WALL))) || ((var4 == class_cq.class_a_in_class_cq.a) && ((var2.p(var3.c()).c() == Blocks.COBBLESTONE_WALL) || (var2.p(var3.d()).c() == Blocks.COBBLESTONE_WALL)))) {
 			var1 = var1.a(N, Boolean.valueOf(true));
 		}
 

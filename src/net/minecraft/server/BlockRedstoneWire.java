@@ -61,7 +61,7 @@ public class BlockRedstoneWire extends Block {
 
 	@Override
 	public boolean c(class_ago var1, class_cj var2) {
-		return class_ago.a(var1, var2.b()) || (var1.p(var2.b()).c() == Blocks.aX);
+		return class_ago.a(var1, var2.b()) || (var1.p(var2.b()).c() == Blocks.GLOWSTONE);
 	}
 
 	private class_apn f(class_ago var1, class_cj var2, class_apn var3) {
@@ -297,7 +297,7 @@ public class BlockRedstoneWire extends Block {
 		Block var6 = var5.c();
 		boolean var7 = var6.x();
 		boolean var8 = var1.p(var2.a()).c().x();
-		return !var8 && var7 && e(var1, var4.a()) ? true : (a(var5, var3) ? true : ((var6 == Blocks.bc) && (var5.b(class_akx.O) == var3) ? true : !var7 && e(var1, var4.b())));
+		return !var8 && var7 && e(var1, var4.a()) ? true : (a(var5, var3) ? true : ((var6 == Blocks.POWERED_REPEATER) && (var5.b(class_akx.O) == var3) ? true : !var7 && e(var1, var4.b())));
 	}
 
 	protected static boolean e(class_ags var0, class_cj var1) {
@@ -310,9 +310,9 @@ public class BlockRedstoneWire extends Block {
 
 	protected static boolean a(class_apn var0, class_cq var1) {
 		Block var2 = var0.c();
-		if (var2 == Blocks.af) {
+		if (var2 == Blocks.REDSTONE_WIRE) {
 			return true;
-		} else if (Blocks.bb.e(var2)) {
+		} else if (Blocks.UNPOWERED_REPEATER.e(var2)) {
 			class_cq var3 = (class_cq) var0.b(class_akx.O);
 			return (var3 == var1) || (var3.d() == var1);
 		} else {

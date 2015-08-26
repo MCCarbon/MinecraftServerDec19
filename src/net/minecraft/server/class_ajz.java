@@ -68,7 +68,7 @@ public class class_ajz extends Block {
 	public static boolean d(class_ago var0, class_cj var1) {
 		Block var2 = var0.p(var1).c();
 		class_avq var3 = var2.J;
-		return (var2 == Blocks.ab) || (var3 == class_avq.a) || (var3 == class_avq.h) || (var3 == class_avq.i);
+		return (var2 == Blocks.FIRE) || (var3 == class_avq.a) || (var3 == class_avq.h) || (var3 == class_avq.i);
 	}
 
 	public void a_(class_ago var1, class_cj var2) {

@@ -683,7 +683,7 @@ public abstract class class_rh extends class_rg {
 	}
 
 	public static class_rc c(class_aco var0) {
-		return (var0.b() != Item.a(Blocks.aU)) && (var0.b() != Items.cc) ? (var0.b() instanceof class_aav ? ((class_aav) var0.b()).b : class_rc.a) : class_rc.f;
+		return (var0.b() != Item.a(Blocks.PUMPKIN)) && (var0.b() != Items.cc) ? (var0.b() instanceof class_aav ? ((class_aav) var0.b()).b : class_rc.a) : class_rc.f;
 	}
 
 	public static Item a(class_rc var0, int var1) {

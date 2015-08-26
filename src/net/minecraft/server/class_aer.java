@@ -5,7 +5,7 @@ public class class_aer {
 	private Object[][] a;
 
 	public class_aer() {
-		a = new Object[][] { { Blocks.R, new class_aco(Items.m, 9) }, { Blocks.S, new class_aco(Items.l, 9) }, { Blocks.ah, new class_aco(Items.k, 9) }, { Blocks.bT, new class_aco(Items.bT, 9) }, { Blocks.LAPIS_BLOCK, new class_aco(Items.aY, 9, class_abt.l.b()) }, { Blocks.cn, new class_aco(Items.aE, 9) }, { Blocks.cA, new class_aco(Items.j, 9, 0) }, { Blocks.cx, new class_aco(Items.Q, 9) }, { Blocks.cE, new class_aco(Items.aO, 9) } };
+		a = new Object[][] { { Blocks.GOLD_BLOCK, new class_aco(Items.m, 9) }, { Blocks.IRON_BLOCK, new class_aco(Items.l, 9) }, { Blocks.DIAMOND_BLOCK, new class_aco(Items.k, 9) }, { Blocks.EMERALD_BLOCK, new class_aco(Items.bT, 9) }, { Blocks.LAPIS_BLOCK, new class_aco(Items.aY, 9, class_abt.l.b()) }, { Blocks.REDSTONE_BLOCK, new class_aco(Items.aE, 9) }, { Blocks.COAL_BLOCK, new class_aco(Items.j, 9, 0) }, { Blocks.HAY_BLOCK, new class_aco(Items.Q, 9) }, { Blocks.SLIME, new class_aco(Items.aO, 9) } };
 	}
 
 	public void a(class_aet var1) {

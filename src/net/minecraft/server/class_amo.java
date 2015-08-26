@@ -100,7 +100,7 @@ public class class_amo extends class_anr {
 
 		if (N) {
 			if (var5) {
-				var1.a(var2, Blocks.aE.S().a(a, var3.b(a)), 3);
+				var1.a(var2, Blocks.UNLIN_REDSTONE_TORCH.S().a(a, var3.b(a)), 3);
 				if (this.a(var1, var2, true)) {
 					var1.a(var2.n() + 0.5F, var2.o() + 0.5F, var2.p() + 0.5F, "random.fizz", 0.5F, 2.6F + ((var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F));
 
@@ -115,7 +115,7 @@ public class class_amo extends class_anr {
 				}
 			}
 		} else if (!var5 && !this.a(var1, var2, false)) {
-			var1.a(var2, Blocks.aF.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.REDSTONE_TORCH.S().a(a, var3.b(a)), 3);
 		}
 
 	}
@@ -137,7 +137,7 @@ public class class_amo extends class_anr {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Item.a(Blocks.aF);
+		return Item.a(Blocks.REDSTONE_TORCH);
 	}
 
 	@Override
@@ -147,12 +147,12 @@ public class class_amo extends class_anr {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(Blocks.aF);
+		return new class_aco(Blocks.REDSTONE_TORCH);
 	}
 
 	@Override
 	public boolean b(Block var1) {
-		return (var1 == Blocks.aE) || (var1 == Blocks.aF);
+		return (var1 == Blocks.UNLIN_REDSTONE_TORCH) || (var1 == Blocks.REDSTONE_TORCH);
 	}
 
 	static class class_a_in_class_amo {

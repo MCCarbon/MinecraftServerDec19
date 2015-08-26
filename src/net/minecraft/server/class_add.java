@@ -18,9 +18,9 @@ public class class_add extends Item {
 	@Override
 	public class_pw a(class_aco var1, class_yu var2, class_ago var3, class_cj var4, class_pu var5, class_cq var6, float var7, float var8, float var9) {
 		class_apn var10 = var3.p(var4);
-		if ((var10.c() == Blocks.aN) && !((Boolean) var10.b(class_ala.a)).booleanValue()) {
+		if ((var10.c() == Blocks.JUKEBOX) && !((Boolean) var10.b(class_ala.a)).booleanValue()) {
 			if (!var3.D) {
-				((class_ala) Blocks.aN).a(var3, var4, var10, var1);
+				((class_ala) Blocks.JUKEBOX).a(var3, var4, var10, var1);
 				var3.a((class_yu) null, 1005, var4, Item.b(this));
 				--var1.b;
 				var2.b(class_nh.Y);

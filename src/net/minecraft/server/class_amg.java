@@ -18,12 +18,12 @@ public abstract class class_amg extends BlockStepAbstract {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Item.a(Blocks.cX);
+		return Item.a(Blocks.PURPUR_SLAB);
 	}
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(Blocks.cX);
+		return new class_aco(Blocks.PURPUR_SLAB);
 	}
 
 	@Override

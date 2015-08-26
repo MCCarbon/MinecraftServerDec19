@@ -130,7 +130,7 @@ public class class_zn extends class_zj {
 	}
 
 	private void a(class_cj var1) {
-		if (o.p(var1).c() == Blocks.ab) {
+		if (o.p(var1).c() == Blocks.FIRE) {
 			o.a(var1, Blocks.AIR.S(), 2);
 		}
 

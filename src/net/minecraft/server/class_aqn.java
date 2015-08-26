@@ -381,7 +381,7 @@ public class class_aqn {
 		if (j.I() == class_agt.g) {
 			class_apn var7 = null;
 			if (var1.o() == 60) {
-				var7 = Blocks.cv.S();
+				var7 = Blocks.BARRIER.S();
 			}
 
 			if (var1.o() == 70) {

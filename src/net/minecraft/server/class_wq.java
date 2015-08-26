@@ -277,7 +277,7 @@ public class class_wq extends class_yc implements class_ye {
 	}
 
 	public static boolean a(Block var0) {
-		return (var0 != Blocks.BEDROCK) && (var0 != Blocks.bF) && (var0 != Blocks.bG) && (var0 != Blocks.bX) && (var0 != Blocks.dc) && (var0 != Blocks.dd) && (var0 != Blocks.cv);
+		return (var0 != Blocks.BEDROCK) && (var0 != Blocks.END_PORTAL) && (var0 != Blocks.END_PORTAL_FRAME) && (var0 != Blocks.COMMAND_BLOCK) && (var0 != Blocks.REPEATING_COMMAND_BLOCK) && (var0 != Blocks.CHAIN_COMMAND_BLOCK) && (var0 != Blocks.BARRIER);
 	}
 
 	public void n() {

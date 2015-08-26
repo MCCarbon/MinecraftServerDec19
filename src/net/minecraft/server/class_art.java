@@ -363,11 +363,11 @@ public class class_art implements class_aqk {
 				class_cj var18 = m.q(var6.a(var14, 0, var15));
 				class_cj var19 = var18.b();
 				if (m.v(var19)) {
-					m.a(var19, Blocks.aI.S(), 2);
+					m.a(var19, Blocks.ICE.S(), 2);
 				}
 
 				if (m.f(var18, true)) {
-					m.a(var18, Blocks.aH.S(), 2);
+					m.a(var18, Blocks.SNOW_LAYER.S(), 2);
 				}
 			}
 		}

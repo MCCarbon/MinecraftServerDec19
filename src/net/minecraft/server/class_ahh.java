@@ -12,7 +12,7 @@ public class class_ahh extends class_ahb {
 
 	protected class_ahh(int var1, boolean var2) {
 		super(var1);
-		aD = new class_atf(Blocks.be.S().a(class_alj.a, class_alj.class_a_in_class_alj.a), 9);
+		aD = new class_atf(Blocks.MONSTER_EGG.S().a(class_alj.a, class_alj.class_a_in_class_alj.a), 9);
 		aE = new class_ato(false);
 		aF = 0;
 		aG = 1;
@@ -44,7 +44,7 @@ public class class_ahh extends class_ahb {
 			int var8 = var2.nextInt(16);
 			class_cj var9 = var3.a(var6, var7, var8);
 			if (var1.p(var9).c() == Blocks.STONE) {
-				var1.a(var9, Blocks.bP.S(), 2);
+				var1.a(var9, Blocks.EMERALD_ORE.S(), 2);
 			}
 		}
 

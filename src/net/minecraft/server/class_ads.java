@@ -26,7 +26,7 @@ public class class_ads extends Item {
 			return class_pw.c;
 		} else {
 			class_apn var10 = var3.p(var4);
-			if (var10.c() == Blocks.ac) {
+			if (var10.c() == Blocks.MOB_SPAWNER) {
 				TileEntity var11 = var3.s(var4);
 				if (var11 instanceof class_aox) {
 					class_agf var12 = ((class_aox) var11).b();

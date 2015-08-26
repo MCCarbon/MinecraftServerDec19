@@ -131,7 +131,7 @@ public class BlockPistonMoving extends class_aif {
 				var6 = 1.0F - var6;
 			}
 
-			if ((var5 == Blocks.J) || (var5 == Blocks.F)) {
+			if ((var5 == Blocks.PISTON) || (var5 == Blocks.STICKY_PISTON)) {
 				var6 = 0.0F;
 			}
 

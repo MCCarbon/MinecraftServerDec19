@@ -212,7 +212,7 @@ public class class_yh extends class_yc implements class_ye {
 		if (this.a(class_rc.f) == null) {
 			Calendar var3 = o.aa();
 			if (((var3.get(2) + 1) == 10) && (var3.get(5) == 31) && (V.nextFloat() < 0.25F)) {
-				this.a(class_rc.f, new class_aco(V.nextFloat() < 0.1F ? Blocks.aZ : Blocks.aU));
+				this.a(class_rc.f, new class_aco(V.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN));
 				bq[class_rc.f.b()] = 0.0F;
 			}
 		}

@@ -210,7 +210,7 @@ public class class_ajn extends Block {
 	}
 
 	private Item l() {
-		return this == Blocks.aA ? Items.aD : (this == Blocks.ap ? Items.at : (this == Blocks.aq ? Items.au : (this == Blocks.ar ? Items.av : (this == Blocks.as ? Items.aw : (this == Blocks.at ? Items.ax : Items.as)))));
+		return this == Blocks.IRON_DOOR ? Items.aD : (this == Blocks.SPRUCE_DOOR ? Items.at : (this == Blocks.BIRCH_DOOR ? Items.au : (this == Blocks.JUNGLE_DOOR ? Items.av : (this == Blocks.ACACIA_DOOR ? Items.aw : (this == Blocks.DARK_OAK_DOOR ? Items.ax : Items.as)))));
 	}
 
 	@Override

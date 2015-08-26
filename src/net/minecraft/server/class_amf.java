@@ -9,7 +9,7 @@ public class class_amf extends class_akx {
 	private class_apr P;
 	private static final Predicate Q = new Predicate() {
 		public boolean a(class_apn var1) {
-			return (var1 != null) && ((var1.c() == Blocks.aU) || (var1.c() == Blocks.aZ));
+			return (var1 != null) && ((var1.c() == Blocks.PUMPKIN) || (var1.c() == Blocks.LIT_PUMPKIN));
 		}
 
 		// $FF: synthetic method
@@ -123,7 +123,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr l() {
 		if (a == null) {
-			a = class_aps.a().a(new String[] { " ", "#", "#" }).a('#', class_apq.a(class_apv.a(Blocks.aJ))).b();
+			a = class_aps.a().a(new String[] { " ", "#", "#" }).a('#', class_apq.a(class_apv.a(Blocks.SNOW))).b();
 		}
 
 		return a;
@@ -131,7 +131,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr n() {
 		if (b == null) {
-			b = class_aps.a().a(new String[] { "^", "#", "#" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.aJ))).b();
+			b = class_aps.a().a(new String[] { "^", "#", "#" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.SNOW))).b();
 		}
 
 		return b;
@@ -139,7 +139,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr o() {
 		if (N == null) {
-			N = class_aps.a().a(new String[] { "~ ~", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
+			N = class_aps.a().a(new String[] { "~ ~", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.IRON_BLOCK))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
 		}
 
 		return N;
@@ -147,7 +147,7 @@ public class class_amf extends class_akx {
 
 	protected class_apr p() {
 		if (P == null) {
-			P = class_aps.a().a(new String[] { "~^~", "###", "~#~" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.S))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
+			P = class_aps.a().a(new String[] { "~^~", "###", "~#~" }).a('^', class_apq.a(Q)).a('#', class_apq.a(class_apv.a(Blocks.IRON_BLOCK))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
 		}
 
 		return P;

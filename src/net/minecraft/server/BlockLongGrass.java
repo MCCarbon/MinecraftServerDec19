@@ -36,7 +36,7 @@ public class BlockLongGrass extends BlockPlant implements class_ain {
 	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
 		if (!var1.D && (var6 != null) && (var6.b() == Items.bg)) {
 			var2.b(class_nh.a(Block.a(this)));
-			a(var1, var3, new class_aco(Blocks.H, 1, ((BlockLongGrass.class_a_in_class_ano) var4.b(a)).a()));
+			a(var1, var3, new class_aco(Blocks.TALLGRASS, 1, ((BlockLongGrass.class_a_in_class_ano) var4.b(a)).a()));
 		} else {
 			super.a(var1, var2, var3, var4, var5, var6);
 		}
@@ -65,8 +65,8 @@ public class BlockLongGrass extends BlockPlant implements class_ain {
 			var5 = BlockTallPlant.class_b_in_class_ajo.d;
 		}
 
-		if (Blocks.cF.c(var1, var3)) {
-			Blocks.cF.a(var1, var3, var5, 2);
+		if (Blocks.DOUBLE_PLANT.c(var1, var3)) {
+			Blocks.DOUBLE_PLANT.a(var1, var3, var5, 2);
 		}
 
 	}

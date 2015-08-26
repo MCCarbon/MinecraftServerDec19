@@ -21,7 +21,7 @@ public class class_adz extends class_adw {
 				class_cj var7 = var6.a();
 				class_apn var8 = var2.p(var6);
 				if ((var8.c().v() == class_avq.h) && (((Integer) var8.b(class_alf.b)).intValue() == 0) && var2.d(var7)) {
-					var2.a(var7, Blocks.bx.S());
+					var2.a(var7, Blocks.WATERLILY.S());
 					if (!var3.bI.d) {
 						--var1.b;
 					}

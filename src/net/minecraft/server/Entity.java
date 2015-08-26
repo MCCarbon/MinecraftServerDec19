@@ -545,7 +545,7 @@ public abstract class Entity implements ICommandListener {
 				double var61 = s - var7;
 				double var64 = t - var9;
 				double var66 = u - var11;
-				if (var60 != Blocks.au) {
+				if (var60 != Blocks.LADDER) {
 					var64 = 0.0D;
 				}
 
@@ -638,8 +638,8 @@ public abstract class Entity implements ICommandListener {
 
 	protected void a(class_cj var1, Block var2) {
 		Block.class_d_in_class_ail var3 = var2.H;
-		if (o.p(var1.a()).c() == Blocks.aH) {
-			var3 = Blocks.aH.H;
+		if (o.p(var1.a()).c() == Blocks.SNOW_LAYER) {
+			var3 = Blocks.SNOW_LAYER.H;
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
 		} else if (!var2.v().d()) {
 			this.a(var3.c(), var3.d() * 0.15F, var3.e());
@@ -1336,7 +1336,7 @@ public abstract class Entity implements ICommandListener {
 		} else {
 			if (!o.D && !var1.equals(an)) {
 				an = var1;
-				class_apr.class_b_in_class_apr var2 = Blocks.aY.e(o, var1);
+				class_apr.class_b_in_class_apr var2 = Blocks.PORTAL.e(o, var1);
 				double var3 = var2.b().k() == class_cq.class_a_in_class_cq.a ? (double) var2.a().p() : (double) var2.a().n();
 				double var5 = var2.b().k() == class_cq.class_a_in_class_cq.a ? u : s;
 				var5 = Math.abs(class_oa.c(var5 - (var2.b().e().c() == class_cq.class_b_in_class_cq.b ? 1 : 0), var3, var3 - var2.d()));

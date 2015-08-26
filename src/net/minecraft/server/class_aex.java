@@ -10,7 +10,7 @@ public class class_aex {
 			class_abt var5 = var2[var4];
 			class_aco var6 = new class_aco(Items.cK, 1, 0);
 			class_aog.a(var6, var5);
-			var1.a(var6, new Object[] { "#W ", "#Wo", "#W ", Character.valueOf('#'), new class_aco(Blocks.L, 1, var5.a()), Character.valueOf('W'), Blocks.PLANKS, Character.valueOf('o'), Items.l });
+			var1.a(var6, new Object[] { "#W ", "#Wo", "#W ", Character.valueOf('#'), new class_aco(Blocks.WOOL, 1, var5.a()), Character.valueOf('W'), Blocks.PLANKS, Character.valueOf('o'), Items.l });
 		}
 
 		var1.a(new class_aex.class_a_in_class_aex());

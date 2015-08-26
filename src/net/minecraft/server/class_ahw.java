@@ -41,7 +41,7 @@ public class class_ahw extends class_ahb {
 					if ((var12 == 62) && (var3.a(var11, var12, var10).c() != Blocks.WATER)) {
 						var3.a(var11, var12, var10, Blocks.WATER.S());
 						if (var8 < 0.12D) {
-							var3.a(var11, var12 + 1, var10, Blocks.bx.S());
+							var3.a(var11, var12 + 1, var10, Blocks.WATERLILY.S());
 						}
 					}
 					break;

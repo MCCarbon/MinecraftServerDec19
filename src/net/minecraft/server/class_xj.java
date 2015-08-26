@@ -69,7 +69,7 @@ public class class_xj extends class_xh {
 
 	@Override
 	public class_apn u() {
-		return Blocks.bX.S();
+		return Blocks.COMMAND_BLOCK.S();
 	}
 
 	public class_age i() {

@@ -26,7 +26,7 @@ public class class_aiy extends Block {
 		Block var7 = var2.p(var3.f()).c();
 		Block var8 = var2.p(var3.d()).c();
 		Block var9 = var2.p(var3.e()).c();
-		return var1.a(Q, Boolean.valueOf((var4 == this) || (var4 == Blocks.cS) || (var4 == Blocks.bH))).a(P, Boolean.valueOf((var5 == this) || (var5 == Blocks.cS))).a(a, Boolean.valueOf((var6 == this) || (var6 == Blocks.cS))).a(b, Boolean.valueOf((var7 == this) || (var7 == Blocks.cS))).a(N, Boolean.valueOf((var8 == this) || (var8 == Blocks.cS))).a(O, Boolean.valueOf((var9 == this) || (var9 == Blocks.cS)));
+		return var1.a(Q, Boolean.valueOf((var4 == this) || (var4 == Blocks.CHORUS_FLOWER) || (var4 == Blocks.END_STONE))).a(P, Boolean.valueOf((var5 == this) || (var5 == Blocks.CHORUS_FLOWER))).a(a, Boolean.valueOf((var6 == this) || (var6 == Blocks.CHORUS_FLOWER))).a(b, Boolean.valueOf((var7 == this) || (var7 == Blocks.CHORUS_FLOWER))).a(N, Boolean.valueOf((var8 == this) || (var8 == Blocks.CHORUS_FLOWER))).a(O, Boolean.valueOf((var9 == this) || (var9 == Blocks.CHORUS_FLOWER)));
 	}
 
 	@Override
@@ -144,7 +144,7 @@ public class class_aiy extends Block {
 			do {
 				if (!var5.hasNext()) {
 					Block var10 = var1.p(var2.b()).c();
-					if ((var10 != this) && (var10 != Blocks.bH)) {
+					if ((var10 != this) && (var10 != Blocks.END_STONE)) {
 						return false;
 					}
 
@@ -161,7 +161,7 @@ public class class_aiy extends Block {
 			}
 
 			var9 = var1.p(var7.b()).c();
-		} while ((var9 != this) && (var9 != Blocks.bH));
+		} while ((var9 != this) && (var9 != Blocks.END_STONE));
 
 		return true;
 	}

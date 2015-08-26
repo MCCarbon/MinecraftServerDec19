@@ -77,7 +77,7 @@ public class BlockCactus extends Block {
 		}
 
 		Block var5 = var1.p(var2.b()).c();
-		return (var5 == Blocks.aK) || (var5 == Blocks.SAND);
+		return (var5 == Blocks.CACTUS) || (var5 == Blocks.SAND);
 	}
 
 	@Override

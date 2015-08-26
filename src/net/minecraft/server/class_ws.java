@@ -291,7 +291,7 @@ public class class_ws extends class_rg {
 				var5 = ((class_aav) var7).b;
 			}
 
-			if (var6 && ((var7 == Items.cc) || (var7 == Item.a(Blocks.aU)))) {
+			if (var6 && ((var7 == Items.cc) || (var7 == Item.a(Blocks.PUMPKIN)))) {
 				var5 = class_rc.f;
 			}
 

@@ -15,7 +15,7 @@ public class BlockGrass extends Block implements class_ain {
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
 		Block var4 = var2.p(var3.a()).c();
-		return var1.a(a, Boolean.valueOf((var4 == Blocks.aJ) || (var4 == Blocks.aH)));
+		return var1.a(a, Boolean.valueOf((var4 == Blocks.SNOW) || (var4 == Blocks.SNOW_LAYER)));
 	}
 
 	@Override
@@ -77,8 +77,8 @@ public class BlockGrass extends Block implements class_ain {
 						var1.a(var7, var10, 3);
 					}
 				} else {
-					class_apn var12 = Blocks.H.S().a(BlockLongGrass.a, BlockLongGrass.class_a_in_class_ano.b);
-					if (Blocks.H.g(var1, var7, var12)) {
+					class_apn var12 = Blocks.TALLGRASS.S().a(BlockLongGrass.a, BlockLongGrass.class_a_in_class_ano.b);
+					if (Blocks.TALLGRASS.g(var1, var7, var12)) {
 						var1.a(var7, var12, 3);
 					}
 				}

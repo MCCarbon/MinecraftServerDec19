@@ -263,12 +263,12 @@ public class Bootstrap {
 				class_ago var3 = var1.i();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
 				if (var3.d(var4)) {
-					var3.a(var4, Blocks.ab.S());
+					var3.a(var4, Blocks.FIRE.S());
 					if (var2.a(1, var3.s)) {
 						var2.b = 0;
 					}
-				} else if (var3.p(var4).c() == Blocks.W) {
-					Blocks.W.e(var3, var4, Blocks.W.S().a(class_anq.a, Boolean.valueOf(true)));
+				} else if (var3.p(var4).c() == Blocks.TNT) {
+					Blocks.TNT.e(var3, var4, Blocks.TNT.S().a(class_anq.a, Boolean.valueOf(true)));
 					var3.g(var4);
 				} else {
 					b = false;
@@ -319,7 +319,7 @@ public class Bootstrap {
 
 			}
 		});
-		class_ajm.N.a(Item.a(Blocks.W), new class_cn() {
+		class_ajm.N.a(Item.a(Blocks.TNT), new class_cn() {
 			@Override
 			protected class_aco b(class_ck var1, class_aco var2) {
 				class_ago var3 = var1.i();
@@ -339,7 +339,7 @@ public class Bootstrap {
 				class_ago var3 = var1.i();
 				class_cq var4 = class_ajm.b(var1.f());
 				class_cj var5 = var1.d().a(var4);
-				BlockSkull var6 = Blocks.ce;
+				BlockSkull var6 = Blocks.SKULL;
 				if (var3.d(var5) && var6.b(var3, var5, var2)) {
 					if (!var3.D) {
 						var3.a(var5, var6.S().a(BlockSkull.a, class_cq.b), 3);
@@ -365,7 +365,7 @@ public class Bootstrap {
 							}
 
 							((class_apa) var7).b(var4.d().b() * 4);
-							Blocks.ce.a(var3, var5, (class_apa) var7);
+							Blocks.SKULL.a(var3, var5, (class_apa) var7);
 						}
 
 						--var2.b;
@@ -387,14 +387,14 @@ public class Bootstrap {
 
 			}
 		});
-		class_ajm.N.a(Item.a(Blocks.aU), new class_cn() {
+		class_ajm.N.a(Item.a(Blocks.PUMPKIN), new class_cn() {
 			private boolean b = true;
 
 			@Override
 			protected class_aco b(class_ck var1, class_aco var2) {
 				class_ago var3 = var1.i();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
-				class_amf var5 = (class_amf) Blocks.aU;
+				class_amf var5 = (class_amf) Blocks.PUMPKIN;
 				if (var3.d(var4) && var5.d(var3, var4)) {
 					if (!var3.D) {
 						var3.a(var4, var5.S(), 3);

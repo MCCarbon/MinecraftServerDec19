@@ -267,11 +267,11 @@ public class class_ll extends class_ago implements class_pl {
 					var9 = this.q(new class_cj(var6 + (var8 & 15), 0, var7 + ((var8 >> 8) & 15)));
 					class_cj var10 = var9.b();
 					if (this.w(var10)) {
-						this.a(var10, Blocks.aI.S());
+						this.a(var10, Blocks.ICE.S());
 					}
 
 					if (var2 && this.f(var9, true)) {
-						this.a(var9, Blocks.aH.S());
+						this.a(var9, Blocks.SNOW_LAYER.S());
 					}
 
 					if (var2 && this.b(var10).e()) {

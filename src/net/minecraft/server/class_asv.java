@@ -17,7 +17,7 @@ public class class_asv extends class_asp {
 	@Override
 	public boolean b(class_ago var1, Random var2, class_cj var3) {
 		if (a == null) {
-			a = var2.nextBoolean() ? Blocks.bg : Blocks.bh;
+			a = var2.nextBoolean() ? Blocks.BROWN_MUSHROOM_BLOCK : Blocks.RED_MUSHROOM_BLOCK;
 		}
 
 		int var4 = var2.nextInt(3) + 4;
@@ -51,11 +51,11 @@ public class class_asv extends class_asp {
 				return false;
 			} else {
 				Block var19 = var1.p(var3.b()).c();
-				if ((var19 != Blocks.DIRT) && (var19 != Blocks.GRASS) && (var19 != Blocks.bw)) {
+				if ((var19 != Blocks.DIRT) && (var19 != Blocks.GRASS) && (var19 != Blocks.MYCELIUM)) {
 					return false;
 				} else {
 					int var20 = var3.o() + var4;
-					if (a == Blocks.bh) {
+					if (a == Blocks.RED_MUSHROOM_BLOCK) {
 						var20 = (var3.o() + var4) - 3;
 					}
 
@@ -66,7 +66,7 @@ public class class_asv extends class_asp {
 							++var9;
 						}
 
-						if (a == Blocks.bg) {
+						if (a == Blocks.BROWN_MUSHROOM_BLOCK) {
 							var9 = 3;
 						}
 
@@ -91,7 +91,7 @@ public class class_asv extends class_asp {
 								}
 
 								class_aky.class_a_in_class_aky var17 = class_aky.class_a_in_class_aky.a(var16);
-								if ((a == Blocks.bg) || (var21 < (var3.o() + var4))) {
+								if ((a == Blocks.BROWN_MUSHROOM_BLOCK) || (var21 < (var3.o() + var4))) {
 									if (((var14 == var10) || (var14 == var23)) && ((var15 == var12) || (var15 == var13))) {
 										continue;
 									}

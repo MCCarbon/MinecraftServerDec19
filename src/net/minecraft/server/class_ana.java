@@ -55,7 +55,7 @@ public class class_ana extends Block {
 	public boolean c(class_ago var1, class_cj var2) {
 		class_apn var3 = var1.p(var2.b());
 		Block var4 = var3.c();
-		return (var4 != Blocks.aI) && (var4 != Blocks.cB) ? (var4.v() == class_avq.j ? true : ((var4 == this) && (((Integer) var3.b(a)).intValue() >= 7) ? true : var4.c() && var4.J.c())) : false;
+		return (var4 != Blocks.ICE) && (var4 != Blocks.PACKED_ICE) ? (var4.v() == class_avq.j ? true : ((var4 == this) && (((Integer) var3.b(a)).intValue() >= 7) ? true : var4.c() && var4.J.c())) : false;
 	}
 
 	@Override

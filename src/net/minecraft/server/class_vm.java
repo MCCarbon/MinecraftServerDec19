@@ -94,11 +94,11 @@ public class class_vm extends class_vg implements class_xx {
 				class_apn var2 = o.p(var1);
 				if (var2.c() != Blocks.AIR) {
 					class_cq var3;
-					if (var2.c() == Blocks.M) {
+					if (var2.c() == Blocks.PISTON_EXTENSION) {
 						var3 = (class_cq) var2.b(class_ajk.b);
 						var1 = var1.a(var3);
 						ac.b(b, Optional.of(var1));
-					} else if (var2.c() == Blocks.K) {
+					} else if (var2.c() == Blocks.PISTON_HEAD) {
 						var3 = (class_cq) var2.b(class_ajk.b);
 						var1 = var1.a(var3);
 						ac.b(b, Optional.of(var1));

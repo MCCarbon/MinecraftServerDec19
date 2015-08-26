@@ -87,7 +87,7 @@ public class class_anx extends Block {
 
 	public boolean e(class_ags var1, class_cj var2) {
 		Block var3 = var1.p(var2).c();
-		return var3 == Blocks.cv ? false : ((var3 != this) && !(var3 instanceof class_akc) ? (var3.J.k() && var3.d() ? var3.J != class_avq.C : false) : true);
+		return var3 == Blocks.BARRIER ? false : ((var3 != this) && !(var3 instanceof class_akc) ? (var3.J.k() && var3.d() ? var3.J != class_avq.C : false) : true);
 	}
 
 	@Override

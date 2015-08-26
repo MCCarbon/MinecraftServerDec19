@@ -91,7 +91,7 @@ public class class_aol extends TileEntity {
 
 	public class_aol.class_a_in_class_aol g() {
 		Block var1 = w();
-		return var1 == Blocks.bX ? class_aol.class_a_in_class_aol.c : (var1 == Blocks.dc ? class_aol.class_a_in_class_aol.b : (var1 == Blocks.dd ? class_aol.class_a_in_class_aol.a : class_aol.class_a_in_class_aol.c));
+		return var1 == Blocks.COMMAND_BLOCK ? class_aol.class_a_in_class_aol.c : (var1 == Blocks.REPEATING_COMMAND_BLOCK ? class_aol.class_a_in_class_aol.b : (var1 == Blocks.CHAIN_COMMAND_BLOCK ? class_aol.class_a_in_class_aol.a : class_aol.class_a_in_class_aol.c));
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class BlockMycel extends Block {
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
 		Block var4 = var2.p(var3.a()).c();
-		return var1.a(a, Boolean.valueOf((var4 == Blocks.aJ) || (var4 == Blocks.aH)));
+		return var1.a(a, Boolean.valueOf((var4 == Blocks.SNOW) || (var4 == Blocks.SNOW_LAYER)));
 	}
 
 	@Override

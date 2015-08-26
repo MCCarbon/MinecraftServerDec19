@@ -14,7 +14,7 @@ public abstract class class_aih extends Block {
 
 	public static boolean d(class_apn var0) {
 		Block var1 = var0.c();
-		return (var1 == Blocks.av) || (var1 == Blocks.GOLDEN_RAIL) || (var1 == Blocks.DETECTOR_RAIL) || (var1 == Blocks.cs);
+		return (var1 == Blocks.RAIL) || (var1 == Blocks.GOLDEN_RAIL) || (var1 == Blocks.DETECTOR_RAIL) || (var1 == Blocks.ACTIVATOR_RAIL);
 	}
 
 	protected class_aih(boolean var1) {

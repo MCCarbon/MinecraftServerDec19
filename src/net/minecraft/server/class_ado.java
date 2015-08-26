@@ -29,11 +29,11 @@ public class class_ado extends Item {
 				var4 = var4.a(var6);
 			}
 
-			if (var2.a(var4, var6, var1) && Blocks.ce.c(var3, var4)) {
+			if (var2.a(var4, var6, var1) && Blocks.SKULL.c(var3, var4)) {
 				if (var3.D) {
 					return class_pw.a;
 				} else {
-					var3.a(var4, Blocks.ce.S().a(BlockSkull.a, var6), 3);
+					var3.a(var4, Blocks.SKULL.S().a(BlockSkull.a, var6), 3);
 					int var13 = 0;
 					if (var6 == class_cq.b) {
 						var13 = class_oa.c((var2.y * 16.0F) / 360.0F + 0.5D) & 15;
@@ -59,7 +59,7 @@ public class class_ado extends Item {
 						}
 
 						var15.b(var13);
-						Blocks.ce.a(var3, var4, var15);
+						Blocks.SKULL.a(var3, var4, var15);
 					}
 
 					--var1.b;

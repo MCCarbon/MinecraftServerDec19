@@ -23,9 +23,9 @@ public class class_qh {
 		k();
 		if (b.j_()) {
 			Block var1 = b.o.p(new class_cj(b.s, b.aX().b, b.u)).c();
-			if (var1 == Blocks.au) {
+			if (var1 == Blocks.LADDER) {
 				h = "ladder";
-			} else if (var1 == Blocks.bn) {
+			} else if (var1 == Blocks.VINE) {
 				h = "vines";
 			}
 		} else if (b.Y()) {

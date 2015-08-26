@@ -12,7 +12,7 @@ public class class_abc extends Item {
 	public class_pw a(class_aco var1, class_yu var2, class_ago var3, class_cj var4, class_pu var5, class_cq var6, float var7, float var8, float var9) {
 		class_apn var10 = var3.p(var4);
 		Block var11 = var10.c();
-		if ((var11 == Blocks.aH) && (((Integer) var10.b(class_ana.a)).intValue() < 1)) {
+		if ((var11 == Blocks.SNOW_LAYER) && (((Integer) var10.b(class_ana.a)).intValue() < 1)) {
 			var6 = class_cq.b;
 		} else if (!var11.a(var3, var4)) {
 			var4 = var4.a(var6);

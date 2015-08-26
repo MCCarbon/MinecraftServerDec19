@@ -205,7 +205,7 @@ public class BlockFlowing extends class_alf {
 
 	private boolean h(class_ago var1, class_cj var2, class_apn var3) {
 		Block var4 = var1.p(var2).c();
-		return !(var4 instanceof class_ajn) && (var4 != Blocks.an) && (var4 != Blocks.au) && (var4 != Blocks.aM) ? (var4.J == class_avq.E ? true : var4.J.c()) : true;
+		return !(var4 instanceof class_ajn) && (var4 != Blocks.STANDING_SIGN) && (var4 != Blocks.LADDER) && (var4 != Blocks.REEDS) ? (var4.J == class_avq.E ? true : var4.J.c()) : true;
 	}
 
 	protected int a(class_ago var1, class_cj var2, int var3) {

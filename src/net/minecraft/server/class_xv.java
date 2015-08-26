@@ -90,7 +90,7 @@ public class class_xv extends class_yc {
 
 	private boolean a(class_yu var1) {
 		class_aco var2 = var1.bq.b[3];
-		if ((var2 != null) && (var2.b() == Item.a(Blocks.aU))) {
+		if ((var2 != null) && (var2.b() == Item.a(Blocks.PUMPKIN))) {
 			return false;
 		} else {
 			class_aym var3 = var1.g(1.0F).a();
@@ -317,16 +317,16 @@ public class class_xv extends class_yc {
 		c.add(Blocks.DIRT);
 		c.add(Blocks.SAND);
 		c.add(Blocks.GRAVEL);
-		c.add(Blocks.N);
-		c.add(Blocks.O);
-		c.add(Blocks.P);
-		c.add(Blocks.Q);
-		c.add(Blocks.W);
-		c.add(Blocks.aK);
-		c.add(Blocks.aL);
-		c.add(Blocks.aU);
-		c.add(Blocks.bk);
-		c.add(Blocks.bw);
+		c.add(Blocks.YELLOW_FLOWER);
+		c.add(Blocks.RED_FLOWER);
+		c.add(Blocks.BROWN_MUSHROOM);
+		c.add(Blocks.RED_MUSHROOM);
+		c.add(Blocks.TNT);
+		c.add(Blocks.CACTUS);
+		c.add(Blocks.CLAY);
+		c.add(Blocks.PUMPKIN);
+		c.add(Blocks.MELON_BLOCK);
+		c.add(Blocks.MYCELIUM);
 		bu = class_kc.a(class_xv.class, class_kb.b);
 		bv = class_kc.a(class_xv.class, class_kb.b);
 		bw = class_kc.a(class_xv.class, class_kb.g);

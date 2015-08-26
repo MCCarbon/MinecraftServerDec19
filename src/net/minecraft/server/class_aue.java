@@ -56,7 +56,7 @@ public class class_aue {
 	}
 
 	static {
-		a = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.l, 0, 1, 5, 10), new class_oj(Items.m, 0, 1, 3, 5), new class_oj(Items.aE, 0, 4, 9, 5), new class_oj(Items.aY, class_abt.l.b(), 4, 9, 5), new class_oj(Items.k, 0, 1, 2, 3), new class_oj(Items.j, 0, 3, 8, 10), new class_oj(Items.R, 0, 1, 3, 15), new class_oj(Items.b, 0, 1, 1, 1), new class_oj(Item.a(Blocks.av), 0, 4, 8, 1), new class_oj(Items.bj, 0, 2, 4, 10),
+		a = Lists.newArrayList((Object[]) (new class_oj[] { new class_oj(Items.l, 0, 1, 5, 10), new class_oj(Items.m, 0, 1, 3, 5), new class_oj(Items.aE, 0, 4, 9, 5), new class_oj(Items.aY, class_abt.l.b(), 4, 9, 5), new class_oj(Items.k, 0, 1, 2, 3), new class_oj(Items.j, 0, 3, 8, 10), new class_oj(Items.R, 0, 1, 3, 15), new class_oj(Items.b, 0, 1, 1, 1), new class_oj(Item.a(Blocks.RAIL), 0, 4, 8, 1), new class_oj(Items.bj, 0, 2, 4, 10),
 				new class_oj(Items.bi, 0, 2, 4, 10), new class_oj(Items.aC, 0, 1, 1, 3), new class_oj(Items.cp, 0, 1, 1, 1) }));
 	}
 
@@ -455,7 +455,7 @@ public class class_aue {
 		protected boolean a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
 			class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
 			if (var2.b(var9) && (var1.p(var9).c().v() == class_avq.a)) {
-				class_apn var10 = Blocks.av.S().a(class_ami.b, var3.nextBoolean() ? class_aih.class_b_in_class_aih.a : class_aih.class_b_in_class_aih.b);
+				class_apn var10 = Blocks.RAIL.S().a(class_ami.b, var3.nextBoolean() ? class_aih.class_b_in_class_aih.a : class_aih.class_b_in_class_aih.b);
 				this.a(var1, var10, var4, var5, var6, var2);
 				class_xi var11 = new class_xi(var1, var9.n() + 0.5F, var9.o() + 0.5F, var9.p() + 0.5F);
 				class_oj.a(var3, var7, var11, var8);
@@ -479,15 +479,15 @@ public class class_aue {
 				this.a(var1, var3, 0, 0, 0, 2, 1, var8, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				this.a(var1, var3, var2, 0.8F, 0, 2, 0, 2, 2, var8, Blocks.AIR.S(), Blocks.AIR.S(), false);
 				if (b) {
-					this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, Blocks.G.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, Blocks.WEB.S(), Blocks.AIR.S(), false);
 				}
 
 				int var9;
 				int var10;
 				for (var9 = 0; var9 < d; ++var9) {
 					var10 = 2 + (var9 * 5);
-					this.a(var1, var3, 0, 0, var10, 0, 1, var10, Blocks.aO.S(), Blocks.AIR.S(), false);
-					this.a(var1, var3, 2, 0, var10, 2, 1, var10, Blocks.aO.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, 0, 0, var10, 0, 1, var10, Blocks.FENCE.S(), Blocks.AIR.S(), false);
+					this.a(var1, var3, 2, 0, var10, 2, 1, var10, Blocks.FENCE.S(), Blocks.AIR.S(), false);
 					if (var2.nextInt(4) == 0) {
 						this.a(var1, var3, 0, 2, var10, 0, 2, var10, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
 						this.a(var1, var3, 2, 2, var10, 2, 2, var10, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
@@ -495,16 +495,16 @@ public class class_aue {
 						this.a(var1, var3, 0, 2, var10, 2, 2, var10, Blocks.PLANKS.S(), Blocks.AIR.S(), false);
 					}
 
-					this.a(var1, var3, var2, 0.1F, 0, 2, var10 - 1, Blocks.G.S());
-					this.a(var1, var3, var2, 0.1F, 2, 2, var10 - 1, Blocks.G.S());
-					this.a(var1, var3, var2, 0.1F, 0, 2, var10 + 1, Blocks.G.S());
-					this.a(var1, var3, var2, 0.1F, 2, 2, var10 + 1, Blocks.G.S());
-					this.a(var1, var3, var2, 0.05F, 0, 2, var10 - 2, Blocks.G.S());
-					this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, Blocks.G.S());
-					this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, Blocks.G.S());
-					this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, Blocks.G.S());
-					this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.aa.S().a(class_anr.a, class_cq.d));
-					this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.aa.S().a(class_anr.a, class_cq.c));
+					this.a(var1, var3, var2, 0.1F, 0, 2, var10 - 1, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.1F, 2, 2, var10 - 1, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.1F, 0, 2, var10 + 1, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.1F, 2, 2, var10 + 1, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.05F, 0, 2, var10 - 2, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, Blocks.WEB.S());
+					this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.TORCH.S().a(class_anr.a, class_cq.d));
+					this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.TORCH.S().a(class_anr.a, class_cq.c));
 					if (var2.nextInt(100) == 0) {
 						this.a(var1, var3, var2, 2, 0, var10 - 1, class_oj.a(class_aue.a, new class_oj[] { Items.ci.b(var2) }), 3 + var2.nextInt(4));
 					}
@@ -521,7 +521,7 @@ public class class_aue {
 						class_cj var14 = new class_cj(var13, var11, var12);
 						if (var3.b(var14)) {
 							c = true;
-							var1.a(var14, Blocks.ac.S(), 2);
+							var1.a(var14, Blocks.MOB_SPAWNER.S(), 2);
 							TileEntity var15 = var1.s(var14);
 							if (var15 instanceof class_aox) {
 								((class_aox) var15).b().a("CaveSpider");
@@ -542,7 +542,7 @@ public class class_aue {
 				}
 
 				if (a) {
-					class_apn var16 = Blocks.av.S().a(class_ami.b, class_aih.class_b_in_class_aih.a);
+					class_apn var16 = Blocks.RAIL.S().a(class_ami.b, class_aih.class_b_in_class_aih.a);
 
 					for (var10 = 0; var10 <= var8; ++var10) {
 						class_apn var18 = this.a(var1, 1, -1, var10, var3);

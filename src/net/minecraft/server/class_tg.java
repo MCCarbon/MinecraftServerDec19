@@ -50,13 +50,13 @@ public class class_tg extends class_tc {
 		} else {
 			class_apn var3 = var1.p(var2);
 			Block var4 = var3.c();
-			if (var4 == Blocks.ae) {
+			if (var4 == Blocks.CHEST) {
 				TileEntity var5 = var1.s(var2);
 				if ((var5 instanceof class_aok) && (((class_aok) var5).l < 1)) {
 					return true;
 				}
 			} else {
-				if (var4 == Blocks.am) {
+				if (var4 == Blocks.LIT_FURNACE) {
 					return true;
 				}
 

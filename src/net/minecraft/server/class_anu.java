@@ -109,14 +109,14 @@ public class class_anu extends Block {
 			for (int var8 = 1; var8 < 42; ++var8) {
 				class_cj var9 = var2.a(var7, var8);
 				class_apn var10 = var1.p(var9);
-				if (var10.c() == Blocks.bR) {
+				if (var10.c() == Blocks.TRIPWIRE_HOOK) {
 					if (var10.b(BlockTripwireHook.a) == var7.d()) {
-						Blocks.bR.a(var1, var9, var10, false, true, var8, var3);
+						Blocks.TRIPWIRE_HOOK.a(var1, var9, var10, false, true, var8, var3);
 					}
 					break;
 				}
 
-				if (var10.c() != Blocks.bS) {
+				if (var10.c() != Blocks.TRIPWIRE) {
 					break;
 				}
 			}
@@ -179,10 +179,10 @@ public class class_anu extends Block {
 		class_cj var4 = var1.a(var3);
 		class_apn var5 = var0.p(var4);
 		Block var6 = var5.c();
-		if (var6 == Blocks.bR) {
+		if (var6 == Blocks.TRIPWIRE_HOOK) {
 			class_cq var9 = var3.d();
 			return var5.b(BlockTripwireHook.a) == var9;
-		} else if (var6 == Blocks.bS) {
+		} else if (var6 == Blocks.TRIPWIRE) {
 			boolean var7 = ((Boolean) var2.b(b)).booleanValue();
 			boolean var8 = ((Boolean) var5.b(b)).booleanValue();
 			return var7 == var8;

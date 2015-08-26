@@ -161,7 +161,7 @@ public final class class_agv {
 					return false;
 				} else {
 					Block var5 = var1.p(var4).c();
-					boolean var6 = (var5 != Blocks.BEDROCK) && (var5 != Blocks.cv);
+					boolean var6 = (var5 != Blocks.BEDROCK) && (var5 != Blocks.BARRIER);
 					return var6 && !var3.x() && !var3.v().d() && !var1.p(var2.a()).c().x();
 				}
 			}

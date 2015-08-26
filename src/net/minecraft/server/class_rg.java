@@ -810,14 +810,14 @@ public abstract class class_rg extends Entity {
 			class_cj var4 = new class_cj(var1, var2, var3);
 			class_apn var5 = o.p(var4);
 			Block var6 = var5.c();
-			return (var6 != Blocks.au) && (var6 != Blocks.bn) ? (var6 instanceof class_ant) && this.a(var4, var5) : true;
+			return (var6 != Blocks.LADDER) && (var6 != Blocks.VINE) ? (var6 instanceof class_ant) && this.a(var4, var5) : true;
 		}
 	}
 
 	private boolean a(class_cj var1, class_apn var2) {
 		if (((Boolean) var2.b(class_ant.b)).booleanValue()) {
 			class_apn var3 = o.p(var1.b());
-			if ((var3.c() == Blocks.au) && (var3.b(class_alb.a) == var2.b(class_ant.a))) {
+			if ((var3.c() == Blocks.LADDER) && (var3.b(class_alb.a) == var2.b(class_ant.a))) {
 				return true;
 			}
 		}

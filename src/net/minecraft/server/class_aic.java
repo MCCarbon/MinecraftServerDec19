@@ -112,7 +112,7 @@ public class class_aic extends class_ajz {
 
 		@Override
 		public class_eu f_() {
-			return new class_fb(Blocks.cf.a() + ".name", new Object[0]);
+			return new class_fb(Blocks.ANVIL.a() + ".name", new Object[0]);
 		}
 
 		@Override

@@ -20,7 +20,7 @@ public class class_ajl extends Block {
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
 		if (var1.b(a) == class_ajl.class_a_in_class_ajl.c) {
 			Block var4 = var2.p(var3.a()).c();
-			var1 = var1.a(b, Boolean.valueOf((var4 == Blocks.aJ) || (var4 == Blocks.aH)));
+			var1 = var1.a(b, Boolean.valueOf((var4 == Blocks.SNOW) || (var4 == Blocks.SNOW_LAYER)));
 		}
 
 		return var1;

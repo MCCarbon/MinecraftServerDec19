@@ -15,7 +15,7 @@ public class class_akj extends class_aif {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Item.a(Blocks.al);
+		return Item.a(Blocks.FURNACE);
 	}
 
 	@Override
@@ -64,11 +64,11 @@ public class class_akj extends class_aif {
 		TileEntity var4 = var1.s(var2);
 		N = true;
 		if (var0) {
-			var1.a(var2, Blocks.am.S().a(a, var3.b(a)), 3);
-			var1.a(var2, Blocks.am.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.LIT_FURNACE.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.LIT_FURNACE.S().a(a, var3.b(a)), 3);
 		} else {
-			var1.a(var2, Blocks.al.S().a(a, var3.b(a)), 3);
-			var1.a(var2, Blocks.al.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.FURNACE.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.FURNACE.S().a(a, var3.b(a)), 3);
 		}
 
 		N = false;
@@ -126,7 +126,7 @@ public class class_akj extends class_aif {
 
 	@Override
 	public class_aco b(class_ago var1, class_cj var2, class_apn var3) {
-		return new class_aco(Blocks.al);
+		return new class_aco(Blocks.FURNACE);
 	}
 
 	@Override

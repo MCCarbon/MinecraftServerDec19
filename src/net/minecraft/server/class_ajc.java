@@ -180,7 +180,7 @@ public class class_ajc extends class_aif {
 
 	private void e(class_ago var1, class_cj var2) {
 		class_apn var3 = var1.p(var2);
-		if ((var3.c() == Blocks.bX) || (var3.c() == Blocks.dc)) {
+		if ((var3.c() == Blocks.COMMAND_BLOCK) || (var3.c() == Blocks.REPEATING_COMMAND_BLOCK)) {
 			class_cj.class_a_in_class_cj var4 = new class_cj.class_a_in_class_cj(var2);
 			var4.c((class_cq) var3.b(a));
 
@@ -192,7 +192,7 @@ public class class_ajc extends class_aif {
 
 				class_apn var7 = var1.p(var4);
 				Block var8 = var7.c();
-				if ((var8 != Blocks.dd) || var1.b(var4, var8)) {
+				if ((var8 != Blocks.CHAIN_COMMAND_BLOCK) || var1.b(var4, var8)) {
 					break;
 				}
 

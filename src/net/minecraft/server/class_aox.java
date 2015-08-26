@@ -5,7 +5,7 @@ public class class_aox extends TileEntity implements class_ks {
 	private final class_agf a = new class_agf() {
 		@Override
 		public void a(int var1) {
-			class_aox.this.b.c(class_aox.this.c, Blocks.ac, var1, 0);
+			class_aox.this.b.c(class_aox.this.c, Blocks.MOB_SPAWNER, var1, 0);
 		}
 
 		@Override

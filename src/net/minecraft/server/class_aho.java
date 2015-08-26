@@ -9,7 +9,7 @@ public class class_aho extends class_ahb {
 		as.C = -100;
 		as.E = 1;
 		as.K = 1;
-		ak = Blocks.bw.S();
+		ak = Blocks.MYCELIUM.S();
 		at.clear();
 		au.clear();
 		av.clear();

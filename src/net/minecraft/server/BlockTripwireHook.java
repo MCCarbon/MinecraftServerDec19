@@ -102,14 +102,14 @@ public class BlockTripwireHook extends Block {
 		for (int var16 = 1; var16 < 42; ++var16) {
 			var17 = var2.a(var8, var16);
 			class_apn var18 = var1.p(var17);
-			if (var18.c() == Blocks.bR) {
+			if (var18.c() == Blocks.TRIPWIRE_HOOK) {
 				if (var18.b(a) == var8.d()) {
 					var14 = var16;
 				}
 				break;
 			}
 
-			if ((var18.c() != Blocks.bS) && (var16 != var6)) {
+			if ((var18.c() != Blocks.TRIPWIRE) && (var16 != var6)) {
 				var15[var16] = null;
 				var12 = false;
 			} else {

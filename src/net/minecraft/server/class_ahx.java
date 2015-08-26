@@ -86,6 +86,6 @@ public class class_ahx extends class_ahb {
 	}
 
 	static {
-		aH = new class_asd(Blocks.Y, 0);
+		aH = new class_asd(Blocks.MOSSY_COBBLESTONE, 0);
 	}
 }

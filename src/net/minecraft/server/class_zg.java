@@ -33,7 +33,7 @@ public class class_zg extends class_za {
 				if (var2) {
 					class_cj var3 = var1.a().a(var1.b);
 					if (o.d(var3)) {
-						o.a(var3, Blocks.ab.S());
+						o.a(var3, Blocks.FIRE.S());
 					}
 				}
 			}

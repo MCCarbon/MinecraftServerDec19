@@ -52,7 +52,7 @@ public class class_asc extends class_asa {
 				return false;
 			} else {
 				Block var16 = var1.p(var3.b()).c();
-				if (((var16 == Blocks.GRASS) || (var16 == Blocks.DIRT) || (var16 == Blocks.ak)) && (var3.o() < (256 - var4 - 1))) {
+				if (((var16 == Blocks.GRASS) || (var16 == Blocks.DIRT) || (var16 == Blocks.FARMLAND)) && (var3.o() < (256 - var4 - 1))) {
 					this.a(var1, var3.b());
 
 					int var17;

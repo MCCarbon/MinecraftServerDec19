@@ -292,7 +292,7 @@ public abstract class class_ahb {
 
 						if ((var16 < var8) && ((var9 == null) || (var9.c().v() == class_avq.a))) {
 							if (this.a(var15.c(var4, var16, var5)) < 0.15F) {
-								var9 = Blocks.aI.S();
+								var9 = Blocks.ICE.S();
 							} else {
 								var9 = Blocks.WATER.S();
 							}
@@ -313,7 +313,7 @@ public abstract class class_ahb {
 						var3.a(var14, var16, var13, var10);
 						if ((var11 == 0) && (var10.c() == Blocks.SAND)) {
 							var11 = var2.nextInt(4) + Math.max(0, var16 - 63);
-							var10 = var10.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.cM.S() : Blocks.SANDSTONE.S();
+							var10 = var10.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.RED_SANDSTONE.S() : Blocks.SANDSTONE.S();
 						}
 					}
 				}

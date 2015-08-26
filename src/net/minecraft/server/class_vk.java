@@ -27,7 +27,7 @@ public class class_vk extends class_vc {
 		i.a(1, new class_vk.class_g_in_class_vk(this, 1.33D));
 		i.a(2, new class_tw(this, 1.0D, Items.bW, false));
 		i.a(2, new class_tw(this, 1.0D, Items.cb, false));
-		i.a(2, new class_tw(this, 1.0D, Item.a(Blocks.N), false));
+		i.a(2, new class_tw(this, 1.0D, Item.a(Blocks.YELLOW_FLOWER), false));
 		i.a(3, new class_sj(this, 0.8D));
 		i.a(5, new class_vk.class_h_in_class_vk(this));
 		i.a(5, new class_tn(this, 0.6D));
@@ -264,7 +264,7 @@ public class class_vk extends class_vc {
 	}
 
 	private boolean a(Item var1) {
-		return (var1 == Items.bW) || (var1 == Items.cb) || (var1 == Item.a(Blocks.N));
+		return (var1 == Items.bW) || (var1 == Items.cb) || (var1 == Item.a(Blocks.YELLOW_FLOWER));
 	}
 
 	public class_vk b(class_qu var1) {
@@ -329,7 +329,7 @@ public class class_vk extends class_vc {
 	}
 
 	protected void cI() {
-		class_aiu var1 = (class_aiu) Blocks.cb;
+		class_aiu var1 = (class_aiu) Blocks.CARROTS;
 		class_apn var2 = var1.b(var1.n());
 		o.a(class_cy.M, (s + V.nextFloat() * J * 2.0F) - J, t + 0.5D + V.nextFloat() * K, (u + V.nextFloat() * J * 2.0F) - J, 0.0D, 0.0D, 0.0D, new int[] { Block.f(var2) });
 		bC = 100;
@@ -470,7 +470,7 @@ public class class_vk extends class_vc {
 		@Override
 		protected boolean a(class_ago var1, class_cj var2) {
 			Block var3 = var1.p(var2).c();
-			if (var3 == Blocks.ak) {
+			if (var3 == Blocks.FARMLAND) {
 				var2 = var2.a();
 				class_apn var4 = var1.p(var2);
 				var3 = var4.c();

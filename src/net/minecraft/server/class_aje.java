@@ -39,7 +39,7 @@ public class class_aje extends Block {
 
 		@Override
 		public class_eu f_() {
-			return new class_fb(Blocks.ai.a() + ".name", new Object[0]);
+			return new class_fb(Blocks.CRAFTING_TABLE.a() + ".name", new Object[0]);
 		}
 
 		@Override

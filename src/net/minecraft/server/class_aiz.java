@@ -22,7 +22,7 @@ public class class_aiz extends Block {
 
 	protected class_apr l() {
 		if (a == null) {
-			a = class_aps.a().a(new String[] { "##  ##", "##  ##", "  ##  ", " #### ", " #### ", " #  # " }).a('#', class_apq.a(class_apv.a(Blocks.aL))).b();
+			a = class_aps.a().a(new String[] { "##  ##", "##  ##", "  ##  ", " #### ", " #### ", " #  # " }).a('#', class_apq.a(class_apv.a(Blocks.CLAY))).b();
 		}
 
 		return a;

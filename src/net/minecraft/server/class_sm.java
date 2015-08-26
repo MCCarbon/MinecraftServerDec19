@@ -73,6 +73,6 @@ public class class_sm extends class_sr {
 	}
 
 	static {
-		b = class_apv.a(Blocks.H).a(BlockLongGrass.a, Predicates.equalTo(BlockLongGrass.class_a_in_class_ano.b));
+		b = class_apv.a(Blocks.TALLGRASS).a(BlockLongGrass.a, Predicates.equalTo(BlockLongGrass.class_a_in_class_ano.b));
 	}
 }

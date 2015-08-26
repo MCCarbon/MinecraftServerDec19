@@ -34,7 +34,7 @@ public class class_xo extends class_xh {
 
 	@Override
 	public class_apn u() {
-		return Blocks.ac.S();
+		return Blocks.MOB_SPAWNER.S();
 	}
 
 	@Override

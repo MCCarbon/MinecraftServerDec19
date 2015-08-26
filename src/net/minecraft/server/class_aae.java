@@ -102,28 +102,28 @@ public class class_aae extends class_zu {
 					for (var4 = -1; var4 <= 1; ++var4) {
 						for (int var5 = -1; var5 <= 1; ++var5) {
 							if (((var4 != 0) || (var5 != 0)) && j.d(k.a(var5, 0, var4)) && j.d(k.a(var5, 1, var4))) {
-								if (j.p(k.a(var5 * 2, 0, var4 * 2)).c() == Blocks.X) {
+								if (j.p(k.a(var5 * 2, 0, var4 * 2)).c() == Blocks.BOOKSHELF) {
 									++var3;
 								}
 
-								if (j.p(k.a(var5 * 2, 1, var4 * 2)).c() == Blocks.X) {
+								if (j.p(k.a(var5 * 2, 1, var4 * 2)).c() == Blocks.BOOKSHELF) {
 									++var3;
 								}
 
 								if ((var5 != 0) && (var4 != 0)) {
-									if (j.p(k.a(var5 * 2, 0, var4)).c() == Blocks.X) {
+									if (j.p(k.a(var5 * 2, 0, var4)).c() == Blocks.BOOKSHELF) {
 										++var3;
 									}
 
-									if (j.p(k.a(var5 * 2, 1, var4)).c() == Blocks.X) {
+									if (j.p(k.a(var5 * 2, 1, var4)).c() == Blocks.BOOKSHELF) {
 										++var3;
 									}
 
-									if (j.p(k.a(var5, 0, var4 * 2)).c() == Blocks.X) {
+									if (j.p(k.a(var5, 0, var4 * 2)).c() == Blocks.BOOKSHELF) {
 										++var3;
 									}
 
-									if (j.p(k.a(var5, 1, var4 * 2)).c() == Blocks.X) {
+									if (j.p(k.a(var5, 1, var4 * 2)).c() == Blocks.BOOKSHELF) {
 										++var3;
 									}
 								}
@@ -238,7 +238,7 @@ public class class_aae extends class_zu {
 
 	@Override
 	public boolean a(class_yu var1) {
-		return j.p(k).c() != Blocks.bC ? false : var1.e(k.n() + 0.5D, k.o() + 0.5D, k.p() + 0.5D) <= 64.0D;
+		return j.p(k).c() != Blocks.ENCHANTING_TABLE ? false : var1.e(k.n() + 0.5D, k.o() + 0.5D, k.p() + 0.5D) <= 64.0D;
 	}
 
 	@Override

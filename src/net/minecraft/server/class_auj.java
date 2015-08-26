@@ -484,7 +484,7 @@ public class class_auj {
 			}
 
 			this.a(var1, var3, 6, 3, 6, 9, 6, 9, c, c, false);
-			this.a(var1, var3, 7, 4, 7, 8, 5, 8, Blocks.R.S(), Blocks.R.S(), false);
+			this.a(var1, var3, 7, 4, 7, 8, 5, 8, Blocks.GOLD_BLOCK.S(), Blocks.GOLD_BLOCK.S(), false);
 
 			for (var7 = 3; var7 <= 6; var7 += 3) {
 				for (int var8 = 6; var8 <= 9; var8 += 3) {
@@ -1994,11 +1994,11 @@ public class class_auj {
 		}
 
 		static {
-			a = Blocks.cI.a(class_ame.b);
-			b = Blocks.cI.a(class_ame.N);
-			c = Blocks.cI.a(class_ame.O);
+			a = Blocks.PRISMARINE.a(class_ame.b);
+			b = Blocks.PRISMARINE.a(class_ame.N);
+			c = Blocks.PRISMARINE.a(class_ame.O);
 			d = b;
-			e = Blocks.cJ.S();
+			e = Blocks.SEA_LANTERN.S();
 			f = Blocks.WATER.S();
 			g = b(2, 0, 0);
 			h = b(2, 2, 0);

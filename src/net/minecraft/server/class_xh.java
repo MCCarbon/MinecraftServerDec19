@@ -231,7 +231,7 @@ public abstract class class_xh extends Entity implements class_qb {
 			class_apn var5 = o.p(var4);
 			if (class_aih.d(var5)) {
 				this.a(var4, var5);
-				if (var5.c() == Blocks.cs) {
+				if (var5.c() == Blocks.ACTIVATOR_RAIL) {
 					this.a(var14, var2, var16, ((Boolean) var5.b(class_amc.N)).booleanValue());
 				}
 			} else {

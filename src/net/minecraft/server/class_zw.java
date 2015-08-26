@@ -62,7 +62,7 @@ public class class_zw extends class_zu {
 
 				a = 0;
 				class_apn var5 = var2.p(var3);
-				if (!var1.bI.d && !var2.D && (var5.c() == Blocks.cf) && (var1.bj().nextFloat() < 0.12F)) {
+				if (!var1.bI.d && !var2.D && (var5.c() == Blocks.ANVIL) && (var1.bj().nextFloat() < 0.12F)) {
 					int var4 = ((Integer) var5.b(class_aic.b)).intValue();
 					++var4;
 					if (var4 > 2) {
@@ -287,7 +287,7 @@ public class class_zw extends class_zu {
 
 	@Override
 	public boolean a(class_yu var1) {
-		return i.p(j).c() != Blocks.cf ? false : var1.e(j.n() + 0.5D, j.o() + 0.5D, j.p() + 0.5D) <= 64.0D;
+		return i.p(j).c() != Blocks.ANVIL ? false : var1.e(j.n() + 0.5D, j.o() + 0.5D, j.p() + 0.5D) <= 64.0D;
 	}
 
 	@Override

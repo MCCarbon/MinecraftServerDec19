@@ -56,7 +56,7 @@ public class class_api extends TileEntity implements class_ks {
 			--var1;
 		}
 
-		class_ayk var3 = Blocks.M.a(b, c, a, var1, f);
+		class_ayk var3 = Blocks.PISTON_EXTENSION.a(b, c, a, var1, f);
 		if (var3 != null) {
 			List var4 = b.b((Entity) null, var3);
 			if (!var4.isEmpty()) {
@@ -66,7 +66,7 @@ public class class_api extends TileEntity implements class_ks {
 				while (true) {
 					while (var5.hasNext()) {
 						Entity var6 = (Entity) var5.next();
-						if ((a.c() == Blocks.cE) && g) {
+						if ((a.c() == Blocks.SLIME) && g) {
 							switch (class_api.SyntheticClass_1.a[f.k().ordinal()]) {
 								case 1:
 									var6.v = f.g();
@@ -95,7 +95,7 @@ public class class_api extends TileEntity implements class_ks {
 			j = i = 1.0F;
 			b.t(c);
 			y();
-			if (b.p(c).c() == Blocks.M) {
+			if (b.p(c).c() == Blocks.PISTON_EXTENSION) {
 				b.a(c, a, 3);
 				b.e(c, a.c());
 			}
@@ -110,7 +110,7 @@ public class class_api extends TileEntity implements class_ks {
 			this.a(1.0F, 0.25F);
 			b.t(c);
 			y();
-			if (b.p(c).c() == Blocks.M) {
+			if (b.p(c).c() == Blocks.PISTON_EXTENSION) {
 				b.a(c, a, 3);
 				b.e(c, a.c());
 			}

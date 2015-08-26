@@ -154,7 +154,7 @@ public class class_vp extends class_vg {
 
 		int var4;
 		for (var4 = 0; var4 < var3; ++var4) {
-			this.a(Item.a(Blocks.O), 1, BlockFlowers.class_a_in_class_ake.b.b());
+			this.a(Item.a(Blocks.RED_FLOWER), 1, BlockFlowers.class_a_in_class_ake.b.b());
 		}
 
 		var4 = 3 + V.nextInt(3);

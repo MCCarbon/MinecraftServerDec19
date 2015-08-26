@@ -231,10 +231,10 @@ public class class_xe extends Entity {
 					int var12 = class_oa.c(t) + var25;
 					class_cj var27 = new class_cj(var23, var12, var10);
 					Block var14 = o.p(var27).c();
-					if (var14 == Blocks.aH) {
+					if (var14 == Blocks.SNOW_LAYER) {
 						o.g(var27);
 						D = false;
-					} else if (var14 == Blocks.bx) {
+					} else if (var14 == Blocks.WATERLILY) {
 						o.b(var27, true);
 						D = false;
 					}

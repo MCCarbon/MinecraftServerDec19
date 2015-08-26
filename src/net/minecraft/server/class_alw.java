@@ -14,7 +14,7 @@ public class class_alw extends Block {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return this == Blocks.COAL_ORE ? Items.j : (this == Blocks.ag ? Items.k : (this == Blocks.LAPIS_ORE ? Items.aY : (this == Blocks.bP ? Items.bT : (this == Blocks.co ? Items.cl : Item.a(this)))));
+		return this == Blocks.COAL_ORE ? Items.j : (this == Blocks.DIAMOND_ORE ? Items.k : (this == Blocks.LAPIS_ORE ? Items.aY : (this == Blocks.EMERALD_ORE ? Items.bT : (this == Blocks.QUARTZ_ORE ? Items.cl : Item.a(this)))));
 	}
 
 	@Override
@@ -43,13 +43,13 @@ public class class_alw extends Block {
 			int var6 = 0;
 			if (this == Blocks.COAL_ORE) {
 				var6 = class_oa.a(var1.s, 0, 2);
-			} else if (this == Blocks.ag) {
+			} else if (this == Blocks.DIAMOND_ORE) {
 				var6 = class_oa.a(var1.s, 3, 7);
-			} else if (this == Blocks.bP) {
+			} else if (this == Blocks.EMERALD_ORE) {
 				var6 = class_oa.a(var1.s, 3, 7);
 			} else if (this == Blocks.LAPIS_ORE) {
 				var6 = class_oa.a(var1.s, 2, 5);
-			} else if (this == Blocks.co) {
+			} else if (this == Blocks.QUARTZ_ORE) {
 				var6 = class_oa.a(var1.s, 2, 5);
 			}
 

@@ -31,8 +31,8 @@ public class class_vw extends Entity {
 		++a;
 		if (!o.D) {
 			class_cj var1 = new class_cj(this);
-			if ((o.t instanceof class_arh) && (o.p(var1).c() != Blocks.ab)) {
-				o.a(var1, Blocks.ab.S());
+			if ((o.t instanceof class_arh) && (o.p(var1).c() != Blocks.FIRE)) {
+				o.a(var1, Blocks.FIRE.S());
 			}
 		}
 

@@ -37,7 +37,7 @@ public class class_agw {
 						int var12 = var4 + var10;
 						int var13 = (var5 + (var9 * var7)) - (var8 * var6);
 						boolean var14 = var10 < 0;
-						a.a((new class_cj(var11, var12, var13)), var14 ? Blocks.Z.S() : Blocks.AIR.S());
+						a.a((new class_cj(var11, var12, var13)), var14 ? Blocks.OBSIDIAN.S() : Blocks.AIR.S());
 					}
 				}
 			}
@@ -69,8 +69,8 @@ public class class_agw {
 				for (int var14 = -128; var14 <= 128; ++var14) {
 					for (class_cj var15 = var30.a(var13, a.X() - 1 - var30.o(), var14); var15.o() >= 0; var15 = var16) {
 						var16 = var15.b();
-						if (a.p(var15).c() == Blocks.aY) {
-							while (a.p(var16 = var15.b()).c() == Blocks.aY) {
+						if (a.p(var15).c() == Blocks.PORTAL) {
+							while (a.p(var16 = var15.b()).c() == Blocks.PORTAL) {
 								var15 = var16;
 							}
 
@@ -94,7 +94,7 @@ public class class_agw {
 			double var31 = ((class_cj) var9).n() + 0.5D;
 			double var32 = ((class_cj) var9).o() + 0.5D;
 			double var33 = ((class_cj) var9).p() + 0.5D;
-			class_apr.class_b_in_class_apr var18 = Blocks.aY.e(a, (class_cj) var9);
+			class_apr.class_b_in_class_apr var18 = Blocks.PORTAL.e(a, (class_cj) var9);
 			boolean var19 = var18.b().e().c() == class_cq.class_b_in_class_cq.b;
 			double var20 = var18.b().k() == class_cq.class_a_in_class_cq.a ? (double) var18.a().p() : (double) var18.a().n();
 			var32 = (var18.a().o() + 1) - (var1.aM().b * var18.e());
@@ -281,13 +281,13 @@ public class class_agw {
 						var24 = var16 + var22;
 						var25 = (var17 + ((var21 - 1) * var19)) - (var20 * var31);
 						boolean var35 = var22 < 0;
-						a.a((new class_cj(var23, var24, var25)), var35 ? Blocks.Z.S() : Blocks.AIR.S());
+						a.a((new class_cj(var23, var24, var25)), var35 ? Blocks.OBSIDIAN.S() : Blocks.AIR.S());
 					}
 				}
 			}
 		}
 
-		class_apn var32 = Blocks.aY.S().a(BlockPortal.a, var31 != 0 ? class_cq.class_a_in_class_cq.a : class_cq.class_a_in_class_cq.c);
+		class_apn var32 = Blocks.PORTAL.S().a(BlockPortal.a, var31 != 0 ? class_cq.class_a_in_class_cq.a : class_cq.class_a_in_class_cq.c);
 
 		for (var21 = 0; var21 < 4; ++var21) {
 			for (var22 = 0; var22 < 4; ++var22) {
@@ -296,7 +296,7 @@ public class class_agw {
 					var25 = var16 + var23;
 					var26 = var17 + ((var22 - 1) * var19);
 					boolean var36 = (var22 == 0) || (var22 == 3) || (var23 == -1) || (var23 == 3);
-					a.a(new class_cj(var24, var25, var26), var36 ? Blocks.Z.S() : var32, 2);
+					a.a(new class_cj(var24, var25, var26), var36 ? Blocks.OBSIDIAN.S() : var32, 2);
 				}
 			}
 

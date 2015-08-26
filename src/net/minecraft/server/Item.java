@@ -374,13 +374,13 @@ public class Item {
 		c(Blocks.NOTEBLOCK);
 		c(Blocks.GOLDEN_RAIL);
 		c(Blocks.DETECTOR_RAIL);
-		a(Blocks.F, (new class_ada(Blocks.F)));
-		c(Blocks.G);
-		a(Blocks.H, (new class_adw(Blocks.H, true)).a(new String[] { "shrub", "grass", "fern" }));
-		c(Blocks.I);
-		a(Blocks.J, (new class_ada(Blocks.J)));
-		a(Blocks.L, (new class_abv(Blocks.L)).b("cloth"));
-		a(Blocks.N, (new class_acx(Blocks.N, Blocks.N, new Function() {
+		a(Blocks.STICKY_PISTON, (new class_ada(Blocks.STICKY_PISTON)));
+		c(Blocks.WEB);
+		a(Blocks.TALLGRASS, (new class_adw(Blocks.TALLGRASS, true)).a(new String[] { "shrub", "grass", "fern" }));
+		c(Blocks.DEADBUSH);
+		a(Blocks.PISTON, (new class_ada(Blocks.PISTON)));
+		a(Blocks.WOOL, (new class_abv(Blocks.WOOL)).b("cloth"));
+		a(Blocks.YELLOW_FLOWER, (new class_acx(Blocks.YELLOW_FLOWER, Blocks.YELLOW_FLOWER, new Function() {
 			public String a(class_aco var1) {
 				return BlockFlowers.class_a_in_class_ake.a(BlockFlowers.class_b_in_class_ake.a, var1.i()).d();
 			}
@@ -391,7 +391,7 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("flower"));
-		a(Blocks.O, (new class_acx(Blocks.O, Blocks.O, new Function() {
+		a(Blocks.RED_FLOWER, (new class_acx(Blocks.RED_FLOWER, Blocks.RED_FLOWER, new Function() {
 			public String a(class_aco var1) {
 				return BlockFlowers.class_a_in_class_ake.a(BlockFlowers.class_b_in_class_ake.b, var1.i()).d();
 			}
@@ -402,61 +402,61 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("rose"));
-		c(Blocks.P);
-		c(Blocks.Q);
-		c(Blocks.R);
-		c(Blocks.S);
-		a(Blocks.U, (new class_adp(Blocks.U, Blocks.U, Blocks.T)).b("stoneSlab"));
-		c(Blocks.V);
-		c(Blocks.W);
-		c(Blocks.X);
-		c(Blocks.Y);
-		c(Blocks.Z);
-		c(Blocks.aa);
-		c(Blocks.cQ);
-		c(Blocks.cR);
-		c(Blocks.cS);
-		c(Blocks.cT);
-		c(Blocks.cU);
-		c(Blocks.cV);
-		a(Blocks.cX, (new class_adp(Blocks.cX, Blocks.cX, Blocks.cW)).b("purpurSlab"));
-		c(Blocks.ac);
-		c(Blocks.ad);
-		c(Blocks.ae);
-		c(Blocks.ag);
-		c(Blocks.ah);
-		c(Blocks.ai);
-		c(Blocks.ak);
-		c(Blocks.al);
-		c(Blocks.am);
-		c(Blocks.au);
-		c(Blocks.av);
-		c(Blocks.aw);
-		c(Blocks.ay);
-		c(Blocks.az);
-		c(Blocks.aB);
-		c(Blocks.aC);
-		c(Blocks.aF);
-		c(Blocks.aG);
-		a(Blocks.aH, (new class_adq(Blocks.aH)));
-		c(Blocks.aI);
-		c(Blocks.aJ);
-		c(Blocks.aK);
-		c(Blocks.aL);
-		c(Blocks.aN);
-		c(Blocks.aO);
-		c(Blocks.aP);
-		c(Blocks.aQ);
-		c(Blocks.aR);
-		c(Blocks.aS);
-		c(Blocks.aT);
-		c(Blocks.aU);
-		c(Blocks.aV);
-		c(Blocks.aW);
-		c(Blocks.aX);
-		c(Blocks.aZ);
-		c(Blocks.bd);
-		a(Blocks.be, (new class_acx(Blocks.be, Blocks.be, new Function() {
+		c(Blocks.BROWN_MUSHROOM);
+		c(Blocks.RED_MUSHROOM);
+		c(Blocks.GOLD_BLOCK);
+		c(Blocks.IRON_BLOCK);
+		a(Blocks.STONE_SLAB, (new class_adp(Blocks.STONE_SLAB, Blocks.STONE_SLAB, Blocks.DOUBLE_SANDSTONE_SLAB)).b("stoneSlab"));
+		c(Blocks.BRICK_BLOCK);
+		c(Blocks.TNT);
+		c(Blocks.BOOKSHELF);
+		c(Blocks.MOSSY_COBBLESTONE);
+		c(Blocks.OBSIDIAN);
+		c(Blocks.TORCH);
+		c(Blocks.END_ROD);
+		c(Blocks.CHORUS_PLANT);
+		c(Blocks.CHORUS_FLOWER);
+		c(Blocks.PURPUR_BLOCK);
+		c(Blocks.PURPUR_PILLAR);
+		c(Blocks.PURPUR_STAIRS);
+		a(Blocks.PURPUR_SLAB, (new class_adp(Blocks.PURPUR_SLAB, Blocks.PURPUR_SLAB, Blocks.PURPUR_DOUBLE_SLAB)).b("purpurSlab"));
+		c(Blocks.MOB_SPAWNER);
+		c(Blocks.OAK_STAIRS);
+		c(Blocks.CHEST);
+		c(Blocks.DIAMOND_ORE);
+		c(Blocks.DIAMOND_BLOCK);
+		c(Blocks.CRAFTING_TABLE);
+		c(Blocks.FARMLAND);
+		c(Blocks.FURNACE);
+		c(Blocks.LIT_FURNACE);
+		c(Blocks.LADDER);
+		c(Blocks.RAIL);
+		c(Blocks.STONE_STAIRS);
+		c(Blocks.LEVER);
+		c(Blocks.STONE_PRESSURE_PLATE);
+		c(Blocks.WOODEN_PRESSURE_PLATE);
+		c(Blocks.REDSTONE_ORE);
+		c(Blocks.REDSTONE_TORCH);
+		c(Blocks.STONE_BUTTON);
+		a(Blocks.SNOW_LAYER, (new class_adq(Blocks.SNOW_LAYER)));
+		c(Blocks.ICE);
+		c(Blocks.SNOW);
+		c(Blocks.CACTUS);
+		c(Blocks.CLAY);
+		c(Blocks.JUKEBOX);
+		c(Blocks.FENCE);
+		c(Blocks.SPRUCE_FENCE);
+		c(Blocks.BIRCH_FENCE);
+		c(Blocks.JUNGLE_FENCE);
+		c(Blocks.DARK_OAK_FENCE);
+		c(Blocks.ACACIA_FENCE);
+		c(Blocks.PUMPKIN);
+		c(Blocks.NETHERRACK);
+		c(Blocks.SOUL_SAND);
+		c(Blocks.GLOWSTONE);
+		c(Blocks.LIT_PUMPKIN);
+		c(Blocks.TRAPDOOR);
+		a(Blocks.MONSTER_EGG, (new class_acx(Blocks.MONSTER_EGG, Blocks.MONSTER_EGG, new Function() {
 			public String a(class_aco var1) {
 				return class_alj.class_a_in_class_alj.a(var1.i()).c();
 			}
@@ -467,7 +467,7 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("monsterStoneEgg"));
-		a(Blocks.bf, (new class_acx(Blocks.bf, Blocks.bf, new Function() {
+		a(Blocks.STONE_BRICK, (new class_acx(Blocks.STONE_BRICK, Blocks.STONE_BRICK, new Function() {
 			public String a(class_aco var1) {
 				return class_ank.class_a_in_class_ank.a(var1.i()).c();
 			}
@@ -478,43 +478,43 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("stonebricksmooth"));
-		c(Blocks.bg);
-		c(Blocks.bh);
-		c(Blocks.bi);
-		c(Blocks.bj);
-		c(Blocks.bk);
-		a(Blocks.bn, (new class_adw(Blocks.bn, false)));
-		c(Blocks.bo);
-		c(Blocks.bp);
-		c(Blocks.bq);
-		c(Blocks.br);
-		c(Blocks.bs);
-		c(Blocks.bt);
-		c(Blocks.bu);
-		c(Blocks.bv);
-		c(Blocks.bw);
-		a(Blocks.bx, (new class_adz(Blocks.bx)));
-		c(Blocks.by);
-		c(Blocks.bz);
-		c(Blocks.bA);
-		c(Blocks.bC);
-		c(Blocks.bG);
-		c(Blocks.bH);
-		c(Blocks.cY);
-		c(Blocks.bI);
-		c(Blocks.bJ);
-		a(Blocks.bM, (new class_adp(Blocks.bM, Blocks.bM, Blocks.bL)).b("woodSlab"));
-		c(Blocks.bO);
-		c(Blocks.bP);
-		c(Blocks.bQ);
-		c(Blocks.bR);
-		c(Blocks.bT);
-		c(Blocks.bU);
-		c(Blocks.bV);
-		c(Blocks.bW);
-		c(Blocks.bX);
-		c(Blocks.bY);
-		a(Blocks.bZ, (new class_acx(Blocks.bZ, Blocks.bZ, new Function() {
+		c(Blocks.BROWN_MUSHROOM_BLOCK);
+		c(Blocks.RED_MUSHROOM_BLOCK);
+		c(Blocks.IRON_BARS);
+		c(Blocks.GLASS_PANE);
+		c(Blocks.MELON_BLOCK);
+		a(Blocks.VINE, (new class_adw(Blocks.VINE, false)));
+		c(Blocks.FENCE_GATE);
+		c(Blocks.SPRUCE_FENCE_GATE);
+		c(Blocks.BIRCH_FENCE_GATE);
+		c(Blocks.JUNGLE_FENCE_GATE);
+		c(Blocks.DARK_OAK_FENCE_GATE);
+		c(Blocks.ACACIA_FENCE_GATE);
+		c(Blocks.BRICK_STAIRS);
+		c(Blocks.STONE_BRICK_STAIRS);
+		c(Blocks.MYCELIUM);
+		a(Blocks.WATERLILY, (new class_adz(Blocks.WATERLILY)));
+		c(Blocks.NETHER_BRICK);
+		c(Blocks.NETHER_BRICK_FENCE);
+		c(Blocks.NETHER_BRICK_STAIRS);
+		c(Blocks.ENCHANTING_TABLE);
+		c(Blocks.END_PORTAL_FRAME);
+		c(Blocks.END_STONE);
+		c(Blocks.END_BRICKS);
+		c(Blocks.DRAGON_EGG);
+		c(Blocks.REDSTONE_LAMP);
+		a(Blocks.WOODEN_SLAB, (new class_adp(Blocks.WOODEN_SLAB, Blocks.WOODEN_SLAB, Blocks.DOUBLE_WOODEN_SLAB)).b("woodSlab"));
+		c(Blocks.SANDSTONE_STAIRS);
+		c(Blocks.EMERALD_ORE);
+		c(Blocks.ENDER_CHEST);
+		c(Blocks.TRIPWIRE_HOOK);
+		c(Blocks.EMERALD_BLOCK);
+		c(Blocks.SPRUCE_STAIRS);
+		c(Blocks.BIRCH_STAIRS);
+		c(Blocks.JUNGLE_STAIRS);
+		c(Blocks.COMMAND_BLOCK);
+		c(Blocks.BEACON);
+		a(Blocks.COBBLESTONE_WALL, (new class_acx(Blocks.COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL, new Function() {
 			public String a(class_aco var1) {
 				return class_anx.class_a_in_class_anx.a(var1.i()).c();
 			}
@@ -525,32 +525,32 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("cobbleWall"));
-		c(Blocks.cd);
-		a(Blocks.cf, (new class_aau(Blocks.cf)).b("anvil"));
-		c(Blocks.cg);
-		c(Blocks.ch);
-		c(Blocks.ci);
-		c(Blocks.cl);
-		c(Blocks.cn);
-		c(Blocks.co);
-		c(Blocks.cp);
-		a(Blocks.cq, (new class_acx(Blocks.cq, Blocks.cq, new String[] { "default", "chiseled", "lines" })).b("quartzBlock"));
-		c(Blocks.cr);
-		c(Blocks.cs);
-		c(Blocks.ct);
-		a(Blocks.cu, (new class_abv(Blocks.cu)).b("clayHardenedStained"));
-		c(Blocks.cv);
-		c(Blocks.cw);
-		c(Blocks.cx);
-		a(Blocks.cy, (new class_abv(Blocks.cy)).b("woolCarpet"));
-		c(Blocks.cz);
-		c(Blocks.cA);
-		c(Blocks.cB);
-		c(Blocks.cC);
-		c(Blocks.cD);
-		c(Blocks.cE);
-		c(Blocks.da);
-		a(Blocks.cF, (new class_abs(Blocks.cF, Blocks.cF, new Function() {
+		c(Blocks.WOODEN_BUTTON);
+		a(Blocks.ANVIL, (new class_aau(Blocks.ANVIL)).b("anvil"));
+		c(Blocks.TRAPPED_CHEST);
+		c(Blocks.LIGHT_WEIGHTED_PRESSURE_PLATE);
+		c(Blocks.HEAVY_WEIGHTED_PRESSURE_PLATE);
+		c(Blocks.DAYLIGHT_DETECTOR);
+		c(Blocks.REDSTONE_BLOCK);
+		c(Blocks.QUARTZ_ORE);
+		c(Blocks.HOPPER);
+		a(Blocks.QUARTZ_BLOCK, (new class_acx(Blocks.QUARTZ_BLOCK, Blocks.QUARTZ_BLOCK, new String[] { "default", "chiseled", "lines" })).b("quartzBlock"));
+		c(Blocks.QUARTZ_STAIRS);
+		c(Blocks.ACTIVATOR_RAIL);
+		c(Blocks.DROPPER);
+		a(Blocks.STAINED_HARDENED_CLAY, (new class_abv(Blocks.STAINED_HARDENED_CLAY)).b("clayHardenedStained"));
+		c(Blocks.BARRIER);
+		c(Blocks.IRON_TRAPDOOR);
+		c(Blocks.HAY_BLOCK);
+		a(Blocks.CARPET, (new class_abv(Blocks.CARPET)).b("woolCarpet"));
+		c(Blocks.HARDENED_CLAY);
+		c(Blocks.COAL_BLOCK);
+		c(Blocks.PACKED_ICE);
+		c(Blocks.ACACIA_STAIRS);
+		c(Blocks.DARK_OAK_STAIRS);
+		c(Blocks.SLIME);
+		c(Blocks.GRASS_PATH);
+		a(Blocks.DOUBLE_PLANT, (new class_abs(Blocks.DOUBLE_PLANT, Blocks.DOUBLE_PLANT, new Function() {
 			public String a(class_aco var1) {
 				return BlockTallPlant.class_b_in_class_ajo.a(var1.i()).c();
 			}
@@ -561,9 +561,9 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("doublePlant"));
-		a(Blocks.cG, (new class_abv(Blocks.cG)).b("stainedGlass"));
-		a(Blocks.cH, (new class_abv(Blocks.cH)).b("stainedGlassPane"));
-		a(Blocks.cI, (new class_acx(Blocks.cI, Blocks.cI, new Function() {
+		a(Blocks.STAINED_GLASS, (new class_abv(Blocks.STAINED_GLASS)).b("stainedGlass"));
+		a(Blocks.STAINED_GLASS_PANE, (new class_abv(Blocks.STAINED_GLASS_PANE)).b("stainedGlassPane"));
+		a(Blocks.PRISMARINE, (new class_acx(Blocks.PRISMARINE, Blocks.PRISMARINE, new Function() {
 			public String a(class_aco var1) {
 				return class_ame.class_a_in_class_ame.a(var1.i()).c();
 			}
@@ -574,8 +574,8 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("prismarine"));
-		c(Blocks.cJ);
-		a(Blocks.cM, (new class_acx(Blocks.cM, Blocks.cM, new Function() {
+		c(Blocks.SEA_LANTERN);
+		a(Blocks.RED_SANDSTONE, (new class_acx(Blocks.RED_SANDSTONE, Blocks.RED_SANDSTONE, new Function() {
 			public String a(class_aco var1) {
 				return class_amk.class_a_in_class_amk.a(var1.i()).c();
 			}
@@ -586,10 +586,10 @@ public class Item {
 				return this.a((class_aco) var1);
 			}
 		})).b("redSandStone"));
-		c(Blocks.cN);
-		a(Blocks.cP, (new class_adp(Blocks.cP, Blocks.cP, Blocks.cO)).b("stoneSlab2"));
-		c(Blocks.dc);
-		c(Blocks.dd);
+		c(Blocks.RED_SANDSTONE_STAIRS);
+		a(Blocks.STONE_SLAB2, (new class_adp(Blocks.STONE_SLAB2, Blocks.STONE_SLAB2, Blocks.DOUBLE_STONE_SLAB2)).b("stoneSlab2"));
+		c(Blocks.REPEATING_COMMAND_BLOCK);
+		c(Blocks.CHAIN_COMMAND_BLOCK);
 		a(256, "iron_shovel", (new class_adl(Item.class_a_in_class_acm.c)).c("shovelIron"));
 		a(257, "iron_pickaxe", (new class_acz(Item.class_a_in_class_acm.c)).c("pickaxeIron"));
 		a(258, "iron_axe", (new class_aay(Item.class_a_in_class_acm.c)).c("hatchetIron"));
@@ -621,7 +621,7 @@ public class Item {
 		a(284, "golden_shovel", (new class_adl(Item.class_a_in_class_acm.e)).c("shovelGold"));
 		a(285, "golden_pickaxe", (new class_acz(Item.class_a_in_class_acm.e)).c("pickaxeGold"));
 		a(286, "golden_axe", (new class_aay(Item.class_a_in_class_acm.e)).c("hatchetGold"));
-		a(287, "string", (new class_abc(Blocks.bS)).c("string").a(class_abp.l));
+		a(287, "string", (new class_abc(Blocks.TRIPWIRE)).c("string").a(class_abp.l));
 		a(288, "feather", (new Item()).c("feather").a(class_abp.l));
 		a(289, "gunpowder", (new Item()).c("sulphur").a(class_abp.l));
 		a(290, "wooden_hoe", (new class_acl(Item.class_a_in_class_acm.a)).c("hoeWood"));
@@ -629,7 +629,7 @@ public class Item {
 		a(292, "iron_hoe", (new class_acl(Item.class_a_in_class_acm.c)).c("hoeIron"));
 		a(293, "diamond_hoe", (new class_acl(Item.class_a_in_class_acm.d)).c("hoeDiamond"));
 		a(294, "golden_hoe", (new class_acl(Item.class_a_in_class_acm.e)).c("hoeGold"));
-		a(295, "wheat_seeds", (new class_adh(Blocks.aj, Blocks.ak)).c("seeds"));
+		a(295, "wheat_seeds", (new class_adh(Blocks.WHEAT, Blocks.FARMLAND)).c("seeds"));
 		a(296, "wheat", (new Item()).c("wheat").a(class_abp.l));
 		a(297, "bread", (new class_aci(5, 0.6F, false)).c("bread"));
 		a(298, "leather_helmet", (new class_aav(class_aav.class_a_in_class_aav.a, 0, class_rc.f)).c("helmetCloth"));
@@ -658,14 +658,14 @@ public class Item {
 		a(321, "painting", (new class_ack(class_ww.class)).c("painting"));
 		a(322, "golden_apple", (new class_acj(4, 1.2F, false)).h().a(new class_qr(class_qs.j, 100, 1), 1.0F).c("appleGold"));
 		a(323, "sign", (new class_adm()).c("sign"));
-		a(324, "wooden_door", (new class_abr(Blocks.ao)).c("doorOak"));
+		a(324, "wooden_door", (new class_abr(Blocks.WOODEN_DOOR)).c("doorOak"));
 		Item var0 = (new class_abi(Blocks.AIR)).c("bucket").d(16);
 		a(325, "bucket", var0);
 		a(326, "water_bucket", (new class_abi(Blocks.FLOWING_WATER)).c("bucketWater").c(var0));
 		a(327, "lava_bucket", (new class_abi(Blocks.FLOWING_LAVA)).c("bucketLava").c(var0));
 		a(328, "minecart", (new class_acw(class_xh.class_a_in_class_xh.a)).c("minecart"));
 		a(329, "saddle", (new class_adf()).c("saddle"));
-		a(330, "iron_door", (new class_abr(Blocks.aA)).c("doorIron"));
+		a(330, "iron_door", (new class_abr(Blocks.IRON_DOOR)).c("doorIron"));
 		a(331, "redstone", (new class_ade()).c("redstone"));
 		a(332, "snowball", (new class_adr()).c("snowball"));
 		a(333, "boat", (new class_abd()).c("boat"));
@@ -673,7 +673,7 @@ public class Item {
 		a(335, "milk_bucket", (new class_acv()).c("milk").c(var0));
 		a(336, "brick", (new Item()).c("brick").a(class_abp.l));
 		a(337, "clay_ball", (new Item()).c("clay").a(class_abp.l));
-		a(338, "reeds", (new class_abc(Blocks.aM)).c("reeds").a(class_abp.l));
+		a(338, "reeds", (new class_abc(Blocks.REEDS)).c("reeds").a(class_abp.l));
 		a(339, "paper", (new Item()).c("paper").a(class_abp.f));
 		a(340, "book", (new class_abe()).c("book").a(class_abp.f));
 		a(341, "slime_ball", (new Item()).c("slimeball").a(class_abp.f));
@@ -689,15 +689,15 @@ public class Item {
 		a(351, "dye", (new class_abu()).c("dyePowder"));
 		a(352, "bone", (new Item()).c("bone").n().a(class_abp.f));
 		a(353, "sugar", (new Item()).c("sugar").a(class_abp.l));
-		a(354, "cake", (new class_abc(Blocks.ba)).d(1).c("cake").a(class_abp.h));
+		a(354, "cake", (new class_abc(Blocks.CAKE)).d(1).c("cake").a(class_abp.h));
 		a(355, "bed", (new class_aba()).d(1).c("bed"));
-		a(356, "repeater", (new class_abc(Blocks.bb)).c("diode").a(class_abp.d));
+		a(356, "repeater", (new class_abc(Blocks.UNPOWERED_REPEATER)).c("diode").a(class_abp.d));
 		a(357, "cookie", (new class_aci(2, 0.1F, false)).c("cookie"));
 		a(358, "filled_map", (new class_acu()).c("map"));
 		a(359, "shears", (new class_adj()).c("shears"));
 		a(360, "melon", (new class_aci(2, 0.3F, false)).c("melon"));
-		a(361, "pumpkin_seeds", (new class_adh(Blocks.bl, Blocks.ak)).c("seeds_pumpkin"));
-		a(362, "melon_seeds", (new class_adh(Blocks.bm, Blocks.ak)).c("seeds_melon"));
+		a(361, "pumpkin_seeds", (new class_adh(Blocks.PUMPKIN_STEM, Blocks.FARMLAND)).c("seeds_pumpkin"));
+		a(362, "melon_seeds", (new class_adh(Blocks.MELON_STEM, Blocks.FARMLAND)).c("seeds_melon"));
 		a(363, "beef", (new class_aci(3, 0.3F, true)).c("beefRaw"));
 		a(364, "cooked_beef", (new class_aci(8, 0.8F, true)).c("beefCooked"));
 		a(365, "chicken", (new class_aci(2, 0.3F, true)).a(new class_qr(class_qs.q, 600, 0), 0.3F).c("chickenRaw"));
@@ -707,7 +707,7 @@ public class Item {
 		a(369, "blaze_rod", (new Item()).c("blazeRod").a(class_abp.l).n());
 		a(370, "ghast_tear", (new Item()).c("ghastTear").a(class_abp.k));
 		a(371, "gold_nugget", (new Item()).c("goldNugget").a(class_abp.l));
-		a(372, "nether_wart", (new class_adh(Blocks.bB, Blocks.aW)).c("netherStalkSeeds"));
+		a(372, "nether_wart", (new class_adh(Blocks.NETHER_WART, Blocks.SOUL_SAND)).c("netherStalkSeeds"));
 		a(373, "potion", (new class_adb()).c("potion"));
 		Item var1 = (new class_abf()).c("glassBottle");
 		a(374, "glass_bottle", var1);
@@ -715,8 +715,8 @@ public class Item {
 		a(376, "fermented_spider_eye", (new Item()).c("fermentedSpiderEye").a(class_abp.k));
 		a(377, "blaze_powder", (new Item()).c("blazePowder").a(class_abp.k));
 		a(378, "magma_cream", (new Item()).c("magmaCream").a(class_abp.k));
-		a(379, "brewing_stand", (new class_abc(Blocks.bD)).c("brewingStand").a(class_abp.k));
-		a(380, "cauldron", (new class_abc(Blocks.bE)).c("cauldron").a(class_abp.k));
+		a(379, "brewing_stand", (new class_abc(Blocks.BRWEWING_STAND)).c("brewingStand").a(class_abp.k));
+		a(380, "cauldron", (new class_abc(Blocks.CAULDRON)).c("cauldron").a(class_abp.k));
 		a(381, "ender_eye", (new class_abz()).c("eyeOfEnder"));
 		a(382, "speckled_melon", (new Item()).c("speckledMelon").a(class_abp.k));
 		a(383, "spawn_egg", (new class_ads()).c("monsterPlacer"));
@@ -726,9 +726,9 @@ public class Item {
 		a(387, "written_book", (new class_aeb()).c("writtenBook").d(16));
 		a(388, "emerald", (new Item()).c("emerald").a(class_abp.l));
 		a(389, "item_frame", (new class_ack(class_wu.class)).c("frame"));
-		a(390, "flower_pot", (new class_abc(Blocks.ca)).c("flowerPot").a(class_abp.c));
-		a(391, "carrot", (new class_adg(3, 0.6F, Blocks.cb, Blocks.ak)).c("carrots"));
-		a(392, "potato", (new class_adg(1, 0.3F, Blocks.cc, Blocks.ak)).c("potato"));
+		a(390, "flower_pot", (new class_abc(Blocks.FLOWER_POT)).c("flowerPot").a(class_abp.c));
+		a(391, "carrot", (new class_adg(3, 0.6F, Blocks.CARROTS, Blocks.FARMLAND)).c("carrots"));
+		a(392, "potato", (new class_adg(1, 0.3F, Blocks.POTATOES, Blocks.FARMLAND)).c("potato"));
 		a(393, "baked_potato", (new class_aci(5, 0.6F, false)).c("potatoBaked"));
 		a(394, "poisonous_potato", (new class_aci(2, 0.3F, false)).a(new class_qr(class_qs.s, 100, 0), 0.6F).c("potatoPoisonous"));
 		a(395, "map", (new class_abx()).c("emptyMap"));
@@ -740,7 +740,7 @@ public class Item {
 		a(401, "fireworks", (new class_ace()).c("fireworks"));
 		a(402, "firework_charge", (new class_acd()).c("fireworksCharge").a(class_abp.f));
 		a(403, "enchanted_book", (new class_aby()).d(1).c("enchantedBook"));
-		a(404, "comparator", (new class_abc(Blocks.cj)).c("comparator").a(class_abp.d));
+		a(404, "comparator", (new class_abc(Blocks.UNPOWERED_COMPARATOR)).c("comparator").a(class_abp.d));
 		a(405, "netherbrick", (new Item()).c("netherbrick").a(class_abp.l));
 		a(406, "quartz", (new Item()).c("netherquartz").a(class_abp.l));
 		a(407, "tnt_minecart", (new class_acw(class_xh.class_a_in_class_xh.d)).c("minecartTnt"));
@@ -762,15 +762,15 @@ public class Item {
 		a(423, "mutton", (new class_aci(2, 0.3F, true)).c("muttonRaw"));
 		a(424, "cooked_mutton", (new class_aci(6, 0.8F, true)).c("muttonCooked"));
 		a(425, "banner", (new class_aaz()).b("banner"));
-		a(427, "spruce_door", (new class_abr(Blocks.ap)).c("doorSpruce"));
-		a(428, "birch_door", (new class_abr(Blocks.aq)).c("doorBirch"));
-		a(429, "jungle_door", (new class_abr(Blocks.ar)).c("doorJungle"));
-		a(430, "acacia_door", (new class_abr(Blocks.as)).c("doorAcacia"));
-		a(431, "dark_oak_door", (new class_abr(Blocks.at)).c("doorDarkOak"));
+		a(427, "spruce_door", (new class_abr(Blocks.SPRUCE_DOOR)).c("doorSpruce"));
+		a(428, "birch_door", (new class_abr(Blocks.BIRCH_DOOR)).c("doorBirch"));
+		a(429, "jungle_door", (new class_abr(Blocks.JUNGLE_DOOR)).c("doorJungle"));
+		a(430, "acacia_door", (new class_abr(Blocks.ACACIA_DOOR)).c("doorAcacia"));
+		a(431, "dark_oak_door", (new class_abr(Blocks.DARK_OAK_DOOR)).c("doorDarkOak"));
 		a(432, "chorus_fruit", (new class_abk(4, 0.3F)).h().c("chorusFruit").a(class_abp.l));
 		a(433, "chorus_fruit_popped", (new Item()).c("chorusFruitPopped").a(class_abp.l));
 		a(434, "beetroot", (new class_aci(1, 0.6F, false)).c("beetroot"));
-		a(435, "beetroot_seeds", (new class_adh(Blocks.cZ, Blocks.ak)).c("beetroot_seeds"));
+		a(435, "beetroot_seeds", (new class_adh(Blocks.BEETROOTS, Blocks.FARMLAND)).c("beetroot_seeds"));
 		a(436, "beetroot_soup", (new class_abh(6)).c("beetroot_soup"));
 		a(437, "dragon_breath", (new Item()).a(class_abp.k).c("dragon_breath").c(var1));
 		a(438, "splash_potion", (new class_adu()).c("splash_potion"));

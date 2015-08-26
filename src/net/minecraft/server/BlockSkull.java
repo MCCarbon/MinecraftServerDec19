@@ -214,7 +214,7 @@ public class BlockSkull extends class_aif {
 
 	protected class_apr l() {
 		if (O == null) {
-			O = class_aps.a().a(new String[] { "   ", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.aW))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
+			O = class_aps.a().a(new String[] { "   ", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.SOUL_SAND))).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
 		}
 
 		return O;
@@ -222,7 +222,7 @@ public class BlockSkull extends class_aif {
 
 	protected class_apr n() {
 		if (P == null) {
-			P = class_aps.a().a(new String[] { "^^^", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.aW))).a('^', N).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
+			P = class_aps.a().a(new String[] { "^^^", "###", "~#~" }).a('#', class_apq.a(class_apv.a(Blocks.SOUL_SAND))).a('^', N).a('~', class_apq.a(class_apv.a(Blocks.AIR))).b();
 		}
 
 		return P;
@@ -233,7 +233,7 @@ public class BlockSkull extends class_aif {
 		b = class_apy.a("nodrop");
 		N = new Predicate() {
 			public boolean a(class_apq var1) {
-				return (var1.a() != null) && (var1.a().c() == Blocks.ce) && (var1.b() instanceof class_apa) && (((class_apa) var1.b()).d() == 1);
+				return (var1.a() != null) && (var1.a().c() == Blocks.SKULL) && (var1.b() instanceof class_apa) && (((class_apa) var1.b()).d() == 1);
 			}
 
 			// $FF: synthetic method

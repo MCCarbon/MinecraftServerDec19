@@ -146,7 +146,7 @@ public class BlockTallPlant extends BlockPlant implements class_ain {
 		} else {
 			var4.b(class_nh.a(Block.a(this)));
 			int var6 = (var5 == BlockTallPlant.class_b_in_class_ajo.c ? BlockLongGrass.class_a_in_class_ano.b : BlockLongGrass.class_a_in_class_ano.c).a();
-			a(var1, var2, (new class_aco(Blocks.H, 2, var6)));
+			a(var1, var2, (new class_aco(Blocks.TALLGRASS, 2, var6)));
 			return true;
 		}
 	}

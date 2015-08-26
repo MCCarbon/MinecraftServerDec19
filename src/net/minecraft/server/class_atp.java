@@ -133,7 +133,7 @@ public class class_atp extends class_asa {
 	}
 
 	private void a(class_ago var1, class_cj var2, class_apy var3) {
-		class_apn var4 = Blocks.bn.S().a(var3, Boolean.valueOf(true));
+		class_apn var4 = Blocks.VINE.S().a(var3, Boolean.valueOf(true));
 		this.a(var1, var2, var4);
 		int var5 = 4;
 

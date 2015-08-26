@@ -287,7 +287,7 @@ public class class_vf extends class_vc implements class_pq {
 
 	public void cX() {
 		if (!o.D && cP()) {
-			this.a(Item.a(Blocks.ae), 1);
+			this.a(Item.a(Blocks.CHEST), 1);
 			this.p(false);
 		}
 	}
@@ -454,8 +454,8 @@ public class class_vf extends class_vc implements class_pq {
 	@Override
 	protected void a(class_cj var1, Block var2) {
 		Block.class_d_in_class_ail var3 = var2.H;
-		if (o.p(var1.a()).c() == Blocks.aH) {
-			var3 = Blocks.aH.H;
+		if (o.p(var1.a()).c() == Blocks.SNOW_LAYER) {
+			var3 = Blocks.SNOW_LAYER.H;
 		}
 
 		if (!var2.v().d()) {
@@ -565,7 +565,7 @@ public class class_vf extends class_vc implements class_pq {
 						var5 = 1.0F;
 						var6 = 30;
 						var7 = 3;
-					} else if (Block.a(var3.b()) == Blocks.cx) {
+					} else if (Block.a(var3.b()) == Blocks.HAY_BLOCK) {
 						var5 = 20.0F;
 						var6 = 180;
 					} else if (var3.b() == Items.e) {
@@ -619,7 +619,7 @@ public class class_vf extends class_vc implements class_pq {
 					return true;
 				}
 
-				if (!var8 && di() && !cP() && (var3.b() == Item.a(Blocks.ae))) {
+				if (!var8 && di() && !cP() && (var3.b() == Item.a(Blocks.CHEST))) {
 					this.p(true);
 					this.a("mob.chickenplop", 1.0F, ((V.nextFloat() - V.nextFloat()) * 0.2F) + 1.0F);
 					var8 = true;
@@ -1222,7 +1222,7 @@ public class class_vf extends class_vc implements class_pq {
 				return true;
 			}
 
-			if ((var2 != null) && (var2.b() == Item.a(Blocks.ae)) && !cP()) {
+			if ((var2 != null) && (var2.b() == Item.a(Blocks.CHEST)) && !cP()) {
 				this.p(true);
 				dt();
 				return true;

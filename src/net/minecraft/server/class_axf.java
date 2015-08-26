@@ -140,7 +140,7 @@ public class class_axf extends class_axb {
 					class_apn var17 = var0.p(var13);
 					Block var18 = var17.c();
 					if (var18.v() != class_avq.a) {
-						if ((var18 != Blocks.bd) && (var18 != Blocks.cw)) {
+						if ((var18 != Blocks.TRAPDOOR) && (var18 != Blocks.IRON_TRAPDOOR)) {
 							if ((var18 != Blocks.FLOWING_WATER) && (var18 != Blocks.WATER)) {
 								if (!var10 && (var18 instanceof class_ajn) && (var18.v() == class_avq.d)) {
 									return class_awz.e;
@@ -165,7 +165,7 @@ public class class_axf extends class_axb {
 								return class_awz.b;
 							}
 
-							if ((var18 == Blocks.bd) || (var18 == Blocks.cw)) {
+							if ((var18 == Blocks.TRAPDOOR) || (var18 == Blocks.IRON_TRAPDOOR)) {
 								return class_awz.a;
 							}
 

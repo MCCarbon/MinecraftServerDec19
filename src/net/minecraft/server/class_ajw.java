@@ -61,7 +61,7 @@ public class class_ajw extends class_ajk {
 	@Override
 	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
 		class_apn var9 = var1.p(var2.a(var3.d()));
-		if (var9.c() == Blocks.cQ) {
+		if (var9.c() == Blocks.END_ROD) {
 			class_cq var10 = (class_cq) var9.b(b);
 			if (var10 == var3) {
 				return S().a(b, var3.d());

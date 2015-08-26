@@ -37,7 +37,7 @@ public class class_abu extends Item {
 					if ((var6 != class_cq.a) && (var6 != class_cq.b)) {
 						var4 = var4.a(var6);
 						if (var3.d(var4)) {
-							class_apn var13 = Blocks.bN.a(var3, var4, var6, var7, var8, var9, 0, var2);
+							class_apn var13 = Blocks.COCOA.a(var3, var4, var6, var7, var8, var9, 0, var2);
 							var3.a(var4, var13, 2);
 							if (!var2.bI.d) {
 								--var1.b;

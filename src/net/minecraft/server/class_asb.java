@@ -246,7 +246,7 @@ public class class_asb extends class_asa {
 
 	private boolean f() {
 		Block var1 = l.p(m.b()).c();
-		if ((var1 != Blocks.DIRT) && (var1 != Blocks.GRASS) && (var1 != Blocks.ak)) {
+		if ((var1 != Blocks.DIRT) && (var1 != Blocks.GRASS) && (var1 != Blocks.FARMLAND)) {
 			return false;
 		} else {
 			int var2 = this.a(m, m.b(a - 1));

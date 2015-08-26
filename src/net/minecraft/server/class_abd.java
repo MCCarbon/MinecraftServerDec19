@@ -49,7 +49,7 @@ public class class_abd extends Item {
 				return new class_px(class_pw.b, var1);
 			} else if (var25.a == class_ayl.class_a_in_class_ayl.b) {
 				class_cj var34 = var25.a();
-				if (var2.p(var34).c() == Blocks.aH) {
+				if (var2.p(var34).c() == Blocks.SNOW_LAYER) {
 					var34 = var34.b();
 				}
 

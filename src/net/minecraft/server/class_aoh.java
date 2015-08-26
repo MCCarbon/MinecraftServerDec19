@@ -83,10 +83,10 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 		for (var8 = var3 + 1; var8 < 256; ++var8) {
 			class_apn var9 = b.p(var7.c(var2, var8, var4));
 			float[] var10;
-			if (var9.c() == Blocks.cG) {
+			if (var9.c() == Blocks.STAINED_GLASS) {
 				var10 = class_vl.a((class_abt) var9.b(BlockStainedGlass.a));
 			} else {
-				if (var9.c() != Blocks.cH) {
+				if (var9.c() != Blocks.STAINED_GLASS_PANE) {
 					if ((var9.c().r() >= 15) && (var9.c() != Blocks.BEDROCK)) {
 						j = false;
 						g.clear();
@@ -126,7 +126,7 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 				for (int var11 = var2 - var8; (var11 <= (var2 + var8)) && var17; ++var11) {
 					for (int var12 = var4 - var8; var12 <= (var4 + var8); ++var12) {
 						Block var13 = b.p(new class_cj(var11, var15, var12)).c();
-						if ((var13 != Blocks.bT) && (var13 != Blocks.R) && (var13 != Blocks.ah) && (var13 != Blocks.S)) {
+						if ((var13 != Blocks.EMERALD_BLOCK) && (var13 != Blocks.GOLD_BLOCK) && (var13 != Blocks.DIAMOND_BLOCK) && (var13 != Blocks.IRON_BLOCK)) {
 							var17 = false;
 							break;
 						}
