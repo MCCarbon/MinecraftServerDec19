@@ -7,9 +7,9 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class class_u extends class_i {
+public class class_u extends CommandAbstract {
 	@Override
-	public String c() {
+	public String getCommand() {
 		return "clone";
 	}
 
@@ -24,7 +24,7 @@ public class class_u extends class_i {
 	}
 
 	@Override
-	public void a(ICommandListener var1, String[] var2) throws class_bz {
+	public void execute(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 9) {
 			throw new class_cf("commands.clone.usage", new Object[0]);
 		} else {
@@ -194,7 +194,7 @@ public class class_u extends class_i {
 	}
 
 	@Override
-	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+	public List tabComplete(ICommandListener var1, String[] var2, class_cj var3) {
 		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : ((var2.length > 3) && (var2.length <= 6) ? a(var2, 3, var3) : ((var2.length > 6) && (var2.length <= 9) ? a(var2, 6, var3) : (var2.length == 10 ? a(var2, new String[] { "replace", "masked", "filtered" }) : (var2.length == 11 ? a(var2, new String[] { "normal", "force", "move" }) : ((var2.length == 12) && "filtered".equals(var2[9]) ? a(var2, Block.c.c()) : null)))));
 	}
 

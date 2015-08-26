@@ -6,9 +6,9 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-public class class_af extends class_i {
+public class class_af extends CommandAbstract {
 	@Override
-	public String c() {
+	public String getCommand() {
 		return "fill";
 	}
 
@@ -23,7 +23,7 @@ public class class_af extends class_i {
 	}
 
 	@Override
-	public void a(ICommandListener var1, String[] var2) throws class_bz {
+	public void execute(ICommandListener var1, String[] var2) throws class_bz {
 		if (var2.length < 7) {
 			throw new class_cf("commands.fill.usage", new Object[0]);
 		} else {
@@ -154,7 +154,7 @@ public class class_af extends class_i {
 	}
 
 	@Override
-	public List a(ICommandListener var1, String[] var2, class_cj var3) {
+	public List tabComplete(ICommandListener var1, String[] var2, class_cj var3) {
 		return (var2.length > 0) && (var2.length <= 3) ? a(var2, 0, var3) : ((var2.length > 3) && (var2.length <= 6) ? a(var2, 3, var3) : (var2.length == 7 ? a(var2, Block.c.c()) : (var2.length == 9 ? a(var2, new String[] { "replace", "destroy", "keep", "hollow", "outline" }) : ((var2.length == 10) && "replace".equals(var2[8]) ? a(var2, Block.c.c()) : null))));
 	}
 }

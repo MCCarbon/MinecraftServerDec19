@@ -47,7 +47,7 @@ public class class_o {
 				var3.add(var5.f_());
 			}
 
-			return class_i.a(var3);
+			return CommandAbstract.a(var3);
 		}
 	}
 

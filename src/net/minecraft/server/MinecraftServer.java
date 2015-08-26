@@ -112,8 +112,8 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		t = var4;
 	}
 
-	protected class_bd h() {
-		return new class_bd();
+	protected CommandDispatcher h() {
+		return new CommandDispatcher();
 	}
 
 	protected abstract boolean i() throws IOException;
@@ -771,7 +771,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 
 			for (int var11 = 0; var11 < var16; ++var11) {
 				String var12 = var15[var11];
-				if (class_i.a(var14, var12)) {
+				if (CommandAbstract.a(var14, var12)) {
 					var5.add(var12);
 				}
 			}

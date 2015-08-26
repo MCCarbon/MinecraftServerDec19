@@ -69,7 +69,7 @@ public class class_n {
 
 			String var6;
 			try {
-				var6 = class_i.e(var5, var4);
+				var6 = CommandAbstract.e(var5, var4);
 			} catch (class_ca var11) {
 				return;
 			}
