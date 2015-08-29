@@ -62,7 +62,7 @@ public class class_anc extends Block {
 				class_cq var12 = var9[var11];
 				class_cj var13 = var7.a(var12);
 				if (var1.p(var13).c().v() == class_avq.h) {
-					var1.a(var13, Blocks.AIR.S(), 2);
+					var1.a(var13, Blocks.AIR.getBlockData(), 2);
 					var4.add(var13);
 					++var5;
 					if (var8 < 6) {
@@ -88,7 +88,7 @@ public class class_anc extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Boolean.valueOf((var1 & 1) == 1));
+		return getBlockData().a(a, Boolean.valueOf((var1 & 1) == 1));
 	}
 
 	@Override

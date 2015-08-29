@@ -64,7 +64,7 @@ public abstract class Entity implements ICommandListener {
 	public int Z;
 	protected boolean aa;
 	protected boolean ab;
-	protected class_kc ac;
+	protected DataWatcher ac;
 	private static final class_jz as;
 	private static final class_jz at;
 	private static final class_jz au;
@@ -113,7 +113,7 @@ public abstract class Entity implements ICommandListener {
 			am = var1.t.p().a();
 		}
 
-		ac = new class_kc(this);
+		ac = new DataWatcher(this);
 		ac.a(as, Byte.valueOf((byte) 0));
 		ac.a(at, Integer.valueOf(300));
 		ac.a(av, Boolean.valueOf(false));
@@ -153,7 +153,7 @@ public abstract class Entity implements ICommandListener {
 
 	protected abstract void h();
 
-	public class_kc J() {
+	public DataWatcher J() {
 		return ac;
 	}
 
@@ -305,8 +305,8 @@ public abstract class Entity implements ICommandListener {
 
 	public void e(int var1) {
 		int var2 = var1 * 20;
-		if (this instanceof class_rg) {
-			var2 = class_aft.a((class_rg) this, var2);
+		if (this instanceof EntityLiving) {
+			var2 = class_aft.a((EntityLiving) this, var2);
 		}
 
 		if (i < var2) {
@@ -1174,17 +1174,17 @@ public abstract class Entity implements ICommandListener {
 		return var2;
 	}
 
-	public class_xg a(Item var1, int var2) {
+	public EntityItem a(Item var1, int var2) {
 		return this.a(var1, var2, 0.0F);
 	}
 
-	public class_xg a(Item var1, int var2, float var3) {
+	public EntityItem a(Item var1, int var2, float var3) {
 		return this.a(new class_aco(var1, var2, 0), var3);
 	}
 
-	public class_xg a(class_aco var1, float var2) {
+	public EntityItem a(class_aco var1, float var2) {
 		if ((var1.b != 0) && (var1.b() != null)) {
-			class_xg var3 = new class_xg(o, s, t + var2, u, var1);
+			EntityItem var3 = new EntityItem(o, s, t + var2, u, var1);
 			var3.o();
 			o.a(var3);
 			return var3;
@@ -1448,7 +1448,7 @@ public abstract class Entity implements ICommandListener {
 
 	}
 
-	public void b(class_rg var1) {
+	public void b(EntityLiving var1) {
 	}
 
 	protected boolean j(double var1, double var3, double var5) {
@@ -1875,9 +1875,9 @@ public abstract class Entity implements ICommandListener {
 		return false;
 	}
 
-	protected void a(class_rg var1, Entity var2) {
-		if (var2 instanceof class_rg) {
-			class_afl.a(((class_rg) var2), var1);
+	protected void a(EntityLiving var1, Entity var2) {
+		if (var2 instanceof EntityLiving) {
+			class_afl.a(((EntityLiving) var2), var1);
 		}
 
 		class_afl.b(var1, var2);
@@ -1926,11 +1926,11 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	static {
-		as = class_kc.a(Entity.class, class_kb.a);
-		at = class_kc.a(Entity.class, class_kb.b);
-		au = class_kc.a(Entity.class, class_kb.d);
-		av = class_kc.a(Entity.class, class_kb.g);
-		aw = class_kc.a(Entity.class, class_kb.g);
+		as = DataWatcher.claimId(Entity.class, class_kb.a);
+		at = DataWatcher.claimId(Entity.class, class_kb.b);
+		au = DataWatcher.claimId(Entity.class, class_kb.d);
+		av = DataWatcher.claimId(Entity.class, class_kb.g);
+		aw = DataWatcher.claimId(Entity.class, class_kb.g);
 	}
 
 	// $FF: synthetic class

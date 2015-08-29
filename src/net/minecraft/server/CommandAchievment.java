@@ -29,7 +29,7 @@ public class CommandAchievment extends CommandAbstract {
 		if (var2.length < 2) {
 			throw new class_cf("commands.achievement.usage", new Object[0]);
 		} else {
-			final class_nd var3 = class_nh.a(var2[1]);
+			final class_nd var3 = StatisticList.a(var2[1]);
 			if ((var3 == null) && !var2[1].equals("*")) {
 				throw new class_bz("commands.achievement.unknownAchievement", new Object[] { var2[1] });
 			} else {
@@ -152,7 +152,7 @@ public class CommandAchievment extends CommandAbstract {
 			return var2.length == 3 ? a(var2, MinecraftServer.P().M()) : null;
 		} else {
 			ArrayList var4 = Lists.newArrayList();
-			Iterator var5 = class_nh.b.iterator();
+			Iterator var5 = StatisticList.b.iterator();
 
 			while (var5.hasNext()) {
 				class_nd var6 = (class_nd) var5.next();

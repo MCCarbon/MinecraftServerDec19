@@ -366,7 +366,7 @@ public class class_lm extends class_yu implements class_zz {
 			var5.a();
 		}
 
-		class_rg var7 = bA();
+		EntityLiving var7 = bA();
 		if (var7 != null) {
 			EntityTypes.class_a_in_class_qz var8 = (EntityTypes.class_a_in_class_qz) EntityTypes.a.get(EntityTypes.b(var7));
 			if (var8 != null) {
@@ -376,8 +376,8 @@ public class class_lm extends class_yu implements class_zz {
 			var7.b(this, ba);
 		}
 
-		this.b(class_nh.z);
-		this.a(class_nh.h);
+		this.b(StatisticList.z);
+		this.a(StatisticList.h);
 		bz().g();
 	}
 
@@ -396,8 +396,8 @@ public class class_lm extends class_yu implements class_zz {
 						return false;
 					}
 
-					if (var4 instanceof class_yx) {
-						class_yx var5 = (class_yx) var4;
+					if (var4 instanceof EntityArrow) {
+						EntityArrow var5 = (EntityArrow) var4;
 						if ((var5.e instanceof class_yu) && !this.a((class_yu) var5.e)) {
 							return false;
 						}
@@ -484,7 +484,7 @@ public class class_lm extends class_yu implements class_zz {
 	@Override
 	public void a(boolean var1, boolean var2, boolean var3) {
 		if (bQ()) {
-			v().u().b(this, new class_fq(this, 2));
+			v().u().b(this, new PacketPlayOutAnimation(this, 2));
 		}
 
 		super.a(var1, var2, var3);
@@ -529,7 +529,7 @@ public class class_lm extends class_yu implements class_zz {
 	@Override
 	public void a(class_aoz var1) {
 		var1.a(this);
-		a.a((new class_gx(var1.v())));
+		a.a((new PacketPlayOutOpenSignEditor(var1.v())));
 	}
 
 	private void cD() {
@@ -593,7 +593,7 @@ public class class_lm extends class_yu implements class_zz {
 	}
 
 	@Override
-	public void a(class_vf var1, class_pp var2) {
+	public void a(EntityHorse var1, class_pp var2) {
 		if (bs != br) {
 			this.o();
 		}
@@ -778,12 +778,12 @@ public class class_lm extends class_yu implements class_zz {
 
 	@Override
 	public void b(Entity var1) {
-		v().u().b(this, new class_fq(var1, 4));
+		v().u().b(this, new PacketPlayOutAnimation(var1, 4));
 	}
 
 	@Override
 	public void c(Entity var1) {
-		v().u().b(this, new class_fq(var1, 5));
+		v().u().b(this, new PacketPlayOutAnimation(var1, 5));
 	}
 
 	@Override

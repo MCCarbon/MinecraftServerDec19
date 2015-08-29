@@ -15,12 +15,12 @@ public class class_adr extends Item {
 
 		var2.a((Entity) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
 		if (!var2.D) {
-			class_zh var5 = new class_zh(var2, var3);
+			EntitySnowball var5 = new EntitySnowball(var2, var3);
 			var5.a(var3.z, var3.y, 0.0F, 1.5F, 1.0F);
 			var2.a(var5);
 		}
 
-		var3.b(class_nh.c(Item.b(this)));
+		var3.b(StatisticList.c(Item.b(this)));
 		return new class_px(class_pw.a, var1);
 	}
 }

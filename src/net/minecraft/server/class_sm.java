@@ -5,11 +5,11 @@ import com.google.common.base.Predicates;
 
 public class class_sm extends class_sr {
 	private static final Predicate b;
-	private class_rh c;
+	private EntityInsentient c;
 	private class_ago d;
 	int a;
 
-	public class_sm(class_rh var1) {
+	public class_sm(EntityInsentient var1) {
 		c = var1;
 		d = var1.o;
 		this.a(7);
@@ -62,7 +62,7 @@ public class class_sm extends class_sr {
 				if (d.p(var2).c() == Blocks.GRASS) {
 					if (d.S().b("mobGriefing")) {
 						d.b(2001, var2, Block.a(Blocks.GRASS));
-						d.a(var2, Blocks.DIRT.S(), 2);
+						d.a(var2, Blocks.DIRT.getBlockData(), 2);
 					}
 
 					c.x();

@@ -23,7 +23,7 @@ public class CommandEffect extends CommandAbstract {
 		if (var2.length < 2) {
 			throw new class_cf("commands.effect.usage", new Object[0]);
 		} else {
-			class_rg var3 = (class_rg) a(var1, var2[0], class_rg.class);
+			EntityLiving var3 = (EntityLiving) a(var1, var2[0], EntityLiving.class);
 			if (var2[1].equals("clear")) {
 				if (var3.bs().isEmpty()) {
 					throw new class_bz("commands.effect.failure.notActive.all", new Object[] { var3.e_() });

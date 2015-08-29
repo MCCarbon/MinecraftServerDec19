@@ -32,7 +32,7 @@ public class class_asw extends class_asp {
 							class_cj var11 = new class_cj(var6, var10, var7);
 							Block var12 = var1.p(var11).c();
 							if ((var12 == Blocks.DIRT) || (var12 == Blocks.SNOW) || (var12 == Blocks.ICE)) {
-								var1.a(var11, a.S(), 2);
+								var1.a(var11, a.getBlockData(), 2);
 							}
 						}
 					}

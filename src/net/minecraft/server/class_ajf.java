@@ -34,7 +34,7 @@ public class class_ajf extends BlockPlant implements class_ain {
 	}
 
 	public class_apn b(int var1) {
-		return S().a(l(), Integer.valueOf(var1));
+		return getBlockData().a(l(), Integer.valueOf(var1));
 	}
 
 	public boolean e(class_apn var1) {

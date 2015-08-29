@@ -157,13 +157,13 @@ public abstract class class_alf extends Block {
 			if (var4) {
 				Integer var9 = (Integer) var3.b(b);
 				if (var9.intValue() == 0) {
-					var1.a(var2, Blocks.OBSIDIAN.S());
+					var1.a(var2, Blocks.OBSIDIAN.getBlockData());
 					this.d(var1, var2);
 					return true;
 				}
 
 				if (var9.intValue() <= 4) {
-					var1.a(var2, Blocks.COBBLESTONE.S());
+					var1.a(var2, Blocks.COBBLESTONE.getBlockData());
 					this.d(var1, var2);
 					return true;
 				}
@@ -187,7 +187,7 @@ public abstract class class_alf extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(b, Integer.valueOf(var1));
+		return getBlockData().a(b, Integer.valueOf(var1));
 	}
 
 	@Override

@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Random;
 
 public class class_sj extends class_sr {
-	private class_vc d;
+	private EntityAnimal d;
 	class_ago a;
-	private class_vc e;
+	private EntityAnimal e;
 	int b;
 	double c;
 
-	public class_sj(class_vc var1, double var2) {
+	public class_sj(EntityAnimal var1, double var2) {
 		d = var1;
 		a = var1.o;
 		c = var2;
@@ -50,15 +50,15 @@ public class class_sj extends class_sr {
 
 	}
 
-	private class_vc f() {
+	private EntityAnimal f() {
 		float var1 = 8.0F;
 		List var2 = a.a(d.getClass(), d.aX().b(var1, var1, var1));
 		double var3 = Double.MAX_VALUE;
-		class_vc var5 = null;
+		EntityAnimal var5 = null;
 		Iterator var6 = var2.iterator();
 
 		while (var6.hasNext()) {
-			class_vc var7 = (class_vc) var6.next();
+			EntityAnimal var7 = (EntityAnimal) var6.next();
 			if (d.a(var7) && (d.h(var7) < var3)) {
 				var5 = var7;
 				var3 = d.h(var7);
@@ -69,7 +69,7 @@ public class class_sj extends class_sr {
 	}
 
 	private void g() {
-		class_qu var1 = d.a((class_qu) e);
+		EntityAgeable var1 = d.a((EntityAgeable) e);
 		if (var1 != null) {
 			class_yu var2 = d.cJ();
 			if ((var2 == null) && (e.cJ() != null)) {
@@ -77,8 +77,8 @@ public class class_sj extends class_sr {
 			}
 
 			if (var2 != null) {
-				var2.b(class_nh.B);
-				if (d instanceof class_ve) {
+				var2.b(StatisticList.B);
+				if (d instanceof EntityCow) {
 					var2.b(class_my.H);
 				}
 			}
@@ -103,7 +103,7 @@ public class class_sj extends class_sr {
 			}
 
 			if (a.S().b("doMobLoot")) {
-				a.a((new class_rd(a, d.s, d.t, d.u, var3.nextInt(7) + 1)));
+				a.a((new EntityExperienceOrb(a, d.s, d.t, d.u, var3.nextInt(7) + 1)));
 			}
 
 		}

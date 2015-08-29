@@ -23,14 +23,14 @@ public class class_aci extends Item {
 	}
 
 	@Override
-	public class_aco a(class_aco var1, class_ago var2, class_rg var3) {
+	public class_aco a(class_aco var1, class_ago var2, EntityLiving var3) {
 		--var1.b;
 		if (var3 instanceof class_yu) {
 			class_yu var4 = (class_yu) var3;
 			var4.ct().a(this, var1);
 			var2.a((Entity) var4, "random.burp", 0.5F, (var2.s.nextFloat() * 0.1F) + 0.9F);
 			this.a(var1, var2, var4);
-			var4.b(class_nh.c(Item.b(this)));
+			var4.b(StatisticList.c(Item.b(this)));
 		}
 
 		return var1;

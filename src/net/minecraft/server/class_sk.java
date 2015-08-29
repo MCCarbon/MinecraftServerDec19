@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 
 public class class_sk extends class_sr {
-	private final class_rh a;
+	private final EntityInsentient a;
 	private final float b;
 	private float c;
 	private boolean d;
 	private int e;
 	private int f;
 
-	public class_sk(class_rh var1, float var2) {
+	public class_sk(EntityInsentient var1, float var2) {
 		a = var1;
 		b = var2;
 		this.a(7);
@@ -34,7 +34,7 @@ public class class_sk extends class_sr {
 	@Override
 	public void e() {
 		class_yu var1 = (class_yu) a.l;
-		class_rn var2 = (class_rn) a;
+		EntityCreature var2 = (EntityCreature) a;
 		float var3 = MathHelper.g(var1.y - a.y) * 0.5F;
 		if (var3 > 5.0F) {
 			var3 = 5.0F;

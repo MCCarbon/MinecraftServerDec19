@@ -17,7 +17,7 @@ public abstract class class_asa extends class_asp {
 
 	protected void a(class_ago var1, class_cj var2) {
 		if (var1.p(var2).c() != Blocks.DIRT) {
-			this.a(var1, var2, Blocks.DIRT.S());
+			this.a(var1, var2, Blocks.DIRT.getBlockData());
 		}
 
 	}

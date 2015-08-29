@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 
 public class class_sc {
-	private class_rh b;
+	private EntityInsentient b;
 	protected boolean a;
 
-	public class_sc(class_rh var1) {
+	public class_sc(EntityInsentient var1) {
 		b = var1;
 	}
 

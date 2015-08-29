@@ -2,15 +2,15 @@ package net.minecraft.server;
 
 
 public class class_te extends class_sr {
-	private class_rn a;
-	private class_rg b;
+	private EntityCreature a;
+	private EntityLiving b;
 	private double c;
 	private double d;
 	private double e;
 	private double f;
 	private float g;
 
-	public class_te(class_rn var1, double var2, float var4) {
+	public class_te(EntityCreature var1, double var2, float var4) {
 		a = var1;
 		f = var2;
 		g = var4;

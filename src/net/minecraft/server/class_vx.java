@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_vx extends class_rh implements class_vu, class_xx {
+public class class_vx extends EntityInsentient implements class_vu, class_xx {
 	private static final Logger bF = LogManager.getLogger();
 	public static final class_jz a;
 	public double[][] b = new double[64][3];
@@ -24,7 +24,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 	public float bB;
 	public boolean bC;
 	public int bD;
-	public class_vw bE;
+	public EntityEnderCrystal bE;
 	private final class_arg bG;
 	private final class_wn bH;
 	private int bI = 200;
@@ -298,13 +298,13 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 
 		if (V.nextInt(10) == 0) {
 			float var1 = 32.0F;
-			List var2 = o.a(class_vw.class, aX().b(var1, var1, var1));
-			class_vw var3 = null;
+			List var2 = o.a(EntityEnderCrystal.class, aX().b(var1, var1, var1));
+			EntityEnderCrystal var3 = null;
 			double var4 = Double.MAX_VALUE;
 			Iterator var6 = var2.iterator();
 
 			while (var6.hasNext()) {
-				class_vw var7 = (class_vw) var6.next();
+				EntityEnderCrystal var7 = (EntityEnderCrystal) var6.next();
 				double var8 = var7.h(this);
 				if (var8 < var4) {
 					var4 = var8;
@@ -324,12 +324,12 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 
 		while (var6.hasNext()) {
 			Entity var7 = (Entity) var6.next();
-			if (var7 instanceof class_rg) {
+			if (var7 instanceof EntityLiving) {
 				double var8 = var7.s - var2;
 				double var10 = var7.u - var4;
 				double var12 = (var8 * var8) + (var10 * var10);
 				var7.g((var8 / var12) * 4.0D, 0.20000000298023224D, (var10 / var12) * 4.0D);
-				if (!bH.a().a() && (((class_rg) var7).bl() < (var7.W - 2))) {
+				if (!bH.a().a() && (((EntityLiving) var7).bl() < (var7.W - 2))) {
 					var7.a(class_qi.a(this), 5.0F);
 					this.a(this, var7);
 				}
@@ -341,7 +341,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 	private void b(List var1) {
 		for (int var2 = 0; var2 < var1.size(); ++var2) {
 			Entity var3 = (Entity) var1.get(var2);
-			if (var3 instanceof class_rg) {
+			if (var3 instanceof EntityLiving) {
 				var3.a(class_qi.a(this), 10.0F);
 				this.a(this, var3);
 			}
@@ -497,9 +497,9 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 
 	private void a(int var1) {
 		while (var1 > 0) {
-			int var2 = class_rd.a(var1);
+			int var2 = EntityExperienceOrb.a(var1);
 			var1 -= var2;
-			o.a((new class_rd(o, s, t, u, var2)));
+			o.a((new EntityExperienceOrb(o, s, t, u, var2)));
 		}
 
 	}
@@ -540,8 +540,8 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 			bL[1] = 8197;
 			bL[2] = 8202;
 			bL[3] = 16404;
-			bL[4] = 'è€¨';
-			bL[5] = 'è��';
+			bL[4] = '耨';
+			bL[5] = '聐';
 			bL[6] = 65696;
 			bL[7] = 131392;
 			bL[8] = 131712;
@@ -767,7 +767,7 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 		return var4;
 	}
 
-	public void a(class_vw var1, class_cj var2, class_qi var3) {
+	public void a(EntityEnderCrystal var1, class_cj var2, class_qi var3) {
 		class_yu var4;
 		if (var3.j() instanceof class_yu) {
 			var4 = (class_yu) var3.j();
@@ -800,6 +800,6 @@ public class class_vx extends class_rh implements class_vu, class_xx {
 	}
 
 	static {
-		a = class_kc.a(class_vx.class, class_kb.b);
+		a = DataWatcher.claimId(class_vx.class, class_kb.b);
 	}
 }

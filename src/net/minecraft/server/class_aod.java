@@ -48,7 +48,7 @@ public abstract class class_aod extends BlockStepAbstract {
 
 	@Override
 	public class_apn a(int var1) {
-		class_apn var2 = S().a(b, class_aly.class_a_in_class_aly.a(var1 & 7));
+		class_apn var2 = getBlockData().a(b, class_aly.class_a_in_class_aly.a(var1 & 7));
 		if (!l()) {
 			var2 = var2.a(a, (var1 & 8) == 0 ? BlockStepAbstract.class_a_in_class_akq.b : BlockStepAbstract.class_a_in_class_akq.a);
 		}

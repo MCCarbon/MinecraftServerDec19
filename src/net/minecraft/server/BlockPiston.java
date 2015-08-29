@@ -21,7 +21,7 @@ public class BlockPiston extends class_ajk {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		var1.a(var2, var3.a(b, a(var1, var2, var4)), 2);
 		if (!var1.D) {
 			this.f(var1, var2, var3);
@@ -46,8 +46,8 @@ public class BlockPiston extends class_ajk {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(b, a(var1, var2, var8)).a(a, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(b, a(var1, var2, var8)).a(a, Boolean.valueOf(false));
 	}
 
 	private void f(class_ago var1, class_cj var2, class_apn var3) {
@@ -122,7 +122,7 @@ public class BlockPiston extends class_ajk {
 				((class_api) var13).h();
 			}
 
-			var1.a(var2, Blocks.PISTON_EXTENSION.S().a(BlockPistonMoving.a, var6).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a), 3);
+			var1.a(var2, Blocks.PISTON_EXTENSION.getBlockData().a(BlockPistonMoving.a, var6).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a), 3);
 			var1.a(var2, BlockPistonMoving.a(this.a(var5), var6, false, true));
 			if (N) {
 				class_cj var8 = var2.a(var6.g() * 2, var6.h() * 2, var6.i() * 2);
@@ -215,7 +215,7 @@ public class BlockPiston extends class_ajk {
 		return var1 > 5 ? null : class_cq.a(var1);
 	}
 
-	public static class_cq a(class_ago var0, class_cj var1, class_rg var2) {
+	public static class_cq a(class_ago var0, class_cj var1, EntityLiving var2) {
 		if ((MathHelper.e((float) var2.s - var1.n()) < 2.0F) && (MathHelper.e((float) var2.u - var1.p()) < 2.0F)) {
 			double var3 = var2.t + var2.aY();
 			if ((var3 - var1.o()) > 2.0D) {
@@ -298,7 +298,7 @@ public class BlockPiston extends class_ajk {
 				var14.c(var18);
 				var1.g(var12);
 				var12 = var12.a(var10);
-				var1.a(var12, Blocks.PISTON_EXTENSION.S().a(b, var3), 4);
+				var1.a(var12, Blocks.PISTON_EXTENSION.getBlockData().a(b, var3), 4);
 				var1.a(var12, BlockPistonMoving.a(var18, var3, var4, false));
 				--var8;
 				var9[var8] = var14;
@@ -307,8 +307,8 @@ public class BlockPiston extends class_ajk {
 			class_cj var16 = var2.a(var3);
 			if (var4) {
 				BlockPistonExtension.class_a_in_class_aph var17 = N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a;
-				var18 = Blocks.PISTON_HEAD.S().a(class_ajk.b, var3).a(BlockPistonExtension.a, var17);
-				class_apn var20 = Blocks.PISTON_EXTENSION.S().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
+				var18 = Blocks.PISTON_HEAD.getBlockData().a(class_ajk.b, var3).a(BlockPistonExtension.a, var17);
+				class_apn var20 = Blocks.PISTON_EXTENSION.getBlockData().a(BlockPistonMoving.a, var3).a(BlockPistonMoving.b, N ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
 				var1.a(var16, var20, 4);
 				var1.a(var16, BlockPistonMoving.a(var18, var3, true, false));
 			}
@@ -333,7 +333,7 @@ public class BlockPiston extends class_ajk {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(b, b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(b, b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

@@ -61,7 +61,7 @@ public class class_asu extends class_asp {
 			}
 
 			if ((!b && (var4 == 4) && (var5 == 1)) || (var4 == 5)) {
-				var1.a(var3, a.S(), 2);
+				var1.a(var3, a.getBlockData(), 2);
 				var1.a(a, var3, var2);
 			}
 

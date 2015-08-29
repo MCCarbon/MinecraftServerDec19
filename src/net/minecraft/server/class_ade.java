@@ -12,7 +12,7 @@ public class class_ade extends Item {
 		class_cj var11 = var10 ? var4 : var4.a(var6);
 		if (var2.a(var11, var6, var1) && var3.a(var3.p(var11).c(), var11, false, var6, (Entity) null, var1) && Blocks.REDSTONE_WIRE.c(var3, var11)) {
 			--var1.b;
-			var3.a(var11, Blocks.REDSTONE_WIRE.S());
+			var3.a(var11, Blocks.REDSTONE_WIRE.getBlockData());
 			return class_pw.a;
 		} else {
 			return class_pw.c;

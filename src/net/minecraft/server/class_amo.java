@@ -100,7 +100,7 @@ public class class_amo extends class_anr {
 
 		if (N) {
 			if (var5) {
-				var1.a(var2, Blocks.UNLIN_REDSTONE_TORCH.S().a(a, var3.b(a)), 3);
+				var1.a(var2, Blocks.UNLIN_REDSTONE_TORCH.getBlockData().a(a, var3.b(a)), 3);
 				if (this.a(var1, var2, true)) {
 					var1.a(var2.n() + 0.5F, var2.o() + 0.5F, var2.p() + 0.5F, "random.fizz", 0.5F, 2.6F + ((var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F));
 
@@ -115,7 +115,7 @@ public class class_amo extends class_anr {
 				}
 			}
 		} else if (!var5 && !this.a(var1, var2, false)) {
-			var1.a(var2, Blocks.REDSTONE_TORCH.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.REDSTONE_TORCH.getBlockData().a(a, var3.b(a)), 3);
 		}
 
 	}

@@ -13,7 +13,7 @@ public class class_aje extends Block {
 			return true;
 		} else {
 			var4.a((new class_aje.class_a_in_class_aje(var1, var2)));
-			var4.b(class_nh.aa);
+			var4.b(StatisticList.aa);
 			return true;
 		}
 	}

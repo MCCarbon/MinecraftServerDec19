@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 
 public class class_tx extends class_sr {
-	private class_yp a;
+	private EntityVillager a;
 
-	public class_tx(class_yp var1) {
+	public class_tx(EntityVillager var1) {
 		a = var1;
 		this.a(5);
 	}

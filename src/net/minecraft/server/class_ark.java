@@ -129,9 +129,9 @@ public class class_ark extends class_arr {
 
 											if ((var52.c() == Blocks.STONE) || (var52.c() == Blocks.DIRT) || (var52.c() == Blocks.GRASS)) {
 												if ((var49 - 1) < 10) {
-													var5.a(var42, var49, var45, Blocks.FLOWING_LAVA.S());
+													var5.a(var42, var49, var45, Blocks.FLOWING_LAVA.getBlockData());
 												} else {
-													var5.a(var42, var49, var45, Blocks.AIR.S());
+													var5.a(var42, var49, var45, Blocks.AIR.getBlockData());
 													if (var48 && (var5.a(var42, var49 - 1, var45).c() == Blocks.DIRT)) {
 														var59.c(var42 + (var3 * 16), 0, var45 + (var4 * 16));
 														var5.a(var42, var49 - 1, var45, c.b(var59).ak);

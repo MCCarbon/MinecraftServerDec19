@@ -84,18 +84,18 @@ public class class_aja extends class_akx implements class_ain {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		class_cq var6 = class_cq.a(var4.y);
 		var1.a(var2, var3.a(O, var6), 2);
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		if (!var3.k().c()) {
 			var3 = class_cq.c;
 		}
 
-		return S().a(O, var3.d()).a(a, Integer.valueOf(0));
+		return getBlockData().a(O, var3.d()).a(a, Integer.valueOf(0));
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class class_aja extends class_akx implements class_ain {
 	}
 
 	private void g(class_ago var1, class_cj var2, class_apn var3) {
-		var1.a(var2, Blocks.AIR.S(), 3);
+		var1.a(var2, Blocks.AIR.getBlockData(), 3);
 		this.b(var1, var2, var3, 0);
 	}
 
@@ -147,7 +147,7 @@ public class class_aja extends class_akx implements class_ain {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(O, class_cq.b(var1)).a(a, Integer.valueOf((var1 & 15) >> 2));
+		return getBlockData().a(O, class_cq.b(var1)).a(a, Integer.valueOf((var1 & 15) >> 2));
 	}
 
 	@Override

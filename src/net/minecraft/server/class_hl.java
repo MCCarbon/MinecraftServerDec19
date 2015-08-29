@@ -10,7 +10,7 @@ public class class_hl implements Packet {
 	public class_hl() {
 	}
 
-	public class_hl(int var1, class_kc var2, boolean var3) {
+	public class_hl(int var1, DataWatcher var2, boolean var3) {
 		a = var1;
 		if (var3) {
 			b = var2.c();
@@ -23,13 +23,13 @@ public class class_hl implements Packet {
 	@Override
 	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.g();
-		b = class_kc.b(var1);
+		b = DataWatcher.b(var1);
 	}
 
 	@Override
 	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.b(a);
-		class_kc.a(b, var1);
+		DataWatcher.a(b, var1);
 	}
 
 	public void a(PacketListenerPlayOut var1) {

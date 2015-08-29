@@ -12,24 +12,24 @@ public class class_uf extends class_uj {
 	private final int g;
 	protected final class_uf.class_a_in_class_uf b;
 	protected Predicate c;
-	protected class_rg d;
+	protected EntityLiving d;
 
-	public class_uf(class_rn var1, Class var2, boolean var3) {
+	public class_uf(EntityCreature var1, Class var2, boolean var3) {
 		this(var1, var2, var3, false);
 	}
 
-	public class_uf(class_rn var1, Class var2, boolean var3, boolean var4) {
+	public class_uf(EntityCreature var1, Class var2, boolean var3, boolean var4) {
 		this(var1, var2, 10, var3, var4, (Predicate) null);
 	}
 
-	public class_uf(final class_rn var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
+	public class_uf(final EntityCreature var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
 		super(var1, var4, var5);
 		a = var2;
 		g = var3;
 		b = new class_uf.class_a_in_class_uf(var1);
 		this.a(1);
 		c = new Predicate() {
-			public boolean a(class_rg var1x) {
+			public boolean a(EntityLiving var1x) {
 				if ((var6 != null) && !var6.apply(var1x)) {
 					return false;
 				} else {
@@ -51,9 +51,9 @@ public class class_uf extends class_uj {
 						class_aco var9 = var1x.a(class_rc.f);
 						if ((var9 != null) && (var9.b() == Items.cc)) {
 							int var5 = var9.h();
-							boolean var6x = (var1 instanceof class_yh) && (((class_yh) var1).cF() == 0) && (var5 == 0);
-							boolean var7 = (var1 instanceof class_yl) && (var5 == 2);
-							boolean var8 = (var1 instanceof class_xu) && (var5 == 4);
+							boolean var6x = (var1 instanceof EntitySkeleton) && (((EntitySkeleton) var1).cF() == 0) && (var5 == 0);
+							boolean var7 = (var1 instanceof EntityZombie) && (var5 == 2);
+							boolean var8 = (var1 instanceof EntityCreeper) && (var5 == 4);
 							if (var6x || var7 || var8) {
 								var2 *= 0.375D;
 							}
@@ -71,7 +71,7 @@ public class class_uf extends class_uj {
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1x) {
-				return this.a((class_rg) var1x);
+				return this.a((EntityLiving) var1x);
 			}
 		};
 	}
@@ -87,7 +87,7 @@ public class class_uf extends class_uj {
 			if (var3.isEmpty()) {
 				return false;
 			} else {
-				d = (class_rg) var3.get(0);
+				d = (EntityLiving) var3.get(0);
 				return true;
 			}
 		}

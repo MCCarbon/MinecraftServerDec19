@@ -12,7 +12,7 @@ public class class_ahh extends class_ahb {
 
 	protected class_ahh(int var1, boolean var2) {
 		super(var1);
-		aD = new class_atf(Blocks.MONSTER_EGG.S().a(class_alj.a, class_alj.class_a_in_class_alj.a), 9);
+		aD = new class_atf(Blocks.MONSTER_EGG.getBlockData().a(class_alj.a, class_alj.class_a_in_class_alj.a), 9);
 		aE = new class_ato(false);
 		aF = 0;
 		aG = 1;
@@ -44,7 +44,7 @@ public class class_ahh extends class_ahb {
 			int var8 = var2.nextInt(16);
 			class_cj var9 = var3.a(var6, var7, var8);
 			if (var1.p(var9).c() == Blocks.STONE) {
-				var1.a(var9, Blocks.EMERALD_ORE.S(), 2);
+				var1.a(var9, Blocks.EMERALD_ORE.getBlockData(), 2);
 			}
 		}
 
@@ -59,14 +59,14 @@ public class class_ahh extends class_ahb {
 
 	@Override
 	public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
-		ak = Blocks.GRASS.S();
-		al = Blocks.DIRT.S();
+		ak = Blocks.GRASS.getBlockData();
+		al = Blocks.DIRT.getBlockData();
 		if (((var6 < -1.0D) || (var6 > 2.0D)) && (aI == aH)) {
-			ak = Blocks.GRAVEL.S();
-			al = Blocks.GRAVEL.S();
+			ak = Blocks.GRAVEL.getBlockData();
+			al = Blocks.GRAVEL.getBlockData();
 		} else if ((var6 > 1.0D) && (aI != aG)) {
-			ak = Blocks.STONE.S();
-			al = Blocks.STONE.S();
+			ak = Blocks.STONE.getBlockData();
+			al = Blocks.STONE.getBlockData();
 		}
 
 		this.b(var1, var2, var3, var4, var5, var6);

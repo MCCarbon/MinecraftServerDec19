@@ -33,7 +33,7 @@ public class class_ado extends Item {
 				if (var3.D) {
 					return class_pw.a;
 				} else {
-					var3.a(var4, Blocks.SKULL.S().a(BlockSkull.a, var6), 3);
+					var3.a(var4, Blocks.SKULL.getBlockData().a(BlockSkull.a, var6), 3);
 					int var13 = 0;
 					if (var6 == class_cq.b) {
 						var13 = MathHelper.c((var2.y * 16.0F) / 360.0F + 0.5D) & 15;

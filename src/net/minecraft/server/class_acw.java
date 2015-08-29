@@ -36,7 +36,7 @@ public class class_acw extends Item {
 				}
 			}
 
-			class_xh var18 = class_xh.a(var4, var5, var7 + var14, var9, ((class_acw) var2.b()).b);
+			EntityMinecartAbstract var18 = EntityMinecartAbstract.a(var4, var5, var7 + var14, var9, ((class_acw) var2.b()).b);
 			if (var2.s()) {
 				var18.c(var2.q());
 			}
@@ -51,9 +51,9 @@ public class class_acw extends Item {
 			var1.i().b(1000, var1.d(), 0);
 		}
 	};
-	private final class_xh.class_a_in_class_xh b;
+	private final EntityMinecartAbstract.EnumMinecartType b;
 
-	public class_acw(class_xh.class_a_in_class_xh var1) {
+	public class_acw(EntityMinecartAbstract.EnumMinecartType var1) {
 		i = 1;
 		b = var1;
 		this.a(class_abp.e);
@@ -73,7 +73,7 @@ public class class_acw extends Item {
 					var12 = 0.5D;
 				}
 
-				class_xh var14 = class_xh.a(var3, var4.n() + 0.5D, var4.o() + 0.0625D + var12, var4.p() + 0.5D, b);
+				EntityMinecartAbstract var14 = EntityMinecartAbstract.a(var3, var4.n() + 0.5D, var4.o() + 0.0625D + var12, var4.p() + 0.5D, b);
 				if (var1.s()) {
 					var14.c(var1.q());
 				}

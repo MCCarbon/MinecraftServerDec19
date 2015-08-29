@@ -8,7 +8,7 @@ public class class_atd extends class_asp {
 		for (int var4 = 0; var4 < 64; ++var4) {
 			class_cj var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
 			if (Blocks.MELON_BLOCK.c(var1, var5) && (var1.p(var5.b()).c() == Blocks.GRASS)) {
-				var1.a(var5, Blocks.MELON_BLOCK.S(), 2);
+				var1.a(var5, Blocks.MELON_BLOCK.getBlockData(), 2);
 			}
 		}
 

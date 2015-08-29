@@ -128,23 +128,23 @@ public class class_arq extends class_arr {
 										double var51 = ((var50 - 1 + 0.5D) - var8) / var31;
 										if ((var51 > -0.7D) && (((var61 * var61) + (var51 * var51) + (var47 * var47)) < 1.0D)) {
 											class_apn var53 = var5.a(var43, var50, var46);
-											class_apn var54 = Objects.firstNonNull(var5.a(var43, var50 + 1, var46), Blocks.AIR.S());
+											class_apn var54 = Objects.firstNonNull(var5.a(var43, var50 + 1, var46), Blocks.AIR.getBlockData());
 											if ((var53.c() == Blocks.GRASS) || (var53.c() == Blocks.MYCELIUM)) {
 												var49 = true;
 											}
 
 											if (this.a(var53, var54)) {
 												if ((var50 - 1) < 10) {
-													var5.a(var43, var50, var46, Blocks.LAVA.S());
+													var5.a(var43, var50, var46, Blocks.LAVA.getBlockData());
 												} else {
-													var5.a(var43, var50, var46, Blocks.AIR.S());
+													var5.a(var43, var50, var46, Blocks.AIR.getBlockData());
 													if (var54.c() == Blocks.SAND) {
-														var5.a(var43, var50 + 1, var46, var54.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.RED_SANDSTONE.S() : Blocks.SANDSTONE.S());
+														var5.a(var43, var50 + 1, var46, var54.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.RED_SANDSTONE.getBlockData() : Blocks.SANDSTONE.getBlockData());
 													}
 
 													if (var49 && (var5.a(var43, var50 - 1, var46).c() == Blocks.DIRT)) {
 														var60.c(var43 + (var3 * 16), 0, var46 + (var4 * 16));
-														var5.a(var43, var50 - 1, var46, c.b(var60).ak.c().S());
+														var5.a(var43, var50 - 1, var46, c.b(var60).ak.c().getBlockData());
 													}
 												}
 											}

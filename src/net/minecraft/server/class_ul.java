@@ -6,7 +6,7 @@ public class class_ul extends class_um {
 	protected class_axf a;
 	private boolean f;
 
-	public class_ul(class_rh var1, class_ago var2) {
+	public class_ul(EntityInsentient var1, class_ago var2) {
 		super(var1, var2);
 	}
 
@@ -19,7 +19,7 @@ public class class_ul extends class_um {
 
 	@Override
 	protected boolean b() {
-		return b.C || (h() && o()) || (b.az() && (b instanceof class_yl) && (b.m instanceof class_vd));
+		return b.C || (h() && o()) || (b.az() && (b instanceof EntityZombie) && (b.m instanceof EntityChicken));
 	}
 
 	@Override

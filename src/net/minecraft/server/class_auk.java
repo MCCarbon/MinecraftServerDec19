@@ -19,7 +19,7 @@ public class class_auk extends class_auo {
 		f = Lists.newArrayList();
 		g = 32;
 		h = 8;
-		f.add(new class_ahb.class_c_in_class_ahb(class_yk.class, 1, 1, 1));
+		f.add(new class_ahb.class_c_in_class_ahb(EntityWitch.class, 1, 1, 1));
 	}
 
 	public class_auk(Map var1) {

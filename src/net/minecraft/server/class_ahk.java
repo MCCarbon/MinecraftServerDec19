@@ -8,8 +8,8 @@ public class class_ahk extends class_ahb {
 		au.clear();
 		av.clear();
 		aw.clear();
-		at.add(new class_ahb.class_c_in_class_ahb(class_xy.class, 50, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_yd.class, 100, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_yb.class, 1, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntityGhast.class, 50, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntityPigZombie.class, 100, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntityMagmaCube.class, 1, 4, 4));
 	}
 }

@@ -13,7 +13,7 @@ public class class_ahx extends class_ahb {
 	public class_ahx(int var1, int var2) {
 		super(var1);
 		aI = var2;
-		au.add(new class_ahb.class_c_in_class_ahb(class_vr.class, 8, 4, 4));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityWolf.class, 8, 4, 4));
 		as.A = 10;
 		if ((var2 != 1) && (var2 != 2)) {
 			as.C = 1;
@@ -68,12 +68,12 @@ public class class_ahx extends class_ahb {
 	@Override
 	public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
 		if ((aI == 1) || (aI == 2)) {
-			ak = Blocks.GRASS.S();
-			al = Blocks.DIRT.S();
+			ak = Blocks.GRASS.getBlockData();
+			al = Blocks.DIRT.getBlockData();
 			if (var6 > 1.75D) {
-				ak = Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
+				ak = Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
 			} else if (var6 > -0.95D) {
-				ak = Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
+				ak = Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
 			}
 		}
 

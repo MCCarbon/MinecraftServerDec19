@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 
 public class class_ts extends class_sr {
-	private class_vf a;
+	private EntityHorse a;
 	private double b;
 	private double c;
 	private double d;
 	private double e;
 
-	public class_ts(class_vf var1, double var2) {
+	public class_ts(EntityHorse var1, double var2) {
 		a = var1;
 		b = var2;
 		this.a(1);

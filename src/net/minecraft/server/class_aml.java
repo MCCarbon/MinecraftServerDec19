@@ -40,7 +40,7 @@ public class class_aml extends Block {
 	private void d(class_ago var1, class_cj var2) {
 		this.e(var1, var2);
 		if (this == Blocks.REDSTONE_ORE) {
-			var1.a(var2, Blocks.LIT_REDSTONE_TORCH.S());
+			var1.a(var2, Blocks.LIT_REDSTONE_TORCH.getBlockData());
 		}
 
 	}
@@ -48,7 +48,7 @@ public class class_aml extends Block {
 	@Override
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
 		if (this == Blocks.LIT_REDSTONE_TORCH) {
-			var1.a(var2, Blocks.REDSTONE_ORE.S());
+			var1.a(var2, Blocks.REDSTONE_ORE.getBlockData());
 		}
 
 	}

@@ -32,7 +32,7 @@ public class class_amd extends class_aig {
 				var4 = var1.b((Entity) null, var3);
 				break;
 			case 2:
-				var4 = var1.a(class_rg.class, var3);
+				var4 = var1.a(EntityLiving.class, var3);
 				break;
 			default:
 				return 0;
@@ -54,7 +54,7 @@ public class class_amd extends class_aig {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Boolean.valueOf(var1 == 1));
+		return getBlockData().a(a, Boolean.valueOf(var1 == 1));
 	}
 
 	@Override

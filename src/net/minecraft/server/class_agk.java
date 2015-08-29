@@ -105,8 +105,8 @@ public class class_agk {
 						double var26 = (1.0D - var35) * var37;
 						var13.a(class_qi.a(this), ((int) (((((var26 * var26) + var26) / 2.0D) * 8.0D * var30) + 1.0D)));
 						double var28 = 1.0D;
-						if (var13 instanceof class_rg) {
-							var28 = class_aft.a((class_rg) var13, var26);
+						if (var13 instanceof EntityLiving) {
+							var28 = class_aft.a((EntityLiving) var13, var26);
 						}
 
 						var13.v += var16 * var28;
@@ -163,7 +163,7 @@ public class class_agk {
 						var4.a(d, var3, d.p(var3), 1.0F / i, 0);
 					}
 
-					d.a(var3, Blocks.AIR.S(), 3);
+					d.a(var3, Blocks.AIR.getBlockData(), 3);
 					var4.a(d, var3, this);
 				}
 			}
@@ -175,7 +175,7 @@ public class class_agk {
 			while (var2.hasNext()) {
 				var3 = (class_cj) var2.next();
 				if ((d.p(var3).c().v() == class_avq.a) && d.p(var3.b()).c().q() && (c.nextInt(3) == 0)) {
-					d.a(var3, Blocks.FIRE.S());
+					d.a(var3, Blocks.FIRE.getBlockData());
 				}
 			}
 		}
@@ -186,8 +186,8 @@ public class class_agk {
 		return k;
 	}
 
-	public class_rg c() {
-		return h == null ? null : (h instanceof class_xq ? ((class_xq) h).i() : (h instanceof class_rg ? (class_rg) h : null));
+	public EntityLiving c() {
+		return h == null ? null : (h instanceof EntityTNTPrimed ? ((EntityTNTPrimed) h).i() : (h instanceof EntityLiving ? (EntityLiving) h : null));
 	}
 
 	public void d() {

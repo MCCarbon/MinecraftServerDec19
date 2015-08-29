@@ -32,7 +32,7 @@ public class class_abg extends Item {
 	}
 
 	@Override
-	public void a(class_aco var1, class_ago var2, class_rg var3, int var4) {
+	public void a(class_aco var1, class_ago var2, EntityLiving var3, int var4) {
 		if (var3 instanceof class_yu) {
 			class_yu var5 = (class_yu) var3;
 			boolean var6 = var5.bI.d || (class_afl.a(class_afn.w, var1) > 0);
@@ -47,7 +47,7 @@ public class class_abg extends Item {
 				int var10 = this.e(var1) - var4;
 				float var11 = b(var10);
 				if (var11 >= 0.1D) {
-					class_yx var12 = var9.a(var2, var8, var5);
+					EntityArrow var12 = var9.a(var2, var8, var5);
 					var12.a(var5.z, var5.y, 0.0F, var11 * 3.0F, 1.0F);
 					if (var11 == 1.0F) {
 						var12.a(true);
@@ -75,7 +75,7 @@ public class class_abg extends Item {
 						var5.bq.a(var7, 1);
 					}
 
-					var5.b(class_nh.c(Item.b(this)));
+					var5.b(StatisticList.c(Item.b(this)));
 					if (!var2.D) {
 						var2.a(var12);
 					}

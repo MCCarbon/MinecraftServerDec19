@@ -97,7 +97,7 @@ public class class_anx extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(Q, class_anx.class_a_in_class_anx.a(var1));
+		return getBlockData().a(Q, class_anx.class_a_in_class_anx.a(var1));
 	}
 
 	@Override

@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 
 public class class_tg extends class_tc {
-	private final class_vi c;
+	private final EntityOcelot c;
 
-	public class_tg(class_vi var1, double var2) {
+	public class_tg(EntityOcelot var1, double var2) {
 		super(var1, var2, 8);
 		c = var1;
 	}

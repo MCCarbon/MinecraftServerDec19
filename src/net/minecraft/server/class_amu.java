@@ -66,8 +66,8 @@ public class class_amu extends BlockPlant implements class_ain {
 				var5 = new class_asc(true, false);
 				break;
 			case 3:
-				var9 = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.d);
-				class_apn var10 = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
+				var9 = Blocks.LOG.getBlockData().a(class_alv.b, class_aly.class_a_in_class_aly.d);
+				class_apn var10 = Blocks.LEAVES.getBlockData().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
 
 				label82: for (var6 = 0; var6 >= -1; --var6) {
 					for (var7 = 0; var7 >= -1; --var7) {
@@ -105,7 +105,7 @@ public class class_amu extends BlockPlant implements class_ain {
 			case 6:
 		}
 
-		var9 = Blocks.AIR.S();
+		var9 = Blocks.AIR.getBlockData();
 		if (var8) {
 			var1.a(var2.a(var6, 0, var7), var9, 4);
 			var1.a(var2.a(var6 + 1, 0, var7), var9, 4);
@@ -159,7 +159,7 @@ public class class_amu extends BlockPlant implements class_ain {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_aly.class_a_in_class_aly.a(var1 & 7)).a(b, Integer.valueOf((var1 & 8) >> 3));
+		return getBlockData().a(a, class_aly.class_a_in_class_aly.a(var1 & 7)).a(b, Integer.valueOf((var1 & 8) >> 3));
 	}
 
 	@Override

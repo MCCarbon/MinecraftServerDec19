@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class class_xk extends class_xh implements class_qa {
+public abstract class class_xk extends EntityMinecartAbstract implements class_qa {
 	private class_aco[] a = new class_aco[36];
 	private boolean b = true;
 

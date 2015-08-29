@@ -51,7 +51,7 @@ public class BlockRedstoneRepeater extends class_ajj {
 		Integer var2 = (Integer) var1.b(b);
 		Boolean var3 = (Boolean) var1.b(a);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.POWERED_REPEATER.S().a(O, var4).a(b, var2).a(a, var3);
+		return Blocks.POWERED_REPEATER.getBlockData().a(O, var4).a(b, var2).a(a, var3);
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class BlockRedstoneRepeater extends class_ajj {
 		Integer var2 = (Integer) var1.b(b);
 		Boolean var3 = (Boolean) var1.b(a);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.UNPOWERED_REPEATER.S().a(O, var4).a(b, var2).a(a, var3);
+		return Blocks.UNPOWERED_REPEATER.getBlockData().a(O, var4).a(b, var2).a(a, var3);
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class BlockRedstoneRepeater extends class_ajj {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(O, class_cq.b(var1)).a(a, Boolean.valueOf(false)).a(b, Integer.valueOf(1 + (var1 >> 2)));
+		return getBlockData().a(O, class_cq.b(var1)).a(a, Boolean.valueOf(false)).a(b, Integer.valueOf(1 + (var1 >> 2)));
 	}
 
 	@Override

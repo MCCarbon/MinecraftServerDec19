@@ -11,19 +11,19 @@ public class class_abf extends Item {
 
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
-		List var5 = var2.a(class_qv.class, var3.aX().b(2.0D, 2.0D, 2.0D), new Predicate() {
-			public boolean a(class_qv var1) {
+		List var5 = var2.a(EntityAreaEffectCloud.class, var3.aX().b(2.0D, 2.0D, 2.0D), new Predicate() {
+			public boolean a(EntityAreaEffectCloud var1) {
 				return (var1 != null) && var1.al() && (var1.s() instanceof class_vx);
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_qv) var1);
+				return this.a((EntityAreaEffectCloud) var1);
 			}
 		});
 		if (!var5.isEmpty()) {
-			class_qv var8 = (class_qv) var5.get(0);
+			EntityAreaEffectCloud var8 = (EntityAreaEffectCloud) var5.get(0);
 			var8.a(var8.i() - 0.5F);
 			return new class_px(class_pw.a, this.a(var1, var3, new class_aco(Items.bF)));
 		} else {
@@ -49,7 +49,7 @@ public class class_abf extends Item {
 
 	protected class_aco a(class_aco var1, class_yu var2, class_aco var3) {
 		--var1.b;
-		var2.b(class_nh.c(Item.b(this)));
+		var2.b(StatisticList.c(Item.b(this)));
 		if (var1.b <= 0) {
 			return var3;
 		} else {

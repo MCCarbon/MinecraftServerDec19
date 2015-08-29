@@ -52,8 +52,8 @@ public class class_ale extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		class_apn var9 = S().a(b, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		class_apn var9 = getBlockData().a(b, Boolean.valueOf(false));
 		if (a(var1, var2, var3.d())) {
 			return var9.a(a, class_ale.class_a_in_class_ale.a(var3, var8.aV()));
 		} else {
@@ -167,7 +167,7 @@ public class class_ale extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_ale.class_a_in_class_ale.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(a, class_ale.class_a_in_class_ale.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

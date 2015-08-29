@@ -91,7 +91,7 @@ public class Item {
 		return new class_px(class_pw.b, var1);
 	}
 
-	public class_aco a(class_aco var1, class_ago var2, class_rg var3) {
+	public class_aco a(class_aco var1, class_ago var2, EntityLiving var3) {
 		return var1;
 	}
 
@@ -130,11 +130,11 @@ public class Item {
 		return (o > 0) && !k;
 	}
 
-	public boolean a(class_aco var1, class_rg var2, class_rg var3) {
+	public boolean a(class_aco var1, EntityLiving var2, EntityLiving var3) {
 		return false;
 	}
 
-	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, class_rg var5) {
+	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, EntityLiving var5) {
 		return false;
 	}
 
@@ -142,7 +142,7 @@ public class Item {
 		return false;
 	}
 
-	public boolean a(class_aco var1, class_yu var2, class_rg var3, class_pu var4) {
+	public boolean a(class_aco var1, class_yu var2, EntityLiving var3, class_pu var4) {
 		return false;
 	}
 
@@ -204,7 +204,7 @@ public class Item {
 		return 0;
 	}
 
-	public void a(class_aco var1, class_ago var2, class_rg var3, int var4) {
+	public void a(class_aco var1, class_ago var2, EntityLiving var3, int var4) {
 	}
 
 	public String a(class_aco var1) {
@@ -655,7 +655,7 @@ public class Item {
 		a(318, "flint", (new Item()).c("flint").a(class_abp.l));
 		a(319, "porkchop", (new class_aci(3, 0.3F, true)).c("porkchopRaw"));
 		a(320, "cooked_porkchop", (new class_aci(8, 0.8F, true)).c("porkchopCooked"));
-		a(321, "painting", (new class_ack(class_ww.class)).c("painting"));
+		a(321, "painting", (new class_ack(EntityPainting.class)).c("painting"));
 		a(322, "golden_apple", (new class_acj(4, 1.2F, false)).h().a(new class_qr(class_qs.j, 100, 1), 1.0F).c("appleGold"));
 		a(323, "sign", (new class_adm()).c("sign"));
 		a(324, "wooden_door", (new class_abr(Blocks.WOODEN_DOOR)).c("doorOak"));
@@ -663,7 +663,7 @@ public class Item {
 		a(325, "bucket", var0);
 		a(326, "water_bucket", (new class_abi(Blocks.FLOWING_WATER)).c("bucketWater").c(var0));
 		a(327, "lava_bucket", (new class_abi(Blocks.FLOWING_LAVA)).c("bucketLava").c(var0));
-		a(328, "minecart", (new class_acw(class_xh.class_a_in_class_xh.a)).c("minecart"));
+		a(328, "minecart", (new class_acw(EntityMinecartAbstract.EnumMinecartType.RIDEABLE)).c("minecart"));
 		a(329, "saddle", (new class_adf()).c("saddle"));
 		a(330, "iron_door", (new class_abr(Blocks.IRON_DOOR)).c("doorIron"));
 		a(331, "redstone", (new class_ade()).c("redstone"));
@@ -677,8 +677,8 @@ public class Item {
 		a(339, "paper", (new Item()).c("paper").a(class_abp.f));
 		a(340, "book", (new class_abe()).c("book").a(class_abp.f));
 		a(341, "slime_ball", (new Item()).c("slimeball").a(class_abp.f));
-		a(342, "chest_minecart", (new class_acw(class_xh.class_a_in_class_xh.b)).c("minecartChest"));
-		a(343, "furnace_minecart", (new class_acw(class_xh.class_a_in_class_xh.c)).c("minecartFurnace"));
+		a(342, "chest_minecart", (new class_acw(EntityMinecartAbstract.EnumMinecartType.CHEST)).c("minecartChest"));
+		a(343, "furnace_minecart", (new class_acw(EntityMinecartAbstract.EnumMinecartType.FURNACE)).c("minecartFurnace"));
 		a(344, "egg", (new class_abw()).c("egg"));
 		a(345, "compass", (new class_abn()).c("compass").a(class_abp.i));
 		a(346, "fishing_rod", (new class_acg()).c("fishingRod"));
@@ -725,7 +725,7 @@ public class Item {
 		a(386, "writable_book", (new class_aea()).c("writingBook").a(class_abp.f));
 		a(387, "written_book", (new class_aeb()).c("writtenBook").d(16));
 		a(388, "emerald", (new Item()).c("emerald").a(class_abp.l));
-		a(389, "item_frame", (new class_ack(class_wu.class)).c("frame"));
+		a(389, "item_frame", (new class_ack(EntityItemFrame.class)).c("frame"));
 		a(390, "flower_pot", (new class_abc(Blocks.FLOWER_POT)).c("flowerPot").a(class_abp.c));
 		a(391, "carrot", (new class_adg(3, 0.6F, Blocks.CARROTS, Blocks.FARMLAND)).c("carrots"));
 		a(392, "potato", (new class_adg(1, 0.3F, Blocks.POTATOES, Blocks.FARMLAND)).c("potato"));
@@ -743,8 +743,8 @@ public class Item {
 		a(404, "comparator", (new class_abc(Blocks.UNPOWERED_COMPARATOR)).c("comparator").a(class_abp.d));
 		a(405, "netherbrick", (new Item()).c("netherbrick").a(class_abp.l));
 		a(406, "quartz", (new Item()).c("netherquartz").a(class_abp.l));
-		a(407, "tnt_minecart", (new class_acw(class_xh.class_a_in_class_xh.d)).c("minecartTnt"));
-		a(408, "hopper_minecart", (new class_acw(class_xh.class_a_in_class_xh.f)).c("minecartHopper"));
+		a(407, "tnt_minecart", (new class_acw(EntityMinecartAbstract.EnumMinecartType.TNT)).c("minecartTnt"));
+		a(408, "hopper_minecart", (new class_acw(EntityMinecartAbstract.EnumMinecartType.HOPPER)).c("minecartHopper"));
 		a(409, "prismarine_shard", (new Item()).c("prismarineShard").a(class_abp.l));
 		a(410, "prismarine_crystals", (new Item()).c("prismarineCrystals").a(class_abp.l));
 		a(411, "rabbit", (new class_aci(3, 0.3F, true)).c("rabbitRaw"));
@@ -758,7 +758,7 @@ public class Item {
 		a(419, "diamond_horse_armor", (new Item()).c("horsearmordiamond").d(1).a(class_abp.f));
 		a(420, "lead", (new class_acr()).c("leash"));
 		a(421, "name_tag", (new class_acy()).c("nameTag"));
-		a(422, "command_block_minecart", (new class_acw(class_xh.class_a_in_class_xh.g)).c("minecartCommandBlock").a((class_abp) null));
+		a(422, "command_block_minecart", (new class_acw(EntityMinecartAbstract.EnumMinecartType.COMMAND_BLOCK)).c("minecartCommandBlock").a((class_abp) null));
 		a(423, "mutton", (new class_aci(2, 0.3F, true)).c("muttonRaw"));
 		a(424, "cooked_mutton", (new class_aci(6, 0.8F, true)).c("muttonCooked"));
 		a(425, "banner", (new class_aaz()).b("banner"));

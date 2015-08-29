@@ -5,7 +5,7 @@ import java.util.Set;
 import com.google.common.collect.Sets;
 
 public class class_tw extends class_sr {
-	private class_rn a;
+	private EntityCreature a;
 	private double b;
 	private double c;
 	private double d;
@@ -19,11 +19,11 @@ public class class_tw extends class_sr {
 	private boolean l;
 	private boolean m;
 
-	public class_tw(class_rn var1, double var2, Item var4, boolean var5) {
+	public class_tw(EntityCreature var1, double var2, Item var4, boolean var5) {
 		this(var1, var2, var5, Sets.newHashSet((Object[]) (new Item[] { var4 })));
 	}
 
-	public class_tw(class_rn var1, double var2, boolean var4, Set var5) {
+	public class_tw(EntityCreature var1, double var2, boolean var4, Set var5) {
 		a = var1;
 		b = var2;
 		k = var5;

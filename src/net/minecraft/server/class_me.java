@@ -247,7 +247,7 @@ public abstract class class_me {
 	}
 
 	public void e(class_lm var1) {
-		var1.b(class_nh.f);
+		var1.b(StatisticList.f);
 		this.b(var1);
 		class_ll var2 = var1.v();
 		if (var1.m != null) {

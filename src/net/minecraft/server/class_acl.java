@@ -23,17 +23,17 @@ public class class_acl extends Item {
 			Block var11 = var10.c();
 			if ((var6 != class_cq.a) && (var3.p(var4.a()).c().v() == class_avq.a)) {
 				if ((var11 == Blocks.GRASS) || (var11 == Blocks.GRASS_PATH)) {
-					this.a(var1, var2, var3, var4, Blocks.FARMLAND.S());
+					this.a(var1, var2, var3, var4, Blocks.FARMLAND.getBlockData());
 					return class_pw.a;
 				}
 
 				if (var11 == Blocks.DIRT) {
 					switch (class_acl.SyntheticClass_1.a[((class_ajl.class_a_in_class_ajl) var10.b(class_ajl.a)).ordinal()]) {
 						case 1:
-							this.a(var1, var2, var3, var4, Blocks.FARMLAND.S());
+							this.a(var1, var2, var3, var4, Blocks.FARMLAND.getBlockData());
 							return class_pw.a;
 						case 2:
-							this.a(var1, var2, var3, var4, Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a));
+							this.a(var1, var2, var3, var4, Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a));
 							return class_pw.a;
 					}
 				}
@@ -44,7 +44,7 @@ public class class_acl extends Item {
 	}
 
 	@Override
-	public boolean a(class_aco var1, class_rg var2, class_rg var3) {
+	public boolean a(class_aco var1, EntityLiving var2, EntityLiving var3) {
 		var1.a(1, var3);
 		return true;
 	}

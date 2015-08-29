@@ -13,7 +13,7 @@ public final class class_aco {
 	private Item d;
 	private class_dn e;
 	private int f;
-	private class_wu g;
+	private EntityItemFrame g;
 	private Block h;
 	private boolean i;
 	private Block j;
@@ -83,7 +83,7 @@ public final class class_aco {
 	public class_pw a(class_yu var1, class_ago var2, class_cj var3, class_pu var4, class_cq var5, float var6, float var7, float var8) {
 		class_pw var9 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
 		if (var9 == class_pw.a) {
-			var1.b(class_nh.c(Item.b(d)));
+			var1.b(StatisticList.c(Item.b(d)));
 		}
 
 		return var9;
@@ -97,7 +97,7 @@ public final class class_aco {
 		return this.b().a(this, var1, var2, var3);
 	}
 
-	public class_aco a(class_ago var1, class_rg var2) {
+	public class_aco a(class_ago var1, EntityLiving var2) {
 		return this.b().a(this, var1, var2);
 	}
 
@@ -195,7 +195,7 @@ public final class class_aco {
 		}
 	}
 
-	public void a(int var1, class_rg var2) {
+	public void a(int var1, EntityLiving var2) {
 		if (!(var2 instanceof class_yu) || !((class_yu) var2).bI.d) {
 			if (e()) {
 				if (this.a(var1, var2.bj())) {
@@ -203,7 +203,7 @@ public final class class_aco {
 					--b;
 					if (var2 instanceof class_yu) {
 						class_yu var3 = (class_yu) var2;
-						var3.b(class_nh.d(Item.b(d)));
+						var3.b(StatisticList.d(Item.b(d)));
 					}
 
 					if (b < 0) {
@@ -217,10 +217,10 @@ public final class class_aco {
 		}
 	}
 
-	public void a(class_rg var1, class_yu var2) {
+	public void a(EntityLiving var1, class_yu var2) {
 		boolean var3 = d.a(this, var1, var2);
 		if (var3) {
-			var2.b(class_nh.c(Item.b(d)));
+			var2.b(StatisticList.c(Item.b(d)));
 		}
 
 	}
@@ -228,7 +228,7 @@ public final class class_aco {
 	public void a(class_ago var1, Block var2, class_cj var3, class_yu var4) {
 		boolean var5 = d.a(this, var1, var2, var3, var4);
 		if (var5) {
-			var4.b(class_nh.c(Item.b(d)));
+			var4.b(StatisticList.c(Item.b(d)));
 		}
 
 	}
@@ -237,7 +237,7 @@ public final class class_aco {
 		return d.b(var1);
 	}
 
-	public boolean a(class_yu var1, class_rg var2, class_pu var3) {
+	public boolean a(class_yu var1, EntityLiving var2, class_pu var3) {
 		return d.a(this, var1, var2, var3);
 	}
 
@@ -295,7 +295,7 @@ public final class class_aco {
 	}
 
 	public void a(class_ago var1, class_yu var2, int var3) {
-		var2.a(class_nh.b(Item.b(d)), var3);
+		var2.a(StatisticList.b(Item.b(d)), var3);
 		d.b(this, var1, var2);
 	}
 
@@ -307,7 +307,7 @@ public final class class_aco {
 		return this.b().f(this);
 	}
 
-	public void a(class_ago var1, class_rg var2, int var3) {
+	public void a(class_ago var1, EntityLiving var2, int var3) {
 		this.b().a(this, var1, var2, var3);
 	}
 
@@ -428,11 +428,11 @@ public final class class_aco {
 		return g != null;
 	}
 
-	public void a(class_wu var1) {
+	public void a(EntityItemFrame var1) {
 		g = var1;
 	}
 
-	public class_wu z() {
+	public EntityItemFrame z() {
 		return g;
 	}
 

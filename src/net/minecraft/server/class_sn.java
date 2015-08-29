@@ -3,14 +3,14 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_sn extends class_sr {
-	private class_rn a;
+	private EntityCreature a;
 	private double b;
 	private double c;
 	private double d;
 	private double e;
 	private class_ago f;
 
-	public class_sn(class_rn var1, double var2) {
+	public class_sn(EntityCreature var1, double var2) {
 		a = var1;
 		e = var2;
 		f = var1.o;

@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 
 public class class_th extends class_sr {
-	private class_vp a;
-	private class_yp b;
+	private EntityVillagerGolem a;
+	private EntityVillager b;
 	private int c;
 
-	public class_th(class_vp var1) {
+	public class_th(EntityVillagerGolem var1) {
 		a = var1;
 		this.a(3);
 	}
@@ -18,7 +18,7 @@ public class class_th extends class_sr {
 		} else if (a.bj().nextInt(8000) != 0) {
 			return false;
 		} else {
-			b = (class_yp) a.o.a(class_yp.class, a.aX().b(6.0D, 2.0D, 6.0D), a);
+			b = (EntityVillager) a.o.a(EntityVillager.class, a.aX().b(6.0D, 2.0D, 6.0D), a);
 			return b != null;
 		}
 	}

@@ -73,7 +73,7 @@ public class class_aeg implements class_aes {
 						return null;
 					}
 
-					float[] var14 = class_vl.a(class_abt.a(var8.i()));
+					float[] var14 = EntitySheep.a(class_abt.a(var8.i()));
 					int var15 = (int) (var14[0] * 255.0F);
 					int var16 = (int) (var14[1] * 255.0F);
 					var17 = (int) (var14[2] * 255.0F);

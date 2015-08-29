@@ -33,7 +33,7 @@ public class class_eo extends MessageToByteEncoder {
 			var5.b(var4.intValue());
 
 			try {
-				if (var2 instanceof class_fp) {
+				if (var2 instanceof PacketPlayOutNamedEntitySpawn) {
 					var2 = var2;
 				}
 

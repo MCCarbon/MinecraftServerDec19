@@ -54,10 +54,10 @@ public class BlockRedstoneDetector extends class_aif {
 				return true;
 			} else {
 				if (b) {
-					var1.a(var2, Blocks.DAYLIGHT_DETECTOR.S().a(a, var3.b(a)), 4);
+					var1.a(var2, Blocks.DAYLIGHT_DETECTOR.getBlockData().a(a, var3.b(a)), 4);
 					Blocks.DAYLIGHT_DETECTOR.e(var1, var2);
 				} else {
-					var1.a(var2, Blocks.DAYLIGHT_DETECTOR_INVERTED.S().a(a, var3.b(a)), 4);
+					var1.a(var2, Blocks.DAYLIGHT_DETECTOR_INVERTED.getBlockData().a(a, var3.b(a)), 4);
 					Blocks.DAYLIGHT_DETECTOR_INVERTED.e(var1, var2);
 				}
 
@@ -105,7 +105,7 @@ public class BlockRedstoneDetector extends class_aif {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override

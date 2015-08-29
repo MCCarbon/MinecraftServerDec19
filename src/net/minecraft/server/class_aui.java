@@ -87,7 +87,7 @@ public class class_aui extends class_auo {
 	static {
 		d = Arrays.asList(new class_ahb[] { class_ahb.p, class_ahb.N, class_ahb.w, class_ahb.z, class_ahb.A });
 		h = Lists.newArrayList();
-		h.add(new class_ahb.class_c_in_class_ahb(class_ya.class, 1, 2, 4));
+		h.add(new class_ahb.class_c_in_class_ahb(EntityGuardian.class, 1, 2, 4));
 	}
 
 	public static class class_a_in_class_aui extends class_aus {

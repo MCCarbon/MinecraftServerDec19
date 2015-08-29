@@ -303,7 +303,7 @@ public class class_auc {
 					}
 				}
 			} else if (var1.startsWith("Sentry")) {
-				class_vm var11 = new class_vm(var3);
+				EntityShulker var11 = new EntityShulker(var3);
 				var11.b(var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D);
 				var11.f(var2);
 				var3.a(var11);

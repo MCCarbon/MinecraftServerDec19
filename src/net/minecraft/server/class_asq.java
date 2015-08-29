@@ -12,7 +12,7 @@ public class class_asq extends class_asp {
 
 	public void a(BlockFlowers var1, BlockFlowers.class_a_in_class_ake var2) {
 		a = var1;
-		b = var1.S().a(var1.n(), var2);
+		b = var1.getBlockData().a(var1.n(), var2);
 	}
 
 	@Override

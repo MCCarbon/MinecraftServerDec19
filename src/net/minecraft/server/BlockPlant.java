@@ -42,7 +42,7 @@ public class BlockPlant extends Block {
 	protected void f(class_ago var1, class_cj var2, class_apn var3) {
 		if (!this.g(var1, var2, var3)) {
 			this.b(var1, var2, var3, 0);
-			var1.a(var2, Blocks.AIR.S(), 3);
+			var1.a(var2, Blocks.AIR.getBlockData(), 3);
 		}
 
 	}

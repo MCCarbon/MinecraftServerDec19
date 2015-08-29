@@ -22,24 +22,24 @@ public class class_aso extends class_asp {
 			if (var6 <= 3.5D) {
 				if (var5.o() < var3.o()) {
 					if (var6 <= 2.5D) {
-						a(var1, var5, Blocks.BEDROCK.S());
+						a(var1, var5, Blocks.BEDROCK.getBlockData());
 					} else if (var5.o() < var3.o()) {
-						a(var1, var5, Blocks.END_STONE.S());
+						a(var1, var5, Blocks.END_STONE.getBlockData());
 					}
 				} else if (var5.o() > var3.o()) {
-					a(var1, var5, Blocks.AIR.S());
+					a(var1, var5, Blocks.AIR.getBlockData());
 				} else if (var6 > 2.5D) {
-					a(var1, var5, Blocks.BEDROCK.S());
+					a(var1, var5, Blocks.BEDROCK.getBlockData());
 				} else if (c) {
-					a(var1, new class_cj(var5), Blocks.END_PORTAL.S());
+					a(var1, new class_cj(var5), Blocks.END_PORTAL.getBlockData());
 				} else {
-					a(var1, new class_cj(var5), Blocks.AIR.S());
+					a(var1, new class_cj(var5), Blocks.AIR.getBlockData());
 				}
 			}
 		}
 
 		for (int var8 = 0; var8 < 4; ++var8) {
-			a(var1, var3.b(var8), Blocks.BEDROCK.S());
+			a(var1, var3.b(var8), Blocks.BEDROCK.getBlockData());
 		}
 
 		class_cj var9 = var3.b(2);
@@ -47,7 +47,7 @@ public class class_aso extends class_asp {
 
 		while (var10.hasNext()) {
 			class_cq var11 = (class_cq) var10.next();
-			a(var1, var9.a(var11), Blocks.TORCH.S().a(class_anr.a, var11));
+			a(var1, var9.a(var11), Blocks.TORCH.getBlockData().a(class_anr.a, var11));
 		}
 
 		return true;

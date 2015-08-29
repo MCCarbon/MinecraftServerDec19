@@ -173,11 +173,11 @@ public class class_atr extends class_asa {
 	}
 
 	private void a(class_ago var1, int var2, class_cj var3, class_cq var4) {
-		this.a(var1, var3, Blocks.COCOA.S().a(class_aja.a, Integer.valueOf(var2)).a(class_akx.O, var4));
+		this.a(var1, var3, Blocks.COCOA.getBlockData().a(class_aja.a, Integer.valueOf(var2)).a(class_akx.O, var4));
 	}
 
 	private void a(class_ago var1, class_cj var2, class_apy var3) {
-		this.a(var1, var2, Blocks.VINE.S().a(var3, Boolean.valueOf(true)));
+		this.a(var1, var2, Blocks.VINE.getBlockData().a(var3, Boolean.valueOf(true)));
 	}
 
 	private void b(class_ago var1, class_cj var2, class_apy var3) {
@@ -192,7 +192,7 @@ public class class_atr extends class_asa {
 	}
 
 	static {
-		a = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
-		b = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG.getBlockData().a(class_alv.b, class_aly.class_a_in_class_aly.a);
+		b = Blocks.LEAVES.getBlockData().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

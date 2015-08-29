@@ -31,7 +31,7 @@ public abstract class class_alg extends class_amr {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		return this.a(var7).a(a, class_alg.class_a_in_class_alg.a(var3.k()));
 	}
 

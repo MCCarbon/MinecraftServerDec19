@@ -126,7 +126,7 @@ public class class_amc extends class_aih {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(b, class_aih.class_b_in_class_aih.a(var1 & 7)).a(N, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(b, class_aih.class_b_in_class_aih.a(var1 & 7)).a(N, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

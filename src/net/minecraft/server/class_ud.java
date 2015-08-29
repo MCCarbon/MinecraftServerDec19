@@ -10,21 +10,21 @@ import com.google.common.base.Predicate;
 
 public class class_ud extends class_sr {
 	private static final Logger a = LogManager.getLogger();
-	private class_rh b;
+	private EntityInsentient b;
 	private final Predicate c;
 	private final class_uf.class_a_in_class_uf d;
-	private class_rg e;
+	private EntityLiving e;
 	private Class f;
 
-	public class_ud(class_rh var1, Class var2) {
+	public class_ud(EntityInsentient var1, Class var2) {
 		b = var1;
 		f = var2;
-		if (var1 instanceof class_rn) {
+		if (var1 instanceof EntityCreature) {
 			a.warn("Use NearestAttackableTargetGoal.class for PathfinerMob mobs!");
 		}
 
 		c = new Predicate() {
-			public boolean a(class_rg var1) {
+			public boolean a(EntityLiving var1) {
 				double var2 = class_ud.this.f();
 				if (var1.aA()) {
 					var2 *= 0.800000011920929D;
@@ -36,7 +36,7 @@ public class class_ud extends class_sr {
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_rg) var1);
+				return this.a((EntityLiving) var1);
 			}
 		};
 		d = new class_uf.class_a_in_class_uf(var1);
@@ -50,14 +50,14 @@ public class class_ud extends class_sr {
 		if (var3.isEmpty()) {
 			return false;
 		} else {
-			e = (class_rg) var3.get(0);
+			e = (EntityLiving) var3.get(0);
 			return true;
 		}
 	}
 
 	@Override
 	public boolean b() {
-		class_rg var1 = b.w();
+		EntityLiving var1 = b.w();
 		if (var1 == null) {
 			return false;
 		} else if (!var1.al()) {
@@ -76,7 +76,7 @@ public class class_ud extends class_sr {
 
 	@Override
 	public void d() {
-		b.c((class_rg) null);
+		b.c((EntityLiving) null);
 		super.c();
 	}
 

@@ -10,7 +10,7 @@ public abstract class class_zj extends Entity implements class_zd {
 	private Block g;
 	protected boolean a;
 	public int b;
-	private class_rg h;
+	private EntityLiving h;
 	private String i;
 	private int as;
 	private int at;
@@ -30,7 +30,7 @@ public abstract class class_zj extends Entity implements class_zd {
 		this.b(var2, var4, var6);
 	}
 
-	public class_zj(class_ago var1, class_rg var2) {
+	public class_zj(class_ago var1, EntityLiving var2) {
 		this(var1, var2.s, (var2.t + var2.aY()) - 0.10000000149011612D, var2.u);
 		h = var2;
 	}
@@ -243,14 +243,14 @@ public abstract class class_zj extends Entity implements class_zd {
 		h = this.j();
 	}
 
-	public class_rg j() {
+	public EntityLiving j() {
 		if ((h == null) && (i != null) && !i.isEmpty()) {
 			h = o.a(i);
 			if ((h == null) && (o instanceof class_ll)) {
 				try {
 					Entity var1 = ((class_ll) o).a(UUID.fromString(i));
-					if (var1 instanceof class_rg) {
-						h = (class_rg) var1;
+					if (var1 instanceof EntityLiving) {
+						h = (EntityLiving) var1;
 					}
 				} catch (Throwable var2) {
 					h = null;

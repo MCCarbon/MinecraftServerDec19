@@ -118,7 +118,7 @@ public class class_ajc extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		TileEntity var6 = var1.s(var2);
 		if (var6 instanceof class_aol) {
 			class_aol var7 = (class_aol) var6;
@@ -150,7 +150,7 @@ public class class_ajc extends class_aif {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_cq.a(var1 & 7));
+		return getBlockData().a(a, class_cq.a(var1 & 7));
 	}
 
 	@Override
@@ -174,8 +174,8 @@ public class class_ajc extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, BlockPiston.a(var1, var2, var8));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(a, BlockPiston.a(var1, var2, var8));
 	}
 
 	private void e(class_ago var1, class_cj var2) {

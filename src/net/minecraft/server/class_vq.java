@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class class_vq extends class_rh implements class_qw {
+public abstract class class_vq extends EntityInsentient implements class_qw {
 	public class_vq(class_ago var1) {
 		super(var1);
 	}

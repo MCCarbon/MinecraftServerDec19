@@ -73,11 +73,11 @@ public final class class_rb {
 		public boolean a(Entity var1) {
 			if (!var1.al()) {
 				return false;
-			} else if (!(var1 instanceof class_rg)) {
+			} else if (!(var1 instanceof EntityLiving)) {
 				return false;
 			} else {
-				class_rg var2 = (class_rg) var1;
-				return var2.a(class_rh.c(a)) != null ? false : (var2 instanceof class_rh ? ((class_rh) var2).cq() : (var2 instanceof class_ws ? true : var2 instanceof class_yu));
+				EntityLiving var2 = (EntityLiving) var1;
+				return var2.a(EntityInsentient.c(a)) != null ? false : (var2 instanceof EntityInsentient ? ((EntityInsentient) var2).cq() : (var2 instanceof EntityArmorStand ? true : var2 instanceof class_yu));
 			}
 		}
 

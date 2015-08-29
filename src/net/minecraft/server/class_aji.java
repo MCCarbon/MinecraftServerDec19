@@ -68,7 +68,7 @@ public class class_aji extends class_aih {
 	private void f(class_ago var1, class_cj var2, class_apn var3) {
 		boolean var4 = ((Boolean) var3.b(N)).booleanValue();
 		boolean var5 = false;
-		List var6 = this.a(var1, var2, class_xh.class, new Predicate[0]);
+		List var6 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[0]);
 		if (!var6.isEmpty()) {
 			var5 = true;
 		}
@@ -113,12 +113,12 @@ public class class_aji extends class_aih {
 	@Override
 	public int j(class_ago var1, class_cj var2) {
 		if (((Boolean) var1.p(var2).b(N)).booleanValue()) {
-			List var3 = this.a(var1, var2, class_xj.class, new Predicate[0]);
+			List var3 = this.a(var1, var2, EntityMinecartCommandBlock.class, new Predicate[0]);
 			if (!var3.isEmpty()) {
-				return ((class_xj) var3.get(0)).i().j();
+				return ((EntityMinecartCommandBlock) var3.get(0)).i().j();
 			}
 
-			List var4 = this.a(var1, var2, class_xh.class, new Predicate[] { class_rb.c });
+			List var4 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[] { class_rb.c });
 			if (!var4.isEmpty()) {
 				return class_zu.b((class_pp) var4.get(0));
 			}
@@ -139,7 +139,7 @@ public class class_aji extends class_aih {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(b, class_aih.class_b_in_class_aih.a(var1 & 7)).a(N, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(b, class_aih.class_b_in_class_aih.a(var1 & 7)).a(N, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class class_qg {
 	}
 
 	public boolean f() {
-		return a.j() instanceof class_rg;
+		return a.j() instanceof EntityLiving;
 	}
 
 	public String g() {

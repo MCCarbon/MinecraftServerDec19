@@ -28,11 +28,11 @@ public class class_abi extends Item {
 					class_avq var9 = var10.c().v();
 					if ((var9 == class_avq.h) && (((Integer) var10.b(class_alf.b)).intValue() == 0)) {
 						var2.g(var7);
-						var3.b(class_nh.c(Item.b(this)));
+						var3.b(StatisticList.c(Item.b(this)));
 						return new class_px(class_pw.a, this.a(var1, var3, Items.az));
 					} else if ((var9 == class_avq.i) && (((Integer) var10.b(class_alf.b)).intValue() == 0)) {
 						var2.g(var7);
-						var3.b(class_nh.c(Item.b(this)));
+						var3.b(StatisticList.c(Item.b(this)));
 						return new class_px(class_pw.a, this.a(var1, var3, Items.aA));
 					} else {
 						return new class_px(class_pw.c, var1);
@@ -43,7 +43,7 @@ public class class_abi extends Item {
 				if (!var3.a(var8, var6.b, var1)) {
 					return new class_px(class_pw.c, var1);
 				} else if (this.a(var2, var8)) {
-					var3.b(class_nh.c(Item.b(this)));
+					var3.b(StatisticList.c(Item.b(this)));
 					return !var3.bI.d ? new class_px(class_pw.a, new class_aco(Items.ay)) : new class_px(class_pw.a, var1);
 				} else {
 					return new class_px(class_pw.c, var1);
@@ -91,7 +91,7 @@ public class class_abi extends Item {
 						var1.b(var2, true);
 					}
 
-					var1.a(var2, a.S(), 3);
+					var1.a(var2, a.getBlockData(), 3);
 				}
 
 				return true;

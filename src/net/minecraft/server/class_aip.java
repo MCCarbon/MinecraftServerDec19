@@ -57,7 +57,7 @@ public class class_aip extends class_aif {
 			TileEntity var11 = var1.s(var2);
 			if (var11 instanceof class_aoj) {
 				var4.a((class_pp) ((class_aoj) var11));
-				var4.b(class_nh.N);
+				var4.b(StatisticList.N);
 			}
 
 			return true;
@@ -65,7 +65,7 @@ public class class_aip extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		if (var5.s()) {
 			TileEntity var6 = var1.s(var2);
 			if (var6 instanceof class_aoj) {
@@ -107,7 +107,7 @@ public class class_aip extends class_aif {
 
 	@Override
 	public class_apn a(int var1) {
-		class_apn var2 = S();
+		class_apn var2 = getBlockData();
 
 		for (int var3 = 0; var3 < 3; ++var3) {
 			var2 = var2.a(a[var3], Boolean.valueOf((var1 & (1 << var3)) > 0));

@@ -8,7 +8,7 @@ public interface class_wg {
 
 	void c();
 
-	void a(class_vw var1, class_cj var2, class_qi var3, class_yu var4);
+	void a(EntityEnderCrystal var1, class_cj var2, class_qi var3, class_yu var4);
 
 	void d();
 

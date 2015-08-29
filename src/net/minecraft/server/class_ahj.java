@@ -28,7 +28,7 @@ public class class_ahj extends class_ahb {
 		}
 
 		if (aG == 0) {
-			au.add(new class_ahb.class_c_in_class_ahb(class_vr.class, 5, 4, 4));
+			au.add(new class_ahb.class_c_in_class_ahb(EntityWolf.class, 5, 4, 4));
 		}
 
 		if (aG == 3) {

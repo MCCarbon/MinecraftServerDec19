@@ -12,7 +12,7 @@ public class class_asg extends class_asp {
 
 				for (int var7 = 0; var7 < var6; ++var7) {
 					if (Blocks.CACTUS.d(var1, var5)) {
-						var1.a(var5.b(var7), Blocks.CACTUS.S(), 2);
+						var1.a(var5.b(var7), Blocks.CACTUS.getBlockData(), 2);
 					}
 				}
 			}

@@ -332,7 +332,7 @@ public class BlockRedstoneWire extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(P, Integer.valueOf(var1));
+		return getBlockData().a(P, Integer.valueOf(var1));
 	}
 
 	@Override

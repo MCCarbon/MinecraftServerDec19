@@ -612,13 +612,13 @@ public class class_lt implements class_id, class_ks {
 				r = false;
 				break;
 			case 6:
-				if (b.m instanceof class_vf) {
-					((class_vf) b.m).o(var1.c());
+				if (b.m instanceof EntityHorse) {
+					((EntityHorse) b.m).o(var1.c());
 				}
 				break;
 			case 7:
-				if (b.m instanceof class_vf) {
-					((class_vf) b.m).c(b);
+				if (b.m instanceof EntityHorse) {
+					((EntityHorse) b.m).c(b);
 				}
 				break;
 			default:
@@ -652,7 +652,7 @@ public class class_lt implements class_id, class_ks {
 					var8 = b.b(var7);
 					var3.a(b, var1.c(), var8, var7);
 				} else if (var1.a() == class_io.class_a_in_class_io.b) {
-					if ((var3 instanceof class_xg) || (var3 instanceof class_rd) || (var3 instanceof class_yx) || (var3 == b)) {
+					if ((var3 instanceof EntityItem) || (var3 instanceof EntityExperienceOrb) || (var3 instanceof EntityArrow) || (var3 == b)) {
 						this.c("Attempting to attack an invalid entity");
 						d.f("Player " + b.e_() + " tried to attack an invalid entity");
 						return;
@@ -790,7 +790,7 @@ public class class_lt implements class_id, class_ks {
 				b.br.a(b, true);
 			} else if (var2 && var9 && var10 && (m < 200)) {
 				m += 20;
-				class_xg var11 = b.a(var3, true);
+				EntityItem var11 = b.a(var3, true);
 				if (var11 != null) {
 					var11.i();
 				}
@@ -972,8 +972,8 @@ public class class_lt implements class_id, class_ks {
 					}
 				} else if (var92 == 1) {
 					Entity var102 = b.o.a(var2.readInt());
-					if (var102 instanceof class_xj) {
-						var98 = ((class_xj) var102).i();
+					if (var102 instanceof EntityMinecartCommandBlock) {
+						var98 = ((EntityMinecartCommandBlock) var102).i();
 					}
 				}
 
@@ -1028,15 +1028,15 @@ public class class_lt implements class_id, class_ks {
 						class_apn var12;
 						switch (class_lt.SyntheticClass_1.d[var9.ordinal()]) {
 							case 1:
-								var12 = Blocks.CHAIN_COMMAND_BLOCK.S();
+								var12 = Blocks.CHAIN_COMMAND_BLOCK.getBlockData();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 								break;
 							case 2:
-								var12 = Blocks.REPEATING_COMMAND_BLOCK.S();
+								var12 = Blocks.REPEATING_COMMAND_BLOCK.getBlockData();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 								break;
 							case 3:
-								var12 = Blocks.COMMAND_BLOCK.S();
+								var12 = Blocks.COMMAND_BLOCK.getBlockData();
 								b.o.a(var5, var12.a(class_ajc.a, var11), 2);
 						}
 

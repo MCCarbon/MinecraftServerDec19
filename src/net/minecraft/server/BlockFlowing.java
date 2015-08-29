@@ -13,7 +13,7 @@ public class BlockFlowing extends class_alf {
 	}
 
 	private void g(class_ago var1, class_cj var2, class_apn var3) {
-		var1.a(var2, b(J).S().a(b, var3.b(b)), 2);
+		var1.a(var2, b(J).getBlockData().a(b, var3.b(b)), 2);
 	}
 
 	@Override
@@ -82,7 +82,7 @@ public class BlockFlowing extends class_alf {
 		class_apn var13 = var1.p(var2.b());
 		if (this.i(var1, var2.b(), var13)) {
 			if ((J == class_avq.i) && (var1.p(var2.b()).c().v() == class_avq.h)) {
-				var1.a(var2.b(), Blocks.STONE.S());
+				var1.a(var2.b(), Blocks.STONE.getBlockData());
 				this.d(var1, var2.b());
 				return;
 			}
@@ -123,7 +123,7 @@ public class BlockFlowing extends class_alf {
 				}
 			}
 
-			var1.a(var2, S().a(b, Integer.valueOf(var4)), 3);
+			var1.a(var2, getBlockData().a(b, Integer.valueOf(var4)), 3);
 		}
 
 	}

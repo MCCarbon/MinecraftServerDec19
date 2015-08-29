@@ -79,7 +79,7 @@ public class class_u extends CommandAbstract {
 										class_cj var22 = new class_cj(var21, var20, var19);
 										class_cj var23 = var22.a(var18);
 										class_apn var24 = var12.p(var22);
-										if ((!var13 || (var24.c() != Blocks.a)) && ((var10 == null) || ((var24.c() == var10) && ((var11 < 0) || (var24.c().c(var24) == var11))))) {
+										if ((!var13 || (var24.c() != Blocks.AIR)) && ((var10 == null) || ((var24.c() == var10) && ((var11 < 0) || (var24.c().c(var24) == var11))))) {
 											TileEntity var25 = var12.s(var22);
 											if (var25 != null) {
 												class_dn var26 = new class_dn();
@@ -101,7 +101,7 @@ public class class_u extends CommandAbstract {
 							if (var9) {
 								Iterator var27;
 								class_cj var29;
-								for (var27 = var17.iterator(); var27.hasNext(); var12.a(var29, Blocks.cv.S(), 2)) {
+								for (var27 = var17.iterator(); var27.hasNext(); var12.a(var29, Blocks.BARRIER.getBlockData(), 2)) {
 									var29 = (class_cj) var27.next();
 									TileEntity var31 = var12.s(var29);
 									if (var31 instanceof class_pp) {
@@ -113,7 +113,7 @@ public class class_u extends CommandAbstract {
 
 								while (var27.hasNext()) {
 									var29 = (class_cj) var27.next();
-									var12.a(var29, Blocks.a.S(), 3);
+									var12.a(var29, Blocks.AIR.getBlockData(), 3);
 								}
 							}
 
@@ -126,7 +126,7 @@ public class class_u extends CommandAbstract {
 							Iterator var32;
 							class_u.class_a_in_class_u var33;
 							TileEntity var34;
-							for (var32 = var30.iterator(); var32.hasNext(); var12.a(var33.a, Blocks.cv.S(), 2)) {
+							for (var32 = var30.iterator(); var32.hasNext(); var12.a(var33.a, Blocks.BARRIER.getBlockData(), 2)) {
 								var33 = (class_u.class_a_in_class_u) var32.next();
 								var34 = var12.s(var33.a);
 								if (var34 instanceof class_pp) {

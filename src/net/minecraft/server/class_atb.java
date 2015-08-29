@@ -108,8 +108,8 @@ public class class_atb extends class_atc {
 	}
 
 	static {
-		e = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
-		f = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
-		g = Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
+		e = Blocks.LOG.getBlockData().a(class_alv.b, class_aly.class_a_in_class_aly.b);
+		f = Blocks.LEAVES.getBlockData().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
+		g = Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.c);
 	}
 }

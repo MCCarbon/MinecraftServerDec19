@@ -82,7 +82,7 @@ public class class_lh implements class_agq {
 				double var8 = var2.o() - var5.t;
 				double var10 = var2.p() - var5.u;
 				if (((var6 * var6) + (var8 * var8) + (var10 * var10)) < 1024.0D) {
-					var5.a.a((new class_fs(var1, var2, var3)));
+					var5.a.a((new PacketPlayOutBlockBreakAnimation(var1, var2, var3)));
 				}
 			}
 		}

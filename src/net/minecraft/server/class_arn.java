@@ -24,7 +24,7 @@ public class class_arn implements class_aqk {
 			for (int var5 = 0; var5 < 16; ++var5) {
 				int var6 = (var1 * 16) + var4;
 				var7 = (var2 * 16) + var5;
-				var3.a(var4, 60, var5, Blocks.BARRIER.S());
+				var3.a(var4, 60, var5, Blocks.BARRIER.getBlockData());
 				class_apn var8 = b(var6, var7);
 				if (var8 != null) {
 					var3.a(var4, 70, var5, var8);

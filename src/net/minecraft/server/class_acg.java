@@ -23,7 +23,7 @@ public class class_acg extends Item {
 			}
 
 			var3.a(var4);
-			var3.b(class_nh.c(Item.b(this)));
+			var3.b(StatisticList.c(Item.b(this)));
 		}
 
 		return new class_px(class_pw.a, var1);

@@ -66,8 +66,8 @@ public class BlockSkull extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, var8.aV()).a(b, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(a, var8.aV()).a(b, Boolean.valueOf(false));
 	}
 
 	@Override
@@ -146,12 +146,12 @@ public class BlockSkull extends class_aif {
 				for (var6 = 0; var6 < var4.c(); ++var6) {
 					for (int var13 = 0; var13 < var4.b(); ++var13) {
 						class_apq var8 = var5.a(var6, var13, 0);
-						var1.a(var8.d(), Blocks.AIR.S(), 2);
+						var1.a(var8.d(), Blocks.AIR.getBlockData(), 2);
 					}
 				}
 
 				class_cj var12 = var5.a(1, 0, 0).d();
-				class_wq var14 = new class_wq(var1);
+				EntityWither var14 = new EntityWither(var1);
 				class_cj var15 = var5.a(1, 2, 0).d();
 				var14.b(var15.n() + 0.5D, var15.o() + 0.55D, var15.p() + 0.5D, var5.b().k() == class_cq.class_a_in_class_cq.a ? 0.0F : 90.0F, 0.0F);
 				var14.aM = var5.b().k() == class_cq.class_a_in_class_cq.a ? 0.0F : 90.0F;
@@ -183,7 +183,7 @@ public class BlockSkull extends class_aif {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_cq.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(a, class_cq.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public class class_acv extends Item {
 	}
 
 	@Override
-	public class_aco a(class_aco var1, class_ago var2, class_rg var3) {
+	public class_aco a(class_aco var1, class_ago var2, EntityLiving var3) {
 		if ((var3 instanceof class_yu) && !((class_yu) var3).bI.d) {
 			--var1.b;
 		}
@@ -18,7 +18,7 @@ public class class_acv extends Item {
 		}
 
 		if (var3 instanceof class_yu) {
-			((class_yu) var3).b(class_nh.c(Item.b(this)));
+			((class_yu) var3).b(StatisticList.c(Item.b(this)));
 		}
 
 		return var1.b <= 0 ? new class_aco(Items.ay) : var1;

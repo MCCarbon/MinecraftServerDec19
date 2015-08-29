@@ -78,9 +78,9 @@ public class class_abu extends Item {
 	}
 
 	@Override
-	public boolean a(class_aco var1, class_yu var2, class_rg var3, class_pu var4) {
-		if (var3 instanceof class_vl) {
-			class_vl var5 = (class_vl) var3;
+	public boolean a(class_aco var1, class_yu var2, EntityLiving var3, class_pu var4) {
+		if (var3 instanceof EntitySheep) {
+			EntitySheep var5 = (EntitySheep) var3;
 			class_abt var6 = class_abt.a(var1.i());
 			if (!var5.cF() && (var5.cE() != var6)) {
 				var5.b(var6);

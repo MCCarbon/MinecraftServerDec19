@@ -25,7 +25,7 @@ public class class_abx extends class_abo {
 				var3.a(var5, false);
 			}
 
-			var3.b(class_nh.c(Item.b(this)));
+			var3.b(StatisticList.c(Item.b(this)));
 			return new class_px(class_pw.a, var1);
 		}
 	}

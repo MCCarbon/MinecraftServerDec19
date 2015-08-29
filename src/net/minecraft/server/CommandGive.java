@@ -44,7 +44,7 @@ public class CommandGive extends CommandAbstract {
 				var3.br.b();
 			}
 
-			class_xg var9;
+			EntityItem var9;
 			if (var11 && (var7.b <= 0)) {
 				var7.b = 1;
 				var1.a(class_n.class_a_in_class_n.d, var5);

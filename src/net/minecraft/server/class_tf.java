@@ -3,11 +3,11 @@ package net.minecraft.server;
 
 public class class_tf extends class_sr {
 	class_ago a;
-	class_rh b;
-	class_rg c;
+	EntityInsentient b;
+	EntityLiving c;
 	int d;
 
-	public class_tf(class_rh var1) {
+	public class_tf(EntityInsentient var1) {
 		b = var1;
 		a = var1.o;
 		this.a(3);
@@ -15,7 +15,7 @@ public class class_tf extends class_sr {
 
 	@Override
 	public boolean a() {
-		class_rg var1 = b.w();
+		EntityLiving var1 = b.w();
 		if (var1 == null) {
 			return false;
 		} else {

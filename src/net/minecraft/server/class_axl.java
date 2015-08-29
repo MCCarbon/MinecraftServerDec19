@@ -102,7 +102,7 @@ public class class_axl extends class_axj {
 		}
 
 		if (var2.y() && e) {
-			class_wu var7 = var2.z();
+			EntityItemFrame var7 = var2.z();
 			class_cj var8 = var7.m();
 			this.a(1, var1.o, "frame-" + var7.G(), var8.n(), var8.p(), var7.b.b() * 90);
 		}

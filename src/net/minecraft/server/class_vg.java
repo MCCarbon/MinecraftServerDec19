@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class class_vg extends class_rn implements class_qw {
+public abstract class class_vg extends EntityCreature implements class_qw {
 	public class_vg(class_ago var1) {
 		super(var1);
 	}

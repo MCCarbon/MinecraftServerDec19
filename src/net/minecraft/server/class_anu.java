@@ -193,7 +193,7 @@ public class class_anu extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Boolean.valueOf((var1 & 1) > 0)).a(b, Boolean.valueOf((var1 & 2) > 0)).a(N, Boolean.valueOf((var1 & 4) > 0)).a(O, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(a, Boolean.valueOf((var1 & 1) > 0)).a(b, Boolean.valueOf((var1 & 2) > 0)).a(N, Boolean.valueOf((var1 & 4) > 0)).a(O, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

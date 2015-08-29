@@ -53,7 +53,7 @@ public class class_abd extends Item {
 					var34 = var34.b();
 				}
 
-				class_xe var35 = new class_xe(var2, var34.n() + 0.5F, var34.o() + 1.0F, var34.p() + 0.5F);
+				EntityBoat var35 = new EntityBoat(var2, var34.n() + 0.5F, var34.o() + 1.0F, var34.p() + 0.5F);
 				var35.y = ((MathHelper.c((var3.y * 4.0F) / 360.0F + 0.5D) & 3) - 1) * 90;
 				if (!var2.a(var35, var35.aX().b(-0.1D, -0.1D, -0.1D)).isEmpty()) {
 					return new class_px(class_pw.c, var1);
@@ -66,7 +66,7 @@ public class class_abd extends Item {
 						--var1.b;
 					}
 
-					var3.b(class_nh.c(Item.b(this)));
+					var3.b(StatisticList.c(Item.b(this)));
 					return new class_px(class_pw.a, var1);
 				}
 			} else {

@@ -19,7 +19,7 @@ public class class_tt extends class_sr {
 		} else if (!a.C) {
 			return false;
 		} else {
-			class_rg var1 = a.cH();
+			EntityLiving var1 = a.cH();
 			return var1 == null ? true : ((a.h(var1) < 144.0D) && (var1.bk() != null) ? false : b);
 		}
 	}

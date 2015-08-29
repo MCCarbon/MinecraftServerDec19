@@ -71,7 +71,7 @@ public class class_apc extends TileEntity implements class_ks {
 	public Packet x_() {
 		class_dn var1 = new class_dn();
 		this.b(var1);
-		return new class_ft(c, 8, var1);
+		return new PacketPlayOutTileEntityData(c, 8, var1);
 	}
 
 	public void h() {

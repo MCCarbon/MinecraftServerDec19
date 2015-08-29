@@ -56,7 +56,7 @@ public class class_agx implements class_ags {
 			}
 		}
 
-		return Blocks.AIR.S();
+		return Blocks.AIR.getBlockData();
 	}
 
 	@Override

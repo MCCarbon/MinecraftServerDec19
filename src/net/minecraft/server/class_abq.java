@@ -28,13 +28,13 @@ public class class_abq extends Item {
 	}
 
 	@Override
-	public boolean a(class_aco var1, class_rg var2, class_rg var3) {
+	public boolean a(class_aco var1, EntityLiving var2, EntityLiving var3) {
 		var1.a(2, var3);
 		return true;
 	}
 
 	@Override
-	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, class_rg var5) {
+	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, EntityLiving var5) {
 		if (var3.f(var2, var4) != 0.0D) {
 			var1.a(1, var5);
 		}

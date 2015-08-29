@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class class_sp extends class_sr {
 	private class_ro d;
-	private class_rg e;
+	private EntityLiving e;
 	class_ago a;
 	private double f;
 	private class_um g;
@@ -27,7 +27,7 @@ public class class_sp extends class_sr {
 
 	@Override
 	public boolean a() {
-		class_rg var1 = d.cH();
+		EntityLiving var1 = d.cH();
 		if (var1 == null) {
 			return false;
 		} else if ((var1 instanceof class_yu) && ((class_yu) var1).w()) {

@@ -6,14 +6,14 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 public class class_tb extends class_sr {
-	private class_rn a;
+	private EntityCreature a;
 	private double b;
 	private class_axc c;
 	private class_uu d;
 	private boolean e;
 	private List f = Lists.newArrayList();
 
-	public class_tb(class_rn var1, double var2, boolean var4) {
+	public class_tb(EntityCreature var1, double var2, boolean var4) {
 		a = var1;
 		b = var2;
 		e = var4;

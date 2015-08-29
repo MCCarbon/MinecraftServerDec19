@@ -44,7 +44,7 @@ public class class_amr extends Block {
 			var2 = class_cq.class_a_in_class_cq.c;
 		}
 
-		return S().a(N, var2);
+		return getBlockData().a(N, var2);
 	}
 
 	@Override
@@ -71,7 +71,7 @@ public class class_amr extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		return super.a(var1, var2, var3, var4, var5, var6, var7, var8).a(N, var3.k());
 	}
 

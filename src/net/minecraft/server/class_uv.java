@@ -57,7 +57,7 @@ public class class_uv {
 		if ((l < var2) && (b.size() > 20) && (a.s.nextInt(7000) == 0)) {
 			class_aym var3 = this.a(d, 2, 4, 2);
 			if (var3 != null) {
-				class_vp var4 = new class_vp(a);
+				EntityVillagerGolem var4 = new EntityVillagerGolem(a);
 				var4.b(var3.a, var3.b, var3.c);
 				a.a(var4);
 				++l;
@@ -99,12 +99,12 @@ public class class_uv {
 	}
 
 	private void j() {
-		List var1 = a.a(class_vp.class, new class_ayk(d.n() - e, d.o() - 4, d.p() - e, d.n() + e, d.o() + 4, d.p() + e));
+		List var1 = a.a(EntityVillagerGolem.class, new class_ayk(d.n() - e, d.o() - 4, d.p() - e, d.n() + e, d.o() + 4, d.p() + e));
 		l = var1.size();
 	}
 
 	private void k() {
-		List var1 = a.a(class_yp.class, new class_ayk(d.n() - e, d.o() - 4, d.p() - e, d.n() + e, d.o() + 4, d.p() + e));
+		List var1 = a.a(EntityVillager.class, new class_ayk(d.n() - e, d.o() - 4, d.p() - e, d.n() + e, d.o() + 4, d.p() + e));
 		h = var1.size();
 		if (h == 0) {
 			j.clear();
@@ -210,7 +210,7 @@ public class class_uv {
 		return b.isEmpty();
 	}
 
-	public void a(class_rg var1) {
+	public void a(EntityLiving var1) {
 		Iterator var2 = k.iterator();
 
 		class_uv.class_a_in_class_uv var3;
@@ -226,7 +226,7 @@ public class class_uv {
 		var3.b = g;
 	}
 
-	public class_rg b(class_rg var1) {
+	public EntityLiving b(EntityLiving var1) {
 		double var2 = Double.MAX_VALUE;
 		class_uv.class_a_in_class_uv var4 = null;
 
@@ -242,7 +242,7 @@ public class class_uv {
 		return var4 != null ? var4.a : null;
 	}
 
-	public class_yu c(class_rg var1) {
+	public class_yu c(EntityLiving var1) {
 		double var2 = Double.MAX_VALUE;
 		class_yu var4 = null;
 		Iterator var5 = j.keySet().iterator();
@@ -449,10 +449,10 @@ public class class_uv {
 	}
 
 	class class_a_in_class_uv {
-		public class_rg a;
+		public EntityLiving a;
 		public int b;
 
-		class_a_in_class_uv(class_rg var2, int var3) {
+		class_a_in_class_uv(EntityLiving var2, int var3) {
 			a = var2;
 			b = var3;
 		}

@@ -309,7 +309,7 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 			Iterator var6 = a(var0.z(), var0.A(), var0.B() + 1.0D, var0.C()).iterator();
 
 			while (var6.hasNext()) {
-				class_xg var8 = (class_xg) var6.next();
+				EntityItem var8 = (EntityItem) var6.next();
 				if (a(var0, var8)) {
 					return true;
 				}
@@ -335,7 +335,7 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 		return false;
 	}
 
-	public static boolean a(class_pp var0, class_xg var1) {
+	public static boolean a(class_pp var0, EntityItem var1) {
 		boolean var2 = false;
 		if (var1 == null) {
 			return false;
@@ -427,7 +427,7 @@ public class class_aov extends class_aow implements class_aou, class_ks {
 	}
 
 	public static List a(class_ago var0, double var1, double var3, double var5) {
-		return var0.a(class_xg.class, new class_ayk(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), class_rb.a);
+		return var0.a(EntityItem.class, new class_ayk(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), class_rb.a);
 	}
 
 	public static class_pp b(class_ago var0, double var1, double var3, double var5) {

@@ -49,9 +49,9 @@ public class class_afg extends class_afj {
 	}
 
 	@Override
-	public void a(class_rg var1, Entity var2, int var3) {
-		if (var2 instanceof class_rg) {
-			class_rg var4 = (class_rg) var2;
+	public void a(EntityLiving var1, Entity var2, int var3) {
+		if (var2 instanceof EntityLiving) {
+			EntityLiving var4 = (EntityLiving) var2;
 			if ((a == 2) && (var4.bF() == class_rl.c)) {
 				int var5 = 20 + var1.bj().nextInt(10 * var3);
 				var4.c(new class_qr(class_qs.b, var5, 3));

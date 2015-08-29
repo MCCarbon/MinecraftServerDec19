@@ -12,7 +12,7 @@ public class class_anz extends BlockPlant {
 
 	@Override
 	public void a(class_ago var1, class_cj var2, class_apn var3, class_ayk var4, List var5, Entity var6) {
-		if ((var6 == null) || !(var6 instanceof class_xe)) {
+		if ((var6 == null) || !(var6 instanceof EntityBoat)) {
 			super.a(var1, var2, var3, var4, var5, var6);
 		}
 

@@ -22,7 +22,7 @@ public class BlockGrass extends Block implements class_ain {
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
 		if (!var1.D) {
 			if ((var1.l(var2.a()) < 4) && (var1.p(var2.a()).c().r() > 2)) {
-				var1.a(var2, Blocks.DIRT.S());
+				var1.a(var2, Blocks.DIRT.getBlockData());
 			} else {
 				if (var1.l(var2.a()) >= 9) {
 					for (int var5 = 0; var5 < 4; ++var5) {
@@ -30,7 +30,7 @@ public class BlockGrass extends Block implements class_ain {
 						Block var7 = var1.p(var6.a()).c();
 						class_apn var8 = var1.p(var6);
 						if ((var8.c() == Blocks.DIRT) && (var8.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.a) && (var1.l(var6.a()) >= 4) && (var7.r() <= 2)) {
-							var1.a(var6, Blocks.GRASS.S());
+							var1.a(var6, Blocks.GRASS.getBlockData());
 						}
 					}
 				}
@@ -41,7 +41,7 @@ public class BlockGrass extends Block implements class_ain {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Blocks.DIRT.a(Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
+		return Blocks.DIRT.a(Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
 	}
 
 	@Override
@@ -72,12 +72,12 @@ public class BlockGrass extends Block implements class_ain {
 				if (var2.nextInt(8) == 0) {
 					BlockFlowers.class_a_in_class_ake var11 = var1.b(var7).a(var2, var7);
 					BlockFlowers var9 = var11.a().a();
-					class_apn var10 = var9.S().a(var9.n(), var11);
+					class_apn var10 = var9.getBlockData().a(var9.n(), var11);
 					if (var9.g(var1, var7, var10)) {
 						var1.a(var7, var10, 3);
 					}
 				} else {
-					class_apn var12 = Blocks.TALLGRASS.S().a(BlockLongGrass.a, BlockLongGrass.class_a_in_class_ano.b);
+					class_apn var12 = Blocks.TALLGRASS.getBlockData().a(BlockLongGrass.a, BlockLongGrass.class_a_in_class_ano.b);
 					if (Blocks.TALLGRASS.g(var1, var7, var12)) {
 						var1.a(var7, var12, 3);
 					}

@@ -3,8 +3,8 @@ package net.minecraft.server;
 
 public class class_adx extends class_aax {
 	@Override
-	public class_yx a(class_ago var1, class_aco var2, class_rg var3) {
-		return new class_zo(var1, var3, var2);
+	public EntityArrow a(class_ago var1, class_aco var2, EntityLiving var3) {
+		return new EntityTippedArrow(var1, var3, var2);
 	}
 
 	@Override

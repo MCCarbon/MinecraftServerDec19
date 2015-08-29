@@ -42,13 +42,13 @@ public class class_aky extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S();
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData();
 	}
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_aky.class_a_in_class_aky.a(var1));
+		return getBlockData().a(a, class_aky.class_a_in_class_aky.a(var1));
 	}
 
 	@Override

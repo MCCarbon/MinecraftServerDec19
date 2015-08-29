@@ -35,7 +35,7 @@ public class class_pr {
 			}
 
 			var7.b -= var11;
-			class_xg var12 = new class_xg(var0, var1 + var8, var3 + var9, var5 + var10, new class_aco(var7.b(), var11, var7.i()));
+			EntityItem var12 = new EntityItem(var0, var1 + var8, var3 + var9, var5 + var10, new class_aco(var7.b(), var11, var7.i()));
 			if (var7.n()) {
 				var12.j().d((class_dn) var7.o().b());
 			}

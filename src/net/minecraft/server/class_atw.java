@@ -15,7 +15,7 @@ public class class_atw {
 		c = 1;
 		a = var1;
 		c = var2;
-		b = var3.S();
+		b = var3.getBlockData();
 	}
 
 	public class_atw(int var1, int var2, Block var3, int var4) {

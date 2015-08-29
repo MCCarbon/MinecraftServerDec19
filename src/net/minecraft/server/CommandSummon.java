@@ -69,8 +69,8 @@ public class CommandSummon extends CommandAbstract {
 					throw new class_bz("commands.summon.failed", new Object[0]);
 				} else {
 					var21.b(var6, var8, var10, var21.y, var21.z);
-					if (!var14 && (var21 instanceof class_rh)) {
-						((class_rh) var21).a(var12.E(new class_cj(var21)), (class_rj) null);
+					if (!var14 && (var21 instanceof EntityInsentient)) {
+						((EntityInsentient) var21).a(var12.E(new class_cj(var21)), (class_rj) null);
 					}
 
 					if (!var12.a(var21)) {

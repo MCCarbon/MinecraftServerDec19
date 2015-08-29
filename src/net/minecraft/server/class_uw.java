@@ -127,9 +127,9 @@ public class class_uw {
 		if (var1 == null) {
 			return false;
 		} else {
-			class_yl var2;
+			EntityZombie var2;
 			try {
-				var2 = new class_yl(a);
+				var2 = new EntityZombie(a);
 				var2.a(a.E(new class_cj(var2)), (class_rj) null);
 				var2.o(false);
 			} catch (Exception var4) {
@@ -148,7 +148,7 @@ public class class_uw {
 	private class_aym a(class_cj var1) {
 		for (int var2 = 0; var2 < 10; ++var2) {
 			class_cj var3 = var1.a(a.s.nextInt(16) - 8, a.s.nextInt(6) - 3, a.s.nextInt(16) - 8);
-			if (f.a(var3) && class_agv.a(class_rh.class_a_in_class_rh.a, a, var3)) {
+			if (f.a(var3) && class_agv.a(EntityInsentient.class_a_in_class_rh.a, a, var3)) {
 				return new class_aym(var3.n(), var3.o(), var3.p());
 			}
 		}

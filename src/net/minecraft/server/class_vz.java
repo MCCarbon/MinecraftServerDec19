@@ -22,7 +22,7 @@ public abstract class class_vz implements class_wg {
 	}
 
 	@Override
-	public void a(class_vw var1, class_cj var2, class_qi var3, class_yu var4) {
+	public void a(EntityEnderCrystal var1, class_cj var2, class_qi var3, class_yu var4) {
 	}
 
 	@Override

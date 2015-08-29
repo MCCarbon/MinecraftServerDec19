@@ -94,7 +94,7 @@ public class class_kq extends class_ays {
 	public void b(class_ayo var1) {
 		super.b(var1);
 		if (b.contains(var1)) {
-			a.ar().a((new class_hr(var1, 2)));
+			a.ar().a((new PacketPlayOutScoreboardObjective(var1, 2)));
 		}
 
 		this.b();
@@ -144,7 +144,7 @@ public class class_kq extends class_ays {
 
 	public List d(class_ayo var1) {
 		ArrayList var2 = Lists.newArrayList();
-		var2.add(new class_hr(var1, 0));
+		var2.add(new PacketPlayOutScoreboardObjective(var1, 0));
 
 		for (int var3 = 0; var3 < 19; ++var3) {
 			if (this.a(var3) == var1) {
@@ -181,7 +181,7 @@ public class class_kq extends class_ays {
 
 	public List f(class_ayo var1) {
 		ArrayList var2 = Lists.newArrayList();
-		var2.add(new class_hr(var1, 1));
+		var2.add(new PacketPlayOutScoreboardObjective(var1, 1));
 
 		for (int var3 = 0; var3 < 19; ++var3) {
 			if (this.a(var3) == var1) {

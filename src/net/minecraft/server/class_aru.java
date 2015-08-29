@@ -66,7 +66,7 @@ public class class_aru implements class_aqk {
 							for (int var47 = 0; var47 < 8; ++var47) {
 								class_apn var48 = null;
 								if (var43 > 0.0D) {
-									var48 = Blocks.END_STONE.S();
+									var48 = Blocks.END_STONE.getBlockData();
 								}
 
 								int var49 = var40 + (var8 * 8);
@@ -96,8 +96,8 @@ public class class_aru implements class_aqk {
 			for (int var3 = 0; var3 < 16; ++var3) {
 				byte var4 = 1;
 				int var5 = -1;
-				class_apn var6 = Blocks.END_STONE.S();
-				class_apn var7 = Blocks.END_STONE.S();
+				class_apn var6 = Blocks.END_STONE.getBlockData();
+				class_apn var7 = Blocks.END_STONE.getBlockData();
 
 				for (int var8 = 127; var8 >= 0; --var8) {
 					class_apn var9 = var1.a(var2, var8, var3);
@@ -106,8 +106,8 @@ public class class_aru implements class_aqk {
 					} else if (var9.c() == Blocks.STONE) {
 						if (var5 == -1) {
 							if (var4 <= 0) {
-								var6 = Blocks.AIR.S();
-								var7 = Blocks.END_STONE.S();
+								var6 = Blocks.AIR.getBlockData();
+								var7 = Blocks.END_STONE.getBlockData();
 							}
 
 							var5 = var4;

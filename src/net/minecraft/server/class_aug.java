@@ -9,10 +9,10 @@ public class class_aug extends class_auo {
 	private List d = Lists.newArrayList();
 
 	public class_aug() {
-		d.add(new class_ahb.class_c_in_class_ahb(class_xs.class, 10, 2, 3));
-		d.add(new class_ahb.class_c_in_class_ahb(class_yd.class, 5, 4, 4));
-		d.add(new class_ahb.class_c_in_class_ahb(class_yh.class, 10, 4, 4));
-		d.add(new class_ahb.class_c_in_class_ahb(class_yb.class, 3, 4, 4));
+		d.add(new class_ahb.class_c_in_class_ahb(EntityBlaze.class, 10, 2, 3));
+		d.add(new class_ahb.class_c_in_class_ahb(EntityPigZombie.class, 5, 4, 4));
+		d.add(new class_ahb.class_c_in_class_ahb(EntitySkeleton.class, 10, 4, 4));
+		d.add(new class_ahb.class_c_in_class_ahb(EntityMagmaCube.class, 3, 4, 4));
 	}
 
 	@Override

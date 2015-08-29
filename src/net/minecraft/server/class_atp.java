@@ -133,7 +133,7 @@ public class class_atp extends class_asa {
 	}
 
 	private void a(class_ago var1, class_cj var2, class_apy var3) {
-		class_apn var4 = Blocks.VINE.S().a(var3, Boolean.valueOf(true));
+		class_apn var4 = Blocks.VINE.getBlockData().a(var3, Boolean.valueOf(true));
 		this.a(var1, var2, var4);
 		int var5 = 4;
 
@@ -145,7 +145,7 @@ public class class_atp extends class_asa {
 	}
 
 	static {
-		a = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.a);
-		b = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG.getBlockData().a(class_alv.b, class_aly.class_a_in_class_aly.a);
+		b = Blocks.LEAVES.getBlockData().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

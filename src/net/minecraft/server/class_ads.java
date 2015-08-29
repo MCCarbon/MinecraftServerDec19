@@ -49,7 +49,7 @@ public class class_ads extends Item {
 
 			Entity var13 = a(var3, h(var1), var4.n() + 0.5D, var4.o() + var14, var4.p() + 0.5D);
 			if (var13 != null) {
-				if ((var13 instanceof class_rg) && var1.s()) {
+				if ((var13 instanceof EntityLiving) && var1.s()) {
 					var13.c(var1.q());
 				}
 
@@ -98,7 +98,7 @@ public class class_ads extends Item {
 					if (var7 == null) {
 						return new class_px(class_pw.b, var1);
 					} else {
-						if ((var7 instanceof class_rg) && var1.s()) {
+						if ((var7 instanceof EntityLiving) && var1.s()) {
 							var7.c(var1.q());
 						}
 
@@ -107,7 +107,7 @@ public class class_ads extends Item {
 							--var1.b;
 						}
 
-						var3.b(class_nh.c(Item.b(this)));
+						var3.b(StatisticList.c(Item.b(this)));
 						return new class_px(class_pw.a, var1);
 					}
 				} else {
@@ -125,8 +125,8 @@ public class class_ads extends Item {
 
 			for (int var9 = 0; var9 < 1; ++var9) {
 				var8 = EntityTypes.b(var1, var0);
-				if (var8 instanceof class_rg) {
-					class_rh var10 = (class_rh) var8;
+				if (var8 instanceof EntityLiving) {
+					EntityInsentient var10 = (EntityInsentient) var8;
 					var8.b(var2, var4, var6, MathHelper.g(var0.s.nextFloat() * 360.0F), 0.0F);
 					var10.aO = var10.y;
 					var10.aM = var10.y;

@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 
 public class class_sa {
-	private class_rg a;
+	private EntityLiving a;
 	private int b;
 	private float c;
 
-	public class_sa(class_rg var1) {
+	public class_sa(EntityLiving var1) {
 		a = var1;
 	}
 

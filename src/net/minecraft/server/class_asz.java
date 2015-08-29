@@ -10,7 +10,7 @@ public class class_asz extends class_asp {
 		} else if (var1.p(var3.a()).c() != Blocks.NETHERRACK) {
 			return false;
 		} else {
-			var1.a(var3, Blocks.GLOWSTONE.S(), 2);
+			var1.a(var3, Blocks.GLOWSTONE.getBlockData(), 2);
 
 			for (int var4 = 0; var4 < 1500; ++var4) {
 				class_cj var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), -var2.nextInt(12), var2.nextInt(8) - var2.nextInt(8));
@@ -31,7 +31,7 @@ public class class_asz extends class_asp {
 					}
 
 					if (var6 == 1) {
-						var1.a(var5, Blocks.GLOWSTONE.S(), 2);
+						var1.a(var5, Blocks.GLOWSTONE.getBlockData(), 2);
 					}
 				}
 			}

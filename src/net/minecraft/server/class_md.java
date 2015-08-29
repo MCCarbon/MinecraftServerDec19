@@ -52,17 +52,16 @@ public class class_md {
 	}
 
 	private static void a(MinecraftServer var0, Collection var1, ProfileLookupCallback var2) {
-		String[] var3 = Iterators.toArray(Iterators.filter(var1.iterator(), new Predicate() {
-			public boolean a(String var1) {
-				return !class_of.b(var1);
-			}
+	      String[] var3 = (String[])Iterators.toArray(Iterators.filter(var1.iterator(), new Predicate() {
+	          public boolean a(String var1) {
+	             return !class_of.b(var1);
+	          }
 
-			// $FF: synthetic method
-			@Override
-			public boolean apply(Object var1) {
-				return this.a((String) var1);
-			}
-		}), String.class);
+	          // $FF: synthetic method
+	          public boolean apply(Object var1) {
+	             return this.a((String)var1);
+	          }
+	       }), String.class);
 		if (var0.ah()) {
 			var0.aG().findProfilesByNames(var3, Agent.MINECRAFT, var2);
 		} else {

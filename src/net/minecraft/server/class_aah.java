@@ -55,9 +55,9 @@ public class class_aah extends class_aas {
 			}
 
 			while (var2 > 0) {
-				var4 = class_rd.a(var2);
+				var4 = EntityExperienceOrb.a(var2);
 				var2 -= var4;
-				a.o.a((new class_rd(a.o, a.s, a.t + 0.5D, a.u + 0.5D, var4)));
+				a.o.a((new EntityExperienceOrb(a.o, a.s, a.t + 0.5D, a.u + 0.5D, var4)));
 			}
 		}
 

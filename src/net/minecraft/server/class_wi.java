@@ -4,7 +4,7 @@ package net.minecraft.server;
 public class class_wi extends class_wa {
 	private int b;
 	private int c;
-	private class_qv d;
+	private EntityAreaEffectCloud d;
 
 	public class_wi(class_vx var1) {
 		super(var1);
@@ -58,7 +58,7 @@ public class class_wi extends class_wa {
 			}
 
 			var7 = MathHelper.c(var7) + 1;
-			d = new class_qv(a.o, var3, var7, var5);
+			d = new EntityAreaEffectCloud(a.o, var3, var7, var5);
 			d.a(a);
 			d.a(var2);
 			d.b(200);

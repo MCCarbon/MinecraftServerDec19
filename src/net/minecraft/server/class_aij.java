@@ -185,7 +185,7 @@ public class class_aij extends class_akx {
 	@Override
 	public class_apn a(int var1) {
 		class_cq var2 = class_cq.b(var1);
-		return (var1 & 8) > 0 ? S().a(a, class_aij.class_a_in_class_aij.a).a(O, var2).a(b, Boolean.valueOf((var1 & 4) > 0)) : S().a(a, class_aij.class_a_in_class_aij.b).a(O, var2);
+		return (var1 & 8) > 0 ? getBlockData().a(a, class_aij.class_a_in_class_aij.a).a(O, var2).a(b, Boolean.valueOf((var1 & 4) > 0)) : getBlockData().a(a, class_aij.class_a_in_class_aij.b).a(O, var2);
 	}
 
 	@Override

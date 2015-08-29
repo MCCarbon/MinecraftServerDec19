@@ -49,7 +49,7 @@ public class class_aao extends class_aas {
 			class_aco var5 = a.a(1);
 			if (this.a(var3, var4, var5) || this.a(var3, var5, var4)) {
 				h.a(var3);
-				var1.b(class_nh.H);
+				var1.b(StatisticList.H);
 				if ((var4 != null) && (var4.b <= 0)) {
 					var4 = null;
 				}

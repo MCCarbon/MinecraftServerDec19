@@ -10,8 +10,8 @@ public class class_abj extends Item {
 
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
-		if (var3.az() && (var3.m instanceof class_vj)) {
-			class_vj var5 = (class_vj) var3.m;
+		if (var3.az() && (var3.m instanceof EntityPig)) {
+			EntityPig var5 = (EntityPig) var3.m;
 			if (var5.cF().h() && ((var1.j() - var1.i()) >= 7)) {
 				var5.cF().g();
 				var1.a(7, var3);
@@ -25,7 +25,7 @@ public class class_abj extends Item {
 			}
 		}
 
-		var3.b(class_nh.c(Item.b(this)));
+		var3.b(StatisticList.c(Item.b(this)));
 		return new class_px(class_pw.b, var1);
 	}
 }

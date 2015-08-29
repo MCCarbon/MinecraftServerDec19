@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 
 public class class_ub extends class_uj {
-	class_vp a;
-	class_rg b;
+	EntityVillagerGolem a;
+	EntityLiving b;
 
-	public class_ub(class_vp var1) {
+	public class_ub(EntityVillagerGolem var1) {
 		super(var1, false, true);
 		a = var1;
 		this.a(1);
@@ -18,7 +18,7 @@ public class class_ub extends class_uj {
 			return false;
 		} else {
 			b = var1.b(a);
-			if (b instanceof class_xu) {
+			if (b instanceof EntityCreeper) {
 				return false;
 			} else if (!this.a(b, false)) {
 				if (e.bj().nextInt(20) == 0) {

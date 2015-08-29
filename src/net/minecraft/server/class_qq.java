@@ -45,7 +45,7 @@ public class class_qq {
 		return this;
 	}
 
-	public void a(class_rg var1, int var2) {
+	public void a(EntityLiving var1, int var2) {
 		if (this == class_qs.j) {
 			if (var1.bu() < var1.bB()) {
 				var1.b(1.0F);
@@ -72,7 +72,7 @@ public class class_qq {
 
 	}
 
-	public void a(Entity var1, Entity var2, class_rg var3, int var4, double var5) {
+	public void a(Entity var1, Entity var2, EntityLiving var3, int var4, double var5) {
 		int var7;
 		if (((this != class_qs.f) || var3.bt()) && ((this != class_qs.g) || !var3.bt())) {
 			if (((this == class_qs.g) && !var3.bt()) || ((this == class_qs.f) && var3.bt())) {
@@ -134,7 +134,7 @@ public class class_qq {
 		return this;
 	}
 
-	public void a(class_rg var1, class_rt var2, int var3) {
+	public void a(EntityLiving var1, class_rt var2, int var3) {
 		Iterator var4 = a.entrySet().iterator();
 
 		while (var4.hasNext()) {
@@ -147,7 +147,7 @@ public class class_qq {
 
 	}
 
-	public void b(class_rg var1, class_rt var2, int var3) {
+	public void b(EntityLiving var1, class_rt var2, int var3) {
 		Iterator var4 = a.entrySet().iterator();
 
 		while (var4.hasNext()) {

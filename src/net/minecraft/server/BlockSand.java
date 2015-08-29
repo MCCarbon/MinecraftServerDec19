@@ -20,7 +20,7 @@ public class BlockSand extends class_ajz {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, BlockSand.class_a_in_class_ams.a(var1));
+		return getBlockData().a(a, BlockSand.class_a_in_class_ams.a(var1));
 	}
 
 	@Override

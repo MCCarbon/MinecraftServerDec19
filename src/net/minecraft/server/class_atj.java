@@ -167,7 +167,7 @@ public class class_atj extends class_asa {
 	}
 
 	static {
-		a = Blocks.LOG2.S().a(class_alq.b, class_aly.class_a_in_class_aly.f);
-		b = Blocks.LEAVES2.S().a(class_alp.P, class_aly.class_a_in_class_aly.f).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG2.getBlockData().a(class_alq.b, class_aly.class_a_in_class_aly.f);
+		b = Blocks.LEAVES2.getBlockData().a(class_alp.P, class_aly.class_a_in_class_aly.f).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

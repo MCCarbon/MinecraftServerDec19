@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 
 public class class_st extends class_tc {
-	private final class_yp c;
+	private final EntityVillager c;
 	private boolean d;
 	private boolean e;
 	private int f;
 
-	public class_st(class_yp var1, double var2) {
+	public class_st(EntityVillager var1, double var2) {
 		super(var1, var2, 16);
 		c = var1;
 	}
@@ -61,13 +61,13 @@ public class class_st extends class_tc {
 					boolean var8 = false;
 					if (var7 != null) {
 						if (var7.b() == Items.P) {
-							var1.a(var2, Blocks.WHEAT.S(), 3);
+							var1.a(var2, Blocks.WHEAT.getBlockData(), 3);
 							var8 = true;
 						} else if (var7.b() == Items.bX) {
-							var1.a(var2, Blocks.POTATOES.S(), 3);
+							var1.a(var2, Blocks.POTATOES.getBlockData(), 3);
 							var8 = true;
 						} else if (var7.b() == Items.bW) {
-							var1.a(var2, Blocks.CARROTS.S(), 3);
+							var1.a(var2, Blocks.CARROTS.getBlockData(), 3);
 							var8 = true;
 						}
 					}

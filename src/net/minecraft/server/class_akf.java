@@ -55,7 +55,7 @@ public class class_akf extends class_aif {
 					var11.a(var6.b(), var6.i());
 					var11.o_();
 					var1.h(var2);
-					var4.b(class_nh.U);
+					var4.b(StatisticList.U);
 					if (!var4.bI.d) {
 						--var6.b;
 					}

@@ -20,10 +20,10 @@ public class class_ahm extends class_ahb {
 		as.C = 25;
 		as.B = 4;
 		if (!var2) {
-			at.add(new class_ahb.class_c_in_class_ahb(class_vi.class, 2, 1, 1));
+			at.add(new class_ahb.class_c_in_class_ahb(EntityOcelot.class, 2, 1, 1));
 		}
 
-		au.add(new class_ahb.class_c_in_class_ahb(class_vd.class, 10, 4, 4));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityChicken.class, 10, 4, 4));
 	}
 
 	@Override
@@ -55,8 +55,8 @@ public class class_ahm extends class_ahb {
 	}
 
 	static {
-		aE = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.d);
-		aF = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
-		aG = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
+		aE = Blocks.LOG.getBlockData().a(class_alv.b, class_aly.class_a_in_class_aly.d);
+		aF = Blocks.LEAVES.getBlockData().a(class_alu.P, class_aly.class_a_in_class_aly.d).a(class_alc.b, Boolean.valueOf(false));
+		aG = Blocks.LEAVES.getBlockData().a(class_alu.P, class_aly.class_a_in_class_aly.a).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

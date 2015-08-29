@@ -7,7 +7,7 @@ import com.google.common.base.Predicates;
 
 public class class_sg extends class_sr {
 	private final Predicate c;
-	protected class_rn a;
+	protected EntityCreature a;
 	private double d;
 	private double e;
 	protected Entity b;
@@ -17,11 +17,11 @@ public class class_sg extends class_sr {
 	private Class i;
 	private Predicate j;
 
-	public class_sg(class_rn var1, Class var2, float var3, double var4, double var6) {
+	public class_sg(EntityCreature var1, Class var2, float var3, double var4, double var6) {
 		this(var1, var2, Predicates.alwaysTrue(), var3, var4, var6);
 	}
 
-	public class_sg(class_rn var1, Class var2, Predicate var3, float var4, double var5, double var7) {
+	public class_sg(EntityCreature var1, Class var2, Predicate var3, float var4, double var5, double var7) {
 		c = new Predicate() {
 			public boolean a(Entity var1) {
 				return var1.al() && a.v().a(var1);

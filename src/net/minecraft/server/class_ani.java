@@ -61,7 +61,7 @@ public class class_ani extends BlockPlant implements class_ain {
 					var2 = var2.a(class_cq.class_c_in_class_cq.a.a(var4));
 					Block var9 = var1.p(var2.b()).c();
 					if ((var1.p(var2).c().J == class_avq.a) && ((var9 == Blocks.FARMLAND) || (var9 == Blocks.DIRT) || (var9 == Blocks.GRASS))) {
-						var1.a(var2, N.S());
+						var1.a(var2, N.getBlockData());
 					}
 				}
 			}
@@ -137,7 +137,7 @@ public class class_ani extends BlockPlant implements class_ain {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override

@@ -3,9 +3,9 @@ package net.minecraft.server;
 
 public class class_aaj extends class_zu {
 	private class_pp a;
-	private class_vf f;
+	private EntityHorse f;
 
-	public class_aaj(class_pp var1, final class_pp var2, final class_vf var3, class_yu var4) {
+	public class_aaj(class_pp var1, final class_pp var2, final EntityHorse var3, class_yu var4) {
 		a = var2;
 		f = var3;
 		byte var5 = 3;
@@ -20,7 +20,7 @@ public class class_aaj extends class_zu {
 		this.a(new class_aas(var2, 1, 8, 36) {
 			@Override
 			public boolean a(class_aco var1) {
-				return super.a(var1) && var3.dh() && class_vf.a(var1.b());
+				return super.a(var1) && var3.dh() && EntityHorse.a(var1.b());
 			}
 		});
 		int var7;

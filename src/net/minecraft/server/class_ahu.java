@@ -7,7 +7,7 @@ public class class_ahu extends class_ahb {
 
 	protected class_ahu(int var1) {
 		super(var1);
-		au.add(new class_ahb.class_c_in_class_ahb(class_vf.class, 1, 2, 6));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityHorse.class, 1, 2, 6));
 		as.A = 1;
 		as.B = 4;
 		as.C = 20;
@@ -51,13 +51,13 @@ public class class_ahu extends class_ahb {
 
 		@Override
 		public void a(class_ago var1, Random var2, class_arl var3, int var4, int var5, double var6) {
-			ak = Blocks.GRASS.S();
-			al = Blocks.DIRT.S();
+			ak = Blocks.GRASS.getBlockData();
+			al = Blocks.DIRT.getBlockData();
 			if (var6 > 1.75D) {
-				ak = Blocks.STONE.S();
-				al = Blocks.STONE.S();
+				ak = Blocks.STONE.getBlockData();
+				al = Blocks.STONE.getBlockData();
 			} else if (var6 > -0.5D) {
-				ak = Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
+				ak = Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.b);
 			}
 
 			this.b(var1, var2, var3, var4, var5, var6);

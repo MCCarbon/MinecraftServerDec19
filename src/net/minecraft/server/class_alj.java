@@ -19,7 +19,7 @@ public class class_alj extends Block {
 
 	public static boolean d(class_apn var0) {
 		Block var1 = var0.c();
-		return (var0 == Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.a)) || (var1 == Blocks.COBBLESTONE) || (var1 == Blocks.STONE_BRICK);
+		return (var0 == Blocks.STONE.getBlockData().a(class_anj.a, class_anj.class_a_in_class_anj.a)) || (var1 == Blocks.COBBLESTONE) || (var1 == Blocks.STONE_BRICK);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class class_alj extends Block {
 	@Override
 	public void a(class_ago var1, class_cj var2, class_apn var3, float var4, int var5) {
 		if (!var1.D && var1.S().b("doTileDrops")) {
-			class_yg var6 = new class_yg(var1);
+			EntitySilverfish var6 = new EntitySilverfish(var1);
 			var6.b(var2.n() + 0.5D, var2.o(), var2.p() + 0.5D, 0.0F, 0.0F);
 			var1.a(var6);
 			var6.A();
@@ -58,7 +58,7 @@ public class class_alj extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_alj.class_a_in_class_alj.a(var1));
+		return getBlockData().a(a, class_alj.class_a_in_class_alj.a(var1));
 	}
 
 	@Override
@@ -114,37 +114,37 @@ public class class_alj extends Block {
 		a(0, "stone") {
 			@Override
 			public class_apn d() {
-				return Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.a);
+				return Blocks.STONE.getBlockData().a(class_anj.a, class_anj.class_a_in_class_anj.a);
 			}
 		},
 		b(1, "cobblestone", "cobble") {
 			@Override
 			public class_apn d() {
-				return Blocks.COBBLESTONE.S();
+				return Blocks.COBBLESTONE.getBlockData();
 			}
 		},
 		c(2, "stone_brick", "brick") {
 			@Override
 			public class_apn d() {
-				return Blocks.STONE_BRICK.S().a(class_ank.a, class_ank.class_a_in_class_ank.a);
+				return Blocks.STONE_BRICK.getBlockData().a(class_ank.a, class_ank.class_a_in_class_ank.a);
 			}
 		},
 		d(3, "mossy_brick", "mossybrick") {
 			@Override
 			public class_apn d() {
-				return Blocks.STONE_BRICK.S().a(class_ank.a, class_ank.class_a_in_class_ank.b);
+				return Blocks.STONE_BRICK.getBlockData().a(class_ank.a, class_ank.class_a_in_class_ank.b);
 			}
 		},
 		e(4, "cracked_brick", "crackedbrick") {
 			@Override
 			public class_apn d() {
-				return Blocks.STONE_BRICK.S().a(class_ank.a, class_ank.class_a_in_class_ank.c);
+				return Blocks.STONE_BRICK.getBlockData().a(class_ank.a, class_ank.class_a_in_class_ank.c);
 			}
 		},
 		f(5, "chiseled_brick", "chiseledbrick") {
 			@Override
 			public class_apn d() {
-				return Blocks.STONE_BRICK.S().a(class_ank.a, class_ank.class_a_in_class_ank.d);
+				return Blocks.STONE_BRICK.getBlockData().a(class_ank.a, class_ank.class_a_in_class_ank.d);
 			}
 		};
 

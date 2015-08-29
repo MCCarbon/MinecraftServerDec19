@@ -74,7 +74,7 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 		k = 0;
 		g.clear();
 		j = true;
-		class_aoh.class_a_in_class_aoh var5 = new class_aoh.class_a_in_class_aoh(class_vl.a(class_abt.a));
+		class_aoh.class_a_in_class_aoh var5 = new class_aoh.class_a_in_class_aoh(EntitySheep.a(class_abt.a));
 		g.add(var5);
 		boolean var6 = true;
 		class_cj.class_a_in_class_cj var7 = new class_cj.class_a_in_class_cj();
@@ -84,7 +84,7 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 			class_apn var9 = b.p(var7.c(var2, var8, var4));
 			float[] var10;
 			if (var9.c() == Blocks.STAINED_GLASS) {
-				var10 = class_vl.a((class_abt) var9.b(BlockStainedGlass.a));
+				var10 = EntitySheep.a((class_abt) var9.b(BlockStainedGlass.a));
 			} else {
 				if (var9.c() != Blocks.STAINED_GLASS_PANE) {
 					if ((var9.c().r() >= 15) && (var9.c() != Blocks.BEDROCK)) {
@@ -97,7 +97,7 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 					continue;
 				}
 
-				var10 = class_vl.a((class_abt) var9.b(BlockStainedGlassPane.a));
+				var10 = EntitySheep.a((class_abt) var9.b(BlockStainedGlassPane.a));
 			}
 
 			if (!var6) {
@@ -158,7 +158,7 @@ public class class_aoh extends class_aow implements class_ks, class_pp {
 	public Packet x_() {
 		class_dn var1 = new class_dn();
 		this.b(var1);
-		return new class_ft(c, 3, var1);
+		return new PacketPlayOutTileEntityData(c, 3, var1);
 	}
 
 	private static class_qq f(int var0) {

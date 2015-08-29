@@ -375,7 +375,7 @@ public class class_wy extends Entity {
 				c.x += var6 * var10;
 				var1 = 3;
 			} else if (aw > 0) {
-				class_xg var13 = new class_xg(o, s, t, u, this.k());
+				EntityItem var13 = new EntityItem(o, s, t, u, this.k());
 				double var3 = b.s - s;
 				double var5 = b.t - t;
 				double var7 = b.u - u;
@@ -385,7 +385,7 @@ public class class_wy extends Entity {
 				var13.w = (var5 * var11) + (MathHelper.a(var9) * 0.08D);
 				var13.x = var7 * var11;
 				o.a(var13);
-				b.o.a((new class_rd(b.o, b.s, b.t + 0.5D, b.u + 0.5D, V.nextInt(6) + 1)));
+				b.o.a((new EntityExperienceOrb(b.o, b.s, b.t + 0.5D, b.u + 0.5D, V.nextInt(6) + 1)));
 				var1 = 1;
 			}
 
@@ -408,16 +408,16 @@ public class class_wy extends Entity {
 		var4 = MathHelper.a(var4, 0.0F, 1.0F);
 		var5 = MathHelper.a(var5, 0.0F, 1.0F);
 		if (var1 < var4) {
-			b.b(class_nh.E);
+			b.b(StatisticList.E);
 			return ((class_wz) class_oi.a(V, d)).a(V);
 		} else {
 			var1 -= var4;
 			if (var1 < var5) {
-				b.b(class_nh.F);
+				b.b(StatisticList.F);
 				return ((class_wz) class_oi.a(V, e)).a(V);
 			} else {
 				float var10000 = var1 - var5;
-				b.b(class_nh.D);
+				b.b(StatisticList.D);
 				return ((class_wz) class_oi.a(V, f)).a(V);
 			}
 		}

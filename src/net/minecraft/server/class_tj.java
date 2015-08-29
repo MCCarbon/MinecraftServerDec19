@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 
 public class class_tj extends class_sr {
-	private class_rn b;
+	private EntityCreature b;
 	protected double a;
 	private double c;
 	private double d;
 	private double e;
 
-	public class_tj(class_rn var1, double var2) {
+	public class_tj(EntityCreature var1, double var2) {
 		b = var1;
 		a = var2;
 		this.a(1);

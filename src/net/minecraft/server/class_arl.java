@@ -6,7 +6,7 @@ public class class_arl {
 	private final class_apn b;
 
 	public class_arl() {
-		b = Blocks.AIR.S();
+		b = Blocks.AIR.getBlockData();
 	}
 
 	public class_apn a(int var1, int var2, int var3) {

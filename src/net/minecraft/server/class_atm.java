@@ -27,9 +27,9 @@ public class class_atm extends class_asp {
 				while (var5.hasNext()) {
 					class_cj.class_a_in_class_cj var6 = (class_cj.class_a_in_class_cj) var5.next();
 					if ((var6.c((double) var3.n(), (double) var6.o(), (double) var3.p()) <= (var4 * var4) + 1) && (var6.o() < b.d())) {
-						this.a(var1, var6, Blocks.OBSIDIAN.S());
+						this.a(var1, var6, Blocks.OBSIDIAN.getBlockData());
 					} else if (var6.o() > 65) {
-						this.a(var1, var6, Blocks.AIR.S());
+						this.a(var1, var6, Blocks.AIR.getBlockData());
 					}
 				}
 
@@ -37,23 +37,23 @@ public class class_atm extends class_asp {
 					for (int var7 = -2; var7 <= 2; ++var7) {
 						for (int var9 = -2; var9 <= 2; ++var9) {
 							if ((MathHelper.a(var7) == 2) || (MathHelper.a(var9) == 2)) {
-								this.a(var1, new class_cj(var3.n() + var7, b.d(), var3.p() + var9), Blocks.IRON_BARS.S());
-								this.a(var1, new class_cj(var3.n() + var7, b.d() + 1, var3.p() + var9), Blocks.IRON_BARS.S());
-								this.a(var1, new class_cj(var3.n() + var7, b.d() + 2, var3.p() + var9), Blocks.IRON_BARS.S());
+								this.a(var1, new class_cj(var3.n() + var7, b.d(), var3.p() + var9), Blocks.IRON_BARS.getBlockData());
+								this.a(var1, new class_cj(var3.n() + var7, b.d() + 1, var3.p() + var9), Blocks.IRON_BARS.getBlockData());
+								this.a(var1, new class_cj(var3.n() + var7, b.d() + 2, var3.p() + var9), Blocks.IRON_BARS.getBlockData());
 							}
 
-							this.a(var1, new class_cj(var3.n() + var7, b.d() + 3, var3.p() + var9), Blocks.IRON_BARS.S());
+							this.a(var1, new class_cj(var3.n() + var7, b.d() + 3, var3.p() + var9), Blocks.IRON_BARS.getBlockData());
 						}
 					}
 				}
 
 				if (a) {
-					class_vw var8 = new class_vw(var1);
+					EntityEnderCrystal var8 = new EntityEnderCrystal(var1);
 					var8.b(var3.n() + 0.5F, b.d() + 1, var3.p() + 0.5F, var2.nextFloat() * 360.0F, 0.0F);
 					var1.a(var8);
 				}
 
-				this.a(var1, new class_cj(var3.n(), b.d(), var3.p()), Blocks.BEDROCK.S());
+				this.a(var1, new class_cj(var3.n(), b.d(), var3.p()), Blocks.BEDROCK.getBlockData());
 				return true;
 			}
 		}

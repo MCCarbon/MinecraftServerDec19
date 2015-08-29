@@ -77,7 +77,7 @@ public class class_ana extends Block {
 	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
 		a(var1, var3, new class_aco(Items.aF, ((Integer) var4.b(a)).intValue() + 1, 0));
 		var1.g(var3);
-		var2.b(class_nh.a(Block.a(this)));
+		var2.b(StatisticList.a(Block.a(this)));
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class class_ana extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf((var1 & 7) + 1));
+		return getBlockData().a(a, Integer.valueOf((var1 & 7) + 1));
 	}
 
 	@Override

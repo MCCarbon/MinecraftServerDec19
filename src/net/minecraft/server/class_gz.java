@@ -14,7 +14,7 @@ public class class_gz implements Packet {
 
 	public class_gz(class_qh var1, class_gz.class_a_in_class_gz var2) {
 		a = var2;
-		class_rg var3 = var1.c();
+		EntityLiving var3 = var1.c();
 		switch (class_gz.SyntheticClass_1.a[var2.ordinal()]) {
 			case 1:
 				d = var1.f();

@@ -32,7 +32,7 @@ public class class_adb extends Item {
 	}
 
 	@Override
-	public class_aco a(class_aco var1, class_ago var2, class_rg var3) {
+	public class_aco a(class_aco var1, class_ago var2, EntityLiving var3) {
 		class_yu var4 = var3 instanceof class_yu ? (class_yu) var3 : null;
 		if ((var4 == null) || !var4.bI.d) {
 			--var1.b;
@@ -49,7 +49,7 @@ public class class_adb extends Item {
 		}
 
 		if (var4 != null) {
-			var4.b(class_nh.c(Item.b(this)));
+			var4.b(StatisticList.c(Item.b(this)));
 		}
 
 		if ((var4 == null) || !var4.bI.d) {

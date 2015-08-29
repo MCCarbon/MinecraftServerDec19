@@ -85,7 +85,7 @@ public class class_abz extends Item {
 
 							for (var32 = 1; var32 <= 3; ++var32) {
 								var34 = var28.a(var24, var32);
-								var3.a(var34, Blocks.END_PORTAL.S(), 2);
+								var3.a(var34, Blocks.END_PORTAL.getBlockData(), 2);
 							}
 						}
 					}
@@ -107,7 +107,7 @@ public class class_abz extends Item {
 			if (!var2.D) {
 				class_cj var6 = var2.a("Stronghold", new class_cj(var3));
 				if (var6 != null) {
-					class_yz var7 = new class_yz(var2, var3.s, var3.t, var3.u);
+					EntityEnderSignal var7 = new EntityEnderSignal(var2, var3.s, var3.t, var3.u);
 					var7.a(var6);
 					var2.a(var7);
 					var2.a((Entity) var3, "random.bow", 0.5F, 0.4F / ((h.nextFloat() * 0.4F) + 0.8F));
@@ -116,7 +116,7 @@ public class class_abz extends Item {
 						--var1.b;
 					}
 
-					var3.b(class_nh.c(Item.b(this)));
+					var3.b(StatisticList.c(Item.b(this)));
 					return new class_px(class_pw.a, var1);
 				}
 			}

@@ -44,7 +44,7 @@ public class class_ajs extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		super.a(var1, var2, var3, var4, var5);
 		if (var5.s()) {
 			TileEntity var6 = var1.s(var2);

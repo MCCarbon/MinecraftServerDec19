@@ -61,8 +61,8 @@ public abstract class class_air extends class_ajk {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return a(var1, var2, var3.d()) ? S().a(b, var3).a(a, Boolean.valueOf(false)) : S().a(b, class_cq.a).a(a, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return a(var1, var2, var3.d()) ? getBlockData().a(b, var3).a(a, Boolean.valueOf(false)) : getBlockData().a(b, class_cq.a).a(a, Boolean.valueOf(false));
 	}
 
 	@Override
@@ -199,7 +199,7 @@ public abstract class class_air extends class_ajk {
 
 	private void g(class_ago var1, class_cj var2, class_apn var3) {
 		this.d(var3);
-		List var4 = var1.a(class_yx.class, new class_ayk(var2.n() + B, var2.o() + C, var2.p() + D, var2.n() + E, var2.o() + F, var2.p() + G));
+		List var4 = var1.a(EntityArrow.class, new class_ayk(var2.n() + B, var2.o() + C, var2.p() + D, var2.n() + E, var2.o() + F, var2.p() + G));
 		boolean var5 = !var4.isEmpty();
 		boolean var6 = ((Boolean) var3.b(a)).booleanValue();
 		if (var5 && !var6) {
@@ -251,7 +251,7 @@ public abstract class class_air extends class_ajk {
 				var2 = class_cq.b;
 		}
 
-		return S().a(b, var2).a(a, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(b, var2).a(a, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

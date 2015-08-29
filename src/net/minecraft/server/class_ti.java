@@ -5,7 +5,7 @@ public class class_ti extends class_sl {
 	boolean g;
 	int h;
 
-	public class_ti(class_rh var1, boolean var2) {
+	public class_ti(EntityInsentient var1, boolean var2) {
 		super(var1);
 		a = var1;
 		g = var2;

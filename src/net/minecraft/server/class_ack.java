@@ -29,6 +29,6 @@ public class class_ack extends Item {
 	}
 
 	private class_wt a(class_ago var1, class_cj var2, class_cq var3) {
-		return a == class_ww.class ? new class_ww(var1, var2, var3) : (a == class_wu.class ? new class_wu(var1, var2, var3) : null);
+		return a == EntityPainting.class ? new EntityPainting(var1, var2, var3) : (a == EntityItemFrame.class ? new EntityItemFrame(var1, var2, var3) : null);
 	}
 }

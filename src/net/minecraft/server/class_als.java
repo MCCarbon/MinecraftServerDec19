@@ -39,7 +39,7 @@ public class class_als extends class_aif {
 				class_aoy var12 = (class_aoy) var11;
 				var12.b();
 				var12.a(var1, var2);
-				var4.b(class_nh.T);
+				var4.b(StatisticList.T);
 			}
 
 			return true;
@@ -52,7 +52,7 @@ public class class_als extends class_aif {
 			TileEntity var4 = var1.s(var2);
 			if (var4 instanceof class_aoy) {
 				((class_aoy) var4).a(var1, var2);
-				var3.b(class_nh.S);
+				var3.b(StatisticList.S);
 			}
 
 		}

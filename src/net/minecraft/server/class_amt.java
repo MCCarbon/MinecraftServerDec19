@@ -22,7 +22,7 @@ public class class_amt extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_amt.class_a_in_class_amt.a(var1));
+		return getBlockData().a(a, class_amt.class_a_in_class_amt.a(var1));
 	}
 
 	@Override

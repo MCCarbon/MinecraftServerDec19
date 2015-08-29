@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.List;
 
 public class class_tv extends class_sr {
-	private class_yp a;
-	private class_vp b;
+	private EntityVillager a;
+	private EntityVillagerGolem b;
 	private int c;
 	private boolean d;
 
-	public class_tv(class_yp var1) {
+	public class_tv(EntityVillager var1) {
 		a = var1;
 		this.a(3);
 	}
@@ -21,14 +21,14 @@ public class class_tv extends class_sr {
 		} else if (!a.o.z()) {
 			return false;
 		} else {
-			List var1 = a.o.a(class_vp.class, a.aX().b(6.0D, 2.0D, 6.0D));
+			List var1 = a.o.a(EntityVillagerGolem.class, a.aX().b(6.0D, 2.0D, 6.0D));
 			if (var1.isEmpty()) {
 				return false;
 			} else {
 				Iterator var2 = var1.iterator();
 
 				while (var2.hasNext()) {
-					class_vp var3 = (class_vp) var2.next();
+					EntityVillagerGolem var3 = (EntityVillagerGolem) var2.next();
 					if (var3.cF() > 0) {
 						b = var3;
 						break;

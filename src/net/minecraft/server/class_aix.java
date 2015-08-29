@@ -60,8 +60,8 @@ public class class_aix extends Block {
 				}
 
 				if (var6 && a(var1, var2.a(), (class_cq) null) && var1.d(var2.b(2))) {
-					var1.a(var2, Blocks.CHORUS_PLANT.S(), 2);
-					var1.a(var2.a(), S().a(a, Integer.valueOf(var5)), 2);
+					var1.a(var2, Blocks.CHORUS_PLANT.getBlockData(), 2);
+					var1.a(var2.a(), getBlockData().a(a, Integer.valueOf(var5)), 2);
 				} else if (var5 < 4) {
 					var9 = var4.nextInt(4);
 					boolean var15 = false;
@@ -73,13 +73,13 @@ public class class_aix extends Block {
 						class_cq var12 = class_cq.class_c_in_class_cq.a.a(var4);
 						class_cj var13 = var2.a(var12);
 						if (var1.d(var13) && var1.d(var13.b()) && a(var1, var13, var12.d())) {
-							var1.a(var13, S().a(a, Integer.valueOf(var5 + 1)), 2);
+							var1.a(var13, getBlockData().a(a, Integer.valueOf(var5 + 1)), 2);
 							var15 = true;
 						}
 					}
 
 					if (var15) {
-						var1.a(var2, Blocks.CHORUS_PLANT.S(), 2);
+						var1.a(var2, Blocks.CHORUS_PLANT.getBlockData(), 2);
 					} else {
 						var1.a(var2, var3.a(a, Integer.valueOf(5)), 2);
 					}
@@ -168,7 +168,7 @@ public class class_aix extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override
@@ -187,7 +187,7 @@ public class class_aix extends Block {
 	}
 
 	public static void a(class_ago var0, class_cj var1, Random var2, int var3) {
-		var0.a(var1, Blocks.CHORUS_PLANT.S(), 2);
+		var0.a(var1, Blocks.CHORUS_PLANT.getBlockData(), 2);
 		a(var0, var1, var2, var1, var3, 0);
 	}
 
@@ -203,7 +203,7 @@ public class class_aix extends Block {
 				return;
 			}
 
-			var0.a(var8, Blocks.CHORUS_PLANT.S(), 2);
+			var0.a(var8, Blocks.CHORUS_PLANT.getBlockData(), 2);
 		}
 
 		boolean var12 = false;
@@ -218,14 +218,14 @@ public class class_aix extends Block {
 				class_cj var11 = var1.b(var6).a(var10);
 				if ((Math.abs(var11.n() - var3.n()) < var4) && (Math.abs(var11.p() - var3.p()) < var4) && var0.d(var11) && var0.d(var11.b()) && a(var0, var11, var10.d())) {
 					var12 = true;
-					var0.a(var11, Blocks.CHORUS_PLANT.S(), 2);
+					var0.a(var11, Blocks.CHORUS_PLANT.getBlockData(), 2);
 					a(var0, var11, var2, var3, var4, var5 + 1);
 				}
 			}
 		}
 
 		if (!var12) {
-			var0.a(var1.b(var6), Blocks.CHORUS_FLOWER.S().a(a, Integer.valueOf(5)), 2);
+			var0.a(var1.b(var6), Blocks.CHORUS_FLOWER.getBlockData().a(a, Integer.valueOf(5)), 2);
 		}
 
 	}

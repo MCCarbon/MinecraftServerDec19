@@ -29,7 +29,7 @@ public abstract class class_afj {
 		a = var3;
 	}
 
-	public Iterable a(class_rg var1) {
+	public Iterable a(EntityLiving var1) {
 		ArrayList var2 = Lists.newArrayList();
 		class_rc[] var3 = a;
 		int var4 = var3.length;
@@ -95,10 +95,10 @@ public abstract class class_afj {
 		return c.a(var1.b());
 	}
 
-	public void a(class_rg var1, Entity var2, int var3) {
+	public void a(EntityLiving var1, Entity var2, int var3) {
 	}
 
-	public void b(class_rg var1, Entity var2, int var3) {
+	public void b(EntityLiving var1, Entity var2, int var3) {
 	}
 
 	public static void e() {

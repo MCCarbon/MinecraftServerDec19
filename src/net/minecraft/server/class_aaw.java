@@ -34,7 +34,7 @@ public class class_aaw extends Item {
 						if (!var3.D) {
 							var3.g(var11);
 							var3.g(var12);
-							class_ws var21 = new class_ws(var3, var14 + 0.5D, var16, var18 + 0.5D);
+							EntityArmorStand var21 = new EntityArmorStand(var3, var14 + 0.5D, var16, var18 + 0.5D);
 							float var22 = MathHelper.d((MathHelper.g(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
 							var21.b(var14 + 0.5D, var16, var18 + 0.5D, var22, 0.0F);
 							this.a(var21, var3.s);
@@ -50,7 +50,7 @@ public class class_aaw extends Item {
 		}
 	}
 
-	private void a(class_ws var1, Random var2) {
+	private void a(EntityArmorStand var1, Random var2) {
 		class_dc var3 = var1.u();
 		float var5 = var2.nextFloat() * 5.0F;
 		float var6 = (var2.nextFloat() * 20.0F) - 10.0F;

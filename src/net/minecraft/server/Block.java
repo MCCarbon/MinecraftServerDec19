@@ -108,7 +108,7 @@ public class Block {
 	}
 
 	public class_apn a(int var1) {
-		return S();
+		return getBlockData();
 	}
 
 	public int c(class_apn var1) {
@@ -328,7 +328,7 @@ public class Block {
 			double var4 = var0.s.nextFloat() * var3 + ((1.0F - var3) * 0.5D);
 			double var6 = var0.s.nextFloat() * var3 + ((1.0F - var3) * 0.5D);
 			double var8 = var0.s.nextFloat() * var3 + ((1.0F - var3) * 0.5D);
-			class_xg var10 = new class_xg(var0, var1.n() + var4, var1.o() + var6, var1.p() + var8, var2);
+			EntityItem var10 = new EntityItem(var0, var1.n() + var4, var1.o() + var6, var1.p() + var8, var2);
 			var10.o();
 			var0.a(var10);
 		}
@@ -337,9 +337,9 @@ public class Block {
 	protected void b(class_ago var1, class_cj var2, int var3) {
 		if (!var1.D) {
 			while (var3 > 0) {
-				int var4 = class_rd.a(var3);
+				int var4 = EntityExperienceOrb.a(var3);
 				var3 -= var4;
-				var1.a((new class_rd(var1, var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D, var4)));
+				var1.a((new EntityExperienceOrb(var1, var2.n() + 0.5D, var2.o() + 0.5D, var2.p() + 0.5D, var4)));
 			}
 		}
 
@@ -478,7 +478,7 @@ public class Block {
 	public void a(class_ago var1, class_cj var2, Entity var3) {
 	}
 
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		return this.a(var7);
 	}
 
@@ -535,7 +535,7 @@ public class Block {
 	}
 
 	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
-		var2.b(class_nh.a(a(this)));
+		var2.b(StatisticList.a(a(this)));
 		var2.a(0.025F);
 		if (K() && (class_afl.a(class_afn.q, var6) > 0)) {
 			class_aco var8 = this.i(var4);
@@ -567,7 +567,7 @@ public class Block {
 		return this.a(var2);
 	}
 
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 	}
 
 	public boolean g() {
@@ -663,7 +663,7 @@ public class Block {
 		N = var1;
 	}
 
-	public final class_apn S() {
+	public final class_apn getBlockData() {
 		return N;
 	}
 
@@ -732,7 +732,7 @@ public class Block {
 		a(50, "torch", (new class_anr()).c(0.0F).a(0.9375F).a(f).c("torch"));
 		a(51, "fire", (new BlockFire()).c(0.0F).a(1.0F).a(l).c("fire").M());
 		a(52, "mob_spawner", (new class_ali()).c(5.0F).a(j).c("mobSpawner").M());
-		a(53, "oak_stairs", (new class_anf(var1.S().a(class_aly.a, class_aly.class_a_in_class_aly.a))).c("stairsWood"));
+		a(53, "oak_stairs", (new class_anf(var1.getBlockData().a(class_aly.a, class_aly.class_a_in_class_aly.a))).c("stairsWood"));
 		a(54, "chest", (new BlockChest(0)).c(2.5F).a(f).c("chest"));
 		a(55, "redstone_wire", (new BlockRedstoneWire()).c(0.0F).a(e).c("redstoneDust").M());
 		a(56, "diamond_ore", (new class_alw()).c(3.0F).b(5.0F).a(i).c("oreDiamond"));
@@ -747,7 +747,7 @@ public class Block {
 		a(64, "wooden_door", (new class_ajn(class_avq.d)).c(3.0F).a(f).c("doorOak").M());
 		a(65, "ladder", (new class_alb()).c(0.4F).a(o).c("ladder"));
 		a(66, "rail", (new class_ami()).c(0.7F).a(j).c("rail"));
-		a(67, "stone_stairs", (new class_anf(var0.S())).c("stairsStone"));
+		a(67, "stone_stairs", (new class_anf(var0.getBlockData())).c("stairsStone"));
 		a(68, "wall_sign", (new class_any()).c(1.0F).a(f).c("sign").M());
 		a(69, "lever", (new class_ale()).c(0.5F).a(f).c("lever"));
 		a(70, "stone_pressure_plate", (new class_amd(class_avq.e, class_amd.class_a_in_class_amd.b)).c(0.5F).a(i).c("pressurePlateStone"));
@@ -791,14 +791,14 @@ public class Block {
 		a(105, "melon_stem", (new class_ani(var9)).c(0.0F).a(f).c("pumpkinStem"));
 		a(106, "vine", (new class_anw()).c(0.2F).a(h).c("vine"));
 		a(107, "fence_gate", (new class_akc(class_aly.class_a_in_class_aly.a)).c(2.0F).b(5.0F).a(f).c("fenceGate"));
-		a(108, "brick_stairs", (new class_anf(var5.S())).c("stairsBrick"));
-		a(109, "stone_brick_stairs", (new class_anf(var8.S().a(class_ank.a, class_ank.class_a_in_class_ank.a))).c("stairsStoneBrickSmooth"));
+		a(108, "brick_stairs", (new class_anf(var5.getBlockData())).c("stairsBrick"));
+		a(109, "stone_brick_stairs", (new class_anf(var8.getBlockData().a(class_ank.a, class_ank.class_a_in_class_ank.a))).c("stairsStoneBrickSmooth"));
 		a(110, "mycelium", (new BlockMycel()).c(0.6F).a(h).c("mycel"));
 		a(111, "waterlily", (new class_anz()).c(0.0F).a(h).c("waterlily"));
 		Block var10 = (new class_alm()).c(2.0F).b(10.0F).a(i).c("netherBrick").a(class_abp.b);
 		a(112, "nether_brick", var10);
 		a(113, "nether_brick_fence", (new class_akb(class_avq.e, class_avr.K)).c(2.0F).b(10.0F).a(i).c("netherFence"));
-		a(114, "nether_brick_stairs", (new class_anf(var10.S())).c("stairsNetherBrick"));
+		a(114, "nether_brick_stairs", (new class_anf(var10.getBlockData())).c("stairsNetherBrick"));
 		a(115, "nether_wart", (new class_aln()).c("netherStalk"));
 		a(116, "enchanting_table", (new class_ajs()).c(5.0F).b(2000.0F).c("enchantmentTable"));
 		a(117, "brewing_stand", (new class_aip()).c(0.5F).a(0.125F).c("brewingStand"));
@@ -812,15 +812,15 @@ public class Block {
 		a(125, "double_wooden_slab", (new class_aki()).c(2.0F).b(5.0F).a(f).c("woodSlab"));
 		a(126, "wooden_slab", (new class_akt()).c(2.0F).b(5.0F).a(f).c("woodSlab"));
 		a(127, "cocoa", (new class_aja()).c(0.2F).b(5.0F).a(f).c("cocoa"));
-		a(128, "sandstone_stairs", (new class_anf(var2.S().a(class_amt.a, class_amt.class_a_in_class_amt.c))).c("stairsSandStone"));
+		a(128, "sandstone_stairs", (new class_anf(var2.getBlockData().a(class_amt.a, class_amt.class_a_in_class_amt.c))).c("stairsSandStone"));
 		a(129, "emerald_ore", (new class_alw()).c(3.0F).b(5.0F).a(i).c("oreEmerald"));
 		a(130, "ender_chest", (new class_ajx()).c(22.5F).b(1000.0F).a(i).c("enderChest").a(0.5F));
 		a(131, "tripwire_hook", (new BlockTripwireHook()).c("tripWireSource"));
 		a(132, "tripwire", (new class_anu()).c("tripWire"));
 		a(133, "emerald_block", (new Block(class_avq.f, class_avr.I)).c(5.0F).b(10.0F).a(j).c("blockEmerald").a(class_abp.b));
-		a(134, "spruce_stairs", (new class_anf(var1.S().a(class_aly.a, class_aly.class_a_in_class_aly.b))).c("stairsWoodSpruce"));
-		a(135, "birch_stairs", (new class_anf(var1.S().a(class_aly.a, class_aly.class_a_in_class_aly.c))).c("stairsWoodBirch"));
-		a(136, "jungle_stairs", (new class_anf(var1.S().a(class_aly.a, class_aly.class_a_in_class_aly.d))).c("stairsWoodJungle"));
+		a(134, "spruce_stairs", (new class_anf(var1.getBlockData().a(class_aly.a, class_aly.class_a_in_class_aly.b))).c("stairsWoodSpruce"));
+		a(135, "birch_stairs", (new class_anf(var1.getBlockData().a(class_aly.a, class_aly.class_a_in_class_aly.c))).c("stairsWoodBirch"));
+		a(136, "jungle_stairs", (new class_anf(var1.getBlockData().a(class_aly.a, class_aly.class_a_in_class_aly.d))).c("stairsWoodJungle"));
 		a(137, "command_block", (new class_ajc()).z().b(6000000.0F).c("commandBlock"));
 		a(138, "beacon", (new BlockBeacon()).c("beacon").a(1.0F));
 		a(139, "cobblestone_wall", (new class_anx(var0)).c("cobbleWall"));
@@ -841,15 +841,15 @@ public class Block {
 		a(154, "hopper", (new BlockHopper()).c(3.0F).b(8.0F).a(j).c("hopper"));
 		Block var11 = (new class_amh()).a(i).c(0.8F).c("quartzBlock");
 		a(155, "quartz_block", var11);
-		a(156, "quartz_stairs", (new class_anf(var11.S().a(class_amh.a, class_amh.class_a_in_class_amh.a))).c("stairsQuartz"));
+		a(156, "quartz_stairs", (new class_anf(var11.getBlockData().a(class_amh.a, class_amh.class_a_in_class_amh.a))).c("stairsQuartz"));
 		a(157, "activator_rail", (new class_amc()).c(0.7F).a(j).c("activatorRail"));
 		a(158, "dropper", (new class_ajq()).c(3.5F).a(i).c("dropper"));
 		a(159, "stained_hardened_clay", (new class_ajb(class_avq.e)).c(1.25F).b(7.0F).a(i).c("clayHardenedStained"));
 		a(160, "stained_glass_pane", (new BlockStainedGlassPane()).c(0.3F).a(k).c("thinStainedGlass"));
 		a(161, "leaves2", (new class_alp()).c("leaves"));
 		a(162, "log2", (new class_alq()).c("log"));
-		a(163, "acacia_stairs", (new class_anf(var1.S().a(class_aly.a, class_aly.class_a_in_class_aly.e))).c("stairsWoodAcacia"));
-		a(164, "dark_oak_stairs", (new class_anf(var1.S().a(class_aly.a, class_aly.class_a_in_class_aly.f))).c("stairsWoodDarkOak"));
+		a(163, "acacia_stairs", (new class_anf(var1.getBlockData().a(class_aly.a, class_aly.class_a_in_class_aly.e))).c("stairsWoodAcacia"));
+		a(164, "dark_oak_stairs", (new class_anf(var1.getBlockData().a(class_aly.a, class_aly.class_a_in_class_aly.f))).c("stairsWoodDarkOak"));
 		a(165, "slime", (new class_amy()).c("slime").a(q));
 		a(166, "barrier", (new class_aie()).c("barrier"));
 		a(167, "iron_trapdoor", (new class_ant(class_avq.f)).c(5.0F).a(j).c("ironTrapdoor").M());
@@ -866,7 +866,7 @@ public class Block {
 		a(178, "daylight_detector_inverted", new BlockRedstoneDetector(true));
 		Block var12 = (new class_amk()).a(i).c(0.8F).c("redSandStone");
 		a(179, "red_sandstone", var12);
-		a(180, "red_sandstone_stairs", (new class_anf(var12.S().a(class_amk.a, class_amk.class_a_in_class_amk.c))).c("stairsRedSandStone"));
+		a(180, "red_sandstone_stairs", (new class_anf(var12.getBlockData().a(class_amk.a, class_amk.class_a_in_class_amk.c))).c("stairsRedSandStone"));
 		a(181, "double_stone_slab2", (new class_akg()).c(2.0F).b(10.0F).a(i).c("stoneSlab2"));
 		a(182, "stone_slab2", (new class_akp()).c(2.0F).b(10.0F).a(i).c("stoneSlab2"));
 		a(183, "spruce_fence_gate", (new class_akc(class_aly.class_a_in_class_aly.b)).c(2.0F).b(5.0F).a(f).c("spruceFenceGate"));
@@ -890,7 +890,7 @@ public class Block {
 		Block var13 = (new Block(class_avq.e)).c(1.5F).b(10.0F).a(i).a(class_abp.b).c("purpurBlock");
 		a(201, "purpur_block", var13);
 		a(202, "purpur_pillar", (new class_amr(class_avq.e)).c(1.5F).b(10.0F).a(i).a(class_abp.b).c("purpurPillar"));
-		a(203, "purpur_stairs", (new class_anf(var13.S())).c("stairsPurpur"));
+		a(203, "purpur_stairs", (new class_anf(var13.getBlockData())).c("stairsPurpur"));
 		a(204, "purpur_double_slab", (new class_amg.class_a_in_class_amg()).c(2.0F).b(10.0F).a(i).c("purpurSlab"));
 		a(205, "purpur_slab", (new class_amg.class_b_in_class_amg()).c(2.0F).b(10.0F).a(i).c("purpurSlab"));
 		a(206, "end_bricks", (new Block(class_avq.e)).a(i).c(0.8F).a(class_abp.b).c("endBricks"));

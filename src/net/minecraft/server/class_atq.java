@@ -6,7 +6,7 @@ public class class_atq extends class_asp {
 	private final class_apn a;
 
 	public class_atq(BlockLongGrass.class_a_in_class_ano var1) {
-		a = Blocks.TALLGRASS.S().a(BlockLongGrass.a, var1);
+		a = Blocks.TALLGRASS.getBlockData().a(BlockLongGrass.a, var1);
 	}
 
 	@Override

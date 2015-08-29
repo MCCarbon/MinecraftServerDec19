@@ -16,7 +16,7 @@ public class class_ahw extends class_ahb {
 		as.H = 0;
 		as.C = 5;
 		ar = 14745518;
-		at.add(new class_ahb.class_c_in_class_ahb(class_yi.class, 1, 1, 1));
+		at.add(new class_ahb.class_c_in_class_ahb(EntitySlime.class, 1, 1, 1));
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class class_ahw extends class_ahb {
 			for (int var12 = 255; var12 >= 0; --var12) {
 				if (var3.a(var11, var12, var10).c().v() != class_avq.a) {
 					if ((var12 == 62) && (var3.a(var11, var12, var10).c() != Blocks.WATER)) {
-						var3.a(var11, var12, var10, Blocks.WATER.S());
+						var3.a(var11, var12, var10, Blocks.WATER.getBlockData());
 						if (var8 < 0.12D) {
-							var3.a(var11, var12 + 1, var10, Blocks.WATERLILY.S());
+							var3.a(var11, var12 + 1, var10, Blocks.WATERLILY.getBlockData());
 						}
 					}
 					break;

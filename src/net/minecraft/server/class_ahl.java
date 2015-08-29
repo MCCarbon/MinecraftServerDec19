@@ -11,7 +11,7 @@ public class class_ahl extends class_ahb {
 		super(var1);
 		aD = var2;
 		if (var2) {
-			ak = Blocks.SNOW.S();
+			ak = Blocks.SNOW.getBlockData();
 		}
 
 		au.clear();

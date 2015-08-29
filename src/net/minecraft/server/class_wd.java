@@ -114,7 +114,7 @@ public class class_wd extends class_vz {
 	}
 
 	@Override
-	public void a(class_vw var1, class_cj var2, class_qi var3, class_yu var4) {
+	public void a(EntityEnderCrystal var1, class_cj var2, class_qi var3, class_yu var4) {
 		if (var4 != null) {
 			this.a(var4);
 		}

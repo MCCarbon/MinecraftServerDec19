@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 
 public class class_sv extends class_sr {
-	class_rh a;
-	class_rg b;
+	EntityInsentient a;
+	EntityLiving b;
 	float c;
 
-	public class_sv(class_rh var1, float var2) {
+	public class_sv(EntityInsentient var1, float var2) {
 		a = var1;
 		c = var2;
 		this.a(5);

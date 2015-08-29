@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 
 public class class_tm extends class_sr {
-	private class_rh a;
+	private EntityInsentient a;
 	private double b;
 	private double c;
 	private int d;
 
-	public class_tm(class_rh var1) {
+	public class_tm(EntityInsentient var1) {
 		a = var1;
 		this.a(3);
 	}

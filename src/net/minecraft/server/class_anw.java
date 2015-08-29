@@ -234,15 +234,15 @@ public class class_anw extends Block {
 								class_cj var28 = var20.a(var24);
 								class_cj var17 = var20.a(var25);
 								if (var26 && this.c(var1.p(var28).c())) {
-									var1.a(var20, S().a(a(var24), Boolean.valueOf(true)), 2);
+									var1.a(var20, getBlockData().a(a(var24), Boolean.valueOf(true)), 2);
 								} else if (var27 && this.c(var1.p(var17).c())) {
-									var1.a(var20, S().a(a(var25), Boolean.valueOf(true)), 2);
+									var1.a(var20, getBlockData().a(a(var25), Boolean.valueOf(true)), 2);
 								} else if (var26 && var1.d(var28) && this.c(var1.p(var2.a(var24)).c())) {
-									var1.a(var28, S().a(a(var18.d()), Boolean.valueOf(true)), 2);
+									var1.a(var28, getBlockData().a(a(var18.d()), Boolean.valueOf(true)), 2);
 								} else if (var27 && var1.d(var17) && this.c(var1.p(var2.a(var25)).c())) {
-									var1.a(var17, S().a(a(var18.d()), Boolean.valueOf(true)), 2);
+									var1.a(var17, getBlockData().a(a(var18.d()), Boolean.valueOf(true)), 2);
 								} else if (this.c(var1.p(var20.a()).c())) {
-									var1.a(var20, S(), 2);
+									var1.a(var20, getBlockData(), 2);
 								}
 							} else if (var22.J.k() && var22.d()) {
 								var1.a(var2, var3.a(a(var18), Boolean.valueOf(true)), 2);
@@ -296,8 +296,8 @@ public class class_anw extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		class_apn var9 = S().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false)).a(P, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		class_apn var9 = getBlockData().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false)).a(P, Boolean.valueOf(false));
 		return var3.k().c() ? var9.a(a(var3.d()), Boolean.valueOf(true)) : var9;
 	}
 
@@ -314,7 +314,7 @@ public class class_anw extends Block {
 	@Override
 	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
 		if (!var1.D && (var6 != null) && (var6.b() == Items.bg)) {
-			var2.b(class_nh.a(Block.a(this)));
+			var2.b(StatisticList.a(Block.a(this)));
 			a(var1, var3, (new class_aco(Blocks.VINE, 1, 0)));
 		} else {
 			super.a(var1, var2, var3, var4, var5, var6);
@@ -324,7 +324,7 @@ public class class_anw extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(O, Boolean.valueOf((var1 & 1) > 0)).a(P, Boolean.valueOf((var1 & 2) > 0)).a(b, Boolean.valueOf((var1 & 4) > 0)).a(N, Boolean.valueOf((var1 & 8) > 0));
+		return getBlockData().a(O, Boolean.valueOf((var1 & 1) > 0)).a(P, Boolean.valueOf((var1 & 2) > 0)).a(b, Boolean.valueOf((var1 & 4) > 0)).a(N, Boolean.valueOf((var1 & 8) > 0));
 	}
 
 	@Override

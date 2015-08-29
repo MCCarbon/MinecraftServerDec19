@@ -29,11 +29,11 @@ public class class_qi {
 	private boolean z;
 	public String q;
 
-	public static class_qi a(class_rg var0) {
+	public static class_qi a(EntityLiving var0) {
 		return new class_qj("mob", var0);
 	}
 
-	public static class_qi a(Entity var0, class_rg var1) {
+	public static class_qi a(Entity var0, EntityLiving var1) {
 		return new class_qk("mob", var0, var1);
 	}
 
@@ -41,7 +41,7 @@ public class class_qi {
 		return new class_qj("player", var0);
 	}
 
-	public static class_qi a(class_yx var0, Entity var1) {
+	public static class_qi a(EntityArrow var0, Entity var1) {
 		return (new class_qk("arrow", var0, var1)).b();
 	}
 
@@ -65,7 +65,7 @@ public class class_qi {
 		return (var0 != null) && (var0.c() != null) ? (new class_qj("explosion.player", var0.c())).q().d() : (new class_qi("explosion")).q().d();
 	}
 
-	public static class_qi b(class_rg var0) {
+	public static class_qi b(EntityLiving var0) {
 		return var0 != null ? (new class_qj("explosion.player", var0)).q().d() : (new class_qi("explosion")).q().d();
 	}
 
@@ -137,8 +137,8 @@ public class class_qi {
 		return this;
 	}
 
-	public IChatBaseComponent c(class_rg var1) {
-		class_rg var2 = var1.bA();
+	public IChatBaseComponent c(EntityLiving var1) {
+		EntityLiving var2 = var1.bA();
 		String var3 = "death.attack." + q;
 		String var4 = var3 + ".player";
 		return (var2 != null) && class_di.c(var4) ? new class_fb(var4, new Object[] { var1.f_(), var2.f_() }) : new class_fb(var3, new Object[] { var1.f_() });

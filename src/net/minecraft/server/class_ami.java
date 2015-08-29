@@ -24,7 +24,7 @@ public class class_ami extends class_aih {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(b, class_aih.class_b_in_class_aih.a(var1));
+		return getBlockData().a(b, class_aih.class_b_in_class_aih.a(var1));
 	}
 
 	@Override

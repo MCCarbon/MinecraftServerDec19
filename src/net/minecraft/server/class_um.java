@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public abstract class class_um {
-	protected class_rh b;
+	protected EntityInsentient b;
 	protected class_ago c;
 	protected class_axc d;
 	protected double e;
@@ -15,7 +15,7 @@ public abstract class class_um {
 	private float i = 1.0F;
 	private final class_axd j;
 
-	public class_um(class_rh var1, class_ago var2) {
+	public class_um(EntityInsentient var1, class_ago var2) {
 		b = var1;
 		c = var2;
 		a = var1.a(class_yf.b);

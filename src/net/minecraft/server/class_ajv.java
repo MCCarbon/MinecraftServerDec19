@@ -40,8 +40,8 @@ public class class_ajv extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, var8.aV().d()).a(b, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(a, var8.aV().d()).a(b, Boolean.valueOf(false));
 	}
 
 	@Override
@@ -56,7 +56,7 @@ public class class_ajv extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(b, Boolean.valueOf((var1 & 4) != 0)).a(a, class_cq.b(var1 & 3));
+		return getBlockData().a(b, Boolean.valueOf((var1 & 4) != 0)).a(a, class_cq.b(var1 & 3));
 	}
 
 	@Override

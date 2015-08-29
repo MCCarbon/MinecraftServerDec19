@@ -28,7 +28,7 @@ public class class_cn implements class_cr {
 			var7 -= 0.15625D;
 		}
 
-		class_xg var11 = new class_xg(var0, var5, var7, var9, var1);
+		EntityItem var11 = new EntityItem(var0, var5, var7, var9, var1);
 		double var12 = (var0.s.nextDouble() * 0.1D) + 0.2D;
 		var11.v = var3.g() * var12;
 		var11.w = 0.20000000298023224D;

@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class class_uh extends class_uj {
 	class_ro a;
-	class_rg b;
+	EntityLiving b;
 	private int c;
 
 	public class_uh(class_ro var1) {
@@ -17,7 +17,7 @@ public class class_uh extends class_uj {
 		if (!a.cE()) {
 			return false;
 		} else {
-			class_rg var1 = a.cH();
+			EntityLiving var1 = a.cH();
 			if (var1 == null) {
 				return false;
 			} else {
@@ -31,7 +31,7 @@ public class class_uh extends class_uj {
 	@Override
 	public void c() {
 		e.c(b);
-		class_rg var1 = a.cH();
+		EntityLiving var1 = a.cH();
 		if (var1 != null) {
 			c = var1.bl();
 		}

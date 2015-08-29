@@ -7,7 +7,7 @@ public abstract class class_za extends Entity {
 	private int g = -1;
 	private Block h;
 	private boolean i;
-	public class_rg b;
+	public EntityLiving b;
 	private int as;
 	private int at;
 	public double c;
@@ -34,7 +34,7 @@ public abstract class class_za extends Entity {
 		e = (var12 / var14) * 0.1D;
 	}
 
-	public class_za(class_ago var1, class_rg var2, double var3, double var5, double var7) {
+	public class_za(class_ago var1, EntityLiving var2, double var3, double var5, double var7) {
 		super(var1);
 		b = var2;
 		this.a(1.0F, 1.0F);
@@ -198,8 +198,8 @@ public abstract class class_za extends Entity {
 					e = x * 0.1D;
 				}
 
-				if (var1.j() instanceof class_rg) {
-					b = (class_rg) var1.j();
+				if (var1.j() instanceof EntityLiving) {
+					b = (EntityLiving) var1.j();
 				}
 
 				return true;

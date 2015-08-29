@@ -2,17 +2,17 @@ package net.minecraft.server;
 
 
 public class class_tu extends class_sr {
-	class_xu a;
-	class_rg b;
+	EntityCreeper a;
+	EntityLiving b;
 
-	public class_tu(class_xu var1) {
+	public class_tu(EntityCreeper var1) {
 		a = var1;
 		this.a(1);
 	}
 
 	@Override
 	public boolean a() {
-		class_rg var1 = a.w();
+		EntityLiving var1 = a.w();
 		return (a.cF() > 0) || ((var1 != null) && (a.h(var1) < 9.0D));
 	}
 

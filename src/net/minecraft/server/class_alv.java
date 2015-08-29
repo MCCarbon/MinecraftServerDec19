@@ -45,7 +45,7 @@ public class class_alv extends class_alg {
 
 	@Override
 	public class_apn a(int var1) {
-		class_apn var2 = S().a(b, class_aly.class_a_in_class_aly.a((var1 & 3) % 4));
+		class_apn var2 = getBlockData().a(b, class_aly.class_a_in_class_aly.a((var1 & 3) % 4));
 		switch (var1 & 12) {
 			case 0:
 				var2 = var2.a(a, class_alg.class_a_in_class_alg.b);

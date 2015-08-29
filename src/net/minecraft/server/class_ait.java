@@ -57,7 +57,7 @@ public class class_ait extends Block {
 
 	private void b(class_ago var1, class_cj var2, class_apn var3, class_yu var4) {
 		if (var4.j(false)) {
-			var4.b(class_nh.I);
+			var4.b(StatisticList.I);
 			var4.ct().a(2, 0.1F);
 			int var5 = ((Integer) var3.b(a)).intValue();
 			if (var5 < 6) {
@@ -103,7 +103,7 @@ public class class_ait extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override

@@ -8,7 +8,7 @@ public class class_uc extends class_uj {
 	private int b;
 	private final Class[] c;
 
-	public class_uc(class_rn var1, boolean var2, Class... var3) {
+	public class_uc(EntityCreature var1, boolean var2, Class... var3) {
 		super(var1, false);
 		a = var2;
 		c = var3;
@@ -31,7 +31,7 @@ public class class_uc extends class_uj {
 			Iterator var4 = var3.iterator();
 
 			label46: while (true) {
-				class_rn var5;
+				EntityCreature var5;
 				do {
 					do {
 						do {
@@ -39,7 +39,7 @@ public class class_uc extends class_uj {
 								break label46;
 							}
 
-							var5 = (class_rn) var4.next();
+							var5 = (EntityCreature) var4.next();
 						} while (e == var5);
 					} while (var5.w() != null);
 				} while (var5.k(e.bk()));
@@ -65,7 +65,7 @@ public class class_uc extends class_uj {
 		super.c();
 	}
 
-	protected void a(class_rn var1, class_rg var2) {
+	protected void a(EntityCreature var1, EntityLiving var2) {
 		var1.c(var2);
 	}
 }

@@ -79,7 +79,7 @@ public class class_qr implements Comparable {
 		return h;
 	}
 
-	public boolean a(class_rg var1) {
+	public boolean a(EntityLiving var1) {
 		if (c > 0) {
 			if (b.a(c, d)) {
 				this.b(var1);
@@ -95,7 +95,7 @@ public class class_qr implements Comparable {
 		return --c;
 	}
 
-	public void b(class_rg var1) {
+	public void b(EntityLiving var1) {
 		if (c > 0) {
 			b.a(var1, d);
 		}

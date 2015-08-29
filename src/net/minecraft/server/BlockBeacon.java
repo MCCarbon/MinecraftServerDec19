@@ -21,7 +21,7 @@ public class BlockBeacon extends class_aif {
 			TileEntity var11 = var1.s(var2);
 			if (var11 instanceof class_aoh) {
 				var4.a((class_pp) ((class_aoh) var11));
-				var4.b(class_nh.O);
+				var4.b(StatisticList.O);
 			}
 
 			return true;
@@ -44,7 +44,7 @@ public class BlockBeacon extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		super.a(var1, var2, var3, var4, var5);
 		if (var5.s()) {
 			TileEntity var6 = var1.s(var2);

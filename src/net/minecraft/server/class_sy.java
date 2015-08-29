@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 
 public class class_sy extends class_sr {
-	private class_yp b;
-	private class_yp c;
+	private EntityVillager b;
+	private EntityVillager c;
 	private class_ago d;
 	private int e;
 	class_uv a;
 
-	public class_sy(class_yp var1) {
+	public class_sy(EntityVillager var1) {
 		b = var1;
 		d = var1.o;
 		this.a(3);
@@ -25,11 +25,11 @@ public class class_sy extends class_sr {
 			if (a == null) {
 				return false;
 			} else if (f() && b.o(true)) {
-				Entity var1 = d.a(class_yp.class, b.aX().b(8.0D, 3.0D, 8.0D), b);
+				Entity var1 = d.a(EntityVillager.class, b.aX().b(8.0D, 3.0D, 8.0D), b);
 				if (var1 == null) {
 					return false;
 				} else {
-					c = (class_yp) var1;
+					c = (EntityVillager) var1;
 					return (c.k() == 0) && c.o(true);
 				}
 			} else {
@@ -82,7 +82,7 @@ public class class_sy extends class_sr {
 	}
 
 	private void g() {
-		class_yp var1 = b.b(c);
+		EntityVillager var1 = b.b(c);
 		c.b(6000);
 		b.b(6000);
 		c.p(false);

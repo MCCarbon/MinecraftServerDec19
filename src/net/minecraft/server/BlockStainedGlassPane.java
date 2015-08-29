@@ -22,7 +22,7 @@ public class BlockStainedGlassPane extends class_anp {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_abt.b(var1));
+		return getBlockData().a(a, class_abt.b(var1));
 	}
 
 	@Override

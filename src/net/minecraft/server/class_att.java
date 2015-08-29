@@ -10,7 +10,7 @@ public class class_att extends class_asp {
 			int var6 = (var3.o() + var2.nextInt(4)) - var2.nextInt(4);
 			int var7 = (var3.p() + var2.nextInt(8)) - var2.nextInt(8);
 			if (var1.d(new class_cj(var5, var6, var7)) && Blocks.WATERLILY.c(var1, new class_cj(var5, var6, var7))) {
-				var1.a((new class_cj(var5, var6, var7)), Blocks.WATERLILY.S(), 2);
+				var1.a((new class_cj(var5, var6, var7)), Blocks.WATERLILY.getBlockData(), 2);
 			}
 		}
 

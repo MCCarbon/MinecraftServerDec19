@@ -99,8 +99,8 @@ public abstract class class_ahb {
 	protected class_atp aC;
 
 	protected class_ahb(int var1) {
-		ak = Blocks.GRASS.S();
-		al = Blocks.DIRT.S();
+		ak = Blocks.GRASS.getBlockData();
+		al = Blocks.DIRT.getBlockData();
 		am = 5169201;
 		an = a.a;
 		ao = a.b;
@@ -118,20 +118,20 @@ public abstract class class_ahb {
 		az = var1;
 		aE[var1] = this;
 		as = this.a();
-		au.add(new class_ahb.class_c_in_class_ahb(class_vl.class, 12, 4, 4));
-		au.add(new class_ahb.class_c_in_class_ahb(class_vk.class, 10, 3, 3));
-		au.add(new class_ahb.class_c_in_class_ahb(class_vj.class, 10, 4, 4));
-		au.add(new class_ahb.class_c_in_class_ahb(class_vd.class, 10, 4, 4));
-		au.add(new class_ahb.class_c_in_class_ahb(class_ve.class, 8, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_yj.class, 100, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_yl.class, 100, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_yh.class, 100, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_xu.class, 100, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_yi.class, 100, 4, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_xv.class, 10, 1, 4));
-		at.add(new class_ahb.class_c_in_class_ahb(class_yk.class, 5, 1, 1));
-		av.add(new class_ahb.class_c_in_class_ahb(class_vo.class, 10, 4, 4));
-		aw.add(new class_ahb.class_c_in_class_ahb(class_va.class, 10, 8, 8));
+		au.add(new class_ahb.class_c_in_class_ahb(EntitySheep.class, 12, 4, 4));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityRabbit.class, 10, 3, 3));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityPig.class, 10, 4, 4));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityChicken.class, 10, 4, 4));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityCow.class, 8, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntitySpider.class, 100, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntityZombie.class, 100, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntitySkeleton.class, 100, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntityCreeper.class, 100, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntitySlime.class, 100, 4, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntityEnderman.class, 10, 1, 4));
+		at.add(new class_ahb.class_c_in_class_ahb(EntityWitch.class, 5, 1, 1));
+		av.add(new class_ahb.class_c_in_class_ahb(EntitySquid.class, 10, 4, 4));
+		aw.add(new class_ahb.class_c_in_class_ahb(EntityBat.class, 10, 8, 8));
 	}
 
 	protected class_ahe a() {
@@ -275,7 +275,7 @@ public abstract class class_ahb {
 
 		for (int var16 = 255; var16 >= 0; --var16) {
 			if (var16 <= var2.nextInt(5)) {
-				var3.a(var14, var16, var13, Blocks.BEDROCK.S());
+				var3.a(var14, var16, var13, Blocks.BEDROCK.getBlockData());
 			} else {
 				class_apn var17 = var3.a(var14, var16, var13);
 				if (var17.c().v() == class_avq.a) {
@@ -284,7 +284,7 @@ public abstract class class_ahb {
 					if (var11 == -1) {
 						if (var12 <= 0) {
 							var9 = null;
-							var10 = Blocks.STONE.S();
+							var10 = Blocks.STONE.getBlockData();
 						} else if ((var16 >= (var8 - 4)) && (var16 <= (var8 + 1))) {
 							var9 = ak;
 							var10 = al;
@@ -292,9 +292,9 @@ public abstract class class_ahb {
 
 						if ((var16 < var8) && ((var9 == null) || (var9.c().v() == class_avq.a))) {
 							if (this.a(var15.c(var4, var16, var5)) < 0.15F) {
-								var9 = Blocks.ICE.S();
+								var9 = Blocks.ICE.getBlockData();
 							} else {
-								var9 = Blocks.WATER.S();
+								var9 = Blocks.WATER.getBlockData();
 							}
 						}
 
@@ -303,8 +303,8 @@ public abstract class class_ahb {
 							var3.a(var14, var16, var13, var9);
 						} else if (var16 < (var8 - 7 - var12)) {
 							var9 = null;
-							var10 = Blocks.STONE.S();
-							var3.a(var14, var16, var13, Blocks.GRAVEL.S());
+							var10 = Blocks.STONE.getBlockData();
+							var3.a(var14, var16, var13, Blocks.GRAVEL.getBlockData());
 						} else {
 							var3.a(var14, var16, var13, var10);
 						}
@@ -313,7 +313,7 @@ public abstract class class_ahb {
 						var3.a(var14, var16, var13, var10);
 						if ((var11 == 0) && (var10.c() == Blocks.SAND)) {
 							var11 = var2.nextInt(4) + Math.max(0, var16 - 63);
-							var10 = var10.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.RED_SANDSTONE.S() : Blocks.SANDSTONE.S();
+							var10 = var10.b(BlockSand.a) == BlockSand.class_a_in_class_ams.b ? Blocks.RED_SANDSTONE.getBlockData() : Blocks.SANDSTONE.getBlockData();
 						}
 					}
 				}

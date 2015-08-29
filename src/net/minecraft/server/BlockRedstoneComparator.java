@@ -40,7 +40,7 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 		Boolean var2 = (Boolean) var1.b(a);
 		BlockRedstoneComparator.class_a_in_class_ajd var3 = (BlockRedstoneComparator.class_a_in_class_ajd) var1.b(b);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.POWERED_COMPARATOR.S().a(O, var4).a(a, var2).a(b, var3);
+		return Blocks.POWERED_COMPARATOR.getBlockData().a(O, var4).a(a, var2).a(b, var3);
 	}
 
 	@Override
@@ -48,7 +48,7 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 		Boolean var2 = (Boolean) var1.b(a);
 		BlockRedstoneComparator.class_a_in_class_ajd var3 = (BlockRedstoneComparator.class_a_in_class_ajd) var1.b(b);
 		class_cq var4 = (class_cq) var1.b(O);
-		return Blocks.UNPOWERED_COMPARATOR.S().a(O, var4).a(a, var2).a(b, var3);
+		return Blocks.UNPOWERED_COMPARATOR.getBlockData().a(O, var4).a(a, var2).a(b, var3);
 	}
 
 	@Override
@@ -93,7 +93,7 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 			if (var7.Q()) {
 				var4 = var7.j(var1, var6);
 			} else if (var7.v() == class_avq.a) {
-				class_wu var8 = this.a(var1, var5, var6);
+				EntityItemFrame var8 = this.a(var1, var5, var6);
 				if (var8 != null) {
 					var4 = var8.p();
 				}
@@ -103,8 +103,8 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 		return var4;
 	}
 
-	private class_wu a(class_ago var1, final class_cq var2, class_cj var3) {
-		List var4 = var1.a(class_wu.class, new class_ayk(var3.n(), var3.o(), var3.p(), var3.n() + 1, var3.o() + 1, var3.p() + 1), new Predicate() {
+	private EntityItemFrame a(class_ago var1, final class_cq var2, class_cj var3) {
+		List var4 = var1.a(EntityItemFrame.class, new class_ayk(var3.n(), var3.o(), var3.p(), var3.n() + 1, var3.o() + 1, var3.p() + 1), new Predicate() {
 			public boolean a(Entity var1) {
 				return (var1 != null) && (var1.aV() == var2);
 			}
@@ -115,7 +115,7 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 				return this.a((Entity) var1);
 			}
 		});
-		return var4.size() == 1 ? (class_wu) var4.get(0) : null;
+		return var4.size() == 1 ? (EntityItemFrame) var4.get(0) : null;
 	}
 
 	@Override
@@ -208,7 +208,7 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(O, class_cq.b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0)).a(b, (var1 & 4) > 0 ? BlockRedstoneComparator.class_a_in_class_ajd.b : BlockRedstoneComparator.class_a_in_class_ajd.a);
+		return getBlockData().a(O, class_cq.b(var1)).a(a, Boolean.valueOf((var1 & 8) > 0)).a(b, (var1 & 4) > 0 ? BlockRedstoneComparator.class_a_in_class_ajd.b : BlockRedstoneComparator.class_a_in_class_ajd.a);
 	}
 
 	@Override
@@ -242,8 +242,8 @@ public class BlockRedstoneComparator extends class_ajj implements class_ajy {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(O, var8.aV().d()).a(a, Boolean.valueOf(false)).a(b, BlockRedstoneComparator.class_a_in_class_ajd.a);
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(O, var8.aV().d()).a(a, Boolean.valueOf(false)).a(b, BlockRedstoneComparator.class_a_in_class_ajd.a);
 	}
 
 	public static enum class_a_in_class_ajd implements class_oe {

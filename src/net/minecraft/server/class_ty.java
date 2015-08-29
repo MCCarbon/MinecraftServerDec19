@@ -3,17 +3,17 @@ package net.minecraft.server;
 
 public class class_ty extends class_su {
 	private int e;
-	private class_yp f;
+	private EntityVillager f;
 
-	public class_ty(class_yp var1) {
-		super(var1, class_yp.class, 3.0F, 0.02F);
+	public class_ty(EntityVillager var1) {
+		super(var1, EntityVillager.class, 3.0F, 0.02F);
 		f = var1;
 	}
 
 	@Override
 	public void c() {
 		super.c();
-		if (f.cL() && (b instanceof class_yp) && ((class_yp) b).cM()) {
+		if (f.cL() && (b instanceof EntityVillager) && ((EntityVillager) b).cM()) {
 			e = 10;
 		} else {
 			e = 0;
@@ -53,7 +53,7 @@ public class class_ty extends class_su {
 
 					if (var4 != null) {
 						double var11 = (f.t - 0.30000001192092896D) + f.aY();
-						class_xg var12 = new class_xg(f.o, f.s, var11, f.u, var4);
+						EntityItem var12 = new EntityItem(f.o, f.s, var11, f.u, var4);
 						float var8 = 0.3F;
 						float var9 = f.aO;
 						float var10 = f.z;

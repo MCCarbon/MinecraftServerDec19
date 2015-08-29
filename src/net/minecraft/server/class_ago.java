@@ -50,7 +50,7 @@ public abstract class class_ago implements class_ags {
 	protected boolean F = true;
 	private boolean K;
 	private final class_aqg L;
-	int[] G = new int['耀'];
+	int[] G = new int['2'];
 
 	protected class_ago(class_axu var1, class_axt var2, class_arc var3, class_ob var4, boolean var5) {
 		w = var1;
@@ -221,7 +221,7 @@ public abstract class class_ago implements class_ags {
 	}
 
 	public boolean g(class_cj var1) {
-		return this.a(var1, Blocks.AIR.S(), 3);
+		return this.a(var1, Blocks.AIR.getBlockData(), 3);
 	}
 
 	public boolean b(class_cj var1, boolean var2) {
@@ -235,7 +235,7 @@ public abstract class class_ago implements class_ags {
 				var4.b(this, var1, var3, 0);
 			}
 
-			return this.a(var1, Blocks.AIR.S(), 3);
+			return this.a(var1, Blocks.AIR.getBlockData(), 3);
 		}
 	}
 
@@ -502,7 +502,7 @@ public abstract class class_ago implements class_ags {
 	@Override
 	public class_apn p(class_cj var1) {
 		if (!this.a(var1)) {
-			return Blocks.AIR.S();
+			return Blocks.AIR.getBlockData();
 		} else {
 			class_aqn var2 = this.f(var1);
 			return var2.g(var1);
@@ -786,7 +786,7 @@ public abstract class class_ago implements class_ags {
 		class_aqg var10 = ah();
 		boolean var11 = (var1 != null) && var1.aZ();
 		boolean var12 = (var1 != null) && this.a(var10, var1);
-		class_apn var13 = Blocks.STONE.S();
+		class_apn var13 = Blocks.STONE.getBlockData();
 		class_cj.class_a_in_class_cj var14 = new class_cj.class_a_in_class_cj();
 
 		for (int var15 = var4; var15 < var5; ++var15) {
@@ -875,7 +875,7 @@ public abstract class class_ago implements class_ags {
 						if ((var10 >= -30000000) && (var10 < 30000000) && (var11 >= -30000000) && (var11 < 30000000)) {
 							var13 = p(var9);
 						} else {
-							var13 = Blocks.BEDROCK.S();
+							var13 = Blocks.BEDROCK.getBlockData();
 						}
 
 						var13.c().a(this, var9, var13, var1, var2, (Entity) null);
@@ -1993,7 +1993,7 @@ public abstract class class_ago implements class_ags {
 				}
 
 				var4 = (Entity) var3.next();
-			} while ((var4 instanceof class_rh) && ((class_rh) var4).cr());
+			} while ((var4 instanceof EntityInsentient) && ((EntityInsentient) var4).cr());
 
 			if (var1.isAssignableFrom(var4.getClass())) {
 				++var2;
@@ -2018,7 +2018,7 @@ public abstract class class_ago implements class_ags {
 
 	public boolean a(Block var1, class_cj var2, boolean var3, class_cq var4, Entity var5, class_aco var6) {
 		Block var7 = p(var2).c();
-		class_ayk var8 = var3 ? null : var1.a(this, var2, var1.S());
+		class_ayk var8 = var3 ? null : var1.a(this, var2, var1.getBlockData());
 		return (var8 != null) && !this.a(var8, var5) ? false : ((var7.v() == class_avq.q) && (var1 == Blocks.ANVIL) ? true : var7.v().j() && var1.a(this, var2, var4, var6));
 	}
 

@@ -27,7 +27,7 @@ public class class_ajp extends Block {
 		if (class_ajz.d(var1, var2.b()) && (var2.o() >= 0)) {
 			byte var3 = 32;
 			if (!class_ajz.N && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
-				var1.a((new class_xf(var1, var2.n() + 0.5F, var2.o(), var2.p() + 0.5F, S())));
+				var1.a((new EntityFallingBlock(var1, var2.n() + 0.5F, var2.o(), var2.p() + 0.5F, getBlockData())));
 			} else {
 				var1.g(var2);
 
@@ -37,7 +37,7 @@ public class class_ajp extends Block {
 				}
 
 				if (var4.o() > 0) {
-					var1.a(var4, S(), 2);
+					var1.a(var4, getBlockData(), 2);
 				}
 			}
 

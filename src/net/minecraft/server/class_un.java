@@ -4,7 +4,7 @@ package net.minecraft.server;
 public class class_un extends class_ul {
 	private class_cj f;
 
-	public class_un(class_rh var1, class_ago var2) {
+	public class_un(EntityInsentient var1, class_ago var2) {
 		super(var1, var2);
 	}
 

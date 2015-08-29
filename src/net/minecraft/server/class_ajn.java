@@ -252,7 +252,7 @@ public class class_ajn extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return (var1 & 8) > 0 ? S().a(P, class_ajn.class_a_in_class_ajn.a).a(N, (var1 & 1) > 0 ? class_ajn.class_b_in_class_ajn.b : class_ajn.class_b_in_class_ajn.a).a(O, Boolean.valueOf((var1 & 2) > 0)) : S().a(P, class_ajn.class_a_in_class_ajn.b).a(a, class_cq.b(var1 & 3).f()).a(b, Boolean.valueOf((var1 & 4) > 0));
+		return (var1 & 8) > 0 ? getBlockData().a(P, class_ajn.class_a_in_class_ajn.a).a(N, (var1 & 1) > 0 ? class_ajn.class_b_in_class_ajn.b : class_ajn.class_b_in_class_ajn.a).a(O, Boolean.valueOf((var1 & 2) > 0)) : getBlockData().a(P, class_ajn.class_a_in_class_ajn.b).a(a, class_cq.b(var1 & 3).f()).a(b, Boolean.valueOf((var1 & 4) > 0));
 	}
 
 	@Override

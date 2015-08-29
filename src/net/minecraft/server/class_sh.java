@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 
 public class class_sh extends class_sr {
-	private class_vr a;
+	private EntityWolf a;
 	private class_yu b;
 	private class_ago c;
 	private float d;
 	private int e;
 
-	public class_sh(class_vr var1, float var2) {
+	public class_sh(EntityWolf var1, float var2) {
 		a = var1;
 		c = var1.o;
 		d = var2;

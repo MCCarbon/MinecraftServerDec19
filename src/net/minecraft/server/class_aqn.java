@@ -381,14 +381,14 @@ public class class_aqn {
 		if (j.I() == class_agt.g) {
 			class_apn var7 = null;
 			if (var1.o() == 60) {
-				var7 = Blocks.BARRIER.S();
+				var7 = Blocks.BARRIER.getBlockData();
 			}
 
 			if (var1.o() == 70) {
 				var7 = class_arn.b(var1.n(), var1.p());
 			}
 
-			return var7 == null ? Blocks.AIR.S() : var7;
+			return var7 == null ? Blocks.AIR.getBlockData() : var7;
 		} else {
 			try {
 				if ((var1.o() >= 0) && ((var1.o() >> 4) < e.length)) {
@@ -401,7 +401,7 @@ public class class_aqn {
 					}
 				}
 
-				return Blocks.AIR.S();
+				return Blocks.AIR.getBlockData();
 			} catch (Throwable var6) {
 				class_b var3 = class_b.a(var6, "Getting block state");
 				class_c var4 = var3.a("Block being got");

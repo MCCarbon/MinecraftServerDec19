@@ -37,57 +37,57 @@ public class class_lg {
 			}
 		} else if (var1 instanceof class_wy) {
 			this.a(var1, 64, 5, true);
-		} else if (var1 instanceof class_yx) {
+		} else if (var1 instanceof EntityArrow) {
 			this.a(var1, 64, 20, false);
-		} else if (var1 instanceof class_zg) {
+		} else if (var1 instanceof EntitySmallFireball) {
 			this.a(var1, 64, 10, false);
 		} else if (var1 instanceof class_za) {
 			this.a(var1, 64, 10, false);
-		} else if (var1 instanceof class_zh) {
+		} else if (var1 instanceof EntitySnowball) {
 			this.a(var1, 64, 10, true);
-		} else if (var1 instanceof class_zl) {
+		} else if (var1 instanceof EntityEnderpearl) {
 			this.a(var1, 64, 10, true);
-		} else if (var1 instanceof class_yz) {
+		} else if (var1 instanceof EntityEnderSignal) {
 			this.a(var1, 64, 4, true);
-		} else if (var1 instanceof class_zk) {
+		} else if (var1 instanceof EntityEgg) {
 			this.a(var1, 64, 10, true);
-		} else if (var1 instanceof class_zn) {
+		} else if (var1 instanceof EntityPotion) {
 			this.a(var1, 64, 10, true);
-		} else if (var1 instanceof class_zm) {
+		} else if (var1 instanceof EntityThrownExpBottle) {
 			this.a(var1, 64, 10, true);
-		} else if (var1 instanceof class_zb) {
+		} else if (var1 instanceof EntityFireworks) {
 			this.a(var1, 64, 10, true);
-		} else if (var1 instanceof class_xg) {
+		} else if (var1 instanceof EntityItem) {
 			this.a(var1, 64, 20, true);
-		} else if (var1 instanceof class_xh) {
+		} else if (var1 instanceof EntityMinecartAbstract) {
 			this.a(var1, 80, 3, true);
-		} else if (var1 instanceof class_xe) {
+		} else if (var1 instanceof EntityBoat) {
 			this.a(var1, 80, 3, true);
-		} else if (var1 instanceof class_vo) {
+		} else if (var1 instanceof EntitySquid) {
 			this.a(var1, 64, 3, true);
-		} else if (var1 instanceof class_wq) {
+		} else if (var1 instanceof EntityWither) {
 			this.a(var1, 80, 3, false);
-		} else if (var1 instanceof class_zf) {
+		} else if (var1 instanceof EntityShulkerBullet) {
 			this.a(var1, 80, 3, true);
-		} else if (var1 instanceof class_va) {
+		} else if (var1 instanceof EntityBat) {
 			this.a(var1, 80, 3, false);
 		} else if (var1 instanceof class_vx) {
 			this.a(var1, 160, 3, true);
 		} else if (var1 instanceof class_qw) {
 			this.a(var1, 80, 3, true);
-		} else if (var1 instanceof class_xq) {
+		} else if (var1 instanceof EntityTNTPrimed) {
 			this.a(var1, 160, 10, true);
-		} else if (var1 instanceof class_xf) {
+		} else if (var1 instanceof EntityFallingBlock) {
 			this.a(var1, 160, 20, true);
 		} else if (var1 instanceof class_wt) {
 			this.a(var1, 160, Integer.MAX_VALUE, false);
-		} else if (var1 instanceof class_ws) {
+		} else if (var1 instanceof EntityArmorStand) {
 			this.a(var1, 160, 3, true);
-		} else if (var1 instanceof class_rd) {
+		} else if (var1 instanceof EntityExperienceOrb) {
 			this.a(var1, 160, 20, true);
-		} else if (var1 instanceof class_qv) {
+		} else if (var1 instanceof EntityAreaEffectCloud) {
 			this.a(var1, 160, Integer.MAX_VALUE, true);
-		} else if (var1 instanceof class_vw) {
+		} else if (var1 instanceof EntityEnderCrystal) {
 			this.a(var1, 256, Integer.MAX_VALUE, false);
 		}
 

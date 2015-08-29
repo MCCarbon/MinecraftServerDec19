@@ -10,7 +10,7 @@ import com.google.common.base.Charsets;
 import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
 
-public abstract class class_yu extends class_rg {
+public abstract class class_yu extends EntityLiving {
 	private static final class_jz a;
 	private static final class_jz b;
 	protected static final class_jz bo;
@@ -166,13 +166,13 @@ public abstract class class_yu extends class_rg {
 
 		if (!o.D) {
 			bt.a(this);
-			this.b(class_nh.g);
+			this.b(StatisticList.g);
 			if (al()) {
-				this.b(class_nh.h);
+				this.b(StatisticList.h);
 			}
 
 			if (aA()) {
-				this.b(class_nh.i);
+				this.b(StatisticList.i);
 			}
 		}
 
@@ -242,10 +242,10 @@ public abstract class class_yu extends class_rg {
 			bv = bw;
 			bw = 0.0F;
 			this.l(s - var1, t - var3, u - var5);
-			if (m instanceof class_vj) {
+			if (m instanceof EntityPig) {
 				z = var8;
 				y = var7;
-				aM = ((class_vj) m).aM;
+				aM = ((EntityPig) m).aM;
 			}
 
 		}
@@ -362,8 +362,8 @@ public abstract class class_yu extends class_rg {
 			v = x = 0.0D;
 		}
 
-		this.b(class_nh.z);
-		this.a(class_nh.h);
+		this.b(StatisticList.z);
+		this.a(StatisticList.h);
 	}
 
 	@Override
@@ -381,11 +381,11 @@ public abstract class class_yu extends class_rg {
 		this.l(var2);
 		Collection var3 = cx().a(class_ayy.f);
 		if (var1 instanceof class_yu) {
-			this.b(class_nh.C);
+			this.b(StatisticList.C);
 			var3.addAll(cx().a(class_ayy.e));
 			var3.addAll(this.e(var1));
 		} else {
-			this.b(class_nh.A);
+			this.b(StatisticList.A);
 		}
 
 		Iterator var4 = var3.iterator();
@@ -424,22 +424,22 @@ public abstract class class_yu extends class_rg {
 		return Lists.newArrayList();
 	}
 
-	public class_xg a(boolean var1) {
+	public EntityItem a(boolean var1) {
 		return this.a(bq.a(bq.d, var1 && (bq.h() != null) ? bq.h().b : 1), false, true);
 	}
 
-	public class_xg a(class_aco var1, boolean var2) {
+	public EntityItem a(class_aco var1, boolean var2) {
 		return this.a(var1, false, false);
 	}
 
-	public class_xg a(class_aco var1, boolean var2, boolean var3) {
+	public EntityItem a(class_aco var1, boolean var2, boolean var3) {
 		if (var1 == null) {
 			return null;
 		} else if (var1.b == 0) {
 			return null;
 		} else {
 			double var4 = (t - 0.30000001192092896D) + aY();
-			class_xg var6 = new class_xg(o, s, var4, u, var1);
+			EntityItem var6 = new EntityItem(o, s, var4, u, var1);
 			var6.a(40);
 			if (var3) {
 				var6.e(e_());
@@ -467,17 +467,17 @@ public abstract class class_yu extends class_rg {
 
 			this.a(var6);
 			if (var3) {
-				this.b(class_nh.w);
+				this.b(StatisticList.w);
 			}
 
 			return var6;
 		}
 	}
 
-	protected void a(class_xg var1) {
+	protected void a(EntityItem var1) {
 		o.a(var1);
 		class_aco var2 = var1.j();
-		this.a(class_nh.f(Item.b(var2.b())), var2.b);
+		this.a(StatisticList.f(Item.b(var2.b())), var2.b);
 	}
 
 	public float a(Block var1) {
@@ -624,8 +624,8 @@ public abstract class class_yu extends class_rg {
 					return false;
 				} else {
 					Entity var3 = var1.j();
-					if ((var3 instanceof class_yx) && (((class_yx) var3).e != null)) {
-						var3 = ((class_yx) var3).e;
+					if ((var3 instanceof EntityArrow) && (((EntityArrow) var3).e != null)) {
+						var3 = ((EntityArrow) var3).e;
 					}
 
 					return super.a(var1, var2);
@@ -694,7 +694,7 @@ public abstract class class_yu extends class_rg {
 				this.c(bu() - var2);
 				bz().a(var1, var4, var2);
 				if (var2 < 3.4028235E37F) {
-					this.a(class_nh.y, Math.round(var2 * 10.0F));
+					this.a(StatisticList.y, Math.round(var2 * 10.0F));
 				}
 
 			}
@@ -716,7 +716,7 @@ public abstract class class_yu extends class_rg {
 	public void a(class_pp var1) {
 	}
 
-	public void a(class_vf var1, class_pp var2) {
+	public void a(EntityHorse var1, class_pp var2) {
 	}
 
 	public void a(class_pv var1) {
@@ -735,12 +735,12 @@ public abstract class class_yu extends class_rg {
 		} else {
 			class_aco var4 = var2 != null ? var2.k() : null;
 			if (!var1.a(this, var2, var3)) {
-				if ((var2 != null) && (var1 instanceof class_rg)) {
+				if ((var2 != null) && (var1 instanceof EntityLiving)) {
 					if (bI.d) {
 						var2 = var4;
 					}
 
-					if (var2.a(this, (class_rg) var1, var3)) {
+					if (var2.a(this, (EntityLiving) var1, var3)) {
 						if ((var2.b <= 0) && !bI.d) {
 							this.a(var3, (class_aco) null);
 						}
@@ -774,8 +774,8 @@ public abstract class class_yu extends class_rg {
 			if (!var1.m(this)) {
 				float var2 = (float) this.a(class_yf.e).e();
 				float var3 = 0.0F;
-				if (var1 instanceof class_rg) {
-					var3 = class_afl.a(bG(), ((class_rg) var1).bF());
+				if (var1 instanceof EntityLiving) {
+					var3 = class_afl.a(bG(), ((EntityLiving) var1).bF());
 				} else {
 					var3 = class_afl.a(bG(), class_rl.a);
 				}
@@ -796,7 +796,7 @@ public abstract class class_yu extends class_rg {
 						var6 = true;
 					}
 
-					var7 = var5 && (O > 0.0F) && !C && !j_() && !Y() && !this.a(class_qs.o) && (m == null) && (var1 instanceof class_rg);
+					var7 = var5 && (O > 0.0F) && !C && !j_() && !Y() && !this.a(class_qs.o) && (m == null) && (var1 instanceof EntityLiving);
 					var7 = var7 && !aB();
 					if (var7) {
 						var2 *= 1.5F;
@@ -814,8 +814,8 @@ public abstract class class_yu extends class_rg {
 					float var27 = 0.0F;
 					boolean var13 = false;
 					int var14 = class_afl.b(this);
-					if (var1 instanceof class_rg) {
-						var27 = ((class_rg) var1).bu();
+					if (var1 instanceof EntityLiving) {
+						var27 = ((EntityLiving) var1).bu();
 						if ((var14 > 0) && !var1.ay()) {
 							var13 = true;
 							var1.e(1);
@@ -828,8 +828,8 @@ public abstract class class_yu extends class_rg {
 					boolean var21 = var1.a(class_qi.a(this), var2);
 					if (var21) {
 						if (var26 > 0) {
-							if (var1 instanceof class_rg) {
-								((class_rg) var1).a(this, var26 * 0.5F, MathHelper.a((y * 3.1415927F) / 180.0F), (-MathHelper.b((y * 3.1415927F) / 180.0F)));
+							if (var1 instanceof EntityLiving) {
+								((EntityLiving) var1).a(this, var26 * 0.5F, MathHelper.a((y * 3.1415927F) / 180.0F), (-MathHelper.b((y * 3.1415927F) / 180.0F)));
 							} else {
 								var1.g(-MathHelper.a((y * 3.1415927F) / 180.0F) * var26 * 0.5F, 0.1D, MathHelper.b((y * 3.1415927F) / 180.0F) * var26 * 0.5F);
 							}
@@ -840,11 +840,11 @@ public abstract class class_yu extends class_rg {
 						}
 
 						if (var8) {
-							List var22 = o.a(class_rg.class, var1.aX().b(1.0D, 0.25D, 1.0D));
+							List var22 = o.a(EntityLiving.class, var1.aX().b(1.0D, 0.25D, 1.0D));
 							Iterator var23 = var22.iterator();
 
 							while (var23.hasNext()) {
-								class_rg var24 = (class_rg) var23.next();
+								EntityLiving var24 = (EntityLiving) var23.next();
 								if ((var24 != this) && (var24 != var1) && !this.k(var24) && (this.h(var24) < 9.0D)) {
 									var24.a(this, 0.4F, MathHelper.a((y * 3.1415927F) / 180.0F), (-MathHelper.b((y * 3.1415927F) / 180.0F)));
 								}
@@ -891,8 +891,8 @@ public abstract class class_yu extends class_rg {
 						}
 
 						p(var1);
-						if (var1 instanceof class_rg) {
-							class_afl.a(((class_rg) var1), this);
+						if (var1 instanceof EntityLiving) {
+							class_afl.a(((EntityLiving) var1), this);
 						}
 
 						class_afl.b(this, var1);
@@ -900,21 +900,21 @@ public abstract class class_yu extends class_rg {
 						Object var31 = var1;
 						if (var1 instanceof class_vv) {
 							class_vu var33 = ((class_vv) var1).a;
-							if (var33 instanceof class_rg) {
+							if (var33 instanceof EntityLiving) {
 								var31 = var33;
 							}
 						}
 
-						if ((var29 != null) && (var31 instanceof class_rg)) {
-							var29.a((class_rg) var31, this);
+						if ((var29 != null) && (var31 instanceof EntityLiving)) {
+							var29.a((EntityLiving) var31, this);
 							if (var29.b <= 0) {
 								this.a(class_pu.a, (class_aco) null);
 							}
 						}
 
-						if (var1 instanceof class_rg) {
-							float var34 = var27 - ((class_rg) var1).bu();
-							this.a(class_nh.x, Math.round(var34 * 10.0F));
+						if (var1 instanceof EntityLiving) {
+							float var34 = var27 - ((EntityLiving) var1).bu();
+							this.a(StatisticList.x, Math.round(var34 * 10.0F));
 							if (var14 > 0) {
 								var1.e(var14 * 4);
 							}
@@ -990,7 +990,7 @@ public abstract class class_yu extends class_rg {
 
 			double var2 = 8.0D;
 			double var4 = 5.0D;
-			List var6 = o.a(class_yc.class, new class_ayk(var1.n() - var2, var1.o() - var4, var1.p() - var2, var1.n() + var2, var1.o() + var4, var1.p() + var2));
+			List var6 = o.a(EntityMonster.class, new class_ayk(var1.n() - var2, var1.o() - var4, var1.p() - var2, var1.n() + var2, var1.o() + var4, var1.p() + var2));
 			if (!var6.isEmpty()) {
 				return class_yu.class_a_in_class_yu.f;
 			}
@@ -1143,7 +1143,7 @@ public abstract class class_yu extends class_rg {
 	@Override
 	public void bM() {
 		super.bM();
-		this.b(class_nh.v);
+		this.b(StatisticList.v);
 		if (aB()) {
 			this.a(0.8F);
 		} else {
@@ -1182,29 +1182,29 @@ public abstract class class_yu extends class_rg {
 			if (this.a(class_avq.h)) {
 				var7 = Math.round(MathHelper.a((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
-					this.a(class_nh.q, var7);
+					this.a(StatisticList.q, var7);
 					this.a(0.015F * var7 * 0.01F);
 				}
 			} else if (Y()) {
 				var7 = Math.round(MathHelper.a((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
-					this.a(class_nh.m, var7);
+					this.a(StatisticList.m, var7);
 					this.a(0.015F * var7 * 0.01F);
 				}
 			} else if (j_()) {
 				if (var3 > 0.0D) {
-					this.a(class_nh.o, (int) Math.round(var3 * 100.0D));
+					this.a(StatisticList.o, (int) Math.round(var3 * 100.0D));
 				}
 			} else if (C) {
 				var7 = Math.round(MathHelper.a((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
-					this.a(class_nh.j, var7);
+					this.a(StatisticList.j, var7);
 					if (aB()) {
-						this.a(class_nh.l, var7);
+						this.a(StatisticList.l, var7);
 						this.a(0.099999994F * var7 * 0.01F);
 					} else {
 						if (aA()) {
-							this.a(class_nh.k, var7);
+							this.a(StatisticList.k, var7);
 						}
 
 						this.a(0.01F * var7 * 0.01F);
@@ -1213,7 +1213,7 @@ public abstract class class_yu extends class_rg {
 			} else {
 				var7 = Math.round(MathHelper.a((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 25) {
-					this.a(class_nh.p, var7);
+					this.a(StatisticList.p, var7);
 				}
 			}
 
@@ -1224,19 +1224,19 @@ public abstract class class_yu extends class_rg {
 		if (m != null) {
 			int var7 = Math.round(MathHelper.a((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
 			if (var7 > 0) {
-				if (m instanceof class_xh) {
-					this.a(class_nh.r, var7);
+				if (m instanceof EntityMinecartAbstract) {
+					this.a(StatisticList.r, var7);
 					if (g == null) {
 						g = new class_cj(this);
 					} else if (g.c(MathHelper.c(s), MathHelper.c(t), MathHelper.c(u)) >= 1000000.0D) {
 						this.b(class_my.q);
 					}
-				} else if (m instanceof class_xe) {
-					this.a(class_nh.s, var7);
-				} else if (m instanceof class_vj) {
-					this.a(class_nh.t, var7);
-				} else if (m instanceof class_vf) {
-					this.a(class_nh.u, var7);
+				} else if (m instanceof EntityBoat) {
+					this.a(StatisticList.s, var7);
+				} else if (m instanceof EntityPig) {
+					this.a(StatisticList.t, var7);
+				} else if (m instanceof EntityHorse) {
+					this.a(StatisticList.u, var7);
 				}
 			}
 		}
@@ -1247,7 +1247,7 @@ public abstract class class_yu extends class_rg {
 	public void e(float var1, float var2) {
 		if (!bI.c) {
 			if (var1 >= 2.0F) {
-				this.a(class_nh.n, (int) Math.round(var1 * 100.0D));
+				this.a(StatisticList.n, (int) Math.round(var1 * 100.0D));
 			}
 
 			super.e(var1, var2);
@@ -1268,7 +1268,7 @@ public abstract class class_yu extends class_rg {
 	}
 
 	@Override
-	public void b(class_rg var1) {
+	public void b(EntityLiving var1) {
 		if (var1 instanceof class_xx) {
 			this.b(class_my.s);
 		}
@@ -1571,7 +1571,7 @@ public abstract class class_yu extends class_rg {
 			} else if (var3 != null) {
 				if ((var2 != null) && (var2.b() != null)) {
 					if (var2.b() instanceof class_aav) {
-						if (class_rh.c(var2) != var3) {
+						if (EntityInsentient.c(var2) != var3) {
 							return false;
 						}
 					} else if (var3 != class_rc.f) {
@@ -1618,10 +1618,10 @@ public abstract class class_yu extends class_rg {
 	}
 
 	static {
-		a = class_kc.a(class_yu.class, class_kb.c);
-		b = class_kc.a(class_yu.class, class_kb.b);
-		bo = class_kc.a(class_yu.class, class_kb.a);
-		bp = class_kc.a(class_yu.class, class_kb.a);
+		a = DataWatcher.claimId(class_yu.class, class_kb.c);
+		b = DataWatcher.claimId(class_yu.class, class_kb.b);
+		bo = DataWatcher.claimId(class_yu.class, class_kb.a);
+		bp = DataWatcher.claimId(class_yu.class, class_kb.a);
 	}
 
 	// $FF: synthetic class

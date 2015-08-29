@@ -43,12 +43,12 @@ public class class_ajx extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, var8.aV().d());
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(a, var8.aV().d());
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		var1.a(var2, var3.a(a, var4.aV().d()), 2);
 	}
 
@@ -64,7 +64,7 @@ public class class_ajx extends class_aif {
 			} else {
 				var11.a((class_aor) var12);
 				var4.a(var11);
-				var4.b(class_nh.W);
+				var4.b(StatisticList.W);
 				return true;
 			}
 		} else {
@@ -84,7 +84,7 @@ public class class_ajx extends class_aif {
 			var2 = class_cq.c;
 		}
 
-		return S().a(a, var2);
+		return getBlockData().a(a, var2);
 	}
 
 	@Override

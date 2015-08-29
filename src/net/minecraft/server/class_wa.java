@@ -13,7 +13,7 @@ public abstract class class_wa extends class_vz {
 
 	@Override
 	public float a(class_vv var1, class_qi var2, float var3) {
-		if (var2.i() instanceof class_yx) {
+		if (var2.i() instanceof EntityArrow) {
 			var2.i().e(1);
 			return 0.0F;
 		} else {

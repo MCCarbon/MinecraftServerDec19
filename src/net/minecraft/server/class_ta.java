@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 
 public class class_ta extends class_sr {
-	private class_rn a;
+	private EntityCreature a;
 	private class_uu b;
 	private int c = -1;
 	private int d = -1;
 
-	public class_ta(class_rn var1) {
+	public class_ta(EntityCreature var1) {
 		a = var1;
 		this.a(1);
 	}

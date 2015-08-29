@@ -162,7 +162,7 @@ public class class_aid extends class_aif {
 
 		@Override
 		public class_apn a(int var1) {
-			return S().a(b, Integer.valueOf(var1));
+			return getBlockData().a(b, Integer.valueOf(var1));
 		}
 
 		@Override
@@ -235,7 +235,7 @@ public class class_aid extends class_aif {
 				var2 = class_cq.c;
 			}
 
-			return S().a(a, var2);
+			return getBlockData().a(a, var2);
 		}
 
 		@Override

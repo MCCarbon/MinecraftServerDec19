@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.List;
 
 public class class_tk extends class_sr {
-	private class_yp a;
-	private class_rg b;
+	private EntityVillager a;
+	private EntityLiving b;
 	private double c;
 	private int d;
 
-	public class_tk(class_yp var1, double var2) {
+	public class_tk(EntityVillager var1, double var2) {
 		a = var1;
 		c = var2;
 		this.a(1);
@@ -22,12 +22,12 @@ public class class_tk extends class_sr {
 		} else if (a.bj().nextInt(400) != 0) {
 			return false;
 		} else {
-			List var1 = a.o.a(class_yp.class, a.aX().b(6.0D, 3.0D, 6.0D));
+			List var1 = a.o.a(EntityVillager.class, a.aX().b(6.0D, 3.0D, 6.0D));
 			double var2 = Double.MAX_VALUE;
 			Iterator var4 = var1.iterator();
 
 			while (var4.hasNext()) {
-				class_yp var5 = (class_yp) var4.next();
+				EntityVillager var5 = (EntityVillager) var4.next();
 				if ((var5 != a) && !var5.cG() && (var5.k() < 0)) {
 					double var6 = var5.h(a);
 					if (var6 <= var2) {

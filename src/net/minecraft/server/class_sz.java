@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public class class_sz extends class_sr {
 	class_ago a;
-	protected class_rn b;
+	protected EntityCreature b;
 	int c;
 	double d;
 	boolean e;
@@ -14,12 +14,12 @@ public class class_sz extends class_sr {
 	private double j;
 	private double k;
 
-	public class_sz(class_rn var1, Class var2, double var3, boolean var5) {
+	public class_sz(EntityCreature var1, Class var2, double var3, boolean var5) {
 		this(var1, var3, var5);
 		g = var2;
 	}
 
-	public class_sz(class_rn var1, double var2, boolean var4) {
+	public class_sz(EntityCreature var1, double var2, boolean var4) {
 		b = var1;
 		a = var1.o;
 		d = var2;
@@ -29,7 +29,7 @@ public class class_sz extends class_sr {
 
 	@Override
 	public boolean a() {
-		class_rg var1 = b.w();
+		EntityLiving var1 = b.w();
 		if (var1 == null) {
 			return false;
 		} else if (!var1.al()) {
@@ -44,7 +44,7 @@ public class class_sz extends class_sr {
 
 	@Override
 	public boolean b() {
-		class_rg var1 = b.w();
+		EntityLiving var1 = b.w();
 		return var1 == null ? false : (!var1.al() ? false : (!e ? !b.u().m() : b.e(new class_cj(var1))));
 	}
 
@@ -61,7 +61,7 @@ public class class_sz extends class_sr {
 
 	@Override
 	public void e() {
-		class_rg var1 = b.w();
+		EntityLiving var1 = b.w();
 		b.q().a(var1, 30.0F, 30.0F);
 		double var2 = b.e(var1.s, var1.aX().b, var1.u);
 		double var4 = this.a(var1);
@@ -91,7 +91,7 @@ public class class_sz extends class_sr {
 
 	}
 
-	protected double a(class_rg var1) {
+	protected double a(EntityLiving var1) {
 		return (b.J * 2.0F * b.J * 2.0F) + var1.J;
 	}
 }

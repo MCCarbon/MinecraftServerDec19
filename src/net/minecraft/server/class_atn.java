@@ -53,7 +53,7 @@ public class class_atn extends class_asp {
 			}
 
 			if ((var4 == 3) && (var5 == 1)) {
-				var1.a(var3, a.S(), 2);
+				var1.a(var3, a.getBlockData(), 2);
 				var1.a(a, var3, var2);
 			}
 

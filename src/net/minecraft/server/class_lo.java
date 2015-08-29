@@ -77,8 +77,8 @@ public class class_lo {
 			this.a((new class_hm(0, a, a.m)));
 		}
 
-		if ((a instanceof class_wu) && ((m % 10) == 0)) {
-			class_wu var2 = (class_wu) a;
+		if ((a instanceof EntityItemFrame) && ((m % 10) == 0)) {
+			EntityItemFrame var2 = (EntityItemFrame) a;
 			class_aco var3 = var2.n();
 			if ((var3 != null) && (var3.b() instanceof class_acu)) {
 				class_axl var4 = Items.bf.a(var3, a.o);
@@ -114,9 +114,9 @@ public class class_lo {
 				Object var10 = null;
 				boolean var11 = (Math.abs(var29) >= 4) || (Math.abs(var30) >= 4) || (Math.abs(var9) >= 4) || ((m % 60) == 0);
 				boolean var12 = (Math.abs(var27 - g) >= 4) || (Math.abs(var28 - h) >= 4);
-				if ((m > 0) || (a instanceof class_yx)) {
+				if ((m > 0) || (a instanceof EntityArrow)) {
 					if ((var29 >= -128) && (var29 < 128) && (var30 >= -128) && (var30 < 128) && (var9 >= -128) && (var9 < 128) && (v <= 400) && !x && (y == a.C)) {
-						if ((!var11 || !var12) && !(a instanceof class_yx)) {
+						if ((!var11 || !var12) && !(a instanceof EntityArrow)) {
 							if (var11) {
 								var10 = new class_gw.class_a_in_class_gw(a.G(), (byte) var29, (byte) var30, (byte) var9, a.C);
 							} else if (var12) {
@@ -198,13 +198,13 @@ public class class_lo {
 	}
 
 	private void b() {
-		class_kc var1 = a.J();
+		DataWatcher var1 = a.J();
 		if (var1.a()) {
 			this.b((new class_hl(a.G(), var1, false)));
 		}
 
-		if (a instanceof class_rg) {
-			class_rw var2 = (class_rw) ((class_rg) a).bE();
+		if (a instanceof EntityLiving) {
+			class_rw var2 = (class_rw) ((EntityLiving) a).bE();
 			Set var3 = var2.b();
 			if (!var3.isEmpty()) {
 				this.b((new class_ib(a.G(), var3)));
@@ -264,8 +264,8 @@ public class class_lo {
 						var1.a.a((new class_hl(a.G(), a.J(), true)));
 					}
 
-					if (a instanceof class_rg) {
-						class_rw var3 = (class_rw) ((class_rg) a).bE();
+					if (a instanceof EntityLiving) {
+						class_rw var3 = (class_rw) ((EntityLiving) a).bE();
 						Collection var4 = var3.c();
 						if (!var4.isEmpty()) {
 							var1.a.a((new class_ib(a.G(), var4)));
@@ -275,7 +275,7 @@ public class class_lo {
 					j = a.v;
 					k = a.w;
 					l = a.x;
-					if (u && !(var2 instanceof class_fn)) {
+					if (u && !(var2 instanceof PacketPlayOutSpawnEntityLiving)) {
 						var1.a.a((new class_hn(a.G(), a.v, a.w, a.x)));
 					}
 
@@ -283,17 +283,17 @@ public class class_lo {
 						var1.a.a((new class_hm(0, a, a.m)));
 					}
 
-					if ((a instanceof class_rh) && (((class_rh) a).cv() != null)) {
-						var1.a.a((new class_hm(1, a, ((class_rh) a).cv())));
+					if ((a instanceof EntityInsentient) && (((EntityInsentient) a).cv() != null)) {
+						var1.a.a((new class_hm(1, a, ((EntityInsentient) a).cv())));
 					}
 
-					if (a instanceof class_rg) {
+					if (a instanceof EntityLiving) {
 						class_rc[] var8 = class_rc.values();
 						int var11 = var8.length;
 
 						for (int var5 = 0; var5 < var11; ++var5) {
 							class_rc var6 = var8[var5];
-							class_aco var7 = ((class_rg) a).a(var6);
+							class_aco var7 = ((EntityLiving) a).a(var6);
 							if (var7 != null) {
 								var1.a.a((new class_ho(a.G(), var6, var7)));
 							}
@@ -307,8 +307,8 @@ public class class_lo {
 						}
 					}
 
-					if (a instanceof class_rg) {
-						class_rg var10 = (class_rg) a;
+					if (a instanceof EntityLiving) {
+						EntityLiving var10 = (EntityLiving) a;
 						Iterator var12 = var10.bs().iterator();
 
 						while (var12.hasNext()) {
@@ -350,43 +350,43 @@ public class class_lo {
 			p.warn("Fetching addPacket for removed entity");
 		}
 
-		if (a instanceof class_xg) {
+		if (a instanceof EntityItem) {
 			return new PacketPlayOutSpawnEntity(a, 2, 1);
 		} else if (a instanceof class_lm) {
-			return new class_fp((class_yu) a);
-		} else if (a instanceof class_xh) {
-			class_xh var11 = (class_xh) a;
+			return new PacketPlayOutNamedEntitySpawn((class_yu) a);
+		} else if (a instanceof EntityMinecartAbstract) {
+			EntityMinecartAbstract var11 = (EntityMinecartAbstract) a;
 			return new PacketPlayOutSpawnEntity(a, 10, var11.s().a());
-		} else if (a instanceof class_xe) {
+		} else if (a instanceof EntityBoat) {
 			return new PacketPlayOutSpawnEntity(a, 1);
 		} else if (a instanceof class_qw) {
 			i = MathHelper.d((a.aI() * 256.0F) / 360.0F);
-			return new class_fn((class_rg) a);
+			return new PacketPlayOutSpawnEntityLiving((EntityLiving) a);
 		} else if (a instanceof class_wy) {
 			class_yu var9 = ((class_wy) a).b;
 			return new PacketPlayOutSpawnEntity(a, 90, var9 != null ? var9.G() : a.G());
 		} else {
 			Entity var8;
-			if (a instanceof class_zi) {
-				var8 = ((class_zi) a).e;
+			if (a instanceof EntitySpectralArrow) {
+				var8 = ((EntitySpectralArrow) a).e;
 				return new PacketPlayOutSpawnEntity(a, 91, var8 != null ? var8.G() : a.G());
-			} else if (a instanceof class_zo) {
-				var8 = ((class_zo) a).e;
+			} else if (a instanceof EntityTippedArrow) {
+				var8 = ((EntityTippedArrow) a).e;
 				return new PacketPlayOutSpawnEntity(a, 92, var8 != null ? var8.G() : a.G());
-			} else if (a instanceof class_yx) {
-				var8 = ((class_yx) a).e;
+			} else if (a instanceof EntityArrow) {
+				var8 = ((EntityArrow) a).e;
 				return new PacketPlayOutSpawnEntity(a, 60, var8 != null ? var8.G() : a.G());
-			} else if (a instanceof class_zh) {
+			} else if (a instanceof EntitySnowball) {
 				return new PacketPlayOutSpawnEntity(a, 61);
-			} else if (a instanceof class_zn) {
-				return new PacketPlayOutSpawnEntity(a, 73, PotionRegistry.a(class_adb.i(((class_zn) a).k())));
-			} else if (a instanceof class_zm) {
+			} else if (a instanceof EntityPotion) {
+				return new PacketPlayOutSpawnEntity(a, 73, PotionRegistry.a(class_adb.i(((EntityPotion) a).k())));
+			} else if (a instanceof EntityThrownExpBottle) {
 				return new PacketPlayOutSpawnEntity(a, 75);
-			} else if (a instanceof class_zl) {
+			} else if (a instanceof EntityEnderpearl) {
 				return new PacketPlayOutSpawnEntity(a, 65);
-			} else if (a instanceof class_yz) {
+			} else if (a instanceof EntityEnderSignal) {
 				return new PacketPlayOutSpawnEntity(a, 72);
-			} else if (a instanceof class_zb) {
+			} else if (a instanceof EntityFireworks) {
 				return new PacketPlayOutSpawnEntity(a, 76);
 			} else {
 				PacketPlayOutSpawnEntity var2;
@@ -394,11 +394,11 @@ public class class_lo {
 					class_za var7 = (class_za) a;
 					var2 = null;
 					byte var10 = 63;
-					if (a instanceof class_zg) {
+					if (a instanceof EntitySmallFireball) {
 						var10 = 64;
-					} else if (a instanceof class_yy) {
+					} else if (a instanceof EntityDragonFireball) {
 						var10 = 93;
-					} else if (a instanceof class_zp) {
+					} else if (a instanceof EntityWitherSkull) {
 						var10 = 66;
 					}
 
@@ -412,46 +412,46 @@ public class class_lo {
 					var2.e((int) (var7.d * 8000.0D));
 					var2.f((int) (var7.e * 8000.0D));
 					return var2;
-				} else if (a instanceof class_zf) {
+				} else if (a instanceof EntityShulkerBullet) {
 					PacketPlayOutSpawnEntity var6 = new PacketPlayOutSpawnEntity(a, 67, 0);
 					var6.d((int) (a.v * 8000.0D));
 					var6.e((int) (a.w * 8000.0D));
 					var6.f((int) (a.x * 8000.0D));
 					return var6;
-				} else if (a instanceof class_zk) {
+				} else if (a instanceof EntityEgg) {
 					return new PacketPlayOutSpawnEntity(a, 62);
-				} else if (a instanceof class_xq) {
+				} else if (a instanceof EntityTNTPrimed) {
 					return new PacketPlayOutSpawnEntity(a, 50);
-				} else if (a instanceof class_vw) {
+				} else if (a instanceof EntityEnderCrystal) {
 					return new PacketPlayOutSpawnEntity(a, 51);
-				} else if (a instanceof class_xf) {
-					class_xf var5 = (class_xf) a;
+				} else if (a instanceof EntityFallingBlock) {
+					EntityFallingBlock var5 = (EntityFallingBlock) a;
 					return new PacketPlayOutSpawnEntity(a, 70, Block.f(var5.j()));
-				} else if (a instanceof class_ws) {
+				} else if (a instanceof EntityArmorStand) {
 					return new PacketPlayOutSpawnEntity(a, 78);
-				} else if (a instanceof class_ww) {
-					return new class_fo((class_ww) a);
+				} else if (a instanceof EntityPainting) {
+					return new PacketPlayOutSpawnEntityPainting((EntityPainting) a);
 				} else {
 					class_cj var3;
-					if (a instanceof class_wu) {
-						class_wu var4 = (class_wu) a;
+					if (a instanceof EntityItemFrame) {
+						EntityItemFrame var4 = (EntityItemFrame) a;
 						var2 = new PacketPlayOutSpawnEntity(a, 71, var4.b.b());
 						var3 = var4.m();
 						var2.a(MathHelper.d((float) (var3.n() * 32)));
 						var2.b(MathHelper.d((float) (var3.o() * 32)));
 						var2.c(MathHelper.d((float) (var3.p() * 32)));
 						return var2;
-					} else if (a instanceof class_wv) {
-						class_wv var1 = (class_wv) a;
+					} else if (a instanceof EntityLeash) {
+						EntityLeash var1 = (EntityLeash) a;
 						var2 = new PacketPlayOutSpawnEntity(a, 77);
 						var3 = var1.m();
 						var2.a(MathHelper.d((float) (var3.n() * 32)));
 						var2.b(MathHelper.d((float) (var3.o() * 32)));
 						var2.c(MathHelper.d((float) (var3.p() * 32)));
 						return var2;
-					} else if (a instanceof class_rd) {
-						return new class_fl((class_rd) a);
-					} else if (a instanceof class_qv) {
+					} else if (a instanceof EntityExperienceOrb) {
+						return new PacketPlayOutSpawnEntityExperienceOrb((EntityExperienceOrb) a);
+					} else if (a instanceof EntityAreaEffectCloud) {
 						return new PacketPlayOutSpawnEntity(a, 3);
 					} else {
 						throw new IllegalArgumentException("Don\'t know how to add " + a.getClass() + "!");

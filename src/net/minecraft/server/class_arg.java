@@ -319,7 +319,7 @@ public class class_arg {
 
 		for (int var3 = 0; var3 < var2; ++var3) {
 			class_atm.class_a_in_class_atm var4 = var1[var3];
-			h += d.a(class_vw.class, var4.f()).size();
+			h += d.a(EntityEnderCrystal.class, var4.f()).size();
 		}
 
 		a.debug("Found {} end crystals still alive", new Object[] { Integer.valueOf(h) });
@@ -332,7 +332,7 @@ public class class_arg {
 			this.a(true);
 			l();
 			if (!l) {
-				d.a(d.m(class_aso.a), Blocks.DRAGON_EGG.S());
+				d.a(d.m(class_aso.a), Blocks.DRAGON_EGG.getBlockData());
 			}
 
 			l = true;
@@ -386,7 +386,7 @@ public class class_arg {
 		return h;
 	}
 
-	public void a(class_vw var1, class_qi var2) {
+	public void a(EntityEnderCrystal var1, class_qi var2) {
 		k();
 		Entity var3 = d.a(m);
 		if (var3 instanceof class_vx) {
@@ -407,7 +407,7 @@ public class class_arg {
 						for (int var4 = 0; var4 < f.a(); ++var4) {
 							class_apq var5 = var1.a(var2, var3, var4);
 							if ((var5.a().c() == Blocks.BEDROCK) || (var5.a().c() == Blocks.END_PORTAL)) {
-								d.a(var5.d(), Blocks.END_STONE.S());
+								d.a(var5.d(), Blocks.END_STONE.getBlockData());
 							}
 						}
 					}

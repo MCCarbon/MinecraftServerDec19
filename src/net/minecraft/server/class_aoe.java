@@ -73,7 +73,7 @@ public class class_aoe extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_abt.b(var1));
+		return getBlockData().a(a, class_abt.b(var1));
 	}
 
 	@Override

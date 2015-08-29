@@ -188,14 +188,14 @@ public abstract class class_aur {
 		int var7 = this.d(var3);
 		int var8 = this.b(var2, var4);
 		class_cj var9 = new class_cj(var6, var7, var8);
-		return !var5.b(var9) ? Blocks.AIR.S() : var1.p(var9);
+		return !var5.b(var9) ? Blocks.AIR.getBlockData() : var1.p(var9);
 	}
 
 	protected void a(class_ago var1, class_aua var2, int var3, int var4, int var5, int var6, int var7, int var8) {
 		for (int var9 = var4; var9 <= var7; ++var9) {
 			for (int var10 = var3; var10 <= var6; ++var10) {
 				for (int var11 = var5; var11 <= var8; ++var11) {
-					this.a(var1, Blocks.AIR.S(), var10, var9, var11, var2);
+					this.a(var1, Blocks.AIR.getBlockData(), var10, var9, var11, var2);
 				}
 			}
 		}
@@ -288,7 +288,7 @@ public abstract class class_aur {
 		class_cj var6 = new class_cj(this.a(var2, var4), this.d(var3), this.b(var2, var4));
 		if (var5.b(var6)) {
 			while (!var1.d(var6) && (var6.o() < 255)) {
-				var1.a(var6, Blocks.AIR.S(), 2);
+				var1.a(var6, Blocks.AIR.getBlockData(), 2);
 				var6 = var6.a();
 			}
 
@@ -311,7 +311,7 @@ public abstract class class_aur {
 	protected boolean a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
 		class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
 		if (var2.b(var9) && (var1.p(var9).c() != Blocks.CHEST)) {
-			class_apn var10 = Blocks.CHEST.S();
+			class_apn var10 = Blocks.CHEST.getBlockData();
 			var1.a(var9, Blocks.CHEST.g(var1, var9, var10), 2);
 			TileEntity var11 = var1.s(var9);
 			if (var11 instanceof class_aok) {
@@ -327,7 +327,7 @@ public abstract class class_aur {
 	protected boolean a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, class_cq var7, List var8, int var9) {
 		class_cj var10 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
 		if (var2.b(var10) && (var1.p(var10).c() != Blocks.DISPENSER)) {
-			this.a(var1, Blocks.DISPENSER.S().a(class_ajm.a, var7), var4, var5, var6, var2);
+			this.a(var1, Blocks.DISPENSER.getBlockData().a(class_ajm.a, var7), var4, var5, var6, var2);
 			TileEntity var11 = var1.s(var10);
 			if (var11 instanceof class_aoo) {
 				class_oj.a(var3, var8, (class_aoo) var11, var9);
@@ -340,8 +340,8 @@ public abstract class class_aur {
 	}
 
 	protected void a(class_ago var1, class_aua var2, Random var3, int var4, int var5, int var6, class_cq var7) {
-		this.a(var1, Blocks.WOODEN_DOOR.S().a(class_ajn.a, var7), var4, var5, var6, var2);
-		this.a(var1, Blocks.WOODEN_DOOR.S().a(class_ajn.a, var7).a(class_ajn.P, class_ajn.class_a_in_class_ajn.a), var4, var5 + 1, var6, var2);
+		this.a(var1, Blocks.WOODEN_DOOR.getBlockData().a(class_ajn.a, var7), var4, var5, var6, var2);
+		this.a(var1, Blocks.WOODEN_DOOR.getBlockData().a(class_ajn.a, var7).a(class_ajn.P, class_ajn.class_a_in_class_ajn.a), var4, var5 + 1, var6, var2);
 	}
 
 	public void a(int var1, int var2, int var3) {
@@ -416,7 +416,7 @@ public abstract class class_aur {
 		protected class_apn a;
 
 		protected class_a_in_class_aur() {
-			a = Blocks.AIR.S();
+			a = Blocks.AIR.getBlockData();
 		}
 
 		public abstract void a(Random var1, int var2, int var3, int var4, boolean var5);

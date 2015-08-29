@@ -10,14 +10,14 @@ import com.google.common.base.Predicate;
 
 public class class_ue extends class_sr {
 	private static final Logger a = LogManager.getLogger();
-	private class_rh b;
+	private EntityInsentient b;
 	private final Predicate c;
 	private final class_uf.class_a_in_class_uf d;
-	private class_rg e;
+	private EntityLiving e;
 
-	public class_ue(class_rh var1) {
+	public class_ue(EntityInsentient var1) {
 		b = var1;
-		if (var1 instanceof class_rn) {
+		if (var1 instanceof EntityCreature) {
 			a.warn("Use NearestAttackableTargetGoal.class for PathfinerMob mobs!");
 		}
 
@@ -42,7 +42,7 @@ public class class_ue extends class_sr {
 						var2 *= 0.7F * var4;
 					}
 
-					return var1.g(b) > var2 ? false : class_uj.a(b, (class_rg) var1, false, true);
+					return var1.g(b) > var2 ? false : class_uj.a(b, (EntityLiving) var1, false, true);
 				}
 			}
 
@@ -63,14 +63,14 @@ public class class_ue extends class_sr {
 		if (var3.isEmpty()) {
 			return false;
 		} else {
-			e = (class_rg) var3.get(0);
+			e = (EntityLiving) var3.get(0);
 			return true;
 		}
 	}
 
 	@Override
 	public boolean b() {
-		class_rg var1 = b.w();
+		EntityLiving var1 = b.w();
 		if (var1 == null) {
 			return false;
 		} else if (!var1.al()) {
@@ -97,7 +97,7 @@ public class class_ue extends class_sr {
 
 	@Override
 	public void d() {
-		b.c((class_rg) null);
+		b.c((EntityLiving) null);
 		super.c();
 	}
 

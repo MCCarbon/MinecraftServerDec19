@@ -84,7 +84,7 @@ public abstract class class_agf {
 					var6 = var1.n() + ((this.a().s.nextDouble() - this.a().s.nextDouble()) * l) + 0.5D;
 					double var8 = (var1.o() + this.a().s.nextInt(3)) - 1;
 					double var10 = var1.p() + ((this.a().s.nextDouble() - this.a().s.nextDouble()) * l) + 0.5D;
-					class_rh var12 = var4 instanceof class_rh ? (class_rh) var4 : null;
+					EntityInsentient var12 = var4 instanceof EntityInsentient ? (EntityInsentient) var4 : null;
 					var4.b(var6, var8, var10, this.a().s.nextFloat() * 360.0F, 0.0F);
 					if ((var12 == null) || (var12.cj() && var12.ck())) {
 						this.a(var4, true);
@@ -106,8 +106,8 @@ public abstract class class_agf {
 	private Entity a(Entity var1, boolean var2) {
 		if (c != null) {
 			class_dn var3 = c.b();
-			if ((var1 instanceof class_rh) && (var3.d() == 1) && var3.b("id", 8)) {
-				((class_rh) var1).a(var1.o.E(new class_cj(var1)), (class_rj) null);
+			if ((var1 instanceof EntityInsentient) && (var3.d() == 1) && var3.b("id", 8)) {
+				((EntityInsentient) var1).a(var1.o.E(new class_cj(var1)), (class_rj) null);
 			}
 
 			class_dn var4 = new class_dn();
@@ -141,9 +141,9 @@ public abstract class class_agf {
 
 				var6 = var8;
 			}
-		} else if ((var1 instanceof class_rg) && (var1.o != null) && var2) {
-			if (var1 instanceof class_rh) {
-				((class_rh) var1).a(var1.o.E(new class_cj(var1)), (class_rj) null);
+		} else if ((var1 instanceof EntityLiving) && (var1.o != null) && var2) {
+			if (var1 instanceof EntityInsentient) {
+				((EntityInsentient) var1).a(var1.o.E(new class_cj(var1)), (class_rj) null);
 			}
 
 			var1.o.a(var1);

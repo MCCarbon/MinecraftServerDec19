@@ -8,7 +8,7 @@ public class class_wk extends class_vz {
 	private int c;
 	private class_axc d;
 	private class_aym e;
-	private class_rg f;
+	private EntityLiving f;
 	private boolean g;
 
 	public class_wk(class_vx var1) {
@@ -58,7 +58,7 @@ public class class_wk extends class_vz {
 						double var20 = (f.t + f.K / 2.0F) - (var14 + a.bs.K / 2.0F);
 						double var22 = f.u - var16;
 						a.o.a((class_yu) null, 1008, new class_cj(a), 0);
-						class_yy var24 = new class_yy(a.o, a, var18, var20, var22);
+						EntityDragonFireball var24 = new EntityDragonFireball(a.o, a, var18, var20, var22);
 						var24.s = var12;
 						var24.t = var14;
 						var24.u = var16;
@@ -142,7 +142,7 @@ public class class_wk extends class_vz {
 		f = null;
 	}
 
-	public void a(class_rg var1) {
+	public void a(EntityLiving var1) {
 		f = var1;
 		int var2 = a.n();
 		int var3 = a.k(f.s, f.t, f.u);

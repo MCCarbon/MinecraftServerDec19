@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public class class_tn extends class_sr {
-	private class_rn a;
+	private EntityCreature a;
 	private double b;
 	private double c;
 	private double d;
@@ -10,11 +10,11 @@ public class class_tn extends class_sr {
 	private int f;
 	private boolean g;
 
-	public class_tn(class_rn var1, double var2) {
+	public class_tn(EntityCreature var1, double var2) {
 		this(var1, var2, 120);
 	}
 
-	public class_tn(class_rn var1, double var2, int var4) {
+	public class_tn(EntityCreature var1, double var2, int var4) {
 		a = var1;
 		e = var2;
 		f = var4;

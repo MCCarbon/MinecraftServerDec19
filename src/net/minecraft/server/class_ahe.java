@@ -74,17 +74,17 @@ public class class_ahe {
 
 			b = var2;
 			c = var4;
-			h = new class_atf(Blocks.DIRT.S(), d.I);
-			i = new class_atf(Blocks.GRAVEL.S(), d.M);
-			j = new class_atf(Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.b), d.Q);
-			k = new class_atf(Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.d), d.U);
-			l = new class_atf(Blocks.STONE.S().a(class_anj.a, class_anj.class_a_in_class_anj.f), d.Y);
-			m = new class_atf(Blocks.COAL_ORE.S(), d.ac);
-			n = new class_atf(Blocks.IRON_ORE.S(), d.ag);
-			o = new class_atf(Blocks.GOLD_ORE.S(), d.ak);
-			p = new class_atf(Blocks.REDSTONE_ORE.S(), d.ao);
-			q = new class_atf(Blocks.DIAMOND_ORE.S(), d.as);
-			r = new class_atf(Blocks.LAPIS_ORE.S(), d.aw);
+			h = new class_atf(Blocks.DIRT.getBlockData(), d.I);
+			i = new class_atf(Blocks.GRAVEL.getBlockData(), d.M);
+			j = new class_atf(Blocks.STONE.getBlockData().a(class_anj.a, class_anj.class_a_in_class_anj.b), d.Q);
+			k = new class_atf(Blocks.STONE.getBlockData().a(class_anj.a, class_anj.class_a_in_class_anj.d), d.U);
+			l = new class_atf(Blocks.STONE.getBlockData().a(class_anj.a, class_anj.class_a_in_class_anj.f), d.Y);
+			m = new class_atf(Blocks.COAL_ORE.getBlockData(), d.ac);
+			n = new class_atf(Blocks.IRON_ORE.getBlockData(), d.ag);
+			o = new class_atf(Blocks.GOLD_ORE.getBlockData(), d.ak);
+			p = new class_atf(Blocks.REDSTONE_ORE.getBlockData(), d.ao);
+			q = new class_atf(Blocks.DIAMOND_ORE.getBlockData(), d.as);
+			r = new class_atf(Blocks.LAPIS_ORE.getBlockData(), d.aw);
 			this.a(var3);
 			a = null;
 			b = null;

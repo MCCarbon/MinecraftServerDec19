@@ -52,7 +52,7 @@ public class class_akj extends class_aif {
 			TileEntity var11 = var1.s(var2);
 			if (var11 instanceof class_aot) {
 				var4.a((class_pp) ((class_aot) var11));
-				var4.b(class_nh.Z);
+				var4.b(StatisticList.Z);
 			}
 
 			return true;
@@ -64,11 +64,11 @@ public class class_akj extends class_aif {
 		TileEntity var4 = var1.s(var2);
 		N = true;
 		if (var0) {
-			var1.a(var2, Blocks.LIT_FURNACE.S().a(a, var3.b(a)), 3);
-			var1.a(var2, Blocks.LIT_FURNACE.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.LIT_FURNACE.getBlockData().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.LIT_FURNACE.getBlockData().a(a, var3.b(a)), 3);
 		} else {
-			var1.a(var2, Blocks.FURNACE.S().a(a, var3.b(a)), 3);
-			var1.a(var2, Blocks.FURNACE.S().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.FURNACE.getBlockData().a(a, var3.b(a)), 3);
+			var1.a(var2, Blocks.FURNACE.getBlockData().a(a, var3.b(a)), 3);
 		}
 
 		N = false;
@@ -85,12 +85,12 @@ public class class_akj extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, var8.aV().d());
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(a, var8.aV().d());
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		var1.a(var2, var3.a(a, var4.aV().d()), 2);
 		if (var5.s()) {
 			TileEntity var6 = var1.s(var2);
@@ -141,7 +141,7 @@ public class class_akj extends class_aif {
 			var2 = class_cq.c;
 		}
 
-		return S().a(a, var2);
+		return getBlockData().a(a, var2);
 	}
 
 	@Override

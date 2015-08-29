@@ -484,7 +484,7 @@ public class class_auj {
 			}
 
 			this.a(var1, var3, 6, 3, 6, 9, 6, 9, c, c, false);
-			this.a(var1, var3, 7, 4, 7, 8, 5, 8, Blocks.GOLD_BLOCK.S(), Blocks.GOLD_BLOCK.S(), false);
+			this.a(var1, var3, 7, 4, 7, 8, 5, 8, Blocks.GOLD_BLOCK.getBlockData(), Blocks.GOLD_BLOCK.getBlockData(), false);
 
 			for (var7 = 3; var7 <= 6; var7 += 3) {
 				for (int var8 = 6; var8 <= 9; var8 += 3) {
@@ -1928,7 +1928,7 @@ public class class_auj {
 					for (int var12 = var5; var12 <= var8; ++var12) {
 						if (!var9 || (this.a(var1, var11, var10, var12, var2).c().v() != class_avq.a)) {
 							if (this.d(var10) >= var1.H()) {
-								this.a(var1, Blocks.AIR.S(), var11, var10, var12, var2);
+								this.a(var1, Blocks.AIR.getBlockData(), var11, var10, var12, var2);
 							} else {
 								this.a(var1, f, var11, var10, var12, var2);
 							}
@@ -1981,7 +1981,7 @@ public class class_auj {
 			int var7 = this.d(var4);
 			int var8 = this.b(var3, var5);
 			if (var2.b((new class_cj(var6, var7, var8)))) {
-				class_ya var9 = new class_ya(var1);
+				EntityGuardian var9 = new EntityGuardian(var1);
 				var9.a(true);
 				var9.b(var9.bB());
 				var9.b(var6 + 0.5D, var7, var8 + 0.5D, 0.0F, 0.0F);
@@ -1998,8 +1998,8 @@ public class class_auj {
 			b = Blocks.PRISMARINE.a(class_ame.N);
 			c = Blocks.PRISMARINE.a(class_ame.O);
 			d = b;
-			e = Blocks.SEA_LANTERN.S();
-			f = Blocks.WATER.S();
+			e = Blocks.SEA_LANTERN.getBlockData();
+			f = Blocks.WATER.getBlockData();
 			g = b(2, 0, 0);
 			h = b(2, 2, 0);
 			i = b(0, 1, 0);

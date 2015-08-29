@@ -47,7 +47,7 @@ public class class_ala extends class_aif {
 					double var10 = var1.s.nextFloat() * var7 + ((1.0F - var7) * 0.2D) + 0.6D;
 					double var12 = var1.s.nextFloat() * var7 + ((1.0F - var7) * 0.5D);
 					class_aco var14 = var6.k();
-					class_xg var15 = new class_xg(var1, var2.n() + var8, var2.o() + var10, var2.p() + var12, var14);
+					EntityItem var15 = new EntityItem(var1, var2.n() + var8, var2.o() + var10, var2.p() + var12, var14);
 					var15.o();
 					var1.a(var15);
 				}
@@ -98,7 +98,7 @@ public class class_ala extends class_aif {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Boolean.valueOf(var1 > 0));
+		return getBlockData().a(a, Boolean.valueOf(var1 > 0));
 	}
 
 	@Override

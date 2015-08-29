@@ -33,13 +33,13 @@ public class class_asx extends class_asp {
 						if ((((var9 == 0) && (var11 == 0)) || (((var10 * var10) + (var12 * var12)) <= (var7 * var7))) && (((var9 != -var8) && (var9 != var8) && (var11 != -var8) && (var11 != var8)) || (var2.nextFloat() <= 0.75F))) {
 							Block var13 = var1.p(var3.a(var9, var6, var11)).c();
 							if ((var13.v() == class_avq.a) || (var13 == Blocks.DIRT) || (var13 == Blocks.SNOW) || (var13 == Blocks.ICE)) {
-								a(var1, var3.a(var9, var6, var11), Blocks.PACKED_ICE.S());
+								a(var1, var3.a(var9, var6, var11), Blocks.PACKED_ICE.getBlockData());
 							}
 
 							if ((var6 != 0) && (var8 > 1)) {
 								var13 = var1.p(var3.a(var9, -var6, var11)).c();
 								if ((var13.v() == class_avq.a) || (var13 == Blocks.DIRT) || (var13 == Blocks.SNOW) || (var13 == Blocks.ICE)) {
-									a(var1, var3.a(var9, -var6, var11), Blocks.PACKED_ICE.S());
+									a(var1, var3.a(var9, -var6, var11), Blocks.PACKED_ICE.getBlockData());
 								}
 							}
 						}
@@ -68,7 +68,7 @@ public class class_asx extends class_asp {
 							break;
 						}
 
-						a(var1, var15, Blocks.PACKED_ICE.S());
+						a(var1, var15, Blocks.PACKED_ICE.getBlockData());
 						var15 = var15.b();
 						--var16;
 						if (var16 <= 0) {

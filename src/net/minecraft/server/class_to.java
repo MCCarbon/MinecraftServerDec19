@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 
 public class class_to extends class_sr {
-	private final class_rh a;
+	private final EntityInsentient a;
 	private final class_ye b;
-	private class_rg c;
+	private EntityLiving c;
 	private int d;
 	private double e;
 	private int f;
@@ -19,11 +19,11 @@ public class class_to extends class_sr {
 
 	public class_to(class_ye var1, double var2, int var4, int var5, float var6) {
 		d = -1;
-		if (!(var1 instanceof class_rg)) {
+		if (!(var1 instanceof EntityLiving)) {
 			throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
 		} else {
 			b = var1;
-			a = (class_rh) var1;
+			a = (EntityInsentient) var1;
 			e = var2;
 			g = var4;
 			h = var5;
@@ -35,7 +35,7 @@ public class class_to extends class_sr {
 
 	@Override
 	public boolean a() {
-		class_rg var1 = a.w();
+		EntityLiving var1 = a.w();
 		if (var1 == null) {
 			return false;
 		} else {

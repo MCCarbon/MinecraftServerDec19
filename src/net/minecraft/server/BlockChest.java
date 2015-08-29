@@ -62,12 +62,12 @@ public class BlockChest extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, var8.aV());
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(a, var8.aV());
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		class_cq var6 = class_cq.b(MathHelper.c((var4.y * 4.0F) / 360.0F + 0.5D) & 3).d();
 		var3 = var3.a(a, var6);
 		class_cj var7 = var2.c();
@@ -314,9 +314,9 @@ public class BlockChest extends class_aif {
 			if (var11 != null) {
 				var4.a((class_pp) var11);
 				if (b == 0) {
-					var4.b(class_nh.ab);
+					var4.b(StatisticList.ab);
 				} else if (b == 1) {
-					var4.b(class_nh.V);
+					var4.b(StatisticList.V);
 				}
 			}
 
@@ -409,16 +409,16 @@ public class BlockChest extends class_aif {
 	}
 
 	private boolean n(class_ago var1, class_cj var2) {
-		Iterator var3 = var1.a(class_vi.class, new class_ayk(var2.n(), var2.o() + 1, var2.p(), var2.n() + 1, var2.o() + 2, var2.p() + 1)).iterator();
+		Iterator var3 = var1.a(EntityOcelot.class, new class_ayk(var2.n(), var2.o() + 1, var2.p(), var2.n() + 1, var2.o() + 2, var2.p() + 1)).iterator();
 
-		class_vi var5;
+		EntityOcelot var5;
 		do {
 			if (!var3.hasNext()) {
 				return false;
 			}
 
 			Entity var4 = (Entity) var3.next();
-			var5 = (class_vi) var4;
+			var5 = (EntityOcelot) var4;
 		} while (!var5.cG());
 
 		return true;
@@ -441,7 +441,7 @@ public class BlockChest extends class_aif {
 			var2 = class_cq.c;
 		}
 
-		return S().a(a, var2);
+		return getBlockData().a(a, var2);
 	}
 
 	@Override

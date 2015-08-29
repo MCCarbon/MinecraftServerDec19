@@ -201,7 +201,7 @@ public class class_aae extends class_zu {
 						}
 					}
 
-					var1.b(class_nh.X);
+					var1.b(StatisticList.X);
 					a.o_();
 					f = var1.cr();
 					this.a(a);

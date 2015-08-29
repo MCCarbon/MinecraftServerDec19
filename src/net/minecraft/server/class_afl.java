@@ -128,7 +128,7 @@ public class class_afl {
 		return c.a;
 	}
 
-	public static void a(class_rg var0, Entity var1) {
+	public static void a(EntityLiving var0, Entity var1) {
 		d.b = var1;
 		d.a = var0;
 		if (var0 != null) {
@@ -141,7 +141,7 @@ public class class_afl {
 
 	}
 
-	public static void b(class_rg var0, Entity var1) {
+	public static void b(EntityLiving var0, Entity var1) {
 		e.a = var0;
 		e.b = var1;
 		if (var0 != null) {
@@ -154,7 +154,7 @@ public class class_afl {
 
 	}
 
-	public static int a(class_afj var0, class_rg var1) {
+	public static int a(class_afj var0, EntityLiving var1) {
 		Iterable var2 = var0.a(var1);
 		if (var2 == null) {
 			return 0;
@@ -174,43 +174,43 @@ public class class_afl {
 		}
 	}
 
-	public static int a(class_rg var0) {
+	public static int a(EntityLiving var0) {
 		return a(class_afn.m, var0);
 	}
 
-	public static int b(class_rg var0) {
+	public static int b(EntityLiving var0) {
 		return a(class_afn.n, var0);
 	}
 
-	public static int c(class_rg var0) {
+	public static int c(EntityLiving var0) {
 		return a(class_afn.f, var0);
 	}
 
-	public static int d(class_rg var0) {
+	public static int d(EntityLiving var0) {
 		return a(class_afn.i, var0);
 	}
 
-	public static int e(class_rg var0) {
+	public static int e(EntityLiving var0) {
 		return a(class_afn.p, var0);
 	}
 
-	public static int f(class_rg var0) {
+	public static int f(EntityLiving var0) {
 		return a(class_afn.x, var0);
 	}
 
-	public static int g(class_rg var0) {
+	public static int g(EntityLiving var0) {
 		return a(class_afn.y, var0);
 	}
 
-	public static int h(class_rg var0) {
+	public static int h(EntityLiving var0) {
 		return a(class_afn.o, var0);
 	}
 
-	public static boolean i(class_rg var0) {
+	public static boolean i(EntityLiving var0) {
 		return a(class_afn.g, var0) > 0;
 	}
 
-	public static class_aco b(class_afj var0, class_rg var1) {
+	public static class_aco b(class_afj var0, EntityLiving var1) {
 		Iterable var2 = var0.a(var1);
 		if (var2 == null) {
 			return null;
@@ -338,7 +338,7 @@ public class class_afl {
 	}
 
 	static final class class_a_in_class_afl implements class_afl.class_c_in_class_afl {
-		public class_rg a;
+		public EntityLiving a;
 		public Entity b;
 
 		private class_a_in_class_afl() {
@@ -356,7 +356,7 @@ public class class_afl {
 	}
 
 	static final class class_b_in_class_afl implements class_afl.class_c_in_class_afl {
-		public class_rg a;
+		public EntityLiving a;
 		public Entity b;
 
 		private class_b_in_class_afl() {

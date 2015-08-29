@@ -37,7 +37,7 @@ public class BlockDeadBush extends BlockPlant {
 	@Override
 	public void a(class_ago var1, class_yu var2, class_cj var3, class_apn var4, TileEntity var5, class_aco var6) {
 		if (!var1.D && (var6 != null) && (var6.b() == Items.bg)) {
-			var2.b(class_nh.a(Block.a(this)));
+			var2.b(StatisticList.a(Block.a(this)));
 			a(var1, var3, new class_aco(Blocks.DEADBUSH, 1, 0));
 		} else {
 			super.a(var1, var2, var3, var4, var5, var6);

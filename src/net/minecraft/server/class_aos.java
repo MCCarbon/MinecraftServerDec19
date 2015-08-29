@@ -39,7 +39,7 @@ public class class_aos extends TileEntity {
 		this.b(var1);
 		var1.q("Item");
 		var1.a("Item", Item.b(a));
-		return new class_ft(c, 5, var1);
+		return new PacketPlayOutTileEntityData(c, 5, var1);
 	}
 
 	public void a(Item var1, int var2) {

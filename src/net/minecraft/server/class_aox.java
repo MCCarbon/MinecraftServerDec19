@@ -50,7 +50,7 @@ public class class_aox extends TileEntity implements class_ks {
 		class_dn var1 = new class_dn();
 		this.b(var1);
 		var1.q("SpawnPotentials");
-		return new class_ft(c, 1, var1);
+		return new PacketPlayOutTileEntityData(c, 1, var1);
 	}
 
 	@Override

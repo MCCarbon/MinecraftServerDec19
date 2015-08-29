@@ -36,7 +36,7 @@ public class class_aka extends Block {
 			if (var5 > 0) {
 				var1.a(var2, var3.a(a, Integer.valueOf(var5 - 1)), 2);
 			} else if (!this.d(var1, var2)) {
-				var1.a(var2, Blocks.DIRT.S());
+				var1.a(var2, Blocks.DIRT.getBlockData());
 			}
 		} else if (var5 < 7) {
 			var1.a(var2, var3.a(a, Integer.valueOf(7)), 2);
@@ -46,13 +46,13 @@ public class class_aka extends Block {
 
 	@Override
 	public void a(class_ago var1, class_cj var2, Entity var3, float var4) {
-		if (var3 instanceof class_rg) {
+		if (var3 instanceof EntityLiving) {
 			if (!var1.D && (var1.s.nextFloat() < (var4 - 0.5F))) {
 				if (!(var3 instanceof class_yu) && !var1.S().b("mobGriefing")) {
 					return;
 				}
 
-				var1.a(var2, Blocks.DIRT.S());
+				var1.a(var2, Blocks.DIRT.getBlockData());
 			}
 
 			super.a(var1, var2, var3, var4);
@@ -83,14 +83,14 @@ public class class_aka extends Block {
 	public void a(class_ago var1, class_cj var2, class_apn var3, Block var4) {
 		super.a(var1, var2, var3, var4);
 		if (var1.p(var2.a()).c().v().a()) {
-			var1.a(var2, Blocks.DIRT.S());
+			var1.a(var2, Blocks.DIRT.getBlockData());
 		}
 
 	}
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Blocks.DIRT.a(Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
+		return Blocks.DIRT.a(Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class class_aka extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1 & 7));
+		return getBlockData().a(a, Integer.valueOf(var1 & 7));
 	}
 
 	@Override

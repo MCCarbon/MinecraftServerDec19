@@ -5,11 +5,11 @@ import java.util.List;
 import com.google.common.collect.Lists;
 
 public class class_uq {
-	class_rh a;
+	EntityInsentient a;
 	List b = Lists.newArrayList();
 	List c = Lists.newArrayList();
 
-	public class_uq(class_rh var1) {
+	public class_uq(EntityInsentient var1) {
 		a = var1;
 	}
 

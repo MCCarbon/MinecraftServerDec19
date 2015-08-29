@@ -36,11 +36,11 @@ public class class_nd {
 	}
 
 	public class_nd h() {
-		if (class_nh.a.containsKey(e)) {
-			throw new RuntimeException("Duplicate stat id: \"" + ((class_nd) class_nh.a.get(e)).a + "\" and \"" + a + "\" at id " + e);
+		if (StatisticList.a.containsKey(e)) {
+			throw new RuntimeException("Duplicate stat id: \"" + ((class_nd) StatisticList.a.get(e)).a + "\" and \"" + a + "\" at id " + e);
 		} else {
-			class_nh.b.add(this);
-			class_nh.a.put(e, this);
+			StatisticList.b.add(this);
+			StatisticList.a.put(e, this);
 			return this;
 		}
 	}

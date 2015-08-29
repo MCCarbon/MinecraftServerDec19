@@ -54,11 +54,11 @@ public class BlockTallPlant extends BlockPlant implements class_ain {
 			Object var7 = var4 ? this : var1.p(var5).c();
 			Object var8 = var4 ? var1.p(var6).c() : this;
 			if (var7 == this) {
-				var1.a(var5, Blocks.AIR.S(), 2);
+				var1.a(var5, Blocks.AIR.getBlockData(), 2);
 			}
 
 			if (var8 == this) {
-				var1.a(var6, Blocks.AIR.S(), 3);
+				var1.a(var6, Blocks.AIR.getBlockData(), 3);
 				if (!var4) {
 					this.b(var1, var6, var3, 0);
 				}
@@ -93,13 +93,13 @@ public class BlockTallPlant extends BlockPlant implements class_ain {
 	}
 
 	public void a(class_ago var1, class_cj var2, BlockTallPlant.class_b_in_class_ajo var3, int var4) {
-		var1.a(var2, S().a(b, BlockTallPlant.class_a_in_class_ajo.b).a(a, var3), var4);
-		var1.a(var2.a(), S().a(b, BlockTallPlant.class_a_in_class_ajo.a), var4);
+		var1.a(var2, getBlockData().a(b, BlockTallPlant.class_a_in_class_ajo.b).a(a, var3), var4);
+		var1.a(var2.a(), getBlockData().a(b, BlockTallPlant.class_a_in_class_ajo.a), var4);
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
-		var1.a(var2.a(), S().a(b, BlockTallPlant.class_a_in_class_ajo.a), 2);
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
+		var1.a(var2.a(), getBlockData().a(b, BlockTallPlant.class_a_in_class_ajo.a), 2);
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class BlockTallPlant extends BlockPlant implements class_ain {
 				}
 			}
 		} else if (var4.bI.d && (var1.p(var2.a()).c() == this)) {
-			var1.a(var2.a(), Blocks.AIR.S(), 2);
+			var1.a(var2.a(), Blocks.AIR.getBlockData(), 2);
 		}
 
 		super.a(var1, var2, var3, var4);
@@ -144,7 +144,7 @@ public class BlockTallPlant extends BlockPlant implements class_ain {
 		if ((var5 != BlockTallPlant.class_b_in_class_ajo.d) && (var5 != BlockTallPlant.class_b_in_class_ajo.c)) {
 			return false;
 		} else {
-			var4.b(class_nh.a(Block.a(this)));
+			var4.b(StatisticList.a(Block.a(this)));
 			int var6 = (var5 == BlockTallPlant.class_b_in_class_ajo.c ? BlockLongGrass.class_a_in_class_ano.b : BlockLongGrass.class_a_in_class_ano.c).a();
 			a(var1, var2, (new class_aco(Blocks.TALLGRASS, 2, var6)));
 			return true;
@@ -174,7 +174,7 @@ public class BlockTallPlant extends BlockPlant implements class_ain {
 
 	@Override
 	public class_apn a(int var1) {
-		return (var1 & 8) > 0 ? S().a(b, BlockTallPlant.class_a_in_class_ajo.a) : S().a(b, BlockTallPlant.class_a_in_class_ajo.b).a(a, BlockTallPlant.class_b_in_class_ajo.a(var1 & 7));
+		return (var1 & 8) > 0 ? getBlockData().a(b, BlockTallPlant.class_a_in_class_ajo.a) : getBlockData().a(b, BlockTallPlant.class_a_in_class_ajo.b).a(a, BlockTallPlant.class_b_in_class_ajo.a(var1 & 7));
 	}
 
 	@Override

@@ -115,7 +115,7 @@ public class class_asb extends class_asa {
 
 	void a(class_cj var1) {
 		for (int var2 = 0; var2 < i; ++var2) {
-			this.a(var1.b(var2), this.b(var2), Blocks.LEAVES.S().a(class_alc.b, Boolean.valueOf(false)));
+			this.a(var1.b(var2), this.b(var2), Blocks.LEAVES.getBlockData().a(class_alc.b, Boolean.valueOf(false)));
 		}
 
 	}
@@ -130,7 +130,7 @@ public class class_asb extends class_asa {
 		for (int var9 = 0; var9 <= var5; ++var9) {
 			class_cj var10 = var1.a(0.5F + (var9 * var6), 0.5F + (var9 * var7), 0.5F + (var9 * var8));
 			class_alg.class_a_in_class_alg var11 = this.b(var1, var10);
-			this.a(l, var10, var3.S().a(class_alg.a, var11));
+			this.a(l, var10, var3.getBlockData().a(class_alg.a, var11));
 		}
 
 	}

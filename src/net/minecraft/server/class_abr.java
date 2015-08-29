@@ -43,7 +43,7 @@ public class class_abr extends Item {
 		}
 
 		class_cj var11 = var1.a();
-		class_apn var12 = var3.S().a(class_ajn.a, var2).a(class_ajn.N, var10 ? class_ajn.class_b_in_class_ajn.b : class_ajn.class_b_in_class_ajn.a);
+		class_apn var12 = var3.getBlockData().a(class_ajn.a, var2).a(class_ajn.N, var10 ? class_ajn.class_b_in_class_ajn.b : class_ajn.class_b_in_class_ajn.a);
 		var0.a(var1, var12.a(class_ajn.P, class_ajn.class_a_in_class_ajn.b), 2);
 		var0.a(var11, var12.a(class_ajn.P, class_ajn.class_a_in_class_ajn.a), 2);
 		var0.d(var1, var3);

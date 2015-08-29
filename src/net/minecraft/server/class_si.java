@@ -5,7 +5,7 @@ public class class_si extends class_sl {
 	private int g;
 	private int h = -1;
 
-	public class_si(class_rh var1) {
+	public class_si(EntityInsentient var1) {
 		super(var1);
 	}
 

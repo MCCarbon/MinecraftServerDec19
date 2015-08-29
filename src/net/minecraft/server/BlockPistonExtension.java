@@ -160,7 +160,7 @@ public class BlockPistonExtension extends class_ajk {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(b, b(var1)).a(a, (var1 & 8) > 0 ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
+		return getBlockData().a(b, b(var1)).a(a, (var1 & 8) > 0 ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
 	}
 
 	@Override

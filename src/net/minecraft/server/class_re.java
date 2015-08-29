@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 
-public abstract class class_re extends class_rh {
+public abstract class class_re extends EntityInsentient {
 	public class_re(class_ago var1) {
 		super(var1);
 	}

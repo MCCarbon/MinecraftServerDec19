@@ -16,15 +16,15 @@ public class class_asm extends class_asp {
 				boolean var8 = var5.p() == var3.p();
 				boolean var9 = Math.abs(var5.o() - var3.o()) == 2;
 				if (var6 && var7 && var8) {
-					a(var1, new class_cj(var5), Blocks.END_GATEWAY.S());
+					a(var1, new class_cj(var5), Blocks.END_GATEWAY.getBlockData());
 				} else if (var7) {
-					a(var1, var5, Blocks.AIR.S());
+					a(var1, var5, Blocks.AIR.getBlockData());
 				} else if (var9 && var6 && var8) {
-					a(var1, var5, Blocks.BEDROCK.S());
+					a(var1, var5, Blocks.BEDROCK.getBlockData());
 				} else if ((var6 || var8) && !var9) {
-					a(var1, var5, Blocks.BEDROCK.S());
+					a(var1, var5, Blocks.BEDROCK.getBlockData());
 				} else {
-					a(var1, var5, Blocks.AIR.S());
+					a(var1, var5, Blocks.AIR.getBlockData());
 				}
 			}
 

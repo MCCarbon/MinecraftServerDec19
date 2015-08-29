@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 
 public class class_tp extends class_sr {
-	private final class_yh a;
-	private class_rg b;
+	private final EntitySkeleton a;
+	private EntityLiving b;
 	private int c = -1;
 	private double d;
 	private int e;
@@ -12,7 +12,7 @@ public class class_tp extends class_sr {
 	private float h;
 	private float i;
 
-	public class_tp(class_yh var1, double var2, int var4, int var5, float var6) {
+	public class_tp(EntitySkeleton var1, double var2, int var4, int var5, float var6) {
 		a = var1;
 		d = var2;
 		f = var4;
@@ -24,7 +24,7 @@ public class class_tp extends class_sr {
 
 	@Override
 	public boolean a() {
-		class_rg var1 = a.w();
+		EntityLiving var1 = a.w();
 		if (var1 == null) {
 			return false;
 		} else {

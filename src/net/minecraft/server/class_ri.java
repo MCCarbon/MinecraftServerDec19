@@ -3,7 +3,7 @@ package net.minecraft.server;
 
 public enum class_ri {
 	a(class_xx.class, 70, class_avq.a, false, false),
-	b(class_vc.class, 10, class_avq.a, true, true),
+	b(EntityAnimal.class, 10, class_avq.a, true, true),
 	c(class_uz.class, 15, class_avq.a, true, false),
 	d(class_vq.class, 5, class_avq.h, true, false);
 

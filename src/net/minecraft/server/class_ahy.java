@@ -8,9 +8,9 @@ public class class_ahy extends class_ahb {
 		au.clear();
 		av.clear();
 		aw.clear();
-		at.add(new class_ahb.class_c_in_class_ahb(class_xv.class, 10, 4, 4));
-		ak = Blocks.DIRT.S();
-		al = Blocks.DIRT.S();
+		at.add(new class_ahb.class_c_in_class_ahb(EntityEnderman.class, 10, 4, 4));
+		ak = Blocks.DIRT.getBlockData();
+		al = Blocks.DIRT.getBlockData();
 		as = new class_ahz();
 	}
 }

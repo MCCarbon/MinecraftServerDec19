@@ -17,7 +17,7 @@ public class BlockFire extends Block {
 
 	@Override
 	public class_apn a(class_apn var1, class_ags var2, class_cj var3) {
-		return !class_ago.a(var2, var3.b()) && !Blocks.FIRE.e(var2, var3.b()) ? var1.a(b, Boolean.valueOf(this.e(var2, var3.c()))).a(N, Boolean.valueOf(this.e(var2, var3.f()))).a(O, Boolean.valueOf(this.e(var2, var3.d()))).a(P, Boolean.valueOf(this.e(var2, var3.e()))).a(Q, Boolean.valueOf(this.e(var2, var3.a()))) : S();
+		return !class_ago.a(var2, var3.b()) && !Blocks.FIRE.e(var2, var3.b()) ? var1.a(b, Boolean.valueOf(this.e(var2, var3.c()))).a(N, Boolean.valueOf(this.e(var2, var3.f()))).a(O, Boolean.valueOf(this.e(var2, var3.d()))).a(P, Boolean.valueOf(this.e(var2, var3.e()))).a(Q, Boolean.valueOf(this.e(var2, var3.a()))) : getBlockData();
 	}
 
 	protected BlockFire() {
@@ -209,7 +209,7 @@ public class BlockFire extends Block {
 					var8 = 15;
 				}
 
-				var1.a(var2, S().a(a, Integer.valueOf(var8)), 3);
+				var1.a(var2, getBlockData().a(a, Integer.valueOf(var8)), 3);
 			} else {
 				var1.g(var2);
 			}
@@ -292,7 +292,7 @@ public class BlockFire extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override

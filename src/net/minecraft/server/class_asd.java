@@ -44,7 +44,7 @@ public class class_asd extends class_asp {
 				while (var10.hasNext()) {
 					class_cj var11 = (class_cj) var10.next();
 					if (var11.i(var3) <= var9 * var9) {
-						var1.a(var11, a.S(), 4);
+						var1.a(var11, a.getBlockData(), 4);
 					}
 				}
 

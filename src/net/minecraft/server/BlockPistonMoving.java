@@ -219,7 +219,7 @@ public class BlockPistonMoving extends class_aif {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, BlockPistonExtension.b(var1)).a(b, (var1 & 8) > 0 ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
+		return getBlockData().a(a, BlockPistonExtension.b(var1)).a(b, (var1 & 8) > 0 ? BlockPistonExtension.class_a_in_class_aph.b : BlockPistonExtension.class_a_in_class_aph.a);
 	}
 
 	@Override

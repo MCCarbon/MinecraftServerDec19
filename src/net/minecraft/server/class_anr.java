@@ -71,22 +71,22 @@ public class class_anr extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		if (this.a(var1, var2, var3)) {
-			return S().a(a, var3);
+			return getBlockData().a(a, var3);
 		} else {
 			Iterator var9 = class_cq.class_c_in_class_cq.a.iterator();
 
 			class_cq var10;
 			do {
 				if (!var9.hasNext()) {
-					return S();
+					return getBlockData();
 				}
 
 				var10 = (class_cq) var9.next();
 			} while (!var1.d(var2.a(var10.d()), true));
 
-			return S().a(a, var10);
+			return getBlockData().a(a, var10);
 		}
 	}
 
@@ -159,7 +159,7 @@ public class class_anr extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		class_apn var2 = S();
+		class_apn var2 = getBlockData();
 		switch (var1) {
 			case 1:
 				var2 = var2.a(a, class_cq.f);

@@ -2,18 +2,18 @@ package net.minecraft.server;
 
 
 public abstract class class_uj extends class_sr {
-	protected final class_rn e;
+	protected final EntityCreature e;
 	protected boolean f;
 	private boolean a;
 	private int b;
 	private int c;
 	private int d;
 
-	public class_uj(class_rn var1, boolean var2) {
+	public class_uj(EntityCreature var1, boolean var2) {
 		this(var1, var2, false);
 	}
 
-	public class_uj(class_rn var1, boolean var2, boolean var3) {
+	public class_uj(EntityCreature var1, boolean var2, boolean var3) {
 		e = var1;
 		f = var2;
 		a = var3;
@@ -21,7 +21,7 @@ public abstract class class_uj extends class_sr {
 
 	@Override
 	public boolean b() {
-		class_rg var1 = e.w();
+		EntityLiving var1 = e.w();
 		if (var1 == null) {
 			return false;
 		} else if (!var1.al()) {
@@ -64,10 +64,10 @@ public abstract class class_uj extends class_sr {
 
 	@Override
 	public void d() {
-		e.c((class_rg) null);
+		e.c((EntityLiving) null);
 	}
 
-	public static boolean a(class_rh var0, class_rg var1, boolean var2, boolean var3) {
+	public static boolean a(EntityInsentient var0, EntityLiving var1, boolean var2, boolean var3) {
 		if (var1 == null) {
 			return false;
 		} else if (var1 == var0) {
@@ -95,7 +95,7 @@ public abstract class class_uj extends class_sr {
 		}
 	}
 
-	protected boolean a(class_rg var1, boolean var2) {
+	protected boolean a(EntityLiving var1, boolean var2) {
 		if (!a(e, var1, var2, f)) {
 			return false;
 		} else if (!e.e(new class_cj(var1))) {
@@ -119,7 +119,7 @@ public abstract class class_uj extends class_sr {
 		}
 	}
 
-	private boolean a(class_rg var1) {
+	private boolean a(EntityLiving var1) {
 		c = 10 + e.bj().nextInt(5);
 		class_axc var2 = e.u().a(var1);
 		if (var2 == null) {

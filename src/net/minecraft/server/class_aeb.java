@@ -41,7 +41,7 @@ public class class_aeb extends Item {
 		}
 
 		var3.a(var1);
-		var3.b(class_nh.c(Item.b(this)));
+		var3.b(StatisticList.c(Item.b(this)));
 		return new class_px(class_pw.a, var1);
 	}
 

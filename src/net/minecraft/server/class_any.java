@@ -51,7 +51,7 @@ public class class_any extends class_amw {
 			var2 = class_cq.c;
 		}
 
-		return S().a(a, var2);
+		return getBlockData().a(a, var2);
 	}
 
 	@Override

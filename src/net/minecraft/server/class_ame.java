@@ -40,7 +40,7 @@ public class class_ame extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_ame.class_a_in_class_ame.a(var1));
+		return getBlockData().a(a, class_ame.class_a_in_class_ame.a(var1));
 	}
 
 	static {

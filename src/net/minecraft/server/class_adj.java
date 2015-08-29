@@ -9,7 +9,7 @@ public class class_adj extends Item {
 	}
 
 	@Override
-	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, class_rg var5) {
+	public boolean a(class_aco var1, class_ago var2, Block var3, class_cj var4, EntityLiving var5) {
 		if ((var3.v() != class_avq.j) && (var3 != Blocks.WEB) && (var3 != Blocks.TALLGRASS) && (var3 != Blocks.VINE) && (var3 != Blocks.TRIPWIRE) && (var3 != Blocks.WOOL)) {
 			return super.a(var1, var2, var3, var4, var5);
 		} else {

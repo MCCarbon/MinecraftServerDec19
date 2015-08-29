@@ -25,7 +25,7 @@ public class BlockPortal extends class_aks {
 			}
 
 			if ((var5 > 0) && !var1.p(var6.a()).c().x()) {
-				Entity var7 = class_ads.a(var1, EntityTypes.a(class_yd.class), var6.n() + 0.5D, var6.o() + 1.1D, var6.p() + 0.5D);
+				Entity var7 = class_ads.a(var1, EntityTypes.a(EntityPigZombie.class), var6.n() + 0.5D, var6.o() + 1.1D, var6.p() + 0.5D);
 				if (var7 != null) {
 					var7.aj = var7.at();
 				}
@@ -87,12 +87,12 @@ public class BlockPortal extends class_aks {
 		if (var5 == class_cq.class_a_in_class_cq.a) {
 			var6 = new BlockPortal.class_a_in_class_alz(var1, var2, class_cq.class_a_in_class_cq.a);
 			if (!var6.d() || (var6.e < (var6.h * var6.g))) {
-				var1.a(var2, Blocks.AIR.S());
+				var1.a(var2, Blocks.AIR.getBlockData());
 			}
 		} else if (var5 == class_cq.class_a_in_class_cq.c) {
 			var6 = new BlockPortal.class_a_in_class_alz(var1, var2, class_cq.class_a_in_class_cq.c);
 			if (!var6.d() || (var6.e < (var6.h * var6.g))) {
-				var1.a(var2, Blocks.AIR.S());
+				var1.a(var2, Blocks.AIR.getBlockData());
 			}
 		}
 
@@ -118,7 +118,7 @@ public class BlockPortal extends class_aks {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, (var1 & 3) == 2 ? class_cq.class_a_in_class_cq.c : class_cq.class_a_in_class_cq.a);
+		return getBlockData().a(a, (var1 & 3) == 2 ? class_cq.class_a_in_class_cq.c : class_cq.class_a_in_class_cq.a);
 	}
 
 	@Override
@@ -362,7 +362,7 @@ public class BlockPortal extends class_aks {
 				class_cj var2 = f.a(c, var1);
 
 				for (int var3 = 0; var3 < g; ++var3) {
-					a.a(var2.b(var3), Blocks.PORTAL.S().a(BlockPortal.a, b), 2);
+					a.a(var2.b(var3), Blocks.PORTAL.getBlockData().a(BlockPortal.a, b), 2);
 				}
 			}
 

@@ -5,29 +5,29 @@ public interface PacketListenerPlayOut extends PacketListener {
 	
 	void a(PacketPlayOutSpawnEntity var1);
 
-	void a(class_fl var1);
+	void a(PacketPlayOutSpawnEntityExperienceOrb var1);
 
-	void a(class_fm var1);
+	void a(PacketPlayOutSpawnEntityWeather var1);
 
-	void a(class_fn var1);
+	void a(PacketPlayOutSpawnEntityLiving var1);
 
-	void a(class_hr var1);
+	void a(PacketPlayOutScoreboardObjective var1);
 
-	void a(class_fo var1);
+	void a(PacketPlayOutSpawnEntityPainting var1);
 
-	void a(class_fp var1);
+	void a(PacketPlayOutNamedEntitySpawn var1);
 
-	void a(class_fq var1);
+	void a(PacketPlayOutAnimation var1);
 
-	void a(class_fr var1);
+	void a(PacketPlayOutStatistic var1);
 
-	void a(class_fs var1);
+	void a(PacketPlayOutBlockBreakAnimation var1);
 
-	void a(class_gx var1);
+	void a(PacketPlayOutOpenSignEditor var1);
 
-	void a(class_ft var1);
+	void a(PacketPlayOutTileEntityData var1);
 
-	void a(class_fu var1);
+	void a(PacketPlayOutBlockAction var1);
 
 	void a(class_fv var1);
 

@@ -18,9 +18,9 @@ public class class_amn extends Block {
 	public void d(class_ago var1, class_cj var2, class_apn var3) {
 		if (!var1.D) {
 			if (a && !var1.z(var2)) {
-				var1.a(var2, Blocks.REDSTONE_LAMP.S(), 2);
+				var1.a(var2, Blocks.REDSTONE_LAMP.getBlockData(), 2);
 			} else if (!a && var1.z(var2)) {
-				var1.a(var2, Blocks.LIT_REDSTONE_LAMP.S(), 2);
+				var1.a(var2, Blocks.LIT_REDSTONE_LAMP.getBlockData(), 2);
 			}
 
 		}
@@ -32,7 +32,7 @@ public class class_amn extends Block {
 			if (a && !var1.z(var2)) {
 				var1.a(var2, this, 4);
 			} else if (!a && var1.z(var2)) {
-				var1.a(var2, Blocks.LIT_REDSTONE_LAMP.S(), 2);
+				var1.a(var2, Blocks.LIT_REDSTONE_LAMP.getBlockData(), 2);
 			}
 
 		}
@@ -42,7 +42,7 @@ public class class_amn extends Block {
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
 		if (!var1.D) {
 			if (a && !var1.z(var2)) {
-				var1.a(var2, Blocks.REDSTONE_LAMP.S(), 2);
+				var1.a(var2, Blocks.REDSTONE_LAMP.getBlockData(), 2);
 			}
 
 		}

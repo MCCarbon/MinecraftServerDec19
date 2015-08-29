@@ -37,7 +37,7 @@ public class class_agw {
 						int var12 = var4 + var10;
 						int var13 = (var5 + (var9 * var7)) - (var8 * var6);
 						boolean var14 = var10 < 0;
-						a.a((new class_cj(var11, var12, var13)), var14 ? Blocks.OBSIDIAN.S() : Blocks.AIR.S());
+						a.a((new class_cj(var11, var12, var13)), var14 ? Blocks.OBSIDIAN.getBlockData() : Blocks.AIR.getBlockData());
 					}
 				}
 			}
@@ -281,13 +281,13 @@ public class class_agw {
 						var24 = var16 + var22;
 						var25 = (var17 + ((var21 - 1) * var19)) - (var20 * var31);
 						boolean var35 = var22 < 0;
-						a.a((new class_cj(var23, var24, var25)), var35 ? Blocks.OBSIDIAN.S() : Blocks.AIR.S());
+						a.a((new class_cj(var23, var24, var25)), var35 ? Blocks.OBSIDIAN.getBlockData() : Blocks.AIR.getBlockData());
 					}
 				}
 			}
 		}
 
-		class_apn var32 = Blocks.PORTAL.S().a(BlockPortal.a, var31 != 0 ? class_cq.class_a_in_class_cq.a : class_cq.class_a_in_class_cq.c);
+		class_apn var32 = Blocks.PORTAL.getBlockData().a(BlockPortal.a, var31 != 0 ? class_cq.class_a_in_class_cq.a : class_cq.class_a_in_class_cq.c);
 
 		for (var21 = 0; var21 < 4; ++var21) {
 			for (var22 = 0; var22 < 4; ++var22) {
@@ -296,7 +296,7 @@ public class class_agw {
 					var25 = var16 + var23;
 					var26 = var17 + ((var22 - 1) * var19);
 					boolean var36 = (var22 == 0) || (var22 == 3) || (var23 == -1) || (var23 == 3);
-					a.a(new class_cj(var24, var25, var26), var36 ? Blocks.OBSIDIAN.S() : var32, 2);
+					a.a(new class_cj(var24, var25, var26), var36 ? Blocks.OBSIDIAN.getBlockData() : var32, 2);
 				}
 			}
 

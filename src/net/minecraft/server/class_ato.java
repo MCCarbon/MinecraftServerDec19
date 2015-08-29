@@ -104,7 +104,7 @@ public class class_ato extends class_asa {
 	}
 
 	static {
-		a = Blocks.LOG.S().a(class_alv.b, class_aly.class_a_in_class_aly.b);
-		b = Blocks.LEAVES.S().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
+		a = Blocks.LOG.getBlockData().a(class_alv.b, class_aly.class_a_in_class_aly.b);
+		b = Blocks.LEAVES.getBlockData().a(class_alu.P, class_aly.class_a_in_class_aly.b).a(class_alc.b, Boolean.valueOf(false));
 	}
 }

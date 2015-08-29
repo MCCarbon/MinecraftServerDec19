@@ -61,7 +61,7 @@ public abstract class BlockStepAbstract extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		class_apn var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8).a(a, BlockStepAbstract.class_a_in_class_akq.b);
 		return l() ? var9 : ((var3 != class_cq.a) && ((var3 == class_cq.b) || (var5 <= 0.5D)) ? var9 : var9.a(a, BlockStepAbstract.class_a_in_class_akq.a));
 	}

@@ -133,12 +133,12 @@ public abstract class class_ajj extends class_akx {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(O, var8.aV().d());
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(O, var8.aV().d());
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		if (this.f(var1, var2, var3)) {
 			var1.a(var2, this, 1);
 		}
@@ -190,7 +190,7 @@ public abstract class class_ajj extends class_akx {
 	}
 
 	public boolean e(Block var1) {
-		return (var1 == this.e(S()).c()) || (var1 == this.k(S()).c());
+		return (var1 == this.e(getBlockData()).c()) || (var1 == this.k(getBlockData()).c());
 	}
 
 	public boolean j(class_ago var1, class_cj var2, class_apn var3) {

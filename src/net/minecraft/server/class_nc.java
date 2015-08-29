@@ -97,7 +97,7 @@ public class class_nc extends class_ni {
 			while (true) {
 				while (var5.hasNext()) {
 					Entry var6 = (Entry) var5.next();
-					class_nd var7 = class_nh.a((String) var6.getKey());
+					class_nd var7 = StatisticList.a((String) var6.getKey());
 					if (var7 != null) {
 						class_nf var8 = new class_nf();
 						if (((JsonElement) var6.getValue()).isJsonPrimitive() && ((JsonElement) var6.getValue()).getAsJsonPrimitive().isNumber()) {
@@ -179,7 +179,7 @@ public class class_nc extends class_ni {
 			}
 		}
 
-		var1.a.a((new class_fr(var3)));
+		var1.a.a((new PacketPlayOutStatistic(var3)));
 	}
 
 	public void b(class_lm var1) {
@@ -194,7 +194,7 @@ public class class_nc extends class_ni {
 			}
 		}
 
-		var1.a.a((new class_fr(var2)));
+		var1.a.a((new PacketPlayOutStatistic(var2)));
 	}
 
 	public boolean e() {

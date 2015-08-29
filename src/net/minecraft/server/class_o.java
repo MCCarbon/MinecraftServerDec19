@@ -217,10 +217,10 @@ public class class_o {
 		if (var2 != null) {
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
-					if (!(var1 instanceof class_rg)) {
+					if (!(var1 instanceof EntityLiving)) {
 						return false;
 					} else {
-						class_rg var2x = (class_rg) var1;
+						EntityLiving var2x = (EntityLiving) var1;
 						class_ayu var3x = var2x.aE();
 						String var4 = var3x == null ? "" : var3x.b();
 						return var4.equals(vvar2) != var3;

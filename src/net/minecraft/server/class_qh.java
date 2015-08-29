@@ -7,7 +7,7 @@ import com.google.common.collect.Lists;
 
 public class class_qh {
 	private final List a = Lists.newArrayList();
-	private final class_rg b;
+	private final EntityLiving b;
 	private int c;
 	private int d;
 	private int e;
@@ -15,7 +15,7 @@ public class class_qh {
 	private boolean g;
 	private String h;
 
-	public class_qh(class_rg var1) {
+	public class_qh(EntityLiving var1) {
 		b = var1;
 	}
 
@@ -64,7 +64,7 @@ public class class_qh {
 				if ((var1.a() != class_qi.i) && (var1.a() != class_qi.j)) {
 					if ((var6 == null) || ((var4 != null) && var6.equals(var4))) {
 						if (var4 != null) {
-							class_aco var9 = var5 instanceof class_rg ? ((class_rg) var5).bG() : null;
+							class_aco var9 = var5 instanceof EntityLiving ? ((EntityLiving) var5).bG() : null;
 							if ((var9 != null) && var9.s()) {
 								var3 = new class_fb("death.fell.finish.item", new Object[] { b.f_(), var4, var9.B() });
 							} else {
@@ -75,7 +75,7 @@ public class class_qh {
 						}
 					} else {
 						Entity var7 = var1.a().j();
-						class_aco var8 = var7 instanceof class_rg ? ((class_rg) var7).bG() : null;
+						class_aco var8 = var7 instanceof EntityLiving ? ((EntityLiving) var7).bG() : null;
 						if ((var8 != null) && var8.s()) {
 							var3 = new class_fb("death.fell.assist.item", new Object[] { b.f_(), var6, var8.B() });
 						} else {
@@ -93,8 +93,8 @@ public class class_qh {
 		}
 	}
 
-	public class_rg c() {
-		class_rg var1 = null;
+	public EntityLiving c() {
+		EntityLiving var1 = null;
 		class_yu var2 = null;
 		float var3 = 0.0F;
 		float var4 = 0.0F;
@@ -117,11 +117,11 @@ public class class_qh {
 						var4 = var6.c();
 						var2 = (class_yu) var6.a().j();
 					}
-				} while (!(var6.a().j() instanceof class_rg));
+				} while (!(var6.a().j() instanceof EntityLiving));
 			} while ((var1 != null) && (var6.c() <= var3));
 
 			var3 = var6.c();
-			var1 = (class_rg) var6.a().j();
+			var1 = (EntityLiving) var6.a().j();
 		}
 	}
 
@@ -187,7 +187,7 @@ public class class_qh {
 
 	}
 
-	public class_rg h() {
+	public EntityLiving h() {
 		return b;
 	}
 }

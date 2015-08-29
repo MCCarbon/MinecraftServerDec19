@@ -20,7 +20,7 @@ public abstract class BlockFlowers extends BlockPlant {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(n(), BlockFlowers.class_a_in_class_ake.a(l(), var1));
+		return getBlockData().a(n(), BlockFlowers.class_a_in_class_ake.a(l(), var1));
 	}
 
 	public abstract BlockFlowers.class_b_in_class_ake l();

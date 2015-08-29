@@ -111,9 +111,9 @@ public class class_art implements class_aqk {
 
 							for (int var49 = 0; var49 < 4; ++var49) {
 								if ((var45 += var47) > 0.0D) {
-									var3.a((var4 * 4) + var42, (var12 * 8) + var31, (var7 * 4) + var49, Blocks.STONE.S());
+									var3.a((var4 * 4) + var42, (var12 * 8) + var31, (var7 * 4) + var49, Blocks.STONE.getBlockData());
 								} else if (((var12 * 8) + var31) < r.q) {
-									var3.a((var4 * 4) + var42, (var12 * 8) + var31, (var7 * 4) + var49, s.S());
+									var3.a((var4 * 4) + var42, (var12 * 8) + var31, (var7 * 4) + var49, s.getBlockData());
 								}
 							}
 
@@ -363,11 +363,11 @@ public class class_art implements class_aqk {
 				class_cj var18 = m.q(var6.a(var14, 0, var15));
 				class_cj var19 = var18.b();
 				if (m.v(var19)) {
-					m.a(var19, Blocks.ICE.S(), 2);
+					m.a(var19, Blocks.ICE.getBlockData(), 2);
 				}
 
 				if (m.f(var18, true)) {
-					m.a(var18, Blocks.SNOW_LAYER.S(), 2);
+					m.a(var18, Blocks.SNOW_LAYER.getBlockData(), 2);
 				}
 			}
 		}

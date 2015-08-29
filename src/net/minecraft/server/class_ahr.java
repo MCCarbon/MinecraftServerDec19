@@ -9,7 +9,7 @@ public class class_ahr extends class_ahb {
 		super(var1);
 		this.a(0.8F, 0.4F);
 		this.a(e);
-		au.add(new class_ahb.class_c_in_class_ahb(class_vf.class, 5, 2, 6));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityHorse.class, 5, 2, 6));
 		as.A = -999;
 		as.B = 4;
 		as.C = 10;

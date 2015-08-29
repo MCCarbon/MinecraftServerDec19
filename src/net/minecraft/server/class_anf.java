@@ -458,7 +458,7 @@ public class class_anf extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		class_apn var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8);
 		var9 = var9.a(a, var8.aV()).a(N, class_anf.class_b_in_class_anf.a);
 		return (var3 != class_cq.a) && ((var3 == class_cq.b) || (var5 <= 0.5D)) ? var9.a(b, class_anf.class_a_in_class_anf.b) : var9.a(b, class_anf.class_a_in_class_anf.a);
@@ -509,7 +509,7 @@ public class class_anf extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		class_apn var2 = S().a(b, (var1 & 4) > 0 ? class_anf.class_a_in_class_anf.a : class_anf.class_a_in_class_anf.b);
+		class_apn var2 = getBlockData().a(b, (var1 & 4) > 0 ? class_anf.class_a_in_class_anf.a : class_anf.class_a_in_class_anf.b);
 		var2 = var2.a(a, class_cq.a(5 - (var1 & 3)));
 		return var2;
 	}

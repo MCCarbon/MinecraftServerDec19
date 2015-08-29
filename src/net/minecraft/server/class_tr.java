@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 
 public class class_tr extends class_sr {
-	private class_rn a;
+	private EntityCreature a;
 
-	public class_tr(class_rn var1) {
+	public class_tr(EntityCreature var1) {
 		a = var1;
 	}
 

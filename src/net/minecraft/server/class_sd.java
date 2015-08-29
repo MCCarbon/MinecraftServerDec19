@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public class class_sd {
-	private class_rh a;
+	private EntityInsentient a;
 	private float b;
 	private float c;
 	private boolean d;
@@ -10,13 +10,13 @@ public class class_sd {
 	private double f;
 	private double g;
 
-	public class_sd(class_rh var1) {
+	public class_sd(EntityInsentient var1) {
 		a = var1;
 	}
 
 	public void a(Entity var1, float var2, float var3) {
 		e = var1.s;
-		if (var1 instanceof class_rg) {
+		if (var1 instanceof EntityLiving) {
 			f = var1.t + var1.aY();
 		} else {
 			f = (var1.aX().b + var1.aX().e) / 2.0D;

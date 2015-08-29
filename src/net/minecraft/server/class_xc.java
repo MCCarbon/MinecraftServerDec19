@@ -16,13 +16,13 @@ public class class_xc extends class_xb {
 		class_cj var8 = new class_cj(this);
 		if (!var1.D && var1.S().b("doFireTick") && ((var1.ac() == class_ps.c) || (var1.ac() == class_ps.d)) && var1.a(var8, 10)) {
 			if ((var1.p(var8).c().v() == class_avq.a) && Blocks.FIRE.c(var1, var8)) {
-				var1.a(var8, Blocks.FIRE.S());
+				var1.a(var8, Blocks.FIRE.getBlockData());
 			}
 
 			for (int var9 = 0; var9 < 4; ++var9) {
 				class_cj var10 = var8.a(V.nextInt(3) - 1, V.nextInt(3) - 1, V.nextInt(3) - 1);
 				if ((var1.p(var10).c().v() == class_avq.a) && Blocks.FIRE.c(var1, var10)) {
-					var1.a(var10, Blocks.FIRE.S());
+					var1.a(var10, Blocks.FIRE.getBlockData());
 				}
 			}
 		}
@@ -47,7 +47,7 @@ public class class_xc extends class_xb {
 				a = V.nextLong();
 				class_cj var1 = new class_cj(this);
 				if (!o.D && o.S().b("doFireTick") && o.a(var1, 10) && (o.p(var1).c().v() == class_avq.a) && Blocks.FIRE.c(o, var1)) {
-					o.a(var1, Blocks.FIRE.S());
+					o.a(var1, Blocks.FIRE.getBlockData());
 				}
 			}
 		}

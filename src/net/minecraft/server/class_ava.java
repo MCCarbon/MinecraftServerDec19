@@ -105,8 +105,8 @@ public class class_ava {
 			var7 = new class_aym(var6.s - var2.n(), var6.t - var2.o(), var6.u - var2.p());
 			var8 = new class_dn();
 			var6.d(var8);
-			if (var6 instanceof class_ww) {
-				var9 = ((class_ww) var6).m().b(var2);
+			if (var6 instanceof EntityPainting) {
+				var9 = ((EntityPainting) var6).m().b(var2);
 			} else {
 				var9 = new class_cj(var7);
 			}
@@ -218,7 +218,7 @@ public class class_ava {
 							((class_pp) var12).l();
 						}
 
-						var1.a(var9, Blocks.BARRIER.S(), 4);
+						var1.a(var9, Blocks.BARRIER.getBlockData(), 4);
 					}
 				}
 
@@ -268,7 +268,7 @@ public class class_ava {
 			}
 
 			if (var13 != null) {
-				if (var13 instanceof class_ww) {
+				if (var13 instanceof EntityPainting) {
 					var13.a(var3);
 					var13.a(var4);
 					var13.b(var8.n(), var8.o(), var8.p());

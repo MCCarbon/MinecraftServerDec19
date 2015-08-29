@@ -33,7 +33,7 @@ public class class_adp extends class_abb {
 				Comparable var13 = var11.b(var12);
 				BlockStepAbstract.class_a_in_class_akq var14 = (BlockStepAbstract.class_a_in_class_akq) var11.b(BlockStepAbstract.a);
 				if ((((var6 == class_cq.b) && (var14 == BlockStepAbstract.class_a_in_class_akq.b)) || ((var6 == class_cq.a) && (var14 == BlockStepAbstract.class_a_in_class_akq.a))) && (var13 == var10)) {
-					class_apn var15 = c.S().a(var12, var13);
+					class_apn var15 = c.getBlockData().a(var12, var13);
 					if (var3.b(c.a(var3, var4, var15)) && var3.a(var4, var15, 3)) {
 						var3.a(var4.n() + 0.5F, var4.o() + 0.5F, var4.p() + 0.5F, c.H.b(), (c.H.d() + 1.0F) / 2.0F, c.H.e() * 0.8F);
 						--var1.b;
@@ -54,7 +54,7 @@ public class class_adp extends class_abb {
 		if (var5.c() == b) {
 			Comparable var6 = var5.b(b.n());
 			if (var6 == var4) {
-				class_apn var7 = c.S().a(b.n(), var6);
+				class_apn var7 = c.getBlockData().a(b.n(), var6);
 				if (var2.b(c.a(var2, var3, var7)) && var2.a(var3, var7, 3)) {
 					var2.a(var3.n() + 0.5F, var3.o() + 0.5F, var3.p() + 0.5F, c.H.b(), (c.H.d() + 1.0F) / 2.0F, c.H.e() * 0.8F);
 					--var1.b;

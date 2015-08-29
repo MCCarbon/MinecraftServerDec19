@@ -66,7 +66,7 @@ public class CommandSetBlock extends CommandAbstract {
 						((class_pp) var13).l();
 					}
 
-					var6.a(var3, Blocks.AIR.S(), var4 == Blocks.AIR ? 2 : 4);
+					var6.a(var3, Blocks.AIR.getBlockData(), var4 == Blocks.AIR ? 2 : 4);
 				}
 
 				class_apn var10 = var4.a(var5);

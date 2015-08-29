@@ -82,9 +82,9 @@ public final class class_agv {
 													}
 
 													if (var1.a(var40, var27, var30) && a(class_rk.a(var27.b), var1, var30)) {
-														class_rh var33;
+														EntityInsentient var33;
 														try {
-															var33 = (class_rh) var27.b.getConstructor(new Class[] { class_ago.class }).newInstance(new Object[] { var1 });
+															var33 = (EntityInsentient) var27.b.getConstructor(new Class[] { class_ago.class }).newInstance(new Object[] { var1 });
 														} catch (Exception var35) {
 															var35.printStackTrace();
 															return var36;
@@ -148,12 +148,12 @@ public final class class_agv {
 		return new class_cj(var4, var7, var5);
 	}
 
-	public static boolean a(class_rh.class_a_in_class_rh var0, class_ago var1, class_cj var2) {
+	public static boolean a(EntityInsentient.class_a_in_class_rh var0, class_ago var1, class_cj var2) {
 		if (!var1.ah().a(var2)) {
 			return false;
 		} else {
 			Block var3 = var1.p(var2).c();
-			if (var0 == class_rh.class_a_in_class_rh.c) {
+			if (var0 == EntityInsentient.class_a_in_class_rh.c) {
 				return var3.v().d() && var1.p(var2.b()).c().v().d() && !var1.p(var2.a()).c().x();
 			} else {
 				class_cj var4 = var2.b();
@@ -185,10 +185,10 @@ public final class class_agv {
 
 					for (int var17 = 0; !var16 && (var17 < 4); ++var17) {
 						class_cj var18 = var0.r(new class_cj(var11, 0, var12));
-						if (a(class_rh.class_a_in_class_rh.a, var0, var18)) {
-							class_rh var19;
+						if (a(EntityInsentient.class_a_in_class_rh.a, var0, var18)) {
+							EntityInsentient var19;
 							try {
-								var19 = (class_rh) var8.b.getConstructor(new Class[] { class_ago.class }).newInstance(new Object[] { var0 });
+								var19 = (EntityInsentient) var8.b.getConstructor(new Class[] { class_ago.class }).newInstance(new Object[] { var0 });
 							} catch (Exception var21) {
 								var21.printStackTrace();
 								continue;

@@ -47,13 +47,13 @@ public class BlockHopper extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		class_cq var9 = var3.d();
 		if (var9 == class_cq.b) {
 			var9 = class_cq.a;
 		}
 
-		return S().a(a, var9).a(b, Boolean.valueOf(true));
+		return getBlockData().a(a, var9).a(b, Boolean.valueOf(true));
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class BlockHopper extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		super.a(var1, var2, var3, var4, var5);
 		if (var5.s()) {
 			TileEntity var6 = var1.s(var2);
@@ -86,7 +86,7 @@ public class BlockHopper extends class_aif {
 			TileEntity var11 = var1.s(var2);
 			if (var11 instanceof class_aov) {
 				var4.a((class_pp) ((class_aov) var11));
-				var4.b(class_nh.Q);
+				var4.b(StatisticList.Q);
 			}
 
 			return true;
@@ -152,7 +152,7 @@ public class BlockHopper extends class_aif {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, b(var1)).a(b, Boolean.valueOf(f(var1)));
+		return getBlockData().a(a, b(var1)).a(b, Boolean.valueOf(f(var1)));
 	}
 
 	@Override

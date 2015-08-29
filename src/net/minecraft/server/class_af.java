@@ -30,7 +30,7 @@ public class class_af extends CommandAbstract {
 			var1.a(class_n.class_a_in_class_n.b, 0);
 			class_cj var3 = a(var1, var2, 0, false);
 			class_cj var4 = a(var1, var2, 3, false);
-			Block var5 = class_i.g(var1, var2[6]);
+			Block var5 = CommandAbstract.g(var1, var2[6]);
 			int var6 = 0;
 			if (var2.length >= 8) {
 				var6 = a(var2[7], 0, 15);
@@ -83,14 +83,14 @@ public class class_af extends CommandAbstract {
 										}
 									} else if (var2[8].equals("replace") && !var5.B()) {
 										if (var2.length > 9) {
-											Block var18 = class_i.g(var1, var2[9]);
+											Block var18 = CommandAbstract.g(var1, var2[9]);
 											if (var10.p(var17).c() != var18) {
 												continue;
 											}
 										}
 
 										if (var2.length > 10) {
-											int var28 = class_i.a(var2[10]);
+											int var28 = CommandAbstract.a(var2[10]);
 											var19 = var10.p(var17);
 											if (var19.c().c(var19) != var28) {
 												continue;
@@ -99,7 +99,7 @@ public class class_af extends CommandAbstract {
 									}
 								} else if ((var16 != var7.n()) && (var16 != var8.n()) && (var15 != var7.o()) && (var15 != var8.o()) && (var14 != var7.p()) && (var14 != var8.p())) {
 									if (var2[8].equals("hollow")) {
-										var10.a(var17, Blocks.a.S(), 2);
+										var10.a(var17, Blocks.AIR.getBlockData(), 2);
 										var24.add(var17);
 									}
 									continue;
@@ -112,7 +112,7 @@ public class class_af extends CommandAbstract {
 									((class_pp) var29).l();
 								}
 
-								var10.a(var17, Blocks.cv.S(), var5 == Blocks.cv ? 2 : 4);
+								var10.a(var17, Blocks.BARRIER.getBlockData(), var5 == Blocks.BARRIER ? 2 : 4);
 							}
 
 							var19 = var5.a(var6);

@@ -60,8 +60,8 @@ public class BlockTripwireHook extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		class_apn var9 = S().a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		class_apn var9 = getBlockData().a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false));
 		if (var3.k().c()) {
 			var9 = var9.a(a, var3);
 		}
@@ -70,7 +70,7 @@ public class BlockTripwireHook extends Block {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 		this.a(var1, var2, var3, false, false, -1, (class_apn) null);
 	}
 
@@ -132,7 +132,7 @@ public class BlockTripwireHook extends Block {
 
 		var12 &= var14 > 1;
 		var13 &= var12;
-		class_apn var22 = S().a(N, Boolean.valueOf(var12)).a(b, Boolean.valueOf(var13));
+		class_apn var22 = getBlockData().a(N, Boolean.valueOf(var12)).a(b, Boolean.valueOf(var13));
 		if (var14 > 0) {
 			var17 = var2.a(var8, var14);
 			class_cq var24 = var8.d();
@@ -250,7 +250,7 @@ public class BlockTripwireHook extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_cq.b(var1 & 3)).a(b, Boolean.valueOf((var1 & 8) > 0)).a(N, Boolean.valueOf((var1 & 4) > 0));
+		return getBlockData().a(a, class_cq.b(var1 & 3)).a(b, Boolean.valueOf((var1 & 8) > 0)).a(N, Boolean.valueOf((var1 & 4) > 0));
 	}
 
 	@Override

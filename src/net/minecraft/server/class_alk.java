@@ -30,15 +30,15 @@ public class class_alk extends BlockPlant implements class_ain {
 			class_cj var9 = var2.a(var4.nextInt(3) - 1, var4.nextInt(2) - var4.nextInt(2), var4.nextInt(3) - 1);
 
 			for (int var10 = 0; var10 < 4; ++var10) {
-				if (var1.d(var9) && this.g(var1, var9, S())) {
+				if (var1.d(var9) && this.g(var1, var9, getBlockData())) {
 					var2 = var9;
 				}
 
 				var9 = var2.a(var4.nextInt(3) - 1, var4.nextInt(2) - var4.nextInt(2), var4.nextInt(3) - 1);
 			}
 
-			if (var1.d(var9) && this.g(var1, var9, S())) {
-				var1.a(var9, S(), 2);
+			if (var1.d(var9) && this.g(var1, var9, getBlockData())) {
+				var1.a(var9, getBlockData(), 2);
 			}
 		}
 
@@ -46,7 +46,7 @@ public class class_alk extends BlockPlant implements class_ain {
 
 	@Override
 	public boolean c(class_ago var1, class_cj var2) {
-		return super.c(var1, var2) && this.g(var1, var2, S());
+		return super.c(var1, var2) && this.g(var1, var2, getBlockData());
 	}
 
 	@Override

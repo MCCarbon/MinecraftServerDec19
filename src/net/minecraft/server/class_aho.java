@@ -9,10 +9,10 @@ public class class_aho extends class_ahb {
 		as.C = -100;
 		as.E = 1;
 		as.K = 1;
-		ak = Blocks.MYCELIUM.S();
+		ak = Blocks.MYCELIUM.getBlockData();
 		at.clear();
 		au.clear();
 		av.clear();
-		au.add(new class_ahb.class_c_in_class_ahb(class_vh.class, 8, 4, 8));
+		au.add(new class_ahb.class_c_in_class_ahb(EntityMushroomCow.class, 8, 4, 8));
 	}
 }

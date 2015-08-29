@@ -37,7 +37,7 @@ public class class_ajz extends Block {
 			byte var3 = 32;
 			if (!N && var1.a(var2.a(-var3, -var3, -var3), var2.a(var3, var3, var3))) {
 				if (!var1.D) {
-					class_xf var5 = new class_xf(var1, var2.n() + 0.5D, var2.o(), var2.p() + 0.5D, var1.p(var2));
+					EntityFallingBlock var5 = new EntityFallingBlock(var1, var2.n() + 0.5D, var2.o(), var2.p() + 0.5D, var1.p(var2));
 					this.a(var5);
 					var1.a(var5);
 				}
@@ -50,14 +50,14 @@ public class class_ajz extends Block {
 				}
 
 				if (var4.o() > 0) {
-					var1.a(var4.a(), S());
+					var1.a(var4.a(), getBlockData());
 				}
 			}
 
 		}
 	}
 
-	protected void a(class_xf var1) {
+	protected void a(EntityFallingBlock var1) {
 	}
 
 	@Override

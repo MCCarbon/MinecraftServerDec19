@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import com.google.common.base.Optional;
 
-public abstract class class_ro extends class_vc implements class_rm {
+public abstract class class_ro extends EntityAnimal implements class_rm {
 	protected static final class_jz bt;
 	protected static final class_jz bu;
 	protected class_tt bv = new class_tt(this);
@@ -109,7 +109,7 @@ public abstract class class_ro extends class_vc implements class_rm {
 		ac.b(bu, Optional.fromNullable(var1));
 	}
 
-	public class_rg cH() {
+	public EntityLiving cH() {
 		try {
 			UUID var1 = this.b();
 			return var1 == null ? null : o.b(var1);
@@ -118,7 +118,7 @@ public abstract class class_ro extends class_vc implements class_rm {
 		}
 	}
 
-	public boolean d(class_rg var1) {
+	public boolean d(EntityLiving var1) {
 		return var1 == cH();
 	}
 
@@ -126,14 +126,14 @@ public abstract class class_ro extends class_vc implements class_rm {
 		return bv;
 	}
 
-	public boolean a(class_rg var1, class_rg var2) {
+	public boolean a(EntityLiving var1, EntityLiving var2) {
 		return true;
 	}
 
 	@Override
 	public class_ayu aE() {
 		if (cE()) {
-			class_rg var1 = cH();
+			EntityLiving var1 = cH();
 			if (var1 != null) {
 				return var1.aE();
 			}
@@ -145,7 +145,7 @@ public abstract class class_ro extends class_vc implements class_rm {
 	@Override
 	public boolean k(Entity var1) {
 		if (cE()) {
-			class_rg var2 = cH();
+			EntityLiving var2 = cH();
 			if (var1 == var2) {
 				return true;
 			}
@@ -174,7 +174,7 @@ public abstract class class_ro extends class_vc implements class_rm {
 	}
 
 	static {
-		bt = class_kc.a(class_ro.class, class_kb.a);
-		bu = class_kc.a(class_ro.class, class_kb.l);
+		bt = DataWatcher.claimId(class_ro.class, class_kb.a);
+		bu = DataWatcher.claimId(class_ro.class, class_kb.l);
 	}
 }

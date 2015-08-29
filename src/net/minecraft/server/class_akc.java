@@ -74,8 +74,8 @@ public class class_akc extends class_akx {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(O, var8.aV()).a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false));
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(O, var8.aV()).a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false));
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public class class_akc extends class_akx {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(O, class_cq.b(var1)).a(a, Boolean.valueOf((var1 & 4) != 0)).a(b, Boolean.valueOf((var1 & 8) != 0));
+		return getBlockData().a(O, class_cq.b(var1)).a(a, Boolean.valueOf((var1 & 4) != 0)).a(b, Boolean.valueOf((var1 & 8) != 0));
 	}
 
 	@Override

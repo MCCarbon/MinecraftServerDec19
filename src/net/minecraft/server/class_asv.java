@@ -136,7 +136,7 @@ public class class_asv extends class_asp {
 								if ((var3.o() >= ((var3.o() + var4) - 1)) || (var17 != class_aky.class_a_in_class_aky.k)) {
 									class_cj var18 = new class_cj(var14, var21, var15);
 									if (!var1.p(var18).c().q()) {
-										a(var1, var18, a.S().a(class_aky.a, var17));
+										a(var1, var18, a.getBlockData().a(class_aky.a, var17));
 									}
 								}
 							}
@@ -146,7 +146,7 @@ public class class_asv extends class_asp {
 					for (var21 = 0; var21 < var4; ++var21) {
 						Block var22 = var1.p(var3.b(var21)).c();
 						if (!var22.q()) {
-							a(var1, var3.b(var21), a.S().a(class_aky.a, class_aky.class_a_in_class_aky.j));
+							a(var1, var3.b(var21), a.getBlockData().a(class_aky.a, class_aky.class_a_in_class_aky.j));
 						}
 					}
 

@@ -14,7 +14,7 @@ public class class_adg extends class_aci {
 	@Override
 	public class_pw a(class_aco var1, class_yu var2, class_ago var3, class_cj var4, class_pu var5, class_cq var6, float var7, float var8, float var9) {
 		if ((var6 == class_cq.b) && var2.a(var4.a(var6), var6, var1) && (var3.p(var4).c() == c) && var3.d(var4.a())) {
-			var3.a(var4.a(), b.S());
+			var3.a(var4.a(), b.getBlockData());
 			--var1.b;
 			return class_pw.a;
 		} else {

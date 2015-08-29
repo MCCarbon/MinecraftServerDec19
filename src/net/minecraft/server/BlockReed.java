@@ -26,7 +26,7 @@ public class BlockReed extends Block {
 				if (var5 < 3) {
 					int var6 = ((Integer) var3.b(a)).intValue();
 					if (var6 == 15) {
-						var1.a(var2.a(), S());
+						var1.a(var2.a(), getBlockData());
 						var1.a(var2, var3.a(a, Integer.valueOf(0)), 4);
 					} else {
 						var1.a(var2, var3.a(a, Integer.valueOf(var6 + 1)), 4);
@@ -106,7 +106,7 @@ public class BlockReed extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override

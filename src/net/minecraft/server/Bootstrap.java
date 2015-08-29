@@ -22,7 +22,7 @@ public class Bootstrap {
 		class_ajm.N.a(Items.g, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
-				class_yx var4 = new class_yx(var1, var2.a(), var2.b(), var2.c());
+				EntityArrow var4 = new EntityArrow(var1, var2.a(), var2.b(), var2.c());
 				var4.c = 1;
 				return var4;
 			}
@@ -30,7 +30,7 @@ public class Bootstrap {
 		class_ajm.N.a(Items.i, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
-				class_zo var4 = new class_zo(var1, var2.a(), var2.b(), var2.c(), var3);
+				EntityTippedArrow var4 = new EntityTippedArrow(var1, var2.a(), var2.b(), var2.c(), var3);
 				var4.c = 1;
 				return var4;
 			}
@@ -38,7 +38,7 @@ public class Bootstrap {
 		class_ajm.N.a(Items.h, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
-				class_zi var4 = new class_zi(var1, var2.a(), var2.b(), var2.c());
+				EntitySpectralArrow var4 = new EntitySpectralArrow(var1, var2.a(), var2.b(), var2.c());
 				var4.c = 1;
 				return var4;
 			}
@@ -46,19 +46,19 @@ public class Bootstrap {
 		class_ajm.N.a(Items.aR, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
-				return new class_zk(var1, var2.a(), var2.b(), var2.c());
+				return new EntityEgg(var1, var2.a(), var2.b(), var2.c());
 			}
 		});
 		class_ajm.N.a(Items.aF, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
-				return new class_zh(var1, var2.a(), var2.b(), var2.c());
+				return new EntitySnowball(var1, var2.a(), var2.b(), var2.c());
 			}
 		});
 		class_ajm.N.a(Items.bP, new class_kg() {
 			@Override
 			protected class_zd a(class_ago var1, class_cz var2, class_aco var3) {
-				return new class_zm(var1, var2.a(), var2.b(), var2.c());
+				return new EntityThrownExpBottle(var1, var2.a(), var2.b(), var2.c());
 			}
 
 			@Override
@@ -77,7 +77,7 @@ public class Bootstrap {
 				return (new class_kg() {
 					@Override
 					protected class_zd a(class_ago var1, class_cz var2x, class_aco var3) {
-						return new class_zn(var1, var2x.a(), var2x.b(), var2x.c(), var2.k(), false);
+						return new EntityPotion(var1, var2x.a(), var2x.b(), var2x.c(), var2.k(), false);
 					}
 
 					@Override
@@ -98,7 +98,7 @@ public class Bootstrap {
 				return (new class_kg() {
 					@Override
 					protected class_zd a(class_ago var1, class_cz var2x, class_aco var3) {
-						return new class_zn(var1, var2x.a(), var2x.b(), var2x.c(), var2.k(), true);
+						return new EntityPotion(var1, var2x.a(), var2x.b(), var2x.c(), var2.k(), true);
 					}
 
 					@Override
@@ -121,7 +121,7 @@ public class Bootstrap {
 				double var6 = var1.d().o() + 0.2F;
 				double var8 = var1.c() + var3.i();
 				Entity var10 = class_ads.a(var1.i(), class_ads.h(var2), var4, var6, var8);
-				if ((var10 instanceof class_rg) && var2.s()) {
+				if ((var10 instanceof EntityLiving) && var2.s()) {
 					var10.c(var2.q());
 				}
 
@@ -137,7 +137,7 @@ public class Bootstrap {
 				double var4 = var1.a() + var3.g();
 				double var6 = var1.d().o() + 0.2F;
 				double var8 = var1.c() + var3.i();
-				class_zb var10 = new class_zb(var1.i(), var4, var6, var8, var2);
+				EntityFireworks var10 = new EntityFireworks(var1.i(), var4, var6, var8, var2);
 				var1.i().a(var10);
 				var2.a(1);
 				return var2;
@@ -161,7 +161,7 @@ public class Bootstrap {
 				double var13 = (var12.nextGaussian() * 0.05D) + var3.g();
 				double var15 = (var12.nextGaussian() * 0.05D) + var3.h();
 				double var17 = (var12.nextGaussian() * 0.05D) + var3.i();
-				var11.a((new class_yy(var11, var5, var7, var9, var13, var15, var17)));
+				var11.a((new EntityDragonFireball(var11, var5, var7, var9, var13, var15, var17)));
 				var2.a(1);
 				return var2;
 			}
@@ -194,7 +194,7 @@ public class Bootstrap {
 					var13 = 0.0D;
 				}
 
-				class_xe var15 = new class_xe(var4, var5, var7 + var13, var9);
+				EntityBoat var15 = new EntityBoat(var4, var5, var7 + var13, var9);
 				var4.a(var15);
 				var2.a(1);
 				return var2;
@@ -263,12 +263,12 @@ public class Bootstrap {
 				class_ago var3 = var1.i();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
 				if (var3.d(var4)) {
-					var3.a(var4, Blocks.FIRE.S());
+					var3.a(var4, Blocks.FIRE.getBlockData());
 					if (var2.a(1, var3.s)) {
 						var2.b = 0;
 					}
 				} else if (var3.p(var4).c() == Blocks.TNT) {
-					Blocks.TNT.e(var3, var4, Blocks.TNT.S().a(class_anq.a, Boolean.valueOf(true)));
+					Blocks.TNT.e(var3, var4, Blocks.TNT.getBlockData().a(class_anq.a, Boolean.valueOf(true)));
 					var3.g(var4);
 				} else {
 					b = false;
@@ -324,7 +324,7 @@ public class Bootstrap {
 			protected class_aco b(class_ck var1, class_aco var2) {
 				class_ago var3 = var1.i();
 				class_cj var4 = var1.d().a(class_ajm.b(var1.f()));
-				class_xq var5 = new class_xq(var3, var4.n() + 0.5D, var4.o(), var4.p() + 0.5D, (class_rg) null);
+				EntityTNTPrimed var5 = new EntityTNTPrimed(var3, var4.n() + 0.5D, var4.o(), var4.p() + 0.5D, (EntityLiving) null);
 				var3.a(var5);
 				var3.a(var5, "game.tnt.primed", 1.0F, 1.0F);
 				--var2.b;
@@ -342,7 +342,7 @@ public class Bootstrap {
 				BlockSkull var6 = Blocks.SKULL;
 				if (var3.d(var5) && var6.b(var3, var5, var2)) {
 					if (!var3.D) {
-						var3.a(var5, var6.S().a(BlockSkull.a, class_cq.b), 3);
+						var3.a(var5, var6.getBlockData().a(BlockSkull.a, class_cq.b), 3);
 						TileEntity var7 = var3.s(var5);
 						if (var7 instanceof class_apa) {
 							if (var2.i() == 3) {
@@ -397,7 +397,7 @@ public class Bootstrap {
 				class_amf var5 = (class_amf) Blocks.PUMPKIN;
 				if (var3.d(var4) && var5.d(var3, var4)) {
 					if (!var3.D) {
-						var3.a(var4, var5.S(), 3);
+						var3.a(var4, var5.getBlockData(), 3);
 					}
 
 					--var2.b;
@@ -434,7 +434,7 @@ public class Bootstrap {
 			Item.t();
 			PotionRegistry.c();
 			class_aed.a();
-			class_nh.a();
+			StatisticList.a();
 			b();
 		}
 	}

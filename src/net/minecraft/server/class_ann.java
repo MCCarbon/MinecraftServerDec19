@@ -21,7 +21,7 @@ public class class_ann extends class_aif {
 	}
 
 	@Override
-	public void a(class_ago var1, class_cj var2, class_apn var3, class_rg var4, class_aco var5) {
+	public void a(class_ago var1, class_cj var2, class_apn var3, EntityLiving var4, class_aco var5) {
 	}
 
 	@Override
@@ -40,13 +40,13 @@ public class class_ann extends class_aif {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(a, class_apb.class_a_in_class_apb.d);
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(a, class_apb.class_a_in_class_apb.d);
 	}
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_apb.class_a_in_class_apb.a(var1));
+		return getBlockData().a(a, class_apb.class_a_in_class_apb.a(var1));
 	}
 
 	@Override

@@ -21,7 +21,7 @@ public class EntityTypes {
 	private static final Map g = Maps.newHashMap();
 	public static final Map a = Maps.newLinkedHashMap();
 
-	private static void a(Class var0, String var1, int var2) {
+	private static void registerEntity(Class var0, String var1, int var2) {
 		if (c.containsKey(var1)) {
 			throw new IllegalArgumentException("ID is already registered: " + var1);
 		} else if (e.containsKey(Integer.valueOf(var2))) {
@@ -39,8 +39,8 @@ public class EntityTypes {
 		}
 	}
 
-	private static void a(Class var0, String var1, int var2, int var3, int var4) {
-		a(var0, var1, var2);
+	private static void registerEntity(Class var0, String var1, int var2, int var3, int var4) {
+		registerEntity(var0, var1, var2);
 		a.put(var1, new EntityTypes.class_a_in_class_qz(var1, var3, var4));
 	}
 
@@ -161,74 +161,74 @@ public class EntityTypes {
 	}
 
 	static {
-		a(class_xg.class, "Item", 1);
-		a(class_rd.class, "XPOrb", 2);
-		a(class_qv.class, "AreaEffectCloud", 3);
-		a(class_zk.class, "ThrownEgg", 7);
-		a(class_wv.class, "LeashKnot", 8);
-		a(class_ww.class, "Painting", 9);
-		a(class_yx.class, "Arrow", 10);
-		a(class_zh.class, "Snowball", 11);
-		a(class_zc.class, "Fireball", 12);
-		a(class_zg.class, "SmallFireball", 13);
-		a(class_zl.class, "ThrownEnderpearl", 14);
-		a(class_yz.class, "EyeOfEnderSignal", 15);
-		a(class_zn.class, "ThrownPotion", 16);
-		a(class_zm.class, "ThrownExpBottle", 17);
-		a(class_wu.class, "ItemFrame", 18);
-		a(class_zp.class, "WitherSkull", 19);
-		a(class_xq.class, "PrimedTnt", 20);
-		a(class_xf.class, "FallingSand", 21);
-		a(class_zb.class, "FireworksRocketEntity", 22);
-		a(class_zo.class, "TippedArrow", 23);
-		a(class_zi.class, "SpectralArrow", 24);
-		a(class_zf.class, "ShulkerBullet", 25);
-		a(class_yy.class, "DragonFireball", 26);
-		a(class_ws.class, "ArmorStand", 30);
-		a(class_xe.class, "Boat", 41);
-		a(class_xn.class, class_xh.class_a_in_class_xh.a.b(), 42);
-		a(class_xi.class, class_xh.class_a_in_class_xh.b.b(), 43);
-		a(class_xl.class, class_xh.class_a_in_class_xh.c.b(), 44);
-		a(class_xp.class, class_xh.class_a_in_class_xh.d.b(), 45);
-		a(class_xm.class, class_xh.class_a_in_class_xh.f.b(), 46);
-		a(class_xo.class, class_xh.class_a_in_class_xh.e.b(), 47);
-		a(class_xj.class, class_xh.class_a_in_class_xh.g.b(), 40);
-		a(class_rh.class, "Mob", 48);
-		a(class_yc.class, "Monster", 49);
-		a(class_xu.class, "Creeper", 50, 894731, 0);
-		a(class_yh.class, "Skeleton", 51, 12698049, 4802889);
-		a(class_yj.class, "Spider", 52, 3419431, 11013646);
-		a(class_xz.class, "Giant", 53);
-		a(class_yl.class, "Zombie", 54, '?', 7969893);
-		a(class_yi.class, "Slime", 55, 5349438, 8306542);
-		a(class_xy.class, "Ghast", 56, 16382457, 12369084);
-		a(class_yd.class, "PigZombie", 57, 15373203, 5009705);
-		a(class_xv.class, "Enderman", 58, 1447446, 0);
-		a(class_xt.class, "CaveSpider", 59, 803406, 11013646);
-		a(class_yg.class, "Silverfish", 60, 7237230, 3158064);
-		a(class_xs.class, "Blaze", 61, 16167425, 16775294);
-		a(class_yb.class, "LavaSlime", 62, 3407872, 16579584);
-		a(class_vx.class, "EnderDragon", 63);
-		a(class_wq.class, "WitherBoss", 64);
-		a(class_va.class, "Bat", 65, 4996656, 986895);
-		a(class_yk.class, "Witch", 66, 3407872, 5349438);
-		a(class_xw.class, "Endermite", 67, 1447446, 7237230);
-		a(class_ya.class, "Guardian", 68, 5931634, 15826224);
-		a(class_vm.class, "Shulker", 69, 9725844, 5060690);
-		a(class_vj.class, "Pig", 90, 15771042, 14377823);
-		a(class_vl.class, "Sheep", 91, 15198183, 16758197);
-		a(class_ve.class, "Cow", 92, 4470310, 10592673);
-		a(class_vd.class, "Chicken", 93, 10592673, 16711680);
-		a(class_vo.class, "Squid", 94, 2243405, 7375001);
-		a(class_vr.class, "Wolf", 95, 14144467, 13545366);
-		a(class_vh.class, "MushroomCow", 96, 10489616, 12040119);
-		a(class_vn.class, "SnowMan", 97);
-		a(class_vi.class, "Ozelot", 98, 15720061, 5653556);
-		a(class_vp.class, "VillagerGolem", 99);
-		a(class_vf.class, "EntityHorse", 100, 12623485, 15656192);
-		a(class_vk.class, "Rabbit", 101, 10051392, 7555121);
-		a(class_yp.class, "Villager", 120, 5651507, 12422002);
-		a(class_vw.class, "EnderCrystal", 200);
+		registerEntity(EntityItem.class, "Item", 1);
+		registerEntity(EntityExperienceOrb.class, "XPOrb", 2);
+		registerEntity(EntityAreaEffectCloud.class, "AreaEffectCloud", 3);
+		registerEntity(EntityEgg.class, "ThrownEgg", 7);
+		registerEntity(EntityLeash.class, "LeashKnot", 8);
+		registerEntity(EntityPainting.class, "Painting", 9);
+		registerEntity(EntityArrow.class, "Arrow", 10);
+		registerEntity(EntitySnowball.class, "Snowball", 11);
+		registerEntity(EntityLargeFireball.class, "Fireball", 12);
+		registerEntity(EntitySmallFireball.class, "SmallFireball", 13);
+		registerEntity(EntityEnderpearl.class, "ThrownEnderpearl", 14);
+		registerEntity(EntityEnderSignal.class, "EyeOfEnderSignal", 15);
+		registerEntity(EntityPotion.class, "ThrownPotion", 16);
+		registerEntity(EntityThrownExpBottle.class, "ThrownExpBottle", 17);
+		registerEntity(EntityItemFrame.class, "ItemFrame", 18);
+		registerEntity(EntityWitherSkull.class, "WitherSkull", 19);
+		registerEntity(EntityTNTPrimed.class, "PrimedTnt", 20);
+		registerEntity(EntityFallingBlock.class, "FallingSand", 21);
+		registerEntity(EntityFireworks.class, "FireworksRocketEntity", 22);
+		registerEntity(EntityTippedArrow.class, "TippedArrow", 23);
+		registerEntity(EntitySpectralArrow.class, "SpectralArrow", 24);
+		registerEntity(EntityShulkerBullet.class, "ShulkerBullet", 25);
+		registerEntity(EntityDragonFireball.class, "DragonFireball", 26);
+		registerEntity(EntityArmorStand.class, "ArmorStand", 30);
+		registerEntity(EntityBoat.class, "Boat", 41);
+		registerEntity(EntityMinecarftRideable.class, EntityMinecartAbstract.EnumMinecartType.RIDEABLE.b(), 42);
+		registerEntity(EntityMinecartChest.class, EntityMinecartAbstract.EnumMinecartType.CHEST.b(), 43);
+		registerEntity(EntityMinecartFurnace.class, EntityMinecartAbstract.EnumMinecartType.FURNACE.b(), 44);
+		registerEntity(EntityMinecartTNT.class, EntityMinecartAbstract.EnumMinecartType.TNT.b(), 45);
+		registerEntity(EntityMinecartHopper.class, EntityMinecartAbstract.EnumMinecartType.HOPPER.b(), 46);
+		registerEntity(EntityMinecartSpawner.class, EntityMinecartAbstract.EnumMinecartType.SPAWNER.b(), 47);
+		registerEntity(EntityMinecartCommandBlock.class, EntityMinecartAbstract.EnumMinecartType.COMMAND_BLOCK.b(), 40);
+		registerEntity(EntityInsentient.class, "Mob", 48);
+		registerEntity(EntityMonster.class, "Monster", 49);
+		registerEntity(EntityCreeper.class, "Creeper", 50, 894731, 0);
+		registerEntity(EntitySkeleton.class, "Skeleton", 51, 12698049, 4802889);
+		registerEntity(EntitySpider.class, "Spider", 52, 3419431, 11013646);
+		registerEntity(EntityGiant.class, "Giant", 53);
+		registerEntity(EntityZombie.class, "Zombie", 54, '꾯', 7969893);
+		registerEntity(EntitySlime.class, "Slime", 55, 5349438, 8306542);
+		registerEntity(EntityGhast.class, "Ghast", 56, 16382457, 12369084);
+		registerEntity(EntityPigZombie.class, "PigZombie", 57, 15373203, 5009705);
+		registerEntity(EntityEnderman.class, "Enderman", 58, 1447446, 0);
+		registerEntity(EntityCaveSpider.class, "CaveSpider", 59, 803406, 11013646);
+		registerEntity(EntitySilverfish.class, "Silverfish", 60, 7237230, 3158064);
+		registerEntity(EntityBlaze.class, "Blaze", 61, 16167425, 16775294);
+		registerEntity(EntityMagmaCube.class, "LavaSlime", 62, 3407872, 16579584);
+		registerEntity(class_vx.class, "EnderDragon", 63);
+		registerEntity(EntityWither.class, "WitherBoss", 64);
+		registerEntity(EntityBat.class, "Bat", 65, 4996656, 986895);
+		registerEntity(EntityWitch.class, "Witch", 66, 3407872, 5349438);
+		registerEntity(EntityEndermite.class, "Endermite", 67, 1447446, 7237230);
+		registerEntity(EntityGuardian.class, "Guardian", 68, 5931634, 15826224);
+		registerEntity(EntityShulker.class, "Shulker", 69, 9725844, 5060690);
+		registerEntity(EntityPig.class, "Pig", 90, 15771042, 14377823);
+		registerEntity(EntitySheep.class, "Sheep", 91, 15198183, 16758197);
+		registerEntity(EntityCow.class, "Cow", 92, 4470310, 10592673);
+		registerEntity(EntityChicken.class, "Chicken", 93, 10592673, 16711680);
+		registerEntity(EntitySquid.class, "Squid", 94, 2243405, 7375001);
+		registerEntity(EntityWolf.class, "Wolf", 95, 14144467, 13545366);
+		registerEntity(EntityMushroomCow.class, "MushroomCow", 96, 10489616, 12040119);
+		registerEntity(EntitySnowman.class, "SnowMan", 97);
+		registerEntity(EntityOcelot.class, "Ozelot", 98, 15720061, 5653556);
+		registerEntity(EntityVillagerGolem.class, "VillagerGolem", 99);
+		registerEntity(EntityHorse.class, "EntityHorse", 100, 12623485, 15656192);
+		registerEntity(EntityRabbit.class, "Rabbit", 101, 10051392, 7555121);
+		registerEntity(EntityVillager.class, "Villager", 120, 5651507, 12422002);
+		registerEntity(EntityEnderCrystal.class, "EnderCrystal", 200);
 	}
 
 	public static class class_a_in_class_qz {
@@ -242,8 +242,8 @@ public class EntityTypes {
 			a = var1;
 			b = var2;
 			c = var3;
-			d = class_nh.a(this);
-			e = class_nh.b(this);
+			d = StatisticList.a(this);
+			e = StatisticList.b(this);
 		}
 	}
 }

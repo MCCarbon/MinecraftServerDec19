@@ -77,7 +77,7 @@ public class class_apb extends TileEntity {
 	public Packet x_() {
 		class_dn var1 = new class_dn();
 		this.b(var1);
-		return new class_ft(c, 7, var1);
+		return new PacketPlayOutTileEntityData(c, 7, var1);
 	}
 
 	public void a(String var1) {

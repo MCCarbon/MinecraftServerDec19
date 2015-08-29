@@ -5,21 +5,21 @@ import java.util.Random;
 public class class_us {
 	private static class_aym a = new class_aym(0.0D, 0.0D, 0.0D);
 
-	public static class_aym a(class_rn var0, int var1, int var2) {
+	public static class_aym a(EntityCreature var0, int var1, int var2) {
 		return c(var0, var1, var2, (class_aym) null);
 	}
 
-	public static class_aym a(class_rn var0, int var1, int var2, class_aym var3) {
+	public static class_aym a(EntityCreature var0, int var1, int var2, class_aym var3) {
 		a = var3.a(var0.s, var0.t, var0.u);
 		return c(var0, var1, var2, a);
 	}
 
-	public static class_aym b(class_rn var0, int var1, int var2, class_aym var3) {
+	public static class_aym b(EntityCreature var0, int var1, int var2, class_aym var3) {
 		a = (new class_aym(var0.s, var0.t, var0.u)).d(var3);
 		return c(var0, var1, var2, a);
 	}
 
-	private static class_aym c(class_rn var0, int var1, int var2, class_aym var3) {
+	private static class_aym c(EntityCreature var0, int var1, int var2, class_aym var3) {
 		Random var4 = var0.bj();
 		boolean var5 = false;
 		int var6 = 0;

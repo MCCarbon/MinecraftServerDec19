@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 
 public abstract class class_tc extends class_sr {
-	private final class_rn c;
+	private final EntityCreature c;
 	private final double d;
 	protected int a;
 	private int e;
@@ -11,7 +11,7 @@ public abstract class class_tc extends class_sr {
 	private boolean g;
 	private int h;
 
-	public class_tc(class_rn var1, double var2, int var4) {
+	public class_tc(EntityCreature var1, double var2, int var4) {
 		b = class_cj.a;
 		c = var1;
 		d = var2;

@@ -9,7 +9,7 @@ public class class_aea extends Item {
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
 		var3.a(var1);
-		var3.b(class_nh.c(Item.b(this)));
+		var3.b(StatisticList.c(Item.b(this)));
 		return new class_px(class_pw.a, var1);
 	}
 

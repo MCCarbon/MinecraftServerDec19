@@ -23,7 +23,7 @@ public class class_add extends Item {
 				((class_ala) Blocks.JUKEBOX).a(var3, var4, var10, var1);
 				var3.a((class_yu) null, 1005, var4, Item.b(this));
 				--var1.b;
-				var2.b(class_nh.Y);
+				var2.b(StatisticList.Y);
 			}
 
 			return class_pw.a;

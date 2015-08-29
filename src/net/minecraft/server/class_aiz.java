@@ -41,7 +41,7 @@ public class class_aiz extends Block {
 			int var5;
 			for (var4 = 0; var4 < l().c(); ++var4) {
 				for (var5 = 0; var5 < l().b(); ++var5) {
-					var1.a(var3.a(var4, var5, 0).d(), Blocks.AIR.S(), 2);
+					var1.a(var3.a(var4, var5, 0).d(), Blocks.AIR.getBlockData(), 2);
 				}
 			}
 

@@ -43,10 +43,10 @@ public class class_amf extends class_akx {
 		if ((var3 = n().a(var1, var2)) != null) {
 			for (var4 = 0; var4 < n().b(); ++var4) {
 				class_apq var5 = var3.a(0, var4, 0);
-				var1.a(var5.d(), Blocks.AIR.S(), 2);
+				var1.a(var5.d(), Blocks.AIR.getBlockData(), 2);
 			}
 
-			class_vn var9 = new class_vn(var1);
+			EntitySnowman var9 = new EntitySnowman(var1);
 			class_cj var10 = var3.a(0, 2, 0).d();
 			var9.b(var10.n() + 0.5D, var10.o() + 0.05D, var10.p() + 0.5D, 0.0F, 0.0F);
 			var1.a(var9);
@@ -62,12 +62,12 @@ public class class_amf extends class_akx {
 		} else if ((var3 = p().a(var1, var2)) != null) {
 			for (var4 = 0; var4 < p().c(); ++var4) {
 				for (int var12 = 0; var12 < p().b(); ++var12) {
-					var1.a(var3.a(var4, var12, 0).d(), Blocks.AIR.S(), 2);
+					var1.a(var3.a(var4, var12, 0).d(), Blocks.AIR.getBlockData(), 2);
 				}
 			}
 
 			class_cj var11 = var3.a(1, 2, 0).d();
-			class_vp var13 = new class_vp(var1);
+			EntityVillagerGolem var13 = new EntityVillagerGolem(var1);
 			var13.m(true);
 			var13.b(var11.n() + 0.5D, var11.o() + 0.05D, var11.p() + 0.5D, 0.0F, 0.0F);
 			var1.a(var13);
@@ -102,13 +102,13 @@ public class class_amf extends class_akx {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
-		return S().a(O, var8.aV().d());
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+		return getBlockData().a(O, var8.aV().d());
 	}
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(O, class_cq.b(var1));
+		return getBlockData().a(O, class_cq.b(var1));
 	}
 
 	@Override

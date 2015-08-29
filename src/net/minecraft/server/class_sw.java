@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 
 public class class_sw extends class_sr {
-	protected class_rh a;
+	protected EntityInsentient a;
 	protected Entity b;
 	protected float c;
 	private int e;
 	private float f;
 	protected Class d;
 
-	public class_sw(class_rh var1, Class var2, float var3) {
+	public class_sw(EntityInsentient var1, Class var2, float var3) {
 		a = var1;
 		d = var2;
 		c = var3;
@@ -17,7 +17,7 @@ public class class_sw extends class_sr {
 		this.a(2);
 	}
 
-	public class_sw(class_rh var1, Class var2, float var3, float var4) {
+	public class_sw(EntityInsentient var1, Class var2, float var3, float var4) {
 		a = var1;
 		d = var2;
 		c = var3;

@@ -82,7 +82,7 @@ public class class_ata extends class_atc {
 
 	private void a(class_ago var1, Random var2, class_cj var3, class_apy var4) {
 		if ((var2.nextInt(3) > 0) && var1.d(var3)) {
-			this.a(var1, var3, Blocks.VINE.S().a(var4, Boolean.valueOf(true)));
+			this.a(var1, var3, Blocks.VINE.getBlockData().a(var4, Boolean.valueOf(true)));
 		}
 
 	}

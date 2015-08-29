@@ -53,7 +53,7 @@ public class class_aft extends class_afj {
 		}
 	}
 
-	public static int a(class_rg var0, int var1) {
+	public static int a(EntityLiving var0, int var1) {
 		int var2 = class_afl.a(class_afn.b, var0);
 		if (var2 > 0) {
 			var1 -= MathHelper.d((float) var1 * (float) var2 * 0.15F);
@@ -62,7 +62,7 @@ public class class_aft extends class_afj {
 		return var1;
 	}
 
-	public static double a(class_rg var0, double var1) {
+	public static double a(EntityLiving var0, double var1) {
 		int var3 = class_afl.a(class_afn.d, var0);
 		if (var3 > 0) {
 			var1 -= MathHelper.c(var1 * (var3 * 0.15F));

@@ -20,9 +20,9 @@ public class class_qk extends class_qj {
 	}
 
 	@Override
-	public IChatBaseComponent c(class_rg var1) {
+	public IChatBaseComponent c(EntityLiving var1) {
 		IChatBaseComponent var2 = s == null ? r.f_() : s.f_();
-		class_aco var3 = s instanceof class_rg ? ((class_rg) s).bG() : null;
+		class_aco var3 = s instanceof EntityLiving ? ((EntityLiving) s).bG() : null;
 		String var4 = "death.attack." + q;
 		String var5 = var4 + ".item";
 		return (var3 != null) && var3.s() && class_di.c(var5) ? new class_fb(var5, new Object[] { var1.f_(), var2, var3.B() }) : new class_fb(var4, new Object[] { var1.f_(), var2 });

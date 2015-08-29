@@ -11,19 +11,19 @@ public class class_amh extends Block {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		if (var7 == class_amh.class_a_in_class_amh.c.a()) {
 			switch (class_amh.SyntheticClass_1.a[var3.k().ordinal()]) {
 				case 1:
-					return S().a(a, class_amh.class_a_in_class_amh.e);
+					return getBlockData().a(a, class_amh.class_a_in_class_amh.e);
 				case 2:
-					return S().a(a, class_amh.class_a_in_class_amh.d);
+					return getBlockData().a(a, class_amh.class_a_in_class_amh.d);
 				case 3:
 				default:
-					return S().a(a, class_amh.class_a_in_class_amh.c);
+					return getBlockData().a(a, class_amh.class_a_in_class_amh.c);
 			}
 		} else {
-			return var7 == class_amh.class_a_in_class_amh.b.a() ? S().a(a, class_amh.class_a_in_class_amh.b) : S().a(a, class_amh.class_a_in_class_amh.a);
+			return var7 == class_amh.class_a_in_class_amh.b.a() ? getBlockData().a(a, class_amh.class_a_in_class_amh.b) : getBlockData().a(a, class_amh.class_a_in_class_amh.a);
 		}
 	}
 
@@ -46,7 +46,7 @@ public class class_amh extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_amh.class_a_in_class_amh.a(var1));
+		return getBlockData().a(a, class_amh.class_a_in_class_amh.a(var1));
 	}
 
 	@Override

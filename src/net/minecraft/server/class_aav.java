@@ -15,15 +15,15 @@ public class class_aav extends Item {
 			int var5 = var3.o();
 			int var6 = var3.p();
 			class_ayk var7 = new class_ayk(var4, var5, var6, var4 + 1, var5 + 1, var6 + 1);
-			List var8 = var1.i().a(class_rg.class, var7, Predicates.and(class_rb.d, new class_rb.class_a_in_class_rb(var2)));
+			List var8 = var1.i().a(EntityLiving.class, var7, Predicates.and(class_rb.d, new class_rb.class_a_in_class_rb(var2)));
 			if (!var8.isEmpty()) {
-				class_rg var9 = (class_rg) var8.get(0);
-				class_rc var10 = class_rh.c(var2);
+				EntityLiving var9 = (EntityLiving) var8.get(0);
+				class_rc var10 = EntityInsentient.c(var2);
 				class_aco var11 = var2.k();
 				var11.b = 1;
 				var9.a(var10, var11);
-				if (var9 instanceof class_rh) {
-					((class_rh) var9).a(var10, 2.0F);
+				if (var9 instanceof EntityInsentient) {
+					((EntityInsentient) var9).a(var10, 2.0F);
 				}
 
 				--var2.b;
@@ -117,7 +117,7 @@ public class class_aav extends Item {
 
 	@Override
 	public class_px a(class_aco var1, class_ago var2, class_yu var3, class_pu var4) {
-		class_rc var5 = class_rh.c(var1);
+		class_rc var5 = EntityInsentient.c(var1);
 		class_aco var6 = var3.a(var5);
 		if (var6 == null) {
 			var3.a(var5, var1.k());

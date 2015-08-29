@@ -33,7 +33,7 @@ public class class_ajl extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_ajl.class_a_in_class_ajl.a(var1));
+		return getBlockData().a(a, class_ajl.class_a_in_class_ajl.a(var1));
 	}
 
 	@Override

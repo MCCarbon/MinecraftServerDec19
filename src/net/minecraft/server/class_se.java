@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 
 public class class_se {
-	protected class_rh a;
+	protected EntityInsentient a;
 	protected double b;
 	protected double c;
 	protected double d;
 	protected double e;
 	protected boolean f;
 
-	public class_se(class_rh var1) {
+	public class_se(EntityInsentient var1) {
 		a = var1;
 		b = var1.s;
 		c = var1.t;

@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 
 public class class_tq extends class_sr {
-	private class_rn a;
+	private EntityCreature a;
 	private class_uu b;
 
-	public class_tq(class_rn var1) {
+	public class_tq(EntityCreature var1) {
 		a = var1;
 		if (!(var1.u() instanceof class_ul)) {
 			throw new IllegalArgumentException("Unsupported mob type for RestrictOpenDoorGoal");

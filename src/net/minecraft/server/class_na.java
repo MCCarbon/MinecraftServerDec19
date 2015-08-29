@@ -13,7 +13,7 @@ public class class_na extends class_nd {
 	@Override
 	public class_nd h() {
 		super.h();
-		class_nh.c.add(this);
+		StatisticList.c.add(this);
 		return this;
 	}
 }

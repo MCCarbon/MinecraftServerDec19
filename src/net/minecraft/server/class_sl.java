@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 
 public abstract class class_sl extends class_sr {
-	protected class_rh a;
+	protected EntityInsentient a;
 	protected class_cj b;
 	protected class_ajn c;
 	boolean d;
 	float e;
 	float f;
 
-	public class_sl(class_rh var1) {
+	public class_sl(EntityInsentient var1) {
 		b = class_cj.a;
 		a = var1;
 		if (!(var1.u() instanceof class_ul)) {

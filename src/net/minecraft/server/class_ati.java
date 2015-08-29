@@ -14,7 +14,7 @@ public class class_ati extends class_asp {
 
 					for (int var8 = 0; var8 < var7; ++var8) {
 						if (Blocks.REEDS.d(var1, var5)) {
-							var1.a(var5.b(var8), Blocks.REEDS.S(), 2);
+							var1.a(var5.b(var8), Blocks.REEDS.getBlockData(), 2);
 						}
 					}
 				}

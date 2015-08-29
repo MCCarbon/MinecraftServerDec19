@@ -22,7 +22,7 @@ public class BlockMycel extends Block {
 	public void b(class_ago var1, class_cj var2, class_apn var3, Random var4) {
 		if (!var1.D) {
 			if ((var1.l(var2.a()) < 4) && (var1.p(var2.a()).c().r() > 2)) {
-				var1.a(var2, Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a));
+				var1.a(var2, Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a));
 			} else {
 				if (var1.l(var2.a()) >= 9) {
 					for (int var5 = 0; var5 < 4; ++var5) {
@@ -30,7 +30,7 @@ public class BlockMycel extends Block {
 						class_apn var7 = var1.p(var6);
 						Block var8 = var1.p(var6.a()).c();
 						if ((var7.c() == Blocks.DIRT) && (var7.b(class_ajl.a) == class_ajl.class_a_in_class_ajl.a) && (var1.l(var6.a()) >= 4) && (var8.r() <= 2)) {
-							var1.a(var6, S());
+							var1.a(var6, getBlockData());
 						}
 					}
 				}
@@ -41,7 +41,7 @@ public class BlockMycel extends Block {
 
 	@Override
 	public Item a(class_apn var1, Random var2, int var3) {
-		return Blocks.DIRT.a(Blocks.DIRT.S().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
+		return Blocks.DIRT.a(Blocks.DIRT.getBlockData().a(class_ajl.a, class_ajl.class_a_in_class_ajl.a), var2, var3);
 	}
 
 	@Override

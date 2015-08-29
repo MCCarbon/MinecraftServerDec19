@@ -68,7 +68,7 @@ public class BlockCauldron extends Block {
 						var4.a(var5, (new class_aco(Items.ay)));
 					}
 
-					var4.b(class_nh.J);
+					var4.b(StatisticList.J);
 					this.a(var1, var2, var3, 3);
 				}
 
@@ -79,7 +79,7 @@ public class BlockCauldron extends Block {
 					if (var11 > 0) {
 						if (!var4.bI.d) {
 							var14 = class_adb.a(new class_aco(Items.bB), class_aee.a);
-							var4.b(class_nh.K);
+							var4.b(StatisticList.K);
 							if (--var6.b == 0) {
 								var4.a(var5, var14);
 							} else if (!var4.bq.a(var14)) {
@@ -99,7 +99,7 @@ public class BlockCauldron extends Block {
 						if ((var13.d() == class_aav.class_a_in_class_aav.a) && var13.d_(var6)) {
 							var13.c(var6);
 							this.a(var1, var2, var3, var11 - 1);
-							var4.b(class_nh.L);
+							var4.b(StatisticList.L);
 							return true;
 						}
 					}
@@ -108,7 +108,7 @@ public class BlockCauldron extends Block {
 						var14 = var6.k();
 						var14.b = 1;
 						class_aog.e(var14);
-						var4.b(class_nh.M);
+						var4.b(StatisticList.M);
 						if (!var4.bI.d) {
 							--var6.b;
 						}
@@ -172,7 +172,7 @@ public class BlockCauldron extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override

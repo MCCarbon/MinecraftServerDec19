@@ -21,7 +21,7 @@ public class class_ank extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_ank.class_a_in_class_ank.a(var1));
+		return getBlockData().a(a, class_ank.class_a_in_class_ank.a(var1));
 	}
 
 	@Override

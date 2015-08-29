@@ -7,14 +7,14 @@ public class class_abk extends class_aci {
 	}
 
 	@Override
-	public class_aco a(class_aco var1, class_ago var2, class_rg var3) {
+	public class_aco a(class_aco var1, class_ago var2, EntityLiving var3) {
 		class_aco var4 = super.a(var1, var2, var3);
 
 		for (int var5 = 0; var5 < 16; ++var5) {
 			double var6 = var3.s + ((var3.bj().nextDouble() - 0.5D) * 64.0D);
 			double var8 = MathHelper.a(var3.t + (var3.bj().nextInt(64) - 32), 0.0D, var2.X() - 1);
 			double var10 = var3.u + ((var3.bj().nextDouble() - 0.5D) * 64.0D);
-			if (class_xv.a(var3, var6, var8, var10)) {
+			if (EntityEnderman.a(var3, var6, var8, var10)) {
 				break;
 			}
 		}

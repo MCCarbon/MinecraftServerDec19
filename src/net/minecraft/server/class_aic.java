@@ -23,7 +23,7 @@ public class class_aic extends class_ajz {
 	}
 
 	@Override
-	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_rg var8) {
+	public class_apn a(class_ago var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
 		class_cq var9 = var8.aV().e();
 		return super.a(var1, var2, var3, var4, var5, var6, var7, var8).a(a, var9).a(b, Integer.valueOf(var7 >> 2));
 	}
@@ -54,7 +54,7 @@ public class class_aic extends class_ajz {
 	}
 
 	@Override
-	protected void a(class_xf var1) {
+	protected void a(EntityFallingBlock var1) {
 		var1.a(true);
 	}
 
@@ -65,7 +65,7 @@ public class class_aic extends class_ajz {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, class_cq.b(var1 & 3)).a(b, Integer.valueOf((var1 & 15) >> 2));
+		return getBlockData().a(a, class_cq.b(var1 & 3)).a(b, Integer.valueOf((var1 & 15) >> 2));
 	}
 
 	@Override

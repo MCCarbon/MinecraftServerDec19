@@ -25,7 +25,7 @@ public class BlockCactus extends Block {
 			if (var6 < 3) {
 				int var7 = ((Integer) var3.b(a)).intValue();
 				if (var7 == 15) {
-					var1.a(var5, S());
+					var1.a(var5, getBlockData());
 					class_apn var8 = var3.a(a, Integer.valueOf(0));
 					var1.a(var2, var8, 4);
 					this.a(var1, var5, var8, this);
@@ -87,7 +87,7 @@ public class BlockCactus extends Block {
 
 	@Override
 	public class_apn a(int var1) {
-		return S().a(a, Integer.valueOf(var1));
+		return getBlockData().a(a, Integer.valueOf(var1));
 	}
 
 	@Override

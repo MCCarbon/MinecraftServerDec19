@@ -267,11 +267,11 @@ public class class_ll extends class_ago implements class_pl {
 					var9 = this.q(new class_cj(var6 + (var8 & 15), 0, var7 + ((var8 >> 8) & 15)));
 					class_cj var10 = var9.b();
 					if (this.w(var10)) {
-						this.a(var10, Blocks.ICE.S());
+						this.a(var10, Blocks.ICE.getBlockData());
 					}
 
 					if (var2 && this.f(var9, true)) {
-						this.a(var9, Blocks.SNOW_LAYER.S());
+						this.a(var9, Blocks.SNOW_LAYER.getBlockData());
 					}
 
 					if (var2 && this.b(var10).e()) {
@@ -314,18 +314,18 @@ public class class_ll extends class_ago implements class_pl {
 	protected class_cj a(class_cj var1) {
 		class_cj var2 = this.q(var1);
 		class_ayk var3 = (new class_ayk(var2, new class_cj(var2.n(), W(), var2.p()))).b(3.0D, 3.0D, 3.0D);
-		List var4 = this.a(class_rg.class, var3, new Predicate() {
-			public boolean a(class_rg var1) {
+		List var4 = this.a(EntityLiving.class, var3, new Predicate() {
+			public boolean a(EntityLiving var1) {
 				return (var1 != null) && var1.al() && class_ll.this.i(var1.c());
 			}
 
 			// $FF: synthetic method
 			@Override
 			public boolean apply(Object var1) {
-				return this.a((class_rg) var1);
+				return this.a((EntityLiving) var1);
 			}
 		});
-		return !var4.isEmpty() ? ((class_rg) var4.get(s.nextInt(var4.size()))).c() : var2;
+		return !var4.isEmpty() ? ((EntityLiving) var4.get(s.nextInt(var4.size()))).c() : var2;
 	}
 
 	@Override
@@ -516,7 +516,7 @@ public class class_ll extends class_ago implements class_pl {
 
 	@Override
 	public void a(Entity var1, boolean var2) {
-		if (!aj() && ((var1 instanceof class_vc) || (var1 instanceof class_vq))) {
+		if (!aj() && ((var1 instanceof EntityAnimal) || (var1 instanceof class_vq))) {
 			var1.L();
 		}
 
@@ -793,7 +793,7 @@ public class class_ll extends class_ago implements class_pl {
 	@Override
 	public boolean d(Entity var1) {
 		if (super.d(var1)) {
-			H.ar().a(var1.s, var1.t, var1.u, 512.0D, t.p().a(), new class_fm(var1));
+			H.ar().a(var1.s, var1.t, var1.u, 512.0D, t.p().a(), new PacketPlayOutSpawnEntityWeather(var1));
 			return true;
 		} else {
 			return false;
@@ -852,7 +852,7 @@ public class class_ll extends class_ago implements class_pl {
 			while (var2.hasNext()) {
 				class_agg var3 = (class_agg) var2.next();
 				if (this.a(var3)) {
-					H.ar().a(var3.a().n(), var3.a().o(), var3.a().p(), 64.0D, t.p().a(), new class_fu(var3.a(), var3.d(), var3.b(), var3.c()));
+					H.ar().a(var3.a().n(), var3.a().o(), var3.a().p(), 64.0D, t.p().a(), new PacketPlayOutBlockAction(var3.a(), var3.d(), var3.b(), var3.c()));
 				}
 			}
 
