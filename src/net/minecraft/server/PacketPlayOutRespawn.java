@@ -2,16 +2,16 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_hf implements Packet {
+public class PacketPlayOutRespawn implements Packet {
 	private int a;
 	private class_ps b;
 	private class_agr.class_a_in_class_agr c;
 	private class_agt d;
 
-	public class_hf() {
+	public PacketPlayOutRespawn() {
 	}
 
-	public class_hf(int var1, class_ps var2, class_agt var3, class_agr.class_a_in_class_agr var4) {
+	public PacketPlayOutRespawn(int var1, class_ps var2, class_agt var3, class_agr.class_a_in_class_agr var4) {
 		a = var1;
 		b = var2;
 		c = var4;

@@ -99,11 +99,11 @@ public class class_ls {
 						;
 					}
 
-					var1.pipeline().addLast("timeout", (new ReadTimeoutHandler(30))).addLast("legacy_query", (new class_lq(class_ls.this))).addLast("splitter", (new class_eq())).addLast("decoder", (new class_en(class_fg.a))).addLast("prepender", (new class_er())).addLast("encoder", (new class_eo(class_fg.b)));
-					class_ek var2 = new class_ek(class_fg.a);
+					var1.pipeline().addLast("timeout", (new ReadTimeoutHandler(30))).addLast("legacy_query", (new class_lq(class_ls.this))).addLast("splitter", (new class_eq())).addLast("decoder", (new class_en(EnumProtocolDirection.SERVERBOUND))).addLast("prepender", (new class_er())).addLast("encoder", (new class_eo(EnumProtocolDirection.CLIENTBOUND)));
+					class_ek var2 = new class_ek(EnumProtocolDirection.SERVERBOUND);
 					h.add(var2);
 					var1.pipeline().addLast("packet_handler", var2);
-					var2.a((new class_lu(f, var2)));
+					var2.a((new HandShakeListener(f, var2)));
 				}
 			}).group((EventLoopGroup) var5.c()).localAddress(var1, var2).bind().syncUninterruptibly());
 		}

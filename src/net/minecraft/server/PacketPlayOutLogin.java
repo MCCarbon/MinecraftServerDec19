@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_gu implements Packet {
+public class PacketPlayOutLogin implements Packet {
 	private int a;
 	private boolean b;
 	private class_agr.class_a_in_class_agr c;
@@ -12,10 +12,10 @@ public class class_gu implements Packet {
 	private class_agt g;
 	private boolean h;
 
-	public class_gu() {
+	public PacketPlayOutLogin() {
 	}
 
-	public class_gu(int var1, class_agr.class_a_in_class_agr var2, boolean var3, int var4, class_ps var5, int var6, class_agt var7, boolean var8) {
+	public PacketPlayOutLogin(int var1, class_agr.class_a_in_class_agr var2, boolean var3, int var4, class_ps var5, int var6, class_agt var7, boolean var8) {
 		a = var1;
 		d = var4;
 		e = var5;

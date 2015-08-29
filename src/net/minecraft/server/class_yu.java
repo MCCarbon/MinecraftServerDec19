@@ -854,7 +854,7 @@ public abstract class class_yu extends EntityLiving {
 						}
 
 						if ((var1 instanceof class_lm) && var1.G) {
-							((class_lm) var1).a.a((new class_hn(var1)));
+							((class_lm) var1).a.a((new PacketPlayOutEntityVelocity(var1)));
 							var1.G = false;
 							var1.v = var15;
 							var1.w = var17;

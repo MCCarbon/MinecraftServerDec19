@@ -5,7 +5,7 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Set;
 
-public class class_fi implements Packet {
+public class PacketPlayOutPosition implements Packet {
 	private double a;
 	private double b;
 	private double c;
@@ -13,10 +13,10 @@ public class class_fi implements Packet {
 	private float e;
 	private Set f;
 
-	public class_fi() {
+	public PacketPlayOutPosition() {
 	}
 
-	public class_fi(double var1, double var3, double var5, float var7, float var8, Set var9) {
+	public PacketPlayOutPosition(double var1, double var3, double var5, float var7, float var8, Set var9) {
 		a = var1;
 		b = var3;
 		c = var5;
@@ -32,7 +32,7 @@ public class class_fi implements Packet {
 		c = var1.readDouble();
 		d = var1.readFloat();
 		e = var1.readFloat();
-		f = class_fi.class_a_in_class_fi.a(var1.readUnsignedByte());
+		f = PacketPlayOutPosition.class_a_in_class_fi.a(var1.readUnsignedByte());
 	}
 
 	@Override
@@ -42,7 +42,7 @@ public class class_fi implements Packet {
 		var1.writeDouble(c);
 		var1.writeFloat(d);
 		var1.writeFloat(e);
-		var1.writeByte(class_fi.class_a_in_class_fi.a(f));
+		var1.writeByte(PacketPlayOutPosition.class_a_in_class_fi.a(f));
 	}
 
 	public void a(PacketListenerPlayOut var1) {
@@ -78,12 +78,12 @@ public class class_fi implements Packet {
 		}
 
 		public static Set a(int var0) {
-			EnumSet var1 = EnumSet.noneOf(class_fi.class_a_in_class_fi.class);
-			class_fi.class_a_in_class_fi[] var2 = values();
+			EnumSet var1 = EnumSet.noneOf(PacketPlayOutPosition.class_a_in_class_fi.class);
+			PacketPlayOutPosition.class_a_in_class_fi[] var2 = values();
 			int var3 = var2.length;
 
 			for (int var4 = 0; var4 < var3; ++var4) {
-				class_fi.class_a_in_class_fi var5 = var2[var4];
+				PacketPlayOutPosition.class_a_in_class_fi var5 = var2[var4];
 				if (var5.b(var0)) {
 					var1.add(var5);
 				}
@@ -95,9 +95,9 @@ public class class_fi implements Packet {
 		public static int a(Set var0) {
 			int var1 = 0;
 
-			class_fi.class_a_in_class_fi var3;
+			PacketPlayOutPosition.class_a_in_class_fi var3;
 			for (Iterator var2 = var0.iterator(); var2.hasNext(); var1 |= var3.a()) {
-				var3 = (class_fi.class_a_in_class_fi) var2.next();
+				var3 = (PacketPlayOutPosition.class_a_in_class_fi) var2.next();
 			}
 
 			return var1;

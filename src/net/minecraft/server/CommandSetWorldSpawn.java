@@ -32,7 +32,7 @@ public class CommandSetWorldSpawn extends CommandAbstract {
 		}
 
 		var1.e().B(var3);
-		MinecraftServer.P().ar().a((new class_hu(var3)));
+		MinecraftServer.P().ar().a((new PacketPlayOutSpawnPosition(var3)));
 		a(var1, this, "commands.setworldspawn.success", new Object[] { Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()) });
 	}
 

@@ -1,6 +1,3 @@
-package net.minecraft.server;
-
-
 public interface PacketListenerPlayOut extends PacketListener {
 	
 	void a(PacketPlayOutSpawnEntity var1);
@@ -31,7 +28,7 @@ public interface PacketListenerPlayOut extends PacketListener {
 
 	void a(class_fv var1);
 
-	void a(class_fz var1);
+	void a(PacketPlayOutChat var1);
 
 	void a(class_fy var1);
 
@@ -55,17 +52,17 @@ public interface PacketListenerPlayOut extends PacketListener {
 
 	void a(class_gj var1);
 
-	void a(class_hb var1);
+	void a(PacketPlayOutBed var1);
 
-	void a(class_gk var1);
+	void a(PacketPlayOutEntityStatus var1);
 
-	void a(class_hm var1);
+	void a(PacketPlayOutAttachEntity var1);
 
 	void a(class_gl var1);
 
 	void a(class_gn var1);
 
-	void a(class_go var1);
+	void a(PacketPlayOutKeepAlive var1);
 
 	void a(class_gp var1);
 
@@ -73,11 +70,11 @@ public interface PacketListenerPlayOut extends PacketListener {
 
 	void a(class_gr var1);
 
-	void a(class_gu var1);
+	void a(PacketPlayOutLogin var1);
 
-	void a(class_gw var1);
+	void a(PacketPlayOutEntity var1);
 
-	void a(class_fi var1);
+	void a(PacketPlayOutPosition var1);
 
 	void a(class_gs var1);
 
@@ -85,43 +82,43 @@ public interface PacketListenerPlayOut extends PacketListener {
 
 	void a(class_ha var1);
 
-	void a(class_hc var1);
+	void a(PacketPlayOutEntityDestroy var1);
 
 	void a(class_hd var1);
 
-	void a(class_hf var1);
+	void a(PacketPlayOutRespawn var1);
 
-	void a(class_hg var1);
+	void a(PacketPlayOutEntityHeadRotation var1);
 
-	void a(class_hj var1);
+	void a(PacketPlayOutHeldItemSlot var1);
 
 	void a(class_hk var1);
 
 	void a(class_hl var1);
 
-	void a(class_hn var1);
+	void a(PacketPlayOutEntityVelocity var1);
 
-	void a(class_ho var1);
+	void a(PacketPlayOutEntityEquipment var1);
 
 	void a(class_hp var1);
 
-	void a(class_hq var1);
+	void a(PacketPlayOutUpdateHealth var1);
 
 	void a(class_hs var1);
 
 	void a(class_ht var1);
 
-	void a(class_hu var1);
+	void a(PacketPlayOutSpawnPosition var1);
 
-	void a(class_hv var1);
+	void a(PacketPlayOutUpdateTime var1);
 
 	void a(class_hx var1);
 
 	void a(class_gt var1);
 
-	void a(class_hz var1);
+	void a(PacketPlayOutCollect var1);
 
-	void a(class_ia var1);
+	void a(PacketPlayOutEntityTeleport var1);
 
 	void a(class_ib var1);
 

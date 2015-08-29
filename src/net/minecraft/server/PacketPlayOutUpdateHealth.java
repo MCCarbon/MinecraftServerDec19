@@ -2,15 +2,15 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_hq implements Packet {
+public class PacketPlayOutUpdateHealth implements Packet {
 	private float a;
 	private int b;
 	private float c;
 
-	public class_hq() {
+	public PacketPlayOutUpdateHealth() {
 	}
 
-	public class_hq(float var1, int var2, float var3) {
+	public PacketPlayOutUpdateHealth(float var1, int var2, float var3) {
 		a = var1;
 		b = var2;
 		c = var3;

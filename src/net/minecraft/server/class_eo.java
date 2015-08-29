@@ -14,14 +14,14 @@ import org.apache.logging.log4j.MarkerManager;
 public class class_eo extends MessageToByteEncoder {
 	private static final Logger a = LogManager.getLogger();
 	private static final Marker b;
-	private final class_fg c;
+	private final EnumProtocolDirection c;
 
-	public class_eo(class_fg var1) {
+	public class_eo(EnumProtocolDirection var1) {
 		c = var1;
 	}
 
 	protected void a(ChannelHandlerContext var1, Packet var2, ByteBuf var3) throws Exception {
-		Integer var4 = ((class_el) var1.channel().attr(class_ek.c).get()).a(c, var2);
+		Integer var4 = ((EnumProtocol) var1.channel().attr(class_ek.c).get()).a(c, var2);
 		if (a.isDebugEnabled()) {
 			a.debug(b, "OUT: [{}:{}] {}", new Object[] { var1.channel().attr(class_ek.c).get(), var4, var2.getClass().getName() });
 		}

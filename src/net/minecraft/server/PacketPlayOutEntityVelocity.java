@@ -2,20 +2,20 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_hn implements Packet {
+public class PacketPlayOutEntityVelocity implements Packet {
 	private int a;
 	private int b;
 	private int c;
 	private int d;
 
-	public class_hn() {
+	public PacketPlayOutEntityVelocity() {
 	}
 
-	public class_hn(Entity var1) {
+	public PacketPlayOutEntityVelocity(Entity var1) {
 		this(var1.G(), var1.v, var1.w, var1.x);
 	}
 
-	public class_hn(int var1, double var2, double var4, double var6) {
+	public PacketPlayOutEntityVelocity(int var1, double var2, double var4, double var6) {
 		a = var1;
 		double var8 = 3.9D;
 		if (var2 < -var8) {

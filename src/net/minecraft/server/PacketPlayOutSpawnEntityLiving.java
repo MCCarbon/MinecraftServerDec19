@@ -71,7 +71,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
 	public void decode(PacketDataSerializer var1) throws IOException {
 		a = var1.g();
 		b = var1.i();
-		c = var1.readByte() & 255;
+		c = var1.readByte() & 0xFF;
 		d = var1.readInt();
 		e = var1.readInt();
 		f = var1.readInt();
@@ -88,7 +88,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
 	public void encode(PacketDataSerializer var1) throws IOException {
 		var1.b(a);
 		var1.a(b);
-		var1.writeByte(c & 255);
+		var1.writeByte(c & 0xFF);
 		var1.writeInt(d);
 		var1.writeInt(e);
 		var1.writeInt(f);

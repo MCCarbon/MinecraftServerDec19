@@ -1301,7 +1301,7 @@ public abstract class EntityLiving extends Entity {
 
 				class_aco var7 = this.a(var5);
 				if (!class_aco.b(var7, var6)) {
-					((class_ll) o).u().a(this, (new class_ho(G(), var5, var7)));
+					((class_ll) o).u().a(this, (new PacketPlayOutEntityEquipment(G(), var5, var7)));
 					if (var6 != null) {
 						bE().a(var6.a(var5));
 					}
@@ -1557,15 +1557,15 @@ public abstract class EntityLiving extends Entity {
 		if (!var1.I && !o.D) {
 			class_lg var3 = ((class_ll) o).u();
 			if (var1 instanceof EntityItem) {
-				var3.a(var1, (new class_hz(var1.G(), G())));
+				var3.a(var1, (new PacketPlayOutCollect(var1.G(), G())));
 			}
 
 			if (var1 instanceof EntityArrow) {
-				var3.a(var1, (new class_hz(var1.G(), G())));
+				var3.a(var1, (new PacketPlayOutCollect(var1.G(), G())));
 			}
 
 			if (var1 instanceof EntityExperienceOrb) {
-				var3.a(var1, (new class_hz(var1.G(), G())));
+				var3.a(var1, (new PacketPlayOutCollect(var1.G(), G())));
 			}
 		}
 

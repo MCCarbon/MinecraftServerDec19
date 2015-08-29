@@ -56,7 +56,7 @@ public class CommandGamerule extends CommandAbstract {
 
 			while (var3.hasNext()) {
 				class_lm var4 = (class_lm) var3.next();
-				var4.a.a((new class_gk(var4, (byte) var2)));
+				var4.a.a((new PacketPlayOutEntityStatus(var4, (byte) var2)));
 			}
 		}
 

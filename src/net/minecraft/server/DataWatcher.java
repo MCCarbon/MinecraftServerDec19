@@ -51,6 +51,7 @@ public class DataWatcher {
 			throw new IllegalArgumentException("Data value id is too big with " + id + "! (Max is " + 254 + ")");
 		} else {
 			ENTITY_CLASS_TO_ID.put(clazz, Integer.valueOf(id));
+			System.out.println("[DataWatcher] " + clazz.getSimpleName() + ": " + id);
 			return var1.a(id);
 		}
 	}

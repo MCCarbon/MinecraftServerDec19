@@ -2,28 +2,35 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_gk implements Packet {
-	private int a;
-	private byte b;
+public class PacketPlayOutUpdateTime implements Packet {
+	private long a;
+	private long b;
 
-	public class_gk() {
+	public PacketPlayOutUpdateTime() {
 	}
 
-	public class_gk(Entity var1, byte var2) {
-		a = var1.G();
-		b = var2;
+	public PacketPlayOutUpdateTime(long var1, long var3, boolean var5) {
+		a = var1;
+		b = var3;
+		if (!var5) {
+			b = -b;
+			if (b == 0L) {
+				b = -1L;
+			}
+		}
+
 	}
 
 	@Override
 	public void decode(PacketDataSerializer var1) throws IOException {
-		a = var1.readInt();
-		b = var1.readByte();
+		a = var1.readLong();
+		b = var1.readLong();
 	}
 
 	@Override
 	public void encode(PacketDataSerializer var1) throws IOException {
-		var1.writeInt(a);
-		var1.writeByte(b);
+		var1.writeLong(a);
+		var1.writeLong(b);
 	}
 
 	public void a(PacketListenerPlayOut var1) {

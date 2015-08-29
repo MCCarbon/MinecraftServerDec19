@@ -2,40 +2,38 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_fz implements Packet {
-	private IChatBaseComponent a;
-	private byte b;
+public class PacketPlayOutEntityDestroy implements Packet {
+	private int[] a;
 
-	public class_fz() {
+	public PacketPlayOutEntityDestroy() {
 	}
 
-	public class_fz(IChatBaseComponent var1) {
-		this(var1, (byte) 1);
-	}
-
-	public class_fz(IChatBaseComponent var1, byte var2) {
+	public PacketPlayOutEntityDestroy(int... var1) {
 		a = var1;
-		b = var2;
 	}
 
 	@Override
 	public void decode(PacketDataSerializer var1) throws IOException {
-		a = var1.f();
-		b = var1.readByte();
+		a = new int[var1.g()];
+
+		for (int var2 = 0; var2 < a.length; ++var2) {
+			a[var2] = var1.g();
+		}
+
 	}
 
 	@Override
 	public void encode(PacketDataSerializer var1) throws IOException {
-		var1.a(a);
-		var1.writeByte(b);
+		var1.b(a.length);
+
+		for (int var2 = 0; var2 < a.length; ++var2) {
+			var1.b(a[var2]);
+		}
+
 	}
 
 	public void a(PacketListenerPlayOut var1) {
 		var1.a(this);
-	}
-
-	public boolean b() {
-		return (b == 1) || (b == 2);
 	}
 
 	// $FF: synthetic method

@@ -38,7 +38,7 @@ public class class_ek extends SimpleChannelInboundHandler {
 	public static final class_nw d;
 	public static final class_nw e;
 	public static final class_nw f;
-	private final class_fg h;
+	private final EnumProtocolDirection h;
 	private final Queue i = Queues.newConcurrentLinkedQueue();
 	private final ReentrantReadWriteLock j = new ReentrantReadWriteLock();
 	private Channel k;
@@ -48,7 +48,7 @@ public class class_ek extends SimpleChannelInboundHandler {
 	private boolean o;
 	private boolean p;
 
-	public class_ek(class_fg var1) {
+	public class_ek(EnumProtocolDirection var1) {
 		h = var1;
 	}
 
@@ -59,14 +59,14 @@ public class class_ek extends SimpleChannelInboundHandler {
 		l = k.remoteAddress();
 
 		try {
-			this.a(class_el.a);
+			this.a(EnumProtocol.HANDSHAKING);
 		} catch (Throwable var3) {
 			g.fatal(var3);
 		}
 
 	}
 
-	public void a(class_el var1) {
+	public void a(EnumProtocol var1) {
 		k.attr(c).set(var1);
 		k.config().setAutoRead(true);
 		g.debug("Enabled auto read");
@@ -139,8 +139,8 @@ public class class_ek extends SimpleChannelInboundHandler {
 	}
 
 	private void a(final Packet var1, final GenericFutureListener[] var2) {
-		final class_el var3 = class_el.a(var1);
-		final class_el var4 = (class_el) k.attr(c).get();
+		final EnumProtocol var3 = EnumProtocol.a(var1);
+		final EnumProtocol var4 = (EnumProtocol) k.attr(c).get();
 		if (var4 != var3) {
 			g.debug("Disabled auto read");
 			k.config().setAutoRead(false);

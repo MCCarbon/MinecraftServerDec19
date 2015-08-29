@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_hz implements Packet {
+public class PacketPlayOutCollect implements Packet {
 	private int a;
 	private int b;
 
-	public class_hz() {
+	public PacketPlayOutCollect() {
 	}
 
-	public class_hz(int var1, int var2) {
+	public PacketPlayOutCollect(int var1, int var2) {
 		a = var1;
 		b = var2;
 	}

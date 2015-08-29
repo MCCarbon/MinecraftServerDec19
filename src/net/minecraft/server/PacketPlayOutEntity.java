@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_gw implements Packet {
+public class PacketPlayOutEntity implements Packet {
 	protected int a;
 	protected byte b;
 	protected byte c;
@@ -12,10 +12,10 @@ public class class_gw implements Packet {
 	protected boolean g;
 	protected boolean h;
 
-	public class_gw() {
+	public PacketPlayOutEntity() {
 	}
 
-	public class_gw(int var1) {
+	public PacketPlayOutEntity(int var1) {
 		a = var1;
 	}
 
@@ -45,12 +45,12 @@ public class class_gw implements Packet {
 		this.a((PacketListenerPlayOut) var1);
 	}
 
-	public static class class_c_in_class_gw extends class_gw {
-		public class_c_in_class_gw() {
+	public static class PacketPlayOutEntityLook extends PacketPlayOutEntity {
+		public PacketPlayOutEntityLook() {
 			h = true;
 		}
 
-		public class_c_in_class_gw(int var1, byte var2, byte var3, boolean var4) {
+		public PacketPlayOutEntityLook(int var1, byte var2, byte var3, boolean var4) {
 			super(var1);
 			e = var2;
 			f = var3;
@@ -82,11 +82,11 @@ public class class_gw implements Packet {
 		}
 	}
 
-	public static class class_a_in_class_gw extends class_gw {
-		public class_a_in_class_gw() {
+	public static class PacketPlayOutRelEntityMove extends PacketPlayOutEntity {
+		public PacketPlayOutRelEntityMove() {
 		}
 
-		public class_a_in_class_gw(int var1, byte var2, byte var3, byte var4, boolean var5) {
+		public PacketPlayOutRelEntityMove(int var1, byte var2, byte var3, byte var4, boolean var5) {
 			super(var1);
 			b = var2;
 			c = var3;
@@ -120,12 +120,12 @@ public class class_gw implements Packet {
 		}
 	}
 
-	public static class class_b_in_class_gw extends class_gw {
-		public class_b_in_class_gw() {
+	public static class PacketPlayOutRelEntityMoveLook extends PacketPlayOutEntity {
+		public PacketPlayOutRelEntityMoveLook() {
 			h = true;
 		}
 
-		public class_b_in_class_gw(int var1, byte var2, byte var3, byte var4, byte var5, byte var6, boolean var7) {
+		public PacketPlayOutRelEntityMoveLook(int var1, byte var2, byte var3, byte var4, byte var5, byte var6, boolean var7) {
 			super(var1);
 			b = var2;
 			c = var3;

@@ -58,7 +58,7 @@ public class class_lt implements class_id, class_ks {
 			k = e;
 			j = this.d();
 			i = (int) j;
-			this.a((new class_go(i)));
+			this.a((new PacketPlayOutKeepAlive(i)));
 		}
 
 		d.c.b();
@@ -158,7 +158,7 @@ public class class_lt implements class_id, class_ks {
 						if (b.m != null) {
 							if (var9 > 4.0D) {
 								Entity var45 = b.m;
-								b.a.a((new class_ia(var45)));
+								b.a.a((new PacketPlayOutEntityTeleport(var45)));
 								this.a(b.s, b.t, b.u, b.y, b.z);
 							}
 
@@ -294,30 +294,30 @@ public class class_lt implements class_id, class_ks {
 		o = var1;
 		p = var3;
 		q = var5;
-		if (var9.contains(class_fi.class_a_in_class_fi.a)) {
+		if (var9.contains(PacketPlayOutPosition.class_a_in_class_fi.a)) {
 			o += b.s;
 		}
 
-		if (var9.contains(class_fi.class_a_in_class_fi.b)) {
+		if (var9.contains(PacketPlayOutPosition.class_a_in_class_fi.b)) {
 			p += b.t;
 		}
 
-		if (var9.contains(class_fi.class_a_in_class_fi.c)) {
+		if (var9.contains(PacketPlayOutPosition.class_a_in_class_fi.c)) {
 			q += b.u;
 		}
 
 		float var10 = var7;
 		float var11 = var8;
-		if (var9.contains(class_fi.class_a_in_class_fi.d)) {
+		if (var9.contains(PacketPlayOutPosition.class_a_in_class_fi.d)) {
 			var10 = var7 + b.y;
 		}
 
-		if (var9.contains(class_fi.class_a_in_class_fi.e)) {
+		if (var9.contains(PacketPlayOutPosition.class_a_in_class_fi.e)) {
 			var11 = var8 + b.z;
 		}
 
 		b.a(o, p, q, var10, var11);
-		b.a.a((new class_fi(var1, var3, var5, var7, var8, var9)));
+		b.a.a((new PacketPlayOutPosition(var1, var3, var5, var7, var8, var9)));
 	}
 
 	@Override
@@ -399,7 +399,7 @@ public class class_lt implements class_id, class_ks {
 		if ((var5.o() >= (d.ap() - 1)) && ((var6 == class_cq.b) || (var5.o() >= d.ap()))) {
 			class_fb var7 = new class_fb("build.tooHigh", new Object[] { Integer.valueOf(d.ap()) });
 			var7.b().a(EnumChatFormat.RED);
-			b.a.a((new class_fz(var7)));
+			b.a.a((new PacketPlayOutChat(var7)));
 		} else if (r && (b.e(var5.n() + 0.5D, var5.o() + 0.5D, var5.p() + 0.5D) < 64.0D) && !d.a(var2, var5, b) && var2.ah().a(var5)) {
 			b.c.a(b, var2, var4, var3, var5, var6, var1.d(), var1.e(), var1.f());
 		}
@@ -457,7 +457,7 @@ public class class_lt implements class_id, class_ks {
 					class_ll var7 = b.v();
 					class_ll var8 = (class_ll) var2.o;
 					b.am = var2.am;
-					this.a((new class_hf(b.am, var7.ac(), var7.R().t(), b.c.b())));
+					this.a((new PacketPlayOutRespawn(b.am, var7.ac(), var7.R().t(), b.c.b())));
 					var7.f(b);
 					b.I = false;
 					b.b(var2.s, var2.t, var2.u, var2.y, var2.z);
@@ -502,8 +502,8 @@ public class class_lt implements class_id, class_ks {
 	}
 
 	public void a(final Packet var1) {
-		if (var1 instanceof class_fz) {
-			class_fz var2 = (class_fz) var1;
+		if (var1 instanceof PacketPlayOutChat) {
+			PacketPlayOutChat var2 = (PacketPlayOutChat) var1;
 			class_yu.class_b_in_class_yu var3 = b.z();
 			if (var3 == class_yu.class_b_in_class_yu.c) {
 				return;
@@ -551,7 +551,7 @@ public class class_lt implements class_id, class_ks {
 		if (b.z() == class_yu.class_b_in_class_yu.c) {
 			class_fb var4 = new class_fb("chat.cannotSend", new Object[0]);
 			var4.b().a(EnumChatFormat.RED);
-			this.a((new class_fz(var4)));
+			this.a((new PacketPlayOutChat(var4)));
 		} else {
 			b.A();
 			String var2 = var1.a();

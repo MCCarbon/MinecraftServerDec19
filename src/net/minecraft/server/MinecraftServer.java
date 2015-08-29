@@ -515,7 +515,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 				c.a(var4.R().j());
 				if ((z % 20) == 0) {
 					c.a("timeSync");
-					w.a((new class_hv(var4.M(), var4.N(), var4.S().b("doDaylightCycle"))), var4.t.p().a());
+					w.a((new PacketPlayOutUpdateTime(var4.M(), var4.N(), var4.S().b("doDaylightCycle"))), var4.t.p().a());
 					c.b();
 				}
 
@@ -689,7 +689,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	public String J() {
-		return "15w34d";
+		return "15w35d";
 	}
 
 	public int K() {

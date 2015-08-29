@@ -154,7 +154,7 @@ public class class_lm extends class_yu implements class_zz {
 				var3.remove();
 			}
 
-			a.a((new class_hc(var2)));
+			a.a((new PacketPlayOutEntityDestroy(var2)));
 		}
 
 		if (!f.isEmpty()) {
@@ -236,7 +236,7 @@ public class class_lm extends class_yu implements class_zz {
 			}
 
 			if ((bu() != bZ) || (ca != bt.a()) || ((bt.e() == 0.0F) != cb)) {
-				a.a((new class_hq(bu(), bt.a(), bt.e())));
+				a.a((new PacketPlayOutUpdateHealth(bu(), bt.a(), bt.e())));
 				bZ = bu();
 				ca = bt.a();
 				cb = bt.e() == 0.0F;
@@ -472,7 +472,7 @@ public class class_lm extends class_yu implements class_zz {
 	public class_yu.class_a_in_class_yu a(class_cj var1) {
 		class_yu.class_a_in_class_yu var2 = super.a(var1);
 		if (var2 == class_yu.class_a_in_class_yu.a) {
-			class_hb var3 = new class_hb(this, var1);
+			PacketPlayOutBed var3 = new PacketPlayOutBed(this, var1);
 			v().u().a(this, var3);
 			a.a(s, t, u, y, z);
 			a.a(var3);
@@ -499,7 +499,7 @@ public class class_lm extends class_yu implements class_zz {
 		Entity var2 = m;
 		super.a(var1);
 		if (var1 != var2) {
-			a.a((new class_hm(0, this, m)));
+			a.a((new PacketPlayOutAttachEntity(0, this, m)));
 			a.a(s, t, u, y, z);
 		}
 
@@ -554,7 +554,7 @@ public class class_lm extends class_yu implements class_zz {
 		if (var1 instanceof class_qa) {
 			class_qa var2 = (class_qa) var1;
 			if (var2.q_() && !this.a(var2.i()) && !w()) {
-				a.a((new class_fz(new class_fb("container.isLocked", new Object[] { var1.f_() }), (byte) 2)));
+				a.a((new PacketPlayOutChat(new class_fb("container.isLocked", new Object[] { var1.f_() }), (byte) 2)));
 				a.a((new class_gt("random.door_close", s, t, u, 1.0F, 1.0F)));
 				return;
 			}
@@ -732,13 +732,13 @@ public class class_lm extends class_yu implements class_zz {
 
 	@Override
 	public void b(IChatBaseComponent var1) {
-		a.a((new class_fz(var1)));
+		a.a((new PacketPlayOutChat(var1)));
 	}
 
 	@Override
 	protected void t() {
 		if ((bm != null) && bX()) {
-			a.a((new class_gk(this, (byte) 9)));
+			a.a((new PacketPlayOutEntityStatus(this, (byte) 9)));
 			super.t();
 		}
 
@@ -819,7 +819,7 @@ public class class_lm extends class_yu implements class_zz {
 
 	@Override
 	public void a(IChatBaseComponent var1) {
-		a.a((new class_fz(var1)));
+		a.a((new PacketPlayOutChat(var1)));
 	}
 
 	@Override
@@ -876,7 +876,7 @@ public class class_lm extends class_yu implements class_zz {
 
 	public void d(Entity var1) {
 		if (var1 instanceof class_yu) {
-			a.a((new class_hc(new int[] { var1.G() })));
+			a.a((new PacketPlayOutEntityDestroy(new int[] { var1.G() })));
 		} else {
 			bR.add(Integer.valueOf(var1.G()));
 		}

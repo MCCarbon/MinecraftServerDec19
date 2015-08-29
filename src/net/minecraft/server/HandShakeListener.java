@@ -1,27 +1,27 @@
 package net.minecraft.server;
 
 
-public class class_lu implements class_jf {
+public class HandShakeListener implements class_jf {
 	private final MinecraftServer a;
 	private final class_ek b;
 
-	public class_lu(MinecraftServer var1, class_ek var2) {
+	public HandShakeListener(MinecraftServer var1, class_ek var2) {
 		a = var1;
 		b = var2;
 	}
 
 	@Override
-	public void a(class_je var1) {
-		switch (class_lu.SyntheticClass_1.a[var1.a().ordinal()]) {
+	public void a(PacketHandshakingInSetProtocol var1) {
+		switch (HandShakeListener.SyntheticClass_1.a[var1.a().ordinal()]) {
 			case 1:
-				b.a(class_el.d);
+				b.a(EnumProtocol.LOGIN);
 				class_fa var2;
-				if (var1.b() > 61) {
-					var2 = new class_fa("Outdated server! I\'m still on 15w34d");
+				if (var1.b() > 66) {
+					var2 = new class_fa("Outdated server! I\'m still on 15w35e");
 					b.a((new class_jl(var2)));
 					b.a(var2);
-				} else if (var1.b() < 61) {
-					var2 = new class_fa("Outdated client! Please use 15w34d");
+				} else if (var1.b() < 66) {
+					var2 = new class_fa("Outdated client! Please use 15w35e");
 					b.a((new class_jl(var2)));
 					b.a(var2);
 				} else {
@@ -29,7 +29,7 @@ public class class_lu implements class_jf {
 				}
 				break;
 			case 2:
-				b.a(class_el.c);
+				b.a(EnumProtocol.STATUS);
 				b.a((new class_lw(a, b)));
 				break;
 			default:
@@ -45,17 +45,17 @@ public class class_lu implements class_jf {
 	// $FF: synthetic class
 	static class SyntheticClass_1 {
 		// $FF: synthetic field
-		static final int[] a = new int[class_el.values().length];
+		static final int[] a = new int[EnumProtocol.values().length];
 
 		static {
 			try {
-				a[class_el.d.ordinal()] = 1;
+				a[EnumProtocol.LOGIN.ordinal()] = 1;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_el.c.ordinal()] = 2;
+				a[EnumProtocol.STATUS.ordinal()] = 2;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

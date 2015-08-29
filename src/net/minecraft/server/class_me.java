@@ -76,12 +76,12 @@ public abstract class class_me {
 		class_cj var11 = var9.O();
 		this.a(var2, (class_lm) null, var9);
 		class_lt var12 = new class_lt(h, var1, var2);
-		var12.a((new class_gu(var2.G(), var2.c.b(), var10.s(), var9.t.p().a(), var9.ac(), p(), var10.t(), var9.S().b("reducedDebugInfo"))));
+		var12.a((new PacketPlayOutLogin(var2.G(), var2.c.b(), var10.s(), var9.t.p().a(), var9.ac(), p(), var10.t(), var9.S().b("reducedDebugInfo"))));
 		var12.a((new class_gi("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).a(this.c().getServerModName()))));
 		var12.a((new class_fx(var10.x(), var10.y())));
-		var12.a((new class_hu(var11)));
+		var12.a((new PacketPlayOutSpawnPosition(var11)));
 		var12.a((new class_gy(var2.bI)));
-		var12.a((new class_hj(var2.bq.d)));
+		var12.a((new PacketPlayOutHeldItemSlot(var2.bq.d)));
 		int var13 = this.h(var3) ? m.a(var3) : 0;
 		var13 = h.V() && h.d[0].R().u() ? 4 : var13;
 		var13 = t ? 4 : var13;
@@ -374,10 +374,10 @@ public abstract class class_me {
 			var7.b(var7.s, var7.t + 1.0D, var7.u);
 		}
 
-		var7.a.a((new class_hf(var7.am, var7.o.ac(), var7.o.R().t(), var7.c.b())));
+		var7.a.a((new PacketPlayOutRespawn(var7.am, var7.o.ac(), var7.o.R().t(), var7.c.b())));
 		var11 = var10.O();
 		var7.a.a(var7.s, var7.t, var7.u, var7.y, var7.z);
-		var7.a.a((new class_hu(var11)));
+		var7.a.a((new PacketPlayOutSpawnPosition(var11)));
 		var7.a.a((new class_hp(var7.bL, var7.bK, var7.bJ)));
 		this.b(var7, var10);
 		var10.v().a(var7);
@@ -394,7 +394,7 @@ public abstract class class_me {
 		class_ll var5 = h.a(var1.am);
 		var1.am = var2;
 		class_ll var6 = h.a(var1.am);
-		var1.a.a((new class_hf(var1.am, var1.o.ac(), var1.o.R().t(), var1.c.b())));
+		var1.a.a((new PacketPlayOutRespawn(var1.am, var1.o.ac(), var1.o.R().t(), var1.c.b())));
 		var5.f(var1);
 		var1.I = false;
 		if (var3 == null) {
@@ -593,7 +593,7 @@ public abstract class class_me {
 	private void a(class_lm var1, int var2) {
 		if ((var1 != null) && (var1.a != null)) {
 			byte var3 = var2 <= 0 ? 24 : (var2 >= 4 ? 28 : (byte) (24 + var2));
-			var1.a.a((new class_gk(var1, var3)));
+			var1.a.a((new PacketPlayOutEntityStatus(var1, var3)));
 		}
 
 	}
@@ -677,7 +677,7 @@ public abstract class class_me {
 	public void b(class_lm var1, class_ll var2) {
 		class_aqg var3 = h.d[0].ah();
 		var1.a.a((new class_hh(var3, class_hh.class_a_in_class_hh.d)));
-		var1.a.a((new class_hv(var2.M(), var2.N(), var2.S().b("doDaylightCycle"))));
+		var1.a.a((new PacketPlayOutUpdateTime(var2.M(), var2.N(), var2.S().b("doDaylightCycle"))));
 		if (var2.U()) {
 			var1.a.a((new class_gn(1, 0.0F)));
 			var1.a.a((new class_gn(7, var2.j(1.0F))));
@@ -689,7 +689,7 @@ public abstract class class_me {
 	public void f(class_lm var1) {
 		var1.a(var1.br);
 		var1.s();
-		var1.a.a((new class_hj(var1.bq.d)));
+		var1.a.a((new PacketPlayOutHeldItemSlot(var1.bq.d)));
 	}
 
 	public int o() {
@@ -758,7 +758,7 @@ public abstract class class_me {
 	public void a(IChatBaseComponent var1, boolean var2) {
 		h.a(var1);
 		int var3 = var2 ? 1 : 0;
-		this.a((new class_fz(var1, (byte) var3)));
+		this.a((new PacketPlayOutChat(var1, (byte) var3)));
 	}
 
 	public void a(IChatBaseComponent var1) {

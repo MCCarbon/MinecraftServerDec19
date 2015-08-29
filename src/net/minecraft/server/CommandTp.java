@@ -45,25 +45,25 @@ public class CommandTp extends CommandAbstract {
 					CommandAbstract.class_a_in_class_i var10 = a(((Entity) var4).z, var2.length > var14 ? var2[var14] : "~", false);
 					float var12;
 					if (var4 instanceof class_lm) {
-						EnumSet var11 = EnumSet.noneOf(class_fi.class_a_in_class_fi.class);
+						EnumSet var11 = EnumSet.noneOf(PacketPlayOutPosition.class_a_in_class_fi.class);
 						if (var6.c()) {
-							var11.add(class_fi.class_a_in_class_fi.a);
+							var11.add(PacketPlayOutPosition.class_a_in_class_fi.a);
 						}
 
 						if (var7.c()) {
-							var11.add(class_fi.class_a_in_class_fi.b);
+							var11.add(PacketPlayOutPosition.class_a_in_class_fi.b);
 						}
 
 						if (var8.c()) {
-							var11.add(class_fi.class_a_in_class_fi.c);
+							var11.add(PacketPlayOutPosition.class_a_in_class_fi.c);
 						}
 
 						if (var10.c()) {
-							var11.add(class_fi.class_a_in_class_fi.e);
+							var11.add(PacketPlayOutPosition.class_a_in_class_fi.e);
 						}
 
 						if (var9.c()) {
-							var11.add(class_fi.class_a_in_class_fi.d);
+							var11.add(PacketPlayOutPosition.class_a_in_class_fi.d);
 						}
 
 						var12 = (float) var9.b();

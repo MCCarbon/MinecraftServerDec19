@@ -74,7 +74,7 @@ public class class_lo {
 
 		if ((w != a.m) || ((a.m != null) && ((m % 60) == 0))) {
 			w = a.m;
-			this.a((new class_hm(0, a, a.m)));
+			this.a((new PacketPlayOutAttachEntity(0, a, a.m)));
 		}
 
 		if ((a instanceof EntityItemFrame) && ((m % 10) == 0)) {
@@ -118,17 +118,17 @@ public class class_lo {
 					if ((var29 >= -128) && (var29 < 128) && (var30 >= -128) && (var30 < 128) && (var9 >= -128) && (var9 < 128) && (v <= 400) && !x && (y == a.C)) {
 						if ((!var11 || !var12) && !(a instanceof EntityArrow)) {
 							if (var11) {
-								var10 = new class_gw.class_a_in_class_gw(a.G(), (byte) var29, (byte) var30, (byte) var9, a.C);
+								var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMove(a.G(), (byte) var29, (byte) var30, (byte) var9, a.C);
 							} else if (var12) {
-								var10 = new class_gw.class_c_in_class_gw(a.G(), (byte) var27, (byte) var28, a.C);
+								var10 = new PacketPlayOutEntity.PacketPlayOutEntityLook(a.G(), (byte) var27, (byte) var28, a.C);
 							}
 						} else {
-							var10 = new class_gw.class_b_in_class_gw(a.G(), (byte) var29, (byte) var30, (byte) var9, (byte) var27, (byte) var28, a.C);
+							var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(a.G(), (byte) var29, (byte) var30, (byte) var9, (byte) var27, (byte) var28, a.C);
 						}
 					} else {
 						y = a.C;
 						v = 0;
-						var10 = new class_ia(a.G(), var23, var24, var26, (byte) var27, (byte) var28, a.C);
+						var10 = new PacketPlayOutEntityTeleport(a.G(), var23, var24, var26, (byte) var27, (byte) var28, a.C);
 					}
 				}
 
@@ -142,7 +142,7 @@ public class class_lo {
 						j = a.v;
 						k = a.w;
 						l = a.x;
-						this.a((new class_hn(a.G(), j, k, l)));
+						this.a((new PacketPlayOutEntityVelocity(a.G(), j, k, l)));
 					}
 				}
 
@@ -168,7 +168,7 @@ public class class_lo {
 				var24 = MathHelper.d((a.z * 256.0F) / 360.0F);
 				boolean var25 = (Math.abs(var23 - g) >= 4) || (Math.abs(var24 - h) >= 4);
 				if (var25) {
-					this.a((new class_gw.class_c_in_class_gw(a.G(), (byte) var23, (byte) var24, a.C)));
+					this.a((new PacketPlayOutEntity.PacketPlayOutEntityLook(a.G(), (byte) var23, (byte) var24, a.C)));
 					g = var23;
 					h = var24;
 				}
@@ -182,7 +182,7 @@ public class class_lo {
 
 			var23 = MathHelper.d((a.aI() * 256.0F) / 360.0F);
 			if (Math.abs(var23 - i) >= 4) {
-				this.a((new class_hg(a, (byte) var23)));
+				this.a((new PacketPlayOutEntityHeadRotation(a, (byte) var23)));
 				i = var23;
 			}
 
@@ -191,7 +191,7 @@ public class class_lo {
 
 		++m;
 		if (a.G) {
-			this.b((new class_hn(a)));
+			this.b((new PacketPlayOutEntityVelocity(a)));
 			a.G = false;
 		}
 
@@ -276,15 +276,15 @@ public class class_lo {
 					k = a.w;
 					l = a.x;
 					if (u && !(var2 instanceof PacketPlayOutSpawnEntityLiving)) {
-						var1.a.a((new class_hn(a.G(), a.v, a.w, a.x)));
+						var1.a.a((new PacketPlayOutEntityVelocity(a.G(), a.v, a.w, a.x)));
 					}
 
 					if (a.m != null) {
-						var1.a.a((new class_hm(0, a, a.m)));
+						var1.a.a((new PacketPlayOutAttachEntity(0, a, a.m)));
 					}
 
 					if ((a instanceof EntityInsentient) && (((EntityInsentient) a).cv() != null)) {
-						var1.a.a((new class_hm(1, a, ((EntityInsentient) a).cv())));
+						var1.a.a((new PacketPlayOutAttachEntity(1, a, ((EntityInsentient) a).cv())));
 					}
 
 					if (a instanceof EntityLiving) {
@@ -295,7 +295,7 @@ public class class_lo {
 							class_rc var6 = var8[var5];
 							class_aco var7 = ((EntityLiving) a).a(var6);
 							if (var7 != null) {
-								var1.a.a((new class_ho(a.G(), var6, var7)));
+								var1.a.a((new PacketPlayOutEntityEquipment(a.G(), var6, var7)));
 							}
 						}
 					}
@@ -303,7 +303,7 @@ public class class_lo {
 					if (a instanceof class_yu) {
 						class_yu var9 = (class_yu) a;
 						if (var9.bQ()) {
-							var1.a.a((new class_hb(var9, new class_cj(a))));
+							var1.a.a((new PacketPlayOutBed(var9, new class_cj(a))));
 						}
 					}
 

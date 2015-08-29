@@ -802,7 +802,7 @@ public class class_ll extends class_ago implements class_pl {
 
 	@Override
 	public void a(Entity var1, byte var2) {
-		this.u().b(var1, new class_gk(var1, var2));
+		this.u().b(var1, new PacketPlayOutEntityStatus(var1, var2));
 	}
 
 	@Override

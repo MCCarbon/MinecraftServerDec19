@@ -858,7 +858,7 @@ public abstract class EntityInsentient extends EntityLiving {
 			}
 
 			if (!o.D && var1 && (o instanceof class_ll)) {
-				((class_ll) o).u().a(this, (new class_hm(1, this, (Entity) null)));
+				((class_ll) o).u().a(this, (new PacketPlayOutAttachEntity(1, this, (Entity) null)));
 			}
 		}
 
@@ -880,7 +880,7 @@ public abstract class EntityInsentient extends EntityLiving {
 		bx = true;
 		by = var1;
 		if (!o.D && var2 && (o instanceof class_ll)) {
-			((class_ll) o).u().a(this, (new class_hm(1, this, by)));
+			((class_ll) o).u().a(this, (new PacketPlayOutAttachEntity(1, this, by)));
 		}
 
 	}

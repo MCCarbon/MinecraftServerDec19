@@ -2,28 +2,24 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_hg implements Packet {
-	private int a;
-	private byte b;
+public class PacketPlayOutSpawnPosition implements Packet {
+	private class_cj a;
 
-	public class_hg() {
+	public PacketPlayOutSpawnPosition() {
 	}
 
-	public class_hg(Entity var1, byte var2) {
-		a = var1.G();
-		b = var2;
+	public PacketPlayOutSpawnPosition(class_cj var1) {
+		a = var1;
 	}
 
 	@Override
 	public void decode(PacketDataSerializer var1) throws IOException {
-		a = var1.g();
-		b = var1.readByte();
+		a = var1.e();
 	}
 
 	@Override
 	public void encode(PacketDataSerializer var1) throws IOException {
-		var1.b(a);
-		var1.writeByte(b);
+		var1.a(a);
 	}
 
 	public void a(PacketListenerPlayOut var1) {

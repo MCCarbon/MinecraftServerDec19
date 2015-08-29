@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 
-public class class_ia implements Packet {
+public class PacketPlayOutEntityTeleport implements Packet {
 	private int a;
 	private int b;
 	private int c;
@@ -11,10 +11,10 @@ public class class_ia implements Packet {
 	private byte f;
 	private boolean g;
 
-	public class_ia() {
+	public PacketPlayOutEntityTeleport() {
 	}
 
-	public class_ia(Entity var1) {
+	public PacketPlayOutEntityTeleport(Entity var1) {
 		a = var1.G();
 		b = MathHelper.c(var1.s * 32.0D);
 		c = MathHelper.c(var1.t * 32.0D);
@@ -24,7 +24,7 @@ public class class_ia implements Packet {
 		g = var1.C;
 	}
 
-	public class_ia(int var1, int var2, int var3, int var4, byte var5, byte var6, boolean var7) {
+	public PacketPlayOutEntityTeleport(int var1, int var2, int var3, int var4, byte var5, byte var6, boolean var7) {
 		a = var1;
 		b = var2;
 		c = var3;
